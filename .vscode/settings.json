@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+
+    // FILES
+    "**/apps/*/*.*": true,
+    "**/libs/*/*.*": true,
+    
+    // FOLDERS
+    "**/.nx": true,
+    "**/dist": true,
+    "**/.firebase": true,
+    "**/local": true,
+    "**/node_modules": true
+  }
+}
