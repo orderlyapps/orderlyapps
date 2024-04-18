@@ -1,38 +1,76 @@
-/// <reference types='vitest' />
+import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
+import htmlPlugin from 'vite-plugin-html-config';
+
+const APP_NAME = 'Orderly';
+
+const htmlPluginOpt = {
+  title: APP_NAME,
+  metas: [
+    {
+      name: 'theme-color',
+      media: '(prefers-color-scheme: light)',
+      content: '#f7f7f7',
+    },
+    {
+      name: 'theme-color',
+      media: '(prefers-color-scheme: dark)',
+      content: '#0d0d0d',
+    },
+    {
+      name: 'apple-mobile-web-app-title',
+      media: '-',
+      content: APP_NAME,
+    },
+  ],
+};
+
+const vitePWAOpt: Partial<VitePWAOptions> = {
+  registerType: 'autoUpdate',
+  manifest: {
+    short_name: APP_NAME,
+    name: APP_NAME,
+    icons: [
+      {
+        src: 'assets/manifest-icon-192.maskable.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: 'assets/manifest-icon-192.maskable.png',
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+      {
+        src: 'assets/manifest-icon-512.maskable.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any',
+      },
+      {
+        src: 'assets/manifest-icon-512.maskable.png',
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable',
+      },
+    ],
+    start_url: '.',
+    display: 'standalone',
+    theme_color: '#ffffff',
+    background_color: '#ffffff',
+  },
+};
 
 export default defineConfig({
-  root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/orderly',
-
-  server: {
-    port: 4200,
-    host: 'localhost',
-  },
-
-  preview: {
-    port: 4300,
-    host: 'localhost',
-  },
-
-  plugins: [react(), nxViteTsPaths()],
-
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
-
-  build: {
-    outDir: '../../dist/apps/orderly',
-    reportCompressedSize: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
-  },
-
-  define: {
-    'import.meta.vitest': undefined,
-  },
+  define: { BUILD_TIME: new Date().getTime()},
+  plugins: [
+    htmlPlugin(htmlPluginOpt),
+    react(),
+    nxViteTsPaths(),
+    VitePWA(vitePWAOpt),
+  ],
 });

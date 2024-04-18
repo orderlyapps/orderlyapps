@@ -1,13 +1,24 @@
-import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Orderly } from '@shell';
+import './main.css';
+import { addRxPlugin } from 'rxdb';
+import { RxDBDevModePlugin } from 'rxdb/plugins/dev-mode';
+import { RxDBUpdatePlugin } from 'rxdb/plugins/update';
+import { RxDBMigrationPlugin } from 'rxdb/plugins/migration-schema';
 
-import App from './app/App';
+if (import.meta.env.DEV) {
+  addRxPlugin(RxDBDevModePlugin);
+}
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+addRxPlugin(RxDBUpdatePlugin);
+addRxPlugin(RxDBMigrationPlugin);
+
+
+const container = document.getElementById('root');
+const root = createRoot(container!);
 root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  <React.StrictMode>
+    <Orderly />
+  </React.StrictMode>
 );

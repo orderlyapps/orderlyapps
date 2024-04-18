@@ -8,12 +8,12 @@
     "**/Thumbs.db": true,
 
     // FILES
-    "**/apps/*/*.*": true,
-    "**/libs/*/*.*": true,
+    // "**/apps/*/*.*": true,
+    // "**/libs/*/*.*": true,
     
     // FOLDERS
     "**/.nx": true,
-    "**/dist": true,
+    // "**/dist": true,
     "**/.firebase": true,
     "**/local": true,
     "**/node_modules": true

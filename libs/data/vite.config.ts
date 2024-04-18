@@ -7,14 +7,15 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/libs/data',
+  cacheDir: '../../node_modules/.vite/lib/data',
 
   plugins: [
     react(),
     nxViteTsPaths(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
+      tsConfigFilePath: path.join(__dirname, 'tsconfig.lib.json'),
+      skipDiagnostics: true,
     }),
   ],
 
@@ -26,7 +27,7 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
-    outDir: '../../dist/libs/data',
+    outDir: '../../dist/lib/data',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,

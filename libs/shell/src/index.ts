@@ -1,1 +1,2 @@
-export * from './lib/shell';
+export * from './theocratic-software/TheocraticSoftware';
+export * from './orderly/Orderly';

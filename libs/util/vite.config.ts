@@ -4,6 +4,8 @@ import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
 import * as path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import Info from 'unplugin-info/vite';
+
 
 export default defineConfig({
   root: __dirname,
@@ -14,8 +16,10 @@ export default defineConfig({
     nxViteTsPaths(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
+      tsConfigFilePath: path.join(__dirname, 'tsconfig.lib.json'),
+      skipDiagnostics: true,
     }),
+    Info()
   ],
 
   // Uncomment this if you are using workers.

@@ -19,6 +19,7 @@
       "@data": ["libs/data/src/index.ts"],
       "@feature": ["libs/feature/src/index.ts"],
       "@shell": ["libs/shell/src/index.ts"],
+      "@styles": ["libs/config/src/lib/styles.css"],
       "@ui": ["libs/ui/src/index.ts"],
       "@util": ["libs/util/src/index.ts"]
     }
