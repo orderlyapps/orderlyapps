@@ -27,7 +27,7 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
-    outDir: '../../dist/lib/data',
+    outDir: '../../dist/libs/data',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,

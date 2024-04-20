@@ -1,3 +1,4 @@
+import { CongregationForm } from '@feature';
 import {
   IonBackButton,
   IonButtons,
@@ -8,10 +9,9 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Spinner } from '@ui';
-import { buildTime } from '@util';
 import { Suspense } from 'react';
 
-export const Settings = () => {
+export const CreateCongregationPage = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -19,18 +19,16 @@ export const Settings = () => {
           <IonButtons slot="start">
             <IonBackButton></IonBackButton>
           </IonButtons>
-          <IonTitle>Settings</IonTitle>
+          <IonTitle>Create Congregation</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          <div className="full centered">
-            Build Time: {buildTime.timeDifference}
-          </div>
+          <CongregationForm></CongregationForm>
         </Suspense>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Settings;
+export default CreateCongregationPage;

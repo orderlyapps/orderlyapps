@@ -1,5 +1,8 @@
 // SUPABASE
 export * from './supabase/config';
+export * from './supabase/context';
+export * from './supabase/hooks';
+export * from './supabase/types';
 
 // FIREBASE
 export * from './firebase/config';
@@ -21,7 +24,7 @@ export * from './rxdb/hooks/useRxData';
 export * from './rxdb/hooks/useRxDB';
 export * from './rxdb/hooks/useRxDocumentByID';
 export * from './rxdb/hooks/useRxQuery';
-export * from './rxdb/hooks/Provider';
+export * from './rxdb/hooks/RXDBProvider';
 
 // ZUSTAND
 export * from './zustand/createSelectors';

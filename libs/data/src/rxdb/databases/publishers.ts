@@ -67,10 +67,10 @@ export const publishersSchemaLiteral = {
         type: 'string',
       },
     },
-    publicTalkOutlines: {
+    outlines: {
       type: 'array',
       items: {
-        type: 'number',
+        type: 'any',
       },
     },
     confidentialID: {

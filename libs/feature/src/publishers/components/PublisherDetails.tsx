@@ -1,34 +1,38 @@
 import { useRxDocumentByID } from '@data';
-import { usePublisher } from '@feature';
-import { IonItem, IonLabel, IonList } from '@ionic/react';
+import { usePublisher, useSBPublisher } from '@feature';
+import { IonItem, IonLabel, IonList, IonListHeader } from '@ionic/react';
+import { PUBLIC_TALK_THEMES } from '../../schedules/public-talks/helper/publicTalkData';
+import { PublisherOutlines } from '../../public-talks/PublisherOutlines';
 
 export const PublisherDetails = () => {
-  const { id } = usePublisher.use.publisher();
-  const { doc: publisher } = useRxDocumentByID('publishers', id);
-
-  if (!publisher) {
-    return null;
-  }
+  const publisher = usePublisher.use.publisher();
 
   return (
-    <IonList inset>
-      <IonItem>
-        <IonLabel>Name</IonLabel>
-        {publisher.firstName}
-      </IonItem>
-      <IonItem>
-        <IonLabel>Phone</IonLabel>
-        {publisher.phoneNumber}
-      </IonItem>
-      <IonItem>
-        <IonLabel>Email</IonLabel>
-        {publisher.personalEmail}
-      </IonItem>
-      <IonItem>
-        <IonLabel>JWPub</IonLabel>
-        {publisher.jwPubEmail}
-      </IonItem>
-    </IonList>
+    <>
+      <IonList inset>
+        <IonListHeader>
+          <IonLabel>Name</IonLabel>
+        </IonListHeader>
+        <IonItem>
+          <IonLabel>Display Name</IonLabel>
+          {publisher.displayName}
+        </IonItem>
+        <IonItem>
+          <IonLabel>First Name</IonLabel>
+          {publisher.firstName}
+        </IonItem>
+        <IonItem>
+          <IonLabel>Middle Name</IonLabel>
+          {publisher.middleName}
+        </IonItem>
+        <IonItem>
+          <IonLabel>Last Name</IonLabel>
+          {publisher.lastName}
+        </IonItem>
+      </IonList>
+
+      <PublisherOutlines></PublisherOutlines>
+    </>
   );
 };
 

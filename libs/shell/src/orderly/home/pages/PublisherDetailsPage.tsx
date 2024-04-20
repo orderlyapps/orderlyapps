@@ -1,4 +1,9 @@
-import { PublisherDetails, usePublisher } from '@feature';
+import {
+  PublisherDetails,
+  UpdatePublisherOutlines,
+  usePublisher,
+  useSBPublisher,
+} from '@feature';
 import {
   IonBackButton,
   IonButton,
@@ -13,8 +18,7 @@ import { Spinner } from '@ui';
 import { Suspense, useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import EditPublisherModal from '../modals/EditPublisherModal';
-import { useRxDocumentByID } from '@data';
-import { formatDisplayName } from '../helper/formatDisplayName';
+import { formatDisplayName } from '@feature';
 
 interface UserDetailPageProps
   extends RouteComponentProps<{
@@ -23,20 +27,11 @@ interface UserDetailPageProps
 
 export const PublisherDetailsPage = ({ match }: UserDetailPageProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { doc: publisher }: any = useRxDocumentByID(
-    'publishers',
-    match.params.id
-  );
+  const publisher = useSBPublisher(match.params.id);
   const setPublisher = usePublisher.use.setPublisher();
 
   useEffect(() => {
-    setPublisher({
-      firstName: publisher?.firstName || '',
-      lastName: publisher?.lastName || '',
-      displayName: publisher?.displayName || '',
-      middleName: publisher?.middleName || '',
-      id: publisher?.id || '',
-    });
+    setPublisher(publisher);
   }, [publisher]);
 
   return (
@@ -55,6 +50,7 @@ export const PublisherDetailsPage = ({ match }: UserDetailPageProps) => {
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
           <PublisherDetails></PublisherDetails>
+
           <EditPublisherModal
             isOpen={isOpen}
             setIsOpen={setIsOpen}

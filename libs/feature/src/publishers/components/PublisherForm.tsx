@@ -51,33 +51,6 @@ export const PublisherForm = () => {
           {...inputProps}
         ></IonInput>
       </IonItem>
-
-      <IonItem>
-        <IonInput
-          label="Phone"
-          value={publisher.phoneNumber}
-          name="phoneNumber"
-          {...inputProps}
-        ></IonInput>
-      </IonItem>
-
-      <IonItem>
-        <IonInput
-          label="Personal Email"
-          value={publisher.personalEmail}
-          name="personalEmail"
-          {...inputProps}
-        ></IonInput>
-      </IonItem>
-
-      <IonItem>
-        <IonInput
-          label="JW Pub Email"
-          value={publisher.jwPubEmail}
-          name="jwPubEmail"
-          {...inputProps}
-        ></IonInput>
-      </IonItem>
     </IonList>
   );
 };

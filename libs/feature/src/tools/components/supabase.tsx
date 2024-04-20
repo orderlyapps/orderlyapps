@@ -14,7 +14,7 @@ export function Base() {
 
   async function getCountries() {
     let { data: congregations_test, error } = await supabase
-      .from('congregations_test')
+      .from('schedule')
       .select();
     console.log("🚀 ~ getCountries ~ congregations_test:", congregations_test)
 
@@ -24,7 +24,7 @@ export function Base() {
   return (
     <ul>sss
       {countries.map((country: any) => (
-        <li key={country.name}>{country.name}</li>
+        <li key={country.week}>{country.week}</li>
       ))}
     </ul>
   );

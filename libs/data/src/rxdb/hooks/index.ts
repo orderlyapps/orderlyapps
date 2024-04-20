@@ -1,7 +1,7 @@
 export { default as Context } from './context';
 export * from './context';
-export { default as Provider } from './Provider';
-export * from './Provider';
+export { default as RXDBProvider } from './RXDBProvider';
+export * from './RXDBProvider';
 export { default as useRxCollection } from './useRxCollection';
 export * from './useRxCollection';
 export { default as useRxData } from './useRxData';

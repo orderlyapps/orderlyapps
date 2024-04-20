@@ -42,7 +42,7 @@ export type TabsAppContent =
     }[]
   | any;
 
-export const IonicApp = ({ content }: { content: TabsAppContent }) => (
+export const IonShell = ({ content }: { content: TabsAppContent }) => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -93,4 +93,4 @@ export const IonicApp = ({ content }: { content: TabsAppContent }) => (
   </IonApp>
 );
 
-export default IonicApp;
+export default IonShell;

@@ -1,21 +1,18 @@
-import { PublishersList } from '@feature';
+import { SBPublishersList } from '@feature';
 import {
   IonBackButton,
   IonButton,
   IonButtons,
   IonContent,
   IonHeader,
-  IonIcon,
-  IonPage,
+  IonIcon, IonPage,
   IonTitle,
-  IonToolbar,
+  IonToolbar
 } from '@ionic/react';
 import { add } from 'ionicons/icons';
 import { Spinner } from '@ui';
 import { Suspense, useState } from 'react';
 import AddPublisherModal from '../modals/AddPublisherModal';
-import SBase from '../../tools/components/supabase';
-import { SupabaseAuth } from '../../user/Auth';
 
 export const PublisherListPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,14 +34,12 @@ export const PublisherListPage = () => {
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          <SupabaseAuth></SupabaseAuth>
-          {/* <SBase></SBase>
-          <PublishersList></PublishersList>
+          <SBPublishersList reQuery={isOpen}></SBPublishersList>
 
           <AddPublisherModal
             isOpen={isOpen}
             setIsOpen={setIsOpen}
-          ></AddPublisherModal> */}
+          ></AddPublisherModal>
         </Suspense>
       </IonContent>
     </IonPage>

@@ -11,9 +11,10 @@ import {
 } from '@ionic/react';
 import { IonCSVInput, Spinner } from '@ui';
 import { Suspense, useState } from 'react';
-import { formatDisplayName } from '../helper/formatDisplayName';
-import { AddPublisherModal, usePublisher } from '@feature';
+import { formatDisplayName } from '@feature';
+import {  usePublisher } from '@feature';
 import { PublishersDocType } from '@data';
+import AddPublisherModal from '../modals/AddPublisherModal';
 
 export const PublishersImportPage = () => {
   const [publishers, setPublishers] = useState([]);

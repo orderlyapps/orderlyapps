@@ -1,5 +1,3 @@
-import { useRxDB } from '@data';
-import { PublisherForm, usePublisher } from '@feature';
 import {
   IonButton,
   IonButtons,
@@ -10,8 +8,11 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Dispatch, SetStateAction } from 'react';
+import { UpdatePublisherOutlines } from './UpdatePublisherOutlines';
+import { supabase } from '@data';
+import { usePublisher } from '../publishers/hooks/usePublisher';
 
-export const AddPublisherModal = ({
+export const UpdatePublisherOutlinesModal = ({
   isOpen,
   setIsOpen,
 }: {
@@ -19,36 +20,37 @@ export const AddPublisherModal = ({
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   const publisher = usePublisher.use.publisher();
-  const db: any = useRxDB();
+  const setPublisher = usePublisher.use.setPublisher();
 
-  const handleAdd = async () => {
-    await db.publishers.insert({
-      ...publisher,
-      id: crypto.randomUUID(),
-    });
+  const handleUpdate = async () => {
+    const { data, error } = await supabase
+      .from('publishers')
+      .update(publisher)
+      .eq('id', publisher.id)
+      .select();
+
     setIsOpen(false);
   };
-
   return (
     <IonModal isOpen={isOpen}>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Add Publisher</IonTitle>
+          <IonTitle>Select Outlines</IonTitle>
           <IonButtons slot="start">
             <IonButton onClick={() => setIsOpen(false)}>Cancel</IonButton>
           </IonButtons>
           <IonButtons slot="end">
-            <IonButton onClick={handleAdd}>
-              <strong>Add</strong>
+            <IonButton onClick={handleUpdate}>
+              <strong>Update</strong>
             </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <PublisherForm></PublisherForm>
+        <UpdatePublisherOutlines />
       </IonContent>
     </IonModal>
   );
 };
 
-export default AddPublisherModal;
+export default UpdatePublisherOutlinesModal;

@@ -1,18 +1,19 @@
-import { IonicApp } from '@feature';
 import { settingsOutline, homeOutline } from 'ionicons/icons';
 import '@styles';
-import { HomePage } from './HomePage';
-import { Settings } from './SettingsPage';
 import { useEffect, useState } from 'react';
 import {
   PDFDowloadPage,
-  PublisherDetailsPage,
-  PublisherListPage,
-  PublishersImportPage,
   WeekDetailsPage,
   WeeklyScheduleListPage,
 } from '@feature';
-import { initOrderlyDB, Provider, useRxDB } from '@data';
+import { HomePage } from './home/HomePage';
+import { Settings } from './settings/SettingsPage';
+import { initOrderlyDB, RXDBProvider, supabase, SupabaseProvider } from '@data';
+import CreateCongregationPage from './settings/pages/CreateCongregationPage';
+import PublisherDetailsPage from './home/pages/PublisherDetailsPage';
+import PublisherListPage from './home/pages/PublisherListPage';
+import PublishersImportPage from './home/pages/PublishersImportPage';
+import IonShell from '../components/IonShell';
 
 const content = [
   // HOME
@@ -60,6 +61,7 @@ const content = [
     path: '/home/schedule/pdf-download/',
     redirect: true,
   },
+
   // SETTINGS
   {
     label: 'Settings',
@@ -67,6 +69,12 @@ const content = [
     isTab: true,
     icon: settingsOutline,
     path: '/settings',
+  },
+  {
+    label: 'CreateCongregationPage',
+    component: CreateCongregationPage,
+    path: '/settings/create-congregation/',
+    redirect: true,
   },
 ];
 
@@ -83,9 +91,11 @@ export const Orderly: React.FC = () => {
   }, []);
 
   return (
-    <Provider db={db}>
-      <IonicApp content={content}></IonicApp>
-    </Provider>
+    <SupabaseProvider value={supabase}>
+      <RXDBProvider db={db}>
+        <IonShell content={content}></IonShell>
+      </RXDBProvider>
+    </SupabaseProvider>
   );
 };
 

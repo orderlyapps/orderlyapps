@@ -8,6 +8,7 @@ const initialState: PublishersDocType = {
   lastName: '',
   middleName: '',
   displayName: '',
+  outlines: [],
   phoneNumber: '',
   personalEmail: '',
   jwPubEmail: '',
@@ -21,7 +22,7 @@ type PublisherActions = {
   setPublisher: (publisher: PublishersDocType) => void;
   setPublisherProperty: (
     property: keyof PublishersDocType,
-    value: string
+    value: string | string[]
   ) => void;
 };
 
@@ -38,7 +39,7 @@ const usePublisherBase = create<PublisherState & PublisherActions>()(
 
       setPublisherProperty: (
         property: keyof PublishersDocType,
-        value: string
+        value: string | string[]
       ) =>
         set((state: PublisherState) => ({
           publisher: { ...state.publisher, [property]: value },

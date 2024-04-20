@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import { Spinner } from '@ui';
 import { Suspense } from 'react';
-import { path } from './Orderly';
+import { path } from '../Orderly';
 
 export const HomePage = () => {
   return (
@@ -26,7 +26,6 @@ export const HomePage = () => {
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          TEST
           <IonList inset>
             <IonButton routerLink={path.PublisherListPage} expand="block">
               Publishers

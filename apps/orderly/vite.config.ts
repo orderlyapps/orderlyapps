@@ -66,11 +66,14 @@ const vitePWAOpt: Partial<VitePWAOptions> = {
 };
 
 export default defineConfig({
-  define: { BUILD_TIME: new Date().getTime()},
+  define: { BUILD_TIME: new Date().getTime() },
   plugins: [
     htmlPlugin(htmlPluginOpt),
     react(),
     nxViteTsPaths(),
     VitePWA(vitePWAOpt),
   ],
+  build: {
+    outDir: '../../dist/apps/orderly',
+  },
 });

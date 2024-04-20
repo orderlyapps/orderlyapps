@@ -7,7 +7,7 @@ export interface ProviderProps<Collections = any> {
 	db?: RxDatabase<Collections>;
 }
 
-export const Provider = <C extends unknown>({
+export const RXDBProvider = <C extends unknown>({
 	db,
 	children,
 }: PropsWithChildren<ProviderProps<C>>): JSX.Element => {
@@ -20,4 +20,4 @@ export const Provider = <C extends unknown>({
 	return <Context.Provider value={context}>{children}</Context.Provider>;
 };
 
-export default Provider;
+export default RXDBProvider;
