@@ -2,6 +2,7 @@ import { IonIcon, IonItem, IonLabel, IonList, IonText } from '@ionic/react';
 import { PUBLIC_TALK_THEMES } from '../schedules/public-talks/helper/publicTalkData';
 import { checkmarkCircle } from 'ionicons/icons';
 import { usePublisher } from '../publishers/hooks/usePublisher';
+import { sortOutlines } from './sortOutlines';
 
 export const UpdatePublisherOutlines = () => {
   const { outlines }: any = usePublisher.use.publisher();
@@ -15,20 +16,24 @@ export const UpdatePublisherOutlines = () => {
   };
 
   const handleAddOutline = (outline: string) => {
-    setPublisherProperty('outlines', [outline, ...outlines].sort() as string[]);
+    setPublisherProperty(
+      'outlines',
+      [outline, ...(outlines || [])].sort(sortOutlines) as string[]
+    );
   };
 
   return (
     <IonList>
-      {PUBLIC_TALK_THEMES.map((outline) => {
+      {PUBLIC_TALK_THEMES.map((outline, index) => {
         if (outlines?.includes(outline.number as never))
           return (
-            <IonItem onClick={() => handleRemoveOutline(outline.number)}>
-              <IonText slot="start">
-                <strong>{outline.number}.</strong>
-              </IonText>
-
-              <IonText className="ion-padding-vertical">
+            <IonItem
+              onClick={() => handleRemoveOutline(outline.number)}
+              key={index}
+            >
+              <IonText className="ion-text-wrap ion-padding">
+                <strong>Outline: {outline.number}</strong>
+                <br />
                 {outline.title}
               </IonText>
 
@@ -36,12 +41,12 @@ export const UpdatePublisherOutlines = () => {
             </IonItem>
           );
         return (
-          <IonItem onClick={() => handleAddOutline(outline.number)}>
-            <IonText slot="start">
-              <strong>{outline.number}.</strong>
+          <IonItem onClick={() => handleAddOutline(outline.number)} key={index}>
+            <IonText className="ion-text-wrap ion-padding">
+              <strong>Outline: {outline.number}.</strong>
+              <br />
+              {outline.title}
             </IonText>
-
-            <IonText className="ion-padding-vertical">{outline.title}</IonText>
 
             <IonText color="primary" slot="end">
               <strong color="primary"></strong>

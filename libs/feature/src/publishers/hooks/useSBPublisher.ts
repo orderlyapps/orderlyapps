@@ -1,8 +1,8 @@
 import { supabase } from '@data';
 import { useEffect, useState } from 'react';
 
-export function useSBPublisher(id: string) {
-  const [publisher, setPublisher] = useState<any>([]);
+export function useSBPublisher(id: string, trigger?: any) {
+  const [publisher, setPublisher] = useState<any>([{ outlines: [] }]);
 
   useEffect(() => {
     const getPublisher = async () => {
@@ -15,7 +15,7 @@ export function useSBPublisher(id: string) {
     };
 
     getPublisher();
-  }, [id]);
+  }, [id, trigger && trigger]);
 
   return publisher[0];
 }

@@ -20,7 +20,15 @@ export const UpdatePublisherOutlinesModal = ({
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   const publisher = usePublisher.use.publisher();
-  const setPublisher = usePublisher.use.setPublisher();
+
+  const handleCancel = () => {
+    // const { data, error } = await supabase
+    // .from('publishers')
+    // .select();
+    // .eq('id', publisher.id)
+    
+    setIsOpen(false);
+  };
 
   const handleUpdate = async () => {
     const { data, error } = await supabase
@@ -37,7 +45,7 @@ export const UpdatePublisherOutlinesModal = ({
         <IonToolbar>
           <IonTitle>Select Outlines</IonTitle>
           <IonButtons slot="start">
-            <IonButton onClick={() => setIsOpen(false)}>Cancel</IonButton>
+            <IonButton onClick={handleCancel}>Cancel</IonButton>
           </IonButtons>
           <IonButtons slot="end">
             <IonButton onClick={handleUpdate}>
