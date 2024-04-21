@@ -1,7 +1,7 @@
 import { supabase } from '@data';
 import { useEffect, useState } from 'react';
 
-export function useSBPublishers(dep: any) {
+export function useSBPublishers(dep?: any) {
   const [publishers, setPublishers] = useState<any>([]);
 
   useEffect(() => {

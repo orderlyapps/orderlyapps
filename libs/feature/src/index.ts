@@ -5,6 +5,7 @@ export * from './congregation/useSBCongregations';
 
 // PUBLIC TALKS
 export * from './public-talks/UpdatePublisherOutlines';
+export * from './public-talks/TalkPicker';
 
 
 // PUBLISHERS

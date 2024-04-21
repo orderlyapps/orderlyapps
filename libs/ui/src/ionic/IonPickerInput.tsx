@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { chevronExpand } from 'ionicons/icons';
-import { IonIcon, IonItem, IonPicker, IonText } from '@ionic/react';
+import { IonIcon, IonItem, IonPickerLegacy, IonText } from '@ionic/react';
 
-type IonPickerInput = {
+type IonPickerLegacyInput = {
   label: string;
   options: { text: string; value: any }[];
   onSelect: ({ text, value }: { text: string; value: any }) => any;
@@ -10,13 +10,13 @@ type IonPickerInput = {
   value: string;
 };
 
-export const IonPickerInput = ({
+export const IonPickerLegacyInput = ({
   label,
   options,
   onSelect,
   disabled,
   value,
-}: IonPickerInput) => {
+}: IonPickerLegacyInput) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -38,7 +38,7 @@ export const IonPickerInput = ({
           className="pl-1"
         ></IonIcon>
       </IonItem>
-      <IonPicker
+      <IonPickerLegacy
         isOpen={isOpen}
         onDidDismiss={() => setIsOpen(false)}
         columns={[
@@ -61,9 +61,9 @@ export const IonPickerInput = ({
             },
           },
         ]}
-      ></IonPicker>
+      ></IonPickerLegacy>
     </>
   );
 };
 
-export default IonPickerInput;
+export default IonPickerLegacyInput;

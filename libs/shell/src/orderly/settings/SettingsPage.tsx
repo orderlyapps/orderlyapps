@@ -1,6 +1,7 @@
 import { BuildTime, SupabaseAuth } from '@feature';
 import {
   IonBackButton,
+  IonButton,
   IonButtons,
   IonCard,
   IonCardHeader,
@@ -33,6 +34,11 @@ export const Settings = () => {
           <BuildTime></BuildTime>
 
           <CreateCongregationModal></CreateCongregationModal>
+          {import.meta.env.DEV && (
+            <IonButton routerLink={path.TestPage} expand="full">
+              TEST PAGE
+            </IonButton>
+          )}
         </Suspense>
       </IonContent>
     </IonPage>

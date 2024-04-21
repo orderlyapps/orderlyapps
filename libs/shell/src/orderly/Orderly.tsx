@@ -9,7 +9,7 @@ import {
 import { HomePage } from './home/HomePage';
 import { Settings } from './settings/SettingsPage';
 import { initOrderlyDB, RXDBProvider, supabase, SupabaseProvider } from '@data';
-import CreateCongregationPage from './settings/pages/CreateCongregationPage';
+import TestPage from './settings/pages/TestPage';
 import PublisherDetailsPage from './home/pages/PublisherDetailsPage';
 import PublisherListPage from './home/pages/PublisherListPage';
 import PublishersImportPage from './home/pages/PublishersImportPage';
@@ -71,8 +71,8 @@ const content = [
     path: '/settings',
   },
   {
-    label: 'CreateCongregationPage',
-    component: CreateCongregationPage,
+    label: 'TestPage',
+    component: TestPage,
     path: '/settings/create-congregation/',
     redirect: true,
   },

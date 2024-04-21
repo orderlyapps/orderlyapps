@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { chevronExpand } from 'ionicons/icons';
-import { IonIcon, IonItem, IonPicker, IonText } from '@ionic/react';
+import { IonIcon, IonItem, IonPicker, IonPickerLegacy, IonText } from '@ionic/react';
 
 type PickerProps = {
   label: string;
@@ -36,7 +36,7 @@ export const Picker = ({
           className="pl-1"
         ></IonIcon>
       </IonItem>
-      <IonPicker
+      <IonPickerLegacy
         isOpen={isOpen}
         onDidDismiss={() => setIsOpen(false)}
         columns={[
@@ -57,7 +57,7 @@ export const Picker = ({
             },
           },
         ]}
-      ></IonPicker>
+      ></IonPickerLegacy>
     </>
   );
 };

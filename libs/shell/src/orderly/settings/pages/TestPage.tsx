@@ -1,4 +1,4 @@
-import { CongregationForm } from '@feature';
+import { CongregationForm, TalkPicker } from '@feature';
 import {
   IonBackButton,
   IonButtons,
@@ -11,7 +11,7 @@ import {
 import { Spinner } from '@ui';
 import { Suspense } from 'react';
 
-export const CreateCongregationPage = () => {
+export const TestPage = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -24,11 +24,11 @@ export const CreateCongregationPage = () => {
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          <CongregationForm></CongregationForm>
+          <TalkPicker></TalkPicker>
         </Suspense>
       </IonContent>
     </IonPage>
   );
 };
 
-export default CreateCongregationPage;
+export default TestPage;
