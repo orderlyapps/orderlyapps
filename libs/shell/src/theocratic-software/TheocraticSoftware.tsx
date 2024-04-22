@@ -1,10 +1,7 @@
 import {
-  GetFirestoreDocumentData,
   GetIntegerFromDate,
   LogDateFromInteger,
-  PDFFormatTesting,
-  SubscribeToFirestoreDocumentData,
-  WriteTestFirestoreDocumentData,
+  PDFFormatTesting
 } from '@feature';
 import { Select } from '@ui';
 import { useState } from 'react';
@@ -12,18 +9,12 @@ import { useState } from 'react';
 export const TheocraticSoftware = () => {
   const [tool, setTool] = useState(0);
   const tools = [
-    <SubscribeToFirestoreDocumentData></SubscribeToFirestoreDocumentData>,
-    <WriteTestFirestoreDocumentData></WriteTestFirestoreDocumentData>,
-    <GetFirestoreDocumentData></GetFirestoreDocumentData>,
     <PDFFormatTesting></PDFFormatTesting>,
     <LogDateFromInteger></LogDateFromInteger>,
     <GetIntegerFromDate></GetIntegerFromDate>
   ];
 
   const options = [
-    { label: 'Subscribe Firestore Document Data' },
-    { label: 'Write Test Firestore Doc' },
-    { label: 'Get Firestore Document Data' },
     { label: 'PDF Formatting' },
     { label: 'Log Date From Integer' },
     { label: 'Get Integer From Date' },

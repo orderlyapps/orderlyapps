@@ -1,5 +1,5 @@
 import { IonInput, IonItem, IonList } from '@ionic/react';
-import { usePublisher } from '@feature';
+import { usePublisher } from '../hooks/usePublisher';
 
 export const PublisherForm = () => {
   const publisher = usePublisher.use.publisher();
@@ -19,7 +19,7 @@ export const PublisherForm = () => {
       <IonItem>
         <IonInput
           label="Display Name"
-          value={publisher.displayName}
+          value={'publisher.displayName'}
           name="displayName"
           {...inputProps}
         ></IonInput>
@@ -28,7 +28,7 @@ export const PublisherForm = () => {
       <IonItem>
         <IonInput
           label="First Name"
-          value={publisher.firstName}
+          value={'publisher.firstName'}
           name="firstName"
           {...inputProps}
         ></IonInput>
@@ -37,7 +37,7 @@ export const PublisherForm = () => {
       <IonItem>
         <IonInput
           label="Middle Name"
-          value={publisher.middleName}
+          value={'publisher.middleName'}
           name="middleName"
           {...inputProps}
         ></IonInput>
@@ -46,7 +46,7 @@ export const PublisherForm = () => {
       <IonItem>
         <IonInput
           label="Last Name"
-          value={publisher.lastName}
+          value={'publisher.lastName'}
           name="lastName"
           {...inputProps}
         ></IonInput>

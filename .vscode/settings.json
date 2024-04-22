@@ -8,8 +8,8 @@
     "**/Thumbs.db": true,
 
     // FILES
-    // "**/apps/*/*.*": true,
-    // "**/libs/*/*.*": true,
+    "**/apps/*/*.*": true,
+    "**/libs/*/*.*": true,
     
     // FOLDERS
     "**/.nx": true,

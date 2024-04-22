@@ -6,6 +6,7 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
+  IonInput,
   IonItem,
   IonLabel,
   IonModal,
@@ -20,6 +21,7 @@ type IonPickerModalInput = {
   value: string | number | null;
   content: (closeModal: { closeModal: () => void }) => ReactNode;
   lines?: any;
+  labelPlacement?: 'fixed' | 'stacked' | 'floating';
 };
 
 export const IonPickerModalInput = ({
@@ -28,6 +30,7 @@ export const IonPickerModalInput = ({
   value,
   content: Content,
   lines,
+  labelPlacement = 'fixed',
 }: IonPickerModalInput) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,10 +43,12 @@ export const IonPickerModalInput = ({
         disabled={disabled}
         lines={lines}
       >
-        <IonLabel className="">{label}</IonLabel>
-        <IonText slot="end" className="ion-padding-end ion-text-end">
-          {value}
-        </IonText>
+        <IonInput
+          label={label}
+          labelPlacement={labelPlacement}
+          value={value}
+        ></IonInput>
+
         <IonIcon
           slot="end"
           size="small"

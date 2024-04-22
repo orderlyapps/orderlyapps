@@ -18,20 +18,6 @@ export const publishersSchemaLiteral = {
       type: 'string',
       maxLength: 100,
     },
-    lastName: {
-      type: 'string',
-      maxLength: 100,
-    },
-    firstName: {
-      type: 'string',
-      maxLength: 100,
-    },
-    displayName: {
-      type: 'string',
-    },
-    middleName: {
-      type: 'string',
-    },
     familyHead: {
       type: 'string',
     },
@@ -65,12 +51,6 @@ export const publishersSchemaLiteral = {
       type: 'array',
       items: {
         type: 'string',
-      },
-    },
-    outlines: {
-      type: 'array',
-      items: {
-        type: 'any',
       },
     },
     confidentialID: {
@@ -149,7 +129,7 @@ export const publishersSchemaLiteral = {
       },
     },
   },
-  required: ['firstName', 'lastName', 'id'],
+  required: ['id'],
   indexes: [],
 } as const; // <- It is important to set 'as const' to preserve the literal type
 
@@ -194,7 +174,7 @@ export const addPublisher = async (publisher: PublishersDocType) => {
 
 export const publishersDocMethods: PublishersDocMethods = {
   scream: function (this: PublishersDocument, what: string) {
-    return this.firstName + ' screams: ' + what.toUpperCase();
+    return this.id + ' screams: ' + what.toUpperCase();
   },
 };
 

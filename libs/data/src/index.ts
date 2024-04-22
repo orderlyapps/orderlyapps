@@ -28,3 +28,4 @@ export * from './rxdb/hooks/RXDBProvider';
 
 // ZUSTAND
 export * from './zustand/createSelectors';
+export * from './zustand/useStore';

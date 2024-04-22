@@ -10,11 +10,13 @@ export function useSBPublisher(id: string, trigger?: any) {
         .from('publishers')
         .select()
         .eq('id', id);
+      if (error) console.log(error.message);
 
       setPublisher(publisher || {});
     };
-
-    getPublisher();
+    if (typeof id !== undefined) {
+      getPublisher();
+    }
   }, [id, trigger && trigger]);
 
   return publisher[0];

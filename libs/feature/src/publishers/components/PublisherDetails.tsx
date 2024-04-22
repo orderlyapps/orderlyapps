@@ -1,8 +1,8 @@
 import { useRxDocumentByID } from '@data';
-import { usePublisher, useSBPublisher } from '@feature';
 import { IonItem, IonLabel, IonList, IonListHeader } from '@ionic/react';
-import { PUBLIC_TALK_THEMES } from '../../schedules/public-talks/helper/publicTalkData';
-import { PublisherOutlines } from '../../public-talks/PublisherOutlines';
+import { PUBLIC_TALK_THEMES } from '../../public-talks/helper/publicTalkData';
+import { PublisherOutlinesList } from '../../public-talks/components/PublisherOutlinesList';
+import { usePublisher } from '../hooks/usePublisher';
 
 export const PublisherDetails = () => {
   const publisher = usePublisher.use.publisher();
@@ -15,23 +15,23 @@ export const PublisherDetails = () => {
         </IonListHeader>
         <IonItem>
           <IonLabel>Display Name</IonLabel>
-          {publisher.displayName}
+          {`{publisher.displayName}`}
         </IonItem>
         <IonItem>
           <IonLabel>First Name</IonLabel>
-          {publisher.firstName}
+          {`{publisher.firstName}`}
         </IonItem>
         <IonItem>
           <IonLabel>Middle Name</IonLabel>
-          {publisher.middleName}
+          {`{publisher.middleName}`}
         </IonItem>
         <IonItem>
           <IonLabel>Last Name</IonLabel>
-          {publisher.lastName}
+          {`{publisher.lastName}`}
         </IonItem>
       </IonList>
 
-      <PublisherOutlines></PublisherOutlines>
+      <PublisherOutlinesList></PublisherOutlinesList>
     </>
   );
 };

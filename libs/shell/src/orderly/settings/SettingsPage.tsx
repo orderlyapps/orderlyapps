@@ -1,4 +1,3 @@
-import { BuildTime, SupabaseAuth } from '@feature';
 import {
   IonBackButton,
   IonButton,
@@ -15,7 +14,7 @@ import { Spinner } from '@ui';
 import { buildTime } from '@util';
 import { Suspense } from 'react';
 import { path } from '../Orderly';
-import CreateCongregationModal from './modals/CreateCongregationModal';
+import { BuildTime, CreateCongregationModal, SupabaseAuth } from '@feature';
 
 export const Settings = () => {
   return (

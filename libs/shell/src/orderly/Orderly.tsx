@@ -1,19 +1,19 @@
 import { settingsOutline, homeOutline } from 'ionicons/icons';
 import '@styles';
 import { useEffect, useState } from 'react';
-import {
-  PDFDowloadPage,
-  WeekDetailsPage,
-  WeeklyScheduleListPage,
-} from '@feature';
 import { HomePage } from './home/HomePage';
 import { Settings } from './settings/SettingsPage';
 import { initOrderlyDB, RXDBProvider, supabase, SupabaseProvider } from '@data';
-import TestPage from './settings/pages/TestPage';
-import PublisherDetailsPage from './home/pages/PublisherDetailsPage';
-import PublisherListPage from './home/pages/PublisherListPage';
-import PublishersImportPage from './home/pages/PublishersImportPage';
 import IonShell from '../components/IonShell';
+import {
+  PublisherListPage,
+  PublisherDetailsPage,
+  PublishersImportPage,
+  WeekListPage,
+  WeekDetailsPage,
+  PDFDowloadPage,
+  TestPage,
+} from '@feature';
 
 const content = [
   // HOME
@@ -45,7 +45,7 @@ const content = [
   },
   {
     label: 'WeeklyScheduleListPage',
-    component: WeeklyScheduleListPage,
+    component: WeekListPage,
     path: '/home/schedule',
     redirect: true,
   },
