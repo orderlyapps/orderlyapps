@@ -1,17 +1,15 @@
 import { IonText } from '@ionic/react';
 
 export const OutlineItem = ({
-  number,
-  title,
+  outline,
 }: {
-  number: string;
-  title: string;
+  outline: { number: string; title: string };
 }) => {
   return (
     <IonText className="ion-text-wrap ion-padding">
-      <strong>No. {number}.</strong>
+      <strong>No. {outline.number}.</strong>
       <br />
-      {title}
+      {outline.title}
     </IonText>
   );
 };

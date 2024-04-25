@@ -6,24 +6,23 @@ import {
   IonList,
   IonText,
 } from '@ionic/react';
-import { formatDisplayName } from '../publishers/helper/formatDisplayName';
-import useSBPublishers from '../publishers/hooks/useSBPublishers';
-import { PUBLIC_TALK_THEMES } from './helper/publicTalkData';
+import { formatDisplayName } from '../../../publishers/helper/formatDisplayName';
+import useSBPublishers from '../../../publishers/hooks/useSBPublishers';
+import { PUBLIC_TALK_THEMES } from '../../helper/publicTalkData';
 import { supabase, useStore } from '@data';
-import { sortOutlines } from './helper/sortOutlines';
+import { sortOutlines } from '../../helper/sortOutlines';
 
 export const SelectSpeaker = ({ closeModal }: any) => {
   const publishers = useSBPublishers();
 
-  const { week } = useStore.use.store();
+  const { week_id } = useStore.use.store();
   const setStoreProperty = useStore.use.setStoreProperty();
 
   const handleSelect = async (publisher: any, outline: string) => {
     const { data, error }: any = await supabase
       .from('schedule')
-      .upsert({ week, publicSpeaker: publisher.id, outline })
+      .upsert({ week_id, publicSpeaker: publisher.id, outline })
       .select();
-    console.log('🚀 ~ handleSelect ~ data:', data[0]);
 
     setStoreProperty('schedule', {
       publicSpeaker: publisher,
@@ -32,11 +31,12 @@ export const SelectSpeaker = ({ closeModal }: any) => {
 
     closeModal();
   };
-  
+
   return (
     <IonAccordionGroup>
       {publishers.map(
         (publisher: {
+          publisher_id: string;
           id: any;
           displayName: string;
           firstName: string;
@@ -47,7 +47,7 @@ export const SelectSpeaker = ({ closeModal }: any) => {
             return null;
           }
           return (
-            <IonAccordion key={publisher.id}>
+            <IonAccordion key={publisher.publisher_id}>
               <IonItem slot="header" color="light">
                 <IonLabel>{formatDisplayName(publisher)}</IonLabel>
               </IonItem>

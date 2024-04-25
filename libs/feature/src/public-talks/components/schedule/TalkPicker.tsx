@@ -1,8 +1,8 @@
 import { IonPickerModalInput } from '@ui';
 import { SelectSpeaker } from './SelectSpeaker';
 import { IonList } from '@ionic/react';
-import { getOutline } from './helper/getOutline';
-import { formatDisplayName } from '../publishers/helper/formatDisplayName';
+import { getOutline } from '../../helper/getOutline';
+import { formatDisplayName } from '../../../publishers/helper/formatDisplayName';
 import { useStore } from '@data';
 
 export const TalkPicker = () => {
@@ -16,6 +16,7 @@ export const TalkPicker = () => {
         value={formatDisplayName(schedule?.publicSpeaker) || ''}
         labelPlacement="floating"
       ></IonPickerModalInput>
+      
       <IonPickerModalInput
         content={SelectSpeaker}
         label="Theme"
@@ -25,3 +26,5 @@ export const TalkPicker = () => {
     </IonList>
   );
 };
+
+export default TalkPicker

@@ -1,17 +1,31 @@
-import { useRxAllDocuments } from '@data';
 import { IonItem, IonLabel, IonList } from '@ionic/react';
 import { formatDisplayName } from '../helper/formatDisplayName';
+import useSBPublishers from '../hooks/useSBPublishers';
+import { useEffect } from 'react';
+import { supabase, useStore } from '@data';
 
-export const PublishersList = () => {
-  const { result: publishers, isFetching } = useRxAllDocuments('publishers');
+export const PublishersList = ({ reQuery }: { reQuery: boolean }) => {
+  // const publishers = useSBPublishers(reQuery);
 
-  if (isFetching) {
-    return 'loading characters...';
-  }
+  const { publisher, publisherList } = useStore.use.store();
+  const setStoreProperty = useStore.use.setStoreProperty();
+
+  useEffect(() => {
+    const getPublisherList = async () => {
+      let { data }: any = await supabase
+        .from('publishers')
+        .select(`publisher_id, displayName, firstName, lastName, outlines`);
+      setStoreProperty('publisherList', data);
+    };
+
+    getPublisherList();
+  }, [publisher]);
+
+  if (!publisherList) return null;
 
   return (
     <IonList inset>
-      {publishers
+      {publisherList
         .sort((a: any, b: any) => {
           if (a.lastName !== b.lastName) {
             return a.lastName.localeCompare(b.lastName);
@@ -23,9 +37,9 @@ export const PublishersList = () => {
         })
         .map((publisher: any) => (
           <IonItem
-            key={publisher.id}
+            key={publisher.publisher_id}
             button={true}
-            routerLink={'/home/publisher/details/' + publisher.id}
+            routerLink={'/home/publisher/details/' + publisher.publisher_id}
           >
             <IonLabel>{formatDisplayName(publisher)}</IonLabel>
           </IonItem>
@@ -33,3 +47,5 @@ export const PublishersList = () => {
     </IonList>
   );
 };
+
+export default PublishersList;

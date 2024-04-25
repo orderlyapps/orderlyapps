@@ -4,15 +4,16 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonIcon, IonPage,
+  IonIcon,
+  IonPage,
   IonTitle,
-  IonToolbar
+  IonToolbar,
 } from '@ionic/react';
 import { add } from 'ionicons/icons';
 import { Spinner } from '@ui';
-import { Suspense, useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import AddPublisherModal from './AddPublisherModal';
-import { SBPublishersList } from './components/SBPublishersList';
+const PublishersList = lazy(() => import('./components/PublishersList'));
 
 export const PublisherListPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ export const PublisherListPage = () => {
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          <SBPublishersList reQuery={isOpen}></SBPublishersList>
+          <PublishersList reQuery={isOpen}></PublishersList>
 
           <AddPublisherModal
             isOpen={isOpen}

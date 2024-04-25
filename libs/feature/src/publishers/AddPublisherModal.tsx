@@ -1,4 +1,4 @@
-import { supabase, useRxDB } from '@data';
+import { supabase, useStore } from '@data';
 import {
   IonButton,
   IonButtons,
@@ -9,8 +9,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Dispatch, SetStateAction } from 'react';
-import { PublisherForm } from './components/PublisherForm';
-import { usePublisher } from './hooks/usePublisher';
+import { PublisherNameForm } from './components/PublisherNameForm';
 
 export const AddPublisherModal = ({
   isOpen,
@@ -19,27 +18,20 @@ export const AddPublisherModal = ({
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
-  const publisher = usePublisher.use.publisher();
-  const db: any = useRxDB();
+  const { publisher } = useStore.use.store();
+  const setStoreProperty = useStore.use.setStoreProperty();
 
   const handleAdd = async () => {
-    // await db.publishers.insert({
-    //   ...publisher,
-    //   id: crypto.randomUUID(),
-    // });
-
     const { data, error } = await supabase
       .from('publishers')
-      .upsert({
-        id: crypto.randomUUID(),
-        // firstName: publisher.firstName,
-        // lastName: publisher.lastName,
-        // displayName: publisher.displayName,
-        // middleName: publisher.middleName,
-      })
+      .upsert({ ...publisher, publisher_id: crypto.randomUUID() })
       .select();
-    console.log('🚀 ~ handleAdd ~ data:', data);
-    console.log('🚀 ~ handleAdd ~ error:', error);
+
+    const { data: publisherList } = await supabase
+      .from('publishers')
+      .select(`publisher_id, displayName, firstName, lastName, outlines`);
+
+    setStoreProperty('publisherList', publisherList);
 
     setIsOpen(false);
   };
@@ -60,7 +52,7 @@ export const AddPublisherModal = ({
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <PublisherForm></PublisherForm>
+        <PublisherNameForm></PublisherNameForm>
       </IonContent>
     </IonModal>
   );

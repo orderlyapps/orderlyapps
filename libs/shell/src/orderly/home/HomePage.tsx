@@ -31,9 +31,9 @@ export const HomePage = () => {
               Publishers
             </IonButton>
 
-            <IonButton routerLink={path.PublishersImportPage} expand="block">
+            {/* <IonButton routerLink={path.PublishersImportPage} expand="block">
               Import Publishers
-            </IonButton>
+            </IonButton> */}
 
             <IonButton routerLink={path.WeeklyScheduleListPage} expand="block">
               Weekly Schedule

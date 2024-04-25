@@ -8,9 +8,10 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import { useState } from 'react';
-import { CongregationForm } from './components/CongregationForm';
+import { lazy, useState } from 'react';
 import { useCongregation } from './hooks/useCongregation';
+
+const CongregationForm = lazy(() => import('./components/CongregationForm'));
 
 export const CreateCongregationModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +22,6 @@ export const CreateCongregationModal = () => {
       .from('congregations')
       .upsert([congregation])
       .select();
-    console.log('🚀 ~ handleSubmit ~ data:', data);
-    console.log('🚀 ~ handleSubmit ~ error:', error);
   };
 
   return (

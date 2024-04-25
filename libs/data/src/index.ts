@@ -5,11 +5,11 @@ export * from './supabase/hooks';
 export * from './supabase/types';
 
 // FIREBASE
-export * from './firebase/config';
-export * from './firebase/firestoreDocumentPaths';
-export * from './firebase/writeFirebaseDocuments';
-export * from './firebase/useFirestoreData';
-export * from './firebase/getFirestoreDocumentSize';
+// export * from './firebase/config';
+// export * from './firebase/firestoreDocumentPaths';
+// export * from './firebase/writeFirebaseDocuments';
+// export * from './firebase/useFirestoreData';
+// export * from './firebase/getFirestoreDocumentSize';
 
 // RXDB
 export * from './rxdb/databases/orderlyDB';

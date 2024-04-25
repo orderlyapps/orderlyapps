@@ -8,8 +8,9 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Spinner } from '@ui';
-import { Suspense } from 'react';
-import { TalkPicker } from '../public-talks/TalkPicker';
+import { Suspense, lazy } from 'react';
+
+const TalkPicker = lazy(() => import('../public-talks/components/schedule/TalkPicker'));
 
 export const TestPage = () => {
   return (

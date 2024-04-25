@@ -3,7 +3,7 @@ import '@styles';
 import { useEffect, useState } from 'react';
 import { HomePage } from './home/HomePage';
 import { Settings } from './settings/SettingsPage';
-import { initOrderlyDB, RXDBProvider, supabase, SupabaseProvider } from '@data';
+import { initOrderlyDB, RXDBProvider } from '@data';
 import IonShell from '../components/IonShell';
 import {
   PublisherListPage,
@@ -91,11 +91,9 @@ export const Orderly: React.FC = () => {
   }, []);
 
   return (
-    <SupabaseProvider value={supabase}>
       <RXDBProvider db={db}>
         <IonShell content={content}></IonShell>
       </RXDBProvider>
-    </SupabaseProvider>
   );
 };
 

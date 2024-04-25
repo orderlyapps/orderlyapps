@@ -31,7 +31,7 @@ export const SupabaseAuth = () => {
   };
 
   const url = import.meta.env.DEV
-    ? 'http://localhost:3000/settings/'
+    ? 'https://experimental.orderly.pages.dev/settings'
     : 'https://experimental.orderly.pages.dev/settings';
 
   if (!session) {

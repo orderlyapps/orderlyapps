@@ -22,3 +22,5 @@ export const CongregationForm = () => {
     </IonList>
   );
 };
+
+export default CongregationForm;

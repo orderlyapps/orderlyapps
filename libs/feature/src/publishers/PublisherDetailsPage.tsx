@@ -1,4 +1,3 @@
-
 import {
   IonBackButton,
   IonButton,
@@ -10,13 +9,15 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Spinner } from '@ui';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import EditPublisherModal from './EditPublisherModal';
-import useSBPublisher from './hooks/useSBPublisher';
-import { usePublisher } from './hooks/usePublisher';
 import { formatDisplayName } from './helper/formatDisplayName';
-import PublisherDetails from './components/PublisherDetails';
+import { supabase, useStore } from '@data';
+import { PublisherOutlinesList } from '../public-talks/components/publisher/PublisherOutlinesList';
+const EditPublisherModal = lazy(() => import('./EditPublisherNameÏModal'));
+const PublisherNameDetails = lazy(
+  () => import('./components/PublisherNameDetails')
+);
 
 interface UserDetailPageProps
   extends RouteComponentProps<{
@@ -24,13 +25,23 @@ interface UserDetailPageProps
   }> {}
 
 export const PublisherDetailsPage = ({ match }: UserDetailPageProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const publisher = useSBPublisher(match.params.id);
-  const setPublisher = usePublisher.use.setPublisher();
+  const setStoreProperty = useStore.use.setStoreProperty();
+  const { publisher } = useStore.use.store();
 
   useEffect(() => {
-    setPublisher(publisher);
-  }, [publisher]);
+    const getPublisher = async () => {
+      let {
+        data: [publisher],
+        error,
+      }: any = await supabase
+        .from('publishers')
+        .select()
+        .eq('publisher_id', match.params.id);
+      if (error) console.log(error.message);
+      setStoreProperty('publisher', { ...publisher });
+    };
+    getPublisher();
+  }, []);
 
   return (
     <IonPage>
@@ -39,20 +50,13 @@ export const PublisherDetailsPage = ({ match }: UserDetailPageProps) => {
           <IonButtons slot="start">
             <IonBackButton text={'Publishers'}></IonBackButton>
           </IonButtons>
-          <IonButtons slot="end">
-            <IonButton onClick={() => setIsOpen(true)}>Edit</IonButton>
-          </IonButtons>
           <IonTitle>{formatDisplayName(publisher)}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          <PublisherDetails></PublisherDetails>
-
-          <EditPublisherModal
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-          ></EditPublisherModal>
+          <PublisherNameDetails></PublisherNameDetails>
+          <PublisherOutlinesList></PublisherOutlinesList>
         </Suspense>
       </IonContent>
     </IonPage>

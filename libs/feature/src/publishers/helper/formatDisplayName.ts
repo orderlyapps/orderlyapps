@@ -16,3 +16,5 @@ export const formatDisplayName = (
   }
   return `${publisher.lastName || ''}, ${displayName || ''}`;
 };
+
+export default formatDisplayName;

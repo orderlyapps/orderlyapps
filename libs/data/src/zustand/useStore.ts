@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { createSelectors } from './createSelectors';
 
-const initialState: { [key: string]: any } = {};
+const initialState: { [key: string]: any } = { publisher: { outlines: [] } };
 
 export type StoreState = {
   store: typeof initialState;
@@ -30,10 +30,11 @@ const useStoreBase = create<StoreState & StoreActions>()(
         }));
       },
 
-      setStoreProperty: (property: string, value: any) =>
+      setStoreProperty: (property: string, value: any) => {
         set((state: StoreState) => ({
           store: { ...state.store, [property]: value },
-        })),
+        }));
+      },
     }),
     {
       name: 'store', // name of the item in the storage (must be unique)

@@ -3,17 +3,13 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonItem,
   IonList,
   IonPage,
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import { IonCSVInput, Spinner } from '@ui';
+import { Spinner } from '@ui';
 import { Suspense, useState } from 'react';
-import { PublishersDocType } from '@data';
-import AddPublisherModal from './AddPublisherModal';
-import { formatDisplayName } from './helper/formatDisplayName';
 import { usePublisher } from './hooks/usePublisher';
 
 export const PublishersImportPage = () => {
@@ -48,10 +44,10 @@ export const PublishersImportPage = () => {
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
           <IonList>
-            <IonCSVInput setData={setPublishers}></IonCSVInput>
+            {/* <IonCSVInput setData={setPublishers}></IonCSVInput> */}
           </IonList>
           <IonList>
-            {publishers.map((publisher: any) => {
+            {/* {publishers.map((publisher: any) => {
               return (
                 <IonItem
                   key={publisher.firstName + publisher.lastName}
@@ -60,13 +56,13 @@ export const PublishersImportPage = () => {
                   {formatDisplayName(publisher)}
                 </IonItem>
               );
-            })}
+            })} */}
           </IonList>
 
-          <AddPublisherModal
+          {/* <AddPublisherModal
             isOpen={isOpen}
             setIsOpen={setIsOpen}
-          ></AddPublisherModal>
+          ></AddPublisherModal> */}
         </Suspense>
       </IonContent>
     </IonPage>
