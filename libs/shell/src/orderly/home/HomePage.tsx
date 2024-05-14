@@ -27,21 +27,49 @@ export const HomePage = () => {
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
           <IonList inset>
-            <IonButton routerLink={path.PublisherListPage} expand="block">
-              Publishers
+            <IonButton
+              routerLink={path.PublisherListPage}
+              expand="block"
+              className="ion-padding"
+            >
+              Publishers List
             </IonButton>
 
-            {/* <IonButton routerLink={path.PublishersImportPage} expand="block">
-              Import Publishers
-            </IonButton> */}
+            <IonButton
+              routerLink={path.CongregationListPage}
+              expand="block"
+              className="ion-padding"
+            >
+              Congregations List
+            </IonButton>
 
-            <IonButton routerLink={path.WeeklyScheduleListPage} expand="block">
+            <IonButton
+              routerLink={path.WeeklyScheduleListPage}
+              expand="block"
+              className="ion-padding"
+            >
               Weekly Schedule
             </IonButton>
 
-            <IonButton routerLink={path.PDFDowloadPage} expand="block">
+            <IonButton
+              routerLink={path.EventsListPage}
+              expand="block"
+              className="ion-padding"
+            >
+              Events List
+            </IonButton>
+
+            <IonButton
+              routerLink={path.PDFDowloadPage}
+              expand="block"
+              className="ion-padding"
+            >
               PDF Download
             </IonButton>
+
+            {/* <IonButton routerLink={path.PublishersImportPage} expand="block" className='ion-padding'>
+              Import Publishers
+            </IonButton> */}
           </IonList>
         </Suspense>
       </IonContent>

@@ -31,12 +31,11 @@ export const SupabaseAuth = () => {
   };
 
   const url = import.meta.env.DEV
-    ? 'https://experimental.orderly.pages.dev/settings'
+    ? 'http://localhost:3000/settings'
     : 'https://experimental.orderly.pages.dev/settings';
 
   if (!session) {
     return (
-      <IonList inset className="ion-padding">
         <Auth
           supabaseClient={supabase}
           appearance={{ theme: ThemeSupa }}
@@ -44,8 +43,11 @@ export const SupabaseAuth = () => {
           showLinks={false}
           onlyThirdPartyProviders
           redirectTo={url}
+          queryParams={{
+            prompt: 'consent',
+            
+          }}
         />
-      </IonList>
     );
   }
 

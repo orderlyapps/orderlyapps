@@ -14,7 +14,7 @@ import { Spinner } from '@ui';
 import { buildTime } from '@util';
 import { Suspense } from 'react';
 import { path } from '../Orderly';
-import { BuildTime, CreateCongregationModal, SupabaseAuth } from '@feature';
+import { BuildTime, CongregationAddModal, SupabaseAuth } from '@feature';
 
 export const Settings = () => {
   return (
@@ -32,7 +32,7 @@ export const Settings = () => {
           <SupabaseAuth></SupabaseAuth>
           <BuildTime></BuildTime>
 
-          <CreateCongregationModal></CreateCongregationModal>
+          <CongregationAddModal></CongregationAddModal>
           {import.meta.env.DEV && (
             <IonButton routerLink={path.TestPage} expand="full">
               TEST PAGE

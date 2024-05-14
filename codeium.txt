@@ -1,0 +1,30 @@
+-- DELETE EVENT
+    i have a table called events
+    i have a column called event_id
+
+    i also have a table called schedule_events
+    it also has a column called event_id and a column called congregation_id
+
+    write a function in pl/pgSQL 
+    that takes in an argument called event of type JSONB
+
+    event contains properties event_id and congregation_id
+
+    it should delete all rows matching event_id from both tables
+
+    find all the rows in schedule_events table with a matching congregation_id 
+
+    the function should return all the rows in events 
+    where event_id is found in the schedule_events table with a matching congregation_id
+
+
+
+
+
+    i have a table called events that has a column called event_id
+
+    i also have a table called schedule_events
+    it also has a column called event_id and a column called congregation_id
+
+    get all the event_ids that are in the schedule_events table with a certain congregation_id
+    return all the rows in the events table where the event_id is in the event_ids array

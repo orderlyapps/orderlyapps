@@ -66,7 +66,7 @@ const vitePWAOpt: Partial<VitePWAOptions> = {
 };
 
 export default defineConfig({
-  define: { BUILD_TIME: new Date().getTime() },
+  define: { BUILD_TIME: new Date() },
   plugins: [
     htmlPlugin(htmlPluginOpt),
     react(),

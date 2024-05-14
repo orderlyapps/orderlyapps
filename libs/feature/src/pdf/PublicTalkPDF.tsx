@@ -1,7 +1,10 @@
 import { Text, Document, View } from '@react-pdf/renderer';
 import { PDFPage, PDFPageHeading, PDFDivider } from '@ui';
 import { formatDate } from '@util';
-import { PUBLIC_TALK_THEMES } from '../public-talks/helper/publicTalkData';
+// import { PUBLIC_TALK_THEMES } from '../public-talks/helper/publicTalkData';
+import formatDisplayName from '../publishers/name/formatDisplayName';
+import { getOutline } from '../schedules/public-talks/_helper/getOutline';
+// import { getOutline } from '../public-talks/helper/getOutline';
 
 const WeekView = ({ children }: any) => {
   return (
@@ -14,9 +17,9 @@ const WeekView = ({ children }: any) => {
 };
 
 const DateView = ({ meeting }: any) => {
-  const date = parseInt(meeting.id) + 1000 * 60 * 60 * 24 * 5;
+  const date = parseInt(meeting.week_id) + 1000 * 60 * 60 * 24 * 5;
 
-  if (meeting.weTheme < 1)
+  if (meeting.outline === 'CA')
     return (
       <View
         style={{
@@ -43,7 +46,7 @@ const DateView = ({ meeting }: any) => {
         color: '#4a6da7',
       }}
     >
-      <Text>{formatDate(date).theocraticScheduleWeek}</Text>
+      <Text>{'formatDate(date)'}</Text>
     </View>
   );
 };
@@ -55,7 +58,7 @@ const DetailsView = ({ children }: any) => {
 const ThemeView = ({ meeting }: any) => {
   return (
     <View style={{ flex: 1, fontFamily: 'Helvetica-Bold', fontSize: 14 }}>
-      <Text>{PUBLIC_TALK_THEMES[meeting.weTheme - 1].title}</Text>
+      <Text>{getOutline(meeting.outline)}</Text>
     </View>
   );
 };
@@ -77,9 +80,15 @@ const HeadingView = () => {
 const BrothersView = ({ meeting }: any) => {
   return (
     <View style={{ flex: 7 }}>
-      <Text>{meeting.weSpeaker}</Text>
-      <Text>{meeting.weChairman}</Text>
-      <Text>{meeting.weReader}</Text>
+      <Text>
+        {formatDisplayName(meeting.publicSpeaker, 'displayName lastName')}
+      </Text>
+      <Text>
+        {formatDisplayName(meeting.weekendChairman, 'displayName lastName')}
+      </Text>
+      <Text>
+        {formatDisplayName(meeting.watchtowerReader, 'displayName lastName')}
+      </Text>
     </View>
   );
 };
@@ -100,7 +109,7 @@ export const PublicTalkPDF = ({ schedule }: any) => {
                 <WeekView key={index}>
                   <DateView meeting={meeting}></DateView>
                   <DetailsView>
-                    {meeting.weTheme > 0 && (
+                    {meeting.outline > 0 && (
                       <>
                         <ThemeView meeting={meeting}></ThemeView>
                         <Details2View>
@@ -109,7 +118,7 @@ export const PublicTalkPDF = ({ schedule }: any) => {
                         </Details2View>
                       </>
                     )}
-                    {meeting.weTheme === 0 && (
+                    {meeting.outline === 'CA' && (
                       <View
                         style={{
                           flex: 1,

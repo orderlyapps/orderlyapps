@@ -3,7 +3,7 @@ import '@styles';
 import { useEffect, useState } from 'react';
 import { HomePage } from './home/HomePage';
 import { Settings } from './settings/SettingsPage';
-import { initOrderlyDB, RXDBProvider } from '@data';
+import { initOrderlyDB, RXDBProvider, useRXdb } from '@data';
 import IonShell from '../components/IonShell';
 import {
   PublisherListPage,
@@ -13,6 +13,10 @@ import {
   WeekDetailsPage,
   PDFDowloadPage,
   TestPage,
+  CongregationListPage,
+  CongregationsDetailsPage,
+  EventsListPage,
+  EventDetailsPage,
 } from '@feature';
 
 const content = [
@@ -25,6 +29,8 @@ const content = [
     path: '/home',
     redirect: true,
   },
+
+  // PUBLISHERS
   {
     label: 'PublisherListPage',
     component: PublisherListPage,
@@ -34,7 +40,7 @@ const content = [
   {
     label: 'PublisherDetailsPage',
     component: PublisherDetailsPage,
-    path: '/home/publisher/details/:id',
+    path: '/home/publisher/details/:publisher_id',
     redirect: true,
   },
   {
@@ -43,6 +49,8 @@ const content = [
     path: '/home/publisher/import',
     redirect: true,
   },
+
+  // SCHEDULE
   {
     label: 'WeeklyScheduleListPage',
     component: WeekListPage,
@@ -52,13 +60,43 @@ const content = [
   {
     label: 'WeekDetailsPage',
     component: WeekDetailsPage,
-    path: '/home/schedule/details/:id',
+    path: '/home/schedule/details/:week_id',
     redirect: true,
   },
+
+  // PDF
   {
     label: 'PDFDowloadPage',
     component: PDFDowloadPage,
     path: '/home/schedule/pdf-download/',
+    redirect: true,
+  },
+
+  // CONGREGATION
+  {
+    label: 'CongregationListPage',
+    component: CongregationListPage,
+    path: '/home/congregations/',
+    redirect: true,
+  },
+  {
+    label: 'CongregationsDetailsPage',
+    component: CongregationsDetailsPage,
+    path: '/home/congregations/details/:id/:test1/:test2',
+    redirect: true,
+  },
+
+  // EVENTS
+  {
+    label: 'EventsListPage',
+    component: EventsListPage,
+    path: '/home/events/',
+    redirect: true,
+  },
+  {
+    label: 'EventDetailsPage',
+    component: EventDetailsPage,
+    path: '/home/events/details/:id',
     redirect: true,
   },
 
@@ -84,17 +122,17 @@ export const path = content.reduce((acc, current) => {
 }, {} as { [key: string]: string });
 
 export const Orderly: React.FC = () => {
-  const [db, setDb] = useState<any>();
+  const initRXorderlyDB = useRXdb.use.initRXorderlyDB();
 
   useEffect(() => {
-    initOrderlyDB().then(setDb);
+    const onStartup = async () => {
+      initRXorderlyDB();
+    };
+
+    onStartup();
   }, []);
 
-  return (
-      <RXDBProvider db={db}>
-        <IonShell content={content}></IonShell>
-      </RXDBProvider>
-  );
+  return <IonShell content={content}></IonShell>;
 };
 
 export default Orderly;

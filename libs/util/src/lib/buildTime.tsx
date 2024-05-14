@@ -1,13 +1,11 @@
-import { timeToNow } from './timeToNow';
+import {
+  format,
+  formatDistanceToNow
+} from 'date-fns';
 
-
-const formattedBuildTime = new Intl.DateTimeFormat('en-AU', {
-  dateStyle: 'medium',
-  timeStyle: 'short',
-}).format(BUILD_TIME);
-
-const timeDifference = timeToNow(BUILD_TIME);
-
-export const buildTime = { timeDifference, formattedBuildTime };
+export const buildTime = {
+  timeDifference: formatDistanceToNow(BUILD_TIME, { addSuffix: true }),
+  formattedBuildTime: format(BUILD_TIME, "PP 'at' h:mmaaa"),
+};
 
 export default buildTime;

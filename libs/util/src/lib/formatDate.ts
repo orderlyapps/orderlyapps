@@ -1,26 +1,8 @@
-export const formatDate = (date: number) => {
-  return {
-    theocraticScheduleWeek: `${
-      new Date(date).getDate() < 8
-        ? `${new Date(date).toLocaleString('default', {
-            month: 'short',
-          })} `
-        : ''
-    }${new Date(date).getDate()}`,
+import { endOfWeek, format } from 'date-fns';
 
-    theocraticWeek:
-      `${new Date(date).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-      })} - ` +
-      `${
-        new Date(date + 518400000).getDate() < 7
-          ? `${new Date(date + 518400000).toLocaleDateString('en-US', {
-              month: 'short',
-            })} `
-          : ''
-      }` +
-      `${new Date(date + 518400000).getDate()}`,
-  };
-  date;
+export const formatDate = (date: Date) => {
+  const eow = endOfWeek(date, { weekStartsOn: 1 });
+  const start = format(date, 'MMM dd - ');
+  const end = format(eow, `${eow.getDate() < 7 ? 'MMM ' : ''}dd`);
+  return start + end;
 };

@@ -11,14 +11,30 @@ export const publishersSchemaLiteral = {
   title: 'publishers schema',
   description: 'Members of the congregation',
   version: 0,
-  primaryKey: 'id',
+  primaryKey: 'publisher_id',
   type: 'object',
   properties: {
-    id: {
+    publisher_id: {
       type: 'string',
       maxLength: 100,
     },
-    familyHead: {
+    firstName: {
+      type: 'string',
+      maxLength: 100,
+    },
+    lastName: {
+      type: 'string',
+      maxLength: 100,
+    },
+    displayName: {
+      type: 'string',
+      maxLength: 100,
+    },
+    middleName: {
+      type: 'string',
+      maxLength: 100,
+    },
+    family_id: {
       type: 'string',
     },
     phoneNumber: {
@@ -31,10 +47,10 @@ export const publishersSchemaLiteral = {
       type: 'string',
     },
     dateOfBirth: {
-      type: 'number',
+      type: 'string',
     },
     dateOfBaptism: {
-      type: 'number',
+      type: 'string',
     },
     dates: {
       type: 'object',
@@ -43,7 +59,7 @@ export const publishersSchemaLiteral = {
           type: 'string',
         },
         date: {
-          type: 'number',
+          type: 'string',
         },
       },
     },
@@ -53,7 +69,7 @@ export const publishersSchemaLiteral = {
         type: 'string',
       },
     },
-    confidentialID: {
+    confidential_id: {
       type: 'string',
     },
     gender: {
@@ -67,7 +83,7 @@ export const publishersSchemaLiteral = {
     edited: {
       type: 'number',
     },
-    congregation: {
+    congregation_id: {
       type: 'string',
     },
     publisherType: {
@@ -129,7 +145,7 @@ export const publishersSchemaLiteral = {
       },
     },
   },
-  required: ['id'],
+  required: ['publisher_id'],
   indexes: [],
 } as const; // <- It is important to set 'as const' to preserve the literal type
 
@@ -174,7 +190,7 @@ export const addPublisher = async (publisher: PublishersDocType) => {
 
 export const publishersDocMethods: PublishersDocMethods = {
   scream: function (this: PublishersDocument, what: string) {
-    return this.id + ' screams: ' + what.toUpperCase();
+    return this.publisher_id + ' screams: ' + what.toUpperCase();
   },
 };
 

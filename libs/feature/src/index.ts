@@ -1,10 +1,14 @@
 export * from './pdf/PDFDowloadPage';
-export * from './publishers/PublisherDetailsPage';
-export * from './publishers/PublisherListPage';
-export * from './publishers/PublishersImportPage';
-export * from './schedules/pages/WeekListPage';
-export * from './schedules/pages/WeekDetailsPage';
+export * from './publishers/_main/PublisherDetailsPage';
+export * from './publishers/_main/PublisherListPage';
+export * from './publishers/_main/PublishersImportPage';
+export * from './schedules/_main/WeekListPage';
+export * from './schedules/_main/WeekDetailsPage';
 export * from './tools/TestPage';
+export * from './congregation/pages/CongregationListPage';
+export * from './congregation/pages/CongregationsDetailsPage';
+export * from './events/pages/EventDetailsPage';
+export * from './events/pages/EventsListPage';
 
 // export * from './congregation/components/CongregationForm';
 // export * from './congregation/hooks/useCongregation';
@@ -33,7 +37,7 @@ export * from './tools/TestPage';
 // export * from './user/SupabaseAuth';
 
 // SETTINGS PAGE
-export * from './congregation/CreateCongregationModal';
+export * from './congregation/modals/CongregationAddModal';
 export * from './settings/BuildTime';
 export * from './user/SupabaseAuth';
 

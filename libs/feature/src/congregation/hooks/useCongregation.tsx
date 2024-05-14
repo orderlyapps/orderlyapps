@@ -4,6 +4,7 @@ import { createSelectors } from '@data';
 
 const initialState = {
   name: '',
+  congregation_id: '',
 };
 
 export type CongregationState = {
