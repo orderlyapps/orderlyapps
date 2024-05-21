@@ -3,11 +3,11 @@ import {
   IonItem,
   IonList
 } from '@ionic/react';
-import { useCongregation } from '../hooks/useCongregation';
+import { useCongregations } from '../hooks/useCongregations';
 
 export const CongregationForm = () => {
-  const congregation = useCongregation.use.congregation();
-  const setCongregationProperty = useCongregation.use.setCongregationProperty();
+  const congregation = useCongregations.use.congregation();
+  const updateCongregationProperties = useCongregations.use.updateCongregationProperties();
 
   return (
     <IonList inset>
@@ -16,7 +16,7 @@ export const CongregationForm = () => {
           label="Name"
           value={congregation.name}
           name="name"
-          onIonChange={(e) => setCongregationProperty('name', e.target.value)}
+          // onIonChange={(e) => updateCongregationProperties('name', e.target.value)}
         ></IonInput>
       </IonItem>
     </IonList>

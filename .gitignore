@@ -42,7 +42,7 @@ Thumbs.db
 .nx/cache
 
 # Damian's 
-.env
+.env*
 api-keys.ts
 *.log
 .firebase/

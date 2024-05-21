@@ -82,7 +82,7 @@ const content = [
   {
     label: 'CongregationsDetailsPage',
     component: CongregationsDetailsPage,
-    path: '/home/congregations/details/:id/:test1/:test2',
+    path: '/home/congregations/details/:id',
     redirect: true,
   },
 

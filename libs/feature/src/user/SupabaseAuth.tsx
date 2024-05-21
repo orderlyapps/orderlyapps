@@ -30,24 +30,21 @@ export const SupabaseAuth = () => {
     });
   };
 
-  const url = import.meta.env.DEV
-    ? 'http://localhost:3000/settings'
-    : 'https://experimental.orderly.pages.dev/settings';
+  const url = import.meta.env.VITE_SUPABASE_AUTH_REDIRECT_URL;
 
   if (!session) {
     return (
-        <Auth
-          supabaseClient={supabase}
-          appearance={{ theme: ThemeSupa }}
-          providers={['google']}
-          showLinks={false}
-          onlyThirdPartyProviders
-          redirectTo={url}
-          queryParams={{
-            prompt: 'consent',
-            
-          }}
-        />
+      <Auth
+        supabaseClient={supabase}
+        appearance={{ theme: ThemeSupa }}
+        providers={['google']}
+        showLinks={false}
+        onlyThirdPartyProviders
+        redirectTo={url}
+        queryParams={{
+          prompt: 'consent',
+        }}
+      />
     );
   }
 

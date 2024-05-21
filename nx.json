@@ -47,5 +47,23 @@
     }
   },
   "nxCloudAccessToken": "ZDkwNGRkOTAtNDk4Yy00Njk2LWExZTEtZmM3YzdlNDYxN2Q3fHJlYWQtd3JpdGU=",
-  "neverConnectToCloud": true
+  "neverConnectToCloud": true,
+  "targetDefaults": {
+    "serve": {
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        },
+        "staging": {
+          "mode": "staging"
+        },
+        "my-other-mode": {
+          "mode": "my-other-mode"
+        }
+      }
+    }
+  }
 }

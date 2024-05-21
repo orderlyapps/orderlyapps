@@ -10,23 +10,15 @@ import {
 } from '@ionic/react';
 import { Spinner } from '@ui';
 import { Suspense, useEffect } from 'react';
-import { useCongregation } from '../hooks/useCongregation';
+import { useCongregations } from '../hooks/useCongregations';
 import { CongregationDetails } from '../components/CongregationDetails';
 
 export const CongregationsDetailsPage = ({ match }: any) => {
-  const congregation = useCongregation.use.congregation();
-  const setCongregation = useCongregation.use.setCongregation();
+  const congregation = useCongregations.use.congregation();
+  const setCongregation = useCongregations.use.setCongregation();
 
   useEffect(() => {
-    const getGongregationDetails = async () => {
-      const { data, error } = await supabase
-        .from('congregations')
-        .select()
-        .eq('congregation_id', match.params.id)
-        .single();
-      setCongregation(data);
-    };
-    getGongregationDetails();
+    setCongregation(match.params.id);
   }, []);
 
   return (

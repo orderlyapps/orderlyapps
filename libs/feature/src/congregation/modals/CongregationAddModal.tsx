@@ -9,19 +9,19 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { lazy, useState } from 'react';
-import { useCongregation } from '../hooks/useCongregation';
+import { useCongregations } from '../hooks/useCongregations';
 
 const CongregationForm = lazy(() => import('../components/CongregationForm'));
 
 export const CongregationAddModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const congregation = useCongregation.use.congregation();
+  const congregation = useCongregations.use.congregation();
 
   const handleSubmit = async () => {
-    const { data, error } = await supabase
-      .from('congregations')
-      .upsert([congregation])
-      .select();
+    // const { data, error } = await supabase
+    //   .from('congregations')
+    //   .upsert([congregation])
+    //   .select();
   };
 
   return (

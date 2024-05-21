@@ -1,34 +1,27 @@
-import { supabase, useSettings, useStore } from '@data';
+import { useSettings } from '@data';
 import { IonItem, IonList } from '@ionic/react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useCongregations } from '../hooks/useCongregations';
 
 export const CongregationList = () => {
-  const [congregations, setCongregations] = useState<any[] | null>([]);
-  const { congregation } = useStore.use.store();
   const { congregation_id } = useSettings.use.settings();
+  const congregations = useCongregations.use.congregations();
+  const fetchCongregations = useCongregations.use.fetchCongregations();
 
   useEffect(() => {
-    const getCongregations = async () => {
-      let { data: congregations, error } = await supabase
-        .from('congregations')
-        .select();
-      setCongregations(congregations);
-    };
-    getCongregations();
+    fetchCongregations();
   }, []);
 
   return (
     <IonList>
-      {congregations?.map((c) => {
+      {congregations?.map((congregation) => {
         return (
           <IonItem
-            key={c.congregation_id}
-            routerLink={
-              '/home/congregations/details/' + c.congregation_id + '/1/2'
-            }
-            color={congregation_id === c.congregation_id ? 'primary' : 'light'}
+            key={congregation.id}
+            routerLink={'/home/congregations/details/' + congregation.id}
+            color={congregation_id === congregation.id ? 'primary' : 'light'}
           >
-            {c.name}
+            {congregation.name}
           </IonItem>
         );
       })}
