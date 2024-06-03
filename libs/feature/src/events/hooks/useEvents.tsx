@@ -1,10 +1,11 @@
-import { createSelectors, supabase } from '@data';
+import { Database, createSelectors, supabase } from '@data';
 import { eachWeekOfInterval, format, previousMonday } from 'date-fns';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-const initialEventState: { [key: string]: any } = {};
-const initialEventsState: any[] = [];
+const initialEventState = {} as Database['public']['Tables']['events']['Row'];
+const initialEventsState =
+  [] as Database['public']['Tables']['events']['Row'][];
 
 export type EventsState = {
   event: typeof initialEventState;
@@ -12,9 +13,9 @@ export type EventsState = {
 };
 
 type EventsActions = {
-  fetchEvents: (rxdb: any, congregation_id: string) => void;
+  fetchEvents: (congregation_id: string) => void;
   resetEvent: () => void;
-  setEvent: (congregation_id: string, event_id: string) => void;
+  setEvent: (event_id: string) => void;
   upsertEvent: (congregation_id: string) => void;
   updateEventProperties: (newValues: { [property: string]: any }) => void;
 };
@@ -25,40 +26,46 @@ const useEventsBase = create<EventsState & EventsActions>()(
       event: initialEventState,
       events: initialEventsState,
 
-      setEvent: (congregation_id: string, event_id: string) => {
-        const events = get().events;
-        const newEvent = events.find(
-          (event: any) => event.event_id === event_id
-        );
-        set(() => ({
-          event: newEvent,
-        }));
+      setEvent: async (event_id: string) => {
+        try {
+          const { data, error }: any = await supabase
+            .from('events')
+            .select('*')
+            .eq('id', event_id)
+            .single();
+          if (error) throw error;
+          if (!data) throw 'No event data found';
+          set(() => ({
+            event: data,
+          }));
+        } catch (error) {
+          console.log(error);
+        }
       },
       resetEvent: () => {
         set(() => ({
           event: initialEventState,
         }));
       },
-      fetchEvents: async (congregation_id: string) => {
-        const { data: cloudData, error }: any = await supabase
-          .from('events')
-          .select()
-          .eq('congregation_id', congregation_id);
-        if (error) {
-          console.log(error.messsage);
-        }
 
+      fetchEvents: async (congregation_id: string) => {
         try {
+          const { data, error }: any = await supabase
+            .from('events')
+            .select('*');
+          // .eq('id', congregation_id);
+          if (error) throw error;
+          if (!data) throw 'No event data found';
+          set(() => ({
+            events: data,
+          }));
         } catch (error) {
           console.log(error);
-          set(() => ({
-            events: cloudData,
-          }));
         }
       },
+
       upsertEvent: async (congregation_id: string) => {
         const event = get().event;
-
         const week_ids = eachWeekOfInterval(
           {
             start: previousMonday(event.start_date),
@@ -77,6 +84,10 @@ const useEventsBase = create<EventsState & EventsActions>()(
               congregation_id,
             },
           });
+
+          if (error) throw error;
+          if (!data) throw 'No event data found';
+
           set(() => ({
             events: data,
           }));

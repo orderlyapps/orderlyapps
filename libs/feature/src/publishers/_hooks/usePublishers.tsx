@@ -1,11 +1,10 @@
-import { createSelectors, supabase } from '@data';
+import { Database, createSelectors, supabase } from '@data';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-const initialPublisherState: { [key: string]: any } = {
-  publisher: { outlines: [] },
-};
-const initialPublishersState: any[] = [];
+const initialPublisherState = {} as Database['public']['Tables']['publishers']['Row'];
+const initialPublishersState =
+  [] as Database['public']['Tables']['publishers']['Row'][];
 
 export type PublishersState = {
   publisher: typeof initialPublisherState;
@@ -13,9 +12,9 @@ export type PublishersState = {
 };
 
 type PublishersActions = {
-  fetchPublishers: (rxdb: any, congregation_id: string) => void;
+  setPublishers: (rxdb: any, congregation_id: string) => void;
   resetPublisher: () => void;
-  fetchPublisher: (publisher_id: string) => void;
+  setPublisher: (publisher_id: string) => void;
   upsertPublisher: (rxdb: any, congregation_id: string) => void;
   updatePublisherProperty: (property: string, value: any) => void;
 };
@@ -26,7 +25,7 @@ const usePublishersBase = create<PublishersState & PublishersActions>()(
       publisher: initialPublisherState,
       publishers: initialPublishersState,
 
-      fetchPublishers: async (rxdb: any, congregation_id: string) => {
+      setPublishers: async (rxdb: any, congregation_id: string) => {
         const { data: cloudData, error }: any = await supabase
           .from('publishers')
           .select()
@@ -76,7 +75,21 @@ const usePublishersBase = create<PublishersState & PublishersActions>()(
           publisher: initialPublisherState,
         }));
       },
-      fetchPublisher: (publisher_id: string) => {
+      setPublisher: async (publisher_id: string) => {
+
+try {
+  const { data: congregation, error } = await supabase
+  .from('congregations_data')
+  .select()
+  .eq('id', publisher_id)
+  .single();
+} catch (error) {
+  
+}
+     
+
+
+
         const publishers = get().publishers;
         const newPublisher = publishers.find(
           (publisher: any) => publisher.publisher_id === publisher_id
@@ -88,15 +101,15 @@ const usePublishersBase = create<PublishersState & PublishersActions>()(
 
       upsertPublisher: async (rxdb: any, congregation_id: string) => {
         const newPublisher = get().publisher;
-        const publisher_id = crypto.randomUUID();
+        const id = crypto.randomUUID();
 
         try {
           const { data: cloudData, error } = await supabase
             .from('publishers')
             .upsert({
-              publisher_id,
-              congregation_id,
               ...newPublisher,
+              id,
+              congregation_id,
             })
             .select()
             .maybeSingle();

@@ -1,43 +1,22 @@
+export * from './_/PublisherDetails';
 export * from './pdf/PDFDowloadPage';
-export * from './publishers/_main/PublisherDetailsPage';
-export * from './publishers/_main/PublisherListPage';
-export * from './publishers/_main/PublishersImportPage';
+export * from './publishers/pages/PublisherDetailsPage';
+export * from './publishers/pages/PublisherListPage';
+export * from './publishers/pages/PublishersImportPage';
 export * from './schedules/_main/WeekListPage';
 export * from './schedules/_main/WeekDetailsPage';
 export * from './tools/TestPage';
+
 export * from './congregation/pages/CongregationListPage';
 export * from './congregation/pages/CongregationsDetailsPage';
+export * from './congregation/pages/CongregationsPage';
+
 export * from './events/pages/EventDetailsPage';
 export * from './events/pages/EventsListPage';
 
-// export * from './congregation/components/CongregationForm';
-// export * from './congregation/hooks/useCongregation';
-// export * from './congregation/hooks/useSBCongregations';
-// export * from './pdf/PublicTalkPDF';
-// export * from './public-talks/UpdatePublisherOutlines';
-// export * from './public-talks/TalkPicker';
-// export * from './public-talks/SelectSpeaker';
-// export * from './publishers/components/PublisherDetails';
-// export * from './publishers/components/PublisherForm';
-// export * from './publishers/components/SBPublishersList';
-// export * from './publishers/helper/formatDisplayName';
-// export * from './publishers/hooks/usePublisher';
-// export * from './publishers/hooks/useFamilyHeads';
-// export * from './publishers/hooks/useSBPublishers';
-// export * from './publishers/hooks/useSBPublisher';
-// export * from './publishers/AddPublisherModal';
-// export * from './publishers/EditPublisherModal';
-// export * from './publishers/EditPublisherOutlinesModal';
-// export * from './schedules/useSBSchedule';
-// export * from './settings/BuildTime';
-// export * from './settings/ThemeToggle';
-// export * from './tools/react-pdf/PDFFormatTesting';
-// export * from './tools/time-and-date/GetIntegerFromDate';
-// export * from './tools/time-and-date/LogDateFromInteger';
-// export * from './user/SupabaseAuth';
-
 // SETTINGS PAGE
-export * from './congregation/modals/CongregationAddModal';
+export * from './settings/SettingsPage';
+export * from './congregation/modals/CongregationCreateModal';
 export * from './settings/BuildTime';
 export * from './user/SupabaseAuth';
 

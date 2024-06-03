@@ -1,49 +1,67 @@
-import { IonButton, IonItem, IonLabel, IonList } from '@ionic/react';
+import { IonInput, IonItem, IonList } from '@ionic/react';
 import { useCongregations } from '../hooks/useCongregations';
-import { useSettings } from '@data';
-import { formatAddress } from '../../formatting/formatAddress';
 
-export const CongregationDetails = () => {
+export const CongregationDetails = ({
+  readonly = false,
+}: {
+  readonly?: boolean;
+}) => {
   const congregation = useCongregations.use.congregation();
-  const setSettingsProperty = useSettings.use.setSettingsProperty();
+  const updateCongregationProperties =
+    useCongregations.use.updateCongregationProperties();
 
-  const handleMakeMyCongregation = () => {
-    setSettingsProperty('congregation_id', congregation?.congregation_id);
+  const props = {
+    onIonChange: (e: any) =>
+      updateCongregationProperties({ [e.target.name]: e.target.value }),
+    clearInput: true,
+    readonly,
+    className: 'ion-text-end',
   };
 
   return (
     <IonList inset>
       <IonItem>
-        <IonLabel>Name</IonLabel>
-        {congregation?.name}
+        <IonInput
+          label="Name"
+          value={congregation.name}
+          name="name"
+          {...props}
+        ></IonInput>
       </IonItem>
       <IonItem>
-        <IonLabel>Number</IonLabel>
-        {congregation?.number}
+        <IonInput
+          label="State"
+          value={congregation.state}
+          name="state"
+          {...props}
+        ></IonInput>
       </IonItem>
       <IonItem>
-        <IonLabel>Unit Number</IonLabel>
-        {congregation.unit_number}
+        <IonInput
+          label="Country"
+          value={congregation.country}
+          name="country"
+          {...props}
+        ></IonInput>
       </IonItem>
       <IonItem>
-        <IonLabel>Lot Number</IonLabel>
-        {congregation.house_number}
+        <IonInput
+          label="Phone"
+          value={congregation.phone}
+          name="phone"
+          {...props}
+        ></IonInput>
       </IonItem>
       <IonItem>
-        <IonLabel>Street</IonLabel>
-        {congregation.street}
+        <IonInput
+          label="Email"
+          value={congregation.email}
+          name="email"
+          {...props}
+        ></IonInput>
       </IonItem>
-      <IonItem>
-        <IonLabel>Suburb</IonLabel>
-        {congregation.suburb}
-      </IonItem>
-      <IonButton
-        className="ion-padding"
-        expand="block"
-        onClick={handleMakeMyCongregation}
-      >
-        Make My Congregation
-      </IonButton>
     </IonList>
   );
 };
+
+export default CongregationDetails;

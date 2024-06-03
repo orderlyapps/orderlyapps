@@ -1,4 +1,3 @@
-import { supabase } from '@data';
 import {
   IonBackButton,
   IonButtons,
@@ -11,11 +10,15 @@ import {
 import { Spinner } from '@ui';
 import { Suspense, useEffect } from 'react';
 import { useCongregations } from '../hooks/useCongregations';
-import { CongregationDetails } from '../components/CongregationDetails';
+import { isCongregationAdmin } from '../hooks/isCongregationAdmin';
+import { useSBAuth } from '../../user/useSBAuth';
+import CongregationEditModal from '../modals/CongregationEditModal';
+import CongregationDetails from '../components/CongregationDetails';
 
 export const CongregationsDetailsPage = ({ match }: any) => {
-  const congregation = useCongregations.use.congregation();
+  const congregation: any = useCongregations.use.congregation();
   const setCongregation = useCongregations.use.setCongregation();
+  const session = useSBAuth.use.session() as any;
 
   useEffect(() => {
     setCongregation(match.params.id);
@@ -29,11 +32,16 @@ export const CongregationsDetailsPage = ({ match }: any) => {
             <IonBackButton></IonBackButton>
           </IonButtons>
           <IonTitle>{congregation.name}</IonTitle>
+          <IonButtons slot="end">
+            {isCongregationAdmin(congregation, session) && (
+              <CongregationEditModal></CongregationEditModal>
+            )}
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          <CongregationDetails></CongregationDetails>
+          <CongregationDetails readonly></CongregationDetails>
         </Suspense>
       </IonContent>
     </IonPage>

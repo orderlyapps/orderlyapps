@@ -14,8 +14,10 @@ import { formatDisplayName } from '../name/formatDisplayName';
 import { useRXdb } from '@data';
 import { OutlinesDetails } from '../outlines/OutlinesDetails';
 import { ContactDetails } from '../contact/ContactDetails';
-import { PublisherDelete } from './PublisherDelete';
+// import { PublisherDelete } from './PublisherDelete';
 import { usePublishers } from '../_hooks/usePublishers';
+import { PublisherDelete } from '../components/PublisherDelete';
+import {PublisherDetails} from '../../_/PublisherDetails';
 const NameDetails = lazy(() => import('../name/NameDetails'));
 
 interface UserDetailPageProps
@@ -26,14 +28,14 @@ interface UserDetailPageProps
 export const PublisherDetailsPage = ({ match }: UserDetailPageProps) => {
   const publisher = usePublishers.use.publisher();
   const resetPublisher = usePublishers.use.resetPublisher();
-  const fetchPublisher = usePublishers.use.fetchPublisher();
+  const setPublisher = usePublishers.use.setPublisher();
 
   useEffect(() => {
     if (match.params.publisher_id === 'new') {
       resetPublisher();
       return;
     }
-    fetchPublisher(match.params.publisher_id);
+    setPublisher(match.params.publisher_id);
   }, []);
 
   return (
@@ -48,10 +50,7 @@ export const PublisherDetailsPage = ({ match }: UserDetailPageProps) => {
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
-          <NameDetails></NameDetails>
-          <ContactDetails></ContactDetails>
-          <OutlinesDetails></OutlinesDetails>
-          <PublisherDelete></PublisherDelete>
+          <PublisherDetails></PublisherDetails>
         </Suspense>
       </IonContent>
     </IonPage>

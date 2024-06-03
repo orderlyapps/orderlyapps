@@ -2,7 +2,7 @@ import { settingsOutline, homeOutline } from 'ionicons/icons';
 import '@styles';
 import { useEffect, useState } from 'react';
 import { HomePage } from './home/HomePage';
-import { Settings } from './settings/SettingsPage';
+// import { Settings } from './settings/SettingsPage';
 import { initOrderlyDB, RXDBProvider, useRXdb } from '@data';
 import IonShell from '../components/IonShell';
 import {
@@ -17,6 +17,8 @@ import {
   CongregationsDetailsPage,
   EventsListPage,
   EventDetailsPage,
+  Settings,
+  CongregationsPage,
 } from '@feature';
 
 const content = [
@@ -74,9 +76,15 @@ const content = [
 
   // CONGREGATION
   {
+    label: 'CongregationsPage',
+    component: CongregationsPage,
+    path: '/home/congregations',
+    redirect: true,
+  },
+  {
     label: 'CongregationListPage',
     component: CongregationListPage,
-    path: '/home/congregations/',
+    path: '/home/congregations/list',
     redirect: true,
   },
   {

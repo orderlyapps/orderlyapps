@@ -8,12 +8,23 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Spinner } from '@ui';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { EventDetails } from '../components/EventDetails';
+import { useEvents } from '../hooks/useEvents';
+import EventFormModal from '../modals/EventFormModal';
 
 export const EventDetailsPage = ({ match }: any) => {
+  const setEvent = useEvents.use.setEvent();
+  const resetEvent = useEvents.use.resetEvent();
 
-  
+  useEffect(() => {
+    setEvent(match.params.id);
+
+    return () => {
+      resetEvent();
+    };
+  }, []);
+
   return (
     <IonPage>
       <IonHeader>
@@ -22,6 +33,9 @@ export const EventDetailsPage = ({ match }: any) => {
             <IonBackButton></IonBackButton>
           </IonButtons>
           <IonTitle>Event Details</IonTitle>
+          <IonButtons slot="end">
+            <EventFormModal></EventFormModal>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>

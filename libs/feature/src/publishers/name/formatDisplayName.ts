@@ -1,25 +1,25 @@
 export const formatDisplayName = (
   publisher: {
-    displayName: string;
-    firstName: string;
-    lastName: string;
+    display_name: string;
+    first_name: string;
+    last_name: string;
   },
-  format?: null | 'displayName lastName' | 'displayName'
+  format?: null | 'display_name last_name' | 'display_name'
 ) => {
   if (!publisher) return;
-  const displayName = publisher.displayName
-    ? publisher.displayName
-    : publisher.firstName;
+  const display_name = publisher.display_name
+    ? publisher.display_name
+    : publisher.first_name;
 
-  if (format === 'displayName') {
-    return displayName;
+  if (format === 'display_name') {
+    return display_name;
   }
   
-  if (format === 'displayName lastName') {
-    return `${displayName} ${publisher.lastName || ''}`;
+  if (format === 'display_name last_name') {
+    return `${display_name} ${publisher.last_name || ''}`;
   }
 
-  return `${publisher.lastName || ''}, ${displayName || ''}`;
+  return `${publisher.last_name || ''}, ${display_name || ''}`;
 };
 
 export default formatDisplayName;

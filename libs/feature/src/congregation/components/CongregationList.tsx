@@ -3,7 +3,8 @@ import { IonItem, IonList } from '@ionic/react';
 import { useEffect } from 'react';
 import { useCongregations } from '../hooks/useCongregations';
 
-export const CongregationList = () => {
+export const 
+CongregationList = () => {
   const { congregation_id } = useSettings.use.settings();
   const congregations = useCongregations.use.congregations();
   const fetchCongregations = useCongregations.use.fetchCongregations();

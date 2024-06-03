@@ -36,11 +36,11 @@ export const HomePage = () => {
             </IonButton>
 
             <IonButton
-              routerLink={path.CongregationListPage}
+              routerLink={path.CongregationsPage}
               expand="block"
               className="ion-padding"
             >
-              Congregations List
+              Congregations
             </IonButton>
 
             <IonButton

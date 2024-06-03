@@ -10,7 +10,7 @@ import {
 } from '@ionic/react';
 import { useEvents } from '../hooks/useEvents';
 
-export const EventAddCircuitAssembly = () => {
+export const EventCircuitAssembly = () => {
   const event = useEvents.use.event();
   const updateEventProperties = useEvents.use.updateEventProperties();
   const onInput = (e: any) =>

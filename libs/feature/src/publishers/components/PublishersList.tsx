@@ -7,18 +7,19 @@ import { usePublishers } from '../_hooks/usePublishers';
 export const PublishersList = () => {
   const { congregation_id } = useSettings.use.settings();
   if (!congregation_id) {
-    return <div className="full centered">Please select a congregation</div>;
+    return <div className="full centered">No congregation selected</div>;
   }
 
   const publishers = usePublishers.use.publishers();
-  const fetchPublishers = usePublishers.use.fetchPublishers();
+  const fetchPublishers = usePublishers.use.setPublishers();
   const rxdb = useRXdb.use.rxdb();
 
   useEffect(() => {
     fetchPublishers(rxdb, congregation_id);
   }, []);
 
-  if (!publishers) return null;
+  if (!publishers)
+    return <div className="full centered">No publishers</div>;
 
   return (
     <IonList inset>
@@ -32,13 +33,13 @@ export const PublishersList = () => {
           }
           return a.firstName.localeCompare(b.firstName);
         })
-        .map((publisher: any) => (
+        .map((p: any) => (
           <IonItem
-            key={publisher.publisher_id}
+            key={p.id}
             button={true}
-            routerLink={'/home/publisher/details/' + publisher.publisher_id}
+            routerLink={'/home/publisher/details/' + p.id}
           >
-            <IonLabel>{formatDisplayName(publisher)}</IonLabel>
+            <IonLabel>{formatDisplayName(p)}</IonLabel>
           </IonItem>
         ))}
     </IonList>

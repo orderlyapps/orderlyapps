@@ -11,7 +11,7 @@ export type SettingsState = {
 type SettingsActions = {
   resetSettings: () => void;
   setSettings: (newSettings: typeof initialState) => void;
-  setSettingsProperty: (property: string, value: any) => void;
+  setSettingsProperties: (newValues: { [property: string]: any }) => void;
 };
 
 const useSettingsBase = create<SettingsState & SettingsActions>()(
@@ -30,9 +30,9 @@ const useSettingsBase = create<SettingsState & SettingsActions>()(
         }));
       },
 
-      setSettingsProperty: (property: string, value: any) => {
+      setSettingsProperties:  (newValues: { [property: string]: any }) => {
         set((state: SettingsState) => ({
-          settings: { ...state.settings, [property]: value },
+          settings: { ...state.settings, ...newValues },
         }));
       },
     }),

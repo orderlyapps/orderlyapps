@@ -20,5 +20,5 @@
     "**/*.spec.jsx",
     "**/*.test.jsx"
   ],
-  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "src/publishers/_main/PublisherAddModal.tsx", "src/publishers/EditPublisherOutlinesModal.tsx", "src/publishers/name/NameEditModal.tsx"]
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "src/publishers/components/PublisherAddModal.tsx", "src/publishers/EditPublisherOutlinesModal.tsx", "src/publishers/name/NameEditModal.tsx"]
 }

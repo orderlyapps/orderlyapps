@@ -1,10 +1,14 @@
-import { createSelectors, supabase } from '@data';
-import { eachWeekOfInterval, format, previousMonday } from 'date-fns';
+import { Database, createSelectors, supabase } from '@data';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-const initialCongregationState: { [key: string]: any } = {};
-const initialCongregationsState: any[] = [];
+const initialCongregationState = {
+  id: null,
+  admins: null,
+  weekend_meeting_editors: null,
+} as Database['public']['Views']['congregations_data']['Row'];
+const initialCongregationsState =
+  [] as Database['public']['Views']['congregations_data']['Row'][];
 
 export type CongregationsState = {
   congregation: typeof initialCongregationState;
@@ -13,9 +17,11 @@ export type CongregationsState = {
 
 type CongregationsActions = {
   fetchCongregations: () => void;
+  claimCongregation: (congregation_id: string) => void;
+  yieldCongregation: (congregation_id: string) => void;
   resetCongregation: () => void;
   setCongregation: (congregation_id: string) => void;
-  upsertCongregation: (congregation_id: string) => void;
+  upsertCongregation: () => void;
   updateCongregationProperties: (newValues: {
     [property: string]: any;
   }) => void;
@@ -31,11 +37,49 @@ const useCongregationsBase = create<
       fetchCongregations: async () => {
         try {
           let { data: congregations, error } = await supabase
-            .from('congregations')
+            .from('congregations_data')
             .select('*')
             .order('name');
           if (error) throw error;
           if (!congregations) throw 'No congregation data found';
+          set(() => ({
+            congregations,
+          }));
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      claimCongregation: async (congregation_id: string) => {
+        try {
+          let { data: congregations, error } = await supabase.rpc(
+            'claim_congregation',
+            {
+              congregation_id,
+            }
+          );
+
+          if (error) throw error;
+          if (!congregations) throw 'No congregation data found';
+
+          set(() => ({
+            congregations,
+          }));
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      yieldCongregation: async (congregation_id: string) => {
+        try {
+          let { data: congregations, error } = await supabase.rpc(
+            'yield_congregation',
+            {
+              congregation_id,
+            }
+          );
+
+          if (error) throw error;
+          if (!congregations) throw 'No congregation data found';
+
           set(() => ({
             congregations,
           }));
@@ -51,7 +95,7 @@ const useCongregationsBase = create<
       setCongregation: async (congregation_id: string) => {
         try {
           const { data: congregation, error } = await supabase
-            .from('congregations')
+            .from('congregations_data')
             .select()
             .eq('id', congregation_id)
             .single();
@@ -64,18 +108,23 @@ const useCongregationsBase = create<
           console.log(error);
         }
       },
-      upsertCongregation: async (congregation_id: string) => {
-        const congregation = get().congregation;
+      upsertCongregation: async () => {
+        const congregation = get()
+          .congregation as Database['public']['Tables']['congregations']['Row'];
 
-        const week_ids = eachWeekOfInterval(
-          {
-            start: previousMonday(congregation.start_date),
-            end: congregation.end_date || congregation.start_date,
-          },
-          {
-            weekStartsOn: 1,
-          }
-        ).map((id) => format(id, 'yyyy-MM-dd'));
+        try {
+          let { data: congregations, error } = await supabase.rpc(
+            'upsert_congregation',
+            congregation
+          );
+          if (error) throw error;
+          if (!congregations) throw 'No congregation data found';
+          set(() => ({
+            congregations,
+          }));
+        } catch (error) {
+          if (error) console.error(error);
+        }
       },
       updateCongregationProperties: (newValues: {
         [property: string]: any;

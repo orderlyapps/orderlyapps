@@ -1,33 +1,23 @@
-import { IonButton, IonItem, IonList } from '@ionic/react';
+import { IonItem, IonList } from '@ionic/react';
 import { useEvents } from '../hooks/useEvents';
-import { supabase } from '@data';
+import { useSettings } from '@data';
+import { useEffect } from 'react';
 
 export const EventsList = () => {
+  const { congregation_id } = useSettings.use.settings();
   const events = useEvents.use.events();
+  const fetchEvents = useEvents.use.fetchEvents();
 
-  const handleDeleteEvent = async (event_id: string) => {
-    let { data, error } = await supabase.rpc('get_events', {
-      congregation_id: 'b849216a-a104-4be6-923f-97bd3462888f',
-    });
-    if (error) console.error(error);
-    else console.log(data);
-  };
-
-  const handleClick = () => {
-    console.log('🚀 ~ handleClick ~ events:', events);
-  };
+  useEffect(() => {
+    fetchEvents(congregation_id);
+  }, []);
 
   return (
     <IonList>
-      <IonItem>
-        <IonButton onClick={handleClick}>EventsList</IonButton>
-      </IonItem>
-
       {events?.map((event, index) => (
         <IonItem
           key={index}
-          // onClick={() => handleDeleteEvent(event.event_id)}
-          routerLink={'/home/events/details/' + event.event_id}
+          routerLink={'/home/events/details/' + event.id}
         >
           {event.name}
         </IonItem>

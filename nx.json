@@ -38,7 +38,10 @@
         "bundler": "vite"
       },
       "component": {
-        "style": "tailwind"
+        "style": "none",
+        "export": true,
+        "inSourceTests": true,
+        "directory": "libs/feature/src"
       },
       "library": {
         "style": "tailwind",

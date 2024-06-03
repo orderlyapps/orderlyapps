@@ -11,10 +11,11 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { Spinner } from '@ui';
-import { buildTime } from '@util';
 import { Suspense } from 'react';
-import { path } from '../Orderly';
-import { BuildTime, CongregationAddModal, SupabaseAuth } from '@feature';
+import { BuildTime, CongregationCreateModal, SupabaseAuth } from '@feature';
+import CongregationSelectModal from '../congregation/modals/CongregationSelectModal';
+import CongregationClaimModal from '../congregation/modals/CongregationClaimModal';
+import CongregationYieldModal from '../congregation/modals/CongregationYieldModal';
 
 export const Settings = () => {
   return (
@@ -31,10 +32,16 @@ export const Settings = () => {
         <Suspense fallback={<Spinner></Spinner>}>
           <SupabaseAuth></SupabaseAuth>
           <BuildTime></BuildTime>
+          <CongregationSelectModal></CongregationSelectModal>
+          <CongregationClaimModal></CongregationClaimModal>
+          <CongregationYieldModal></CongregationYieldModal>
 
-          <CongregationAddModal></CongregationAddModal>
+          <CongregationCreateModal></CongregationCreateModal>
           {import.meta.env.DEV && (
-            <IonButton routerLink={path.TestPage} expand="full">
+            <IonButton
+              routerLink={'/settings/create-congregation/'}
+              expand="full"
+            >
               TEST PAGE
             </IonButton>
           )}

@@ -10,7 +10,7 @@
     // FILES
     // "**/apps/*/*.*": true,
     "**/libs/*/*.*": true,
-    
+
     // FOLDERS
     "**/.nx": true,
     "**/dist": true,
@@ -18,5 +18,13 @@
     "**/.wrangler": true,
     "**/local": true,
     "**/node_modules": true
-  }
+  },
+  "folder-path-color.folders": [
+    // { "path": "libs/feature/src/congregation", "color": "blue" },
+    { "path": "libs/feature/src/congregation", "color": "yellow" },
+    { "path": "libs/feature/src/user", "color": "green" },
+    { "path": "libs/feature/src/publishers", "color": "magenta" },
+    { "path": "libs/feature", "color": "cyan" },
+    { "path": "supabase", "color": "blue" },
+  ]
 }

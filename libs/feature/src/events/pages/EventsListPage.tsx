@@ -9,8 +9,8 @@ import {
 } from '@ionic/react';
 import { Spinner } from '@ui';
 import { Suspense } from 'react';
-import { EventAdd } from '../components/EventAdd';
 import { EventsList } from '../components/EventsList';
+import EventFormModal from '../modals/EventFormModal';
 
 export const EventsListPage = () => {
   return (
@@ -21,12 +21,14 @@ export const EventsListPage = () => {
             <IonBackButton></IonBackButton>
           </IonButtons>
           <IonTitle>Events</IonTitle>
+          <IonButtons slot="end">
+            <EventFormModal></EventFormModal>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <Suspense fallback={<Spinner></Spinner>}>
           <EventsList></EventsList>
-          <EventAdd></EventAdd>
         </Suspense>
       </IonContent>
     </IonPage>

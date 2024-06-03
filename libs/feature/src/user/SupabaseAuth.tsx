@@ -2,7 +2,7 @@ import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { supabase } from '@data';
 import { useEffect } from 'react';
-import { useSBAuth } from './useSupabaseAuth';
+import { useSBAuth } from './useSBAuth';
 import { IonAvatar, IonButton, IonItem, IonLabel, IonList } from '@ionic/react';
 
 export const SupabaseAuth = () => {
