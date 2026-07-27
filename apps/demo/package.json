@@ -9,7 +9,10 @@
     "preview": "vp preview"
   },
   "dependencies": {
-    "@amodeo/ionic": "workspace:*"
+    "@amodeo/ionic": "workspace:*",
+    "@ionic/react": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "devDependencies": {
     "typescript": "~6.0.2",
