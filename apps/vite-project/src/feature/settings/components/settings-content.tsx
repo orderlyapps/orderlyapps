@@ -11,6 +11,9 @@ export function SettingsContent() {
         <IonLabel>Dark mode</IonLabel>
         <IonToggle slot="end" />
       </IonItem>
+      <IonItem routerLink="/tabs/settings/about" detail>
+        <IonLabel>About</IonLabel>
+      </IonItem>
     </IonList>
   );
 }

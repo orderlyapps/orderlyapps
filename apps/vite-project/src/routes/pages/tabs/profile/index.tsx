@@ -1,16 +1,16 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-import { SettingsContent } from "../../../feature/settings/settings-content.tsx";
+import { ProfileContent } from "../../../../feature/profile/components/profile-content.tsx";
 
-export default function SettingsTabPage() {
+export default function ProfileTabPage() {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Settings</IonTitle>
+          <IonTitle>Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <SettingsContent />
+        <ProfileContent />
       </IonContent>
     </IonPage>
   );

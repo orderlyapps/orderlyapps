@@ -10,9 +10,12 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 import { home, person, settings } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
-import HomeTabPage from "./routes/pages/home-tab-page/index.tsx";
-import ProfileTabPage from "./routes/pages/profile-tab-page/index.tsx";
-import SettingsTabPage from "./routes/pages/settings-tab-page/index.tsx";
+import AboutPage from "./routes/pages/tabs/settings/about/index.tsx";
+import DetailsPage from "./routes/pages/tabs/home/details/index.tsx";
+import EditProfilePage from "./routes/pages/tabs/profile/edit/index.tsx";
+import HomeTabPage from "./routes/pages/tabs/home/index.tsx";
+import ProfileTabPage from "./routes/pages/tabs/profile/index.tsx";
+import SettingsTabPage from "./routes/pages/tabs/settings/index.tsx";
 
 export default function App() {
   return (
@@ -21,8 +24,11 @@ export default function App() {
         <IonTabs>
           <IonRouterOutlet>
             <Route exact path="/tabs/home" component={HomeTabPage} />
+            <Route exact path="/tabs/home/details" component={DetailsPage} />
             <Route exact path="/tabs/profile" component={ProfileTabPage} />
+            <Route exact path="/tabs/profile/edit" component={EditProfilePage} />
             <Route exact path="/tabs/settings" component={SettingsTabPage} />
+            <Route exact path="/tabs/settings/about" component={AboutPage} />
             <Redirect exact from="/" to="/tabs/home" />
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
