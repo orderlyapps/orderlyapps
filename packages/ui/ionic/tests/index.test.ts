@@ -1,6 +1,6 @@
 import { expect, test } from "vite-plus/test";
-import { fn } from "../src/index.ts";
+import { SimpleGreeting } from "../src/index.ts";
 
-test("fn", () => {
-  expect(fn()).toBe("Hello, tsdown!");
+test("exports SimpleGreeting component", () => {
+  expect(SimpleGreeting).toBeTypeOf("function");
 });

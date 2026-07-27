@@ -1,3 +1,5 @@
+import { SimpleGreeting } from "@amodeo/ionic";
+
 export function App() {
-  return <div>App</div>;
+  return <SimpleGreeting name="Orderly" />;
 }

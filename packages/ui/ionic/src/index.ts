@@ -1,3 +1,4 @@
-export function fn() {
-  return "Hello, tsdown!";
-}
+export {
+  SimpleGreeting,
+  type SimpleGreetingProps,
+} from "./components/simple-greeting/simple-greeting.tsx";
