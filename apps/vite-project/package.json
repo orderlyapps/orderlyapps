@@ -11,8 +11,13 @@
   },
   "dependencies": {
     "@amodeo/ionic": "workspace:*",
+    "@ionic/react-router": "catalog:",
+    "@types/react-router-dom": "catalog:",
+    "ionicons": "catalog:",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-router": "catalog:",
+    "react-router-dom": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

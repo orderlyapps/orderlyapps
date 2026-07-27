@@ -32,8 +32,13 @@
   },
   "dependencies": {
     "@ionic/react": "catalog:",
+    "@ionic/react-router": "catalog:",
+    "@types/react-router-dom": "catalog:",
+    "ionicons": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "react-router": "catalog:",
+    "react-router-dom": "catalog:"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
