@@ -9,6 +9,7 @@ export interface HtmlInjectOptions {
     injectTo: "head" | "body" | "head-prepend" | "body-prepend";
     tag: string;
     attrs?: Record<string, string>;
+    children?: string;
   }>;
 }
 
@@ -77,6 +78,24 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
         type: "image/png",
         href: "/assets/images/icon-196.png",
       },
+    },
+    // iOS PWA splash screen
+    {
+      injectTo: "head",
+      tag: "script",
+      attrs: {
+        src: "https://cdn.jsdelivr.net/npm/ios-pwa-splash@1.0.0/cdn.min.js",
+      },
+    },
+    {
+      injectTo: "head",
+      tag: "script",
+      children: `iosPWASplash('/assets/images/icon.png', '${options.themeColor ?? "#3880ff"}');`,
+    },
+    {
+      injectTo: "head",
+      tag: "script",
+      children: `console.log('Hello from htmlInject');`,
     },
   ];
 

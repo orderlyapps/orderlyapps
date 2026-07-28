@@ -10,12 +10,12 @@ export default defineConfig({
       name: APP_NAME,
       short_name: APP_NAME,
       description: "A Vite project with PWA support",
-      theme_color: "#d91212",
+      theme_color: "#4a6da7",
       background_color: "#1de04e",
     },
     htmlOptions: {
       title: APP_NAME,
-      themeColor: "#d91212",
+      themeColor: "#4a6da7",
     },
   }),
 });
