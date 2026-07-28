@@ -11,11 +11,16 @@ test("libraryDefaults", () => {
 
 test("reactAppDefaults", () => {
   const config = reactAppDefaults({
-    name: "Test App",
-    short_name: "TestApp",
-    description: "A test app",
-    theme_color: "#ffffff",
-    background_color: "#ffffff",
+    pwaOptions: {
+      name: "Test App",
+      short_name: "TestApp",
+      description: "A test app",
+      theme_color: "#ffffff",
+      background_color: "#ffffff",
+    },
+    htmlOptions: {
+      title: "Test App",
+    },
   });
   expect(config.lint?.plugins).toEqual(["react", "typescript", "oxc"]);
   expect(config.lint?.rules).toMatchObject({

@@ -1,8 +1,15 @@
 import type { UserConfig } from "vite-plus";
 import { vitePWA, type VitePWAOptions } from "../plugins/vitePWA.ts";
+import { htmlInject, type HtmlInjectOptions } from "../plugins/htmlInject.ts";
 import { reactPlugins } from "../plugins/react.ts";
 
-export const reactAppDefaults = (pwaOptions: VitePWAOptions): UserConfig => ({
+export const reactAppDefaults = ({
+  pwaOptions,
+  htmlOptions,
+}: {
+  pwaOptions: VitePWAOptions;
+  htmlOptions: HtmlInjectOptions;
+}): UserConfig => ({
   lint: {
     plugins: ["react", "typescript", "oxc"],
     rules: {
@@ -26,5 +33,5 @@ export const reactAppDefaults = (pwaOptions: VitePWAOptions): UserConfig => ({
       },
     ],
   },
-  plugins: [...vitePWA(pwaOptions), ...(reactPlugins ?? [])],
+  plugins: [...vitePWA(pwaOptions), ...htmlInject(htmlOptions), ...(reactPlugins ?? [])],
 });

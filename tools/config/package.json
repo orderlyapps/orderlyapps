@@ -40,6 +40,7 @@
     "bumpp": "^11.1.0",
     "typescript": "^7.0.2",
     "vite": "catalog:",
+    "vite-plugin-html": "catalog:",
     "vite-plugin-pwa": "catalog:",
     "vite-plus": "catalog:"
   }
