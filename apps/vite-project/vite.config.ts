@@ -15,7 +15,7 @@ export default defineConfig({
     },
     htmlOptions: {
       title: APP_NAME,
-      themeColor: "#00ffff",
+      themeColor: "#d91212",
     },
   }),
 });

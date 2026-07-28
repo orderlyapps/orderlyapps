@@ -29,6 +29,7 @@ catalog:
   "@types/babel__core": "^7.20.5"
   "babel-plugin-react-compiler": "^1.0.0"
   "vite-plugin-html": "^3.2.2"
+  wrangler: ^4.114.0
 overrides:
   vite: "catalog:"
   vitest: "catalog:"
@@ -39,3 +40,6 @@ peerDependencyRules:
   allowedVersions:
     vite: "*"
     vitest: "*"
+allowBuilds:
+  esbuild: true
+  workerd: true

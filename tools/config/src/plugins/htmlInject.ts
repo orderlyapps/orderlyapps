@@ -32,6 +32,52 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
         content: options.themeColor ?? "#3880ff",
       },
     },
+    // Makes the web app capable of running in standalone mode on iOS
+    {
+      injectTo: "head",
+      tag: "meta",
+      attrs: {
+        name: "apple-mobile-web-app-capable",
+        content: "yes",
+      },
+    },
+    // Sets the status bar style on iOS when running as a standalone web app
+    {
+      injectTo: "head",
+      tag: "meta",
+      attrs: {
+        name: "apple-mobile-web-app-status-bar-style",
+        content: "default",
+      },
+    },
+    // Sets the title shown on the iOS home screen
+    {
+      injectTo: "head",
+      tag: "meta",
+      attrs: {
+        name: "apple-mobile-web-app-title",
+        content: options.title,
+      },
+    },
+    // Apple touch icon for iOS home screen
+    {
+      injectTo: "head",
+      tag: "link",
+      attrs: {
+        rel: "apple-touch-icon",
+        href: "/assets/images/icon-180.png",
+      },
+    },
+    // Favicon
+    {
+      injectTo: "head",
+      tag: "link",
+      attrs: {
+        rel: "icon",
+        type: "image/png",
+        href: "/assets/images/icon-196.png",
+      },
+    },
   ];
 
   return [
