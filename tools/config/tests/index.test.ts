@@ -10,12 +10,19 @@ test("libraryDefaults", () => {
 });
 
 test("reactAppDefaults", () => {
-  expect(reactAppDefaults.lint?.plugins).toEqual(["react", "typescript", "oxc"]);
-  expect(reactAppDefaults.lint?.rules).toMatchObject({
+  const config = reactAppDefaults({
+    name: "Test App",
+    short_name: "TestApp",
+    description: "A test app",
+    theme_color: "#ffffff",
+    background_color: "#ffffff",
+  });
+  expect(config.lint?.plugins).toEqual(["react", "typescript", "oxc"]);
+  expect(config.lint?.rules).toMatchObject({
     "react/rules-of-hooks": "error",
     "vite-plus/prefer-vite-plus-imports": "error",
   });
-  expect(reactAppDefaults.lint?.options).toEqual({
+  expect(config.lint?.options).toEqual({
     typeAware: true,
     typeCheck: true,
   });

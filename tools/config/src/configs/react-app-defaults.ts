@@ -1,12 +1,8 @@
 import type { UserConfig } from "vite-plus";
-import { vitePWA } from "../plugins/vitePWA.ts";
+import { vitePWA, type VitePWAOptions } from "../plugins/vitePWA.ts";
 import { reactPlugins } from "../plugins/react.ts";
 
-if (!reactPlugins) {
-  throw new Error("reactPlugins failed to initialize from lazyPlugins()");
-}
-
-export const reactAppDefaults: UserConfig = {
+export const reactAppDefaults = (pwaOptions: VitePWAOptions): UserConfig => ({
   lint: {
     plugins: ["react", "typescript", "oxc"],
     rules: {
@@ -30,5 +26,5 @@ export const reactAppDefaults: UserConfig = {
       },
     ],
   },
-  plugins: [...vitePWA, ...reactPlugins],
-};
+  plugins: [...vitePWA(pwaOptions), ...(reactPlugins ?? [])],
+});
