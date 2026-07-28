@@ -22,6 +22,12 @@ catalog:
   react-router: 5.3.4
   react-router-dom: 5.3.4
   "@types/react-router-dom": 5.3.3
+  "vite-plugin-pwa": "^1.0.0"
+  "@vitejs/plugin-react": "^6.0.3"
+  "@rolldown/plugin-babel": "^0.2.3"
+  "@babel/core": "^7.29.7"
+  "@types/babel__core": "^7.20.5"
+  "babel-plugin-react-compiler": "^1.0.0"
 overrides:
   vite: "catalog:"
   vitest: "catalog:"
