@@ -3,7 +3,9 @@ import { createHtmlPlugin } from "vite-plugin-html";
 
 export interface HtmlInjectOptions {
   title: string;
-  themeColor?: string;
+  splashColor?: string;
+  themeColorLight?: string;
+  themeColorDark?: string;
   injectScript?: string;
   splashScriptSrc?: string;
   tags?: Array<{
@@ -25,13 +27,33 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
         content: "width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no",
       },
     },
-    // Sets the browser UI color (e.g. address bar) to match the app theme
+    // Declares support for both light and dark color schemes
+    {
+      injectTo: "head",
+      tag: "meta",
+      attrs: {
+        name: "color-scheme",
+        content: "light dark",
+      },
+    },
+    // Browser UI color when the user prefers light mode
     {
       injectTo: "head",
       tag: "meta",
       attrs: {
         name: "theme-color",
-        content: options.themeColor ?? "#3880ff",
+        media: "(prefers-color-scheme: light)",
+        content: options.themeColorLight ?? "#0054e9",
+      },
+    },
+    // Browser UI color when the user prefers dark mode
+    {
+      injectTo: "head",
+      tag: "meta",
+      attrs: {
+        name: "theme-color",
+        media: "(prefers-color-scheme: dark)",
+        content: options.themeColorDark ?? "#eb445a",
       },
     },
     // Makes the web app capable of running in standalone mode on iOS
@@ -49,7 +71,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
       tag: "meta",
       attrs: {
         name: "apple-mobile-web-app-status-bar-style",
-        content: "default",
+        content: "black-translucent",
       },
     },
     // Sets the title shown on the iOS home screen
@@ -91,12 +113,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
     {
       injectTo: "head",
       tag: "script",
-      children: `if (typeof iosPWASplash === 'function') iosPWASplash('/assets/images/icon.png', '${options.themeColor ?? "#3880ff"}');`,
-    },
-    {
-      injectTo: "head",
-      tag: "script",
-      children: `console.log('Hello from htmlInject');`,
+      children: `if (typeof iosPWASplash === 'function') iosPWASplash('/assets/images/icon.png', '${options.splashColor ?? "#3880ff"}');`,
     },
   ];
 

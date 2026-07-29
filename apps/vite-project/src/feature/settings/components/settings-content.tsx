@@ -1,6 +1,9 @@
 import { IonItem, IonLabel, IonList, IonToggle } from "@ionic/react";
+import { ThemeSelector, useTheme } from "@amodeo/ionic";
 
 export function SettingsContent() {
+  const { mode, setMode } = useTheme();
+
   return (
     <IonList>
       <IonItem>
@@ -8,8 +11,8 @@ export function SettingsContent() {
         <IonToggle slot="end" />
       </IonItem>
       <IonItem>
-        <IonLabel>Dark mode</IonLabel>
-        <IonToggle slot="end" />
+        <IonLabel>Theme</IonLabel>
+        <ThemeSelector mode={mode} onModeChange={setMode} />
       </IonItem>
       <IonItem routerLink="/tabs/settings/about" detail>
         <IonLabel>About</IonLabel>

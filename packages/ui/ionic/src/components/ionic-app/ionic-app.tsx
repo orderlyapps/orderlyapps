@@ -1,5 +1,6 @@
 import { IonApp, setupIonicReact } from "@ionic/react";
 import type { ReactNode } from "react";
+import { initTheme } from "../../hooks/use-theme/use-theme.ts";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -11,18 +12,15 @@ import "@ionic/react/css/text-alignment.css";
 import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
-import "@ionic/react/css/palettes/dark.system.css";
+import "@ionic/react/css/palettes/dark.class.css";
 
 export interface IonicAppProps {
   children: ReactNode;
 }
 
-let isSetup = false;
+setupIonicReact();
+initTheme();
 
 export function IonicApp({ children }: IonicAppProps) {
-  if (!isSetup) {
-    setupIonicReact();
-    isSetup = true;
-  }
   return <IonApp>{children}</IonApp>;
 }
