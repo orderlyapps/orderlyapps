@@ -7,7 +7,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { DetailsContent } from "../../../../feature/home/components/details/details-content.tsx";
+import { DetailsContent } from "@/feature/home/components/details/details-content.tsx";
 
 export default function DetailsPage() {
   return (

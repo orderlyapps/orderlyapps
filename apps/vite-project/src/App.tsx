@@ -3,12 +3,12 @@ import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } 
 import { IonReactRouter } from "@ionic/react-router";
 import { home, person, settings } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
-import AboutPage from "./routes/pages/settings/about/index.tsx";
-import DetailsPage from "./routes/pages/home/details/index.tsx";
-import EditProfilePage from "./routes/pages/profile/edit/index.tsx";
-import HomeTabPage from "./routes/pages/home/index.tsx";
-import ProfileTabPage from "./routes/pages/profile/index.tsx";
-import SettingsTabPage from "./routes/pages/settings/index.tsx";
+import AboutPage from "@/routes/pages/settings/about/index.tsx";
+import DetailsPage from "@/routes/pages/home/details/index.tsx";
+import EditProfilePage from "@/routes/pages/profile/edit/index.tsx";
+import HomeTabPage from "@/routes/pages/home/index.tsx";
+import ProfileTabPage from "@/routes/pages/profile/index.tsx";
+import SettingsTabPage from "@/routes/pages/settings/index.tsx";
 
 export default function App() {
   return (

@@ -1,3 +1,4 @@
+import path from "node:path";
 import { defineConfig } from "vite-plus";
 import { reactAppDefaults } from "config";
 
@@ -24,4 +25,9 @@ export default defineConfig({
       themeColorDark: THEME_COLOR_DARK,
     },
   }),
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
 });

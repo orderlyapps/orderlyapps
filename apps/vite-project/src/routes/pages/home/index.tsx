@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-import { HomeContent } from "../../../feature/home/components/home-content.tsx";
+import { HomeContent } from "@/feature/home/components/home-content.tsx";
 
 export default function HomeTabPage() {
   return (
