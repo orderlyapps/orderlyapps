@@ -1,4 +1,5 @@
-import { setupIonicReact } from "@ionic/react";
+import { IonApp, setupIonicReact } from "@ionic/react";
+import type { ReactNode } from "react";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -12,6 +13,16 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 import "@ionic/react/css/palettes/dark.system.css";
 
-export function setupIonic() {
-  setupIonicReact();
+export interface IonicAppProps {
+  children: ReactNode;
+}
+
+let isSetup = false;
+
+export function IonicApp({ children }: IonicAppProps) {
+  if (!isSetup) {
+    setupIonicReact();
+    isSetup = true;
+  }
+  return <IonApp>{children}</IonApp>;
 }

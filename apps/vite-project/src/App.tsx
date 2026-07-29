@@ -1,12 +1,5 @@
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-} from "@ionic/react";
+import { IonicApp } from "@amodeo/ionic";
+import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { home, person, settings } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
@@ -19,7 +12,7 @@ import SettingsTabPage from "./routes/pages/tabs/settings/index.tsx";
 
 export default function App() {
   return (
-    <IonApp>
+    <IonicApp>
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
@@ -47,6 +40,6 @@ export default function App() {
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>
-    </IonApp>
+    </IonicApp>
   );
 }
