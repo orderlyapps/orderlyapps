@@ -10,7 +10,7 @@ export function ProfileContent() {
           <p>Edit your account details here</p>
         </IonLabel>
       </IonItem>
-      <IonItem routerLink="/tabs/profile/edit" detail>
+      <IonItem routerLink="/profile/edit" detail>
         <IonLabel>Edit profile</IonLabel>
       </IonItem>
     </IonList>

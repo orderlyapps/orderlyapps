@@ -14,7 +14,7 @@ export function SettingsContent() {
         <IonLabel>Theme</IonLabel>
         <ThemeSelector mode={mode} onModeChange={setMode} />
       </IonItem>
-      <IonItem routerLink="/tabs/settings/about" detail>
+      <IonItem routerLink="/settings/about" detail>
         <IonLabel>About</IonLabel>
       </IonItem>
     </IonList>

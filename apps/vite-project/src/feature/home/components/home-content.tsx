@@ -6,7 +6,7 @@ export function HomeContent() {
       <IonItem>
         <IonLabel>Welcome to the Home tab</IonLabel>
       </IonItem>
-      <IonItem routerLink="/tabs/home/details" detail>
+      <IonItem routerLink="/home/details" detail>
         <IonLabel>View details</IonLabel>
       </IonItem>
     </IonList>
