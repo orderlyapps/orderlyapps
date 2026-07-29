@@ -9,7 +9,7 @@ export default function HomeTabPage() {
           <IonTitle>Home</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <HomeContent />
       </IonContent>
     </IonPage>

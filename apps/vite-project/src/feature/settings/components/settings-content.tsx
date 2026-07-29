@@ -5,7 +5,7 @@ export function SettingsContent() {
   const { mode, setMode } = useTheme();
 
   return (
-    <IonList>
+    <IonList inset>
       <IonItem>
         <IonLabel>Enable notifications</IonLabel>
         <IonToggle slot="end" />

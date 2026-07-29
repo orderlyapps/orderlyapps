@@ -2,7 +2,7 @@ import { IonInput, IonItem, IonLabel, IonList } from "@ionic/react";
 
 export function EditProfileContent() {
   return (
-    <IonList>
+    <IonList inset>
       <IonItem>
         <IonLabel position="stacked">Name</IonLabel>
         <IonInput placeholder="Enter your name" />

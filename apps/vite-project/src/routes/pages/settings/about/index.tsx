@@ -20,7 +20,7 @@ export default function AboutPage() {
           <IonTitle>About</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <AboutContent />
       </IonContent>
     </IonPage>

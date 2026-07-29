@@ -2,7 +2,7 @@ import { IonItem, IonLabel, IonList } from "@ionic/react";
 
 export function DetailsContent() {
   return (
-    <IonList>
+    <IonList inset>
       <IonItem>
         <IonLabel>
           <h2>Details</h2>

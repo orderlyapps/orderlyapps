@@ -9,7 +9,7 @@ export default function ProfileTabPage() {
           <IonTitle>Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <ProfileContent />
       </IonContent>
     </IonPage>

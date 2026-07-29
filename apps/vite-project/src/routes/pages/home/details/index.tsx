@@ -20,7 +20,7 @@ export default function DetailsPage() {
           <IonTitle>Details</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <DetailsContent />
       </IonContent>
     </IonPage>

@@ -20,7 +20,7 @@ export default function EditProfilePage() {
           <IonTitle>Edit Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <EditProfileContent />
       </IonContent>
     </IonPage>

@@ -9,7 +9,7 @@ export default function SettingsTabPage() {
           <IonTitle>Settings</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <SettingsContent />
       </IonContent>
     </IonPage>

@@ -2,7 +2,7 @@ import { IonAvatar, IonItem, IonLabel, IonList } from "@ionic/react";
 
 export function ProfileContent() {
   return (
-    <IonList>
+    <IonList inset>
       <IonItem>
         <IonAvatar slot="start" />
         <IonLabel>
