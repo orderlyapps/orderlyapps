@@ -13,7 +13,7 @@ export const vitePWA = (options: VitePWAOptions): PluginOption[] => [
   VitePWA({
     registerType: "autoUpdate",
     injectRegister: "auto",
-    includeAssets: ["assets/images/logo.svg"],
+    includeManifestIcons: false,
     manifest: {
       name: options.name,
       short_name: options.short_name,

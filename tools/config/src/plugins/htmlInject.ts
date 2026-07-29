@@ -5,6 +5,7 @@ export interface HtmlInjectOptions {
   title: string;
   themeColor?: string;
   injectScript?: string;
+  splashScriptSrc?: string;
   tags?: Array<{
     injectTo: "head" | "body" | "head-prepend" | "body-prepend";
     tag: string;
@@ -84,13 +85,13 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
       injectTo: "head",
       tag: "script",
       attrs: {
-        src: "https://cdn.jsdelivr.net/npm/ios-pwa-splash@1.0.0/cdn.min.js",
+        src: options.splashScriptSrc ?? "/vendor/ios-pwa-splash.js",
       },
     },
     {
       injectTo: "head",
       tag: "script",
-      children: `iosPWASplash('/assets/images/icon.png', '${options.themeColor ?? "#3880ff"}');`,
+      children: `if (typeof iosPWASplash === 'function') iosPWASplash('/assets/images/icon.png', '${options.themeColor ?? "#3880ff"}');`,
     },
     {
       injectTo: "head",
