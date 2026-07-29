@@ -7,21 +7,21 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { EditProfileContent } from "../../../../../feature/profile/components/edit/edit-profile-content.tsx";
+import { DetailsContent } from "../../../../feature/home/components/details/details-content.tsx";
 
-export default function EditProfilePage() {
+export default function DetailsPage() {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/tabs/profile" />
+            <IonBackButton defaultHref="/home" />
           </IonButtons>
-          <IonTitle>Edit Profile</IonTitle>
+          <IonTitle>Details</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <EditProfileContent />
+        <DetailsContent />
       </IonContent>
     </IonPage>
   );
