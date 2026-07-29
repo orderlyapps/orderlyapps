@@ -1,5 +1,5 @@
-import { SimpleGreeting } from "@amodeo/ionic";
+import { IonicApp } from "@amodeo/ionic";
 
 export function App() {
-  return <SimpleGreeting name="Orderly" />;
+  return <IonicApp>{null}</IonicApp>;
 }

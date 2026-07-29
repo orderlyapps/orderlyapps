@@ -1,6 +1,6 @@
 import { expect, test } from "vite-plus/test";
-import { SimpleGreeting } from "../src/index.ts";
+import { IonicApp } from "../src/index.ts";
 
-test("exports SimpleGreeting component", () => {
-  expect(SimpleGreeting).toBeTypeOf("function");
+test("exports IonicApp component", () => {
+  expect(IonicApp).toBeTypeOf("function");
 });
