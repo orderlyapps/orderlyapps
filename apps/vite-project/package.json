@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@amodeo/ionic": "workspace:*",
+    "@amodeo/utils": "workspace:*",
     "@ionic/react": "catalog:",
     "@ionic/react-router": "catalog:",
     "ionicons": "catalog:",

@@ -14,7 +14,7 @@ catalog:
   vite-plus: latest
   react: ^19.2.8
   react-dom: ^19.2.8
-  "@types/react": ^19.2.7
+  "@types/react": ^19.2.17
   "@types/react-dom": ^19.2.3
   "@ionic/react": ^8.8.15
   "@ionic/react-router": ^8.8.15

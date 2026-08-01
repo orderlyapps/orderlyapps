@@ -1,9 +1,7 @@
 import { IonItem, IonLabel, IonList, IonToggle } from "@ionic/react";
-import { ThemeSelector, useTheme } from "@amodeo/ionic";
+import { FontSizeSelector, ThemeSelector } from "@amodeo/ionic";
 
 export function SettingsContent() {
-  const { mode, setMode } = useTheme();
-
   return (
     <IonList inset>
       <IonItem>
@@ -12,7 +10,11 @@ export function SettingsContent() {
       </IonItem>
       <IonItem>
         <IonLabel>Theme</IonLabel>
-        <ThemeSelector mode={mode} onModeChange={setMode} />
+        <ThemeSelector />
+      </IonItem>
+      <IonItem>
+        <IonLabel>Font size</IonLabel>
+        <FontSizeSelector />
       </IonItem>
       <IonItem routerLink="/settings/about" detail>
         <IonLabel>About</IonLabel>

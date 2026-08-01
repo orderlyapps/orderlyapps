@@ -1,11 +1,7 @@
 import { IonSegment, IonSegmentButton, IonLabel } from "@ionic/react";
 
+import { useTheme } from "../../hooks/use-theme/use-theme.ts";
 import type { ThemeMode } from "../../hooks/use-theme/use-theme.ts";
-
-export interface ThemeSelectorProps {
-  mode: ThemeMode;
-  onModeChange: (mode: ThemeMode) => void;
-}
 
 const MODES: { value: ThemeMode; label: string }[] = [
   { value: "light", label: "Light" },
@@ -13,7 +9,9 @@ const MODES: { value: ThemeMode; label: string }[] = [
   { value: "system", label: "System" },
 ];
 
-export function ThemeSelector({ mode, onModeChange }: ThemeSelectorProps) {
+export function ThemeSelector() {
+  const { mode, setMode } = useTheme();
+
   return (
     <IonSegment
       slot="end"
@@ -21,7 +19,7 @@ export function ThemeSelector({ mode, onModeChange }: ThemeSelectorProps) {
       onIonChange={(e) => {
         const value = e.detail.value;
         if (value === "light" || value === "dark" || value === "system") {
-          onModeChange(value);
+          setMode(value);
         }
       }}
     >

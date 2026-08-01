@@ -1,0 +1,7 @@
+:root {
+  --app-font-scale: 1;
+  font-size: calc(16px * var(--app-font-scale));
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
