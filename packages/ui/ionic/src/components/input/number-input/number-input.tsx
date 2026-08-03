@@ -1,6 +1,6 @@
 import type { ComponentProps, Ref } from "react";
 
-import { InputLayout } from "../input-layout/input-layout.tsx";
+import { InputLayout } from "../../layout/input-layout/input-layout.tsx";
 
 type InputLayoutProps = ComponentProps<typeof InputLayout>;
 
