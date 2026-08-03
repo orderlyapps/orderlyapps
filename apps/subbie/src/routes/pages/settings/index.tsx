@@ -1,0 +1,17 @@
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import { SettingsContent } from "@/feature/settings/components/settings-content.tsx";
+
+export default function SettingsTabPage() {
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Settings</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <SettingsContent />
+      </IonContent>
+    </IonPage>
+  );
+}
