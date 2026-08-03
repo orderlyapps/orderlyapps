@@ -13,7 +13,7 @@ export type InputLayoutProps = IonInputProps & {
  */
 export function InputLayout({ ref, ...props }: InputLayoutProps) {
   return (
-    <IonItem>
+    <IonItem style={{ maxWidth: "480px", marginInline: "auto", width: "100%" }}>
       <IonInput ref={ref} {...props} />
     </IonItem>
   );
