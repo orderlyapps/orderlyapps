@@ -1,7 +1,6 @@
 import { IonSegment, IonSegmentButton, IonLabel } from "@ionic/react";
 
-import { useTheme } from "../../../hooks/use-theme/use-theme.ts";
-import type { ThemeMode } from "../../../hooks/use-theme/use-theme.ts";
+import { useTheme, type ThemeMode } from "../../../hooks/use-theme/use-theme.ts";
 
 const MODES: { value: ThemeMode; label: string }[] = [
   { value: "light", label: "Light" },
