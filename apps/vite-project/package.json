@@ -23,11 +23,11 @@
     "react-router-dom": "catalog:"
   },
   "devDependencies": {
+    "@amodeo/config": "workspace:*",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "catalog:",
-    "config": "workspace:*",
     "typescript": "~6.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:"

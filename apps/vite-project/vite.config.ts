@@ -1,6 +1,6 @@
 import path from "node:path";
 import { defineConfig } from "vite-plus";
-import { reactAppDefaults } from "config";
+import { reactAppDefaults } from "@amodeo/config";
 
 const APP_NAME = "Vite Project";
 const THEME_COLOR = "#4a6da7";
