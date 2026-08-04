@@ -89,7 +89,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
       tag: "link",
       attrs: {
         rel: "apple-touch-icon",
-        href: "/assets/images/icon-180.png",
+        href: "/assets/images/apple-icon-180.png",
       },
     },
     // Favicon
@@ -99,7 +99,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
       attrs: {
         rel: "icon",
         type: "image/png",
-        href: "/assets/images/icon-196.png",
+        href: "/assets/images/manifest-icon-192.maskable.png",
       },
     },
     // iOS PWA splash screen
@@ -113,7 +113,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
     {
       injectTo: "head",
       tag: "script",
-      children: `if (typeof iosPWASplash === 'function') iosPWASplash('/assets/images/icon.png', '${options.splashColor ?? "#3880ff"}');`,
+      children: `if (typeof iosPWASplash === 'function') iosPWASplash('/assets/images/manifest-icon-512.maskable.png', '${options.splashColor ?? "#3880ff"}');`,
     },
   ];
 

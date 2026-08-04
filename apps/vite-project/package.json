@@ -8,7 +8,8 @@
     "build": "tsc -b && vp build",
     "lint": "vp lint",
     "preview": "vp preview",
-    "deploy": "vp build && wrangler pages deploy dist --project-name=orderlyapps --branch=vite-project"
+    "deploy": "vp build && wrangler pages deploy dist --project-name=orderlyapps --branch=vite-project",
+    "generate-assets": "set -a && . ./.env && set +a && vp exec pwa-asset-generator public/assets/images/logo.svg public/assets/images/ --icon-only --type png --background \"$VITE_THEME_COLOR\" --opaque --scrape false"
   },
   "dependencies": {
     "@amodeo/ionic": "workspace:*",
@@ -24,10 +25,12 @@
   },
   "devDependencies": {
     "@amodeo/config": "workspace:*",
+    "@puppeteer/browsers": "catalog:",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "catalog:",
+    "pwa-asset-generator": "catalog:",
     "typescript": "~6.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:"
