@@ -11,6 +11,7 @@ export const reactAppDefaults = ({
   htmlOptions: HtmlInjectOptions;
 }): UserConfig => ({
   lint: {
+    ignorePatterns: ["public/vendor/**"],
     plugins: ["react", "typescript", "oxc"],
     rules: {
       "react/rules-of-hooks": "error",
