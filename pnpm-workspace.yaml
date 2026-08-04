@@ -9,9 +9,8 @@ catalogMode: prefer
 catalog:
   "@types/node": ^24
   typescript: ^5
-  vite: npm:@voidzero-dev/vite-plus-core@latest
-  vitest: npm:@voidzero-dev/vite-plus-test@latest
-  vite-plus: latest
+  vite: npm:@voidzero-dev/vite-plus-core@0.2.7
+  vite-plus: 0.2.7
   react: ^19.2.8
   react-dom: ^19.2.8
   "@types/react": ^19.2.17
@@ -35,14 +34,11 @@ catalog:
   rxdb: ^17.4.0
 overrides:
   vite: "catalog:"
-  vitest: "catalog:"
 peerDependencyRules:
   allowAny:
     - vite
-    - vitest
   allowedVersions:
     vite: "*"
-    vitest: "*"
 allowBuilds:
   esbuild: true
   workerd: true

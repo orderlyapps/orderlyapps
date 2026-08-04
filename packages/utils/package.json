@@ -44,7 +44,8 @@
     "@types/react": "catalog:",
     "bumpp": "^11.1.0",
     "typescript": "^7.0.2",
-    "vite-plus": "^0.2.4"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   },
   "peerDependencies": {
     "react": "catalog:"

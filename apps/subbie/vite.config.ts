@@ -1,5 +1,5 @@
 import path from "node:path";
-import { loadEnv } from "vite";
+import { loadEnv } from "vite-plus";
 import { defineConfig } from "vite-plus";
 import { reactAppDefaults } from "@amodeo/config";
 
