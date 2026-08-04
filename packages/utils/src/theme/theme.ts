@@ -1,9 +1,6 @@
-import { useSyncExternalStore } from "react";
-import type { AppPreferencesSettings, ThemeMode } from "@amodeo/utils";
+import type { AppPreferencesSettings, ThemeMode } from "../app-preferences/types.ts";
+import type { ResolvedTheme } from "./types.ts";
 
-export type ResolvedTheme = "light" | "dark";
-
-const DARK_CLASS = "ion-palette-dark";
 const FALLBACK_COLORS: Record<ResolvedTheme, string> = {
   light: "#0054e9",
   dark: "#eb445a",
@@ -38,9 +35,11 @@ function updateThemeColor(resolved: ResolvedTheme): void {
   cachedColors = null;
 }
 
-function applyTheme(mode: ThemeMode): ResolvedTheme {
+function applyTheme(mode: ThemeMode, darkClass: string): ResolvedTheme {
   const resolved = mode === "system" ? getSystemTheme() : mode;
-  document.documentElement.classList.toggle(DARK_CLASS, resolved === "dark");
+  if (darkClass) {
+    document.documentElement.classList.toggle(darkClass, resolved === "dark");
+  }
   document.documentElement.style.colorScheme = resolved;
   updateThemeColor(resolved);
   return resolved;
@@ -48,6 +47,7 @@ function applyTheme(mode: ThemeMode): ResolvedTheme {
 
 let currentMode: ThemeMode = "system";
 let currentResolved: ResolvedTheme = "light";
+let activeDarkClass = "";
 let settingsStore: AppPreferencesSettings | null = null;
 const listeners = new Set<() => void>();
 
@@ -71,7 +71,7 @@ function notify(): void {
 function setModeInternal(next: ThemeMode): void {
   if (next === currentMode) return;
   currentMode = next;
-  currentResolved = applyTheme(next);
+  currentResolved = applyTheme(next, activeDarkClass);
   if (settingsStore) settingsStore.set("themeMode", next).catch(console.error);
   notify();
 }
@@ -79,10 +79,19 @@ function setModeInternal(next: ThemeMode): void {
 if (typeof window !== "undefined") {
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
     if (currentMode === "system") {
-      currentResolved = applyTheme("system");
+      currentResolved = applyTheme("system", activeDarkClass);
       notify();
     }
   });
+}
+
+export interface InitThemeOptions {
+  /**
+   * Class toggled on `<html>` when the resolved theme is dark.
+   * Pass `"ion-palette-dark"` for Ionic apps, or any custom class.
+   * Omit to skip class toggling entirely.
+   */
+  darkClass?: string;
 }
 
 /**
@@ -90,25 +99,15 @@ if (typeof window !== "undefined") {
  * Must be called with a store created via `createAppPreferences`.
  * Returns a Promise so callers can `await` the async rxdb read.
  */
-export async function initTheme(store: AppPreferencesSettings): Promise<void> {
+export async function initTheme(
+  store: AppPreferencesSettings,
+  options: InitThemeOptions = {},
+): Promise<void> {
   settingsStore = store;
+  activeDarkClass = options.darkClass ?? "";
   const stored = await store.get("themeMode");
   currentMode = stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
-  currentResolved = applyTheme(currentMode);
+  currentResolved = applyTheme(currentMode, activeDarkClass);
 }
 
-export interface UseThemeResult {
-  mode: ThemeMode;
-  resolved: ResolvedTheme;
-  setMode: (mode: ThemeMode) => void;
-}
-
-export function useTheme(): UseThemeResult {
-  const mode = useSyncExternalStore(subscribe, getModeSnapshot, (): ThemeMode => "system");
-  const resolved = useSyncExternalStore(
-    subscribe,
-    getResolvedSnapshot,
-    (): ResolvedTheme => "light",
-  );
-  return { mode, resolved, setMode: setModeInternal };
-}
+export { subscribe, getModeSnapshot, getResolvedSnapshot, setModeInternal as setMode };

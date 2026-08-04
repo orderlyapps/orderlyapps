@@ -7,9 +7,3 @@ export {
   type NumberInputProps,
 } from "./components/input/number-input/number-input.tsx";
 export { EmailInput, type EmailInputProps } from "./components/input/email-input/email-input.tsx";
-export {
-  useTheme,
-  initTheme,
-  type UseThemeResult,
-  type ResolvedTheme,
-} from "./hooks/use-theme/use-theme.ts";

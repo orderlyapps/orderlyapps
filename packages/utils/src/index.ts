@@ -30,3 +30,9 @@ export type {
 } from "./app-preferences/types.ts";
 
 export { createAppPreferences } from "./app-preferences/app-preferences.ts";
+
+export type { ResolvedTheme } from "./theme/types.ts";
+
+export { initTheme, type InitThemeOptions } from "./theme/theme.ts";
+
+export { useTheme, type UseThemeResult } from "./theme/use-theme.ts";
