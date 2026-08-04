@@ -61,7 +61,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
       injectTo: "head",
       tag: "meta",
       attrs: {
-        name: "apple-mobile-web-app-capable",
+        name: "mobile-web-app-capable",
         content: "yes",
       },
     },
