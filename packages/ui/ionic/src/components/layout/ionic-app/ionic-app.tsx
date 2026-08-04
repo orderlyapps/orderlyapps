@@ -1,7 +1,5 @@
 import { IonApp, setupIonicReact } from "@ionic/react";
 import type { ReactNode } from "react";
-import { initFontSize } from "@amodeo/utils";
-import { initTheme } from "../../../hooks/use-theme/use-theme.ts";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -22,8 +20,6 @@ export interface IonicAppProps {
 }
 
 setupIonicReact();
-initTheme();
-initFontSize();
 
 export function IonicApp({ children }: IonicAppProps) {
   return <IonApp>{children}</IonApp>;

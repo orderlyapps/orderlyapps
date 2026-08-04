@@ -11,6 +11,5 @@ export {
   useTheme,
   initTheme,
   type UseThemeResult,
-  type ThemeMode,
   type ResolvedTheme,
 } from "./hooks/use-theme/use-theme.ts";

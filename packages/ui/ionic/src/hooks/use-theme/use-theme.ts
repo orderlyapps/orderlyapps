@@ -1,9 +1,8 @@
 import { useSyncExternalStore } from "react";
+import type { AppPreferencesSettings, ThemeMode } from "@amodeo/utils";
 
-export type ThemeMode = "light" | "dark" | "system";
 export type ResolvedTheme = "light" | "dark";
 
-const STORAGE_KEY = "theme-mode";
 const DARK_CLASS = "ion-palette-dark";
 const FALLBACK_COLORS: Record<ResolvedTheme, string> = {
   light: "#0054e9",
@@ -31,19 +30,12 @@ function getSystemTheme(): ResolvedTheme {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-function getStoredMode(): ThemeMode {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored === "light" || stored === "dark" || stored === "system") {
-    return stored;
-  }
-  return "system";
-}
-
 function updateThemeColor(resolved: ResolvedTheme): void {
   const color = getThemeColors()[resolved];
   document.querySelectorAll('meta[name="theme-color"]').forEach((el) => {
     el.setAttribute("content", color);
   });
+  cachedColors = null;
 }
 
 function applyTheme(mode: ThemeMode): ResolvedTheme {
@@ -56,6 +48,7 @@ function applyTheme(mode: ThemeMode): ResolvedTheme {
 
 let currentMode: ThemeMode = "system";
 let currentResolved: ResolvedTheme = "light";
+let settingsStore: AppPreferencesSettings | null = null;
 const listeners = new Set<() => void>();
 
 function subscribe(listener: () => void): () => void {
@@ -79,7 +72,7 @@ function setModeInternal(next: ThemeMode): void {
   if (next === currentMode) return;
   currentMode = next;
   currentResolved = applyTheme(next);
-  localStorage.setItem(STORAGE_KEY, next);
+  if (settingsStore) settingsStore.set("themeMode", next).catch(console.error);
   notify();
 }
 
@@ -92,8 +85,15 @@ if (typeof window !== "undefined") {
   });
 }
 
-export function initTheme(): void {
-  currentMode = getStoredMode();
+/**
+ * Initialises theme mode from the rxdb-backed preferences store.
+ * Must be called with a store created via `createAppPreferences`.
+ * Returns a Promise so callers can `await` the async rxdb read.
+ */
+export async function initTheme(store: AppPreferencesSettings): Promise<void> {
+  settingsStore = store;
+  const stored = await store.get("themeMode");
+  currentMode = stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
   currentResolved = applyTheme(currentMode);
 }
 

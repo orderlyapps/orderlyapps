@@ -1,10 +1,5 @@
 import { expect, test } from "vite-plus/test";
-import {
-  DEFAULT_FONT_SIZE,
-  FONT_SCALE_MAP,
-  getStoredFontSize,
-  isValidFontSize,
-} from "../src/index.ts";
+import { DEFAULT_FONT_SIZE, FONT_SCALE_MAP, isValidFontSize } from "../src/index.ts";
 
 test("FONT_SCALE_MAP has all sizes", () => {
   expect(FONT_SCALE_MAP.xs).toBe(0.85);
@@ -22,8 +17,4 @@ test("isValidFontSize validates allowed values", () => {
 
 test("DEFAULT_FONT_SIZE is md", () => {
   expect(DEFAULT_FONT_SIZE).toBe("md");
-});
-
-test("getStoredFontSize returns null by default", () => {
-  expect(getStoredFontSize()).toBe(null);
 });

@@ -1,7 +1,7 @@
 import { IonicApp } from "@amodeo/ionic";
 import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { home, person, settings } from "ionicons/icons";
+import { home, person, settings as settingsIcon } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
 import AboutPage from "@/routes/pages/settings/about/index.tsx";
 import DetailsPage from "@/routes/pages/home/details/index.tsx";
@@ -34,7 +34,7 @@ export default function App() {
               <IonLabel>Profile</IonLabel>
             </IonTabButton>
             <IonTabButton tab="settings" href="/settings">
-              <IonIcon icon={settings} />
+              <IonIcon icon={settingsIcon} />
               <IonLabel>Settings</IonLabel>
             </IonTabButton>
           </IonTabBar>

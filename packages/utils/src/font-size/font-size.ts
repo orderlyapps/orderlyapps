@@ -1,3 +1,4 @@
+import type { AppPreferencesSettings } from "../app-preferences/types.ts";
 import type { FontSize } from "./types.ts";
 
 export const FONT_SCALE_MAP: Record<FontSize, number> = {
@@ -11,23 +12,16 @@ export const FONT_SCALE_MAP: Record<FontSize, number> = {
 
 export const DEFAULT_FONT_SIZE: FontSize = "md";
 
-const STORAGE_KEY = "font_size";
 const FONT_SIZE_OPTIONS = Object.keys(FONT_SCALE_MAP) as readonly FontSize[];
 
 type Listener = () => void;
 
 let currentFontSize: FontSize = DEFAULT_FONT_SIZE;
+let settingsStore: AppPreferencesSettings | null = null;
 const listeners = new Set<Listener>();
 
 export function isValidFontSize(value: string): value is FontSize {
   return FONT_SIZE_OPTIONS.includes(value as FontSize);
-}
-
-export function getStoredFontSize(): FontSize | null {
-  if (typeof localStorage === "undefined") return null;
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored && isValidFontSize(stored)) return stored;
-  return null;
 }
 
 function applyFontSize(size: FontSize): void {
@@ -53,15 +47,19 @@ export function setFontSize(next: FontSize): void {
   if (next === currentFontSize) return;
   currentFontSize = next;
   applyFontSize(next);
-  if (typeof localStorage !== "undefined") {
-    localStorage.setItem(STORAGE_KEY, next);
-  }
+  if (settingsStore) settingsStore.set("fontSize", next).catch(console.error);
   notify();
 }
 
-export function initFontSize(): void {
-  const stored = getStoredFontSize();
-  currentFontSize = stored ?? DEFAULT_FONT_SIZE;
+/**
+ * Initialises font size from the rxdb-backed preferences store.
+ * Must be called with a store created via `createAppPreferences`.
+ * Returns a Promise so callers can `await` the async rxdb read.
+ */
+export async function initFontSize(store: AppPreferencesSettings): Promise<void> {
+  settingsStore = store;
+  const stored = await store.get("fontSize");
+  currentFontSize = stored && isValidFontSize(stored) ? stored : DEFAULT_FONT_SIZE;
   applyFontSize(currentFontSize);
 }
 

@@ -17,8 +17,12 @@
     "src/font-size/font-size.css"
   ],
   "type": "module",
+  "types": "./dist/index.d.mts",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
     "./font-size.css": "./src/font-size/font-size.css",
     "./package.json": "./package.json"
   },
@@ -31,6 +35,9 @@
     "test": "vp test",
     "check": "vp check",
     "prepublishOnly": "vp run build"
+  },
+  "dependencies": {
+    "rxdb": "catalog:"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
