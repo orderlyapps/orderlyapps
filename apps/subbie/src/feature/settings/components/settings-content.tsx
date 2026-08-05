@@ -1,11 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IonItem, IonLabel, IonList, IonToggle } from "@ionic/react";
-import { EmailInput, FontSizeSelector, NumberInput, TextInput, ThemeSelector } from "@amodeo/ionic";
+import {
+  EmailInput,
+  ExportSettingsItem,
+  FontSizeSelector,
+  ImportSettingsItem,
+  NumberInput,
+  TextInput,
+  ThemeSelector,
+} from "@amodeo/ionic";
+import type { AppPreferencesSettings } from "@amodeo/utils";
+import { appSettings } from "@/app-settings.ts";
 
 export function SettingsContent() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
+  const [store, setStore] = useState<AppPreferencesSettings | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    void appSettings.then((s) => {
+      if (active) setStore(s);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   return (
     <>
@@ -46,6 +67,12 @@ export function SettingsContent() {
           <IonLabel>About</IonLabel>
         </IonItem>
       </IonList>
+      {store && (
+        <IonList inset>
+          <ExportSettingsItem store={store} fileName="subbie-settings" />
+          <ImportSettingsItem store={store} />
+        </IonList>
+      )}
     </>
   );
 }

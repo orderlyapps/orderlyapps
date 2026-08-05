@@ -7,3 +7,11 @@ export {
   type NumberInputProps,
 } from "./components/input/number-input/number-input.tsx";
 export { EmailInput, type EmailInputProps } from "./components/input/email-input/email-input.tsx";
+export {
+  ExportSettingsItem,
+  type ExportSettingsItemProps,
+} from "./components/settings-transfer/export-settings-item.tsx";
+export {
+  ImportSettingsItem,
+  type ImportSettingsItemProps,
+} from "./components/settings-transfer/import-settings-item.tsx";

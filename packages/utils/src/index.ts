@@ -20,6 +20,18 @@ export type {
 
 export { createAppSettings } from "./app-settings/app-settings.ts";
 
+export {
+  exportAppSettings,
+  resolveSettingsFileName,
+  type ExportAppSettingsOptions,
+} from "./app-settings/export-app-settings.ts";
+
+export {
+  importAppSettings,
+  parseAppSettings,
+  type ImportAppSettingsOptions,
+} from "./app-settings/import-app-settings.ts";
+
 export { useAppSettings, type UseAppSettingsResult } from "./app-settings/use-app-settings.ts";
 
 export type {
