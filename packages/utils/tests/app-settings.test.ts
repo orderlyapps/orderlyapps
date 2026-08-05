@@ -1,4 +1,4 @@
-import { expect, test, afterEach } from "vite-plus/test";
+import { expect, test, afterEach, vi } from "vite-plus/test";
 import { getRxStorageMemory } from "rxdb/plugins/storage-memory";
 
 import { createAppSettings, type AppSettings, type SettingsMap } from "../src/index.ts";
@@ -102,6 +102,28 @@ test("subscribe emits the current snapshot and updates on change", async () => {
   const lastEmitted = snapshots[snapshots.length - 1];
   expect(lastEmitted).toEqual({ theme: "dark", volume: 42 });
   expect(snapshots).not.toContainEqual({ theme: "light", volume: 42 });
+});
+
+test("write failures reject instead of being silently swallowed", async () => {
+  const store = await makeStore("write-failure");
+  await store.close();
+  stores.pop(); // already closed; skip afterEach cleanup
+
+  const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
+  await expect(store.set("volume", 1)).rejects.toThrow();
+  consoleError.mockRestore();
+});
+
+test("a failed write does not block subsequent queued writes", async () => {
+  const store = await makeStore("write-recovery");
+  const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
+
+  // A non-serialisable value makes the underlying RxDB write reject.
+  await expect(store.set("theme", (() => {}) as never)).rejects.toThrow();
+  consoleError.mockRestore();
+
+  await store.set("volume", 5);
+  expect(await store.get("volume")).toBe(5);
 });
 
 test("different dbNames keep settings isolated (reusable across apps)", async () => {

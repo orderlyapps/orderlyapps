@@ -103,7 +103,7 @@ export async function createAppSettings<T extends SettingsMap>(
     writeQueue = result.catch((err: unknown) => {
       console.error("[app-settings] write failed:", err);
     });
-    return writeQueue;
+    return result;
   }
 
   // Seed defaults for any missing keys without overwriting stored values.

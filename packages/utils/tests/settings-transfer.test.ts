@@ -1,4 +1,4 @@
-import { expect, test, afterEach } from "vite-plus/test";
+import { expect, test, afterEach, vi } from "vite-plus/test";
 import { getRxStorageMemory } from "rxdb/plugins/storage-memory";
 
 import {
@@ -107,6 +107,32 @@ test("import ignores keys not already present in the store", async () => {
   const all = await store.getAll();
   expect(all).toEqual({ theme: "light", volume: 90 });
   expect("unknownKey" in all).toBe(false);
+});
+
+test("import rejects when the underlying store write fails", async () => {
+  const failingStore = {
+    getAll: async () => ({ theme: "light" }) as Partial<TestSettings>,
+    setMany: vi.fn().mockRejectedValue(new Error("disk full")),
+    clear: vi.fn().mockResolvedValue(undefined),
+  } as unknown as AppSettings<TestSettings>;
+
+  await expect(importAppSettings(failingStore, JSON.stringify({ theme: "dark" }))).rejects.toThrow(
+    "disk full",
+  );
+});
+
+test("import with replace rejects when clear fails and skips the write", async () => {
+  const setMany = vi.fn().mockResolvedValue(undefined);
+  const failingStore = {
+    getAll: async () => ({ theme: "light" }) as Partial<TestSettings>,
+    setMany,
+    clear: vi.fn().mockRejectedValue(new Error("disk full")),
+  } as unknown as AppSettings<TestSettings>;
+
+  await expect(
+    importAppSettings(failingStore, JSON.stringify({ theme: "dark" }), { replace: true }),
+  ).rejects.toThrow("disk full");
+  expect(setMany).not.toHaveBeenCalled();
 });
 
 test("resolveSettingsFileName combines base name and extension", () => {
