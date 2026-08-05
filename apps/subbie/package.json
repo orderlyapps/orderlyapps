@@ -31,7 +31,7 @@
     "@types/react-dom": "^19.2.3",
     "@types/react-router-dom": "catalog:",
     "pwa-asset-generator": "catalog:",
-    "typescript": "~6.0.2",
+    "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"
   }
