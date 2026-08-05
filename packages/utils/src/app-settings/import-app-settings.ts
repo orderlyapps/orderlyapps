@@ -8,6 +8,13 @@ export interface ImportAppSettingsOptions {
   replace?: boolean;
 }
 
+export interface ImportAppSettingsResult {
+  /** Keys from the file that were written to the store. */
+  imported: string[];
+  /** Keys from the file that were skipped because they don't exist in this app's store. */
+  skipped: string[];
+}
+
 function isJsonValue(value: unknown): value is JsonValue {
   if (value === null) return true;
   switch (typeof value) {
@@ -24,6 +31,12 @@ function isJsonValue(value: unknown): value is JsonValue {
     default:
       return false;
   }
+}
+
+function jsonTypeOf(value: JsonValue): string {
+  if (value === null) return "null";
+  if (Array.isArray(value)) return "array";
+  return typeof value;
 }
 
 /** Parses and validates a settings JSON string into a `SettingsMap`. */
@@ -47,16 +60,51 @@ export function parseAppSettings(json: string): SettingsMap {
 
 /**
  * Validates a settings JSON string and writes its values into the store.
- * Throws a descriptive `Error` when the file content is invalid.
+ * Only keys that already exist in the store are written; unknown keys are
+ * skipped and reported in the result. Values whose JSON type differs from
+ * the currently stored value (e.g. a string where a number is stored) are
+ * rejected. Note that literal/enum narrowing (e.g. `"light" | "dark"`)
+ * cannot be validated at runtime.
+ *
+ * Throws a descriptive `Error` when the file content is invalid, when a
+ * value's type conflicts with the stored value, or when no keys apply —
+ * in which case the store is left untouched, even with `replace: true`.
  */
 export async function importAppSettings<T extends SettingsMap>(
   store: AppSettings<T>,
   json: string,
   options: ImportAppSettingsOptions = {},
-): Promise<void> {
+): Promise<ImportAppSettingsResult> {
   const data = parseAppSettings(json);
-  const existingKeys = new Set(Object.keys(await store.getAll()));
-  const known = Object.fromEntries(Object.entries(data).filter(([key]) => existingKeys.has(key)));
+  const existing = (await store.getAll()) as SettingsMap;
+  const existingKeys = new Set(Object.keys(existing));
+  const known: SettingsMap = {};
+  const skipped: string[] = [];
+
+  for (const [key, value] of Object.entries(data)) {
+    if (!existingKeys.has(key)) {
+      skipped.push(key);
+      continue;
+    }
+    const current = existing[key];
+    if (current !== undefined && jsonTypeOf(current) !== jsonTypeOf(value)) {
+      throw new Error(
+        `Setting "${key}" has type "${jsonTypeOf(current)}" in this app but the file contains type "${jsonTypeOf(value)}".`,
+      );
+    }
+    known[key] = value;
+  }
+
+  const imported = Object.keys(known);
+  if (imported.length === 0) {
+    throw new Error(
+      skipped.length > 0
+        ? "None of the settings in the file apply to this app; nothing was imported."
+        : "Settings file contains no settings; nothing was imported.",
+    );
+  }
+
   if (options.replace) await store.clear();
   await store.setMany(known as Partial<T>);
+  return { imported, skipped };
 }

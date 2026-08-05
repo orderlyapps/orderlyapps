@@ -1,7 +1,7 @@
-import { useRef, useState, type ChangeEvent } from "react";
 import { IonIcon, IonItem, IonLabel, IonToast } from "@ionic/react";
 import { cloudUploadOutline } from "ionicons/icons";
-import { importAppSettings, type AppSettings, type SettingsMap } from "@amodeo/utils";
+import type { AppSettings, SettingsMap } from "@amodeo/utils";
+import { useImportSettings } from "./use-import-settings.ts";
 
 export interface ImportSettingsItemProps<T extends SettingsMap> {
   /** The settings store to import into. */
@@ -23,30 +23,16 @@ export interface ImportSettingsItemProps<T extends SettingsMap> {
 }
 
 export function ImportSettingsItem<T extends SettingsMap>({
-  store,
-  replace,
   extension = "json",
   label = "Import settings",
-  reloadAfterImport = true,
+  ...options
 }: ImportSettingsItemProps<T>) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  async function handleFile(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    event.target.value = "";
-    if (!file) return;
-    try {
-      await importAppSettings(store, await file.text(), { replace });
-      if (reloadAfterImport) window.location.reload();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to import settings.");
-    }
-  }
+  const { inputRef, error, success, handleFile, dismissError, dismissSuccess, openFilePicker } =
+    useImportSettings(options);
 
   return (
     <>
-      <IonItem button detail={false} onClick={() => inputRef.current?.click()}>
+      <IonItem button detail={false} onClick={openFilePicker}>
         <IonIcon icon={cloudUploadOutline} slot="start" />
         <IonLabel>{label}</IonLabel>
       </IonItem>
@@ -62,7 +48,14 @@ export function ImportSettingsItem<T extends SettingsMap>({
         message={error ?? ""}
         color="danger"
         duration={3000}
-        onDidDismiss={() => setError(null)}
+        onDidDismiss={dismissError}
+      />
+      <IonToast
+        isOpen={success !== null}
+        message={success ?? ""}
+        color="success"
+        duration={3000}
+        onDidDismiss={dismissSuccess}
       />
     </>
   );

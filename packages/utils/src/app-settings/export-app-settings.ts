@@ -23,6 +23,11 @@ export function resolveSettingsFileName(fileName = "app-settings", extension = "
 /**
  * Serializes all stored settings to a JSON string and, in browser
  * environments, triggers a file download. Returns the JSON string.
+ *
+ * Note: only keys explicitly written to the store are exported. Default
+ * values passed to `createAppSettings` are seeded on init, so they are
+ * included — but defaults introduced in a later app version won't appear
+ * in exports from installs created before that version.
  */
 export async function exportAppSettings<T extends SettingsMap>(
   store: AppSettings<T>,

@@ -21,10 +21,12 @@ export function ExportSettingsItem<T extends SettingsMap>({
   label = "Export settings",
 }: ExportSettingsItemProps<T>) {
   const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   async function handleExport() {
     try {
       await exportAppSettings(store, { fileName, extension });
+      setSuccess("Settings exported.");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to export settings.");
     }
@@ -42,6 +44,13 @@ export function ExportSettingsItem<T extends SettingsMap>({
         color="danger"
         duration={3000}
         onDidDismiss={() => setError(null)}
+      />
+      <IonToast
+        isOpen={success !== null}
+        message={success ?? ""}
+        color="success"
+        duration={3000}
+        onDidDismiss={() => setSuccess(null)}
       />
     </>
   );

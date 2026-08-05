@@ -30,6 +30,7 @@ export {
   importAppSettings,
   parseAppSettings,
   type ImportAppSettingsOptions,
+  type ImportAppSettingsResult,
 } from "./app-settings/import-app-settings.ts";
 
 export { useAppSettings, type UseAppSettingsResult } from "./app-settings/use-app-settings.ts";

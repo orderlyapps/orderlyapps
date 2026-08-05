@@ -77,12 +77,48 @@ test("import with replace still filters unknown keys", async () => {
   expect("unknownKey" in all).toBe(false);
 });
 
-test("import into empty store writes nothing", async () => {
+test("import into empty store throws and writes nothing", async () => {
   const store = await makeStore("import-empty");
 
-  await importAppSettings(store, JSON.stringify({ volume: 90, theme: "dark" }));
+  await expect(
+    importAppSettings(store, JSON.stringify({ volume: 90, theme: "dark" })),
+  ).rejects.toThrow("nothing was imported");
 
   expect(await store.getAll()).toEqual({});
+});
+
+test("import with replace and no matching keys throws without clearing", async () => {
+  const store = await makeStore("import-replace-no-match");
+  await store.setMany({ theme: "light", volume: 10 });
+
+  await expect(
+    importAppSettings(store, JSON.stringify({ unknownKey: "malicious" }), { replace: true }),
+  ).rejects.toThrow("nothing was imported");
+
+  expect(await store.getAll()).toEqual({ theme: "light", volume: 10 });
+});
+
+test("import reports imported and skipped keys", async () => {
+  const store = await makeStore("import-result");
+  await store.setMany({ theme: "light", volume: 10 });
+
+  const result = await importAppSettings(
+    store,
+    JSON.stringify({ volume: 90, unknownKey: "malicious" }),
+  );
+
+  expect(result).toEqual({ imported: ["volume"], skipped: ["unknownKey"] });
+});
+
+test("import rejects values whose type differs from the stored value", async () => {
+  const store = await makeStore("import-type-mismatch");
+  await store.setMany({ theme: "light", volume: 10 });
+
+  await expect(importAppSettings(store, JSON.stringify({ volume: "loud" }))).rejects.toThrow(
+    'Setting "volume" has type "number"',
+  );
+
+  expect(await store.getAll()).toEqual({ theme: "light", volume: 10 });
 });
 
 test("parseAppSettings rejects non-finite numbers", () => {
