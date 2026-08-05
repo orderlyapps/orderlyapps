@@ -157,18 +157,43 @@ test("import rejects when the underlying store write fails", async () => {
   );
 });
 
-test("import with replace rejects when clear fails and skips the write", async () => {
-  const setMany = vi.fn().mockResolvedValue(undefined);
+test("import with replace rejects when the write fails", async () => {
   const failingStore = {
     getAll: async () => ({ theme: "light" }) as Partial<TestSettings>,
-    setMany,
-    clear: vi.fn().mockRejectedValue(new Error("disk full")),
+    setMany: vi.fn().mockResolvedValue(undefined),
+    replaceAll: vi.fn().mockRejectedValue(new Error("disk full")),
   } as unknown as AppSettings<TestSettings>;
 
   await expect(
     importAppSettings(failingStore, JSON.stringify({ theme: "dark" }), { replace: true }),
   ).rejects.toThrow("disk full");
+});
+
+test("import with replace writes atomically via replaceAll", async () => {
+  const setMany = vi.fn().mockResolvedValue(undefined);
+  const clear = vi.fn().mockResolvedValue(undefined);
+  const replaceAll = vi.fn().mockResolvedValue(undefined);
+  const mockStore = {
+    getAll: async () => ({ theme: "light" }) as Partial<TestSettings>,
+    setMany,
+    clear,
+    replaceAll,
+  } as unknown as AppSettings<TestSettings>;
+
+  await importAppSettings(mockStore, JSON.stringify({ theme: "dark" }), { replace: true });
+
+  expect(replaceAll).toHaveBeenCalledWith({ theme: "dark" });
+  expect(clear).not.toHaveBeenCalled();
   expect(setMany).not.toHaveBeenCalled();
+});
+
+test("import accepts any type for a setting stored as null", async () => {
+  const store = await makeStore("import-null-stored");
+  await store.setMany({ volume: null as unknown as number, theme: "light" });
+
+  await importAppSettings(store, JSON.stringify({ volume: 90 }));
+
+  expect((await store.getAll()).volume).toBe(90);
 });
 
 test("resolveSettingsFileName combines base name and extension", () => {

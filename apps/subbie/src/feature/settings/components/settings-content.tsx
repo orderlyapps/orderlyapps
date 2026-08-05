@@ -69,8 +69,8 @@ export function SettingsContent() {
       </IonList>
       {store && (
         <IonList inset>
-          <ExportSettingsItem store={store} fileName="subbie-settings" />
-          <ImportSettingsItem store={store} />
+          <ExportSettingsItem store={store} fileName="subbie-settings" extension="settings.sub" />
+          <ImportSettingsItem store={store} extension="settings.sub" />
         </IonList>
       )}
     </>

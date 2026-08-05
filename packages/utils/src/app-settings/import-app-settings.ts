@@ -66,6 +66,9 @@ export function parseAppSettings(json: string): SettingsMap {
  * rejected. Note that literal/enum narrowing (e.g. `"light" | "dark"`)
  * cannot be validated at runtime.
  *
+ * A stored value of `null` is treated as unset and accepts any imported
+ * type.
+ *
  * Throws a descriptive `Error` when the file content is invalid, when a
  * value's type conflicts with the stored value, or when no keys apply —
  * in which case the store is left untouched, even with `replace: true`.
@@ -87,7 +90,7 @@ export async function importAppSettings<T extends SettingsMap>(
       continue;
     }
     const current = existing[key];
-    if (current !== undefined && jsonTypeOf(current) !== jsonTypeOf(value)) {
+    if (current != null && jsonTypeOf(current) !== jsonTypeOf(value)) {
       throw new Error(
         `Setting "${key}" has type "${jsonTypeOf(current)}" in this app but the file contains type "${jsonTypeOf(value)}".`,
       );
@@ -104,7 +107,10 @@ export async function importAppSettings<T extends SettingsMap>(
     );
   }
 
-  if (options.replace) await store.clear();
-  await store.setMany(known as Partial<T>);
+  if (options.replace) {
+    await store.replaceAll(known as Partial<T>);
+  } else {
+    await store.setMany(known as Partial<T>);
+  }
   return { imported, skipped };
 }

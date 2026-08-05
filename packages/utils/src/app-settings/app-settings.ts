@@ -139,6 +139,9 @@ export async function createAppSettings<T extends SettingsMap>(
     async clear(): Promise<void> {
       await patchData(() => ({}));
     },
+    async replaceAll(values: Partial<T>): Promise<void> {
+      await patchData(() => ({ ...values }) as SettingsMap);
+    },
     subscribe(listener) {
       const sub = collection.findOne(SETTINGS_DOC_ID).$.subscribe((doc) => {
         listener((doc?.data ?? {}) as Partial<T>);
