@@ -25,6 +25,8 @@ export function useImportSettings<T extends SettingsMap>({
     const file = event.target.files?.[0];
     event.target.value = "";
     if (!file) return;
+    setError(null);
+    setSuccess(null);
     if (file.size > MAX_FILE_SIZE_BYTES) {
       setError("Settings file is too large (maximum 1 MB).");
       return;

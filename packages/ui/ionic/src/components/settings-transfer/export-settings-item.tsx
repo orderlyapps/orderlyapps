@@ -24,6 +24,8 @@ export function ExportSettingsItem<T extends SettingsMap>({
   const [success, setSuccess] = useState<string | null>(null);
 
   async function handleExport() {
+    setError(null);
+    setSuccess(null);
     try {
       await exportAppSettings(store, { fileName, extension });
       setSuccess("Settings exported.");
