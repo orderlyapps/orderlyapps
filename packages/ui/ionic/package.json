@@ -43,7 +43,7 @@
     "react-router-dom": "catalog:"
   },
   "devDependencies": {
-    "@types/node": "^26.1.1",
+    "@types/node": "catalog:",
     "@types/react": "catalog:",
     "bumpp": "^11.1.0",
     "rxdb": "catalog:",
