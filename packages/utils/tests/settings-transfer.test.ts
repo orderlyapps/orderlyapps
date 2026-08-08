@@ -55,7 +55,7 @@ test("import merges over existing values by default", async () => {
   expect(await store.getAll()).toEqual({ theme: "light", volume: 90 });
 });
 
-test("import with replace clears existing values first", async () => {
+test("import with replace replaces existing values", async () => {
   const store = await makeStore("import-replace");
   await store.setMany({ theme: "light", volume: 10 });
 
