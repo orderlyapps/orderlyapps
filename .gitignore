@@ -25,3 +25,7 @@ dist-ssr
 
 # AI agent worktrees
 .claude/worktrees/
+
+# Supabase
+**/public_schema.sql
+
