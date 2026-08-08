@@ -10,6 +10,40 @@ export const reactAppDefaults = ({
   pwaOptions: VitePWAOptions;
   htmlOptions: HtmlInjectOptions;
 }): UserConfig => ({
+  build: {
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: "react",
+              test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              priority: 30,
+            },
+            {
+              name: "ionic",
+              test: /node_modules[\\/](@ionic|ionicons|@stencil)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: "supabase",
+              test: /node_modules[\\/]@supabase[\\/]/,
+              priority: 10,
+            },
+            {
+              name: "tanstack",
+              test: /node_modules[\\/]@tanstack[\\/]/,
+              priority: 10,
+            },
+            {
+              name: "vendor",
+              test: /node_modules[\\/]/,
+            },
+          ],
+        },
+      },
+    },
+  },
   lint: {
     ignorePatterns: ["public/vendor/**"],
     plugins: ["react", "typescript", "oxc"],
