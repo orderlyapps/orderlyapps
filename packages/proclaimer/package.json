@@ -27,6 +27,7 @@
     "build": "vp pack",
     "dev": "vp pack --watch",
     "test": "vp test",
+    "download:schema": "supabase db dump --schema public -f supabase/public_schema.sql",
     "check": "vp check",
     "prepublishOnly": "vp run build"
   },
