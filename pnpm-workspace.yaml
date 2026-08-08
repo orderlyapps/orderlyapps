@@ -38,6 +38,7 @@ catalog:
   "@maskito/react": ^5.3.1
   "@react-pdf/renderer": ^4.5.1
   "@supabase/supabase-js": ^2.111.0
+  supabase: ^2.111.0
   "@tanstack/browser-db-sqlite-persistence": ^0.2.9
   "@tanstack/query-db-collection": ^1.2.1
   "@tanstack/react-db": ^0.1.95
