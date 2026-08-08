@@ -2,8 +2,8 @@ import type { AppSettings, JsonValue, SettingsMap } from "./types.ts";
 
 export interface ImportAppSettingsOptions {
   /**
-   * When `true`, all existing settings are cleared before the imported
-   * values are written. Defaults to `false` (merge over existing values).
+   * When `true`, existing settings are replaced with the imported
+   * values. Defaults to `false` (merge over existing values).
    */
   replace?: boolean;
 }
