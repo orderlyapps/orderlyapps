@@ -6,16 +6,6 @@
 
 None of the items below are live bugs — the publisher list works correctly as shipped. A _live bug_ means some input or interaction the app can produce today yields wrong behaviour. The rest are latent hazards: code with a precondition it does not enforce, where nothing currently violates that precondition. Ordered by what is worth doing first.
 
-- [ ] **Collection singleton is not keyed by client** — `packages/proclaimer/src/feature/publishers/publishers-collection.ts` stores the collection in a module-level `let collection`. `getPublishersCollection` accepts `supabase` and `queryClient` but only honours them on the _first_ call; every later call ignores its arguments and returns the collection built from the first pair. The implicit precondition is "only ever called with one client pair per page load."
-
-  That holds today because the credentials come from `import.meta.env.VITE_SUPABASE_*`, which Vite inlines as string literals at build time (so there is no code path producing a second URL/key pair); `ProclaimerProvider` is mounted once at the root of `apps/vite-project/src/App.tsx`, above the router, so route changes never remount it; and `usePublishers` is the only caller. The arguments are always the same objects, so "ignores its arguments" is indistinguishable from "uses its arguments."
-
-  Two ways it bites sooner than the hypothetical tenant-switcher, which is why this sits above the other nits:
-  - **Tests.** A module-level `let` persists across test cases in the same module registry. The second test that builds a collection with a mock client will silently receive the first test's collection, and the failure will look like a test-framework mystery rather than a code bug. This directly obstructs the test-coverage item below.
-  - **HMR.** On hot reload the provider can re-run its `useState` initialisers and produce a fresh `QueryClient`, while the singleton keeps a collection bound to the _discarded_ one. The React tree then provides one client while the collection observes another; symptom is "the list stopped updating until I hard-refresh."
-
-  Later, adding a congregation/tenant switcher or a sign-out-and-sign-in-as-a-different-project flow would surface it as "I switched accounts and still see the previous congregation's publishers." Fix is ~4 lines: key off the client with a `WeakMap<TypedSupabaseClient, PublishersCollection>`.
-
 - [ ] **No error boundary** — `apps/vite-project/src/App.tsx`. A throw anywhere under `ProclaimerProvider` blanks the whole app with no fallback UI. Wrap the tree in an error boundary.
 
 - [ ] **Thin test coverage** — `packages/proclaimer/tests/index.test.ts` only asserts that exports are functions, which gives a false sense of security. Add real tests: `ProclaimerProvider` renders children, `PublisherList` renders the not-configured/empty/error states, and `usePublishers` maps rows correctly. Note the singleton caveat above before writing these.
