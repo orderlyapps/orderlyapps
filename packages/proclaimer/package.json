@@ -33,12 +33,31 @@
   },
   "dependencies": {
     "@amodeo/ionic": "workspace:*",
-    "@amodeo/utils": "workspace:*"
+    "@amodeo/utils": "workspace:*",
+    "@ionic/react": "catalog:",
+    "@ionic/react-router": "catalog:",
+    "@mapbox/mapbox-gl-draw": "catalog:",
+    "@react-pdf/renderer": "catalog:",
+    "@supabase/supabase-js": "catalog:",
+    "@tanstack/browser-db-sqlite-persistence": "catalog:",
+    "@tanstack/query-db-collection": "catalog:",
+    "@tanstack/react-db": "catalog:",
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/rxdb-db-collection": "catalog:",
+    "date-fns": "catalog:",
+    "ionicons": "catalog:",
+    "react": "catalog:",
+    "rxdb": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@amodeo/config": "workspace:*",
+    "@tanstack/react-query-devtools": "catalog:",
     "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "bumpp": "^11.1.0",
+    "supabase": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plus": "catalog:"
