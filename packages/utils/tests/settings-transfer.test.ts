@@ -64,6 +64,20 @@ test("import with replace clears existing values first", async () => {
   expect(await store.getAll()).toEqual({ volume: 90 });
 });
 
+test("import with replace re-seeds defaults for keys missing from the file", async () => {
+  const store = await createAppSettings<TestSettings>({
+    dbName: "import-replace-defaults",
+    storage: getRxStorageMemory(),
+    defaults: { theme: "light", notifications: true, volume: 10 },
+  });
+  stores.push(store);
+  await store.setMany({ theme: "dark", volume: 50 });
+
+  await importAppSettings(store, JSON.stringify({ volume: 90 }), { replace: true });
+
+  expect(await store.getAll()).toEqual({ theme: "light", notifications: true, volume: 90 });
+});
+
 test("import with replace still filters unknown keys", async () => {
   const store = await makeStore("import-replace-filter");
   await store.setMany({ theme: "light", volume: 10 });

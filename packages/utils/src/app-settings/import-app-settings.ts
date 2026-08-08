@@ -4,6 +4,8 @@ export interface ImportAppSettingsOptions {
   /**
    * When `true`, existing settings are replaced with the imported
    * values. Defaults to `false` (merge over existing values).
+   * Defaults seeded by `createAppSettings` are re-seeded for any keys
+   * the file doesn't contain, so the app never runs with missing defaults.
    */
   replace?: boolean;
 }

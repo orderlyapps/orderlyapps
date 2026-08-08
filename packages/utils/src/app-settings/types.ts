@@ -35,7 +35,11 @@ export interface AppSettings<T extends SettingsMap> {
   remove<K extends keyof T & string>(key: K): Promise<void>;
   /** Removes every stored setting. */
   clear(): Promise<void>;
-  /** Atomically replaces all stored settings with the given values. */
+  /**
+   * Atomically replaces all stored settings with the given values.
+   * When the store was created with `defaults`, any missing default keys
+   * are re-seeded so the store never runs without them.
+   */
   replaceAll(values: Partial<T>): Promise<void>;
   /** Subscribes to live updates of the full settings snapshot. Returns an unsubscribe function. */
   subscribe(listener: (settings: Partial<T>) => void): () => void;
