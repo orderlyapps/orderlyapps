@@ -3,6 +3,7 @@
     "target": "esnext",
     "lib": ["es2023", "DOM"],
     "moduleDetection": "force",
+    "jsx": "react-jsx",
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "resolveJsonModule": true,
