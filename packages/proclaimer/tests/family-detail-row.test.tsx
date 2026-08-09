@@ -17,7 +17,7 @@ test("FamilyDetailRow renders the family_id value or dash when null", () => {
 
   const items = container.querySelectorAll("ion-item");
   expect(items.length).toBeGreaterThanOrEqual(1);
-  expect(screen.getByText("Family")).toBeTruthy();
+  expect(screen.getByText("Family head")).toBeTruthy();
   expect(screen.getByText("—")).toBeTruthy();
 });
 
@@ -38,7 +38,15 @@ test("FamilyDetailRow opens the select modal when clicked", async () => {
 
 test("FamilyDetailRow calls updatePublisher with the selected family head id", async () => {
   const publisher = makePublisherRow({ first_name: "Ada", family_id: null });
-  const head = makePublisherRow({ first_name: "Bob", last_name: "Smith" });
+  // The select modal only lists family heads (family_id === id) or the
+  // publisher themself, so Bob must self-reference to be selectable.
+  const headId = crypto.randomUUID();
+  const head = makePublisherRow({
+    id: headId,
+    first_name: "Bob",
+    last_name: "Smith",
+    family_id: headId,
+  });
   const onUpdate = vi.fn<(payload: Record<string, unknown>, id: string) => void>();
   const supabase = createMockSupabase({ data: [publisher, head], onUpdate });
 
