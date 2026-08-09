@@ -1,31 +1,12 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { useLiveQuery } from "@tanstack/react-db";
-import type { PublisherRecord } from "../publisher-schema.js";
-import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
-import { getPublishersCollection } from "../publishers-collection/get-publishers-collection.js";
-
-export interface UsePublishersResult {
-  data: PublisherRecord[];
-  isLoading: boolean;
-  isError: boolean;
-  isConfigured: boolean;
-}
+import { usePublishersBase, buildPublishersResult } from "./use-publishers-base.js";
+import type { UsePublishersResult } from "./use-publishers-base.js";
+export type { UsePublishersResult };
 
 export function usePublishers(): UsePublishersResult {
-  const supabase = useSupabaseOrNull();
-  const queryClient = useQueryClient();
-  const publishers = supabase ? getPublishersCollection(supabase, queryClient) : null;
+  const { supabase, publishers } = usePublishersBase();
 
   const { data, isLoading, isError } = useLiveQuery(() => publishers, [publishers]);
 
-  // Query collections report queryFn failures via utils.isError and stay
-  // "ready"; the collection status only reaches "error" if sync itself throws.
-  const queryFailed = publishers?.utils.isError ?? false;
-
-  return {
-    data: data ?? [],
-    isLoading: supabase ? isLoading : false,
-    isError: supabase ? isError || queryFailed : false,
-    isConfigured: supabase !== null,
-  };
+  return buildPublishersResult(supabase, publishers, data, isLoading, isError);
 }
