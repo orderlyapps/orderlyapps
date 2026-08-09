@@ -5,6 +5,9 @@ export default defineConfig({
     "*": "vp check --fix",
   },
   fmt: {},
+  test: {
+    projects: ["packages/*", "tools/*"],
+  },
   lint: {
     ignorePatterns: ["**/public/vendor/**"],
     options: { typeAware: true, typeCheck: true },
