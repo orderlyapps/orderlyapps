@@ -5,6 +5,10 @@ export default defineConfig({
     dts: true,
     exports: true,
   },
+  test: {
+    environment: "happy-dom",
+    setupFiles: ["./tests/setup.ts"],
+  },
   lint: {
     options: {
       typeAware: true,

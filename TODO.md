@@ -2,11 +2,11 @@
 
 - [ ] **Placeholder metadata** — `packages/proclaimer/package.json` (and all other packages: `packages/utils/package.json`, `packages/ui/ionic/package.json`, `tools/config/package.json`) still have placeholder values for `description`, `author`, `homepage`, `bugs.url`, and `repository.url`. Replace with real project metadata.
 
+- [ ] **`@journeyapps/wa-sqlite` build script ignored** — every `vp add`/`vp install` exits 1 with `ERR_PNPM_IGNORED_BUILDS: Ignored build scripts: @journeyapps/wa-sqlite@1.7.2`. `pnpm-workspace.yaml` has a placeholder `allowBuilds` entry for it (`set this to true or false`). Decide whether the wa-sqlite build script should run (it's the SQLite WASM build used by `@tanstack/browser-db-sqlite-persistence`) and either approve it via `pnpm approve-builds` or explicitly set it to `false`, so installs stop exiting non-zero.
+
 ## Publisher list review follow-ups
 
 None of the items below are live bugs — the publisher list works correctly as shipped. A _live bug_ means some input or interaction the app can produce today yields wrong behaviour. The rest are latent hazards: code with a precondition it does not enforce, where nothing currently violates that precondition. Ordered by what is worth doing first.
-
-- [ ] **Thin test coverage** — `packages/proclaimer/tests/index.test.ts` only asserts that exports are functions, which gives a false sense of security. Add real tests: `ProclaimerProvider` renders children, `PublisherList` renders the not-configured/empty/error states, and `usePublishers` maps rows correctly. Note the singleton caveat above before writing these.
 
 - [ ] **No validation in `createSupabaseClient`** — `packages/proclaimer/src/supabase/create-supabase-client.ts` passes whatever it is given straight to `createClient`. Throw a clear error on an empty or malformed URL/key so misconfiguration fails loudly instead of producing cryptic network errors. (The provider already guards the empty case before calling this, so today it is defence in depth.)
 
