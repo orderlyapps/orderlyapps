@@ -43,8 +43,8 @@ test("renders an item per publisher row", async () => {
 
   // Falls back to "first last" when display_name is null
   expect(await screen.findByText("Ada Lovelace")).toBeTruthy();
-  // Prefers display_name when present
-  expect(await screen.findByText("Alan T.")).toBeTruthy();
+  // Renders "first (display) last" when display_name is present
+  expect(await screen.findByText("Ada (Alan T.) Lovelace")).toBeTruthy();
   expect(screen.getByText("regular_pioneer")).toBeTruthy();
   expect(screen.getByText("elder")).toBeTruthy();
 });
