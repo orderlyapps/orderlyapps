@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-export const publisherSchema = z.object({
-  id: z.uuid().optional(),
+export const publisherRecordSchema = z.object({
+  id: z.uuid(),
   first_name: z.string(),
-  middle_name: z.string().nullable().optional(),
+  middle_name: z.string().nullable(),
   last_name: z.string(),
-  display_name: z.string().nullable().optional(),
+  display_name: z.string().nullable(),
   congregation_id: z.uuid(),
   standing: z.enum([
     "elder",
@@ -25,15 +25,21 @@ export const publisherSchema = z.object({
     "circuit_overseer",
   ]),
   gender: z.enum(["male", "female"]),
-  family_id: z.uuid().nullable().optional(),
-  group_id: z.uuid().nullable().optional(),
-  auth_id: z.uuid().nullable().optional(),
-  archived_at: z.string().nullable().optional(),
+  family_id: z.uuid().nullable(),
+  group_id: z.uuid().nullable(),
+  auth_id: z.uuid().nullable(),
+  archived_at: z.string().nullable(),
 });
 
-export const publisherRecordSchema = publisherSchema.extend({
-  id: z.uuid(),
+export const publisherInsertSchema = publisherRecordSchema.partial({
+  id: true,
+  middle_name: true,
+  display_name: true,
+  family_id: true,
+  group_id: true,
+  auth_id: true,
+  archived_at: true,
 });
 
-export type Publisher = z.infer<typeof publisherSchema>;
 export type PublisherRecord = z.infer<typeof publisherRecordSchema>;
+export type PublisherInsert = z.infer<typeof publisherInsertSchema>;
