@@ -1,5 +1,16 @@
 import { z } from "zod";
 
+export const PUBLISHER_TYPES = [
+  "publisher",
+  "regular_pioneer",
+  "special_pioneer",
+  "continuous_auxiliary",
+  "inactive",
+  "speaker",
+  "associate",
+  "circuit_overseer",
+] as const;
+
 export const publisherRecordSchema = z.object({
   id: z.uuid(),
   first_name: z.string(),
@@ -14,16 +25,7 @@ export const publisherRecordSchema = z.object({
     "unbaptised_publisher",
     "associate",
   ]),
-  type: z.enum([
-    "publisher",
-    "regular_pioneer",
-    "special_pioneer",
-    "continuous_auxiliary",
-    "inactive",
-    "speaker",
-    "associate",
-    "circuit_overseer",
-  ]),
+  type: z.enum(PUBLISHER_TYPES),
   gender: z.enum(["male", "female"]),
   family_id: z.uuid().nullable(),
   group_id: z.uuid().nullable(),

@@ -1,13 +1,15 @@
 import { IonItem, IonLabel, IonList, IonSpinner } from "@ionic/react";
 import { usePublishers } from "../../hooks/use-publishers.js";
+import type { PublisherFilterNode } from "../../hooks/use-publishers.js";
 import { PublisherListItem } from "./components/publisher-list-item/publisher-list-item.js";
 
 export interface PublisherListProps {
   publisherRoutePrefix?: string;
+  filter?: PublisherFilterNode | PublisherFilterNode[];
 }
 
-export function PublisherList({ publisherRoutePrefix }: PublisherListProps = {}) {
-  const { data: publishers, isLoading, isError, isConfigured } = usePublishers();
+export function PublisherList({ publisherRoutePrefix, filter }: PublisherListProps = {}) {
+  const { data: publishers, isLoading, isError, isConfigured } = usePublishers({ filter });
 
   if (!isConfigured) {
     return (

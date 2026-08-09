@@ -19,4 +19,21 @@ export type {
 } from "./feature/publishers/hooks/use-publishers.js";
 export { usePublisher } from "./feature/publishers/hooks/use-publisher.js";
 export { PublisherList } from "./feature/publishers/components/publisher-list/publisher-list.js";
+export {
+  PublisherFilterSelect,
+  type PublisherFilterSelectProps,
+  type PublisherTypeFilter,
+} from "./feature/publishers/components/publisher-filter-select/publisher-filter-select.js";
+export {
+  PublisherPresetSelect,
+  type PublisherPresetSelectProps,
+  type PublisherPresetFilter,
+} from "./feature/publishers/components/publisher-preset-select/publisher-preset-select.js";
+export {
+  PUBLISHER_FILTER_PRESETS,
+  getPreset,
+  presetToFilter,
+  type PublisherFilterPreset,
+  type PublisherPresetId,
+} from "./feature/publishers/publisher-filter-presets.js";
 export { PublisherDetails } from "./feature/publishers/components/publisher-details/publisher-details.js";
