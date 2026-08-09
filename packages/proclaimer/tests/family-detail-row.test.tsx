@@ -37,7 +37,7 @@ test("FamilyDetailRow opens the select modal when clicked", async () => {
 });
 
 test("FamilyDetailRow calls updatePublisher with the selected family head id", async () => {
-  const publisher = makePublisherRow({ first_name: "Ada", family_id: null });
+  const publisher = makePublisherRow({ first_name: "Ada-xxx", family_id: null });
   // The select modal only lists family heads (family_id === id) or the
   // publisher themself, so Bob must self-reference to be selectable.
   const headId = crypto.randomUUID();
