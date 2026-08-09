@@ -1,6 +1,6 @@
 import { eq } from "@tanstack/react-db";
 import type { PublisherRecord } from "../publisher-schema.js";
-import { useFilteredPublishers } from "./use-filtered-publishers.js";
+import { usePublishers } from "./use-publishers.js";
 
 export interface UsePublisherResult {
   data: PublisherRecord | undefined;
@@ -10,7 +10,7 @@ export interface UsePublisherResult {
 }
 
 export function usePublisher(id: string | undefined): UsePublisherResult {
-  const result = useFilteredPublishers((publisher) => eq(publisher.id, id ?? ""), [id]);
+  const result = usePublishers((publisher) => eq(publisher.id, id ?? ""), [id]);
 
   return {
     data: result.data[0],
