@@ -6,9 +6,10 @@ import { FamilyDetailRow } from "./components/family-detail-row/family-detail-ro
 
 export interface PublisherDetailsProps {
   id: string | undefined;
+  publisherRoutePrefix?: string;
 }
 
-export function PublisherDetails({ id }: PublisherDetailsProps) {
+export function PublisherDetails({ id, publisherRoutePrefix }: PublisherDetailsProps) {
   const { data: publisher, isLoading, isError, isConfigured } = usePublisher(id);
 
   if (!isConfigured) {
@@ -61,7 +62,7 @@ export function PublisherDetails({ id }: PublisherDetailsProps) {
       <DetailRow label="Type" value={publisher.type} />
       <DetailRow label="Gender" value={publisher.gender} />
       <DetailRow label="Congregation" value={publisher.congregation_id} />
-      <FamilyDetailRow publisher={publisher} />
+      <FamilyDetailRow publisher={publisher} publisherRoutePrefix={publisherRoutePrefix} />
       <DetailRow label="Group" value={publisher.group_id} />
       <DetailRow label="Auth" value={publisher.auth_id} />
       <DetailRow label="Archived at" value={publisher.archived_at} lines="none" />

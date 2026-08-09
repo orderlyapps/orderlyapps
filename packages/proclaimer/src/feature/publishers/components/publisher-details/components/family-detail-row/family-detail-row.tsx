@@ -4,14 +4,16 @@ import { useUpdatePublisher } from "../../../../hooks/use-update-publisher.js";
 import { usePublishers } from "../../../../hooks/use-publishers.js";
 import type { PublisherFilterNode } from "../../../../hooks/use-publishers.js";
 import { PublisherSelectModal } from "../../../publisher-select-modal/publisher-select-modal.js";
+import { PublisherListItem } from "../../../publisher-list/components/publisher-list-item/publisher-list-item.js";
 import { DetailRow } from "../detail-row/detail-row.js";
 import { formatPublisherName } from "../../../publisher-name/publisher-name.js";
 
 export interface FamilyDetailRowProps {
   publisher: PublisherRecord;
+  publisherRoutePrefix?: string;
 }
 
-export function FamilyDetailRow({ publisher }: FamilyDetailRowProps) {
+export function FamilyDetailRow({ publisher, publisherRoutePrefix }: FamilyDetailRowProps) {
   const { update: updatePublisher } = useUpdatePublisher();
   const [isOpen, setIsOpen] = useState(false);
   const familyId = publisher.family_id;
@@ -43,7 +45,11 @@ export function FamilyDetailRow({ publisher }: FamilyDetailRowProps) {
         onClick={() => setIsOpen(true)}
       />
       {members.map((member) => (
-        <DetailRow key={member.id} label="Member" value={formatPublisherName(member)} />
+        <PublisherListItem
+          key={member.id}
+          publisher={member}
+          routerLink={publisherRoutePrefix ? `${publisherRoutePrefix}/${member.id}` : undefined}
+        />
       ))}
       <PublisherSelectModal
         isOpen={isOpen}
