@@ -4,6 +4,9 @@ export default defineConfig({
   pack: {
     dts: true,
     exports: true,
+    css: {
+      inject: true,
+    },
   },
   lint: {
     options: {

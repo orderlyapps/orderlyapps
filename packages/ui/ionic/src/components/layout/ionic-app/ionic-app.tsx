@@ -14,6 +14,7 @@ import "@ionic/react/css/display.css";
 import "@ionic/react/css/palettes/dark.class.css";
 
 import "@amodeo/utils/font-size.css";
+import "./ionic-app.css";
 
 export interface IonicAppProps {
   children: ReactNode;
