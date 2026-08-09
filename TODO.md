@@ -6,7 +6,7 @@
 
 None of the items below are live bugs — the publisher list works correctly as shipped. A _live bug_ means some input or interaction the app can produce today yields wrong behaviour. The rest are latent hazards: code with a precondition it does not enforce, where nothing currently violates that precondition. Ordered by what is worth doing first.
 
-- [ ] **No error boundary** — `apps/vite-project/src/App.tsx`. A throw anywhere under `ProclaimerProvider` blanks the whole app with no fallback UI. Wrap the tree in an error boundary.
+- [x] **No error boundary** — `apps/vite-project/src/App.tsx`. A throw anywhere under `ProclaimerProvider` blanks the whole app with no fallback UI. Wrap the tree in an error boundary.
 
 - [ ] **Thin test coverage** — `packages/proclaimer/tests/index.test.ts` only asserts that exports are functions, which gives a false sense of security. Add real tests: `ProclaimerProvider` renders children, `PublisherList` renders the not-configured/empty/error states, and `usePublishers` maps rows correctly. Note the singleton caveat above before writing these.
 

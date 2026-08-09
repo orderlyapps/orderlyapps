@@ -1,4 +1,8 @@
 export { IonicApp, type IonicAppProps } from "./components/layout/ionic-app/ionic-app.tsx";
+export {
+  ErrorBoundary,
+  type ErrorBoundaryProps,
+} from "./components/error-boundary/error-boundary.tsx";
 export { FontSizeSelector } from "./components/selectors/font-size-selector/font-size-selector.tsx";
 export { ThemeSelector } from "./components/selectors/theme-selector/theme-selector.tsx";
 export { TextInput, type TextInputProps } from "./components/input/text-input/text-input.tsx";
