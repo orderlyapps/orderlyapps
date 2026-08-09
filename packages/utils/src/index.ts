@@ -1,5 +1,6 @@
 export type { Size } from "./types/size.ts";
 export type { FontSize } from "./font-size/types.ts";
+export type { IonicColor } from "./vendor/ionic/types/ionic-color.ts";
 
 export {
   FONT_SCALE_MAP,

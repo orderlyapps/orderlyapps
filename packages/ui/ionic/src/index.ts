@@ -1,4 +1,5 @@
 export { IonicApp, type IonicAppProps } from "./components/layout/ionic-app/ionic-app.tsx";
+export { BodyText, type BodyTextProps } from "./components/typography/body-text/body-text.tsx";
 export {
   ErrorBoundary,
   type ErrorBoundaryProps,
