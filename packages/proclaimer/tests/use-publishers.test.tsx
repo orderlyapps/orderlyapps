@@ -53,6 +53,26 @@ test("exposes isError when the query fails", async () => {
   expect(result.current.data).toEqual([]);
 });
 
+test("includes publishers with a non-null archived_at", async () => {
+  const rows = [
+    makePublisherRow({ first_name: "Ada", last_name: "Lovelace" }),
+    makePublisherRow({
+      first_name: "Grace",
+      last_name: "Hopper",
+      archived_at: "2025-01-01T00:00:00Z",
+    }),
+  ];
+  const supabase = createMockSupabase({ data: rows });
+
+  const { result } = renderHook(() => usePublishers(), { wrapper: createWrapper(supabase) });
+
+  await waitFor(() => expect(result.current.data).toHaveLength(2));
+
+  expect(result.current.data).toEqual(
+    expect.arrayContaining(rows.map((row) => expect.objectContaining(row))),
+  );
+});
+
 test("surfaces a schema validation failure as an error", async () => {
   vi.spyOn(console, "error").mockImplementation(() => {});
   const supabase = createMockSupabase({ data: [{ id: "not-a-uuid", first_name: "Bad" }] });

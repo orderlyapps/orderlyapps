@@ -10,13 +10,11 @@ export interface MockSupabaseResult {
 }
 
 // Minimal stand-in for the chain used by the publishers collection:
-// supabase.from("publisher").select("*").is("archived_at", null)
+// supabase.from("publisher").select("*")
 export function createMockSupabase(result: MockSupabaseResult): SupabaseClient {
   return {
     from: () => ({
-      select: () => ({
-        is: () => Promise.resolve({ data: result.data ?? null, error: result.error ?? null }),
-      }),
+      select: () => Promise.resolve({ data: result.data ?? null, error: result.error ?? null }),
     }),
   } as unknown as SupabaseClient;
 }

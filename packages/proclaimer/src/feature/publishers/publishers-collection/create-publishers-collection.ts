@@ -11,10 +11,7 @@ export function createPublishersCollection(supabase: SupabaseClient, queryClient
     queryCollectionOptions({
       queryKey: ["publishers", getClientId(supabase)],
       queryFn: async () => {
-        const { data, error } = await supabase
-          .from("publisher")
-          .select("*")
-          .is("archived_at", null);
+        const { data, error } = await supabase.from("publisher").select("*");
         if (error) throw error;
         return z.array(publisherRecordSchema).parse(data ?? []);
       },
