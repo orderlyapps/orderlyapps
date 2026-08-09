@@ -12,10 +12,7 @@ export function PublisherListItem({ publisher, routerLink }: PublisherListItemPr
     <IonItem routerLink={routerLink} detail={Boolean(routerLink)}>
       <IonLabel>
         <h2>
-          <PublisherName
-            publisher={publisher}
-            format="first_name (display_name) middle_name last_name"
-          />
+          <PublisherName publisher={publisher} format="last_name, display_name" />
         </h2>
         <p>{publisher.type}</p>
       </IonLabel>
