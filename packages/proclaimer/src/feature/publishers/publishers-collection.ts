@@ -3,12 +3,12 @@ import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import type { QueryClient } from "@tanstack/react-query";
 import { z } from "zod";
 import { publisherRecordSchema } from "./publisher-schema.js";
-import type { TypedSupabaseClient } from "../../supabase/create-supabase-client.js";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 let nextClientId = 0;
-const clientIds = new WeakMap<TypedSupabaseClient, number>();
+const clientIds = new WeakMap<SupabaseClient, number>();
 
-function getClientId(supabase: TypedSupabaseClient) {
+function getClientId(supabase: SupabaseClient) {
   let id = clientIds.get(supabase);
   if (id === undefined) {
     id = nextClientId++;
@@ -17,7 +17,7 @@ function getClientId(supabase: TypedSupabaseClient) {
   return id;
 }
 
-function createPublishersCollection(supabase: TypedSupabaseClient, queryClient: QueryClient) {
+function createPublishersCollection(supabase: SupabaseClient, queryClient: QueryClient) {
   return createCollection(
     queryCollectionOptions({
       queryKey: ["publishers", getClientId(supabase)],
@@ -38,9 +38,9 @@ function createPublishersCollection(supabase: TypedSupabaseClient, queryClient: 
 
 export type PublishersCollection = ReturnType<typeof createPublishersCollection>;
 
-const collections = new WeakMap<TypedSupabaseClient, WeakMap<QueryClient, PublishersCollection>>();
+const collections = new WeakMap<SupabaseClient, WeakMap<QueryClient, PublishersCollection>>();
 
-export function getPublishersCollection(supabase: TypedSupabaseClient, queryClient: QueryClient) {
+export function getPublishersCollection(supabase: SupabaseClient, queryClient: QueryClient) {
   let byQueryClient = collections.get(supabase);
   if (!byQueryClient) {
     byQueryClient = new WeakMap();
