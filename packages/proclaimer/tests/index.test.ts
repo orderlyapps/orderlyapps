@@ -5,6 +5,7 @@ import {
   PublisherList,
   usePublishers,
   useSupabase,
+  useSupabaseOrNull,
 } from "../src/index.ts";
 
 test("package exports", () => {
@@ -13,4 +14,5 @@ test("package exports", () => {
   expect(typeof PublisherList).toBe("function");
   expect(typeof usePublishers).toBe("function");
   expect(typeof useSupabase).toBe("function");
+  expect(typeof useSupabaseOrNull).toBe("function");
 });

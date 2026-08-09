@@ -4,6 +4,6 @@ export {
   ProclaimerProvider,
   type ProclaimerProviderProps,
 } from "./providers/proclaimer-provider.js";
-export { useSupabase } from "./providers/supabase-context.js";
+export { useSupabase, useSupabaseOrNull } from "./providers/supabase-context.js";
 export { usePublishers } from "./feature/publishers/hooks/use-publishers.js";
 export { PublisherList } from "./feature/publishers/components/publisher-list/publisher-list.js";

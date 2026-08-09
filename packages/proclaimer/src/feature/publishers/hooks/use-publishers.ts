@@ -1,7 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useLiveQuery } from "@tanstack/react-db";
 import type { PublisherRecord } from "../publisher-schema.js";
-import { useSupabase } from "../../../providers/supabase-context.js";
+import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
 import { getPublishersCollection } from "../publishers-collection.js";
 
 export interface UsePublishersResult {
@@ -12,7 +12,7 @@ export interface UsePublishersResult {
 }
 
 export function usePublishers(): UsePublishersResult {
-  const supabase = useSupabase();
+  const supabase = useSupabaseOrNull();
   const queryClient = useQueryClient();
   const publishers = supabase ? getPublishersCollection(supabase, queryClient) : null;
 
