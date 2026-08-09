@@ -7,14 +7,23 @@ import type { PublisherRecord } from "../src/feature/publishers/publisher-schema
 export interface MockSupabaseResult {
   data?: unknown[] | null;
   error?: Error | null;
+  updateError?: Error | null;
+  onUpdate?: (payload: Record<string, unknown>, id: string) => void;
 }
 
-// Minimal stand-in for the chain used by the publishers collection:
+// Minimal stand-in for the chains used by the publishers collection:
 // supabase.from("publisher").select("*")
+// supabase.from("publisher").update(payload).eq("id", id)
 export function createMockSupabase(result: MockSupabaseResult): SupabaseClient {
   return {
     from: () => ({
       select: () => Promise.resolve({ data: result.data ?? null, error: result.error ?? null }),
+      update: (payload: Record<string, unknown>) => ({
+        eq: (_col: string, id: string) => {
+          result.onUpdate?.(payload, id);
+          return Promise.resolve({ data: null, error: result.updateError ?? null });
+        },
+      }),
     }),
   } as unknown as SupabaseClient;
 }

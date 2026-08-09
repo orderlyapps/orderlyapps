@@ -18,6 +18,19 @@ export function createPublishersCollection(supabase: SupabaseClient, queryClient
       queryClient,
       schema: publisherRecordSchema,
       getKey: (publisher) => publisher.id,
+      onUpdate: async ({ transaction }) => {
+        const partialSchema = publisherRecordSchema.partial();
+        for (const mutation of transaction.mutations) {
+          const parsed = partialSchema.safeParse(mutation.changes);
+          if (!parsed.success) throw parsed.error;
+          const payload: Record<string, unknown> = { ...parsed.data };
+          // The primary key identifies the row; never write it back
+          delete payload.id;
+          if (Object.keys(payload).length === 0) continue;
+          const { error } = await supabase.from("publisher").update(payload).eq("id", mutation.key);
+          if (error) throw error;
+        }
+      },
     }),
   );
 }

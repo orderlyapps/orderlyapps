@@ -18,7 +18,16 @@ export type {
   PublisherRef,
 } from "./feature/publishers/hooks/use-publishers.js";
 export { usePublisher } from "./feature/publishers/hooks/use-publisher.js";
+export {
+  useUpdatePublisher,
+  type UseUpdatePublisherResult,
+  type UpdatePublisherChanges,
+} from "./feature/publishers/hooks/use-update-publisher.js";
 export { PublisherList } from "./feature/publishers/components/publisher-list/publisher-list.js";
+export {
+  PublisherSelectModal,
+  type PublisherSelectModalProps,
+} from "./feature/publishers/components/publisher-select-modal/publisher-select-modal.js";
 export {
   PublisherFilterSelect,
   type PublisherFilterSelectProps,
