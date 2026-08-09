@@ -29,8 +29,8 @@ test("PublisherSelectModal renders the title and an item per publisher when open
   );
 
   expect(await screen.findByText("Set Family Head")).toBeTruthy();
-  expect(await screen.findByText("Ada Lovelace")).toBeTruthy();
-  expect(screen.getByText("Bob Lovelace")).toBeTruthy();
+  expect(await screen.findByText("Lovelace, Ada")).toBeTruthy();
+  expect(screen.getByText("Lovelace, Bob")).toBeTruthy();
 });
 
 test("PublisherSelectItem calls onSelect when clicked", () => {
@@ -72,15 +72,15 @@ test("PublisherSelectList filters publishers by search term", async () => {
     wrapper: createWrapper(supabase),
   });
 
-  await waitFor(() => expect(screen.getByText("Ada Lovelace")).toBeTruthy());
-  expect(screen.getByText("Bob Smith")).toBeTruthy();
+  await waitFor(() => expect(screen.getByText("Lovelace, Ada")).toBeTruthy());
+  expect(screen.getByText("Smith, Bob")).toBeTruthy();
 
   const searchbar = document.querySelector("ion-searchbar");
   expect(searchbar).toBeTruthy();
   searchbar!.dispatchEvent(new CustomEvent("ionInput", { detail: { value: "ada" } }));
 
-  await waitFor(() => expect(screen.queryByText("Bob Smith")).toBeNull());
-  expect(screen.getByText("Ada Lovelace")).toBeTruthy();
+  await waitFor(() => expect(screen.queryByText("Smith, Bob")).toBeNull());
+  expect(screen.getByText("Lovelace, Ada")).toBeTruthy();
 });
 
 test("PublisherSelectList shows not-configured message without supabase", () => {
@@ -100,7 +100,7 @@ test("PublisherSelectList shows no-results message when search matches nothing",
     wrapper: createWrapper(supabase),
   });
 
-  await waitFor(() => expect(screen.getByText("Ada Lovelace")).toBeTruthy());
+  await waitFor(() => expect(screen.getByText("Lovelace, Ada")).toBeTruthy());
 
   const searchbar = document.querySelector("ion-searchbar");
   searchbar!.dispatchEvent(new CustomEvent("ionInput", { detail: { value: "zzz" } }));

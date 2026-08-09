@@ -51,9 +51,9 @@ test("FamilyDetailRow calls updatePublisher with the selected family head id", a
   item!.dispatchEvent(new MouseEvent("click", { bubbles: true }));
 
   // Wait for the list to render, then click Bob
-  await waitFor(() => expect(screen.getByText("Bob Smith")).toBeTruthy());
+  await waitFor(() => expect(screen.getByText("Smith, Bob")).toBeTruthy());
   const bobItem = Array.from(document.querySelectorAll("ion-item")).find((el) =>
-    el.textContent?.includes("Bob Smith"),
+    el.textContent?.includes("Smith, Bob"),
   );
   expect(bobItem).toBeTruthy();
   bobItem!.dispatchEvent(new MouseEvent("click", { bubbles: true }));

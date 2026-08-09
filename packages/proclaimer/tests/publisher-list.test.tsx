@@ -42,10 +42,10 @@ test("renders an item per publisher row", async () => {
 
   render(<PublisherList />, { wrapper: createWrapper(supabase) });
 
-  // Falls back to "first last" when display_name is null
-  expect(await screen.findByText("Ada Lovelace")).toBeTruthy();
-  // Renders "first (display) last" when display_name is present
-  expect(await screen.findByText("Ada (Alan T.) Lovelace")).toBeTruthy();
+  // Falls back to "last, first" when display_name is null
+  expect(await screen.findByText("Lovelace, Ada")).toBeTruthy();
+  // Renders "last, display" when display_name is present
+  expect(await screen.findByText("Lovelace, Alan T.")).toBeTruthy();
   expect(screen.getByText("regular_pioneer")).toBeTruthy();
   expect(screen.getByText("elder")).toBeTruthy();
 });
@@ -63,8 +63,8 @@ test("renders only publishers matching the filter prop", async () => {
     wrapper: createWrapper(supabase),
   });
 
-  expect(await screen.findByText("Ada Lovelace")).toBeTruthy();
-  expect(screen.queryByText("Bob Lovelace")).toBeNull();
+  expect(await screen.findByText("Lovelace, Ada")).toBeTruthy();
+  expect(screen.queryByText("Lovelace, Bob")).toBeNull();
 });
 
 test("renders only publishers matching an array of filter nodes", async () => {
@@ -85,9 +85,9 @@ test("renders only publishers matching an array of filter nodes", async () => {
     { wrapper: createWrapper(supabase) },
   );
 
-  expect(await screen.findByText("Ada Lovelace")).toBeTruthy();
-  expect(screen.queryByText("Bob Lovelace")).toBeNull();
-  expect(screen.queryByText("Cy Lovelace")).toBeNull();
+  expect(await screen.findByText("Lovelace, Ada")).toBeTruthy();
+  expect(screen.queryByText("Lovelace, Bob")).toBeNull();
+  expect(screen.queryByText("Lovelace, Cy")).toBeNull();
 });
 
 test("renders the empty state when the filter matches no publishers", async () => {
@@ -113,13 +113,13 @@ test("re-renders with updated results when the filter prop changes", async () =>
     { wrapper: createWrapper(supabase) },
   );
 
-  expect(await screen.findByText("Ada Lovelace")).toBeTruthy();
-  expect(screen.queryByText("Bob Lovelace")).toBeNull();
+  expect(await screen.findByText("Lovelace, Ada")).toBeTruthy();
+  expect(screen.queryByText("Lovelace, Bob")).toBeNull();
 
   rerender(<PublisherList filter={{ column: "type", op: "eq", value: "special_pioneer" }} />);
 
-  expect(await screen.findByText("Bob Lovelace")).toBeTruthy();
-  expect(screen.queryByText("Ada Lovelace")).toBeNull();
+  expect(await screen.findByText("Lovelace, Bob")).toBeTruthy();
+  expect(screen.queryByText("Lovelace, Ada")).toBeNull();
 });
 
 // --- Preset-driven ---
@@ -137,9 +137,9 @@ test("renders only family heads when given the family_heads preset filter", asyn
     wrapper: createWrapper(supabase),
   });
 
-  expect(await screen.findByText("Ada Lovelace")).toBeTruthy();
-  expect(screen.queryByText("Bob Lovelace")).toBeNull();
-  expect(screen.queryByText("Cy Lovelace")).toBeNull();
+  expect(await screen.findByText("Lovelace, Ada")).toBeTruthy();
+  expect(screen.queryByText("Lovelace, Bob")).toBeNull();
+  expect(screen.queryByText("Lovelace, Cy")).toBeNull();
 });
 
 test("renders publishers with no family when given the no_family preset filter", async () => {
@@ -155,7 +155,7 @@ test("renders publishers with no family when given the no_family preset filter",
     wrapper: createWrapper(supabase),
   });
 
-  expect(await screen.findByText("Cy Lovelace")).toBeTruthy();
-  expect(screen.queryByText("Ada Lovelace")).toBeNull();
-  expect(screen.queryByText("Bob Lovelace")).toBeNull();
+  expect(await screen.findByText("Lovelace, Cy")).toBeTruthy();
+  expect(screen.queryByText("Lovelace, Ada")).toBeNull();
+  expect(screen.queryByText("Lovelace, Bob")).toBeNull();
 });
