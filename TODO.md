@@ -3,9 +3,3 @@
 - [ ] **Placeholder metadata** — `packages/proclaimer/package.json` (and all other packages: `packages/utils/package.json`, `packages/ui/ionic/package.json`, `tools/config/package.json`) still have placeholder values for `description`, `author`, `homepage`, `bugs.url`, and `repository.url`. Replace with real project metadata.
 
 - [ ] **`@journeyapps/wa-sqlite` build script ignored** — every `vp add`/`vp install` exits 1 with `ERR_PNPM_IGNORED_BUILDS: Ignored build scripts: @journeyapps/wa-sqlite@1.7.2`. `pnpm-workspace.yaml` has a placeholder `allowBuilds` entry for it (`set this to true or false`). Decide whether the wa-sqlite build script should run (it's the SQLite WASM build used by `@tanstack/browser-db-sqlite-persistence`) and either approve it via `pnpm approve-builds` or explicitly set it to `false`, so installs stop exiting non-zero.
-
-## Publisher list review follow-ups
-
-None of the items below are live bugs — the publisher list works correctly as shipped. A _live bug_ means some input or interaction the app can produce today yields wrong behaviour. The rest are latent hazards: code with a precondition it does not enforce, where nothing currently violates that precondition. Ordered by what is worth doing first.
-
-- [ ] **`PublisherList` empty-state co-located with mapped items** — `packages/proclaimer/src/feature/publishers/components/publisher-list/publisher-list.tsx`. The "No publishers found" message is rendered as an `IonItem` inside the same `IonList` as the mapped publishers, guarded only by `publishers.length === 0`. Not a bug today, but if a future search/filter is applied to the list, the empty-state check would need to run against the filtered result, not the raw data — otherwise both filtered-out items and the empty message could render simultaneously. Worth noting if filtering is planned.
