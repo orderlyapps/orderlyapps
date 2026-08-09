@@ -9,6 +9,9 @@ export function PublishersContent() {
           <p>Browse available publishers</p>
         </IonLabel>
       </IonItem>
+      <IonItem routerLink="/home/proclaimer/features/publishers/all" detail>
+        <IonLabel>All Publishers</IonLabel>
+      </IonItem>
     </IonList>
   );
 }

@@ -35,14 +35,12 @@ export function PublisherList() {
     );
   }
 
-  const displayedPublishers = publishers;
-
   return (
     <IonList inset>
-      {displayedPublishers.map((publisher) => (
+      {publishers.map((publisher) => (
         <PublisherListItem key={publisher.id} publisher={publisher} />
       ))}
-      {displayedPublishers.length === 0 && (
+      {publishers.length === 0 && (
         <IonItem lines="none">
           <IonLabel color="medium">No publishers found</IonLabel>
         </IonItem>

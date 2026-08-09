@@ -5,6 +5,7 @@ import { IonReactRouter } from "@ionic/react-router";
 import { home, person, settings as settingsIcon } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
 import AboutPage from "@/routes/pages/settings/about/index.tsx";
+import AllPublishersPage from "@/routes/pages/home/proclaimer/features/publishers/all/index.tsx";
 import DetailsPage from "@/routes/pages/home/details/index.tsx";
 import EditProfilePage from "@/routes/pages/profile/edit/index.tsx";
 import FeaturesPage from "@/routes/pages/home/proclaimer/features/index.tsx";
@@ -33,6 +34,11 @@ export default function App() {
                   exact
                   path="/home/proclaimer/features/publishers"
                   component={PublishersPage}
+                />
+                <Route
+                  exact
+                  path="/home/proclaimer/features/publishers/all"
+                  component={AllPublishersPage}
                 />
                 <Route exact path="/profile" component={ProfileTabPage} />
                 <Route exact path="/profile/edit" component={EditProfilePage} />
