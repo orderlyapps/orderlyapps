@@ -1,4 +1,4 @@
-import { IonItem, IonLabel, IonList, IonSpinner } from "@ionic/react";
+import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow, IonSpinner } from "@ionic/react";
 import { usePublishers } from "../../hooks/use-publishers.js";
 import type { PublisherFilterNode } from "../../hooks/use-publishers.js";
 import { PublisherListItem } from "./components/publisher-list-item/publisher-list-item.js";
@@ -43,18 +43,27 @@ export function PublisherList({ publisherRoutePrefix, filter }: PublisherListPro
 
   return (
     <IonList inset>
-      {publishers.map((publisher) => (
-        <PublisherListItem
-          key={publisher.id}
-          publisher={publisher}
-          routerLink={publisherRoutePrefix ? `${publisherRoutePrefix}/${publisher.id}` : undefined}
-        />
-      ))}
-      {publishers.length === 0 && (
-        <IonItem lines="none">
-          <IonLabel color="medium">No publishers found</IonLabel>
-        </IonItem>
-      )}
+      <IonGrid>
+        <IonRow>
+          {publishers.map((publisher) => (
+            <IonCol key={publisher.id} size="12" sizeMd="6" sizeXl="4" className="ion-no-padding">
+              <PublisherListItem
+                publisher={publisher}
+                routerLink={
+                  publisherRoutePrefix ? `${publisherRoutePrefix}/${publisher.id}` : undefined
+                }
+              />
+            </IonCol>
+          ))}
+          {publishers.length === 0 && (
+            <IonCol size="12">
+              <IonItem lines="none">
+                <IonLabel color="medium">No publishers found</IonLabel>
+              </IonItem>
+            </IonCol>
+          )}
+        </IonRow>
+      </IonGrid>
     </IonList>
   );
 }
