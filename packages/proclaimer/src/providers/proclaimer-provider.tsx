@@ -14,7 +14,18 @@ export function ProclaimerProvider({
   supabaseAnonKey,
   children,
 }: ProclaimerProviderProps) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 1000 * 60 * 5,
+            retry: 1,
+            refetchOnWindowFocus: false,
+          },
+        },
+      }),
+  );
   const [supabase] = useState(() =>
     supabaseUrl && supabaseAnonKey ? createSupabaseClient(supabaseUrl, supabaseAnonKey) : null,
   );
