@@ -13,7 +13,7 @@ export type InputLayoutProps = IonInputProps & {
  */
 export function InputLayout({ ref, label, ...props }: InputLayoutProps) {
   return (
-    <IonItem style={{ maxWidth: "480px", marginInline: "auto", width: "100%" }}>
+    <IonItem>
       <IonInput ref={ref} {...props} labelPlacement="floating">
         <IonText slot="label" color="primary" style={{ fontWeight: "bold" }}>
           {label}
