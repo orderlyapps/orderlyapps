@@ -1,8 +1,8 @@
 import { IonItem, IonLabel, IonList, IonSpinner } from "@ionic/react";
 import { usePublisher } from "../../hooks/use-publisher.js";
-import { PublisherName } from "../publisher-name/publisher-name.js";
 import { DetailRow } from "./components/detail-row/detail-row.js";
 import { FamilyDetailRow } from "./components/family-detail-row/family-detail-row.js";
+import { NameDetailRow } from "./components/name-detail-row/name-detail-row.js";
 
 export interface PublisherDetailsProps {
   id: string | undefined;
@@ -44,16 +44,7 @@ export function PublisherDetails({ id, publisherRoutePrefix }: PublisherDetailsP
 
   return (
     <IonList inset>
-      <IonItem lines="full">
-        <IonLabel>
-          <h2>
-            <PublisherName
-              publisher={publisher}
-              format="first_name (display_name) middle_name last_name"
-            />
-          </h2>
-        </IonLabel>
-      </IonItem>
+      <NameDetailRow publisher={publisher} />
       <DetailRow label="First name" value={publisher.first_name} />
       <DetailRow label="Middle name" value={publisher.middle_name} />
       <DetailRow label="Last name" value={publisher.last_name} />
