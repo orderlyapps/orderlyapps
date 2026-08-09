@@ -7,8 +7,11 @@ import { Redirect, Route } from "react-router-dom";
 import AboutPage from "@/routes/pages/settings/about/index.tsx";
 import DetailsPage from "@/routes/pages/home/details/index.tsx";
 import EditProfilePage from "@/routes/pages/profile/edit/index.tsx";
+import FeaturesPage from "@/routes/pages/home/proclaimer/features/index.tsx";
 import HomeTabPage from "@/routes/pages/home/index.tsx";
+import ProclaimerPage from "@/routes/pages/home/proclaimer/index.tsx";
 import ProfileTabPage from "@/routes/pages/profile/index.tsx";
+import PublishersPage from "@/routes/pages/home/proclaimer/features/publishers/index.tsx";
 import SettingsTabPage from "@/routes/pages/settings/index.tsx";
 
 export default function App() {
@@ -24,6 +27,13 @@ export default function App() {
               <IonRouterOutlet>
                 <Route exact path="/home" component={HomeTabPage} />
                 <Route exact path="/home/details" component={DetailsPage} />
+                <Route exact path="/home/proclaimer" component={ProclaimerPage} />
+                <Route exact path="/home/proclaimer/features" component={FeaturesPage} />
+                <Route
+                  exact
+                  path="/home/proclaimer/features/publishers"
+                  component={PublishersPage}
+                />
                 <Route exact path="/profile" component={ProfileTabPage} />
                 <Route exact path="/profile/edit" component={EditProfilePage} />
                 <Route exact path="/settings" component={SettingsTabPage} />

@@ -8,6 +8,9 @@ export function HomeContent() {
         <IonItem routerLink="/home/details" detail>
           <IonLabel>View details</IonLabel>
         </IonItem>
+        <IonItem routerLink="/home/proclaimer" detail>
+          <IonLabel>Proclaimer</IonLabel>
+        </IonItem>
       </IonList>
       <PublisherList />
     </>
