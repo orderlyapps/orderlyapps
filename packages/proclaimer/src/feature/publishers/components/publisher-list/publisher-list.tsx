@@ -1,5 +1,5 @@
 import { IonItem, IonLabel, IonList, IonSpinner } from "@ionic/react";
-import { usePublishers } from "../../hooks/use-publishers.ts";
+import { usePublishers } from "../../hooks/use-publishers.js";
 import { PublisherListItem } from "./components/publisher-list-item/publisher-list-item.js";
 
 export function PublisherList() {

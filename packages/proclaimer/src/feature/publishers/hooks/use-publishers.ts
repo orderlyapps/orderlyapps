@@ -1,8 +1,8 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useLiveQuery } from "@tanstack/react-db";
-import type { PublisherRecord } from "../publisher-schema.ts";
-import { useSupabase } from "../../../providers/supabase-context.ts";
-import { getPublishersCollection } from "../publishers-collection.ts";
+import type { PublisherRecord } from "../publisher-schema.js";
+import { useSupabase } from "../../../providers/supabase-context.js";
+import { getPublishersCollection } from "../publishers-collection.js";
 
 export interface UsePublishersResult {
   data: PublisherRecord[];
