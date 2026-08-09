@@ -62,6 +62,6 @@ peerDependencyRules:
   allowedVersions:
     vite: "*"
 allowBuilds:
-  "@journeyapps/wa-sqlite": set this to true or false
+  "@journeyapps/wa-sqlite": false
   esbuild: true
   workerd: true
