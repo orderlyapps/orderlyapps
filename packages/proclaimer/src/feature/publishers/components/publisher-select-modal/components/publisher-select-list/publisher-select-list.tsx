@@ -1,18 +1,26 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonSearchbar, IonSpinner } from "@ionic/react";
 import { usePublishers } from "../../../../hooks/use-publishers.js";
+import type { PublisherFilterNode, PublisherOrderBy } from "../../../../hooks/use-publishers.js";
 import type { PublisherRecord } from "../../../../publisher-schema.js";
 import { formatPublisherName } from "../../../publisher-name/publisher-name.js";
 import { PublisherSelectItem } from "../publisher-select-item/publisher-select-item.js";
 
 export interface PublisherSelectListProps {
   selectedId?: string | null;
+  filter?: PublisherFilterNode | PublisherFilterNode[];
+  orderBy?: PublisherOrderBy[];
   onSelect: (publisher: PublisherRecord) => void;
 }
 
-export function PublisherSelectList({ selectedId, onSelect }: PublisherSelectListProps) {
+export function PublisherSelectList({
+  selectedId,
+  filter,
+  orderBy,
+  onSelect,
+}: PublisherSelectListProps) {
   const [search, setSearch] = useState("");
-  const { data: publishers, isLoading, isError, isConfigured } = usePublishers();
+  const { data: publishers, isLoading, isError, isConfigured } = usePublishers({ filter, orderBy });
 
   if (!isConfigured) {
     return (

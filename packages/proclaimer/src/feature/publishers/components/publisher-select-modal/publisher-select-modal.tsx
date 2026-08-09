@@ -8,12 +8,15 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import type { PublisherRecord } from "../../publisher-schema.js";
+import type { PublisherFilterNode, PublisherOrderBy } from "../../hooks/use-publishers.js";
 import { PublisherSelectList } from "./components/publisher-select-list/publisher-select-list.js";
 
 export interface PublisherSelectModalProps {
   isOpen: boolean;
   selectedId?: string | null;
   title?: string;
+  filter?: PublisherFilterNode | PublisherFilterNode[];
+  orderBy?: PublisherOrderBy[];
   onDismiss: () => void;
   onSelect: (publisher: PublisherRecord) => void;
 }
@@ -22,6 +25,8 @@ export function PublisherSelectModal({
   isOpen,
   selectedId,
   title = "Select Publisher",
+  filter,
+  orderBy,
   onDismiss,
   onSelect,
 }: PublisherSelectModalProps) {
@@ -36,7 +41,12 @@ export function PublisherSelectModal({
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <PublisherSelectList selectedId={selectedId} onSelect={onSelect} />
+        <PublisherSelectList
+          selectedId={selectedId}
+          filter={filter}
+          orderBy={orderBy}
+          onSelect={onSelect}
+        />
       </IonContent>
     </IonModal>
   );
