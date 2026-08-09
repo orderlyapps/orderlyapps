@@ -20,12 +20,17 @@ export type PublisherNameFormat =
 const DEFAULT_FORMAT: PublisherNameFormat = "display_name last_name";
 const FALLBACK_FORMAT: PublisherNameFormat = "first_name last_name";
 
-function applyFormat(publisher: PublisherRecord, format: PublisherNameFormat): string {
+export type PublisherNameFields = Pick<
+  PublisherRecord,
+  "first_name" | "middle_name" | "last_name" | "display_name"
+>;
+
+function applyFormat(name: PublisherNameFields, format: PublisherNameFormat): string {
   const values: Record<NameField, string> = {
-    display_name: publisher.display_name ?? publisher.first_name,
-    middle_name: publisher.middle_name ?? "",
-    first_name: publisher.first_name,
-    last_name: publisher.last_name,
+    display_name: name.display_name ?? name.first_name,
+    middle_name: name.middle_name ?? "",
+    first_name: name.first_name,
+    last_name: name.last_name,
   };
 
   let template: string = format;
@@ -44,12 +49,12 @@ function applyFormat(publisher: PublisherRecord, format: PublisherNameFormat): s
 }
 
 export function formatPublisherName(
-  publisher: PublisherRecord,
+  name: PublisherNameFields,
   format: PublisherNameFormat = DEFAULT_FORMAT,
 ): string {
-  const result = applyFormat(publisher, format);
+  const result = applyFormat(name, format);
   if (result) return result;
-  if (format !== FALLBACK_FORMAT) return applyFormat(publisher, FALLBACK_FORMAT);
+  if (format !== FALLBACK_FORMAT) return applyFormat(name, FALLBACK_FORMAT);
   return result;
 }
 

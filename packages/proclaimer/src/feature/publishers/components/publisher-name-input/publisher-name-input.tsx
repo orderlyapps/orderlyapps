@@ -1,53 +1,47 @@
 import { useState } from "react";
 import { IonAlert, IonItem, IonLabel } from "@ionic/react";
-import type { PublisherRecord } from "../../../../publisher-schema.js";
-import { useUpdatePublisher } from "../../../../hooks/use-update-publisher.js";
 import {
-  PublisherName,
+  formatPublisherName,
   type PublisherNameFields,
   type PublisherNameFormat,
-} from "../../../publisher-name/publisher-name.js";
+} from "../publisher-name/publisher-name.js";
 
-export interface NameDetailRowProps {
-  publisher: PublisherRecord;
+export type PublisherNameValue = PublisherNameFields;
+
+export interface PublisherNameInputProps {
+  value?: PublisherNameValue;
+  onChange: (value: PublisherNameValue) => void;
+  lines?: "full" | "none" | "inset";
 }
 
 const DISPLAY_FORMAT: PublisherNameFormat = "first_name (display_name) middle_name last_name";
 
-export function NameDetailRow({ publisher }: NameDetailRowProps) {
-  const { update: updatePublisher } = useUpdatePublisher();
+export function PublisherNameInput({ value, onChange, lines = "full" }: PublisherNameInputProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  // Snapshot the publisher's name fields when the alert opens so a real-time
-  // update to `publisher` while the alert is open does not reset the user's
-  // in-progress edits via IonAlert's @Watch('inputs') handler.
-  const [snapshot, setSnapshot] = useState<PublisherNameFields | null>(null);
+  // Snapshot the values when the alert opens so a change to `value` while the
+  // alert is open (e.g. a parent re-render) does not reset the user's in-progress
+  // edits via IonAlert's @Watch('inputs') handler.
+  const [snapshot, setSnapshot] = useState<PublisherNameValue | null>(null);
 
   const open = () => {
     setErrorMessage(undefined);
-    setSnapshot({
-      first_name: publisher.first_name,
-      middle_name: publisher.middle_name,
-      last_name: publisher.last_name,
-      display_name: publisher.display_name,
-    });
+    setSnapshot(value ?? null);
     setIsOpen(true);
   };
 
-  const baseValue = snapshot ?? publisher;
+  const baseValue = snapshot ?? value;
 
   return (
     <>
-      <IonItem lines="full" button detail onClick={open}>
+      <IonItem lines={lines} button detail onClick={open}>
         <IonLabel>
-          <h2>
-            <PublisherName publisher={publisher} format={DISPLAY_FORMAT} />
-          </h2>
+          <h2>{value ? formatPublisherName(value, DISPLAY_FORMAT) : "Tap to enter name"}</h2>
         </IonLabel>
       </IonItem>
       <IonAlert
         isOpen={isOpen}
-        header="Edit name"
+        header="Enter name"
         message={errorMessage}
         onDidDismiss={() => setIsOpen(false)}
         inputs={[
@@ -55,25 +49,25 @@ export function NameDetailRow({ publisher }: NameDetailRowProps) {
             name: "first_name",
             type: "text",
             placeholder: "First name",
-            value: baseValue.first_name,
+            value: baseValue?.first_name ?? "",
           },
           {
             name: "middle_name",
             type: "text",
             placeholder: "Middle name (optional)",
-            value: baseValue.middle_name ?? "",
+            value: baseValue?.middle_name ?? "",
           },
           {
             name: "last_name",
             type: "text",
             placeholder: "Last name",
-            value: baseValue.last_name,
+            value: baseValue?.last_name ?? "",
           },
           {
             name: "display_name",
             type: "text",
             placeholder: "Display name (optional)",
-            value: baseValue.display_name ?? "",
+            value: baseValue?.display_name ?? "",
           },
         ]}
         buttons={[
@@ -92,7 +86,7 @@ export function NameDetailRow({ publisher }: NameDetailRowProps) {
               }
 
               setErrorMessage(undefined);
-              updatePublisher(publisher.id, {
+              onChange({
                 first_name: firstName,
                 middle_name: (data.middle_name ?? "").trim() || null,
                 last_name: lastName,
