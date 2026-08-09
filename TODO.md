@@ -6,8 +6,6 @@
 
 None of the items below are live bugs — the publisher list works correctly as shipped. A _live bug_ means some input or interaction the app can produce today yields wrong behaviour. The rest are latent hazards: code with a precondition it does not enforce, where nothing currently violates that precondition. Ordered by what is worth doing first.
 
-- [x] **No error boundary** — `apps/vite-project/src/App.tsx`. A throw anywhere under `ProclaimerProvider` blanks the whole app with no fallback UI. Wrap the tree in an error boundary.
-
 - [ ] **Thin test coverage** — `packages/proclaimer/tests/index.test.ts` only asserts that exports are functions, which gives a false sense of security. Add real tests: `ProclaimerProvider` renders children, `PublisherList` renders the not-configured/empty/error states, and `usePublishers` maps rows correctly. Note the singleton caveat above before writing these.
 
 - [ ] **`as PublisherRecord[]` assertion still unchecked, and the schema is not wired into the collection** — `packages/proclaimer/src/feature/publishers/publishers-collection.ts`, in `queryFn`. `database.types.ts` is gone and types now derive from `publisher-schema.ts`, but the cast survived the migration and is now _more_ misleading than before: a reader sees a zod schema in the same folder and reasonably assumes rows are validated. Nothing validates them. The Supabase client is also no longer generic (`TypedSupabaseClient = SupabaseClient`), so `.from("publisher").select("*")` returns `any`-ish data and the cast is the only thing giving it a shape — meaning a column rename or an enum value the schema does not list passes straight through to `PublisherListItem` and surfaces as a confusing render-time error rather than at the fetch boundary.
