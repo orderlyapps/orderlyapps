@@ -4,11 +4,12 @@ import { PublisherName } from "../../../publisher-name/publisher-name.js";
 
 export interface PublisherListItemProps {
   publisher: PublisherRecord;
+  routerLink?: string;
 }
 
-export function PublisherListItem({ publisher }: PublisherListItemProps) {
+export function PublisherListItem({ publisher, routerLink }: PublisherListItemProps) {
   return (
-    <IonItem>
+    <IonItem routerLink={routerLink} detail={Boolean(routerLink)}>
       <IonLabel>
         <h2>
           <PublisherName

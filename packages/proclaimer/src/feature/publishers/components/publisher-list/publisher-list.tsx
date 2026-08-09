@@ -2,7 +2,11 @@ import { IonItem, IonLabel, IonList, IonSpinner } from "@ionic/react";
 import { usePublishers } from "../../hooks/use-publishers.js";
 import { PublisherListItem } from "./components/publisher-list-item/publisher-list-item.js";
 
-export function PublisherList() {
+export interface PublisherListProps {
+  publisherRoutePrefix?: string;
+}
+
+export function PublisherList({ publisherRoutePrefix }: PublisherListProps = {}) {
   const { data: publishers, isLoading, isError, isConfigured } = usePublishers();
 
   if (!isConfigured) {
@@ -38,7 +42,11 @@ export function PublisherList() {
   return (
     <IonList inset>
       {publishers.map((publisher) => (
-        <PublisherListItem key={publisher.id} publisher={publisher} />
+        <PublisherListItem
+          key={publisher.id}
+          publisher={publisher}
+          routerLink={publisherRoutePrefix ? `${publisherRoutePrefix}/${publisher.id}` : undefined}
+        />
       ))}
       {publishers.length === 0 && (
         <IonItem lines="none">
