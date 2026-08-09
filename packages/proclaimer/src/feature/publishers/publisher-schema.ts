@@ -31,5 +31,9 @@ export const publisherSchema = z.object({
   archived_at: z.string().nullable().optional(),
 });
 
+export const publisherRecordSchema = publisherSchema.extend({
+  id: z.uuid(),
+});
+
 export type Publisher = z.infer<typeof publisherSchema>;
-export type PublisherRecord = Omit<Publisher, "id"> & { id: string };
+export type PublisherRecord = z.infer<typeof publisherRecordSchema>;

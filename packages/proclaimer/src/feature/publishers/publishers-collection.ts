@@ -1,7 +1,8 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import type { QueryClient } from "@tanstack/react-query";
-import type { PublisherRecord } from "./publisher-schema.js";
+import { z } from "zod";
+import { publisherRecordSchema } from "./publisher-schema.js";
 import type { TypedSupabaseClient } from "../../supabase/create-supabase-client.js";
 
 let nextClientId = 0;
@@ -18,7 +19,7 @@ function getClientId(supabase: TypedSupabaseClient) {
 
 function createPublishersCollection(supabase: TypedSupabaseClient, queryClient: QueryClient) {
   return createCollection(
-    queryCollectionOptions<PublisherRecord>({
+    queryCollectionOptions({
       queryKey: ["publishers", getClientId(supabase)],
       queryFn: async () => {
         const { data, error } = await supabase
@@ -26,9 +27,10 @@ function createPublishersCollection(supabase: TypedSupabaseClient, queryClient: 
           .select("*")
           .is("archived_at", null);
         if (error) throw error;
-        return (data ?? []) as PublisherRecord[];
+        return z.array(publisherRecordSchema).parse(data ?? []);
       },
       queryClient,
+      schema: publisherRecordSchema,
       getKey: (publisher) => publisher.id,
     }),
   );
