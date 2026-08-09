@@ -4,7 +4,7 @@ import type { QueryClient } from "@tanstack/react-query";
 import { z } from "zod";
 import { publisherRecordSchema } from "../publisher-schema.js";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { getClientId } from "./get-client-id.js";
+import { getClientId } from "../../../supabase/get-client-id.js";
 
 export function createPublishersCollection(supabase: SupabaseClient, queryClient: QueryClient) {
   return createCollection(
