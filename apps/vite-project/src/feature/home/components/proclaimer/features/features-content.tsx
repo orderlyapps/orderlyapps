@@ -6,6 +6,9 @@ export function FeaturesContent() {
       <IonItem routerLink="/home/proclaimer/features/publishers" detail>
         <IonLabel>Publishers</IonLabel>
       </IonItem>
+      <IonItem routerLink="/home/proclaimer/features/congregations" detail>
+        <IonLabel>Congregations</IonLabel>
+      </IonItem>
     </IonList>
   );
 }

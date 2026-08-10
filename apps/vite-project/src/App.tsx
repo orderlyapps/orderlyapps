@@ -5,6 +5,9 @@ import { IonReactRouter } from "@ionic/react-router";
 import { home, person, settings as settingsIcon } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
 import AboutPage from "@/routes/pages/settings/about/index.tsx";
+import AllCongregationsPage from "@/routes/pages/home/proclaimer/features/congregations/all/index.tsx";
+import CongregationDetailsPage from "@/routes/pages/home/proclaimer/features/congregations/all/congregation/index.tsx";
+import CongregationsPage from "@/routes/pages/home/proclaimer/features/congregations/index.tsx";
 import AllPublishersPage from "@/routes/pages/home/proclaimer/features/publishers/all/index.tsx";
 import PublisherDetailsPage from "@/routes/pages/home/proclaimer/features/publishers/all/publisher/index.tsx";
 import DetailsPage from "@/routes/pages/home/details/index.tsx";
@@ -45,6 +48,21 @@ export default function App() {
                   exact
                   path="/home/proclaimer/features/publishers/all/:id"
                   component={PublisherDetailsPage}
+                />
+                <Route
+                  exact
+                  path="/home/proclaimer/features/congregations"
+                  component={CongregationsPage}
+                />
+                <Route
+                  exact
+                  path="/home/proclaimer/features/congregations/all"
+                  component={AllCongregationsPage}
+                />
+                <Route
+                  exact
+                  path="/home/proclaimer/features/congregations/all/:id"
+                  component={CongregationDetailsPage}
                 />
                 <Route exact path="/profile" component={ProfileTabPage} />
                 <Route exact path="/profile/edit" component={EditProfilePage} />
