@@ -48,3 +48,34 @@ export {
   type PublisherPresetId,
 } from "./feature/publishers/publisher-filter-presets.js";
 export { PublisherDetails } from "./feature/publishers/components/publisher-details/publisher-details.js";
+export { useCongregations } from "./feature/congregations/hooks/use-congregations.js";
+export type {
+  UseCongregationsOptions,
+  UseCongregationsResult,
+  CongregationColumn,
+  CongregationColumnRef,
+  CongregationFilter,
+  CongregationFilterGroup,
+  CongregationFilterNode,
+  CongregationOrderBy,
+  CongregationRef,
+} from "./feature/congregations/hooks/use-congregations.js";
+export {
+  useCongregation,
+  type UseCongregationResult,
+} from "./feature/congregations/hooks/use-congregation.js";
+export {
+  useUpdateCongregation,
+  type UseUpdateCongregationResult,
+  type UseUpdateCongregationOptions,
+  type UpdateCongregationChanges,
+} from "./feature/congregations/hooks/use-update-congregation.js";
+export { describeCongregationError } from "./feature/congregations/congregation-errors.js";
+export {
+  CongregationList,
+  type CongregationListProps,
+} from "./feature/congregations/components/congregation-list/congregation-list.js";
+export {
+  CongregationDetails,
+  type CongregationDetailsProps,
+} from "./feature/congregations/components/congregation-details/congregation-details.js";
