@@ -5,6 +5,9 @@ import { usePublisher } from "../../hooks/use-publisher.js";
 import { DetailRow } from "./components/detail-row/detail-row.js";
 import { FamilyDetailRow } from "./components/family-detail-row/family-detail-row.js";
 import { NameDetailRow } from "./components/name-detail-row/name-detail-row.js";
+import { StandingDetailRow } from "./components/standing-detail-row/standing-detail-row.js";
+import { TypeDetailRow } from "./components/type-detail-row/type-detail-row.js";
+import { GenderDetailRow } from "./components/gender-detail-row/gender-detail-row.js";
 
 export interface PublisherDetailsProps {
   id: string | undefined;
@@ -57,9 +60,9 @@ export function PublisherDetails({ id, publisherRoutePrefix }: PublisherDetailsP
       <DetailRow label="Middle name" value={publisher.middle_name} />
       <DetailRow label="Last name" value={publisher.last_name} />
       <DetailRow label="Display name" value={publisher.display_name} />
-      <DetailRow label="Standing" value={publisher.standing} />
-      <DetailRow label="Type" value={publisher.type} />
-      <DetailRow label="Gender" value={publisher.gender} />
+      <StandingDetailRow publisher={publisher} />
+      <TypeDetailRow publisher={publisher} />
+      <GenderDetailRow publisher={publisher} />
       <DetailRow label="Congregation" value={publisher.congregation_id} />
       <FamilyDetailRow publisher={publisher} publisherRoutePrefix={publisherRoutePrefix} />
       <DetailRow label="Group" value={publisher.group_id} />
