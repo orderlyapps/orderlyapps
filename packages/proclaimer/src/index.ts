@@ -79,3 +79,12 @@ export {
   CongregationDetails,
   type CongregationDetailsProps,
 } from "./feature/congregations/components/congregation-details/congregation-details.js";
+export {
+  OnboardingGuard,
+  type OnboardingGuardProps,
+} from "./feature/onboarding/components/onboarding-guard/onboarding-guard.js";
+export {
+  createProclaimerOnboardingSettings,
+  type CreateProclaimerOnboardingSettingsOptions,
+} from "./feature/onboarding/create-onboarding-settings.js";
+export type { ProclaimerOnboardingSettings } from "./feature/onboarding/types.js";
