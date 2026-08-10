@@ -29,6 +29,12 @@
       "development": "./src/supabase/index.ts",
       "import": "./dist/supabase/index.mjs"
     },
+    "./errors": {
+      "types@development": "./src/errors/errors.ts",
+      "types": "./dist/errors/errors.d.mts",
+      "development": "./src/errors/errors.ts",
+      "import": "./dist/errors/errors.mjs"
+    },
     "./font-size.css": "./src/font-size/font-size.css",
     "./package.json": "./package.json"
   },

@@ -4,11 +4,12 @@ import { useAppSettings, type AppSettings } from "@amodeo/utils";
 import type { CongregationRecord } from "../../../congregations/congregation-schema.js";
 import type { PublisherRecord } from "../../../publishers/publisher-schema.js";
 import type { ProclaimerOnboardingSettings } from "../../types.js";
+import { AuthStep } from "../../../auth/components/auth-step/auth-step.js";
 import { CongregationStep } from "./components/congregation-step/congregation-step.js";
 import { PasswordStep } from "./components/password-step/password-step.js";
 import { PublisherStep } from "./components/publisher-step/publisher-step.js";
 
-type Step = "congregation" | "password" | "publisher";
+type Step = "congregation" | "password" | "publisher" | "auth";
 
 export interface OnboardingFlowProps {
   settings: AppSettings<ProclaimerOnboardingSettings>;
@@ -17,6 +18,7 @@ export interface OnboardingFlowProps {
 export function OnboardingFlow({ settings }: OnboardingFlowProps) {
   const [step, setStep] = useState<Step>("congregation");
   const [congregation, setCongregation] = useState<CongregationRecord | null>(null);
+  const [selectedPublisher, setSelectedPublisher] = useState<PublisherRecord | null>(null);
   const { setMany } = useAppSettings(settings);
 
   const handleCongregationSelect = (c: CongregationRecord) => {
@@ -31,7 +33,17 @@ export function OnboardingFlow({ settings }: OnboardingFlowProps) {
   };
 
   const handlePublisherSelect = async (p: PublisherRecord) => {
-    await setMany({ publisherId: p.id, onboardingComplete: true });
+    if (p.auth_id) {
+      setSelectedPublisher(p);
+      setStep("auth");
+    } else {
+      await setMany({ publisherId: p.id, onboardingComplete: true });
+    }
+  };
+
+  const handleAuthSuccess = async () => {
+    if (!selectedPublisher) return;
+    await setMany({ publisherId: selectedPublisher.id, onboardingComplete: true });
   };
 
   const handleSkip = async () => {
@@ -59,6 +71,13 @@ export function OnboardingFlow({ settings }: OnboardingFlowProps) {
             congregationId={congregation.id}
             onSelect={handlePublisherSelect}
             onSkip={handleSkip}
+          />
+        )}
+        {step === "auth" && selectedPublisher && (
+          <AuthStep
+            publisher={selectedPublisher}
+            onSuccess={handleAuthSuccess}
+            onBack={() => setStep("publisher")}
           />
         )}
       </IonContent>
