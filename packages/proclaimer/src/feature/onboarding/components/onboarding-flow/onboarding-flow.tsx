@@ -3,7 +3,6 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/rea
 import { useAppSettings, type AppSettings } from "@amodeo/utils";
 import type { CongregationRecord } from "../../../congregations/congregation-schema.js";
 import type { PublisherRecord } from "../../../publishers/publisher-schema.js";
-import { formatPublisherName } from "../../../publishers/components/publisher-name/publisher-name.js";
 import type { ProclaimerOnboardingSettings } from "../../types.js";
 import { CongregationStep } from "./components/congregation-step/congregation-step.js";
 import { PasswordStep } from "./components/password-step/password-step.js";
@@ -27,20 +26,16 @@ export function OnboardingFlow({ settings }: OnboardingFlowProps) {
 
   const handlePasswordSuccess = async () => {
     if (!congregation) return;
-    await setMany({ congregationId: congregation.id, congregationName: congregation.name });
+    await setMany({ congregationId: congregation.id });
     setStep("publisher");
   };
 
   const handlePublisherSelect = async (p: PublisherRecord) => {
-    await setMany({
-      publisherId: p.id,
-      publisherName: formatPublisherName(p),
-      onboardingComplete: true,
-    });
+    await setMany({ publisherId: p.id, onboardingComplete: true });
   };
 
   const handleSkip = async () => {
-    await setMany({ publisherId: null, publisherName: null, onboardingComplete: true });
+    await setMany({ publisherId: null, onboardingComplete: true });
   };
 
   return (
