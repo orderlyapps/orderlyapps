@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonToggle } from "@ionic/react";
 import { EmailInput, FontSizeSelector, NumberInput, TextInput, ThemeSelector } from "@amodeo/ionic";
+import { ResetOnboardingButton } from "@amodeo/proclaimer";
 
 export function SettingsContent() {
   const [name, setName] = useState("");
@@ -44,6 +45,11 @@ export function SettingsContent() {
         </IonItem>
         <IonItem routerLink="/settings/about" detail>
           <IonLabel>About</IonLabel>
+        </IonItem>
+      </IonList>
+      <IonList inset>
+        <IonItem lines="none">
+          <ResetOnboardingButton />
         </IonItem>
       </IonList>
     </>

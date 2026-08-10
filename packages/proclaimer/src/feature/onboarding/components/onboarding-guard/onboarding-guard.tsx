@@ -3,6 +3,7 @@ import { IonContent, IonPage, IonSpinner } from "@ionic/react";
 import { useAppSettings, type AppSettings } from "@amodeo/utils";
 import type { ProclaimerOnboardingSettings } from "../../types.js";
 import { OnboardingFlow } from "../onboarding-flow/onboarding-flow.js";
+import { OnboardingSettingsContext } from "../../onboarding-settings-context.js";
 import { CongregationIdContext } from "../../../congregations/congregations-collection/congregation-id-context.js";
 
 export interface OnboardingGuardProps {
@@ -30,8 +31,10 @@ export function OnboardingGuard({ settings, children }: OnboardingGuardProps) {
   const congregationId = values.congregationId || undefined;
 
   return (
-    <CongregationIdContext.Provider value={congregationId}>
-      {values.onboardingComplete ? children : <OnboardingFlow settings={settings} />}
-    </CongregationIdContext.Provider>
+    <OnboardingSettingsContext.Provider value={settings}>
+      <CongregationIdContext.Provider value={congregationId}>
+        {values.onboardingComplete ? children : <OnboardingFlow settings={settings} />}
+      </CongregationIdContext.Provider>
+    </OnboardingSettingsContext.Provider>
   );
 }

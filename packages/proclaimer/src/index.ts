@@ -88,6 +88,14 @@ export {
   type OnboardingGuardProps,
 } from "./feature/onboarding/components/onboarding-guard/onboarding-guard.js";
 export {
+  ResetOnboardingButton,
+  type ResetOnboardingButtonProps,
+} from "./feature/onboarding/components/reset-onboarding-button/reset-onboarding-button.js";
+export {
+  useOnboardingSettings,
+  OnboardingSettingsContext,
+} from "./feature/onboarding/onboarding-settings-context.js";
+export {
   createProclaimerOnboardingSettings,
   type CreateProclaimerOnboardingSettingsOptions,
 } from "./feature/onboarding/create-onboarding-settings.js";
