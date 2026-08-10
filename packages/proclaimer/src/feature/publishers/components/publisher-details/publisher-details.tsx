@@ -1,4 +1,6 @@
 import { IonItem, IonLabel, IonList, IonSpinner } from "@ionic/react";
+import { ErrorItem } from "@amodeo/ionic";
+import { describeSupabaseError } from "@amodeo/utils/supabase";
 import { usePublisher } from "../../hooks/use-publisher.js";
 import { DetailRow } from "./components/detail-row/detail-row.js";
 import { FamilyDetailRow } from "./components/family-detail-row/family-detail-row.js";
@@ -10,7 +12,7 @@ export interface PublisherDetailsProps {
 }
 
 export function PublisherDetails({ id, publisherRoutePrefix }: PublisherDetailsProps) {
-  const { data: publisher, isLoading, isError, isConfigured } = usePublisher(id);
+  const { data: publisher, isLoading, isError, error, isConfigured } = usePublisher(id);
 
   if (!isConfigured) {
     return (
@@ -32,12 +34,18 @@ export function PublisherDetails({ id, publisherRoutePrefix }: PublisherDetailsP
     );
   }
 
-  if (isError || !publisher) {
+  if (isError) {
     return (
       <IonList inset>
-        <IonItem color="danger">
-          <IonLabel>Publisher not found</IonLabel>
-        </IonItem>
+        <ErrorItem message={error ? describeSupabaseError(error) : "Failed to load publisher"} />
+      </IonList>
+    );
+  }
+
+  if (!publisher) {
+    return (
+      <IonList inset>
+        <ErrorItem message="Publisher not found" />
       </IonList>
     );
   }

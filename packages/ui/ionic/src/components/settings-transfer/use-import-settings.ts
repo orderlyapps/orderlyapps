@@ -1,5 +1,6 @@
 import { useRef, useState, type ChangeEvent } from "react";
 import { importAppSettings, type AppSettings, type SettingsMap } from "@amodeo/utils";
+import { useErrorToast } from "../error-toast/use-error-toast.ts";
 
 /** Maximum accepted settings file size (1 MB) to guard against memory abuse. */
 const MAX_FILE_SIZE_BYTES = 1_000_000;
@@ -18,17 +19,16 @@ export function useImportSettings<T extends SettingsMap>({
   reloadAfterImport = true,
 }: UseImportSettingsOptions<T>) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<string | null>(null);
+  const { presentError } = useErrorToast();
   const [success, setSuccess] = useState<string | null>(null);
 
   async function handleFile(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     event.target.value = "";
     if (!file) return;
-    setError(null);
     setSuccess(null);
     if (file.size > MAX_FILE_SIZE_BYTES) {
-      setError("Settings file is too large (maximum 1 MB).");
+      presentError(new Error("Settings file is too large (maximum 1 MB)."));
       return;
     }
     try {
@@ -39,16 +39,14 @@ export function useImportSettings<T extends SettingsMap>({
       setSuccess(reloadAfterImport ? `${message} Reloading…` : message);
       if (reloadAfterImport) setTimeout(() => window.location.reload(), RELOAD_DELAY_MS);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to import settings.");
+      presentError(err);
     }
   }
 
   return {
     inputRef,
-    error,
     success,
     handleFile,
-    dismissError: () => setError(null),
     dismissSuccess: () => setSuccess(null),
     openFilePicker: () => inputRef.current?.click(),
   };

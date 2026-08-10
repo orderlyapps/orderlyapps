@@ -20,3 +20,9 @@ export {
   ImportSettingsItem,
   type ImportSettingsItemProps,
 } from "./components/settings-transfer/import-settings-item.tsx";
+export {
+  useErrorToast,
+  type UseErrorToastOptions,
+  type UseErrorToastResult,
+} from "./components/error-toast/use-error-toast.ts";
+export { ErrorItem, type ErrorItemProps } from "./components/error-item/error-item.tsx";

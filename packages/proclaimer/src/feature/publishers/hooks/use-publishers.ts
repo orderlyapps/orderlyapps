@@ -16,6 +16,7 @@ import {
 import type { Ref } from "@tanstack/react-db";
 import { useQueryClient } from "@tanstack/react-query";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { toError } from "@amodeo/utils";
 import type { PublisherRecord } from "../publisher-schema.js";
 import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
 import { getPublishersCollection } from "../publishers-collection/get-publishers-collection.js";
@@ -106,6 +107,7 @@ export interface UsePublishersResult {
   data: PublisherRecord[];
   isLoading: boolean;
   isError: boolean;
+  error: Error | null;
   isConfigured: boolean;
 }
 
@@ -127,10 +129,18 @@ function buildPublishersResult(
   isError: boolean,
 ): UsePublishersResult {
   const queryFailed = publishers?.utils.isError ?? false;
+  const hasError = supabase ? isError || queryFailed : false;
+  // `lastError` resets on success but is not guaranteed to be in lockstep with
+  // `isError`. When it's unavailable, return `null` so consumers fall back to
+  // their own generic message via their `error ? describe(error) : fallback`
+  // ternary.
+  const error =
+    hasError && publishers?.utils.lastError ? toError(publishers.utils.lastError) : null;
   return {
     data: data ?? [],
     isLoading: supabase ? isLoading : false,
-    isError: supabase ? isError || queryFailed : false,
+    isError: hasError,
+    error,
     isConfigured: supabase !== null,
   };
 }

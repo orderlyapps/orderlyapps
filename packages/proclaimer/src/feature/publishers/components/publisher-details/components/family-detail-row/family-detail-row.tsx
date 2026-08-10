@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useErrorToast } from "@amodeo/ionic";
 import type { PublisherRecord } from "../../../../publisher-schema.js";
 import { useUpdatePublisher } from "../../../../hooks/use-update-publisher.js";
 import { usePublishers } from "../../../../hooks/use-publishers.js";
 import type { PublisherFilterNode } from "../../../../hooks/use-publishers.js";
+import { describePublisherError } from "../../../../publisher-errors.js";
 import { PublisherSelectModal } from "../../../publisher-select-modal/publisher-select-modal.js";
 import { PublisherListItem } from "../../../publisher-list/components/publisher-list-item/publisher-list-item.js";
 import { DetailRow } from "../detail-row/detail-row.js";
@@ -14,7 +16,8 @@ export interface FamilyDetailRowProps {
 }
 
 export function FamilyDetailRow({ publisher, publisherRoutePrefix }: FamilyDetailRowProps) {
-  const { update: updatePublisher } = useUpdatePublisher();
+  const { presentError } = useErrorToast({ describeError: describePublisherError });
+  const { update: updatePublisher } = useUpdatePublisher({ onError: presentError });
   const [isOpen, setIsOpen] = useState(false);
   const familyId = publisher.family_id;
 

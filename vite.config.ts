@@ -6,7 +6,7 @@ export default defineConfig({
   },
   fmt: {},
   test: {
-    projects: ["packages/*", "tools/*"],
+    projects: ["packages/proclaimer", "packages/utils", "packages/ui/*", "tools/*"],
   },
   lint: {
     ignorePatterns: ["**/public/vendor/**"],

@@ -50,3 +50,5 @@ export type { ResolvedTheme } from "./theme/types.ts";
 export { initTheme, type InitThemeOptions } from "./theme/theme.ts";
 
 export { useTheme, type UseThemeResult } from "./theme/use-theme.ts";
+
+export { toError, getErrorMessage } from "./errors/errors.ts";

@@ -27,7 +27,7 @@ export function ImportSettingsItem<T extends SettingsMap>({
   label = "Import settings",
   ...options
 }: ImportSettingsItemProps<T>) {
-  const { inputRef, error, success, handleFile, dismissError, dismissSuccess, openFilePicker } =
+  const { inputRef, success, handleFile, dismissSuccess, openFilePicker } =
     useImportSettings(options);
 
   return (
@@ -42,13 +42,6 @@ export function ImportSettingsItem<T extends SettingsMap>({
         accept={`.${extension.replace(/^\.+/, "")}`}
         hidden
         onChange={(e) => void handleFile(e)}
-      />
-      <IonToast
-        isOpen={error !== null}
-        message={error ?? ""}
-        color="danger"
-        duration={3000}
-        onDidDismiss={dismissError}
       />
       <IonToast
         isOpen={success !== null}

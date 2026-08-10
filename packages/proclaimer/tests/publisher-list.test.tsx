@@ -22,7 +22,8 @@ test("renders the error state when the publishers query fails", async () => {
 
   render(<PublisherList />, { wrapper: createWrapper(supabase) });
 
-  expect(await screen.findByText("Failed to load publishers")).toBeTruthy();
+  // The inline ErrorItem surfaces the Supabase-described error detail
+  expect(await screen.findByText("boom")).toBeTruthy();
 });
 
 test("renders the empty state when no publishers are returned", async () => {

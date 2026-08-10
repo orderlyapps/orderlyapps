@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonSearchbar, IonSpinner } from "@ionic/react";
+import { ErrorItem } from "@amodeo/ionic";
+import { describeSupabaseError } from "@amodeo/utils/supabase";
 import { usePublishers } from "../../../../hooks/use-publishers.js";
 import type { PublisherFilterNode, PublisherOrderBy } from "../../../../hooks/use-publishers.js";
 import type { PublisherRecord } from "../../../../publisher-schema.js";
@@ -20,7 +22,16 @@ export function PublisherSelectList({
   onSelect,
 }: PublisherSelectListProps) {
   const [search, setSearch] = useState("");
-  const { data: publishers, isLoading, isError, isConfigured } = usePublishers({ filter, orderBy });
+  const {
+    data: publishers,
+    isLoading,
+    isError,
+    error,
+    isConfigured,
+  } = usePublishers({
+    filter,
+    orderBy,
+  });
 
   if (!isConfigured) {
     return (
@@ -43,9 +54,7 @@ export function PublisherSelectList({
   if (isError) {
     return (
       <IonList>
-        <IonItem color="danger">
-          <IonLabel>Failed to load publishers</IonLabel>
-        </IonItem>
+        <ErrorItem message={error ? describeSupabaseError(error) : "Failed to load publishers"} />
       </IonList>
     );
   }

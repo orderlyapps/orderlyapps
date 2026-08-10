@@ -69,3 +69,25 @@ test("onUpdate skips persistence when only the id field changes", async () => {
   await waitFor(() => expect(publishersResult.current.isLoading).toBe(false));
   expect(onUpdate).not.toHaveBeenCalled();
 });
+
+test("onError fires with a normalized Error when the update fails", async () => {
+  const publisher = makePublisherRow({ first_name: "Ada" });
+  const onError = vi.fn<(error: Error) => void>();
+  const supabase = createMockSupabase({
+    data: [publisher],
+    updateError: new Error("permission denied"),
+  });
+
+  const wrapper = createWrapper(supabase);
+  const { result: publishersResult } = renderHook(() => usePublishers(), { wrapper });
+  const { result: updateResult } = renderHook(() => useUpdatePublisher({ onError }), { wrapper });
+
+  await waitFor(() => expect(publishersResult.current.data).toHaveLength(1));
+
+  updateResult.current.update(publisher.id, { first_name: "Grace" });
+
+  await waitFor(() => expect(onError).toHaveBeenCalled());
+  const [error] = onError.mock.calls[0];
+  expect(error).toBeInstanceOf(Error);
+  expect(error.message).toBe("permission denied");
+});

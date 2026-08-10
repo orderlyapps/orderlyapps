@@ -17,6 +17,7 @@ test("returns a not-configured, idle result when there is no supabase client", (
     data: [],
     isLoading: false,
     isError: false,
+    error: null,
     isConfigured: false,
   });
 });
@@ -53,6 +54,18 @@ test("exposes isError when the query fails", async () => {
 
   expect(result.current.isLoading).toBe(false);
   expect(result.current.data).toEqual([]);
+});
+
+test("populates error with a normalized Error when the query fails", async () => {
+  vi.spyOn(console, "error").mockImplementation(() => {});
+  const supabase = createMockSupabase({ error: new Error("network down") });
+
+  const { result } = renderHook(() => usePublishers(), { wrapper: createWrapper(supabase) });
+
+  await waitFor(() => expect(result.current.isError).toBe(true));
+
+  expect(result.current.error).toBeInstanceOf(Error);
+  expect(result.current.error?.message).toBe("network down");
 });
 
 test("includes publishers with a non-null archived_at", async () => {
@@ -100,6 +113,7 @@ test("filtered: returns a not-configured, idle result when there is no supabase 
     data: [],
     isLoading: false,
     isError: false,
+    error: null,
     isConfigured: false,
   });
 });
@@ -378,6 +392,7 @@ test("enabled: returns an idle result without subscribing when enabled is false"
     data: [],
     isLoading: false,
     isError: false,
+    error: null,
     isConfigured: true,
   });
 });

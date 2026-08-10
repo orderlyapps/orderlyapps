@@ -23,6 +23,12 @@
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     },
+    "./supabase": {
+      "types@development": "./src/supabase/index.ts",
+      "types": "./dist/supabase/index.d.mts",
+      "development": "./src/supabase/index.ts",
+      "import": "./dist/supabase/index.mjs"
+    },
     "./font-size.css": "./src/font-size/font-size.css",
     "./package.json": "./package.json"
   },
@@ -48,6 +54,16 @@
     "vite-plus": "catalog:"
   },
   "peerDependencies": {
+    "@supabase/auth-js": "catalog:",
+    "@supabase/supabase-js": "catalog:",
     "react": "catalog:"
+  },
+  "peerDependenciesMeta": {
+    "@supabase/auth-js": {
+      "optional": true
+    },
+    "@supabase/supabase-js": {
+      "optional": true
+    }
   }
 }

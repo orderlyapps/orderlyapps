@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IonIcon, IonItem, IonLabel, IonToast } from "@ionic/react";
 import { downloadOutline } from "ionicons/icons";
 import { exportAppSettings, type AppSettings, type SettingsMap } from "@amodeo/utils";
+import { useErrorToast } from "../error-toast/use-error-toast.ts";
 
 export interface ExportSettingsItemProps<T extends SettingsMap> {
   /** The settings store to export from. */
@@ -20,17 +21,16 @@ export function ExportSettingsItem<T extends SettingsMap>({
   extension,
   label = "Export settings",
 }: ExportSettingsItemProps<T>) {
-  const [error, setError] = useState<string | null>(null);
+  const { presentError } = useErrorToast();
   const [success, setSuccess] = useState<string | null>(null);
 
   async function handleExport() {
-    setError(null);
     setSuccess(null);
     try {
       await exportAppSettings(store, { fileName, extension });
       setSuccess("Settings exported.");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to export settings.");
+      presentError(err);
     }
   }
 
@@ -40,13 +40,6 @@ export function ExportSettingsItem<T extends SettingsMap>({
         <IonIcon icon={downloadOutline} slot="start" />
         <IonLabel>{label}</IonLabel>
       </IonItem>
-      <IonToast
-        isOpen={error !== null}
-        message={error ?? ""}
-        color="danger"
-        duration={3000}
-        onDidDismiss={() => setError(null)}
-      />
       <IonToast
         isOpen={success !== null}
         message={success ?? ""}

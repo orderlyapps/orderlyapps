@@ -17,12 +17,14 @@ export type {
   PublisherOrderBy,
   PublisherRef,
 } from "./feature/publishers/hooks/use-publishers.js";
-export { usePublisher } from "./feature/publishers/hooks/use-publisher.js";
+export { usePublisher, type UsePublisherResult } from "./feature/publishers/hooks/use-publisher.js";
 export {
   useUpdatePublisher,
   type UseUpdatePublisherResult,
+  type UseUpdatePublisherOptions,
   type UpdatePublisherChanges,
 } from "./feature/publishers/hooks/use-update-publisher.js";
+export { describePublisherError } from "./feature/publishers/publisher-errors.js";
 export { PublisherList } from "./feature/publishers/components/publisher-list/publisher-list.js";
 export {
   PublisherSelectModal,

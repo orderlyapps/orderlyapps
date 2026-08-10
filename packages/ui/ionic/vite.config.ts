@@ -8,6 +8,10 @@ export default defineConfig({
       inject: true,
     },
   },
+  test: {
+    environment: "happy-dom",
+    setupFiles: ["./tests/setup.ts"],
+  },
   lint: {
     options: {
       typeAware: true,

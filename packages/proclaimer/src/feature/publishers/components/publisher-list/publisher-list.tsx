@@ -1,4 +1,6 @@
 import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow, IonSpinner } from "@ionic/react";
+import { ErrorItem } from "@amodeo/ionic";
+import { describeSupabaseError } from "@amodeo/utils/supabase";
 import { usePublishers } from "../../hooks/use-publishers.js";
 import type { PublisherFilterNode } from "../../hooks/use-publishers.js";
 import { PublisherListItem } from "./components/publisher-list-item/publisher-list-item.js";
@@ -9,7 +11,7 @@ export interface PublisherListProps {
 }
 
 export function PublisherList({ publisherRoutePrefix, filter }: PublisherListProps = {}) {
-  const { data: publishers, isLoading, isError, isConfigured } = usePublishers({ filter });
+  const { data: publishers, isLoading, isError, error, isConfigured } = usePublishers({ filter });
 
   if (!isConfigured) {
     return (
@@ -34,9 +36,7 @@ export function PublisherList({ publisherRoutePrefix, filter }: PublisherListPro
   if (isError) {
     return (
       <IonList inset>
-        <IonItem color="danger">
-          <IonLabel>Failed to load publishers</IonLabel>
-        </IonItem>
+        <ErrorItem message={error ? describeSupabaseError(error) : "Failed to load publishers"} />
       </IonList>
     );
   }
