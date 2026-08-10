@@ -30,3 +30,7 @@ export {
   type UseErrorToastResult,
 } from "./components/error-toast/use-error-toast.ts";
 export { ErrorItem, type ErrorItemProps } from "./components/error-item/error-item.tsx";
+export {
+  ConfirmButton,
+  type ConfirmButtonProps,
+} from "./components/buttons/confirm-button/confirm-button.tsx";
