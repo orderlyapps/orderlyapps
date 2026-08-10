@@ -1,6 +1,5 @@
 import path from "node:path";
-import { loadEnv } from "vite-plus";
-import { defineConfig } from "vite-plus";
+import { loadEnv, defineConfig } from "vite-plus";
 import { reactAppDefaults } from "@amodeo/config";
 
 const APP_NAME = "Subbie";
@@ -14,26 +13,20 @@ export default defineConfig(({ mode }) => {
   const THEME_COLOR_LIGHT = env.VITE_THEME_COLOR_LIGHT;
   const THEME_COLOR_DARK = env.VITE_THEME_COLOR_DARK;
 
-  return {
-    ...reactAppDefaults({
-      pwaOptions: {
-        name: APP_NAME,
-        short_name: APP_NAME,
-        description: "A Subbie project with PWA support",
-        theme_color: THEME_COLOR,
-        background_color: BACKGROUND_COLOR,
-      },
-      htmlOptions: {
-        title: APP_NAME,
-        splashColor: THEME_COLOR,
-        themeColorLight: THEME_COLOR_LIGHT,
-        themeColorDark: THEME_COLOR_DARK,
-      },
-    }),
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "src"),
-      },
+  return reactAppDefaults({
+    pwaOptions: {
+      name: APP_NAME,
+      short_name: APP_NAME,
+      description: "A Subbie project with PWA support",
+      theme_color: THEME_COLOR,
+      background_color: BACKGROUND_COLOR,
     },
-  };
+    htmlOptions: {
+      title: APP_NAME,
+      splashColor: THEME_COLOR,
+      themeColorLight: THEME_COLOR_LIGHT,
+      themeColorDark: THEME_COLOR_DARK,
+    },
+    srcDir: path.resolve(__dirname, "src"),
+  });
 });

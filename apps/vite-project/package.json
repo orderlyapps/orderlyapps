@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vp dev --open",
+    "dev": "vp dev --host --open",
     "build": "tsc -b && vp build",
     "lint": "vp lint",
     "preview": "vp preview",
@@ -30,6 +30,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-router-dom": "catalog:",
+    "@vitejs/plugin-basic-ssl": "catalog:",
     "pwa-asset-generator": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",

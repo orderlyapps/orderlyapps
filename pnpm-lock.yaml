@@ -69,6 +69,9 @@ catalogs:
     '@types/react-router-dom':
       specifier: 5.3.3
       version: 5.3.3
+    '@vitejs/plugin-basic-ssl':
+      specifier: ^2.3.0
+      version: 2.3.0
     '@vitejs/plugin-react':
       specifier: ^6.0.3
       version: 6.0.4
@@ -290,6 +293,9 @@ importers:
       '@types/react-router-dom':
         specifier: 'catalog:'
         version: 5.3.3
+      '@vitejs/plugin-basic-ssl':
+        specifier: 'catalog:'
+        version: 2.3.0(@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0))
       pwa-asset-generator:
         specifier: 'catalog:'
         version: 8.1.5(supports-color@10.2.2)
@@ -515,6 +521,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 26.1.1
+      '@vitejs/plugin-basic-ssl':
+        specifier: 'catalog:'
+        version: 2.3.0(@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0))
       '@vitejs/plugin-react':
         specifier: 'catalog:'
         version: 6.0.4(@rolldown/plugin-babel@0.2.3(@babel/core@7.29.7(supports-color@10.2.2))(@babel/runtime@7.29.7)(@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0))(rolldown@1.1.5))(@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0))(babel-plugin-react-compiler@1.0.0)
@@ -2638,6 +2647,12 @@ packages:
     engines: {node: '>=16.20.0'}
     cpu: [x64]
     os: [win32]
+
+  '@vitejs/plugin-basic-ssl@2.3.0':
+    resolution: {integrity: sha512-bdyo8rB3NnQbikdMpHaML9Z1OZPBu6fFOBo+OtxsBlvMJtysWskmBcnbIDhUqgC8tcxNv/a+BcV5U+2nQMm1OQ==}
+    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+    peerDependencies:
+      vite: ^6.0.0 || ^7.0.0 || ^8.0.0
 
   '@vitejs/plugin-react@6.0.4':
     resolution: {integrity: sha512-XcCQz0TBpBgljhj0gMuuDj49i6Ytqh5q1osT/Gp5uAVJUCTWxyskk/l1jwYYiu2xcNHHipdMz40EGfM1VdamVg==}
@@ -7174,6 +7189,10 @@ snapshots:
 
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
+
+  '@vitejs/plugin-basic-ssl@2.3.0(@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0))':
+    dependencies:
+      vite: '@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0)'
 
   '@vitejs/plugin-react@6.0.4(@rolldown/plugin-babel@0.2.3(@babel/core@7.29.7(supports-color@10.2.2))(@babel/runtime@7.29.7)(@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0))(rolldown@1.1.5))(@voidzero-dev/vite-plus-core@0.2.7(@types/node@26.1.1)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.49.0)(typescript@7.0.2)(yaml@2.9.0))(babel-plugin-react-compiler@1.0.0)':
     dependencies:

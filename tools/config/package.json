@@ -35,6 +35,7 @@
     "@rolldown/plugin-babel": "catalog:",
     "@types/babel__core": "catalog:",
     "@types/node": "catalog:",
+    "@vitejs/plugin-basic-ssl": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "babel-plugin-react-compiler": "catalog:",
     "bumpp": "^11.1.0",

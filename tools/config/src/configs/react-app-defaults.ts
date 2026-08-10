@@ -2,14 +2,26 @@ import type { UserConfig } from "vite-plus";
 import { vitePWA, type VitePWAOptions } from "../plugins/vitePWA.ts";
 import { htmlInject, type HtmlInjectOptions } from "../plugins/htmlInject.ts";
 import { reactPlugins } from "../plugins/react.ts";
+import { basicSslPlugin } from "../plugins/basicSsl.ts";
 
 export const reactAppDefaults = ({
   pwaOptions,
   htmlOptions,
+  srcDir,
 }: {
   pwaOptions: VitePWAOptions;
   htmlOptions: HtmlInjectOptions;
+  srcDir?: string;
 }): UserConfig => ({
+  ...(srcDir
+    ? {
+        resolve: {
+          alias: {
+            "@": srcDir,
+          },
+        },
+      }
+    : {}),
   build: {
     rolldownOptions: {
       output: {
@@ -68,5 +80,13 @@ export const reactAppDefaults = ({
       },
     ],
   },
-  plugins: [...vitePWA(pwaOptions), ...htmlInject(htmlOptions), ...(reactPlugins ?? [])],
+  plugins: [
+    ...vitePWA(pwaOptions),
+    ...htmlInject(htmlOptions),
+    ...(reactPlugins ?? []),
+    basicSslPlugin,
+  ],
+  server: {
+    host: true,
+  },
 });

@@ -2,6 +2,9 @@
 ion-item {
   /* Prevent theme switch glitches */
   --transition: none;
-  max-width: 480px;
+}
+
+:is(ion-item, ion-button, ion-searchbar) {
+  max-width: 414px;
   margin-inline: auto;
 }
