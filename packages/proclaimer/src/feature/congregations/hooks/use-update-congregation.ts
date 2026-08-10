@@ -3,6 +3,7 @@ import { toError } from "@amodeo/utils";
 import type { CongregationRecord } from "../congregation-schema.js";
 import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
 import { getCongregationsCollection } from "../congregations-collection/get-congregations-collection.js";
+import { useCongregationId } from "../congregations-collection/congregation-id-context.js";
 
 export type UpdateCongregationChanges = Partial<Omit<CongregationRecord, "id">>;
 
@@ -29,7 +30,10 @@ export function useUpdateCongregation(
 ): UseUpdateCongregationResult {
   const supabase = useSupabaseOrNull();
   const queryClient = useQueryClient();
-  const congregations = supabase ? getCongregationsCollection(supabase, queryClient) : null;
+  const congregationId = useCongregationId();
+  const congregations = supabase
+    ? getCongregationsCollection(supabase, queryClient, congregationId)
+    : null;
   const { onError } = options;
 
   const update = (id: string, changes: UpdateCongregationChanges) => {

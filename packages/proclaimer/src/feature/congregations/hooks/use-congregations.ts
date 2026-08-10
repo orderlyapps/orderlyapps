@@ -20,6 +20,7 @@ import { toError } from "@amodeo/utils";
 import type { CongregationRecord } from "../congregation-schema.js";
 import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
 import { getCongregationsCollection } from "../congregations-collection/get-congregations-collection.js";
+import { useCongregationId } from "../congregations-collection/congregation-id-context.js";
 import type { CongregationsCollection } from "../congregations-collection/create-congregations-collection.js";
 
 export type CongregationRef = Ref<CongregationRecord>;
@@ -116,7 +117,10 @@ function useCongregationsBase(): {
 } {
   const supabase = useSupabaseOrNull();
   const queryClient = useQueryClient();
-  const congregations = supabase ? getCongregationsCollection(supabase, queryClient) : null;
+  const congregationId = useCongregationId();
+  const congregations = supabase
+    ? getCongregationsCollection(supabase, queryClient, congregationId)
+    : null;
   return { supabase, congregations };
 }
 

@@ -61,6 +61,10 @@ export type {
   CongregationRef,
 } from "./feature/congregations/hooks/use-congregations.js";
 export {
+  CongregationIdContext,
+  useCongregationId,
+} from "./feature/congregations/congregations-collection/congregation-id-context.js";
+export {
   useCongregation,
   type UseCongregationResult,
 } from "./feature/congregations/hooks/use-congregation.js";

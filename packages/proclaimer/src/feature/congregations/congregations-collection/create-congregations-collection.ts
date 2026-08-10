@@ -6,12 +6,24 @@ import { congregationRecordSchema } from "../congregation-schema.js";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { getClientId } from "../../../supabase/get-client-id.js";
 
-export function createCongregationsCollection(supabase: SupabaseClient, queryClient: QueryClient) {
+export function createCongregationsCollection(
+  supabase: SupabaseClient,
+  queryClient: QueryClient,
+  congregationId: string | undefined,
+) {
   return createCollection(
     queryCollectionOptions({
-      queryKey: ["congregations", getClientId(supabase)],
+      queryKey: ["congregations", getClientId(supabase), congregationId ?? null],
       queryFn: async () => {
-        const { data, error } = await supabase.from("congregation").select("*");
+        // Only root congregations (congregation_id is null) and congregations
+        // belonging to the user's selected congregation are relevant. Before
+        // onboarding completes congregationId is undefined, so only root
+        // congregations are returned — which is what the selection step needs.
+        const query = supabase.from("congregation").select("*");
+        const filtered = congregationId
+          ? query.or(`congregation_id.is.null,congregation_id.eq.${congregationId}`)
+          : query.is("congregation_id", null);
+        const { data, error } = await filtered;
         if (error) throw error;
         return z.array(congregationRecordSchema).parse(data ?? []);
       },
