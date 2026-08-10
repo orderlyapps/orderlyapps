@@ -1,4 +1,10 @@
-import type { AppSettings, JsonValue, SettingsMap } from "./types.ts";
+import type {
+  AppDatabase,
+  AppSettings,
+  ImportAppDatabaseResult,
+  JsonValue,
+  SettingsMap,
+} from "./types.ts";
 
 export interface ImportAppSettingsOptions {
   /**
@@ -114,5 +120,98 @@ export async function importAppSettings<T extends SettingsMap>(
   } else {
     await store.setMany(known as Partial<T>);
   }
+  return { imported, skipped };
+}
+
+/**
+ * Parses and validates a database-level settings JSON string (produced by
+ * `exportAppDatabase`) into a map of document IDs to settings maps.
+ *
+ * The top-level value must be a JSON object whose values are themselves JSON
+ * objects.
+ */
+export function parseAppDatabase(json: string): Record<string, SettingsMap> {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(json);
+  } catch {
+    throw new Error("Settings file is not valid JSON.");
+  }
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    throw new Error("Settings file must contain a JSON object.");
+  }
+  const result: Record<string, SettingsMap> = {};
+  for (const [docId, value] of Object.entries(parsed as Record<string, unknown>)) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+      throw new Error(`Settings section "${docId}" must contain a JSON object.`);
+    }
+    for (const [key, val] of Object.entries(value as Record<string, unknown>)) {
+      if (!isJsonValue(val)) {
+        throw new Error(
+          `Setting "${docId}.${key}" contains a value that is not JSON-serialisable.`,
+        );
+      }
+    }
+    result[docId] = value as SettingsMap;
+  }
+  return result;
+}
+
+export interface ImportAppDatabaseOptions {
+  /**
+   * When `true`, each document's data is replaced with the imported values.
+   * Defaults to `false` (merge over existing values).
+   */
+  replace?: boolean;
+}
+
+/**
+ * Validates a database-level settings JSON string and writes its values into
+ * the shared database. Only document IDs that already exist in the database
+ * are written; unknown IDs are skipped and reported in the result.
+ *
+ * Throws a descriptive `Error` when the file content is invalid or when no
+ * documents apply — in which case the database is left untouched.
+ */
+export async function importAppDatabase(
+  database: AppDatabase,
+  json: string,
+  options: ImportAppDatabaseOptions = {},
+): Promise<ImportAppDatabaseResult> {
+  const data = parseAppDatabase(json);
+  const collection = database.settings;
+  const existingDocs = await collection.find().exec();
+  const existingIds = new Set(existingDocs.map((d) => d.id));
+
+  const known: Record<string, SettingsMap> = {};
+  const skipped: string[] = [];
+
+  for (const [docId, values] of Object.entries(data)) {
+    if (!existingIds.has(docId)) {
+      skipped.push(docId);
+      continue;
+    }
+    known[docId] = values;
+  }
+
+  const imported = Object.keys(known);
+  if (imported.length === 0) {
+    throw new Error(
+      skipped.length > 0
+        ? "None of the settings sections in the file apply to this database; nothing was imported."
+        : "Settings file contains no settings sections; nothing was imported.",
+    );
+  }
+
+  for (const [docId, values] of Object.entries(known)) {
+    const doc = existingDocs.find((d) => d.id === docId)!;
+    if (options.replace) {
+      await doc.incrementalPatch({ data: values });
+    } else {
+      const current = { ...doc.data } as SettingsMap;
+      await doc.incrementalPatch({ data: { ...current, ...values } });
+    }
+  }
+
   return { imported, skipped };
 }

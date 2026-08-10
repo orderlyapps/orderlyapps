@@ -15,23 +15,33 @@ export type {
   JsonValue,
   SettingsMap,
   AppSettings,
+  AppDatabase,
+  SettingsDoc,
   CreateAppSettingsOptions,
+  CreateAppDatabaseOptions,
+  ImportAppDatabaseResult,
+  RxCollection,
+  RxDatabase,
   RxStorage,
 } from "./app-settings/types.ts";
 
-export { createAppSettings } from "./app-settings/app-settings.ts";
+export { createAppSettings, createAppDatabase } from "./app-settings/app-settings.ts";
 
 export {
   exportAppSettings,
+  exportAppDatabase,
   resolveSettingsFileName,
   type ExportAppSettingsOptions,
 } from "./app-settings/export-app-settings.ts";
 
 export {
   importAppSettings,
+  importAppDatabase,
   parseAppSettings,
+  parseAppDatabase,
   type ImportAppSettingsOptions,
   type ImportAppSettingsResult,
+  type ImportAppDatabaseOptions,
 } from "./app-settings/import-app-settings.ts";
 
 export { useAppSettings, type UseAppSettingsResult } from "./app-settings/use-app-settings.ts";

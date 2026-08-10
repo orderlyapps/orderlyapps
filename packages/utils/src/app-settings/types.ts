@@ -1,4 +1,4 @@
-import type { RxStorage } from "rxdb/plugins/core";
+import type { RxCollection, RxDatabase, RxStorage } from "rxdb/plugins/core";
 
 export type JsonValue =
   | null
@@ -48,8 +48,24 @@ export interface AppSettings<T extends SettingsMap> {
 }
 
 export interface CreateAppSettingsOptions<T extends SettingsMap> {
-  /** RxDB database name. Use a unique name per app (e.g. `"subbie-settings"`). */
-  dbName: string;
+  /**
+   * RxDB database name for standalone mode. Required when `database` is not
+   * provided. Use a unique name per app (e.g. `"subbie-settings"`).
+   */
+  dbName?: string;
+  /**
+   * Shared database from `createAppDatabase`. When provided, the store reuses
+   * the existing database instead of creating its own, allowing multiple
+   * settings stores (preferences, onboarding, etc.) to share one database for
+   * unified export/import. `dbName` is ignored when this is set.
+   */
+  database?: AppDatabase;
+  /**
+   * Document ID within the shared `settings` collection. Defaults to
+   * `"app-settings"` for backward compatibility. When using a shared database,
+   * each store must use a unique `docId` (e.g. `"preferences"`, `"onboarding"`).
+   */
+  docId?: string;
   /** Optional default values inserted on first init for any missing keys. */
   defaults?: Partial<T>;
   /**
@@ -60,4 +76,31 @@ export interface CreateAppSettingsOptions<T extends SettingsMap> {
   storage?: RxStorage<any, any>;
 }
 
-export type { RxStorage };
+/** A single settings document stored in the `settings` collection. */
+export type SettingsDoc = { id: string; data: SettingsMap };
+
+/**
+ * A shared RxDB database that holds a single `settings` collection. Multiple
+ * `AppSettings` stores can coexist within it, each using a different document
+ * ID. This enables a single export/import to capture every settings domain.
+ */
+export type AppDatabase = RxDatabase<{ settings: RxCollection<SettingsDoc> }>;
+
+export interface CreateAppDatabaseOptions {
+  /** RxDB database name. Use a unique name per app (e.g. `"vite-project"`). */
+  name: string;
+  /**
+   * Optional RxDB storage factory. Defaults to IndexedDB (via `getRxStorageDexie`).
+   * Pass a different storage (e.g. `getRxStorageMemory()`) for tests.
+   */
+  storage?: RxStorage<any, any>;
+}
+
+export interface ImportAppDatabaseResult {
+  /** Document IDs from the file that were written to the database. */
+  imported: string[];
+  /** Document IDs from the file that were skipped because they don't exist in the database. */
+  skipped: string[];
+}
+
+export type { RxCollection, RxDatabase, RxStorage };

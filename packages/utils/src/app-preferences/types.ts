@@ -1,4 +1,4 @@
-import type { AppSettings } from "../app-settings/types.ts";
+import type { AppDatabase, AppSettings, RxStorage } from "../app-settings/types.ts";
 import type { FontSize } from "../font-size/types.ts";
 import type { SettingsMap } from "../app-settings/types.ts";
 
@@ -18,13 +18,22 @@ export interface AppPreferences extends SettingsMap {
 export type AppPreferencesSettings = AppSettings<AppPreferences>;
 
 export interface CreateAppPreferencesOptions {
-  /** RxDB database name. Use a unique name per app (e.g. `"subbie-preferences"`). */
-  dbName: string;
+  /**
+   * RxDB database name for standalone mode. Required when `database` is not
+   * provided. Use a unique name per app (e.g. `"subbie-preferences"`).
+   */
+  dbName?: string;
+  /**
+   * Shared database from `createAppDatabase`. When provided, preferences are
+   * stored as a `"preferences"` document within the shared database, enabling
+   * unified export/import with other settings domains. `dbName` is ignored.
+   */
+  database?: AppDatabase;
   /** Optional overrides for the default preference values. */
   defaults?: Partial<AppPreferences>;
   /**
    * Optional RxDB storage factory. Defaults to IndexedDB (via `getRxStorageDexie`).
    * Pass a different storage (e.g. `getRxStorageMemory()`) for tests.
    */
-  storage?: import("../app-settings/types.ts").RxStorage<any, any>;
+  storage?: RxStorage<any, any>;
 }

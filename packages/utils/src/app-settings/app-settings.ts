@@ -9,12 +9,18 @@ import { RxDBDevModePlugin } from "rxdb/plugins/dev-mode";
 import { getRxStorageDexie } from "rxdb/plugins/storage-dexie";
 import { wrappedValidateAjvStorage } from "rxdb/plugins/validate-ajv";
 
-import type { AppSettings, CreateAppSettingsOptions, SettingsMap } from "./types.ts";
+import type {
+  AppDatabase,
+  AppSettings,
+  CreateAppDatabaseOptions,
+  CreateAppSettingsOptions,
+  SettingsDoc,
+  SettingsMap,
+} from "./types.ts";
 
-const SETTINGS_DOC_ID = "app-settings";
+const DEFAULT_DOC_ID = "app-settings";
 const COLLECTION_NAME = "settings";
 
-type SettingsDoc = { id: string; data: SettingsMap };
 type SettingsDatabase = RxDatabase<{
   [COLLECTION_NAME]: RxCollection<SettingsDoc>;
 }>;
@@ -50,40 +56,69 @@ function shallowEqual(a: Record<string, unknown>, b: Record<string, unknown>): b
   return true;
 }
 
-export async function createAppSettings<T extends SettingsMap>(
-  options: CreateAppSettingsOptions<T>,
-): Promise<AppSettings<T>> {
-  const { dbName, defaults, storage } = options;
+const SETTINGS_COLLECTION_SCHEMA = {
+  version: 0,
+  primaryKey: "id",
+  type: "object",
+  properties: {
+    id: { type: "string", maxLength: 100 },
+    data: { type: "object", additionalProperties: true },
+  },
+  required: ["id", "data"],
+} as const;
+
+/**
+ * Creates a shared RxDB database that multiple `AppSettings` stores can use.
+ * Each store occupies its own document (identified by `docId`) within the
+ * single `settings` collection, enabling unified export/import across all
+ * settings domains.
+ *
+ * Pass the returned database to `createAppSettings` (or wrappers like
+ * `createAppPreferences`) via the `database` option.
+ */
+export async function createAppDatabase(options: CreateAppDatabaseOptions): Promise<AppDatabase> {
   ensureDevMode();
 
-  const baseStorage = storage ?? getRxStorageDexie();
+  const baseStorage = options.storage ?? getRxStorageDexie();
   const db = await createRxDatabase<SettingsDatabase>({
-    name: dbName,
+    name: options.name,
     storage: resolveStorage(baseStorage),
-    // Reuse an existing connection when the same dbName is opened twice
-    // (e.g. HMR, React StrictMode double-mount). Same dbName = same store.
     closeDuplicates: true,
   });
 
-  await db.addCollections({
-    [COLLECTION_NAME]: {
-      schema: {
-        version: 0,
-        primaryKey: "id",
-        type: "object",
-        properties: {
-          id: { type: "string", maxLength: 100 },
-          data: { type: "object", additionalProperties: true },
-        },
-        required: ["id", "data"],
-      },
-    },
-  });
+  if (!db.collections[COLLECTION_NAME]) {
+    await db.addCollections({
+      [COLLECTION_NAME]: { schema: SETTINGS_COLLECTION_SCHEMA },
+    });
+  }
+
+  return db as AppDatabase;
+}
+
+export async function createAppSettings<T extends SettingsMap>(
+  options: CreateAppSettingsOptions<T>,
+): Promise<AppSettings<T>> {
+  const { database, dbName, docId = DEFAULT_DOC_ID, defaults, storage } = options;
+
+  if (!database && !dbName) {
+    throw new Error("createAppSettings requires either `database` or `dbName`.");
+  }
+
+  ensureDevMode();
+
+  const ownsDatabase = !database;
+  const db: AppDatabase = database ?? (await createAppDatabase({ name: dbName!, storage }));
+
+  if (!db.collections[COLLECTION_NAME]) {
+    await db.addCollections({
+      [COLLECTION_NAME]: { schema: SETTINGS_COLLECTION_SCHEMA },
+    });
+  }
 
   const collection = db[COLLECTION_NAME];
 
   async function getDoc(): Promise<SettingsMap> {
-    const doc = await collection.findOne(SETTINGS_DOC_ID).exec();
+    const doc = await collection.findOne(docId).exec();
     return (doc?.data ?? {}) as SettingsMap;
   }
 
@@ -91,9 +126,9 @@ export async function createAppSettings<T extends SettingsMap>(
 
   async function patchData(mutate: (current: SettingsMap) => SettingsMap): Promise<void> {
     const result = writeQueue.then(async () => {
-      const doc = await collection.findOne(SETTINGS_DOC_ID).exec();
+      const doc = await collection.findOne(docId).exec();
       if (!doc) {
-        await collection.insert({ id: SETTINGS_DOC_ID, data: mutate({}) });
+        await collection.insert({ id: docId, data: mutate({}) });
         return;
       }
       const current = { ...doc.data } as SettingsMap;
@@ -143,13 +178,15 @@ export async function createAppSettings<T extends SettingsMap>(
       await patchData(() => ({ ...defaults, ...values }) as SettingsMap);
     },
     subscribe(listener) {
-      const sub = collection.findOne(SETTINGS_DOC_ID).$.subscribe((doc) => {
+      const sub = collection.findOne(docId).$.subscribe((doc) => {
         listener((doc?.data ?? {}) as Partial<T>);
       });
       return () => sub.unsubscribe();
     },
     async close(): Promise<void> {
-      await db.close();
+      // Only close the database when this store owns it (standalone mode).
+      // In shared mode, the caller manages the database lifecycle.
+      if (ownsDatabase) await db.close();
     },
   };
 }
