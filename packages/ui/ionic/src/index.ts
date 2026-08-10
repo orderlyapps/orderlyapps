@@ -13,6 +13,10 @@ export {
 } from "./components/input/number-input/number-input.tsx";
 export { EmailInput, type EmailInputProps } from "./components/input/email-input/email-input.tsx";
 export {
+  SelectInput,
+  type SelectInputProps,
+} from "./components/input/select-input/select-input.tsx";
+export {
   ExportSettingsItem,
   type ExportSettingsItemProps,
 } from "./components/settings-transfer/export-settings-item.tsx";
