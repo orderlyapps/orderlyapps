@@ -29,3 +29,7 @@ dist-ssr
 # Supabase
 **/public_schema.sql
 
+# apps/proclaimer-old/
+apps/proclaimer-old/.env.admin
+apps/proclaimer-old/.env.base
+apps/proclaimer-old/.env.proclaimer
