@@ -8,8 +8,8 @@ import { initTheme } from "@util/app/theme/utils";
 import { initFontSize } from "@util/app/font-size/utils";
 import { QueryProvider } from "@util/vendor/react-query";
 import { PwaUpdateToast } from "@util/app/pwa/PwaUpdateToast";
-import App from "@proclaimer-routes/App";
 import { runMigration } from "@util/app/migration/migrate";
+import App from "./App";
 
 initTheme();
 initFontSize();
