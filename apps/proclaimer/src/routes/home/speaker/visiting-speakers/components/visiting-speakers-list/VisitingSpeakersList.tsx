@@ -1,6 +1,6 @@
-import { useVisitingSpeakers } from "@proclaimer-routes/pages/home/speaker/visiting-speakers/hooks/use-visiting-speakers/useVisitingSpeakers";
-import { SpeakerList } from "@proclaimer-routes/pages/home/speaker/shared/components/speaker-list/SpeakerList";
-import type { SpeakerListItem } from "@proclaimer-routes/pages/home/speaker/shared/components/speaker-list/SpeakerList";
+import { useVisitingSpeakers } from "@proclaimer-routes/home/speaker/visiting-speakers/hooks/use-visiting-speakers/useVisitingSpeakers";
+import { SpeakerList } from "@proclaimer-routes/home/speaker/shared/components/speaker-list/SpeakerList";
+import type { SpeakerListItem } from "@proclaimer-routes/home/speaker/shared/components/speaker-list/SpeakerList";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 
 type VisitingSpeakersListProps = {

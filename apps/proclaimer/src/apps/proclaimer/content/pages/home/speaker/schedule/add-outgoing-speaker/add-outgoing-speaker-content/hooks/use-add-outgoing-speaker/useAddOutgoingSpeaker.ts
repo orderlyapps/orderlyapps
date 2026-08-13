@@ -1,5 +1,5 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { useLocalSpeakers } from "@proclaimer-routes/pages/home/speaker/local-speakers/hooks/use-local-speakers/useLocalSpeakers";
+import { useLocalSpeakers } from "@proclaimer-routes/home/speaker/local-speakers/hooks/use-local-speakers/useLocalSpeakers";
 import { congregationCollection } from "@shared/database/collections/congregation";
 import { outlineCollection } from "@shared/database/collections/outline";
 import { speakerAssignmentCollection } from "@shared/database/collections/speaker-assignment";

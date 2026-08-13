@@ -183,7 +183,7 @@ export default defineConfig({
       "@ui": path.resolve(import.meta.dirname, "./src/ui"),
       "@util": path.resolve(import.meta.dirname, "./src/util"),
       "@proclaimer-content": path.resolve(import.meta.dirname, "./src/apps/proclaimer/content"),
-      "@proclaimer-routes": path.resolve(import.meta.dirname, "./src/apps/proclaimer/routes"),
+      "@proclaimer-routes": path.resolve(import.meta.dirname, "./src/routes"),
       "@proclaimer-shared": path.resolve(import.meta.dirname, "./src/apps/proclaimer/shared"),
     },
   },

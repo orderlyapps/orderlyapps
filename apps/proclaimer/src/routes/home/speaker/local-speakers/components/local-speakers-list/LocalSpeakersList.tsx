@@ -1,6 +1,6 @@
-import { useLocalSpeakers } from "@proclaimer-routes/pages/home/speaker/local-speakers/hooks/use-local-speakers/useLocalSpeakers";
-import { SpeakerList } from "@proclaimer-routes/pages/home/speaker/shared/components/speaker-list/SpeakerList";
-import type { SpeakerListItem } from "@proclaimer-routes/pages/home/speaker/shared/components/speaker-list/SpeakerList";
+import { useLocalSpeakers } from "@proclaimer-routes/home/speaker/local-speakers/hooks/use-local-speakers/useLocalSpeakers";
+import { SpeakerList } from "@proclaimer-routes/home/speaker/shared/components/speaker-list/SpeakerList";
+import type { SpeakerListItem } from "@proclaimer-routes/home/speaker/shared/components/speaker-list/SpeakerList";
 
 export function LocalSpeakersList() {
   const { local_speakers, is_loading } = useLocalSpeakers();

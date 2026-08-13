@@ -1,4 +1,4 @@
-import { VisitingSpeakersList } from "@proclaimer-routes/pages/home/speaker/visiting-speakers/components/visiting-speakers-list/VisitingSpeakersList";
+import { VisitingSpeakersList } from "@proclaimer-routes/home/speaker/visiting-speakers/components/visiting-speakers-list/VisitingSpeakersList";
 
 type VisitingSpeakersContentProps = {
   search: string;
