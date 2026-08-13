@@ -12,7 +12,7 @@
     "deploy:beta": "vp build --mode proclaimer && wrangler pages deploy dist --project-name=orderly --branch=beta && echo '✓ DEPLOYED TO BETA'",
     "deploy:proclaimer": "vp build --mode proclaimer && wrangler pages deploy dist --project-name=orderly --branch=proclaimer && echo '✓ DEPLOYED TO orderly/proclaimer'",
     "deploy:main": "vp build --mode proclaimer && wrangler pages deploy dist --project-name=orderly --branch=main && wrangler pages deploy dist --project-name=proclaimer --branch=main && echo '✓✓ DEPLOYED TO orderly/main AND proclaimer/main'",
-    "supabase:download:public_schema": "supabase db dump --schema public -f src/apps/shared/database/public_schema.sql",
+    "supabase:download:public_schema": "supabase db dump --schema public -f src/shared/database/public_schema.sql",
     "supabase:update": "brew upgrade supabase"
   },
   "dependencies": {

@@ -179,7 +179,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@shared": path.resolve(import.meta.dirname, "./src/apps/shared"),
+      "@shared": path.resolve(import.meta.dirname, "./src/shared"),
       "@ui": path.resolve(import.meta.dirname, "./src/ui"),
       "@util": path.resolve(import.meta.dirname, "./src/util"),
       "@proclaimer-content": path.resolve(import.meta.dirname, "./src/content"),

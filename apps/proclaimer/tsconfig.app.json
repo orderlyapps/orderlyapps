@@ -26,7 +26,7 @@
       "@proclaimer-content/*": ["./src/content/*"],
       "@proclaimer-routes/*": ["./src/routes/*"],
       "@proclaimer-shared/*": ["./src/apps/proclaimer/shared/*"],
-      "@shared/*": ["./src/apps/shared/*"],
+      "@shared/*": ["./src/shared/*"],
       "@ui/*": ["./src/ui/*"],
       "@util/*": ["./src/util/*"]
     }
