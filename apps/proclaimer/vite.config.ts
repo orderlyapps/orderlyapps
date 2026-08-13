@@ -172,7 +172,6 @@ export default defineConfig({
     },
   },
   envDir: import.meta.dirname,
-  root: path.resolve(import.meta.dirname, "src/apps/proclaimer"),
   server: {
     fs: {
       allow: [import.meta.dirname],
