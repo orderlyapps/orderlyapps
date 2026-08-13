@@ -1,0 +1,11 @@
+{
+  "file_scan_exclusions": [
+    "**/.DS_Store",
+    "**/.git",
+    "**/node_modules",
+    "**/dist",
+    "**/.next",
+    "**/coverage",
+    "**/dev-dist"
+  ]
+}
