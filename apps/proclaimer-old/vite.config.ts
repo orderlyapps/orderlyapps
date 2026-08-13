@@ -6,64 +6,6 @@ import fs from "node:fs";
 import { VitePWA } from "vite-plugin-pwa";
 
 /**
- * Discovers all apps in src/apps/ and returns their names
- */
-function discoverApps(): string[] {
-  const appsDir = path.resolve(import.meta.dirname, "./src/apps");
-  if (!fs.existsSync(appsDir)) return [];
-
-  return fs
-    .readdirSync(appsDir, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
-}
-
-/**
- * Generates path aliases for all discovered apps
- */
-function generateAppAliases(apps: string[]): Record<string, string> {
-  const aliases: Record<string, string> = {
-    "@shared": path.resolve(import.meta.dirname, "./src/apps/shared"),
-    "@ui": path.resolve(import.meta.dirname, "./src/ui"),
-    "@util": path.resolve(import.meta.dirname, "./src/util"),
-  };
-
-  for (const app of apps) {
-    const appPath = path.resolve(import.meta.dirname, `./src/apps/${app}`);
-    aliases[`@${app}-content`] = path.join(appPath, "content");
-    aliases[`@${app}-routes`] = path.join(appPath, "routes");
-    aliases[`@${app}-shared`] = path.join(appPath, "shared");
-  }
-
-  return aliases;
-}
-
-/**
- * Resolves the absolute root directory for the given app mode.
- * Falls back to the project root when the mode does not match a known app.
- */
-function getAppRoot(app: string): string {
-  const appRoot = path.resolve(import.meta.dirname, `src/apps/${app}`);
-  if (fs.existsSync(path.join(appRoot, "index.html"))) {
-    return appRoot;
-  }
-  return import.meta.dirname;
-}
-
-/**
- * Parses the --mode flag from process.argv. Vite+ requires a static default
- * export so we cannot use defineConfig's function form to receive `mode`.
- */
-function getModeFromArgs(): string {
-  const args = process.argv;
-  const flagIdx = args.findIndex((a) => a === "--mode" || a === "-m");
-  if (flagIdx !== -1 && args[flagIdx + 1]) return args[flagIdx + 1];
-  const eq = args.find((a) => a.startsWith("--mode="));
-  if (eq) return eq.slice("--mode=".length);
-  return "base";
-}
-
-/**
  * Vite plugin that serves the @tanstack/browser-db-sqlite-persistence OPFS
  * worker file during dev. The package creates its worker via
  * `new URL("../assets/opfs-worker-*.js", import.meta.url)`. When the package
@@ -101,12 +43,8 @@ function serveOpfsWorker(): import("vite").Plugin {
   };
 }
 
-const apps = discoverApps();
-const appAliases = generateAppAliases(apps);
-const mode = getModeFromArgs();
-
-// Load env vars for the current mode
-const env = loadEnv(mode, import.meta.dirname, "");
+// Load env vars for the proclaimer mode (.env, .env.proclaimer)
+const env = loadEnv("proclaimer", import.meta.dirname, "");
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -234,19 +172,21 @@ export default defineConfig({
     },
   },
   envDir: import.meta.dirname,
-  root: getAppRoot(mode),
+  root: path.resolve(import.meta.dirname, "src/apps/proclaimer"),
   server: {
     fs: {
-      // Allow serving files from the workspace root so that the OPFS worker
-      // file (located in node_modules/.pnpm/...) can be served via /@fs/.
-      // Without this, Vite blocks the worker file with 403 because the pnpm
-      // store is outside the default allow list (which only includes the app
-      // root).
       allow: [import.meta.dirname],
     },
   },
   resolve: {
-    alias: appAliases,
+    alias: {
+      "@shared": path.resolve(import.meta.dirname, "./src/apps/shared"),
+      "@ui": path.resolve(import.meta.dirname, "./src/ui"),
+      "@util": path.resolve(import.meta.dirname, "./src/util"),
+      "@proclaimer-content": path.resolve(import.meta.dirname, "./src/apps/proclaimer/content"),
+      "@proclaimer-routes": path.resolve(import.meta.dirname, "./src/apps/proclaimer/routes"),
+      "@proclaimer-shared": path.resolve(import.meta.dirname, "./src/apps/proclaimer/shared"),
+    },
   },
   optimizeDeps: {
     // Exclude browser-db-sqlite-persistence from pre-bundling so Vite serves

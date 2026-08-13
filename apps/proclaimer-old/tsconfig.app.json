@@ -21,17 +21,11 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
 
-    /* Path aliases - add new apps following the same pattern */
+    /* Path aliases - must match resolve.alias in vite.config.ts */
     "paths": {
-      "@base-content/*": ["./src/apps/base/content/*"],
-      "@base-routes/*": ["./src/apps/base/routes/*"],
-      "@admin-content/*": ["./src/apps/admin/content/*"],
-      "@admin-routes/*": ["./src/apps/admin/routes/*"],
       "@proclaimer-content/*": ["./src/apps/proclaimer/content/*"],
       "@proclaimer-routes/*": ["./src/apps/proclaimer/routes/*"],
       "@proclaimer-shared/*": ["./src/apps/proclaimer/shared/*"],
-      "@subbie-content/*": ["./src/apps/subbie/content/*"],
-      "@subbie-routes/*": ["./src/apps/subbie/routes/*"],
       "@shared/*": ["./src/apps/shared/*"],
       "@ui/*": ["./src/ui/*"],
       "@util/*": ["./src/util/*"]
