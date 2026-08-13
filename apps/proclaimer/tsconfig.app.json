@@ -23,7 +23,7 @@
 
     /* Path aliases - must match resolve.alias in vite.config.ts */
     "paths": {
-      "@proclaimer-content/*": ["./src/apps/proclaimer/content/*"],
+      "@proclaimer-content/*": ["./src/content/*"],
       "@proclaimer-routes/*": ["./src/routes/*"],
       "@proclaimer-shared/*": ["./src/apps/proclaimer/shared/*"],
       "@shared/*": ["./src/apps/shared/*"],
