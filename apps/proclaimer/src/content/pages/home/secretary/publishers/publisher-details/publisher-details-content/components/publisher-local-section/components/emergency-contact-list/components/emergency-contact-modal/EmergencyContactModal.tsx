@@ -14,8 +14,11 @@ import { TextInput } from "@ui/components/inputs/text/TextInput";
 import { PhoneInput } from "@ui/components/inputs/phone/PhoneInput";
 import { Select } from "@ui/components/inputs/select/Select";
 import { DeleteTextButton } from "@ui/components/inputs/button/text/delete/DeleteTextButton";
-import { publisherLocalCollection } from "@shared/database/collections/publisher-local";
-import type { EmergencyContact, Phone } from "@shared/database/rxdb/collections/publisher";
+import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
+import type {
+  EmergencyContact,
+  Phone,
+} from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import { Space } from "@ui/components/layout/space/Space";
 
 type Contact = NonNullable<EmergencyContact>[number];

@@ -1,6 +1,6 @@
 import { NameInput } from "@ui/components/inputs/name/NameInput";
 import type { NameValue } from "@ui/components/inputs/name/NameInput";
-import { publisherCollection } from "@shared/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 
 interface PublisherNameInputProps {

@@ -1,5 +1,5 @@
 import { and, eq, useLiveQuery } from "@tanstack/react-db";
-import { midweekParticipationCollection } from "@shared/database/collections/midweek-participation";
+import { midweekParticipationCollection } from "@amodeo/proclaimer/database/collections/midweek-participation";
 import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
 
 export function useIsCbsConductor() {

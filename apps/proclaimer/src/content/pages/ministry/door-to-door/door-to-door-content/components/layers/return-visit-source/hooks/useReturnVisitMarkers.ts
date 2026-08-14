@@ -1,7 +1,7 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { returnVisitCollection } from "@shared/database/collections/return-visit";
-import { streetCollection } from "@shared/database/collections/street";
-import { suburbCollection } from "@shared/database/collections/suburb";
+import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
+import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
+import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import type { ReturnVisit } from "../types";
 
 type GroupedReturnVisit = Record<string, (ReturnVisit & { coordinates: [number, number] })[]>;

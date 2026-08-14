@@ -13,8 +13,8 @@ import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIc
 import { AddressInput } from "@ui/components/inputs/address/AddressInput";
 import { Select } from "@ui/components/inputs/select/Select";
 import { DeleteTextButton } from "@ui/components/inputs/button/text/delete/DeleteTextButton";
-import { publisherLocalCollection } from "@shared/database/collections/publisher-local";
-import type { Address } from "@shared/database/rxdb/collections/publisher";
+import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
+import type { Address } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import type { AddressValue } from "@ui/components/inputs/address/types";
 import { Space } from "@ui/components/layout/space/Space";
 

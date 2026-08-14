@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { avOverseerPermissionCollection } from "@shared/database/collections/av-overseer-permission";
+import { avOverseerPermissionCollection } from "@amodeo/proclaimer/database/collections/av-overseer-permission";
 import { useAddPermission } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/useAddPermission";
 import { GenericPermissionModal } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-modal/GenericPermissionModal";
 

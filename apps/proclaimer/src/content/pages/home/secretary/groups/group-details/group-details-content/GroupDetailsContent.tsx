@@ -1,8 +1,8 @@
 import { IonContent } from "@ionic/react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { groupCollection } from "@shared/database/collections/group";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { Spinner } from "@ui/components/display/spinner/Spinner";
 import { Body } from "@ui/components/display/text/body/Body";
 import { getStoredCongregation } from "@util/app/congregation/utils";

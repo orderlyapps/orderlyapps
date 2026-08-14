@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { suburbCollection } from "@shared/database/collections/suburb";
-import { mapMasterCollection } from "@shared/database/collections/map-master";
+import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
+import { mapMasterCollection } from "@amodeo/proclaimer/database/collections/map-master";
 import { searchSuburbs } from "@util/vendor/mapbox/helper/searchSuburbs";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import type { MapboxGeocodingFeature } from "@util/vendor/mapbox/types/MapboxGeocodingResponse";
-import type { Suburb } from "@shared/database/schemas/suburb";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 
 function getBbox(boundary: unknown): [number, number, number, number] | undefined {
   if (!Array.isArray(boundary) || boundary.length === 0) return undefined;

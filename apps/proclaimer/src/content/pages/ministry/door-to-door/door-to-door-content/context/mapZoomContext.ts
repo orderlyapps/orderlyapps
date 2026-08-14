@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { MapRow } from "@shared/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { ZoomToFn } from "../components/map-zoom-to-controller/MapZoomToController";
 
 type MapWithBoundary = MapRow & { boundary: number[][] };

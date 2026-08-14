@@ -1,9 +1,9 @@
 import { Fragment, useState } from "react";
 import { IonItem } from "@ionic/react";
-import { reportCollection } from "@shared/database/collections/report";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { reportCollection } from "@amodeo/proclaimer/database/collections/report";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import type { Report } from "@shared/database/schemas/report";
+import type { Report } from "@amodeo/proclaimer/database/schemas/report";
 import { Heading } from "@ui/components/display/text/heading/Heading";
 import { Space } from "@ui/components/layout/space/Space";
 import { TextButton } from "@ui/components/inputs/button/text/TextButton";

@@ -1,5 +1,5 @@
 import { IonButton, IonItem, IonLabel } from "@ionic/react";
-import type { Outline } from "@shared/database/schemas/outline";
+import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 
 interface OutlineListItemProps {
   outline: Outline;

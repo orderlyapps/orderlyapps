@@ -15,10 +15,10 @@ import {
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { streetCollection } from "@shared/database/collections/street";
+import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import type { Street } from "@shared/database/schemas/street";
-import type { Suburb } from "@shared/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 import { AddStreetModal } from "./components/add-street-modal/AddStreetModal";
 
 type StreetSelectModalProps = {

@@ -15,7 +15,7 @@ import {
   MapFitBoundsController,
   type FitBoundsFn,
 } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/components/map-fit-bounds-controller/MapFitBoundsController";
-import { doNotCallCollection } from "@shared/database/collections/do-not-call";
+import { doNotCallCollection } from "@amodeo/proclaimer/database/collections/do-not-call";
 import { DoNotCallSource } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/do-not-call-source/DoNotCallSource";
 import { DoNotCallAlert } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/do-not-call-source/components/do-not-call-alert/DoNotCallAlert";
 import { DoNotCallEditLocationMarker } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/do-not-call-source/components/do-not-call-location-editor/DoNotCallEditLocationMarker";

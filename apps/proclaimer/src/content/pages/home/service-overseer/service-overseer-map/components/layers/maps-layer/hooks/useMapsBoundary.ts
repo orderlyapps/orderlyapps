@@ -1,10 +1,10 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@shared/database/collections/map";
+import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 import { useMapLogPresets } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/use-map-log-presets/useMapLogPresets";
 import { useFilteredMapLogMaps } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/use-filtered-map-log-maps/useFilteredMapLogMaps";
-import type { MapRow } from "@shared/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import { isValidBoundary } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
 
 type PolygonFeature = {

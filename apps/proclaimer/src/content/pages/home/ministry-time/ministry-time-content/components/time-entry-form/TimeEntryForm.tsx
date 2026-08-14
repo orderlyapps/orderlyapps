@@ -7,7 +7,10 @@ import { Select } from "@ui/components/inputs/select/Select";
 import { SaveTextButton } from "@ui/components/inputs/button/text/save/SaveTextButton";
 import { Space } from "@ui/components/layout/space/Space";
 import { Body } from "@ui/components/display/text/body/Body";
-import { MINISTRY_TYPES, type MinistryType } from "@shared/database/rxdb/collections/ministry-time";
+import {
+  MINISTRY_TYPES,
+  type MinistryType,
+} from "@amodeo/proclaimer/database/rxdb/collections/ministry-time";
 
 const MINISTRY_TYPE_OPTIONS = MINISTRY_TYPES.map((value) => ({
   value,

@@ -6,8 +6,8 @@ import { SaveTextButton } from "@ui/components/inputs/button/text/save/SaveTextB
 import { TextButton } from "@ui/components/inputs/button/text/TextButton";
 import { Space } from "@ui/components/layout/space/Space";
 import { handleEditVisit } from "../../handlers/handleEditVisit";
-import { returnVisitCollection } from "@shared/database/collections/return-visit";
-import type { VisitLogEntry } from "@shared/database/schemas/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
+import type { VisitLogEntry } from "@amodeo/proclaimer/database/schemas/return-visit";
 
 type AddVisitFormProps = {
   onSave?: (visited_at: string, notes: string) => void;

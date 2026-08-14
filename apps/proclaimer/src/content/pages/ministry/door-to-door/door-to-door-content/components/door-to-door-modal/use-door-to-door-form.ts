@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { loadDoorToDoorForm, saveDoorToDoorForm } from "./door-to-door-form-storage";
-import type { Suburb } from "@shared/database/schemas/suburb";
-import type { Street } from "@shared/database/schemas/street";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 
 function belongsToSuburb(street: Street, suburb?: Suburb): boolean {
   return !!suburb && street.suburb_id === suburb.id;

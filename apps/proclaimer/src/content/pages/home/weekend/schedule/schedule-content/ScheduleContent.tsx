@@ -3,14 +3,14 @@ import { IonList } from "@ionic/react";
 import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { weekendAssignmentCollection } from "@shared/database/collections/weekend-assignment";
-import { publisherCollection } from "@shared/database/collections/publisher";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import {
   weekendAssignmentIDs,
   weekendAssignmentLabels,
-} from "@shared/database/schemas/weekend-assignment";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
-import type { Publisher } from "@shared/database/schemas/publisher";
+} from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";

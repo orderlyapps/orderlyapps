@@ -1,11 +1,11 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { addWeeks, format, startOfWeek } from "date-fns";
-import { midweekMeetingDataCollection } from "@shared/database/collections/midweek-meeting-data";
-import { midweekAssignmentCollection } from "@shared/database/collections/midweek-assignment";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import type { MidweekMeetingData } from "@shared/database/schemas/midweek-meeting-data";
-import type { MidweekAssignment } from "@shared/database/schemas/midweek-assignment";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
+import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import { Spinner } from "@ui/components/display/spinner/Spinner";
 import { chairmansOutlineDocX } from "../../../docx/chairmansOutlineDocX";

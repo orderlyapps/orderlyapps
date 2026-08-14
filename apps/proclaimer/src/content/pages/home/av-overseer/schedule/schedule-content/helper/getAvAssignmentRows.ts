@@ -1,12 +1,15 @@
-import type { AvAssignment, AvAssignmentID } from "@shared/database/schemas/av-assignment";
+import type {
+  AvAssignment,
+  AvAssignmentID,
+} from "@amodeo/proclaimer/database/schemas/av-assignment";
 import {
   avAssignmentLabels,
   midweekAVAssignmentIDs,
   midweekAttendantAssignmentIDs,
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
-} from "@shared/database/schemas/av-assignment";
-import type { Publisher } from "@shared/database/schemas/publisher";
+} from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { AvAssignmentGroup } from "./types";
 

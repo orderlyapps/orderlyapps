@@ -1,7 +1,7 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { notAtHomeCollection } from "@shared/database/collections/not-at-home";
-import { streetCollection } from "@shared/database/collections/street";
-import { suburbCollection } from "@shared/database/collections/suburb";
+import { notAtHomeCollection } from "@amodeo/proclaimer/database/collections/not-at-home";
+import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
+import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import type { NotAtHome } from "../types";
 
 type GroupedNotAtHome = Record<string, (NotAtHome & { coordinates: [number, number] })[]>;

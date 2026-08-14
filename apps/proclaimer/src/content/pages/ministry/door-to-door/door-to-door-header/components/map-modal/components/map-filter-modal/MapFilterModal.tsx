@@ -7,12 +7,12 @@ import { ToggleInput } from "@ui/components/inputs/toggle/ToggleInput";
 import { AlertMultiSelect } from "@ui/components/inputs/alert-multi-select/AlertMultiSelect";
 import { Space } from "@ui/components/layout/space/Space";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { mapTagCollection } from "@shared/database/collections/map-tag";
+import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
 import { MINISTRY_DEFAULT_PRESET_IDS } from "../../hooks/defaultMinistryMapPresets";
 import { ministrySortOrderLabels } from "../../hooks/types";
-import type { MapTagRow } from "@shared/database/schemas/map-tag";
+import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
 import type {
   MinistryMapFilterSortPreset,
   MinistryMapFilters,

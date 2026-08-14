@@ -2,7 +2,7 @@ import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiC
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 interface AssignmentItem {
   id: string;

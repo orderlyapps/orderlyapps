@@ -1,14 +1,14 @@
 import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { format, startOfWeek } from "date-fns";
-import { avAssignmentCollection } from "@shared/database/collections/av-assignment";
-import { speakerAssignmentCollection } from "@shared/database/collections/speaker-assignment";
-import { weekendAssignmentCollection } from "@shared/database/collections/weekend-assignment";
-import { cleanMajorCollection } from "@shared/database/collections/clean-major";
-import { cleanMinorCollection } from "@shared/database/collections/clean-minor";
+import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import { cleanMajorCollection } from "@amodeo/proclaimer/database/collections/clean-major";
+import { cleanMinorCollection } from "@amodeo/proclaimer/database/collections/clean-minor";
 import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { avAssignmentLabels } from "@shared/database/schemas/av-assignment";
-import { weekendAssignmentLabels } from "@shared/database/schemas/weekend-assignment";
+import { avAssignmentLabels } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import { weekendAssignmentLabels } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import { useMidweekAssignments } from "./useMidweekAssignments";
 
 export type AssignmentType =

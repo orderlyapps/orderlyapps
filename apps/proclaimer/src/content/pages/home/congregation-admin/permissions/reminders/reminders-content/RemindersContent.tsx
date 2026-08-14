@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { reminderPermissionCollection } from "@shared/database/collections/reminder-permission";
+import { reminderPermissionCollection } from "@amodeo/proclaimer/database/collections/reminder-permission";
 import { usePermittedPublishers } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/usePermittedPublishers";
 import { PermissionContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-content/PermissionContent";
 import { AddPublisherModal } from "./components/add-publisher-modal/AddPublisherModal";

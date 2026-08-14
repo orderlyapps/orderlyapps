@@ -174,7 +174,11 @@ export default defineConfig({
   envDir: import.meta.dirname,
   server: {
     fs: {
-      allow: [import.meta.dirname],
+      allow: [
+        import.meta.dirname,
+        // The linked @amodeo/proclaimer workspace package (consumed from dist)
+        path.resolve(import.meta.dirname, "../../packages/proclaimer"),
+      ],
     },
   },
   resolve: {

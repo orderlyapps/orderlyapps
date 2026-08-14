@@ -20,7 +20,7 @@ import { MapImagePreview } from "./components/map-image-preview/MapImagePreview"
 import { MapFilterModal } from "./components/map-filter-modal/MapFilterModal";
 import { useRecentMaps } from "./hooks/useRecentMaps";
 import { useMinistryMapPresets } from "./hooks/useMinistryMapPresets";
-import type { MapRow } from "@shared/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import { Heading } from "@ui/components/display/text/heading/Heading";
 import { Space } from "@ui/components/layout/space/Space";
 

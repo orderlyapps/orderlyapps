@@ -1,9 +1,9 @@
 import { differenceInWeeks, parseISO } from "date-fns";
-import type { AvAssignment } from "@shared/database/schemas/av-assignment";
-import { avAssignmentLabels } from "@shared/database/schemas/av-assignment";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
-import { weekendAssignmentLabels } from "@shared/database/schemas/weekend-assignment";
-import type { SpeakerAssignment } from "@shared/database/schemas/speaker-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import { avAssignmentLabels } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import { weekendAssignmentLabels } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 
 export interface WeekendAssignmentRow {
   week_id: string;

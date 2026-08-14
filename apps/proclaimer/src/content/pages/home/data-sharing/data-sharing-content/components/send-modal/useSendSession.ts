@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createPeerConnection } from "@util/vendor/webrtc/peer-connection";
 import { sendOverDataChannel, waitForDataChannelOpen } from "@util/vendor/webrtc/data-channel";
-import { rxdb } from "@shared/database/rxdb/database";
+import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
+import type { PublisherLocal } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import type { SharePayload } from "@util/vendor/webrtc/share-payload";
 
 const SESSION_TIMEOUT_SECONDS = 120;
@@ -107,7 +108,7 @@ export function useSendSession(is_open: boolean): UseSendSessionResult {
     try {
       await waitForDataChannelOpen(channel);
       const docs = await rxdb.publisher.find().exec();
-      const data = docs.map((doc) => doc.toJSON());
+      const data = docs.map((doc) => doc.toJSON() as PublisherLocal);
       const payload: SharePayload = { type: "publisher-local", data };
       sendOverDataChannel(channel, payload);
       return data.length;

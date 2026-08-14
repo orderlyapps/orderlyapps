@@ -1,10 +1,10 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { midweekParticipationCollection } from "@shared/database/collections/midweek-participation";
-import type { MidweekParticipation } from "@shared/database/schemas/midweek-participation";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { midweekParticipationCollection } from "@amodeo/proclaimer/database/collections/midweek-participation";
+import type { MidweekParticipation } from "@amodeo/proclaimer/database/schemas/midweek-participation";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 export interface ParticipantPublisher {
   participant_id: string;

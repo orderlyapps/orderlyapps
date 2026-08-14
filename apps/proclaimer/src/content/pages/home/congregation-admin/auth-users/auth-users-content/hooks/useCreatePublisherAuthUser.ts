@@ -1,6 +1,6 @@
 import { supabase } from "@util/vendor/supabase/supabase-client";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { authUserCollection } from "@shared/database/collections/auth-user";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { authUserCollection } from "@amodeo/proclaimer/database/collections/auth-user";
 
 export function useCreatePublisherAuthUser() {
   const createAuthUser = async (publisherId: string): Promise<string> => {

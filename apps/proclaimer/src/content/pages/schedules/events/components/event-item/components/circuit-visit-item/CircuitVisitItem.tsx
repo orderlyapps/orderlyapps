@@ -1,5 +1,5 @@
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import type { EventRow } from "@shared/database/schemas/event";
+import type { EventRow } from "@amodeo/proclaimer/database/schemas/event";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 
 interface CircuitVisitItemProps {

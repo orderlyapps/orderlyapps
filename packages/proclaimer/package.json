@@ -1,23 +1,32 @@
 {
   "name": "@amodeo/proclaimer",
   "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "homepage": "https://github.com/author/library#readme",
+  "description": "Shared Proclaimer feature modules, database schemas, and collections",
+  "homepage": "https://github.com/orderlyapps/orderlyapps#readme",
   "bugs": {
-    "url": "https://github.com/author/library/issues"
+    "url": "https://github.com/orderlyapps/orderlyapps/issues"
   },
   "license": "MIT",
-  "author": "Author Name <author.name@mail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/author/library.git"
+    "url": "git+https://github.com/orderlyapps/orderlyapps.git",
+    "directory": "packages/proclaimer"
   },
   "files": [
     "dist"
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./database/*": {
+      "types@development": "./src/database/*.ts",
+      "types": "./dist/database/*.d.mts",
+      "development": "./src/database/*.ts",
+      "import": "./dist/database/*.mjs"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {

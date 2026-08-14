@@ -1,13 +1,13 @@
 import { useHistory } from "react-router-dom";
 import { useLiveQuery } from "@tanstack/react-db";
 import { and, eq } from "@tanstack/react-db";
-import { speakerAssignmentCollection } from "@shared/database/collections/speaker-assignment";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { congregationCollection } from "@shared/database/collections/congregation";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
 import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";

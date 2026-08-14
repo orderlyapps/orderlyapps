@@ -1,5 +1,5 @@
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 interface PermissionRecord {
   $key: string;

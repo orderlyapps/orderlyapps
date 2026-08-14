@@ -1,6 +1,6 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import type { Group } from "@shared/database/schemas/group";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Group } from "@amodeo/proclaimer/database/schemas/group";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { PdfFilterType } from "../pdf-action-sheet/PdfActionSheet";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 

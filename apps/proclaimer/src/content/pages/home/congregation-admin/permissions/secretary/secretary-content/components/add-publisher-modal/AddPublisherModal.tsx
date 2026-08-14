@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { secretaryPermissionCollection } from "@shared/database/collections/secretary-permission";
+import { secretaryPermissionCollection } from "@amodeo/proclaimer/database/collections/secretary-permission";
 import { useAddPermission } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/useAddPermission";
 import { GenericPermissionModal } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-modal/GenericPermissionModal";
 

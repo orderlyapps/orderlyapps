@@ -16,7 +16,7 @@ import {
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import type { Street } from "@shared/database/schemas/street";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 import type { SuburbRef } from "../../../../../../../../types";
 import { useAddStreetSearch } from "./useAddStreetSearch";
 

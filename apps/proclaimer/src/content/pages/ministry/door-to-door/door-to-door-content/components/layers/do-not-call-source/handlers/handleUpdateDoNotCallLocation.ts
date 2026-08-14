@@ -1,4 +1,4 @@
-import { doNotCallCollection } from "@shared/database/collections/do-not-call";
+import { doNotCallCollection } from "@amodeo/proclaimer/database/collections/do-not-call";
 import type { DoNotCall } from "../types";
 
 export function handleUpdateDoNotCallLocation(

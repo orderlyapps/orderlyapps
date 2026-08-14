@@ -1,5 +1,5 @@
 import { subMonths, format } from "date-fns";
-import type { Report } from "@shared/database/schemas/report";
+import type { Report } from "@amodeo/proclaimer/database/schemas/report";
 
 export function getLastSixMonthDates(): string[] {
   const dates: string[] = [];

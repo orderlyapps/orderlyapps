@@ -5,7 +5,7 @@ import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIc
 import { TextInput } from "@ui/components/inputs/text/TextInput";
 import { TextButton } from "@ui/components/inputs/button/text/TextButton";
 import { Space } from "@ui/components/layout/space/Space";
-import type { Outline } from "@shared/database/schemas/outline";
+import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 
 interface OutlineFormProps {
   is_open: boolean;

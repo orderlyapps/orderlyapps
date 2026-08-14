@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@shared/database/collections/map";
-import { publisherCollection } from "@shared/database/collections/publisher";
+import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { TextButton } from "@ui/components/inputs/button/text/TextButton";
 import { Space } from "@ui/components/layout/space/Space";
 import { Body } from "@ui/components/display/text/body/Body";
-import type { MapRow } from "@shared/database/schemas/map";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { ParsedRow } from "../csv-upload/CsvUpload";
 import { UnmatchedMaps } from "./components/unmatched-maps/UnmatchedMaps";
 import { UnmatchedPublishers } from "./components/unmatched-publishers/UnmatchedPublishers";

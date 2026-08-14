@@ -1,3 +1,4 @@
+import "./init-database";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { IonApp } from "@ionic/react";

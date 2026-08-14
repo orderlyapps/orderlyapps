@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { IonActionSheet, IonAlert } from "@ionic/react";
 import { addOutline, documentAttachOutline } from "ionicons/icons";
-import { mapCollection } from "@shared/database/collections/map";
+import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { recordRecentMap } from "../../../../utils/useRecentMaps";
 import { kmlToGeoJSON } from "../../../../utils/kml-to-geojson";
 import type { SelectedMap } from "../../../../utils/types";

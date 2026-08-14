@@ -1,7 +1,7 @@
-import { avAssignmentCollection } from "@shared/database/collections/av-assignment";
-import type { AvAssignment } from "@shared/database/schemas/av-assignment";
-import type { AvAssignmentID } from "@shared/database/schemas/av-assignment";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 interface UseAvAssignmentHandlersProps {
   congregation_id: string | undefined;

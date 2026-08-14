@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useIonAlert } from "@ionic/react";
 import { FileUploadButton } from "@ui/components/inputs/file/FileUploadButton";
-import { importPublisherLocalData } from "@shared/database/rxdb/helper/publisherLocalExportImport";
+import { importPublisherLocalData } from "@amodeo/proclaimer/database/rxdb/helper/publisherLocalExportImport";
 
 export function ImportPublisherDataButton() {
   const [presentAlert] = useIonAlert();

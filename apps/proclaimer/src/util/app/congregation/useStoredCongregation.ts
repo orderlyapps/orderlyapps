@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Congregation } from "@shared/database/schemas/congregation";
+import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
 import { getStoredCongregation, CONGREGATION_CHANGE_EVENT } from "./utils";
 
 export function useStoredCongregation(): Congregation | null {

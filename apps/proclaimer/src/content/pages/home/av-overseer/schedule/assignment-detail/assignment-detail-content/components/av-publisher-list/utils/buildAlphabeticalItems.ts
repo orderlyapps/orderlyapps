@@ -1,4 +1,4 @@
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 export type LetterDivider = { type: "divider"; letter: string; id: string };
 export type ListItem = Publisher | LetterDivider;

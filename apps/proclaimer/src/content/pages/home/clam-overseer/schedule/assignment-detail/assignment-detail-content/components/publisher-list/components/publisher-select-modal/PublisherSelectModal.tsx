@@ -1,8 +1,8 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import type { Publisher } from "@shared/database/schemas/publisher";
-import type { MidweekAssignment } from "@shared/database/schemas/midweek-assignment";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import { AssignmentHistory } from "./components/assignment-history/AssignmentHistory";
 
 interface PublisherSelectModalProps {

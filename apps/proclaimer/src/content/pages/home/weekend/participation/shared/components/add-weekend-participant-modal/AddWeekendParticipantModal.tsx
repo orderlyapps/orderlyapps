@@ -13,7 +13,7 @@ import { ResponsiveModal } from "@ui/components/display/responsive-modal/Respons
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
 import { Body } from "@ui/components/display/text/body/Body";
 import { useWeekendParticipantPublishers } from "@proclaimer-content/pages/home/weekend/participation/shared/hooks/useWeekendParticipantPublishers";
-import type { WeekendParticipation } from "@shared/database/schemas/weekend-participation";
+import type { WeekendParticipation } from "@amodeo/proclaimer/database/schemas/weekend-participation";
 
 interface AddWeekendParticipantModalProps {
   participation_id: WeekendParticipation["participation_id"];

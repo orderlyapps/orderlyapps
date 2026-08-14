@@ -1,12 +1,12 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { mapCheckoutPublisherCollection } from "@shared/database/collections/map-checkout-publisher";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { mapCheckoutPublisherCollection } from "@amodeo/proclaimer/database/collections/map-checkout-publisher";
 import { MapCheckoutDetailHeader } from "@proclaimer-content/pages/home/service-overseer/map-checkout/map-checkout-detail/map-checkout-detail-header/MapCheckoutDetailHeader";
 import { MapCheckoutDetailContent } from "@proclaimer-content/pages/home/service-overseer/map-checkout/map-checkout-detail/map-checkout-detail-content/MapCheckoutDetailContent";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@shared/database/schemas/publisher";
-import type { MapCheckoutPublisherRow } from "@shared/database/schemas/map-checkout-publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { MapCheckoutPublisherRow } from "@amodeo/proclaimer/database/schemas/map-checkout-publisher";
 
 interface MapCheckoutDetailPageProps {
   match: {

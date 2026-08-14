@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { IonItem, IonSelect, IonSelectOption } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { congregationCollection } from "@shared/database/collections/congregation";
+import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { AddCongregationAlert } from "@proclaimer-shared/components/add-congregation-alert/AddCongregationAlert";
 import { useAddCongregation } from "./hooks/use-add-congregation/useAddCongregation";
-import type { Congregation } from "@shared/database/schemas/congregation";
+import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
 
 const ADD_NEW_CONGREGATION_VALUE = "add_new";
 

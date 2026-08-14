@@ -16,7 +16,7 @@ import {
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import type { Suburb } from "@shared/database/schemas/suburb";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 import { useAddSuburbSearch } from "./useAddSuburbSearch";
 
 type AddSuburbModalProps = {

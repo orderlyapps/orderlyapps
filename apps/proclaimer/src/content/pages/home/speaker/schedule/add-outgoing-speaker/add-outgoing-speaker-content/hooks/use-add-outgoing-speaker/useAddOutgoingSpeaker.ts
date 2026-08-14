@@ -1,16 +1,16 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { useLocalSpeakers } from "@proclaimer-routes/home/speaker/local-speakers/hooks/use-local-speakers/useLocalSpeakers";
-import { congregationCollection } from "@shared/database/collections/congregation";
-import { outlineCollection } from "@shared/database/collections/outline";
-import { speakerAssignmentCollection } from "@shared/database/collections/speaker-assignment";
-import { speakerOutlineCollection } from "@shared/database/collections/speaker-outline";
+import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
+import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
-import type { Congregation } from "@shared/database/schemas/congregation";
-import type { Outline } from "@shared/database/schemas/outline";
-import type { SpeakerAssignment } from "@shared/database/schemas/speaker-assignment";
-import type { SpeakerOutline } from "@shared/database/schemas/speaker-outline";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
+import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
+import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
 
 export const ADD_NEW_CONGREGATION_VALUE = "add_new";
 

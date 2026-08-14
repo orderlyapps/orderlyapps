@@ -1,5 +1,5 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { publisherCollection } from "@shared/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { Spinner } from "@ui/components/display/spinner/Spinner";

@@ -20,7 +20,7 @@ import {
   setStoredPublisher,
   getPublisherDisplayName,
 } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 interface OnboardingPublisherModalProps {
   isOpen: boolean;

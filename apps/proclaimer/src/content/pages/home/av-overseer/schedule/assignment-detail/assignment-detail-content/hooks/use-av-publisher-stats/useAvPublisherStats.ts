@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { avAssignmentCollection } from "@shared/database/collections/av-assignment";
-import type { AvAssignment } from "@shared/database/schemas/av-assignment";
+import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
 import type { AvParticipationType } from "../../utils/avParticipationTypeMap";
 import { computeAvStats } from "./computeAvStats";
 

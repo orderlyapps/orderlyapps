@@ -1,5 +1,5 @@
 import { differenceInWeeks, parseISO } from "date-fns";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import type { WeekendPublisherStats } from "../use-weekend-presets/types";
 
 export function computeWeekendStats(

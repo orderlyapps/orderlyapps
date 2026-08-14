@@ -16,12 +16,12 @@ import {
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@ui/components/layout/space/Space";
-import { rxdb } from "@shared/database/rxdb/database";
-import type { PublisherLocal } from "@shared/database/rxdb/collections/publisher";
+import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
+import type { PublisherLocal } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import {
   generateExportFilename,
   type OptionalPublisherExportField,
-} from "@shared/database/rxdb/helper/publisherLocalExportImport";
+} from "@amodeo/proclaimer/database/rxdb/helper/publisherLocalExportImport";
 
 interface Props {
   is_open: boolean;

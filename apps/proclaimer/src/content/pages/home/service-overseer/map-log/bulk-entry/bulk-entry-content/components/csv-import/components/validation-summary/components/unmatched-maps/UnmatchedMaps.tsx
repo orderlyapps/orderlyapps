@@ -4,7 +4,7 @@ import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
 import { Body } from "@ui/components/display/text/body/Body";
 import { Space } from "@ui/components/layout/space/Space";
 import { MapSelectModal } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/checkout-modal/components/map-select-modal/MapSelectModal";
-import type { MapRow } from "@shared/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 
 interface UnmatchedMapsProps {
   unmatched_names: string[];

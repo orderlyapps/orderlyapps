@@ -17,12 +17,12 @@ import {
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { streetCollection } from "@shared/database/collections/street";
+import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { searchStreets } from "@util/vendor/mapbox/helper/searchStreets";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import type { MapboxGeocodingFeature } from "@util/vendor/mapbox/types/MapboxGeocodingResponse";
-import type { Street } from "@shared/database/schemas/street";
-import type { Suburb } from "@shared/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 
 type AddStreetModalProps = {
   isOpen: boolean;

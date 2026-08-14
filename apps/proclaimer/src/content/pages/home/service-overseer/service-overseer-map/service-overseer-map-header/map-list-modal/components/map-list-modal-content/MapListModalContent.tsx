@@ -14,8 +14,8 @@ import { Body } from "@ui/components/display/text/body/Body";
 import { Space } from "@ui/components/layout/space/Space";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { MapLogModal } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/service-overseer-map-header/map-list-modal/components/map-list-modal-content/map-log-modal/MapLogModal";
-import type { MapRow } from "@shared/database/schemas/map";
-import type { MapMaster } from "@shared/database/schemas/map-master";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapMaster } from "@amodeo/proclaimer/database/schemas/map-master";
 
 type MapListModalContentProps = {
   search_query: string;

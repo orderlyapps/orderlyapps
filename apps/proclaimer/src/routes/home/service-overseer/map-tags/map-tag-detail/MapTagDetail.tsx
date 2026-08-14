@@ -1,9 +1,9 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapTagCollection } from "@shared/database/collections/map-tag";
+import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
 import { MapTagDetailHeader } from "@proclaimer-content/pages/home/service-overseer/map-tags/map-tag-detail/map-tag-detail-header/MapTagDetailHeader";
 import { MapTagDetailContent } from "@proclaimer-content/pages/home/service-overseer/map-tags/map-tag-detail/map-tag-detail-content/MapTagDetailContent";
-import type { MapTagRow } from "@shared/database/schemas/map-tag";
+import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
 
 interface MapTagDetailPageProps {
   match: {

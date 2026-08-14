@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react";
-import type { MapRow } from "@shared/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { ZoomToFn } from "../components/map-zoom-to-controller/MapZoomToController";
 import { MapZoomContext } from "./mapZoomContext";
 import { useSelectedMap } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useSelectedMapContext";

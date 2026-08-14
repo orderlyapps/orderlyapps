@@ -5,9 +5,9 @@ import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIc
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { Select } from "@ui/components/inputs/select/Select";
 import { Space } from "@ui/components/layout/space/Space";
-import { mapTagCollection } from "@shared/database/collections/map-tag";
+import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { MapTagRow } from "@shared/database/schemas/map-tag";
+import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
 import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
 import { DEFAULT_PRESET_IDS } from "../use-map-log-presets/defaultMapLogPresets";
 import { getMapLogFilterInputItems } from "./components/filter-section/MapLogFilterSection";

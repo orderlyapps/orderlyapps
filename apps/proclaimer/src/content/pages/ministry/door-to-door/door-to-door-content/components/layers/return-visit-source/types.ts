@@ -1,4 +1,4 @@
-import type { ReturnVisitLocal } from "@shared/database/rxdb/collections/return-visit";
+import type { ReturnVisitLocal } from "@amodeo/proclaimer/database/rxdb/collections/return-visit";
 
 export type ReturnVisit = ReturnVisitLocal & {
   street: string;

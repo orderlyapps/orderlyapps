@@ -1,9 +1,9 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { ministryTimeLocalCollection } from "@shared/database/collections/ministry-time-local";
+import { ministryTimeLocalCollection } from "@amodeo/proclaimer/database/collections/ministry-time-local";
 import type {
   MinistryTimeLocal,
   MinistryType,
-} from "@shared/database/rxdb/collections/ministry-time";
+} from "@amodeo/proclaimer/database/rxdb/collections/ministry-time";
 
 export type MinistryTimeEntry = MinistryTimeLocal;
 

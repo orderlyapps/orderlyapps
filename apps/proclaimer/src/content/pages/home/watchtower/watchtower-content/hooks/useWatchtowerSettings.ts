@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { watchtowerLocalCollection } from "@shared/database/collections/watchtower-local";
+import { watchtowerLocalCollection } from "@amodeo/proclaimer/database/collections/watchtower-local";
 
 export type SectionType = "intro" | "numbered" | "review" | "summary";
 

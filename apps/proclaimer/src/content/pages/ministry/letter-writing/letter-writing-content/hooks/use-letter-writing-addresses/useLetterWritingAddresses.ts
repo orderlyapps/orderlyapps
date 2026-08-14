@@ -1,11 +1,11 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { notAtHomeCollection } from "@shared/database/collections/not-at-home";
-import { suburbCollection } from "@shared/database/collections/suburb";
-import { streetCollection } from "@shared/database/collections/street";
+import { notAtHomeCollection } from "@amodeo/proclaimer/database/collections/not-at-home";
+import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
+import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import type { NotAtHome } from "@shared/database/schemas/not-at-home";
-import type { Suburb } from "@shared/database/schemas/suburb";
-import type { Street } from "@shared/database/schemas/street";
+import type { NotAtHome } from "@amodeo/proclaimer/database/schemas/not-at-home";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 
 const MAX_ADDRESSES = 0;
 

@@ -7,7 +7,7 @@ import {
   exportMinistryTimeData,
   importMinistryTimeData,
   generateMinistryTimeExportFilename,
-} from "@shared/database/rxdb/helper/ministryTimeExportImport";
+} from "@amodeo/proclaimer/database/rxdb/helper/ministryTimeExportImport";
 
 export function DataManagement() {
   const [presentAlert] = useIonAlert();
