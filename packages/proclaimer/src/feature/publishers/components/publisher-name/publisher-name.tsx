@@ -1,4 +1,4 @@
-import type { PublisherRecord } from "../../publisher-schema.js";
+import type { PublisherRecord } from "../../../../database/schemas/publisher.js";
 
 const NAME_FIELDS = ["display_name", "middle_name", "first_name", "last_name"] as const;
 type NameField = (typeof NAME_FIELDS)[number];

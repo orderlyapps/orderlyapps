@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useErrorToast } from "@amodeo/ionic";
-import type { PublisherRecord } from "../../../../publisher-schema.js";
+import type { PublisherRecord } from "../../../../../../database/schemas/publisher.js";
 import { useUpdatePublisher } from "../../../../hooks/use-update-publisher.js";
 import { usePublishers } from "../../../../hooks/use-publishers.js";
 import type { PublisherFilterNode } from "../../../../hooks/use-publishers.js";

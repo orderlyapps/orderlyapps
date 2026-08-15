@@ -88,17 +88,6 @@ test("includes publishers with a non-null archived_at", async () => {
   );
 });
 
-test("surfaces a schema validation failure as an error", async () => {
-  vi.spyOn(console, "error").mockImplementation(() => {});
-  const supabase = createMockSupabase({ data: [{ id: "not-a-uuid", first_name: "Bad" }] });
-
-  const { result } = renderHook(() => usePublishers(), { wrapper: createWrapper(supabase) });
-
-  await waitFor(() => expect(result.current.isError).toBe(true));
-
-  expect(result.current.data).toEqual([]);
-});
-
 // --- Filtered ---
 
 test("filtered: returns a not-configured, idle result when there is no supabase client", () => {

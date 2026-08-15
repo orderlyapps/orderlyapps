@@ -69,5 +69,7 @@ test("FamilyDetailRow calls updatePublisher with the selected family head id", a
   await waitFor(() => expect(onUpdate).toHaveBeenCalled());
   const [payload, id] = onUpdate.mock.calls[0];
   expect(id).toBe(publisher.id);
-  expect(payload).toEqual({ family_id: head.id });
+  // The database collection sends the full modified row (mutation.modified),
+  // not just the changed fields.
+  expect(payload).toMatchObject({ family_id: head.id });
 });

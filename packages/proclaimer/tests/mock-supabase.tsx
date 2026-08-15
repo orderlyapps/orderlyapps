@@ -1,8 +1,10 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { ReactNode } from "react";
 import { SupabaseContext } from "../src/providers/supabase-context.ts";
-import type { PublisherRecord } from "../src/feature/publishers/publisher-schema.ts";
+import { initDatabase } from "../src/database/context.ts";
+import type { PublisherRecord } from "../src/database/schemas/publisher.ts";
+import { testQueryClient, resetPublisherCollection } from "./test-query-client.ts";
 
 export interface MockSupabaseResult {
   data?: unknown[] | null;
@@ -28,16 +30,21 @@ export function createMockSupabase(result: MockSupabaseResult): SupabaseClient {
   } as unknown as SupabaseClient;
 }
 
-// getPublishersCollection memoizes collections per (supabase, queryClient) pair
-// in WeakMaps, so every test must build a fresh mock client AND a fresh
-// QueryClient here — reusing either leaks the previous test's collection/data.
+// publisherCollection is a singleton wired to the database context. The mock
+// in setup.ts binds it to the shared testQueryClient. Each test calls
+// initDatabase to point getSupabase() at the mock supabase, then resets the
+// collection so it gets a fresh QueryObserver for the new mock data.
 export function createWrapper(supabase: SupabaseClient | null) {
-  const queryClient = new QueryClient({
-    defaultOptions: { queries: { retry: false } },
-  });
+  if (supabase) {
+    initDatabase({ supabase, queryClient: testQueryClient });
+  }
+  // Re-create the collection so each test gets a fresh QueryObserver. The
+  // queryFn calls getSupabase() at query time, so it picks up the mock
+  // supabase set via initDatabase above.
+  resetPublisherCollection();
   return function Wrapper({ children }: { children: ReactNode }) {
     return (
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={testQueryClient}>
         <SupabaseContext.Provider value={supabase}>{children}</SupabaseContext.Provider>
       </QueryClientProvider>
     );

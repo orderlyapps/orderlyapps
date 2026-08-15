@@ -1,8 +1,7 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { toError } from "@amodeo/utils";
-import type { PublisherRecord } from "../publisher-schema.js";
+import type { PublisherRecord } from "../../../database/schemas/publisher.js";
+import { publisherCollection } from "../../../database/collections/publisher.js";
 import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
-import { getPublishersCollection } from "../publishers-collection/get-publishers-collection.js";
 
 export type UpdatePublisherChanges = Partial<Omit<PublisherRecord, "id">>;
 
@@ -28,13 +27,12 @@ export function useUpdatePublisher(
   options: UseUpdatePublisherOptions = {},
 ): UseUpdatePublisherResult {
   const supabase = useSupabaseOrNull();
-  const queryClient = useQueryClient();
-  const publishers = supabase ? getPublishersCollection(supabase, queryClient) : null;
+  const isConfigured = supabase !== null;
   const { onError } = options;
 
   const update = (id: string, changes: UpdatePublisherChanges) => {
-    if (!publishers) return;
-    const tx = publishers.update(id, (draft) => {
+    if (!isConfigured) return;
+    const tx = publisherCollection.update(id, (draft) => {
       Object.assign(draft, changes);
     });
     if (onError) {
@@ -47,5 +45,5 @@ export function useUpdatePublisher(
     }
   };
 
-  return { update, isConfigured: supabase !== null };
+  return { update, isConfigured };
 }

@@ -3,7 +3,7 @@ import { IonButton, IonItem, IonLabel, IonList, IonSearchbar, IonSpinner } from 
 import { ErrorItem } from "@amodeo/ionic";
 import { describeSupabaseError } from "@amodeo/utils/supabase";
 import { usePublishers } from "../../../../../publishers/hooks/use-publishers.js";
-import type { PublisherRecord } from "../../../../../publishers/publisher-schema.js";
+import type { PublisherRecord } from "../../../../../../database/schemas/publisher.js";
 import { formatPublisherName } from "../../../../../publishers/components/publisher-name/publisher-name.js";
 
 export interface PublisherStepProps {

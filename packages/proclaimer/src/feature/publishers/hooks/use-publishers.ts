@@ -14,13 +14,10 @@ import {
   useLiveQuery,
 } from "@tanstack/react-db";
 import type { Ref } from "@tanstack/react-db";
-import { useQueryClient } from "@tanstack/react-query";
-import type { SupabaseClient } from "@supabase/supabase-js";
 import { toError } from "@amodeo/utils";
-import type { PublisherRecord } from "../publisher-schema.js";
+import type { PublisherRecord } from "../../../database/schemas/publisher.js";
+import { publisherCollection } from "../../../database/collections/publisher.js";
 import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
-import { getPublishersCollection } from "../publishers-collection/get-publishers-collection.js";
-import type { PublishersCollection } from "../publishers-collection/create-publishers-collection.js";
 
 export type PublisherRef = Ref<PublisherRecord>;
 export type PublisherColumn = keyof PublisherRecord;
@@ -111,37 +108,28 @@ export interface UsePublishersResult {
   isConfigured: boolean;
 }
 
-function usePublishersBase(): {
-  supabase: SupabaseClient | null;
-  publishers: PublishersCollection | null;
-} {
-  const supabase = useSupabaseOrNull();
-  const queryClient = useQueryClient();
-  const publishers = supabase ? getPublishersCollection(supabase, queryClient) : null;
-  return { supabase, publishers };
-}
-
 function buildPublishersResult(
-  supabase: SupabaseClient | null,
-  publishers: PublishersCollection | null,
+  isConfigured: boolean,
   data: PublisherRecord[] | undefined,
   isLoading: boolean,
   isError: boolean,
 ): UsePublishersResult {
-  const queryFailed = publishers?.utils.isError ?? false;
-  const hasError = supabase ? isError || queryFailed : false;
+  const queryFailed = isConfigured && publisherCollection.utils.isError;
+  const hasError = isConfigured ? isError || queryFailed : false;
   // `lastError` resets on success but is not guaranteed to be in lockstep with
   // `isError`. When it's unavailable, return `null` so consumers fall back to
   // their own generic message via their `error ? describe(error) : fallback`
   // ternary.
   const error =
-    hasError && publishers?.utils.lastError ? toError(publishers.utils.lastError) : null;
+    hasError && publisherCollection.utils.lastError
+      ? toError(publisherCollection.utils.lastError)
+      : null;
   return {
     data: data ?? [],
-    isLoading: supabase ? isLoading : false,
+    isLoading: isConfigured ? isLoading : false,
     isError: hasError,
     error,
-    isConfigured: supabase !== null,
+    isConfigured,
   };
 }
 
@@ -249,19 +237,20 @@ function normalizeFilter(filter: UsePublishersOptions["filter"]): PublisherFilte
  * object literals without memoizing them.
  */
 export function usePublishers(options: UsePublishersOptions = {}): UsePublishersResult {
-  const { supabase, publishers } = usePublishersBase();
+  const supabase = useSupabaseOrNull();
+  const isConfigured = supabase !== null;
   const optionsKey = JSON.stringify(options);
 
   const { data, isLoading, isError } = useLiveQuery(
     (q) => {
-      if (!publishers) return null;
+      if (!isConfigured) return null;
       const { filter, orderBy, enabled } = JSON.parse(optionsKey) as UsePublishersOptions;
       if (enabled === false) return null;
       const nodes = normalizeFilter(filter);
 
-      let query = q.from({ publisher: publishers });
+      let query = q.from({ publisher: publisherCollection });
       if (nodes.length > 0) {
-        query = query.where(({ publisher }) => combineNodes(publisher, nodes, and));
+        query = query.where(({ publisher }) => combineNodes(publisher as PublisherRef, nodes, and));
       }
       const sorts = orderBy && orderBy.length > 0 ? orderBy : DEFAULT_ORDER_BY;
       for (const { column, direction = "asc" } of sorts) {
@@ -269,8 +258,13 @@ export function usePublishers(options: UsePublishersOptions = {}): UsePublishers
       }
       return query;
     },
-    [publishers, optionsKey],
+    [isConfigured, optionsKey],
   );
 
-  return buildPublishersResult(supabase, publishers, data, isLoading, isError);
+  return buildPublishersResult(
+    isConfigured,
+    data as PublisherRecord[] | undefined,
+    isLoading,
+    isError,
+  );
 }

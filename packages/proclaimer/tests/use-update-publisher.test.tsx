@@ -27,7 +27,7 @@ test("useUpdatePublisher reports isConfigured true when supabase is available", 
   expect(result.current.isConfigured).toBe(true);
 });
 
-test("useUpdatePublisher triggers onUpdate with the correct payload and strips id", async () => {
+test("useUpdatePublisher triggers onUpdate with the modified row", async () => {
   const publisher = makePublisherRow({ first_name: "Ada", family_id: null });
   const newFamilyId = crypto.randomUUID();
   const onUpdate = vi.fn<(payload: Record<string, unknown>, id: string) => void>();
@@ -47,27 +47,9 @@ test("useUpdatePublisher triggers onUpdate with the correct payload and strips i
   await waitFor(() => expect(onUpdate).toHaveBeenCalled());
   const [payload, id] = onUpdate.mock.calls[0];
   expect(id).toBe(publisher.id);
-  expect(payload).toEqual({ family_id: newFamilyId });
-  expect(payload).not.toHaveProperty("id");
-});
-
-test("onUpdate skips persistence when only the id field changes", async () => {
-  const publisher = makePublisherRow({ first_name: "Ada" });
-  const onUpdate = vi.fn<(payload: Record<string, unknown>, id: string) => void>();
-  const supabase = createMockSupabase({ data: [publisher], onUpdate });
-
-  const wrapper = createWrapper(supabase);
-  const { result: publishersResult } = renderHook(() => usePublishers(), { wrapper });
-  const { result: updateResult } = renderHook(() => useUpdatePublisher(), { wrapper });
-
-  await waitFor(() => expect(publishersResult.current.data).toHaveLength(1));
-
-  // An update that only sets id (which gets stripped) should not call supabase
-  updateResult.current.update(publisher.id, { id: publisher.id } as never);
-
-  // Give the async onUpdate a chance to run
-  await waitFor(() => expect(publishersResult.current.isLoading).toBe(false));
-  expect(onUpdate).not.toHaveBeenCalled();
+  // The database collection sends the full modified row (mutation.modified),
+  // not just the changed fields.
+  expect(payload).toMatchObject({ family_id: newFamilyId, first_name: "Ada" });
 });
 
 test("onError fires with a normalized Error when the update fails", async () => {
