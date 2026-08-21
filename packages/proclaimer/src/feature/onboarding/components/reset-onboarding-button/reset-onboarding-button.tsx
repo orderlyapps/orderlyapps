@@ -26,7 +26,7 @@ export function ResetOnboardingButton({
       header="Reset onboarding?"
       message="This will clear your congregation and publisher selection so you can run onboarding again."
       confirmText="Reset"
-      onConfirm={() => void settings.clear()}
+      onClick={() => void settings.clear()}
     >
       {children}
     </ConfirmButton>

@@ -3,9 +3,7 @@ import { IonButton, useIonAlert } from "@ionic/react";
 
 type IonButtonProps = ComponentProps<typeof IonButton>;
 
-export interface ConfirmButtonProps extends Omit<IonButtonProps, "onClick"> {
-  /** Called only after the user confirms in the alert. */
-  onConfirm: () => void;
+export interface ConfirmButtonProps extends IonButtonProps {
   /** Alert header text. Defaults to `"Are you sure?"`. */
   header?: string;
   /** Alert body message shown beneath the header. */
@@ -18,12 +16,12 @@ export interface ConfirmButtonProps extends Omit<IonButtonProps, "onClick"> {
 
 /**
  * An `IonButton` that presents an Ionic alert on click and only invokes
- * `onConfirm` after the user selects the confirm action. The underlying
+ * `onClick` after the user selects the confirm action. The underlying
  * `IonButton` props (e.g. `color`, `fill`, `disabled`) are forwarded, so a
  * destructive action can be styled with `color="danger"`.
  */
 export function ConfirmButton({
-  onConfirm,
+  onClick,
   header = "Are you sure?",
   message,
   confirmText = "Confirm",
@@ -32,13 +30,13 @@ export function ConfirmButton({
 }: ConfirmButtonProps) {
   const [present] = useIonAlert();
 
-  const handleClick = () => {
+  const handleClick: IonButtonProps["onClick"] = (event) => {
     void present({
       header,
       message,
       buttons: [
         { text: cancelText, role: "cancel" },
-        { text: confirmText, role: "confirm", handler: onConfirm },
+        { text: confirmText, role: "confirm", handler: () => onClick?.(event) },
       ],
     });
   };
