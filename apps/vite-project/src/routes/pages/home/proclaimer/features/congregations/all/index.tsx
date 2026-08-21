@@ -7,7 +7,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { AllCongregationsContent } from "@/feature/home/components/proclaimer/features/congregations/all-congregations/all-congregations-content.tsx";
+import { CongregationList } from "@amodeo/proclaimer";
 
 export default function AllCongregationsPage() {
   return (
@@ -21,7 +21,7 @@ export default function AllCongregationsPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <AllCongregationsContent />
+        <CongregationList congregationRoutePrefix="/home/proclaimer/features/congregations/all" />
       </IonContent>
     </IonPage>
   );

@@ -7,9 +7,12 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { CongregationContent } from "@/feature/home/components/proclaimer/features/congregations/all-congregations/congregation/congregation-content.tsx";
+import { CongregationDetails } from "@amodeo/proclaimer";
+import { useParams } from "react-router-dom";
 
 export default function CongregationDetailsPage() {
+  const { id } = useParams<{ id: string }>();
+
   return (
     <IonPage>
       <IonHeader>
@@ -21,7 +24,10 @@ export default function CongregationDetailsPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <CongregationContent />
+        <CongregationDetails
+          id={id}
+          congregationRoutePrefix="/home/proclaimer/features/congregations/all"
+        />
       </IonContent>
     </IonPage>
   );

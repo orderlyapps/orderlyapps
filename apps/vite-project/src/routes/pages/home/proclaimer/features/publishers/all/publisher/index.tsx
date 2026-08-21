@@ -7,9 +7,12 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { PublisherContent } from "@/feature/home/components/proclaimer/features/publishers/all-publishers/publisher/publisher-content.tsx";
+import { PublisherDetails } from "@amodeo/proclaimer";
+import { useParams } from "react-router-dom";
 
 export default function PublisherDetailsPage() {
+  const { id } = useParams<{ id: string }>();
+
   return (
     <IonPage>
       <IonHeader>
@@ -21,7 +24,7 @@ export default function PublisherDetailsPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <PublisherContent />
+        <PublisherDetails id={id} publisherRoutePrefix="/home/proclaimer/features/publishers/all" />
       </IonContent>
     </IonPage>
   );

@@ -3,11 +3,13 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { AboutContent } from "@/feature/settings/components/about/about-content.tsx";
 
 export default function AboutPage() {
   return (
@@ -21,7 +23,14 @@ export default function AboutPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <AboutContent />
+        <IonList inset>
+          <IonItem>
+            <IonLabel>
+              <h2>About</h2>
+              <p>Version 0.0.0</p>
+            </IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );

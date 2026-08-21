@@ -3,11 +3,13 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { CongregationsContent } from "@/feature/home/components/proclaimer/features/congregations/congregations-content.tsx";
 
 export default function CongregationsPage() {
   return (
@@ -21,7 +23,17 @@ export default function CongregationsPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <CongregationsContent />
+        <IonList inset>
+          <IonItem>
+            <IonLabel>
+              <h2>Congregations</h2>
+              <p>Browse available congregations</p>
+            </IonLabel>
+          </IonItem>
+          <IonItem routerLink="/home/proclaimer/features/congregations/all" detail>
+            <IonLabel>All Congregations</IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );

@@ -1,5 +1,13 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-import { HomeContent } from "@/feature/home/components/home-content.tsx";
+import {
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
 
 export default function HomeTabPage() {
   return (
@@ -10,7 +18,14 @@ export default function HomeTabPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <HomeContent />
+        <IonList inset>
+          <IonItem routerLink="/home/details" detail>
+            <IonLabel>View details</IonLabel>
+          </IonItem>
+          <IonItem routerLink="/home/proclaimer" detail>
+            <IonLabel>Proclaimer</IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );

@@ -3,11 +3,13 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { PublishersContent } from "@/feature/home/components/proclaimer/features/publishers/publishers-content.tsx";
 
 export default function PublishersPage() {
   return (
@@ -21,7 +23,17 @@ export default function PublishersPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <PublishersContent />
+        <IonList inset>
+          <IonItem>
+            <IonLabel>
+              <h2>Publishers</h2>
+              <p>Browse available publishers</p>
+            </IonLabel>
+          </IonItem>
+          <IonItem routerLink="/home/proclaimer/features/publishers/all" detail>
+            <IonLabel>All Publishers</IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );

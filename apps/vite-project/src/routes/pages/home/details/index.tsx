@@ -3,11 +3,13 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { DetailsContent } from "@/feature/home/components/details/details-content.tsx";
 
 export default function DetailsPage() {
   return (
@@ -21,7 +23,14 @@ export default function DetailsPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <DetailsContent />
+        <IonList inset>
+          <IonItem>
+            <IonLabel>
+              <h2>Details</h2>
+              <p>More information about the selected item</p>
+            </IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );

@@ -3,11 +3,13 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
   IonPage,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { FeaturesContent } from "@/feature/home/components/proclaimer/features/features-content.tsx";
 
 export default function FeaturesPage() {
   return (
@@ -21,7 +23,14 @@ export default function FeaturesPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <FeaturesContent />
+        <IonList inset>
+          <IonItem routerLink="/home/proclaimer/features/publishers" detail>
+            <IonLabel>Publishers</IonLabel>
+          </IonItem>
+          <IonItem routerLink="/home/proclaimer/features/congregations" detail>
+            <IonLabel>Congregations</IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );

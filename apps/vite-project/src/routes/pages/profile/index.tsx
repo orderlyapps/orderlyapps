@@ -1,5 +1,14 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-import { ProfileContent } from "@/feature/profile/components/profile-content.tsx";
+import {
+  IonAvatar,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
 
 export default function ProfileTabPage() {
   return (
@@ -10,7 +19,18 @@ export default function ProfileTabPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <ProfileContent />
+        <IonList inset>
+          <IonItem>
+            <IonAvatar slot="start" />
+            <IonLabel>
+              <h2>User Profile</h2>
+              <p>Edit your account details here</p>
+            </IonLabel>
+          </IonItem>
+          <IonItem routerLink="/profile/edit" detail>
+            <IonLabel>Edit profile</IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );
