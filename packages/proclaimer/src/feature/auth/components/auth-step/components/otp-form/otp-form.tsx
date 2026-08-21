@@ -11,7 +11,7 @@ import {
 } from "@ionic/react";
 import { describeSupabaseError } from "@amodeo/utils/supabase";
 import { getErrorMessage } from "@amodeo/utils/errors";
-import { useSupabase } from "../../../../../../providers/supabase-context.js";
+import { useSupabase } from "../../../../../../supabase/supabase-context.js";
 
 export interface OtpFormProps {
   email: string;

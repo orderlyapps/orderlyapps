@@ -1,7 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { toError } from "@amodeo/utils";
 import type { PermissionRecord, PermissionType } from "../permission-schema.js";
-import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
+import { useSupabaseOrNull } from "../../../supabase/supabase-context.js";
 import { getPermissionsCollection } from "../permissions-collection/get-permissions-collection.js";
 
 export type UpdatePermissionChanges = Partial<

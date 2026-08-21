@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState, type ReactNode } from "react";
-import { createSupabaseClient } from "../supabase/create-supabase-client.js";
+import { createSupabaseClient } from "./create-supabase-client.js";
 import { SupabaseContext } from "./supabase-context.js";
 
 export interface ProclaimerProviderProps {

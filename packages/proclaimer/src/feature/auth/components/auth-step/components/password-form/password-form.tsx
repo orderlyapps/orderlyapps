@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IonButton, IonInput, IonItem, IonList, IonNote, IonSpinner } from "@ionic/react";
 import { describeSupabaseError } from "@amodeo/utils/supabase";
 import { getErrorMessage } from "@amodeo/utils/errors";
-import { useSupabase } from "../../../../../../providers/supabase-context.js";
+import { useSupabase } from "../../../../../../supabase/supabase-context.js";
 
 export interface PasswordFormProps {
   email: string;

@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { ReactNode } from "react";
-import { SupabaseContext } from "../src/providers/supabase-context.ts";
+import { SupabaseContext } from "../src/supabase/supabase-context.ts";
 import type { PublisherRecord } from "../src/feature/publishers/publisher-schema.ts";
 
 export interface MockSupabaseResult {

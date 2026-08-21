@@ -18,7 +18,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { toError } from "@amodeo/utils";
 import type { PermissionRecord, PermissionType } from "../permission-schema.js";
-import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
+import { useSupabaseOrNull } from "../../../supabase/supabase-context.js";
 import { getPermissionsCollection } from "../permissions-collection/get-permissions-collection.js";
 import type { PermissionsCollection } from "../permissions-collection/create-permissions-collection.js";
 

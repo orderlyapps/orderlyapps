@@ -1,7 +1,7 @@
 import { expect, test, afterEach, vi } from "vite-plus/test";
 import { cleanup, render, screen } from "@testing-library/react";
-import { ProclaimerProvider } from "../src/providers/proclaimer-provider.tsx";
-import { useSupabase, useSupabaseOrNull } from "../src/providers/supabase-context.ts";
+import { ProclaimerProvider } from "../src/supabase/proclaimer-provider.tsx";
+import { useSupabase, useSupabaseOrNull } from "../src/supabase/supabase-context.ts";
 
 afterEach(cleanup);
 

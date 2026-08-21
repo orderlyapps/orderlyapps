@@ -3,8 +3,8 @@ export type { SupabaseClient } from "@supabase/supabase-js";
 export {
   ProclaimerProvider,
   type ProclaimerProviderProps,
-} from "./providers/proclaimer-provider.js";
-export { useSupabase, useSupabaseOrNull } from "./providers/supabase-context.js";
+} from "./supabase/proclaimer-provider.js";
+export { useSupabase, useSupabaseOrNull } from "./supabase/supabase-context.js";
 export { usePublishers } from "./feature/publishers/hooks/use-publishers.js";
 export type {
   UsePublishersOptions,

@@ -18,7 +18,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { toError } from "@amodeo/utils";
 import type { PublisherRecord } from "../publisher-schema.js";
-import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
+import { useSupabaseOrNull } from "../../../supabase/supabase-context.js";
 import { getPublishersCollection } from "../publishers-collection/get-publishers-collection.js";
 import type { PublishersCollection } from "../publishers-collection/create-publishers-collection.js";
 
