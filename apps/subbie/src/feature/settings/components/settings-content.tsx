@@ -9,14 +9,13 @@ import {
   TextInput,
   ThemeSelector,
 } from "@amodeo/ionic";
-import type { AppPreferencesSettings } from "@amodeo/utils";
-import { appSettings } from "@/app-settings.ts";
+import { appSettings, type SubbiePreferencesSettings } from "@/app-settings.ts";
 
 export function SettingsContent() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
-  const [store, setStore] = useState<AppPreferencesSettings | null>(null);
+  const [store, setStore] = useState<SubbiePreferencesSettings | null>(null);
 
   useEffect(() => {
     let active = true;

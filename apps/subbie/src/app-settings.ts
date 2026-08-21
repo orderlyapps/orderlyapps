@@ -1,3 +1,8 @@
-import { createAppPreferences } from "@amodeo/utils";
+import { createAppPreferences, type AppPreferencesSettings } from "@amodeo/utils";
 
-export const appSettings = createAppPreferences({ dbName: "subbie-preferences" });
+export type SubbiePreferencesSettings = AppPreferencesSettings;
+
+export const appSettings = createAppPreferences({
+  dbName: "subbie-preferences",
+  darkClass: "ion-palette-dark",
+});

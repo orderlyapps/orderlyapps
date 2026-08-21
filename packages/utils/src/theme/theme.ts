@@ -1,5 +1,5 @@
-import type { AppPreferencesSettings, ThemeMode } from "../app-preferences/types.ts";
-import type { ResolvedTheme } from "./types.ts";
+import type { AppSettings } from "../app-settings/types.ts";
+import type { ResolvedTheme, ThemeMode } from "./types.ts";
 
 const FALLBACK_COLORS: Record<ResolvedTheme, string> = {
   light: "#0054e9",
@@ -48,7 +48,7 @@ function applyTheme(mode: ThemeMode, darkClass: string): ResolvedTheme {
 let currentMode: ThemeMode = "system";
 let currentResolved: ResolvedTheme = "light";
 let activeDarkClass = "";
-let settingsStore: AppPreferencesSettings | null = null;
+let settingsStore: AppSettings<{ themeMode: ThemeMode }> | null = null;
 const listeners = new Set<() => void>();
 
 function subscribe(listener: () => void): () => void {
@@ -95,12 +95,12 @@ export interface InitThemeOptions {
 }
 
 /**
- * Initialises theme mode from the rxdb-backed preferences store.
- * Must be called with a store created via `createAppPreferences`.
+ * Initialises theme mode from the rxdb-backed settings store.
+ * The store must expose a `themeMode` setting (`AppSettings<{ themeMode: ThemeMode }>`).
  * Returns a Promise so callers can `await` the async rxdb read.
  */
 export async function initTheme(
-  store: AppPreferencesSettings,
+  store: AppSettings<{ themeMode: ThemeMode }>,
   options: InitThemeOptions = {},
 ): Promise<void> {
   settingsStore = store;

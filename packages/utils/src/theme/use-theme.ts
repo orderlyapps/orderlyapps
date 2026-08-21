@@ -1,8 +1,7 @@
 import { useSyncExternalStore } from "react";
 
 import { getModeSnapshot, getResolvedSnapshot, setMode, subscribe } from "./theme.ts";
-import type { ResolvedTheme } from "./types.ts";
-import type { ThemeMode } from "../app-preferences/types.ts";
+import type { ResolvedTheme, ThemeMode } from "./types.ts";
 
 export interface UseThemeResult {
   mode: ThemeMode;

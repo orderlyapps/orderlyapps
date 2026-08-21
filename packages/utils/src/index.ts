@@ -46,19 +46,18 @@ export {
 
 export { useAppSettings, type UseAppSettingsResult } from "./app-settings/use-app-settings.ts";
 
-export type {
-  ThemeMode,
-  AppPreferences,
-  AppPreferencesSettings,
-  CreateAppPreferencesOptions,
-} from "./app-preferences/types.ts";
-
-export { createAppPreferences } from "./app-preferences/app-preferences.ts";
-
-export type { ResolvedTheme } from "./theme/types.ts";
+export type { ThemeMode, ResolvedTheme } from "./theme/types.ts";
 
 export { initTheme, type InitThemeOptions } from "./theme/theme.ts";
 
 export { useTheme, type UseThemeResult } from "./theme/use-theme.ts";
+
+export {
+  createAppPreferences,
+  initAppPreferences,
+  type AppPreferencesSettings,
+  type CreateAppPreferencesOptions,
+  type InitAppPreferencesOptions,
+} from "./app-settings/init-app-preferences.ts";
 
 export { toError, getErrorMessage } from "./errors/errors.ts";

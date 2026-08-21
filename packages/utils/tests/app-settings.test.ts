@@ -126,6 +126,41 @@ test("a failed write does not block subsequent queued writes", async () => {
   expect(await store.get("volume")).toBe(5);
 });
 
+test("onInit receives the store and resolves before createAppSettings", async () => {
+  const onInit = vi.fn<(store: AppSettings<TestSettings>) => void>();
+  const store = await createAppSettings<TestSettings>({
+    dbName: "on-init",
+    defaults: { theme: "light", notifications: false, volume: 0 },
+    storage: getRxStorageMemory(),
+    onInit,
+  });
+  stores.push(store);
+
+  expect(onInit).toHaveBeenCalledTimes(1);
+  expect(await onInit.mock.calls[0][0].getAll()).toEqual({
+    theme: "light",
+    notifications: false,
+    volume: 0,
+  });
+});
+
+test("onInit failure closes owned database and rejects", async () => {
+  const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
+  const onInit = vi.fn(() => {
+    throw new Error("init boom");
+  });
+
+  await expect(
+    createAppSettings<TestSettings>({
+      dbName: "on-init-fail",
+      storage: getRxStorageMemory(),
+      onInit,
+    }),
+  ).rejects.toThrow("init boom");
+
+  consoleError.mockRestore();
+});
+
 test("different dbNames keep settings isolated (reusable across apps)", async () => {
   const appA = await makeStore("app-a", { theme: "light" });
   const appB = await makeStore("app-b", { theme: "dark" });

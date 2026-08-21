@@ -74,6 +74,13 @@ export interface CreateAppSettingsOptions<T extends SettingsMap> {
    * `getRxStorageMemory()`) for tests or non-browser runtimes.
    */
   storage?: RxStorage<any, any>;
+  /**
+   * Optional async hook invoked once the store is fully initialised (after
+   * defaults are seeded). Receives the ready `AppSettings<T>` store. Use this
+   * to run feature init such as `initAppPreferences` in the same call that
+   * creates the store. Resolved before `createAppSettings` resolves.
+   */
+  onInit?: (store: AppSettings<T>) => Promise<void> | void;
 }
 
 /** A single settings document stored in the `settings` collection. */

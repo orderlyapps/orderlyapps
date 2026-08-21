@@ -73,8 +73,7 @@ const SETTINGS_COLLECTION_SCHEMA = {
  * single `settings` collection, enabling unified export/import across all
  * settings domains.
  *
- * Pass the returned database to `createAppSettings` (or wrappers like
- * `createAppPreferences`) via the `database` option.
+ * Pass the returned database to `createAppSettings` via the `database` option.
  */
 export async function createAppDatabase(options: CreateAppDatabaseOptions): Promise<AppDatabase> {
   ensureDevMode();
@@ -150,7 +149,7 @@ export async function createAppSettings<T extends SettingsMap>(
     }
   }
 
-  return {
+  const store: AppSettings<T> = {
     async get<K extends keyof T & string>(key: K): Promise<T[K] | undefined> {
       const data = await getDoc();
       return data[key] as T[K] | undefined;
@@ -189,4 +188,12 @@ export async function createAppSettings<T extends SettingsMap>(
       if (ownsDatabase) await db.close();
     },
   };
+
+  try {
+    if (options.onInit) await options.onInit(store);
+  } catch (err) {
+    if (ownsDatabase) await db.close();
+    throw err;
+  }
+  return store;
 }
