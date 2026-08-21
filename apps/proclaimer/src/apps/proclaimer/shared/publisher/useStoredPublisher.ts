@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { getStoredPublisher } from "./publisherUtils";
 
 export const PUBLISHER_CHANGE_EVENT = "publisher-change";

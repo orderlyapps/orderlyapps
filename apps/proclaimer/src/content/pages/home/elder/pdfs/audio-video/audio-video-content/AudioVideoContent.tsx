@@ -9,7 +9,7 @@ import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIc
 import { Space } from "@ui/components/layout/space/Space";
 import { MonthPicker } from "@proclaimer-content/pages/home/elder/pdfs/shared/components/month-picker/MonthPicker";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { getStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
 import { AudioVideoPdfDocument } from "./components/audio-video-pdf/AudioVideoPdfDocument";
 import { PdfPublisherSelect } from "@proclaimer-content/pages/home/elder/pdfs/shared/components/pdf-publisher-select/PdfPublisherSelect";

@@ -6,7 +6,7 @@ import {
   IonLabel,
   IonItemDivider,
 } from "@ionic/react";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import { PublisherList } from "../../../publisher-list/PublisherList";
 import { PublisherControls } from "../publisher-controls/PublisherControls";

@@ -6,7 +6,7 @@ import {
   getStoredPublisher,
   getPublisherDisplayName,
 } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 
 interface PublisherSelectProps {
   on_change: (publisher: Publisher | null) => void;

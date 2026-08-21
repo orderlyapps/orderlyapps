@@ -1,10 +1,10 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { getQueryClient, getSupabase } from "../context.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
-import { publisherSchema } from "../schemas/publisher.js";
-import { persistence } from "../persistence.js";
+import { publisherSchema } from "../publisher-schema.js";
+import { persistence } from "../../../database/persistence.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();

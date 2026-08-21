@@ -2,14 +2,14 @@ import { useState } from "react";
 import { IonList, IonItem, IonPopover, IonSpinner, useIonToast } from "@ionic/react";
 import { useLiveQuery, eq, isNull, and } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPreviousMonthDate } from "@util/format/report-date";
 import { PDFIconButton } from "@ui/components/inputs/button/icon/pdf/PDFIconButton";
 import { Body } from "@ui/components/display/text/body/Body";
 import { useReportFormGroups } from "./hooks/useReportFormGroups/useReportFormGroups";
 import { GroupReportFormPdf } from "./group-report-form-pdf/GroupReportFormPdf";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 
 export function DownloadReportFormButton() {
   const { groups, can_download } = useReportFormGroups();

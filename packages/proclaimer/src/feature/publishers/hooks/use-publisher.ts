@@ -1,4 +1,4 @@
-import type { PublisherRecord } from "../../../database/schemas/publisher.js";
+import type { PublisherRecord } from "../publisher-schema.js";
 import { usePublishers } from "./use-publishers.js";
 
 export interface UsePublisherResult {

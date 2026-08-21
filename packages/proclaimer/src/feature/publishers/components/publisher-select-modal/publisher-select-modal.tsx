@@ -7,7 +7,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import type { PublisherRecord } from "../../../../database/schemas/publisher.js";
+import type { PublisherRecord } from "../../publisher-schema.js";
 import type { PublisherFilterNode, PublisherOrderBy } from "../../hooks/use-publishers.js";
 import { PublisherSelectList } from "./components/publisher-select-list/publisher-select-list.js";
 

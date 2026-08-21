@@ -1,7 +1,7 @@
 import { IonList } from "@ionic/react";
 import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { useLiveQuery } from "@tanstack/react-db";
 import { getStoredCongregation } from "@util/app/congregation/utils";

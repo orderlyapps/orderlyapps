@@ -1,5 +1,5 @@
 import { IonItem, IonLabel, IonList, IonNote } from "@ionic/react";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { Space } from "@ui/components/layout/space/Space";
 import type { AvPublisherFilter } from "../../hooks/use-av-presets/types";

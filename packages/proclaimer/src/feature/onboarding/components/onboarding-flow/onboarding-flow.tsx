@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 import { useAppSettings, type AppSettings } from "@amodeo/utils";
 import type { CongregationRecord } from "../../../congregations/congregation-schema.js";
-import type { PublisherRecord } from "../../../../database/schemas/publisher.js";
+import type { PublisherRecord } from "../../../publishers/publisher-schema.js";
 import type { ProclaimerOnboardingSettings } from "../../types.js";
 import { AuthStep } from "../../../auth/components/auth-step/auth-step.js";
 import { CongregationStep } from "./components/congregation-step/congregation-step.js";

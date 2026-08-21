@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonToggle, useIonAlert, useIonToast } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 import { useCreatePublisherAuthUser } from "./hooks/useCreatePublisherAuthUser";

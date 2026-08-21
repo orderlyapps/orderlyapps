@@ -4,7 +4,7 @@ import { ErrorItem } from "@amodeo/ionic";
 import { describeSupabaseError } from "@amodeo/utils/supabase";
 import { usePublishers } from "../../../../hooks/use-publishers.js";
 import type { PublisherFilterNode, PublisherOrderBy } from "../../../../hooks/use-publishers.js";
-import type { PublisherRecord } from "../../../../../../database/schemas/publisher.js";
+import type { PublisherRecord } from "../../../../publisher-schema.js";
 import { formatPublisherName } from "../../../publisher-name/publisher-name.js";
 import { PublisherSelectItem } from "../publisher-select-item/publisher-select-item.js";
 

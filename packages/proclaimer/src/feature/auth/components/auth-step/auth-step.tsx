@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IonButton, IonItem, IonLabel, IonList, IonSegment, IonSegmentButton } from "@ionic/react";
-import type { PublisherRecord } from "../../../../database/schemas/publisher.js";
+import type { PublisherRecord } from "../../../publishers/publisher-schema.js";
 import { formatPublisherName } from "../../../publishers/components/publisher-name/publisher-name.js";
 import { PasswordForm } from "./components/password-form/password-form.js";
 import { OtpForm } from "./components/otp-form/otp-form.js";

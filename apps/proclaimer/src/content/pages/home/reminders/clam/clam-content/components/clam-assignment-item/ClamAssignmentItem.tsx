@@ -2,7 +2,7 @@ import { IonItem, IonLabel } from "@ionic/react";
 import { Body } from "@ui/components/display/text/body/Body";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { ClamAssignmentDownload } from "../clam-assignment-download/ClamAssignmentDownload";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 
 type ClamAssignmentItemProps = {
   week_label: string;

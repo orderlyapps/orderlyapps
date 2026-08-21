@@ -1,6 +1,6 @@
 import { IonItem, IonList, IonSelect, IonSelectOption } from "@ionic/react";
-import { PUBLISHER_TYPES } from "../../../../database/schemas/publisher.js";
-import type { PublisherRecord } from "../../../../database/schemas/publisher.js";
+import { PUBLISHER_TYPES } from "../../publisher-schema.js";
+import type { PublisherRecord } from "../../publisher-schema.js";
 
 export type PublisherTypeFilter = PublisherRecord["type"] | "all";
 

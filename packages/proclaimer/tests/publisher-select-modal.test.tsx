@@ -3,7 +3,7 @@ import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import { PublisherSelectModal } from "../src/feature/publishers/components/publisher-select-modal/publisher-select-modal.tsx";
 import { PublisherSelectItem } from "../src/feature/publishers/components/publisher-select-modal/components/publisher-select-item/publisher-select-item.tsx";
 import { PublisherSelectList } from "../src/feature/publishers/components/publisher-select-modal/components/publisher-select-list/publisher-select-list.tsx";
-import type { PublisherRecord } from "../src/database/schemas/publisher.ts";
+import type { PublisherRecord } from "../src/feature/publishers/publisher-schema.ts";
 import { createMockSupabase, createWrapper, makePublisherRow } from "./mock-supabase.tsx";
 
 afterEach(() => {

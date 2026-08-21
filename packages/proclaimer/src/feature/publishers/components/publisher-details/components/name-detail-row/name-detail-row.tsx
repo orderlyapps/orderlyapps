@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonAlert, IonItem, IonLabel } from "@ionic/react";
 import { useErrorToast } from "@amodeo/ionic";
-import type { PublisherRecord } from "../../../../../../database/schemas/publisher.js";
+import type { PublisherRecord } from "../../../../publisher-schema.js";
 import { useUpdatePublisher } from "../../../../hooks/use-update-publisher.js";
 import { describePublisherError } from "../../../../publisher-errors.js";
 import {

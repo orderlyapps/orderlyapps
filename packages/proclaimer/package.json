@@ -27,6 +27,12 @@
       "development": "./src/database/*.ts",
       "import": "./dist/database/*.mjs"
     },
+    "./feature/*": {
+      "types@development": "./src/feature/*.ts",
+      "types": "./dist/feature/*.d.mts",
+      "development": "./src/feature/*.ts",
+      "import": "./dist/feature/*.mjs"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {

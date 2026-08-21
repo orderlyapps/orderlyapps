@@ -3,7 +3,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { ReactNode } from "react";
 import { SupabaseContext } from "../src/providers/supabase-context.ts";
 import { initDatabase } from "../src/database/context.ts";
-import type { PublisherRecord } from "../src/database/schemas/publisher.ts";
+import type { PublisherRecord } from "../src/feature/publishers/publisher-schema.ts";
 import { testQueryClient, resetPublisherCollection } from "./test-query-client.ts";
 
 export interface MockSupabaseResult {

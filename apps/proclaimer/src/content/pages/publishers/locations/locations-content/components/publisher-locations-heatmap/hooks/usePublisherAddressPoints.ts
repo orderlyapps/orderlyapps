@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 
 export type AddressPoint = {
   publisher_id: string;

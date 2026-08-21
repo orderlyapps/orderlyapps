@@ -1,6 +1,6 @@
 import { IonIcon, IonItem, IonLabel, IonNote } from "@ionic/react";
 import { checkmark } from "ionicons/icons";
-import type { PublisherRecord } from "../../../../../../database/schemas/publisher.js";
+import type { PublisherRecord } from "../../../../publisher-schema.js";
 import { PublisherName } from "../../../publisher-name/publisher-name.js";
 
 export interface PublisherSelectItemProps {

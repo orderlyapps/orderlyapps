@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { and, eq } from "@tanstack/react-db";

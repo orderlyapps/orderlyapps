@@ -1,8 +1,8 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 
 interface SpeakerDetailHeaderProps {
   speaker_id: string;

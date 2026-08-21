@@ -2,7 +2,7 @@ import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { addWeeks, format, parseISO } from "date-fns";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
@@ -10,7 +10,7 @@ import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherU
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
 import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 

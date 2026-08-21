@@ -1,5 +1,5 @@
 import { IonAlert } from "@ionic/react";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 
 interface AddPublisherAlertProps {

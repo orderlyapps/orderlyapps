@@ -8,10 +8,10 @@ import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-na
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { ChairmanAssignmentCard } from "./components/chairman-assignment-card/ChairmanAssignmentCard";

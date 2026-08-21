@@ -1,4 +1,4 @@
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import type { PublisherFilter } from "./types";
 
 export function filterPublishers(publishers: Publisher[], filter: PublisherFilter): Publisher[] {

@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import {
   weekendAttendantAssignmentIDs,
   avAssignmentLabels,

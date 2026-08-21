@@ -1,11 +1,11 @@
 import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 
 export type WeekScheduleData = {
   weekId: string;

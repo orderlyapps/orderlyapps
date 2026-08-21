@@ -11,12 +11,12 @@ import {
 } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { mapCheckoutPublisherCollection } from "@amodeo/proclaimer/database/collections/map-checkout-publisher";
 import { mapCheckoutMapCollection } from "@amodeo/proclaimer/database/collections/map-checkout-map";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import type { MapCheckoutPublisherRow } from "@amodeo/proclaimer/database/schemas/map-checkout-publisher";
 import type { MapCheckoutMapRow } from "@amodeo/proclaimer/database/schemas/map-checkout-map";
 

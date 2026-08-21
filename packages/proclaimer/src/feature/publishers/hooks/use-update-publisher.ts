@@ -1,6 +1,6 @@
 import { toError } from "@amodeo/utils";
-import type { PublisherRecord } from "../../../database/schemas/publisher.js";
-import { publisherCollection } from "../../../database/collections/publisher.js";
+import type { PublisherRecord } from "../publisher-schema.js";
+import { publisherCollection } from "../publishers-collection/publisher-collection.js";
 import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
 
 export type UpdatePublisherChanges = Partial<Omit<PublisherRecord, "id">>;

@@ -1,4 +1,4 @@
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 
 export interface PublisherFilter {
   gender: "all" | "male" | "female";

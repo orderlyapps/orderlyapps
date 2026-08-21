@@ -1,7 +1,7 @@
 import { eq, useLiveQuery } from "@tanstack/react-db";
 import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
 
 export type AvAssignmentWithPublisher = {

@@ -1,7 +1,7 @@
 import { useLiveQuery, inArray, eq, isNull, and } from "@tanstack/react-db";
 import { reportPermissionCollection } from "@amodeo/proclaimer/database/collections/report-permission";
 import { congregationAdminCollection } from "@amodeo/proclaimer/database/collections/congregation-admin";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { useAuthSession } from "@util/app/auth/useAuthSession";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 

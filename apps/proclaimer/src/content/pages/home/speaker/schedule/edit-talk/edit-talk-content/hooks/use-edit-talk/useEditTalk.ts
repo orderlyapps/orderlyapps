@@ -1,14 +1,14 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { and, eq } from "@tanstack/react-db";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
 

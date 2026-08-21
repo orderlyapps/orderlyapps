@@ -1,7 +1,7 @@
 import { AlignmentType, type TableCell } from "docx";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import { JW_BROWN, JW_RED, JW_SLATE } from "@ui/colors/jwColors";

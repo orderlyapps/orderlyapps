@@ -2,7 +2,7 @@ import { IonList } from "@ionic/react";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { differenceInWeeks, parseISO } from "date-fns";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { participationTypeMap } from "../../../../../publisher-selector/utils/participationTypeMap";
 
 interface AssignmentHistoryProps {

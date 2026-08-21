@@ -1,9 +1,9 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import type { PublisherLocal } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";

@@ -1,5 +1,5 @@
 import { useLiveQuery, and, eq } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 

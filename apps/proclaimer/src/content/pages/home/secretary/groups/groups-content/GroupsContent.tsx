@@ -1,12 +1,12 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { IonList } from "@ionic/react";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@ui/components/display/spinner/Spinner";
 import { Body } from "@ui/components/display/text/body/Body";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
 import { isListablePublisher } from "@proclaimer-content/pages/home/secretary/groups/group-details/group-details-content/groupPublisherUtils";
 

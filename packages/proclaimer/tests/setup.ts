@@ -5,7 +5,7 @@ import { testQueryClient, setResetFn } from "./test-query-client.ts";
 // layer (which requires OPFS, unavailable in happy-dom). The mock creates a
 // plain query-backed collection wired to the database context's getSupabase()
 // so each test's mock supabase (set via initDatabase in createWrapper) is used.
-vi.mock("../src/database/collections/publisher.ts", async () => {
+vi.mock("../src/feature/publishers/publishers-collection/publisher-collection.ts", async () => {
   const [
     { createCollection },
     { queryCollectionOptions },
@@ -15,7 +15,7 @@ vi.mock("../src/database/collections/publisher.ts", async () => {
     import("@tanstack/react-db"),
     import("@tanstack/query-db-collection"),
     import("../src/database/context.ts"),
-    import("../src/database/schemas/publisher.ts"),
+    import("../src/feature/publishers/publisher-schema.ts"),
   ]);
 
   // Initialize with a dummy supabase so getSupabase() can resolve. The real
