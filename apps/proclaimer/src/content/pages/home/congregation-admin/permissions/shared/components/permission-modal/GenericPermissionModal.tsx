@@ -11,7 +11,7 @@ import {
 import { useLiveQuery } from "@tanstack/react-db";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";

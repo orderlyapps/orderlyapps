@@ -1,7 +1,7 @@
 import { and, eq, useLiveQuery } from "@tanstack/react-db";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";

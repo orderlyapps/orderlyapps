@@ -16,7 +16,7 @@ import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIc
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
 import { DateInput } from "@ui/components/inputs/date/DateInput";

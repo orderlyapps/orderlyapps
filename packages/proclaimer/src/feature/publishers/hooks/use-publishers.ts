@@ -16,7 +16,7 @@ import {
 import type { Ref } from "@tanstack/react-db";
 import { toError } from "@amodeo/utils";
 import type { PublisherRecord } from "../publisher-schema.js";
-import { publisherCollection } from "../publishers-collection/publisher-collection.js";
+import { publisherCollection } from "../publisher-collection.js";
 import { useSupabaseOrNull } from "../../../providers/supabase-context.js";
 
 export type PublisherRef = Ref<PublisherRecord>;

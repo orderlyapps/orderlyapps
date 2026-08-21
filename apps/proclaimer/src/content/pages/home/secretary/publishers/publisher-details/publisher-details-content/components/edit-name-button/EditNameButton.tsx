@@ -1,6 +1,6 @@
 import { IonButton, IonIcon, useIonAlert } from "@ionic/react";
 import { createOutline } from "ionicons/icons";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 
 export function EditNameButton({
   publisher_id,

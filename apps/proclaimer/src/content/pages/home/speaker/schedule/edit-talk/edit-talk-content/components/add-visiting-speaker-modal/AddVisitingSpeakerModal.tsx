@@ -6,7 +6,7 @@ import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIc
 import { Select } from "@ui/components/inputs/select/Select";
 import { PublisherNameInput } from "@proclaimer-shared/publisher/components/publisher-name-input/PublisherNameInput";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
 import type { NameValue } from "@ui/components/inputs/name/NameInput";

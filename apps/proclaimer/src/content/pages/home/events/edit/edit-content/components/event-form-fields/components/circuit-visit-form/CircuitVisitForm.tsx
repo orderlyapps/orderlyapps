@@ -6,7 +6,7 @@ import { Select } from "@ui/components/inputs/select/Select";
 import { TextInput } from "@ui/components/inputs/text/TextInput";
 import { TimeInput } from "@ui/components/inputs/time/TimeInput";
 import { WeekSelect } from "@proclaimer-shared/components/inputs/week-select/WeekSelect";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { formatPublisherName } from "@util/format/formatPublisherName";

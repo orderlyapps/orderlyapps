@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
 import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collections/map-tag-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";

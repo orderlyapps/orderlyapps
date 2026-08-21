@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";

@@ -1,5 +1,5 @@
 import { IonItem, IonLabel, useIonAlert } from "@ionic/react";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { Body } from "@ui/components/display/text/body/Body";
 import { TextButton } from "@ui/components/inputs/button/text/TextButton";
 

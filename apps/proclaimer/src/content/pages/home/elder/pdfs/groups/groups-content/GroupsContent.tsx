@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { TextButton } from "@ui/components/inputs/button/text/TextButton";
 import { Space } from "@ui/components/layout/space/Space";

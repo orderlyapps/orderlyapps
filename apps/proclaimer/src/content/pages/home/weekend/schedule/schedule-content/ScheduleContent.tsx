@@ -4,7 +4,7 @@ import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-na
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { Spinner } from "@ui/components/display/spinner/Spinner";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import {
   weekendAssignmentIDs,
   weekendAssignmentLabels,

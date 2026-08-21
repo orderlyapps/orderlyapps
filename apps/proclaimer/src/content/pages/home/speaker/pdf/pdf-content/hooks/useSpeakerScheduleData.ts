@@ -2,7 +2,7 @@ import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { addWeeks, format, parseISO } from "date-fns";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";

@@ -8,7 +8,7 @@ import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-na
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";

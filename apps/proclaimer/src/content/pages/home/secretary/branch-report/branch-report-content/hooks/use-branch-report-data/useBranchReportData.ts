@@ -1,6 +1,6 @@
 import { and, eq, gte, lte, useLiveQuery } from "@tanstack/react-db";
 import { reportCollection } from "@amodeo/proclaimer/database/collections/report";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 

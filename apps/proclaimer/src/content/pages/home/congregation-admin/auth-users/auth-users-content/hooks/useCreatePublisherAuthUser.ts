@@ -1,5 +1,5 @@
 import { supabase } from "@util/vendor/supabase/supabase-client";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { authUserCollection } from "@amodeo/proclaimer/database/collections/auth-user";
 
 export function useCreatePublisherAuthUser() {

@@ -1,6 +1,6 @@
 import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { eventCollection } from "@amodeo/proclaimer/database/collections/event";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";

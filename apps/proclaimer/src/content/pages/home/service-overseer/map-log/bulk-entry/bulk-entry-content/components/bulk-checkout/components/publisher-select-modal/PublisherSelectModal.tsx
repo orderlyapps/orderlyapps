@@ -16,7 +16,7 @@ import { ResponsiveModal } from "@ui/components/display/responsive-modal/Respons
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
 import { SearchInput } from "@ui/components/inputs/search/SearchInput";
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { localStorageKeys } from "@util/constants/localStorageKeys";

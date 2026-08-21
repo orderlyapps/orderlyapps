@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";

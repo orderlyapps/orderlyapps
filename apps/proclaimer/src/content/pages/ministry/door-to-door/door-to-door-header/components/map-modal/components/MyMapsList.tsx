@@ -2,7 +2,7 @@ import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@io
 import { useLiveQuery } from "@tanstack/react-db";
 import { useMapsList } from "../hooks/useMapsList";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { useAuthSession } from "@util/app/auth/useAuthSession";
 import { MapListItem } from "./map-list-item/MapListItem";
 import { Heading } from "@ui/components/display/text/heading/Heading";

@@ -8,7 +8,7 @@ import {
   IonButtons,
 } from "@ionic/react";
 import { useState } from "react";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 import { Body } from "@ui/components/display/text/body/Body";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";

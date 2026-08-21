@@ -1,6 +1,6 @@
 import { IonButton, IonIcon, useIonAlert } from "@ionic/react";
 import { createOutline } from "ionicons/icons";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
 
 const genderOptions: { label: string; value: Publisher["gender"] }[] = [

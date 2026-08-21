@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import { weekendAssignmentLabels } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";

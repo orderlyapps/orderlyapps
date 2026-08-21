@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publishers-collection/publisher-collection";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publishers/publisher-collection";
 import { CheckoutModal } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/checkout-modal/CheckoutModal";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
 import type { Publisher } from "@amodeo/proclaimer/feature/publishers/publisher-schema";
