@@ -1,13 +1,4 @@
-import {
-  IonContent,
-  IonHeader,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 
 export default function HomeTabPage() {
   return (
@@ -17,16 +8,7 @@ export default function HomeTabPage() {
           <IonTitle>Home</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonList inset>
-          <IonItem routerLink="/home/details" detail>
-            <IonLabel>View details</IonLabel>
-          </IonItem>
-          <IonItem routerLink="/home/proclaimer" detail>
-            <IonLabel>Proclaimer</IonLabel>
-          </IonItem>
-        </IonList>
-      </IonContent>
+      <IonContent>Home</IonContent>
     </IonPage>
   );
 }
