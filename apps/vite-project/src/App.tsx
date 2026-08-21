@@ -9,20 +9,20 @@ import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } 
 import { IonReactRouter } from "@ionic/react-router";
 import { home, person, settings as settingsIcon } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
-import AboutPage from "@/routes/pages/settings/about/index.tsx";
-import AllCongregationsPage from "@/routes/pages/home/proclaimer/features/congregations/all/index.tsx";
-import CongregationDetailsPage from "@/routes/pages/home/proclaimer/features/congregations/all/congregation/index.tsx";
-import CongregationsPage from "@/routes/pages/home/proclaimer/features/congregations/index.tsx";
-import AllPublishersPage from "@/routes/pages/home/proclaimer/features/publishers/all/index.tsx";
-import PublisherDetailsPage from "@/routes/pages/home/proclaimer/features/publishers/all/publisher/index.tsx";
-import DetailsPage from "@/routes/pages/home/details/index.tsx";
-import EditProfilePage from "@/routes/pages/profile/edit/index.tsx";
-import FeaturesPage from "@/routes/pages/home/proclaimer/features/index.tsx";
-import HomeTabPage from "@/routes/pages/home/index.tsx";
-import ProclaimerPage from "@/routes/pages/home/proclaimer/index.tsx";
-import ProfileTabPage from "@/routes/pages/profile/index.tsx";
-import PublishersPage from "@/routes/pages/home/proclaimer/features/publishers/index.tsx";
-import SettingsTabPage from "@/routes/pages/settings/index.tsx";
+import AboutPage from "@/routes/settings/about";
+import AllCongregationsPage from "@/routes/home/proclaimer/features/congregations/all";
+import CongregationDetailsPage from "@/routes/home/proclaimer/features/congregations/all/congregation";
+import CongregationsPage from "@/routes/home/proclaimer/features/congregations";
+import AllPublishersPage from "@/routes/home/proclaimer/features/publishers/all";
+import PublisherDetailsPage from "@/routes/home/proclaimer/features/publishers/all/publisher";
+import DetailsPage from "@/routes/home/details";
+import EditProfilePage from "@/routes/profile/edit";
+import FeaturesPage from "@/routes/home/proclaimer/features";
+import HomeTabPage from "@/routes/home";
+import ProclaimerPage from "@/routes/home/proclaimer";
+import ProfileTabPage from "@/routes/profile";
+import PublishersPage from "@/routes/home/proclaimer/features/publishers";
+import SettingsTabPage from "@/routes/settings";
 
 export default function App({
   onboardingSettings,
