@@ -18,3 +18,56 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
 
 <!--VITE PLUS END-->
+
+## Route / Page Folder Structure
+
+All page components live under `src/routes`. Each route is a kebab-case folder
+containing an `index.tsx` (the page component). Nested routes are nested folders.
+A page may optionally have a `_components/` folder for its private sub-components;
+those sub-components are themselves kept in kebab-case subfolders. The leading
+underscore marks the folder as non-route (it is ignored by the router).
+
+```
+src/
+└── routes/
+    ├── dashboard/
+    │   ├── index.tsx                          # /dashboard
+    │   ├── reports/
+    │   │   ├── index.tsx                      # /dashboard/reports
+    │   │   ├── quarterly/
+    │   │   │   ├── index.tsx                  # /dashboard/reports/quarterly
+    │   │   │   ├── summary/
+    │   │   │   │   └── index.tsx              # /dashboard/reports/quarterly/summary
+    │   │   │   └── _components/
+    │   │   │       └── report-chart/
+    │   │   │           └── report-chart.tsx
+    │   │   └── _components/
+    │   │       └── report-table/
+    │   │           └── report-table.tsx
+    │   └── _components/
+    │       └── dashboard-header/
+    │           └── dashboard-header.tsx
+    ├── settings/
+    │   ├── index.tsx                          # /settings
+    │   ├── account/
+    │   │   └── index.tsx                      # /settings/account
+    │   └── _components/
+    │       └── settings-nav/
+    │           └── settings-nav.tsx
+    └── users/
+        ├── index.tsx                          # /users
+        └── profile/
+            └── index.tsx                      # /users/profile
+```
+
+### Rules
+
+- One route = one folder. The folder name is the URL segment, in kebab-case.
+- The page component is always `index.tsx` inside that folder.
+- Nested routes are nested folders (the path mirrors the URL).
+- A page's private components live in a `_components/` folder **inside that
+  page's folder**. Each component gets its own kebab-case subfolder containing
+  the component file (e.g. `_components/report-chart/report-chart.tsx`). The
+  leading underscore marks the folder as non-route so the router ignores it.
+- Shared/cross-page components do not belong here — place them in a top-level
+  `src/components` folder instead.
