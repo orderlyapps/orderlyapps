@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vp dev --host --open",
+    "dev": "vp dev --port 4300 --host --open",
     "build": "tsc -b && vp build",
     "lint": "vp lint",
     "preview": "vp preview",
