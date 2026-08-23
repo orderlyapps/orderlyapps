@@ -2,7 +2,7 @@ import { IonItem, IonLabel, IonList, IonSkeletonText } from "@ionic/react";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { Body } from "@ui/components/display/text/body/Body";
 import { useAvParticipantPublishers } from "@proclaimer-content/pages/home/av-overseer/participation/shared/hooks/useAvParticipantPublishers";
-import type { AvParticipation } from "@shared/database/schemas/av-participation";
+import type { AvParticipation } from "@amodeo/proclaimer/database/schemas/av-participation";
 import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
 
 interface AvParticipantPublishersListProps {

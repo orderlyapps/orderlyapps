@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, TextInput, Checkbox, StyleSheet } from "@react-pdf/renderer";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 const styles = StyleSheet.create({
   page: { padding: 24, fontSize: 10 },

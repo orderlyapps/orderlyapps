@@ -1,7 +1,7 @@
 import { and, eq, gte, lte, useLiveQuery } from "@tanstack/react-db";
-import { reportCollection } from "@shared/database/collections/report";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { publisherLocalCollection } from "@shared/database/collections/publisher-local";
+import { reportCollection } from "@amodeo/proclaimer/database/collections/report";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 
 function formatMonthDate(year: number, month: number): string {

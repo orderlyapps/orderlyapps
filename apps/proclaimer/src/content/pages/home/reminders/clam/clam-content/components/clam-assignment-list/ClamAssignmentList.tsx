@@ -2,7 +2,7 @@ import { IonList } from "@ionic/react";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import { useClamAssignments } from "../../hooks/use-clam-assignments/useClamAssignments";
 import { ClamAssignmentSchool } from "../clam-assignment-school/ClamAssignmentSchool";
-import type { MidweekAssignmentId } from "@shared/database/schemas/midweek-assignment";
+import type { MidweekAssignmentId } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 
 type SchoolConfig = {
   key: string;

@@ -3,22 +3,22 @@ import { IonChip, IonItem, IonLabel, IonList } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { Space } from "@ui/components/layout/space/Space";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { avAssignmentCollection } from "@shared/database/collections/av-assignment";
-import { weekendAssignmentCollection } from "@shared/database/collections/weekend-assignment";
-import { speakerAssignmentCollection } from "@shared/database/collections/speaker-assignment";
-import type { AvAssignment } from "@shared/database/schemas/av-assignment";
+import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
 import {
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
-} from "@shared/database/schemas/av-assignment";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
-import type { SpeakerAssignment } from "@shared/database/schemas/speaker-assignment";
+} from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import { useWeekendPresets } from "../../hooks/use-weekend-presets/useWeekendPresets";
 import { useWeekendPublisherStats } from "../../hooks/use-weekend-publisher-stats/useWeekendPublisherStats";
-import { weekendParticipationCollection } from "@shared/database/collections/weekend-participation";
-import type { WeekendParticipation } from "@shared/database/schemas/weekend-participation";
+import { weekendParticipationCollection } from "@amodeo/proclaimer/database/collections/weekend-participation";
+import type { WeekendParticipation } from "@amodeo/proclaimer/database/schemas/weekend-participation";
 import { WeekendFilterSelect } from "../weekend-filter-select/WeekendFilterSelect";
 import { WeekendConfirmModal } from "./components/weekend-confirm-modal/WeekendConfirmModal";
 

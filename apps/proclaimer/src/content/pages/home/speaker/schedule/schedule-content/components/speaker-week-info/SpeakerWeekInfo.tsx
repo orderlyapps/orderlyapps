@@ -1,8 +1,8 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { and, eq } from "@tanstack/react-db";
-import { speakerAssignmentCollection } from "@shared/database/collections/speaker-assignment";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { outlineCollection } from "@shared/database/collections/outline";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";

@@ -1,9 +1,9 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { speakerOutlineCollection } from "@shared/database/collections/speaker-outline";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { Publisher } from "@shared/database/schemas/publisher";
-import type { SpeakerOutline } from "@shared/database/schemas/speaker-outline";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
 
 export function useLocalSpeakers() {
   const congregation_id = useStoredCongregation()?.id ?? "";

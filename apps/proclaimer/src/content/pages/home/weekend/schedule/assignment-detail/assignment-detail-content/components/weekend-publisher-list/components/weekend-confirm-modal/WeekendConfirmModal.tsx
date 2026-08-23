@@ -1,10 +1,10 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import type { Publisher } from "@shared/database/schemas/publisher";
-import type { AvAssignment } from "@shared/database/schemas/av-assignment";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
-import type { SpeakerAssignment } from "@shared/database/schemas/speaker-assignment";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import { WeekendAssignmentHistory } from "./components/weekend-assignment-history/WeekendAssignmentHistory";
 
 interface WeekendConfirmModalProps {

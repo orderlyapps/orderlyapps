@@ -1,8 +1,8 @@
 import { IonList } from "@ionic/react";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import type { AvAssignment } from "@shared/database/schemas/av-assignment";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
-import type { SpeakerAssignment } from "@shared/database/schemas/speaker-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import { buildWeekendHistoryRows } from "./utils/build-weekend-history-rows";
 
 interface WeekendAssignmentHistoryProps {

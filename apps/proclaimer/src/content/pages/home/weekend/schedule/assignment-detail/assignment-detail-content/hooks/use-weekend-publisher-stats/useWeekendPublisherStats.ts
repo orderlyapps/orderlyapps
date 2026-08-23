@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { weekendAssignmentCollection } from "@shared/database/collections/weekend-assignment";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { computeWeekendStats } from "./computeWeekendStats";
 import type { WeekendPublisherStats } from "../use-weekend-presets/types";

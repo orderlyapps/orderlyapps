@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonModal } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@shared/database/collections/map";
-import { mapMasterCollection } from "@shared/database/collections/map-master";
+import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
+import { mapMasterCollection } from "@amodeo/proclaimer/database/collections/map-master";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 import { useMapLogPresets } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/use-map-log-presets/useMapLogPresets";
@@ -13,8 +13,8 @@ import { MapListModalContent } from "./components/map-list-modal-content/MapList
 import { MapListModalAlerts } from "./components/map-list-modal-alerts/MapListModalAlerts";
 import { boundaryToBounds } from "../../utils/boundary";
 import { getRecentMapIds, recordRecentMap } from "../../utils/useRecentMaps";
-import type { MapRow } from "@shared/database/schemas/map";
-import type { MapMaster } from "@shared/database/schemas/map-master";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapMaster } from "@amodeo/proclaimer/database/schemas/map-master";
 import type { SelectedMap } from "../../utils/types";
 
 type MapListModalProps = {

@@ -1,8 +1,8 @@
-import { doNotCallCollection } from "@shared/database/collections/do-not-call";
+import { doNotCallCollection } from "@amodeo/proclaimer/database/collections/do-not-call";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { geocodeAddress } from "@util/vendor/mapbox/helper/geocodeAddress";
-import type { Suburb } from "@shared/database/schemas/suburb";
-import type { Street } from "@shared/database/schemas/street";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 
 type SaveDoNotCallData = {
   suburb: Suburb;

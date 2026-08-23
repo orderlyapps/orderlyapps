@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { midweekAssignmentCollection } from "@shared/database/collections/midweek-assignment";
-import type { MidweekAssignment } from "@shared/database/schemas/midweek-assignment";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
+import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { ParticipationType } from "../../utils/participationTypeMap";
 import { computeStats } from "./computeStats";
 import type { PublisherStats } from "./computeStats";

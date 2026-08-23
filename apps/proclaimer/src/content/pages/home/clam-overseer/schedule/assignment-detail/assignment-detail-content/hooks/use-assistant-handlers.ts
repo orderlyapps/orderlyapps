@@ -1,6 +1,6 @@
-import { midweekAssignmentCollection } from "@shared/database/collections/midweek-assignment";
-import type { MidweekAssignment } from "@shared/database/schemas/midweek-assignment";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
+import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 interface UseAssistantHandlersProps {
   congregation_id: string | undefined;

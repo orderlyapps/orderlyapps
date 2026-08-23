@@ -1,7 +1,7 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addCircleOutline } from "ionicons/icons";
-import { publisherLocalCollection } from "@shared/database/collections/publisher-local";
+import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
 import { DateInput } from "@ui/components/inputs/date/DateInput";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { Space } from "@ui/components/layout/space/Space";

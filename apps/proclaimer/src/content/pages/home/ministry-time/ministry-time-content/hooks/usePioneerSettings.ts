@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { settingsLocalCollection } from "@shared/database/collections/settings-local";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { settingsLocalCollection } from "@amodeo/proclaimer/database/collections/settings-local";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { getServiceYear } from "@util/format/service-year";
 
 const FEATURE = "ministry_time";

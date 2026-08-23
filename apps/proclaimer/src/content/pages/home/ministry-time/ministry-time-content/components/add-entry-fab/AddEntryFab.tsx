@@ -13,7 +13,7 @@ import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
 import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
-import type { MinistryType } from "@shared/database/rxdb/collections/ministry-time";
+import type { MinistryType } from "@amodeo/proclaimer/database/rxdb/collections/ministry-time";
 
 interface AddEntryFabProps {
   on_add: (

@@ -1,5 +1,5 @@
 import { localStorageKeys } from "@util/constants/localStorageKeys";
-import type { Congregation } from "@shared/database/schemas/congregation";
+import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
 import { clearStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
 
 export const CONGREGATION_CHANGE_EVENT = "congregation-change";

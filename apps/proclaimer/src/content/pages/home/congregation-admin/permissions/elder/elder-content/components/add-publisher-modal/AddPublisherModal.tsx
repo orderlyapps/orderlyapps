@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { elderPermissionCollection } from "@shared/database/collections/elder-permission";
+import { elderPermissionCollection } from "@amodeo/proclaimer/database/collections/elder-permission";
 import { useAddPermission } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/useAddPermission";
 import { GenericPermissionModal } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-modal/GenericPermissionModal";
 

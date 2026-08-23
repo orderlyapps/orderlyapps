@@ -1,7 +1,7 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { PublisherListHeader } from "@proclaimer-content/pages/publishers/publisher-list/publisher-list-header/PublisherListHeader";
 import { PublisherListContent } from "@proclaimer-content/pages/publishers/publisher-list/publisher-list-content/PublisherListContent";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 function MinisterialServantsPage() {
   const filter = (publisher: Publisher) =>

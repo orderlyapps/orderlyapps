@@ -17,7 +17,15 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.mjs",
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./database/*": {
+      "development": "./src/database/*.ts",
+      "types": "./dist/database/*.d.mts",
+      "import": "./dist/database/*.mjs"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {

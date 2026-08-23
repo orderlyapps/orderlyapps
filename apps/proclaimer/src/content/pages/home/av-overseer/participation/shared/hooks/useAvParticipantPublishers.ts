@@ -1,10 +1,10 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import { avParticipationCollection } from "@shared/database/collections/av-participation";
-import type { AvParticipation } from "@shared/database/schemas/av-participation";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { avParticipationCollection } from "@amodeo/proclaimer/database/collections/av-participation";
+import type { AvParticipation } from "@amodeo/proclaimer/database/schemas/av-participation";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 export interface AvParticipantPublisher {
   participant_id: string;

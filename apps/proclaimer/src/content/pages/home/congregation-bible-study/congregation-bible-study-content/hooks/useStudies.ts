@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { congregationBibleStudyLocalCollection } from "@shared/database/collections/congregation-bible-study-local";
-import { settingsLocalCollection } from "@shared/database/collections/settings-local";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
-import type { CongregationBibleStudyLocal } from "@shared/database/rxdb/collections/congregation-bible-study";
+import { congregationBibleStudyLocalCollection } from "@amodeo/proclaimer/database/collections/congregation-bible-study-local";
+import { settingsLocalCollection } from "@amodeo/proclaimer/database/collections/settings-local";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
+import type { CongregationBibleStudyLocal } from "@amodeo/proclaimer/database/rxdb/collections/congregation-bible-study";
 
 export interface StudySection {
   id: string;

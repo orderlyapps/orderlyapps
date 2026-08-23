@@ -6,7 +6,7 @@ import { clearStoredPublisher } from "@proclaimer-shared/publisher/publisherUtil
 import { setStoredFontSize, applyFontSize, DEFAULT_FONT_SIZE } from "@util/app/font-size/utils";
 import { setStoredTheme, applyTheme } from "@util/app/theme";
 import { supabase } from "@util/vendor/supabase/supabase-client";
-import { clearAllTanstackData } from "@shared/database/persistence";
+import { clearAllTanstackData } from "@amodeo/proclaimer/database/persistence";
 
 export function ResetSettingsButton() {
   const [show_alert, set_show_alert] = useState(false);

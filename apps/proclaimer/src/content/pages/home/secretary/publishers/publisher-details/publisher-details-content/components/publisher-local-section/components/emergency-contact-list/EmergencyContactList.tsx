@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
-import type { EmergencyContact } from "@shared/database/rxdb/collections/publisher";
+import type { EmergencyContact } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import { Heading } from "@ui/components/display/text/heading/Heading";
 import { EmergencyContactModal } from "./components/emergency-contact-modal/EmergencyContactModal";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";

@@ -1,6 +1,6 @@
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@shared/database/schemas/publisher";
-import type { MidweekAssignment } from "@shared/database/schemas/midweek-assignment";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { AssignmentItem, AssignmentRow } from "./types";
 
 function getAssignedPublisherName(

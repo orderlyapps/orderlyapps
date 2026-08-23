@@ -1,7 +1,7 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
 import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { groupCollection } from "@shared/database/collections/group";
+import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 
 interface GroupDetailsHeaderProps {
   group_id: string;

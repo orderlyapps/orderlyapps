@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { rxdb } from "@shared/database/rxdb/database";
+import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
 import {
   IonButton,
   IonButtons,

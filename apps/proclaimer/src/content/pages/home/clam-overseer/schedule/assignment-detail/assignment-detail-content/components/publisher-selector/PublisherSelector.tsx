@@ -5,12 +5,12 @@ import { PublisherSelectModal } from "../publisher-list/components/publisher-sel
 import { PublisherSegment } from "./components/publisher-segment/PublisherSegment";
 import { ClearAssignmentButton } from "./components/clear-assignment-button/ClearAssignmentButton";
 import { Space } from "@ui/components/layout/space/Space";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type {
   MidweekAssignment,
   MidweekAssignmentId,
-} from "@shared/database/schemas/midweek-assignment";
-import { midweekAssignmentCollection } from "@shared/database/collections/midweek-assignment";
+} from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
 import { participationTypeMap } from "./utils/participationTypeMap";
 import { usePresets } from "./hooks/use-presets/usePresets";
 import type { PublisherFilter, PublisherSortOrder } from "./hooks/use-presets/usePresets";

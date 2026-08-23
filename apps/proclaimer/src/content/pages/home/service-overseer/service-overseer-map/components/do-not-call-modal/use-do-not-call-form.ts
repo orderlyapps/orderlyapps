@@ -1,6 +1,6 @@
 import { useState } from "react";
-import type { Suburb } from "@shared/database/schemas/suburb";
-import type { Street } from "@shared/database/schemas/street";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 
 export type UseDoNotCallFormResult = {
   selectedSuburb: Suburb | undefined;

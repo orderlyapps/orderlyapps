@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { returnVisitCollection } from "@shared/database/collections/return-visit";
-import type { ReturnVisitLocal } from "@shared/database/rxdb/collections/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
+import type { ReturnVisitLocal } from "@amodeo/proclaimer/database/rxdb/collections/return-visit";
 
 export function useReturnVisitLive(id: string | undefined): ReturnVisitLocal | undefined {
   const { data } = useLiveQuery((q) =>

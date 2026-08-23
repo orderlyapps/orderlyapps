@@ -3,13 +3,13 @@ import { addWeeks, endOfYear, format, parseISO, startOfWeek } from "date-fns";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import { cleanMajorCollection } from "@shared/database/collections/clean-major";
-import { cleanMinorCollection } from "@shared/database/collections/clean-minor";
-import { groupCollection } from "@shared/database/collections/group";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
-import type { CleanMajor } from "@shared/database/schemas/clean-major";
-import type { CleanMinor } from "@shared/database/schemas/clean-minor";
-import type { Group } from "@shared/database/schemas/group";
+import { cleanMajorCollection } from "@amodeo/proclaimer/database/collections/clean-major";
+import { cleanMinorCollection } from "@amodeo/proclaimer/database/collections/clean-minor";
+import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
+import type { CleanMajor } from "@amodeo/proclaimer/database/schemas/clean-major";
+import type { CleanMinor } from "@amodeo/proclaimer/database/schemas/clean-minor";
+import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 
 export interface CleaningWeek {
   week_id: string;

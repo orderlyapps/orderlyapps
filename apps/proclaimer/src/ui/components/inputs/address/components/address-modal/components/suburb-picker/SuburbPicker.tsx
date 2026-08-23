@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
 import { SuburbPickerModal } from "./components/suburb-picker-modal/SuburbPickerModal";
-import type { Suburb } from "@shared/database/schemas/suburb";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 
 type SuburbPickerProps = {
   value?: { id: string; name: string };

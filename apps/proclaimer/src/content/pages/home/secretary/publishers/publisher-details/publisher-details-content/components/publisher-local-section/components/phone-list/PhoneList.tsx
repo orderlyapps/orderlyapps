@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonButton, IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addOutline, callOutline, chatbubbleEllipsesOutline } from "ionicons/icons";
-import type { Phone } from "@shared/database/rxdb/collections/publisher";
+import type { Phone } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
 import { Heading } from "@ui/components/display/text/heading/Heading";
 import { Space } from "@ui/components/layout/space/Space";

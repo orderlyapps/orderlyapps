@@ -1,4 +1,4 @@
-import type { AvAssignmentID } from "@shared/database/schemas/av-assignment";
+import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
 
 export type AvParticipationType =
   | "video"

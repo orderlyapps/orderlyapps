@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { territoryServantPermissionCollection } from "@shared/database/collections/territory-servant-permission";
+import { territoryServantPermissionCollection } from "@amodeo/proclaimer/database/collections/territory-servant-permission";
 import { usePermittedPublishers } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/usePermittedPublishers";
 import { PermissionContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-content/PermissionContent";
 import { AddPublisherModal } from "./components/add-publisher-modal/AddPublisherModal";

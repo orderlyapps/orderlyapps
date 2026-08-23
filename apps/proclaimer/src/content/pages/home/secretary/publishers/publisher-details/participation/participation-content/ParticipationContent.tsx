@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { avParticipationCollection } from "@shared/database/collections/av-participation";
-import { midweekParticipationCollection } from "@shared/database/collections/midweek-participation";
-import { weekendParticipationCollection } from "@shared/database/collections/weekend-participation";
+import { avParticipationCollection } from "@amodeo/proclaimer/database/collections/av-participation";
+import { midweekParticipationCollection } from "@amodeo/proclaimer/database/collections/midweek-participation";
+import { weekendParticipationCollection } from "@amodeo/proclaimer/database/collections/weekend-participation";
 import { avParticipationTypeLabels } from "@proclaimer-content/pages/home/av-overseer/participation/shared/constants/avParticipationTypeLabels";
 import { weekendParticipationTypeLabels } from "@proclaimer-content/pages/home/weekend/participation/shared/constants/weekendParticipationTypeLabels";
 import { midweekParticipationTypeLabels } from "@proclaimer-content/pages/home/clam-overseer/participation/shared/constants/midweekParticipationTypeLabels";

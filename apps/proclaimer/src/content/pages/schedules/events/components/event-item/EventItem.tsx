@@ -1,4 +1,4 @@
-import type { EventRow } from "@shared/database/schemas/event";
+import type { EventRow } from "@amodeo/proclaimer/database/schemas/event";
 import { CircuitAssemblyItem } from "./components/circuit-assembly-item/CircuitAssemblyItem";
 import { ConventionItem } from "./components/convention-item/ConventionItem";
 import { MemorialItem } from "./components/memorial-item/MemorialItem";

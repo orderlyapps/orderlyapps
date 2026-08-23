@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { eq, useLiveQuery } from "@tanstack/react-db";
-import { eventCollection } from "@shared/database/collections/event";
-import type { EventDetails, EventRow } from "@shared/database/schemas/event";
+import { eventCollection } from "@amodeo/proclaimer/database/collections/event";
+import type { EventDetails, EventRow } from "@amodeo/proclaimer/database/schemas/event";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { Space } from "@ui/components/layout/space/Space";
 import { SaveTextButton } from "@ui/components/inputs/button/text/save/SaveTextButton";
 import { DeleteTextButton } from "@ui/components/inputs/button/text/delete/DeleteTextButton";

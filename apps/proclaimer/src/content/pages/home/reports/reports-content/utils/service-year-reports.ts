@@ -1,5 +1,5 @@
 import { getServiceYear } from "@util/format/service-year";
-import type { Report } from "@shared/database/schemas/report";
+import type { Report } from "@amodeo/proclaimer/database/schemas/report";
 import type { MonthReport, ServiceYearReportData } from "../components/publisher-record-pdf/types";
 
 export const SERVICE_YEAR_MONTH_NAMES = [

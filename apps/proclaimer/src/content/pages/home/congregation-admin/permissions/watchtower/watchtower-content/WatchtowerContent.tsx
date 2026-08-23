@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { watchtowerPermissionCollection } from "@shared/database/collections/watchtower-permission";
+import { watchtowerPermissionCollection } from "@amodeo/proclaimer/database/collections/watchtower-permission";
 import { usePermittedPublishers } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/usePermittedPublishers";
 import { PermissionContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-content/PermissionContent";
 import { AddPublisherModal } from "./components/add-publisher-modal/AddPublisherModal";

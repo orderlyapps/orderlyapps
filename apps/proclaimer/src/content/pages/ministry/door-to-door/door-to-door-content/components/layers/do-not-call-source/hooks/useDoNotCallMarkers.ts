@@ -1,7 +1,7 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { doNotCallCollection } from "@shared/database/collections/do-not-call";
-import { streetCollection } from "@shared/database/collections/street";
-import { suburbCollection } from "@shared/database/collections/suburb";
+import { doNotCallCollection } from "@amodeo/proclaimer/database/collections/do-not-call";
+import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
+import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import type { DoNotCall } from "../types";
 
 type GroupedDoNotCall = Record<string, (DoNotCall & { coordinates: [number, number] })[]>;

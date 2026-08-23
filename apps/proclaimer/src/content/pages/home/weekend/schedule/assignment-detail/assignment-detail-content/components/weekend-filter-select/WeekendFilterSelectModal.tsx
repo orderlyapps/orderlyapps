@@ -9,7 +9,7 @@ import { AlertMultiSelect } from "@ui/components/inputs/alert-multi-select/Alert
 import {
   weekendAssignmentIDs,
   weekendAssignmentLabels,
-} from "@shared/database/schemas/weekend-assignment";
+} from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import type {
   WeekendFilterSortPreset,
   WeekendPublisherFilter,

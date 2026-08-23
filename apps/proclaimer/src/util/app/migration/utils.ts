@@ -1,5 +1,5 @@
-import type { Congregation } from "@shared/database/schemas/congregation";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 // Original app storage keys
 const ORIGINAL_KEYS = {

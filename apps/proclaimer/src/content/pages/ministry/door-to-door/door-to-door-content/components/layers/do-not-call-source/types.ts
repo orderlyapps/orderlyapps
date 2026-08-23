@@ -1,4 +1,4 @@
-import type { DoNotCall as DoNotCallBase } from "@shared/database/schemas/do-not-call";
+import type { DoNotCall as DoNotCallBase } from "@amodeo/proclaimer/database/schemas/do-not-call";
 
 export type DoNotCall = DoNotCallBase & {
   street: string;

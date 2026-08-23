@@ -6,7 +6,7 @@ import { useAvAssignmentData } from "./hooks/use-av-assignment-data";
 import { useAvAssignmentHandlers } from "./hooks/use-av-assignment-handlers";
 import { AvAssignedPublisher } from "./components/av-assigned-publisher/AvAssignedPublisher";
 import { AvPublisherSelector } from "./components/av-publisher-selector/AvPublisherSelector";
-import type { AvAssignmentID } from "@shared/database/schemas/av-assignment";
+import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
 
 interface AvAssignmentDetailContentProps {
   week_id: string;

@@ -8,8 +8,8 @@ import {
   IonButtons,
 } from "@ionic/react";
 import { useState } from "react";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { Body } from "@ui/components/display/text/body/Body";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";

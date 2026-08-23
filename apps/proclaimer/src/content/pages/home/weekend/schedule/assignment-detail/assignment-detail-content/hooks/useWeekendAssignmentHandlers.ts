@@ -1,7 +1,7 @@
-import { weekendAssignmentCollection } from "@shared/database/collections/weekend-assignment";
-import type { WeekendAssignment } from "@shared/database/schemas/weekend-assignment";
-import type { WeekendAssignmentID } from "@shared/database/schemas/weekend-assignment";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { WeekendAssignmentID } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 interface UseWeekendAssignmentHandlersProps {
   congregation_id: string | undefined;

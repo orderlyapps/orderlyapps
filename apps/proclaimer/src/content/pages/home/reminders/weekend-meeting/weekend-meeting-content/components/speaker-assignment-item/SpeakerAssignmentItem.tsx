@@ -3,8 +3,8 @@ import { LabelValueItem } from "@ui/components/display/data/label-value/LabelVal
 import { SmsIconButton } from "@ui/components/inputs/button/icon/sms/SmsIconButton";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import type { Publisher } from "@shared/database/schemas/publisher";
-import type { Outline } from "@shared/database/schemas/outline";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 import { fillWeekendMeetingSmsTemplate } from "../../../shared/weekendMeetingSmsTemplate";
 import type { WeekendMeetingSmsTemplate } from "../../../shared/weekendMeetingSmsTemplate";
 import { SmsTemplateActionSheet } from "../weekend-assignment-item/components/sms-template-action-sheet/SmsTemplateActionSheet";

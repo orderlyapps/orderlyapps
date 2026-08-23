@@ -12,7 +12,7 @@ import { MidweekSchedulePdfDocument } from "./components/midweek-schedule-pdf/Mi
 import { Space } from "@ui/components/layout/space/Space";
 import { useMidweekScheduleData } from "./hooks/useMidweekScheduleData";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
 
 type MonthRange = {

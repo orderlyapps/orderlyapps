@@ -1,4 +1,4 @@
-import type { MidweekAssignment } from "@shared/database/schemas/midweek-assignment";
+import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 
 export function hasAssignment(
   assignments: MidweekAssignment[] | undefined,

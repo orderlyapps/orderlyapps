@@ -14,9 +14,9 @@ import {
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { streetCollection } from "@shared/database/collections/street";
+import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import type { Street } from "@shared/database/schemas/street";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 import type { SuburbRef } from "../../../../../../types";
 import { AddStreetModal } from "@ui/components/inputs/address/components/address-modal/components/street-picker/components/street-picker-modal/components/add-street-modal/AddStreetModal";
 

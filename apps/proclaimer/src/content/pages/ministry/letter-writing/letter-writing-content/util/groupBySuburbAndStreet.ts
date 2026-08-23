@@ -1,6 +1,6 @@
-import type { NotAtHome } from "@shared/database/schemas/not-at-home";
-import type { Suburb } from "@shared/database/schemas/suburb";
-import type { Street } from "@shared/database/schemas/street";
+import type { NotAtHome } from "@amodeo/proclaimer/database/schemas/not-at-home";
+import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 
 export type AddressItem = NotAtHome & {
   suburbName: string;

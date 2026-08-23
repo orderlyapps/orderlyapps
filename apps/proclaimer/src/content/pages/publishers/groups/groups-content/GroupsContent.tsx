@@ -1,8 +1,8 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList, IonNote } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { groupCollection } from "@shared/database/collections/group";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@ui/components/display/spinner/Spinner";
 import { Body } from "@ui/components/display/text/body/Body";

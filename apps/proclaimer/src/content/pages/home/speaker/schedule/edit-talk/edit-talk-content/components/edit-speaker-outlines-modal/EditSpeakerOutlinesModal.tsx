@@ -11,11 +11,11 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { eq } from "@tanstack/react-db";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { outlineCollection } from "@shared/database/collections/outline";
-import { speakerOutlineCollection } from "@shared/database/collections/speaker-outline";
-import { makeCompositeKey } from "@shared/database/util/composite-key";
-import type { Outline } from "@shared/database/schemas/outline";
-import type { SpeakerOutline } from "@shared/database/schemas/speaker-outline";
+import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
+import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
+import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
+import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
 
 interface EditSpeakerOutlinesModalProps {
   is_open: boolean;

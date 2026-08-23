@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { watchtowerPermissionCollection } from "@shared/database/collections/watchtower-permission";
+import { watchtowerPermissionCollection } from "@amodeo/proclaimer/database/collections/watchtower-permission";
 import { useAddPermission } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/useAddPermission";
 import { GenericPermissionModal } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-modal/GenericPermissionModal";
 

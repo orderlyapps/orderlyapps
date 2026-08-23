@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { midweekParticipationCollection } from "@shared/database/collections/midweek-participation";
+import { midweekParticipationCollection } from "@amodeo/proclaimer/database/collections/midweek-participation";
 import type { ParticipationType } from "../../utils/participationTypeMap";
 
 export function usePublisherParticipationTypes(

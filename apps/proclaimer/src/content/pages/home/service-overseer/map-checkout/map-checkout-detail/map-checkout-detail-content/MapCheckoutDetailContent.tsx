@@ -17,15 +17,15 @@ import {
 } from "@ionic/react";
 import { removeCircleOutline } from "ionicons/icons";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@shared/database/collections/map";
-import { mapCheckoutMapCollection } from "@shared/database/collections/map-checkout-map";
-import { mapCheckoutPublisherCollection } from "@shared/database/collections/map-checkout-publisher";
+import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
+import { mapCheckoutMapCollection } from "@amodeo/proclaimer/database/collections/map-checkout-map";
+import { mapCheckoutPublisherCollection } from "@amodeo/proclaimer/database/collections/map-checkout-publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { IncrementInput } from "@ui/components/inputs/increment-input/IncrementInput";
 import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import type { MapRow } from "@shared/database/schemas/map";
-import type { MapCheckoutMapRow } from "@shared/database/schemas/map-checkout-map";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapCheckoutMapRow } from "@amodeo/proclaimer/database/schemas/map-checkout-map";
 
 interface MapCheckoutDetailContentProps {
   checkout_publisher_id?: string;

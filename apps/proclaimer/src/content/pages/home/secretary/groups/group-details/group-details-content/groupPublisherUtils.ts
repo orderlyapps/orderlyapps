@@ -1,4 +1,4 @@
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 export const DEFAULT_PUBLISHER_TYPES = [
   "publisher",

@@ -1,4 +1,4 @@
-import type { MidweekAssignmentId } from "@shared/database/schemas/midweek-assignment";
+import type { MidweekAssignmentId } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
 
 export type ScheduleContentProps = {

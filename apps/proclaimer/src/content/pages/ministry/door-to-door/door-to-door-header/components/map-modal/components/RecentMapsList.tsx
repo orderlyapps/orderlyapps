@@ -1,16 +1,16 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { useMapsList } from "../hooks/useMapsList";
-import { mapLogCollection } from "@shared/database/collections/map-log";
-import { publisherCollection } from "@shared/database/collections/publisher";
+import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { MapListItem } from "./map-list-item/MapListItem";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { Heading } from "@ui/components/display/text/heading/Heading";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
-import type { MapRow } from "@shared/database/schemas/map";
-import type { MapLogRow } from "@shared/database/schemas/map-log";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 interface RecentMapsListProps {
   recentMapIds: string[];

@@ -2,8 +2,12 @@ import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   pack: {
+    entry: ["src/index.ts", "src/database/**/*.ts"],
+    unbundle: true,
     dts: true,
-    exports: true,
+    // exports map is hand-written in package.json (wildcard + development
+    // conditions), so tsdown must not regenerate it
+    exports: false,
   },
   test: {
     environment: "happy-dom",

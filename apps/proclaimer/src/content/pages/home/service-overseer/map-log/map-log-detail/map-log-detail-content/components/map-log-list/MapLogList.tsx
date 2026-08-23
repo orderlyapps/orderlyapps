@@ -1,10 +1,10 @@
 import { Fragment, useState } from "react";
 import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapLogCollection } from "@shared/database/collections/map-log";
-import { publisherCollection } from "@shared/database/collections/publisher";
-import type { MapLogRow } from "@shared/database/schemas/map-log";
-import type { Publisher } from "@shared/database/schemas/publisher";
+import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
+import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
+import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { Label } from "@ui/components/display/text/label/Label";
 import { Body } from "@ui/components/display/text/body/Body";

@@ -2,7 +2,7 @@ import { IonItem, IonLabel, IonList, IonSkeletonText } from "@ionic/react";
 import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
 import { Body } from "@ui/components/display/text/body/Body";
 import { useParticipantPublishers } from "@proclaimer-content/pages/home/clam-overseer/participation/shared/hooks/useParticipantPublishers";
-import type { MidweekParticipation } from "@shared/database/schemas/midweek-participation";
+import type { MidweekParticipation } from "@amodeo/proclaimer/database/schemas/midweek-participation";
 import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
 
 interface ParticipantPublishersListProps {

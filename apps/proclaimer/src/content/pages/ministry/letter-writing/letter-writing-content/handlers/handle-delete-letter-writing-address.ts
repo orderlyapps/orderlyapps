@@ -1,4 +1,4 @@
-import { notAtHomeCollection } from "@shared/database/collections/not-at-home";
+import { notAtHomeCollection } from "@amodeo/proclaimer/database/collections/not-at-home";
 
 export function handleDeleteLetterWritingAddress(id: string): void {
   notAtHomeCollection.delete(id);
