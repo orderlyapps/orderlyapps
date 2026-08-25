@@ -43,6 +43,8 @@ export function HomeTools() {
     permissions.has_events ||
     permissions.has_watchtower ||
     permissions.has_ministerial_servant ||
+    permissions.has_meeting_attendance ||
+    permissions.can_read_meeting_attendance ||
     is_chairman ||
     is_cbs_conductor ||
     isPioneer;
@@ -270,6 +272,19 @@ export function HomeTools() {
                 label_class={CLASSNAME}
                 label="Data Sharing"
                 to="/home/data-sharing"
+              />
+            )}
+
+            {(canSeeAll ||
+              permissions.has_meeting_attendance ||
+              permissions.can_read_meeting_attendance) && (
+              <NavItem
+                color={COLOR}
+                size="md"
+                lines="none"
+                label_class={CLASSNAME}
+                label="Meeting Attendance"
+                to="/home/meeting-attendance"
               />
             )}
 

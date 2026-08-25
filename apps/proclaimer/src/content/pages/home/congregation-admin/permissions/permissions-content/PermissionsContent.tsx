@@ -28,6 +28,10 @@ export function PermissionsContent() {
       <NavItem label="Reminders" to="/home/congregation-admin/permissions/reminders" />
       <NavItem label="Events" to="/home/congregation-admin/permissions/events" />
       <NavItem label="Watchtower" to="/home/congregation-admin/permissions/watchtower" />
+      <NavItem
+        label="Meeting Attendance"
+        to="/home/congregation-admin/permissions/meeting-attendance"
+      />
     </IonList>
   );
 }

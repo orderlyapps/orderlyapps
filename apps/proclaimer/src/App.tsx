@@ -62,6 +62,7 @@ import WeekendPermissionsPage from "@proclaimer-routes/home/congregation-admin/p
 import RemindersPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/reminders/Reminders";
 import EventsPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/events/Events";
 import WatchtowerPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/watchtower/Watchtower";
+import MeetingAttendancePermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/meeting-attendance/MeetingAttendance";
 import ElderPage from "@proclaimer-routes/home/elder/Elder";
 import ElderStatsPageNew from "@proclaimer-routes/home/elder/stats/Stats";
 import ContactsListPage from "@proclaimer-routes/home/elder/contacts-list/ContactsList";
@@ -134,6 +135,7 @@ import DataSharingPage from "@proclaimer-routes/home/data-sharing/DataSharing";
 import MinistryTimePage from "@proclaimer-routes/home/ministry-time/MinistryTime";
 import WatchtowerToolPage from "@proclaimer-routes/home/watchtower/Watchtower";
 import CongregationBibleStudyPage from "@proclaimer-routes/home/congregation-bible-study/CongregationBibleStudy";
+import MeetingAttendancePage from "@proclaimer-routes/home/meeting-attendance/MeetingAttendance";
 import { Icon } from "@ui/components/icons/Icon";
 import { useOrientation } from "@util/hooks/use-orientation/use-orientation";
 // import { getPlatforms } from "@ionic/react";
@@ -257,6 +259,11 @@ function App() {
         <Route
           path="/home/congregation-admin/permissions/watchtower"
           component={WatchtowerPermissionsPage}
+          exact
+        />
+        <Route
+          path="/home/congregation-admin/permissions/meeting-attendance"
+          component={MeetingAttendancePermissionsPage}
           exact
         />
         <Route path="/home/elder" component={ElderPage} exact />
@@ -434,6 +441,7 @@ function App() {
         <Route path="/home/clam/:week_id?" component={ClamPage} exact />
         <Route path="/home/data-sharing" component={DataSharingPage} exact />
         <Route path="/home/ministry-time" component={MinistryTimePage} exact />
+        <Route path="/home/meeting-attendance/:week_id?" component={MeetingAttendancePage} exact />
         <Route path="/home/watchtower" component={WatchtowerToolPage} exact />
         <Route path="/home/congregation-bible-study" component={CongregationBibleStudyPage} exact />
         {/* MINISTRY */}

@@ -15,6 +15,7 @@ import { eventPermissionCollection } from "@amodeo/proclaimer/database/collectio
 import { watchtowerPermissionCollection } from "@amodeo/proclaimer/database/collections/watchtower-permission";
 import { ministerialServantPermissionCollection } from "@amodeo/proclaimer/database/collections/ministerial-servant-permission";
 import { congregationAdminCollection } from "@amodeo/proclaimer/database/collections/congregation-admin";
+import { meetingAttendancePermissionCollection } from "@amodeo/proclaimer/feature/meeting-attendance";
 import { authUserCollection } from "@amodeo/proclaimer/database/collections/auth-user";
 import { useAuthSession } from "@util/app/auth/useAuthSession";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
@@ -35,6 +36,8 @@ interface Permissions {
   has_reminders: boolean;
   has_events: boolean;
   has_watchtower: boolean;
+  has_meeting_attendance: boolean;
+  can_read_meeting_attendance: boolean;
   has_congregation_admin: boolean;
   is_super_admin: boolean;
   is_authenticated: boolean;
@@ -89,6 +92,9 @@ export function usePermissions(): Permissions {
   const { data: ministerial_servant_permissions } = useLiveQuery((q) =>
     q.from({ msp: ministerialServantPermissionCollection }),
   );
+  const { data: meeting_attendance_permissions } = useLiveQuery((q) =>
+    q.from({ map: meetingAttendancePermissionCollection }),
+  );
   const { data: congregation_admins } = useLiveQuery((q) =>
     q.from({ ca: congregationAdminCollection }),
   );
@@ -111,6 +117,8 @@ export function usePermissions(): Permissions {
       has_reminders: false,
       has_events: false,
       has_watchtower: false,
+      has_meeting_attendance: false,
+      can_read_meeting_attendance: false,
       has_congregation_admin: false,
       is_super_admin: false,
       is_authenticated: false,
@@ -135,6 +143,8 @@ export function usePermissions(): Permissions {
       has_reminders: false,
       has_events: false,
       has_watchtower: false,
+      has_meeting_attendance: false,
+      can_read_meeting_attendance: false,
       has_congregation_admin: false,
       is_super_admin: false,
       is_authenticated: !!auth_user_id,
@@ -224,6 +234,18 @@ export function usePermissions(): Permissions {
       msp.auth_user_id === auth_user_id && msp.congregation_id === congregation_id && msp.can_edit,
   );
 
+  const has_meeting_attendance = meeting_attendance_permissions.some(
+    (map) =>
+      map.auth_user_id === auth_user_id && map.congregation_id === congregation_id && map.can_edit,
+  );
+
+  const can_read_meeting_attendance = meeting_attendance_permissions.some(
+    (map) =>
+      map.auth_user_id === auth_user_id &&
+      map.congregation_id === congregation_id &&
+      (map.can_read || map.can_edit),
+  );
+
   return {
     has_cleaning,
     has_reports,
@@ -240,6 +262,8 @@ export function usePermissions(): Permissions {
     has_reminders,
     has_events,
     has_watchtower,
+    has_meeting_attendance,
+    can_read_meeting_attendance,
     has_congregation_admin,
     is_super_admin,
     is_authenticated: true,
