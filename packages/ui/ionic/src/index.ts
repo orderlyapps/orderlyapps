@@ -11,6 +11,10 @@ export {
   NumberInput,
   type NumberInputProps,
 } from "./components/input/number-input/number-input.tsx";
+export {
+  NumberInputAsync,
+  type NumberInputAsyncProps,
+} from "./components/input/number-input/number-input-async.tsx";
 export { EmailInput, type EmailInputProps } from "./components/input/email-input/email-input.tsx";
 export {
   SelectInput,
