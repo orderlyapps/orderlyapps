@@ -18,7 +18,12 @@ export function WeekendAttendanceEdit({ counts, on_change }: WeekendAttendanceEd
       value={counts?.[field] ?? ""}
       onIonChange={(event) => {
         const raw = event.detail.value;
-        on_change(field, raw === "" || raw == null ? null : Number(raw));
+        if (raw === "" || raw == null) {
+          on_change(field, null);
+          return;
+        }
+        const parsed = Number(raw);
+        on_change(field, Number.isNaN(parsed) ? null : parsed);
       }}
     />
   ));

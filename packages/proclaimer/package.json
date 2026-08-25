@@ -27,7 +27,7 @@
       "import": "./dist/database/*.mjs"
     },
     "./feature/*": {
-      "development": "./src/feature/*.ts",
+      "development": "./src/feature/*",
       "types": "./dist/feature/*.d.mts",
       "import": "./dist/feature/*.mjs"
     },

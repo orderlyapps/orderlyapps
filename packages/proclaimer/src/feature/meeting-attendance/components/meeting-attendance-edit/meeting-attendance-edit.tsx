@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IonItemDivider, IonItemGroup, IonLabel, IonList } from "@ionic/react";
-import { meetingAttendanceCollection } from "../../collections/meeting-attendance.js";
+import { meetingAttendanceCollection } from "../../collections/meeting-attendance.ts";
 import { makeCompositeKey } from "../../../../database/util/composite-key.js";
 import {
   type AttendanceCountField,
@@ -24,10 +24,12 @@ export function MeetingAttendanceEdit({
   on_saved,
 }: MeetingAttendanceEditProps) {
   const [counts, setCounts] = useState<AttendanceCounts | null>(null);
+  const insertedRef = useRef(false);
   const { attendance, is_loading } = useMeetingAttendance(week_id, congregation_id);
 
   useEffect(() => {
     setCounts(null);
+    insertedRef.current = false;
   }, [week_id, congregation_id]);
 
   useEffect(() => {
@@ -40,11 +42,12 @@ export function MeetingAttendanceEdit({
   const handle_change = (field: AttendanceCountField, value: number | null) => {
     const next = { ...(counts ?? emptyAttendanceCounts()), [field]: value };
     setCounts(next);
-    if (attendance) {
-      meetingAttendanceCollection.update(makeCompositeKey(week_id, congregation_id), (row) =>
-        Object.assign(row, next),
-      );
+    if (attendance || insertedRef.current) {
+      meetingAttendanceCollection.update(makeCompositeKey(week_id, congregation_id), (row) => {
+        row[field] = value;
+      });
     } else {
+      insertedRef.current = true;
       meetingAttendanceCollection.insert({ week_id, congregation_id, ...next });
     }
     on_saved?.();
