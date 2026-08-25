@@ -26,6 +26,11 @@
       "types": "./dist/database/*.d.mts",
       "import": "./dist/database/*.mjs"
     },
+    "./feature/*": {
+      "development": "./src/feature/*.ts",
+      "types": "./dist/feature/*.d.mts",
+      "import": "./dist/feature/*.mjs"
+    },
     "./package.json": "./package.json"
   },
   "publishConfig": {

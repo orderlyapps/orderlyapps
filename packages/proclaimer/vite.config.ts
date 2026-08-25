@@ -2,7 +2,7 @@ import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   pack: {
-    entry: ["src/index.ts", "src/database/**/*.ts"],
+    entry: ["src/index.ts", "src/database/**/*.ts", "src/feature/**/*.ts", "src/feature/**/*.tsx"],
     unbundle: true,
     dts: true,
     // exports map is hand-written in package.json (wildcard + development
