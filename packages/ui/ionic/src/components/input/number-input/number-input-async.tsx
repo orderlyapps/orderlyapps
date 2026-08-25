@@ -1,11 +1,12 @@
-import { InputLayout } from "../../layout/input-layout/input-layout.tsx";
 import { useIonAlert } from "@ionic/react";
 import type { InputCustomEvent, InputChangeEventDetail } from "@ionic/react";
 import type { ComponentProps, Ref } from "react";
 
-type InputLayoutAsyncProps = ComponentProps<typeof InputLayout>;
+import { InputLayout } from "../../layout/input-layout/input-layout.tsx";
 
-export type NumberInputAsyncProps = Omit<InputLayoutAsyncProps, "type" | "inputmode"> & {
+type InputLayoutProps = ComponentProps<typeof InputLayout>;
+
+export type NumberInputAsyncProps = Omit<InputLayoutProps, "type" | "inputmode"> & {
   ref?: Ref<HTMLIonInputElement>;
   /** Alert header text. Defaults to the input `label`. */
   alertHeader?: string;
@@ -33,7 +34,7 @@ export function NumberInputAsync({
 }: NumberInputAsyncProps) {
   const [present] = useIonAlert();
 
-  const handlePress: NonNullable<InputLayoutAsyncProps["onClick"]> = (event) => {
+  const handlePress: NonNullable<InputLayoutProps["onClick"]> = (event) => {
     onClick?.(event);
     void present({
       header: alertHeader ?? (typeof label === "string" ? label : undefined),
@@ -50,9 +51,11 @@ export function NumberInputAsync({
           text: confirmText,
           role: "confirm",
           handler: (data: { value?: string }) => {
-            onIonChange?.({
-              detail: { value: data.value ?? null },
-            } as InputCustomEvent<InputChangeEventDetail>);
+            onIonChange?.(
+              new CustomEvent("ionChange", {
+                detail: { value: data.value ?? null },
+              }) as InputCustomEvent<InputChangeEventDetail>,
+            );
           },
         },
       ],
@@ -64,11 +67,11 @@ export function NumberInputAsync({
       ref={ref}
       type="number"
       inputmode="decimal"
-      readonly
       value={value}
       label={label}
-      onClick={handlePress}
       {...props}
+      readonly
+      onClick={handlePress}
     />
   );
 }
