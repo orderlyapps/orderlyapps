@@ -22,5 +22,9 @@
   "js/ts.preferences.includePackageJsonAutoImports": "on",
   "files.exclude": {
     "**/node_modules": true
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock,*"
   }
 }
