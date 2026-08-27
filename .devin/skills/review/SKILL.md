@@ -24,3 +24,4 @@ Make sure to:
 3. Do NOT report issues that are speculative or low-confidence. All your conclusions should be based on a complete understanding of the codebase.
 4. Remember that if you were given a specific git commit, it may not be checked out and local code states may be different.
 5. Always number issues/bugs (e.g. "1.", "2.", "3.") so they can be referenced easily.
+6. End your review with a clear, explicit recommendation: state whether you recommend to commit the changes as-is, or whether changes should be made before committing. If changes are needed, summarize what must be addressed first.
