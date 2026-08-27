@@ -11,7 +11,7 @@ import { avOverseerPermissionCollection } from "@amodeo/proclaimer/database/coll
 import { speakerPermissionCollection } from "@amodeo/proclaimer/database/collections/speaker-permission";
 import { weekendPermissionCollection } from "@amodeo/proclaimer/database/collections/weekend-permission";
 import { reminderPermissionCollection } from "@amodeo/proclaimer/database/collections/reminder-permission";
-import { eventPermissionCollection } from "@amodeo/proclaimer/database/collections/event-permission";
+import { eventPermissionCollection } from "@amodeo/proclaimer/feature/event";
 import { watchtowerPermissionCollection } from "@amodeo/proclaimer/database/collections/watchtower-permission";
 import { ministerialServantPermissionCollection } from "@amodeo/proclaimer/database/collections/ministerial-servant-permission";
 import { congregationAdminCollection } from "@amodeo/proclaimer/database/collections/congregation-admin";

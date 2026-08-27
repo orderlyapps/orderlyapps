@@ -1,5 +1,5 @@
 import { format, parseISO } from "date-fns";
-import type { EventRow } from "@amodeo/proclaimer/database/schemas/event";
+import type { EventRow } from "@amodeo/proclaimer/feature/event";
 
 export type MonthGroup = {
   label: string;

@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { eq, useLiveQuery } from "@tanstack/react-db";
-import { eventCollection } from "@amodeo/proclaimer/database/collections/event";
-import type { EventDetails, EventRow } from "@amodeo/proclaimer/database/schemas/event";
+import {
+  eventCollection,
+  type EventDetails,
+  type EventRow,
+} from "@amodeo/proclaimer/feature/event";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";

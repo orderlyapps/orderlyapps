@@ -1,7 +1,6 @@
 import { parseISO } from "date-fns/parseISO";
 import { useLiveQuery } from "@tanstack/react-db";
-import { eventCollection } from "@amodeo/proclaimer/database/collections/event";
-import type { EventRow } from "@amodeo/proclaimer/database/schemas/event";
+import { eventCollection, type EventRow } from "@amodeo/proclaimer/feature/event";
 
 function isEventInWeek(event: EventRow, week_id: string): boolean {
   const [year, month, day] = week_id.split("-").map(Number);

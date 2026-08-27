@@ -1,7 +1,7 @@
 import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
 import { format } from "date-fns";
-import { eventCollection } from "@amodeo/proclaimer/database/collections/event";
+import { eventCollection } from "@amodeo/proclaimer/feature/event";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { Heading } from "@ui/components/display/text/heading/Heading";
