@@ -8,6 +8,10 @@ import { CircuitVisitForm } from "./components/circuit-visit-form/CircuitVisitFo
 import { SpecialMeetingForm } from "./components/special-meeting-form/SpecialMeetingForm";
 import { CampaignForm } from "./components/campaign-form/CampaignForm";
 import { SpecialTalkForm } from "./components/special-talk-form/SpecialTalkForm";
+import { PioneerMeetingForm } from "./components/pioneer-meeting-form/PioneerMeetingForm";
+import { KingdomMinistrySchoolForm } from "./components/kingdom-ministry-school-form/KingdomMinistrySchoolForm";
+import { WorkingBeeForm } from "./components/working-bee-form/WorkingBeeForm";
+import { BethelSpeakerForm } from "./components/bethel-speaker-form/BethelSpeakerForm";
 import { OtherEventForm } from "./components/other-event-form/OtherEventForm";
 
 const EVENT_TYPE_OPTIONS = eventTypeSchema.options.map((value) => ({
@@ -34,6 +38,14 @@ export function EventFormFields(props: EventFormFieldProps) {
         return <CampaignForm {...props} />;
       case "special_talk":
         return <SpecialTalkForm {...props} />;
+      case "pioneer_meeting":
+        return <PioneerMeetingForm {...props} />;
+      case "kingdom_ministry_school":
+        return <KingdomMinistrySchoolForm {...props} />;
+      case "working_bee":
+        return <WorkingBeeForm {...props} />;
+      case "bethel_speaker":
+        return <BethelSpeakerForm {...props} />;
       default:
         return <OtherEventForm {...props} />;
     }

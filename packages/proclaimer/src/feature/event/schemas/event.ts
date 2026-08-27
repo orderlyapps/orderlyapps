@@ -9,6 +9,10 @@ const eventTypes = [
   "special_meeting",
   "campaign",
   "special_talk",
+  "pioneer_meeting",
+  "kingdom_ministry_school",
+  "working_bee",
+  "bethel_speaker",
 ] as const;
 
 export const eventTypeSchema = z.enum(eventTypes);
