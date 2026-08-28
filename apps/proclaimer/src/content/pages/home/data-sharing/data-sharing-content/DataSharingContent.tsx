@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { SendModal } from "./components/send-modal/SendModal";
 import { ReceiveModal } from "./components/receive-modal/ReceiveModal";
 import { ExportModal } from "./components/export-modal/ExportModal";

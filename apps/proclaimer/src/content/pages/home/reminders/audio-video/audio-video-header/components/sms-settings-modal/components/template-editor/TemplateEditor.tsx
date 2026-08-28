@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { IonTextarea, IonChip, IonLabel, IonButton, IonIcon, IonItem } from "@ionic/react";
 import { refreshOutline } from "ionicons/icons";
-import { InputWrapper } from "@ui/components/display/input/InputWrapper";
-import { TextInput } from "@ui/components/inputs/text/TextInput";
-import { Space } from "@ui/components/layout/space/Space";
+import { InputWrapper } from "@amodeo/proclaimer/ui/components/display/input/InputWrapper";
+import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import {
   type AvSmsTemplate,
   DEFAULT_AV_SMS_TEMPLATE_TEXT,

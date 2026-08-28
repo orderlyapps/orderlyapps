@@ -1,10 +1,10 @@
 import { Fragment, useState } from "react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { IonList, IonLabel, IonItemDivider } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { getServiceYear } from "@util/format/service-year";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
@@ -12,7 +12,7 @@ import type { Report } from "@amodeo/proclaimer/database/schemas/report";
 import { PublisherReportModal } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-report-modal/PublisherReportModal";
 import { usePublisherReports } from "@proclaimer-content/pages/home/reports/reports-content/hooks/usePublisherReports";
 import { ReportItem } from "@proclaimer-content/pages/home/reports/reports-content/components/report-item/ReportItem";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 const PIONEER_TYPES = ["regular_pioneer"];
 

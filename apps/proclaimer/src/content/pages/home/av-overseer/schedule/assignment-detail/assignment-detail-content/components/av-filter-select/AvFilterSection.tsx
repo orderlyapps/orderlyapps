@@ -1,7 +1,7 @@
 import { IonChip } from "@ionic/react";
-import { Select } from "@ui/components/inputs/select/Select";
-import { IncrementInput } from "@ui/components/inputs/increment-input/IncrementInput";
-import { AlertMultiSelect } from "@ui/components/inputs/alert-multi-select/AlertMultiSelect";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { IncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/IncrementInput";
+import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
 import type { AvPublisherFilter } from "../../hooks/use-av-presets/types";
 import type { AvParticipationType } from "../../utils/avParticipationTypeMap";
 

@@ -3,17 +3,17 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { useLocation } from "react-router-dom";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Body } from "@ui/components/display/text/body/Body";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { usePresets } from "@proclaimer-content/pages/home/secretary/publishers/publishers-content/hooks/use-presets/usePresets";
 import { filterPublishers } from "@proclaimer-content/pages/home/secretary/publishers/publishers-content/hooks/use-publisher-filter/usePublisherFilter";
 import { FilterSelectModal } from "@proclaimer-content/pages/home/secretary/publishers/publishers-content/components/filter-modal/FilterSelectModal";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 
 export function AllPublishersContent({ searchTerm }: { searchTerm: string }) {
   const { has_elder, has_congregation_admin, is_super_admin } = usePermissions();

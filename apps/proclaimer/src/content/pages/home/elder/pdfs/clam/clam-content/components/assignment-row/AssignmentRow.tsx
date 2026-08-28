@@ -1,4 +1,4 @@
-import { JW_BROWN, JW_RED, JW_SLATE } from "@ui/colors/jwColors";
+import { JW_BROWN, JW_RED, JW_SLATE } from "@amodeo/proclaimer/ui/colors/jwColors";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({

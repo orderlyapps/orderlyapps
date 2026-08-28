@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { format } from "date-fns";
 import { pdf } from "@react-pdf/renderer";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { BimonthlyPicker } from "./components/bimonthly-picker/BimonthlyPicker";
 import { CleaningSchedulePdfDocument } from "./components/cleaning-schedule-pdf/CleaningSchedulePdfDocument";
 import { useCleaningScheduleData } from "./hooks/useCleaningScheduleData";

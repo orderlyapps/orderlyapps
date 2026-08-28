@@ -1,5 +1,5 @@
 import { IonList } from "@ionic/react";
-import { ToggleInput } from "@ui/components/inputs/toggle/ToggleInput";
+import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
 import { useQuickLinks } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useQuickLinksContext";
 
 export function QuickLinksSetting() {

@@ -1,6 +1,6 @@
-import { TextInput } from "@ui/components/inputs/text/TextInput";
-import { ToggleInput } from "@ui/components/inputs/toggle/ToggleInput";
-import { DateInput } from "@ui/components/inputs/date/DateInput";
+import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
+import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
+import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
 import type { EventFormFieldProps } from "../../types";
 
 export function OtherEventForm(props: EventFormFieldProps) {

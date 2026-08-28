@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { Body } from "@ui/components/display/text/body/Body";
-import { ToggleInput } from "@ui/components/inputs/toggle/ToggleInput";
-import { Select } from "@ui/components/inputs/select/Select";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { getPreviousMonthDate } from "@util/format/report-date";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { usePermissionedPublishers } from "./hooks/usePermissionedPublishers";

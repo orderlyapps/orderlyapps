@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonButton, IonIcon, IonItem, IonLabel, IonText } from "@ionic/react";
 import { callOutline, chatbubbleEllipsesOutline, mapOutline } from "ionicons/icons";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { MapShareActionSheet } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/map-share-action-sheet/MapShareActionSheet";
 
 type PersonDetailsSectionProps = {

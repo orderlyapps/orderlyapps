@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { NameInput } from "@ui/components/inputs/name/NameInput";
-import type { NameValue } from "@ui/components/inputs/name/NameInput";
-import { AlertPhoneInput } from "@ui/components/inputs/alert-phone/AlertPhoneInput";
-import { TextareaInput } from "@ui/components/inputs/textarea/TextareaInput";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { NameInput } from "@amodeo/proclaimer/ui/components/inputs/name/NameInput";
+import type { NameValue } from "@amodeo/proclaimer/ui/components/inputs/name/NameInput";
+import { AlertPhoneInput } from "@amodeo/proclaimer/ui/components/inputs/alert-phone/AlertPhoneInput";
+import { TextareaInput } from "@amodeo/proclaimer/ui/components/inputs/textarea/TextareaInput";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
 import type { PersonDetails } from "../../handlers/handleUpdatePersonDetails";
 

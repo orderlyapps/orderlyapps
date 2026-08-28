@@ -1,13 +1,13 @@
 import { IonContent, IonList } from "@ionic/react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Body } from "@ui/components/display/text/body/Body";
-import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { PublisherPublicSection } from "./components/publisher-public-section/PublisherPublicSection";
 import { PublisherLocalSection } from "./components/publisher-local-section/PublisherLocalSection";
 import { ArchivePublisherButton } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-details-content/components/archive-publisher-button/ArchivePublisherButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 export function PublisherDetailsContent({
   publisher_id,

@@ -5,10 +5,10 @@ import { useLiveQuery } from "@tanstack/react-db";
 import type { Address } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
-import type { AddressValue } from "@ui/components/inputs/address/types";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import type { AddressValue } from "@amodeo/proclaimer/ui/components/inputs/address/types";
 import { MapShareActionSheet } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/map-share-action-sheet/MapShareActionSheet";
 import { AddressAddModal } from "./components/address-add-modal/AddressAddModal";
 

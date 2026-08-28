@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { IonAlert, IonItem, IonList, IonNote } from "@ionic/react";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Select } from "@ui/components/inputs/select/Select";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { DeleteTextButton } from "@ui/components/inputs/button/text/delete/DeleteTextButton";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
 
 interface PresetLike {
   id: string;

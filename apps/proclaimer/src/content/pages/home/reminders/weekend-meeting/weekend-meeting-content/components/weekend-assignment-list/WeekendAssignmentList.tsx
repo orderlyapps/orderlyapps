@@ -8,8 +8,8 @@ import type { WeekendAssignmentID } from "@amodeo/proclaimer/database/schemas/we
 import { useWeekendAssignments } from "../../hooks/use-weekend-assignments/useWeekendAssignments";
 import { WeekendAssignmentItem } from "../weekend-assignment-item/WeekendAssignmentItem";
 import { SpeakerAssignmentItem } from "../speaker-assignment-item/SpeakerAssignmentItem";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import {
   getWeekendMeetingSmsTemplates,
   WEEKEND_MEETING_SMS_TEMPLATES_CHANGED,

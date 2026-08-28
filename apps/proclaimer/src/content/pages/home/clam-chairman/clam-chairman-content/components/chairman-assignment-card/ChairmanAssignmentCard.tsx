@@ -1,4 +1,4 @@
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { usePublisherPhoneLookup } from "@proclaimer-content/pages/home/congregation-admin/auth-users/auth-users-content/hooks/usePublisherPhone";
 import type { AssignmentRow } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/types";
 

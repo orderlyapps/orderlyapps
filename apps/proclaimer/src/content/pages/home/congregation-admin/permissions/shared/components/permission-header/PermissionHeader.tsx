@@ -1,5 +1,5 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
 
 interface PermissionHeaderProps {
   title: string;

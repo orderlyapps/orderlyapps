@@ -8,7 +8,7 @@ import { GroupsPdf } from "../groups-pdf/GroupsPdf";
 import { PdfActionSheet, type PdfFilterType } from "../pdf-action-sheet/PdfActionSheet";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
-import { PDFIconButton } from "@ui/components/inputs/button/icon/pdf/PDFIconButton";
+import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
 
 export function DownloadPdfButton() {
   const [is_modal_open, set_is_modal_open] = useState(false);

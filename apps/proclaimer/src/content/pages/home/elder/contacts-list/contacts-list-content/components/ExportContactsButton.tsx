@@ -11,7 +11,7 @@ import type React from "react";
 import { ContactsPdfDocument } from "./ContactsPdfDocument";
 import type { ContactWithDetails } from "../hooks/useContactsForExport";
 import { useState } from "react";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 /**
  * Props for the ExportContactsButton component

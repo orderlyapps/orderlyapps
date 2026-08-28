@@ -1,5 +1,5 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { StreetGroup } from "../street-group/StreetGroup";
 import type { SuburbGroup as SuburbGroupType } from "../../util/groupBySuburbAndStreet";
 

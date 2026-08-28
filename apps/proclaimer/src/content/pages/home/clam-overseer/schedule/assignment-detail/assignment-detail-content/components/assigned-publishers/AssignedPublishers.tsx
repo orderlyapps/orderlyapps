@@ -1,6 +1,6 @@
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 

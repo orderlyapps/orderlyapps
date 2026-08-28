@@ -1,9 +1,9 @@
 import { IonContent } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CongregationSelectContent } from "./congregation-select-content/CongregationSelectContent";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface CongregationSelectModalProps {
   isOpen: boolean;

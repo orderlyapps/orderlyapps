@@ -1,10 +1,10 @@
 import { IonList, IonItem, IonLabel, IonButtons, IonIcon } from "@ionic/react";
 import { create } from "ionicons/icons";
-import { EditIconButton } from "@ui/components/inputs/button/icon/edit/EditIconButton";
-import { AlertIconButton } from "@ui/components/inputs/button/icon/alert/AlertIconButton";
-import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
-import { RenameIconButton } from "@ui/components/inputs/button/icon/rename/RenameIconButton";
-import { Body } from "@ui/components/display/text/body/Body";
+import { EditIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/edit/EditIconButton";
+import { AlertIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/alert/AlertIconButton";
+import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
+import { RenameIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/rename/RenameIconButton";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import type { Block } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/types";
 
 type Props = {

@@ -9,9 +9,9 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Body } from "@ui/components/display/text/body/Body";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useAvParticipantPublishers } from "@proclaimer-content/pages/home/av-overseer/participation/shared/hooks/useAvParticipantPublishers";
 import type { AvParticipation } from "@amodeo/proclaimer/database/schemas/av-participation";
 

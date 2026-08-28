@@ -1,4 +1,4 @@
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { AvParticipantPublishersList } from "@proclaimer-content/pages/home/av-overseer/participation/shared/components/av-participant-publishers-list/AvParticipantPublishersList";
 
 interface AvParticipationTypeContentProps {

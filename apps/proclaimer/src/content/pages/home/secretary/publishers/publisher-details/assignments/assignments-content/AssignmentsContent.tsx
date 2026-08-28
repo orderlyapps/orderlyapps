@@ -1,6 +1,6 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { groupAssignmentsByMonth } from "@proclaimer-content/pages/home/assignments/groupAssignmentsByMonth";
 import { AssignmentMonthGroup } from "@proclaimer-content/pages/home/assignments/components/assignment-month-group/AssignmentMonthGroup";
 import { usePublisherAssignments } from "../hooks/usePublisherAssignments";

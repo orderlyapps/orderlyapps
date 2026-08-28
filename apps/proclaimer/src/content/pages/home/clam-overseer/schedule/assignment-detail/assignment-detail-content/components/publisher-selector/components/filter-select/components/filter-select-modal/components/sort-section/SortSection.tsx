@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { PublisherSortOrder } from "../../../../../../hooks/use-presets/usePresets";
 import { sortOrderLabels } from "../../../../../../hooks/use-publisher-sort/types";
-import { Select } from "@ui/components/inputs/select/Select";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 
 const sort_options: PublisherSortOrder[] = [
   "alphabetical",

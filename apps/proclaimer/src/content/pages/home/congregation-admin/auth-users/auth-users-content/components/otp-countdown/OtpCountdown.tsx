@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 
 interface OtpCountdownProps {
   durationSeconds: number;

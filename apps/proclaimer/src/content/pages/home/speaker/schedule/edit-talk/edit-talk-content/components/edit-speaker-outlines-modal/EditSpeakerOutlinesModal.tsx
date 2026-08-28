@@ -9,8 +9,8 @@ import {
 } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { eq } from "@tanstack/react-db";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";

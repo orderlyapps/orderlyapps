@@ -1,8 +1,8 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { IonList } from "@ionic/react";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
@@ -15,9 +15,9 @@ import { useCircuitVisitEvent } from "./helper/use-circuit-visit-event";
 import { useAssignmentRows } from "./helper/use-assignment-rows";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { ScheduleContentProps, AssignmentRow } from "./helper/types";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { CircuitVisitBanner } from "@proclaimer-content/pages/schedules/midweek-meeting/midweek-meeting-content/components/circuit-visit-banner/CircuitVisitBanner";
 
 export function ScheduleContent({ week_id, base_path }: ScheduleContentProps) {

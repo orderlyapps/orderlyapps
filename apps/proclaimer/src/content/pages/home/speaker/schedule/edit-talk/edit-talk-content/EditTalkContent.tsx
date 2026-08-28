@@ -3,8 +3,8 @@ import { useEditTalk } from "./hooks/use-edit-talk/useEditTalk";
 import { SpeakerSelect } from "./components/speaker-select/SpeakerSelect";
 import { OutlineSelect } from "./components/outline-select/OutlineSelect";
 import { EditSpeakerOutlinesModal } from "./components/edit-speaker-outlines-modal/EditSpeakerOutlinesModal";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type EditTalkContentProps = {
   week_id: string;

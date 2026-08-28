@@ -1,4 +1,4 @@
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import type { EventRow } from "@amodeo/proclaimer/feature/event";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 

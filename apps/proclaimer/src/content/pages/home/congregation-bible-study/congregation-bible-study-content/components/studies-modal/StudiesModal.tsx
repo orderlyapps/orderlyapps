@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonContent, IonList, IonHeader, IonToolbar, IonTitle, IonButtons } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { AlertTextInput } from "@ui/components/inputs/alert-text/AlertTextInput";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { AlertTextInput } from "@amodeo/proclaimer/ui/components/inputs/alert-text/AlertTextInput";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import type { Study } from "@proclaimer-content/pages/home/congregation-bible-study/congregation-bible-study-content/hooks/useStudies";
 import { StudyListItem } from "./components/study-list-item/StudyListItem";
 

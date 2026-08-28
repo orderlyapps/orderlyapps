@@ -83,15 +83,15 @@ Do not add page-specific percent-padding or media queries to constrain content w
 
 ### Layout primitives
 
-- `Space` (`src/ui/components/layout/space/Space.tsx`) — vertical/horizontal whitespace using the shared `Size` scale.
+- `Space` (`@amodeo/proclaimer/ui/components/layout/space/Space`) — vertical/horizontal whitespace using the shared `Size` scale.
 
 ### Data display
 
-- `MultiColumnList<T>` (`src/ui/components/display/multi-column-list/MultiColumnList.tsx`) — renders items in a responsive CSS grid that automatically picks the column count based on screen width, item count, and font size: 1 col on mobile (`xs`/`sm`) always, 2 on tablet (`md`), 3 on small desktop (`lg`), and 4 on large desktop (`xl`/`2xl`). Column count is capped by item count so 2 items never render 4 columns. Items flow left-to-right then wrap. Column count automatically adjusts based on font size (smaller fonts = more columns, larger fonts = fewer columns). Optional `gap` prop sets the horizontal gap between columns using the shared `Size` scale or `"none"` (defaults to `"sm"`); rows stay flush. Optional `column_offset` prop allows fine-tuning the column count (positive = add columns, negative = reduce columns). Use it for lists of uniform cards/items (e.g. names, tags) where multi-column layout is desirable at wider viewports but there is no tabular column structure. **Important:** When using this component on a page, wrap the page content in `<IonContent className="content-wide">` to ensure the list has enough horizontal space for multiple columns.
+- `MultiColumnList<T>` (`@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList`) — renders items in a responsive CSS grid that automatically picks the column count based on screen width, item count, and font size: 1 col on mobile (`xs`/`sm`) always, 2 on tablet (`md`), 3 on small desktop (`lg`), and 4 on large desktop (`xl`/`2xl`). Column count is capped by item count so 2 items never render 4 columns. Items flow left-to-right then wrap. Column count automatically adjusts based on font size (smaller fonts = more columns, larger fonts = fewer columns). Optional `gap` prop sets the horizontal gap between columns using the shared `Size` scale or `"none"` (defaults to `"sm"`); rows stay flush. Optional `column_offset` prop allows fine-tuning the column count (positive = add columns, negative = reduce columns). Use it for lists of uniform cards/items (e.g. names, tags) where multi-column layout is desirable at wider viewports but there is no tabular column structure. **Important:** When using this component on a page, wrap the page content in `<IonContent className="content-wide">` to ensure the list has enough horizontal space for multiple columns.
 
 ### Modals
 
-- `ResponsiveModal` (`src/ui/components/display/responsive-modal/ResponsiveModal.tsx`) — Ionic sheet on mobile (< md), centered card (`size="sm" | "md" | "lg"`) on tablet/desktop. Use this as the default modal wrapper instead of `IonModal` directly.
+- `ResponsiveModal` (`@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal`) — Ionic sheet on mobile (< md), centered card (`size="sm" | "md" | "lg"`) on tablet/desktop. Use this as the default modal wrapper instead of `IonModal` directly.
 
 ### Hooks
 

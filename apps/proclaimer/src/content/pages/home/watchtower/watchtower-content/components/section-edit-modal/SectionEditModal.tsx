@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonList, IonIcon, IonContent } from "@ionic/react";
 import { add, trash, gitMerge, gitBranch } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { TimeIncrementInput } from "@ui/components/inputs/increment-input/time-increment-input/TimeIncrementInput";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { TimeIncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/time-increment-input/TimeIncrementInput";
 import type { WatchtowerSection } from "@proclaimer-content/pages/home/watchtower/watchtower-content/hooks/useWatchtowerSettings";
 import { SectionEditHeader } from "./components/section-edit-header/SectionEditHeader";
 import { SectionEditNavigation } from "./components/section-edit-navigation/SectionEditNavigation";

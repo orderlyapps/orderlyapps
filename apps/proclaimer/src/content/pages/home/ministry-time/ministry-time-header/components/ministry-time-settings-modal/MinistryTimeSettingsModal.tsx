@@ -9,9 +9,9 @@ import {
   IonItem,
   IonLabel,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { PioneerHoursSettings } from "../../../ministry-time-content/components/pioneer-stats/adjust-hours-modal/PioneerHoursSettings";
 import { DataManagement } from "./components/data-management/DataManagement";
 import { SubmitMinistryTime } from "./components/submit-ministry-time/SubmitMinistryTime";

@@ -1,7 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import type {
   FilterSortPreset,
   PublisherFilter,
@@ -11,7 +11,7 @@ import { PresetManager } from "@proclaimer-shared/components/preset-manager/Pres
 import { DEFAULT_PRESET_ID } from "../../../../hooks/use-presets/defaultPresets";
 import { getSortInputItem } from "./components/sort-section/SortSection";
 import { getFilterInputItems } from "./components/filter-section/FilterSection";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface FilterSelectModalProps {
   is_open: boolean;

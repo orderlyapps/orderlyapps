@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonButtons, IonContent, IonHeader, IonToolbar, IonTitle } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { UpdatePasswordForm } from "./components/update-password-form/UpdatePasswordForm";
 import { UpdatePasswordSuccess } from "./components/update-password-success/UpdatePasswordSuccess";
 import { supabase } from "@util/vendor/supabase/supabase-client";

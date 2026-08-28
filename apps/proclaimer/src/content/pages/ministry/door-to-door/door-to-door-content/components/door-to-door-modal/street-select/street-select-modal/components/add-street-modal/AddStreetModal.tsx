@@ -15,8 +15,8 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { searchStreets } from "@util/vendor/mapbox/helper/searchStreets";
 import { getStoredCongregation } from "@util/app/congregation/utils";

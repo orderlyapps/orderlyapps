@@ -1,8 +1,8 @@
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonModal } from "@ionic/react";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { TextInput } from "@ui/components/inputs/text/TextInput";
-import { SaveTextButton } from "@ui/components/inputs/button/text/save/SaveTextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
+import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { SuburbSelect } from "./suburb-select/SuburbSelect";
 import { StreetSelect } from "./street-select/StreetSelect";
 import { VisitTypeSelect } from "./components/visit-type-select/VisitTypeSelect";

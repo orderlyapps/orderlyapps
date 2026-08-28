@@ -1,9 +1,9 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { IonList } from "@ionic/react";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";

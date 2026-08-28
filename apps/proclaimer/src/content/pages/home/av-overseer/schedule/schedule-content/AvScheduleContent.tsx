@@ -1,8 +1,8 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { IonList } from "@ionic/react";
 import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";

@@ -21,9 +21,9 @@ import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapCheckoutMapCollection } from "@amodeo/proclaimer/database/collections/map-checkout-map";
 import { mapCheckoutPublisherCollection } from "@amodeo/proclaimer/database/collections/map-checkout-publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { IncrementInput } from "@ui/components/inputs/increment-input/IncrementInput";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { IncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/IncrementInput";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { MapCheckoutMapRow } from "@amodeo/proclaimer/database/schemas/map-checkout-map";
 

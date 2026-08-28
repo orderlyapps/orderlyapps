@@ -1,5 +1,5 @@
-import { TextInput } from "@ui/components/inputs/text/TextInput";
-import { DateInput } from "@ui/components/inputs/date/DateInput";
+import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
+import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
 import type { EventFormFieldProps } from "../../types";
 
 export function KingdomMinistrySchoolForm(props: EventFormFieldProps) {

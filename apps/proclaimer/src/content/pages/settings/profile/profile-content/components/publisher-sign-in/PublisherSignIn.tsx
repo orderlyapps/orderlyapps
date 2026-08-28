@@ -3,7 +3,7 @@ import { PasswordSignInModal } from "./password-sign-in-modal/PasswordSignInModa
 import { SignedInStatus } from "./signed-in-status/SignedInStatus";
 import { useAuthSession } from "@util/app/auth/useAuthSession";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface PublisherSignInProps {
   publisher: Publisher | null;

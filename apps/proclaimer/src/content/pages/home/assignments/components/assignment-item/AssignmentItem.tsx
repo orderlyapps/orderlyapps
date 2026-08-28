@@ -1,4 +1,4 @@
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import { getMidweekMeetingUrl } from "@proclaimer-shared/util/date/getMidweekMeetingUrl";
 import type { Assignment } from "../../useAssignments";

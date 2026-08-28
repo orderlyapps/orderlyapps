@@ -4,15 +4,15 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { DateInput } from "@ui/components/inputs/date/DateInput";
-import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
+import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
+import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { PublisherSelectModal } from "./components/publisher-select-modal/PublisherSelectModal";
 import { MapNavigator } from "./components/map-navigator/MapNavigator";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { MapLogSummary } from "./components/map-log-summary/MapLogSummary";
 
 export function BulkCheckout() {

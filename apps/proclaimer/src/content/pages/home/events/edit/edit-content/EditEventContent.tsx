@@ -9,9 +9,9 @@ import {
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
-import { Space } from "@ui/components/layout/space/Space";
-import { SaveTextButton } from "@ui/components/inputs/button/text/save/SaveTextButton";
-import { DeleteTextButton } from "@ui/components/inputs/button/text/delete/DeleteTextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
+import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
 import { EventFormFields } from "./components/event-form-fields/EventFormFields";
 import type { CircuitVisitFormDetails } from "./components/event-form-fields/types";
 

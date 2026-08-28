@@ -15,7 +15,7 @@ import { addWeeks } from "date-fns/addWeeks";
 import { parseISO } from "date-fns/parseISO";
 import { format } from "date-fns/format";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { chevronBackOutline, chevronForwardOutline } from "ionicons/icons";
 
 type WeekNavigationProps = {

@@ -6,9 +6,9 @@ import { outlineCollection } from "@amodeo/proclaimer/database/collections/outli
 import { and, eq } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { IonItem, IonLabel } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 
 type OutgoingSpeakersDisplayProps = {
   weekId: string;

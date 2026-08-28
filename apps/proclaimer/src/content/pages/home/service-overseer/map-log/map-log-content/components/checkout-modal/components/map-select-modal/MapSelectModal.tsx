@@ -11,9 +11,9 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { checkmark } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { SearchInput } from "@ui/components/inputs/search/SearchInput";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 
 interface MapSelectModalProps {

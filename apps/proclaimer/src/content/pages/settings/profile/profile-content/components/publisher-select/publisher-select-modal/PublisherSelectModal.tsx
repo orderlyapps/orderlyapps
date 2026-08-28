@@ -1,5 +1,5 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { PublisherSelectContent } from "./publisher-select-content/PublisherSelectContent";
 
 interface PublisherSelectModalProps {

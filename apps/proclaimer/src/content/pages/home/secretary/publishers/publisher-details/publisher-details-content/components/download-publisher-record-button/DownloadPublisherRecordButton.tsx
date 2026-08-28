@@ -3,7 +3,7 @@ import { IonSpinner, IonButton } from "@ionic/react";
 import { pdf } from "@react-pdf/renderer";
 import { PublisherRecordPdf } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-record-pdf/PublisherRecordPdf";
 import { usePublisherRecordData } from "./hooks/usePublisherRecordData";
-import { Icon } from "@ui/components/icons/Icon";
+import { Icon } from "@amodeo/proclaimer/ui/components/icons/Icon";
 
 export function DownloadPublisherRecordButton({ publisher_id }: { publisher_id: string }) {
   const [is_generating, set_is_generating] = useState(false);

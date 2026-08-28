@@ -1,14 +1,14 @@
 import { IonButtons, IonContent, IonHeader, IonItem, IonTitle, IonToolbar } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import type { FilterSortPreset } from "../../hooks/use-presets/types";
 import type { PublisherFilter } from "../../hooks/use-publisher-filter/types";
 import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
 import { DEFAULT_PRESET_ID } from "../../hooks/use-presets/defaultPresets";
 import { getFilterInputItems } from "./components/filter-section/FilterSection";
-import { Space } from "@ui/components/layout/space/Space";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 
 interface FilterSelectModalProps {
   is_open: boolean;

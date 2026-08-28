@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { SettingsIconButton } from "@ui/components/inputs/button/icon/settings/SettingsIconButton";
+import { SettingsIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/settings/SettingsIconButton";
 import { SmsSettingsModal } from "./components/sms-settings-modal/SmsSettingsModal";
 
 export function WeekendMeetingHeader() {

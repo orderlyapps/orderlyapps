@@ -10,11 +10,11 @@ import {
   IonNote,
   IonButton,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { PasswordInput } from "@ui/components/inputs/password/PasswordInput";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { PasswordInput } from "@amodeo/proclaimer/ui/components/inputs/password/PasswordInput";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { supabase } from "@util/vendor/supabase/supabase-client";
 
 interface PasswordSignInModalProps {

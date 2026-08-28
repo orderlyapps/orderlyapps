@@ -1,4 +1,4 @@
-import { Select } from "@ui/components/inputs/select/Select";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { eventTypeSchema } from "@amodeo/proclaimer/feature/event";
 import type { EventFormFieldProps } from "./types";
 import { CircuitAssemblyForm } from "./components/circuit-assembly-form/CircuitAssemblyForm";

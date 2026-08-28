@@ -1,8 +1,8 @@
 import { IonItem, IonLabel, IonList, IonIcon, IonContent } from "@ionic/react";
 import { add, trash } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { TextInput } from "@ui/components/inputs/text/TextInput";
-import { TimeIncrementInput } from "@ui/components/inputs/increment-input/time-increment-input/TimeIncrementInput";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
+import { TimeIncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/time-increment-input/TimeIncrementInput";
 import type { StudySection } from "@proclaimer-content/pages/home/congregation-bible-study/congregation-bible-study-content/hooks/useStudies";
 import { SectionEditHeader } from "./components/section-edit-header/SectionEditHeader";
 import { SectionEditNavigation } from "./components/section-edit-navigation/SectionEditNavigation";

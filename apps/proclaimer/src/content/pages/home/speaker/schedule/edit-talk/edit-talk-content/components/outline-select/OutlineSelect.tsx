@@ -1,4 +1,4 @@
-import { Select } from "@ui/components/inputs/select/Select";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 
 const EDIT_OUTLINES_VALUE = "edit_outlines";

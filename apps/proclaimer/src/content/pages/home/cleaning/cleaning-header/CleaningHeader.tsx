@@ -1,5 +1,5 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton, IonButton } from "@ionic/react";
-import { Icon } from "@ui/components/icons/Icon";
+import { Icon } from "@amodeo/proclaimer/ui/components/icons/Icon";
 
 export function CleaningHeader() {
   return (

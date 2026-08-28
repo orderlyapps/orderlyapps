@@ -1,6 +1,6 @@
 import { IonAlert, IonList } from "@ionic/react";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { OutlineForm } from "./components/outline-form/OutlineForm";
 import { OutlineList } from "./components/outline-list/OutlineList";
 import { useOutlineManagement } from "./hooks/use-outline-management/useOutlineManagement";

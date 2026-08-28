@@ -2,9 +2,9 @@ import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonIcon, IonSkeletonText } from "@ionic/react";
 import { checkmark } from "ionicons/icons";
 import { useLiveQuery } from "@tanstack/react-db";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { SearchInput } from "@ui/components/inputs/search/SearchInput";
-import { Body } from "@ui/components/display/text/body/Body";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import {

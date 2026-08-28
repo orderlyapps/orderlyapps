@@ -1,6 +1,6 @@
 import { IonList, IonItem, IonNote, IonButton } from "@ionic/react";
-import { PasswordInput } from "@ui/components/inputs/password/PasswordInput";
-import { Space } from "@ui/components/layout/space/Space";
+import { PasswordInput } from "@amodeo/proclaimer/ui/components/inputs/password/PasswordInput";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface UpdatePasswordFormProps {
   email: string;

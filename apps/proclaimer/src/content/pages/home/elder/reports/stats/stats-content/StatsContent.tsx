@@ -1,8 +1,8 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { reportCollection } from "@amodeo/proclaimer/database/collections/report";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { StatItem } from "./components/stat-item/StatItem";
 import { useIsCongregationAdmin } from "./hooks/useIsCongregationAdmin";
 

@@ -1,4 +1,4 @@
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { QRCodeSVG } from "qrcode.react";
 
 const APP_URL = "https://proclaimer.app";

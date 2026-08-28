@@ -1,7 +1,7 @@
 import { IonItemDivider, IonList } from "@ionic/react";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { useBranchReportData } from "./hooks/use-branch-report-data/useBranchReportData";
 
 export function BranchReportContent() {

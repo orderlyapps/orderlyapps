@@ -1,5 +1,5 @@
 import { IonToolbar, IonTitle, IonBackButton, IonButtons } from "@ionic/react";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { useHistory } from "react-router-dom";
 

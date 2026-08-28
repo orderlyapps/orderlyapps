@@ -2,7 +2,7 @@ import { addWeeks } from "date-fns/addWeeks";
 import { addMonths } from "date-fns/addMonths";
 import { parseISO } from "date-fns/parseISO";
 import { format } from "date-fns/format";
-import { Select } from "@ui/components/inputs/select/Select";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import { getWeekStart } from "@proclaimer-shared/util/date/getWeekStart";
 

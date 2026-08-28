@@ -1,6 +1,6 @@
 import { IonItem, IonLabel, IonList, IonCheckbox } from "@ionic/react";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { ParsedRow } from "../../../csv-upload/CsvUpload";
 
 interface DuplicateReviewProps {

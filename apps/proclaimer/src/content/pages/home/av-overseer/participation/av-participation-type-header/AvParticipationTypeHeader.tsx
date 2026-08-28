@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
 import { AddAvParticipantModal } from "@proclaimer-content/pages/home/av-overseer/participation/shared/components/add-av-participant-modal/AddAvParticipantModal";
 
 interface AvParticipationTypeHeaderProps {

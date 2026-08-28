@@ -11,8 +11,8 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { filterOutline } from "ionicons/icons";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { MapList } from "./components/MapList";
 import { MyMapsList } from "./components/MyMapsList";
 import { RecentMapsList } from "./components/RecentMapsList";
@@ -21,8 +21,8 @@ import { MapFilterModal } from "./components/map-filter-modal/MapFilterModal";
 import { useRecentMaps } from "./hooks/useRecentMaps";
 import { useMinistryMapPresets } from "./hooks/useMinistryMapPresets";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type MapWithBoundary = MapRow & { boundary: number[][] };
 

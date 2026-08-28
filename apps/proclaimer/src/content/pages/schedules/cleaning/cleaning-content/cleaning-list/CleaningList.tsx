@@ -4,7 +4,7 @@ import { cleanMajorCollection } from "@amodeo/proclaimer/database/collections/cl
 import { cleanMinorCollection } from "@amodeo/proclaimer/database/collections/clean-minor";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { groupCleaningByMonth } from "./groupCleaningByMonth";
 import { CleaningMonthGroup } from "./components/cleaning-month-group/CleaningMonthGroup";
 

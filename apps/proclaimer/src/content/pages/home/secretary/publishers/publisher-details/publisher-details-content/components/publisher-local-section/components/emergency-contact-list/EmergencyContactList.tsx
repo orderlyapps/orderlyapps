@@ -2,10 +2,10 @@ import { useState } from "react";
 import { IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
 import type { EmergencyContact } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { EmergencyContactModal } from "./components/emergency-contact-modal/EmergencyContactModal";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { Space } from "@ui/components/layout/space/Space";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type Contact = NonNullable<EmergencyContact>[number];
 

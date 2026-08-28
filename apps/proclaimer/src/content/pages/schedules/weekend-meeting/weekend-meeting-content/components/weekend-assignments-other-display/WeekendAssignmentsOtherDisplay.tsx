@@ -4,7 +4,7 @@ import { publisherCollection } from "@amodeo/proclaimer/database/collections/pub
 import { and, eq } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 
 type WeekendAssignmentsOtherDisplayProps = {
   weekId: string;

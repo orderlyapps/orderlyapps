@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, useIonAlert } from "@ionic/react";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import { Body } from "@ui/components/display/text/body/Body";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 
 export function ArchivePublisherButton({
   publisher_id,

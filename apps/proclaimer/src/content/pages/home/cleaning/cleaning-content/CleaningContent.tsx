@@ -1,5 +1,5 @@
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Space } from "@ui/components/layout/space/Space";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { CleaningScheduleList } from "./components/cleaning-schedule-list/CleaningScheduleList";
 import { useCleaningSchedules } from "./components/use-cleaning-schedules/useCleaningSchedules";
 

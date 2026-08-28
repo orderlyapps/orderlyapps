@@ -1,7 +1,7 @@
 import { IonSpinner } from "@ionic/react";
-import { Body } from "@ui/components/display/text/body/Body";
-import { FileUploadButton } from "@ui/components/inputs/file/FileUploadButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { FileUploadButton } from "@amodeo/proclaimer/ui/components/inputs/file/FileUploadButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface EpubUploadProps {
   on_file_select: (file: File) => void;

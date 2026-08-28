@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonItem, IonLabel } from "@ionic/react";
-import { FileUploadButton } from "@ui/components/inputs/file/FileUploadButton";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { FileUploadButton } from "@amodeo/proclaimer/ui/components/inputs/file/FileUploadButton";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 export interface ParsedRow {
   map_name: string;

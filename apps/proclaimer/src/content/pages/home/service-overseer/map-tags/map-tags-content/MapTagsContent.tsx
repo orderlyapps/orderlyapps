@@ -16,7 +16,7 @@ import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collecti
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
 import type { MapTagAssignmentRow } from "@amodeo/proclaimer/database/schemas/map-tag-assignment";
-import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 
 type MapTagsContentProps = {
   showAddAlert: boolean;

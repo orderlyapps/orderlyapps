@@ -1,4 +1,4 @@
-import { ConfirmationAlert } from "@ui/components/display/alert/ConfirmationAlert";
+import { ConfirmationAlert } from "@amodeo/proclaimer/ui/components/display/alert/ConfirmationAlert";
 import { handleDeleteLetterWritingAddress } from "../../handlers/handle-delete-letter-writing-address";
 
 type Props = {

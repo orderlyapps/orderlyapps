@@ -1,4 +1,4 @@
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { WeekendParticipantPublishersList } from "@proclaimer-content/pages/home/weekend/participation/shared/components/weekend-participant-publishers-list/WeekendParticipantPublishersList";
 
 interface ParticipationTypeContentProps {

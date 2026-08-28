@@ -4,8 +4,8 @@ import { format } from "date-fns";
 import { eventCollection } from "@amodeo/proclaimer/feature/event";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { groupEventsByMonth } from "../groupEventsByMonth";
 import { EventMonthGroup } from "../components/event-month-group/EventMonthGroup";
 

@@ -1,6 +1,6 @@
 import { IonChip } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface ParticipationSectionProps {
   title: string;

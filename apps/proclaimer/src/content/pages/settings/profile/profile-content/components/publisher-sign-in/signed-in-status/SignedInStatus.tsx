@@ -1,8 +1,8 @@
 import type { Session } from "@supabase/supabase-js";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { UpdatePasswordModal } from "../update-password-modal/UpdatePasswordModal";
 import { supabase } from "@util/vendor/supabase/supabase-client";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface SignedInStatusProps {
   session: Session;

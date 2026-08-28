@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Select } from "@ui/components/inputs/select/Select";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import type {
   CleaningScheduleOption,
   CleaningWeek,
 } from "../use-cleaning-schedules/useCleaningSchedules";
 import { IonItem, IonLabel } from "@ionic/react";
-import { Label } from "@ui/components/display/text/label/Label";
-import { Space } from "@ui/components/layout/space/Space";
+import { Label } from "@amodeo/proclaimer/ui/components/display/text/label/Label";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface CleaningWeekCardProps {
   week: CleaningWeek;

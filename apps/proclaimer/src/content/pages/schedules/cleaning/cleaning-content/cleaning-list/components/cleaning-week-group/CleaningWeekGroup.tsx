@@ -1,5 +1,5 @@
 import { IonItem, IonLabel } from "@ionic/react";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import type { WeekGroup } from "../../groupCleaningByMonth";
 
 interface CleaningWeekGroupProps {

@@ -42,6 +42,7 @@ export function getStoredFontSize(): FontSize | null {
 export function setStoredFontSize(size: FontSize): void {
   localStorage.setItem(localStorageKeys.fontSize, size);
   notifyFontSizeChange(size);
+  window.dispatchEvent(new Event("font-size-change"));
 }
 
 export function applyFontSize(size: FontSize): void {

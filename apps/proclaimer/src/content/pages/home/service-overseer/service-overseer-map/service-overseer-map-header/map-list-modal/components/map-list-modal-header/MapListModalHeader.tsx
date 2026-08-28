@@ -8,8 +8,8 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { filterOutline } from "ionicons/icons";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 
 type MapListModalHeaderProps = {
   search_query: string;

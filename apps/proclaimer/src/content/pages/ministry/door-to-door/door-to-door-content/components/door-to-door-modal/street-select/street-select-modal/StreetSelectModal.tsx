@@ -13,8 +13,8 @@ import {
   IonSearchbar,
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import type { Street } from "@amodeo/proclaimer/database/schemas/street";

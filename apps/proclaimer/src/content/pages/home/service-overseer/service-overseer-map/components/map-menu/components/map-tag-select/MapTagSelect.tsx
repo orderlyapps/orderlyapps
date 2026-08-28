@@ -3,7 +3,7 @@ import { IonChip, IonLabel } from "@ionic/react";
 import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
 import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collections/map-tag-assignment";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { AlertMultiSelect } from "@ui/components/inputs/alert-multi-select/AlertMultiSelect";
+import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
 import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
 import type { MapTagAssignmentRow } from "@amodeo/proclaimer/database/schemas/map-tag-assignment";
 

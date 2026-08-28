@@ -1,5 +1,5 @@
 import { IonButtons, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 
 interface SectionEditHeaderProps {
   title: string;

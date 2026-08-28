@@ -6,10 +6,10 @@ import { publisherCollection } from "@amodeo/proclaimer/database/collections/pub
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { Label } from "@ui/components/display/text/label/Label";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { Label } from "@amodeo/proclaimer/ui/components/display/text/label/Label";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { CheckoutModal } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/checkout-modal/CheckoutModal";
 
 function formatDate(date_str: string | null | undefined): string {

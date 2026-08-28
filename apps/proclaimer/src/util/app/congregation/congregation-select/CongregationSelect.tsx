@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
+import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { CongregationSelectModal } from "./congregation-select-modal/CongregationSelectModal";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 

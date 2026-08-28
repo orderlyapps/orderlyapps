@@ -1,11 +1,11 @@
 import { IonItem, IonLabel } from "@ionic/react";
-import { PhoneInput } from "@ui/components/inputs/phone/PhoneInput";
-import { Select } from "@ui/components/inputs/select/Select";
-import { IncrementInput } from "@ui/components/inputs/increment-input/IncrementInput";
-import { TextInput } from "@ui/components/inputs/text/TextInput";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
-import { Body } from "@ui/components/display/text/body/Body";
+import { PhoneInput } from "@amodeo/proclaimer/ui/components/inputs/phone/PhoneInput";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { IncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/IncrementInput";
+import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useSubmitMinistryTime } from "./use-submit-ministry-time";
 
 export function SubmitMinistryTime() {

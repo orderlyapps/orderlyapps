@@ -1,4 +1,4 @@
-import { Select } from "@ui/components/inputs/select/Select";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 
 const VISIT_TYPE_OPTIONS = [
   { label: "Return", value: "return" },

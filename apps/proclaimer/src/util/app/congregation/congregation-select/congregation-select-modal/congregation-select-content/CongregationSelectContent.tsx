@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonList, IonIcon, IonSkeletonText, IonAlert } from "@ionic/react";
 import { checkmark } from "ionicons/icons";
 import { useState } from "react";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { useLiveQuery, isNull } from "@tanstack/react-db";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";

@@ -2,8 +2,8 @@ import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { PublisherNameInput } from "@proclaimer-shared/publisher/components/publisher-name-input/PublisherNameInput";
-import { Select } from "@ui/components/inputs/select/Select";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 
 const GENDER_OPTIONS = [
   { label: "Male", value: "male" },

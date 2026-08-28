@@ -1,7 +1,7 @@
 import type React from "react";
 import { IonChip } from "@ionic/react";
-import { Select } from "@ui/components/inputs/select/Select";
-import { AlertMultiSelect } from "@ui/components/inputs/alert-multi-select/AlertMultiSelect";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { PublisherFilter } from "../../../../hooks/use-publisher-filter/types";
 import { archivedOptions, filterLabels } from "../../../../hooks/use-publisher-filter/types";

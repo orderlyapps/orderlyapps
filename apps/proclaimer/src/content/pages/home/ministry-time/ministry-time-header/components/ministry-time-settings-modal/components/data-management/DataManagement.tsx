@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonText, useIonAlert } from "@ionic/react";
-import { FileUploadButton } from "@ui/components/inputs/file/FileUploadButton";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { FileUploadButton } from "@amodeo/proclaimer/ui/components/inputs/file/FileUploadButton";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import {
   exportMinistryTimeData,
   importMinistryTimeData,

@@ -4,7 +4,7 @@ import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midw
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import { JW_BROWN, JW_RED, JW_SLATE } from "@ui/colors/jwColors";
+import { JW_BROWN, JW_RED, JW_SLATE } from "@amodeo/proclaimer/ui/colors/jwColors";
 import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";
 import { hasAssignment } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/has-assignment";
 import { document, paragraph, text, table, row, cell, sectionHeading, title } from "./primitives";

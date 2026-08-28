@@ -7,7 +7,7 @@ import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/mid
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { chairmansOutlineDocX } from "../../../docx/chairmansOutlineDocX";
 import { DocXDownloadButton } from "../docx-download-button/DocXDownloadButton";
 

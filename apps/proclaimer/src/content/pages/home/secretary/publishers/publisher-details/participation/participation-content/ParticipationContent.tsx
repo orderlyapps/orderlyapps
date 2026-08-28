@@ -5,8 +5,8 @@ import { weekendParticipationCollection } from "@amodeo/proclaimer/database/coll
 import { avParticipationTypeLabels } from "@proclaimer-content/pages/home/av-overseer/participation/shared/constants/avParticipationTypeLabels";
 import { weekendParticipationTypeLabels } from "@proclaimer-content/pages/home/weekend/participation/shared/constants/weekendParticipationTypeLabels";
 import { midweekParticipationTypeLabels } from "@proclaimer-content/pages/home/clam-overseer/participation/shared/constants/midweekParticipationTypeLabels";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { ParticipationSection } from "./components/participation-section/ParticipationSection";
 
 export function ParticipationContent({ publisher_id }: { publisher_id: string }) {

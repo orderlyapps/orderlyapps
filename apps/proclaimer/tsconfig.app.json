@@ -28,7 +28,6 @@
       "@proclaimer-routes/*": ["./src/routes/*"],
       "@proclaimer-shared/*": ["./src/apps/proclaimer/shared/*"],
       "@shared/*": ["./src/shared/*"],
-      "@ui/*": ["./src/ui/*"],
       "@util/*": ["./src/util/*"]
     }
   },

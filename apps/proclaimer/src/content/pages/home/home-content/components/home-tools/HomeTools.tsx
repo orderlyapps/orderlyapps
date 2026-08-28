@@ -1,6 +1,6 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
 import { useChairmanWeeks } from "@proclaimer-content/pages/home/clam-chairman/useChairmanWeeks";

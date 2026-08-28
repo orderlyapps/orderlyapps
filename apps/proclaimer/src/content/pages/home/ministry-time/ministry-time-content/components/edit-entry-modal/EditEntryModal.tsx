@@ -1,6 +1,6 @@
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonContent } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
 import type { MinistryTimeEntry } from "../../hooks/useMinistryTime";
 import type { MinistryType } from "@amodeo/proclaimer/database/rxdb/collections/ministry-time";

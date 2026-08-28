@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { IonButtons, IonContent, IonHeader, IonToolbar, IonTitle } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { OtpSignIn } from "./components/otp-sign-in/OtpSignIn";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 
 interface OtpSignInModalProps {
   publisher_id: string;

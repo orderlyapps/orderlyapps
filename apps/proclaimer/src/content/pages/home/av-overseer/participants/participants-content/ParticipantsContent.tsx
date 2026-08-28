@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonSkeletonText } from "@ionic/react";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Select } from "@ui/components/inputs/select/Select";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import {
   avParticipationTypeLabels,
   avParticipationTypes,

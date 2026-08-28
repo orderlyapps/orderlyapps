@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { IonAlert, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Select } from "@ui/components/inputs/select/Select";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { PublisherNameInput } from "@proclaimer-shared/publisher/components/publisher-name-input/PublisherNameInput";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
-import type { NameValue } from "@ui/components/inputs/name/NameInput";
+import type { NameValue } from "@amodeo/proclaimer/ui/components/inputs/name/NameInput";
 
 const ADD_NEW_CONGREGATION_VALUE = "add_new";
 

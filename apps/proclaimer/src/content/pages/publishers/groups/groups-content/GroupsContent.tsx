@@ -3,15 +3,15 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { isListablePublisher } from "@proclaimer-content/pages/home/secretary/groups/group-details/group-details-content/groupPublisherUtils";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 
 export function GroupsContent() {
   const { has_elder, has_congregation_admin, is_super_admin } = usePermissions();

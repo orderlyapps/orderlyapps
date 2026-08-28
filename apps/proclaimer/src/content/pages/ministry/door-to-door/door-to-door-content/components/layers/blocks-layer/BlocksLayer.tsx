@@ -1,7 +1,7 @@
 import { Source, Layer } from "react-map-gl/mapbox";
 import { useSelectedMapBlocks } from "./hooks/useSelectedMapBlocks";
 import { useTheme } from "@util/app/theme/hooks/use-theme";
-import { JW_BLUE } from "@ui/colors/jwColors";
+import { JW_BLUE } from "@amodeo/proclaimer/ui/colors/jwColors";
 
 export function BlocksLayer() {
   const { polygons, lines, lineEndpoints } = useSelectedMapBlocks();

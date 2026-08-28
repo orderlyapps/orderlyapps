@@ -1,7 +1,7 @@
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonIcon, IonButton } from "@ionic/react";
 import { camera, cameraOutline } from "ionicons/icons";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 
 type Props = {
   is_map: boolean;

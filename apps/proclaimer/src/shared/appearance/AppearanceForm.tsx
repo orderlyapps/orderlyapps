@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { useFontSize } from "@util/app/font-size/hooks/use-font-size";
 import type { FontSize } from "@util/app/font-size/types";
 import { FontSizeSelector } from "@util/app/font-size/font-size-selector/FontSizeSelector";

@@ -1,5 +1,5 @@
 import { IonAccordion, IonItem, IonLabel } from "@ionic/react";
-import { Label } from "@ui/components/display/text/label/Label";
+import { Label } from "@amodeo/proclaimer/ui/components/display/text/label/Label";
 import { AddressRow } from "../address-row/AddressRow";
 import type { StreetGroup as StreetGroupType } from "../../util/groupBySuburbAndStreet";
 

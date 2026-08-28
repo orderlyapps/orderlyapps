@@ -13,11 +13,14 @@
     "url": "git+https://github.com/author/library.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/ui/css"
   ],
   "type": "module",
   "exports": {
     ".": {
+      "types@development": "./src/index.ts",
+      "development": "./src/index.ts",
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     },
@@ -31,6 +34,22 @@
       "types": "./dist/feature/*/index.d.mts",
       "import": "./dist/feature/*/index.mjs"
     },
+    "./ui/components/*": {
+      "development": "./src/ui/components/*.tsx",
+      "types": "./dist/ui/components/*.d.mts",
+      "import": "./dist/ui/components/*.mjs"
+    },
+    "./ui/components/inputs/address/types": {
+      "development": "./src/ui/components/inputs/address/types.ts",
+      "types": "./dist/ui/components/inputs/address/types.d.mts",
+      "import": "./dist/ui/components/inputs/address/types.mjs"
+    },
+    "./ui/colors/jwColors": {
+      "development": "./src/ui/colors/jwColors.ts",
+      "types": "./dist/ui/colors/jwColors.d.mts",
+      "import": "./dist/ui/colors/jwColors.mjs"
+    },
+    "./ui/css/index.css": "./src/ui/css/index.css",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -50,6 +69,9 @@
     "@ionic/react": "catalog:",
     "@ionic/react-router": "catalog:",
     "@mapbox/mapbox-gl-draw": "catalog:",
+    "@maskito/core": "catalog:",
+    "@maskito/phone": "catalog:",
+    "@maskito/react": "catalog:",
     "@react-pdf/renderer": "catalog:",
     "@supabase/supabase-js": "catalog:",
     "@tanstack/browser-db-sqlite-persistence": "catalog:",
@@ -59,6 +81,7 @@
     "@tanstack/rxdb-db-collection": "catalog:",
     "date-fns": "catalog:",
     "ionicons": "catalog:",
+    "libphonenumber-js": "^1.11.21",
     "react": "catalog:",
     "rxdb": "catalog:",
     "zod": "catalog:"

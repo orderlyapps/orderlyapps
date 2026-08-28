@@ -1,6 +1,6 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList, IonNote } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
 import { useInactivePublishers } from "./hooks/use-inactive-publishers/useInactivePublishers";

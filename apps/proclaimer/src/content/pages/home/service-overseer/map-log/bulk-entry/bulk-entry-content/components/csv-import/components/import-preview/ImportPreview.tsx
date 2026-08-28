@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonAlert } from "@ionic/react";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { ParsedRow } from "../csv-upload/CsvUpload";
 
 interface ImportPreviewProps {

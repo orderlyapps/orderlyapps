@@ -1,5 +1,5 @@
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type {
   CleaningMonth,
   CleaningScheduleOption,
@@ -7,7 +7,7 @@ import type {
 import { CleaningWeekCard } from "../cleaning-week-card/CleaningWeekCard";
 import { Fragment } from "react";
 import { IonItemDivider } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 
 interface CleaningScheduleListProps {
   months: CleaningMonth[];

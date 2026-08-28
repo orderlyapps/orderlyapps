@@ -1,5 +1,5 @@
 import { IonItem, IonListHeader } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { ReturnVisitListItem } from "../return-visit-list-item/ReturnVisitListItem";
 import type { SortMode } from "../sort-control/SortControl";
 import type { ReturnVisit } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/return-visit-source/types";

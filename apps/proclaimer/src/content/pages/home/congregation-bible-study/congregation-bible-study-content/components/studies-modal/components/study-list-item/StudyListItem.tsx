@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonNote, IonButtons, IonIcon } from "@ionic/react";
 import { checkmark } from "ionicons/icons";
-import { RenameIconButton } from "@ui/components/inputs/button/icon/rename/RenameIconButton";
-import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
+import { RenameIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/rename/RenameIconButton";
+import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 import type { Study } from "@proclaimer-content/pages/home/congregation-bible-study/congregation-bible-study-content/hooks/useStudies";
 
 interface StudyListItemProps {

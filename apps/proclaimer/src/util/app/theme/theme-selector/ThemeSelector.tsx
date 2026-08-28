@@ -1,4 +1,4 @@
-import { Select } from "@ui/components/inputs/select/Select";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import type { ThemeMode } from "@util/app/theme/types";
 
 interface ThemeSelectorProps {

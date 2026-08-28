@@ -1,6 +1,6 @@
 import { IonContent } from "@ionic/react";
 import { MapStyleSelect } from "@util/vendor/mapbox/MapStyleSelect";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
 import type { CustomLocalStyleSettings } from "@util/vendor/mapbox/customLocalStyleSettings";
 import type {
@@ -11,7 +11,7 @@ import type { ScreenshotSettings } from "@proclaimer-content/pages/home/service-
 import { ScreenshotSettingsSection } from "./components/screenshot-settings-section/ScreenshotSettingsSection";
 import { MapDetailsSection } from "./components/map-details-section/MapDetailsSection";
 import { MapActionsSection } from "./components/map-actions-section/MapActionsSection";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 
 type Props = {
   styleId: SelectableStyleId;

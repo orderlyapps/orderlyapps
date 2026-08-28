@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
 import { useChairmanWeeks } from "../useChairmanWeeks";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 
 const ChairmanDownloadButtons = lazy(() =>
   import("./components/chairman-download-buttons/ChairmanDownloadButtons").then((m) => ({

@@ -1,6 +1,6 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { BulkEntryIconButton } from "@ui/components/inputs/button/icon/bulk-entry/BulkEntryIconButton";
-import { SearchInput } from "@ui/components/inputs/search/SearchInput";
+import { BulkEntryIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/bulk-entry/BulkEntryIconButton";
+import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
 
 interface MapLogHeaderProps {
   search_term: string;

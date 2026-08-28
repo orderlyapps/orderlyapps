@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { pdf } from "@react-pdf/renderer";
-import { PDFIconButton } from "@ui/components/inputs/button/icon/pdf/PDFIconButton";
+import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
 import { ClamAssignmentPdf } from "../clam-assignment-pdf/ClamAssignmentPdf";
 import type { ClamAssignmentPdfData } from "../clam-assignment-pdf/ClamAssignmentPdf";
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { IonAlert, type AlertButton } from "@ionic/react";
 import { formatDistanceToNow, isValid } from "date-fns";
-import { ConfirmationAlert } from "@ui/components/display/alert/ConfirmationAlert";
+import { ConfirmationAlert } from "@amodeo/proclaimer/ui/components/display/alert/ConfirmationAlert";
 import type { DoNotCall } from "../../types";
 
 type DoNotCallAlertProps = {

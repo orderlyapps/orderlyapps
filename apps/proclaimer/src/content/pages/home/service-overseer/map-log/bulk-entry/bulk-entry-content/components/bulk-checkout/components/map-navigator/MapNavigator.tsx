@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { IonButton, IonIcon } from "@ionic/react";
 import { chevronBack, chevronForward } from "ionicons/icons";
-import { InputWrapper } from "@ui/components/display/input/InputWrapper";
-import { Body } from "@ui/components/display/text/body/Body";
+import { InputWrapper } from "@amodeo/proclaimer/ui/components/display/input/InputWrapper";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 

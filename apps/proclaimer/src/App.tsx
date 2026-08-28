@@ -136,7 +136,7 @@ import MinistryTimePage from "@proclaimer-routes/home/ministry-time/MinistryTime
 import WatchtowerToolPage from "@proclaimer-routes/home/watchtower/Watchtower";
 import CongregationBibleStudyPage from "@proclaimer-routes/home/congregation-bible-study/CongregationBibleStudy";
 import MeetingAttendancePage from "@proclaimer-routes/home/meeting-attendance/MeetingAttendance";
-import { Icon } from "@ui/components/icons/Icon";
+import { Icon } from "@amodeo/proclaimer/ui/components/icons/Icon";
 import { useOrientation } from "@util/hooks/use-orientation/use-orientation";
 // import { getPlatforms } from "@ionic/react";
 

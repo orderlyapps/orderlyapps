@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { MapIconButton } from "@ui/components/inputs/button/icon/map/MapIconButton";
-import { SettingsIconButton } from "@ui/components/inputs/button/icon/settings/SettingsIconButton";
-import { ReturnVisitIconButton } from "@ui/components/inputs/button/icon/return-visit/ReturnVisitIconButton";
+import { MapIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/map/MapIconButton";
+import { SettingsIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/settings/SettingsIconButton";
+import { ReturnVisitIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/return-visit/ReturnVisitIconButton";
 import { MapModal } from "./components/map-modal/MapModal";
 import { SettingsModal } from "./components/settings-modal/SettingsModal";
 import { ReturnVisitListModal } from "./components/return-visit-list-modal/ReturnVisitListModal";

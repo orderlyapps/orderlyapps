@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
 import { AddWeekendParticipantModal } from "@proclaimer-content/pages/home/weekend/participation/shared/components/add-weekend-participant-modal/AddWeekendParticipantModal";
 
 interface ParticipationTypeHeaderProps {

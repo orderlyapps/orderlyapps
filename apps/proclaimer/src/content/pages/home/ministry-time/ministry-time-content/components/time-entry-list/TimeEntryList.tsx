@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { Body } from "@ui/components/display/text/body/Body";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 import type { MinistryTimeEntry } from "../../hooks/useMinistryTime";
 import { MonthNavigation } from "./components/month-navigation/MonthNavigation";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { groupEntriesByWeek, formatWeekRange } from "./week-grouping";
 
 const CREDIT_TYPES = ["ldc", "bethel", "hlc", "school"];

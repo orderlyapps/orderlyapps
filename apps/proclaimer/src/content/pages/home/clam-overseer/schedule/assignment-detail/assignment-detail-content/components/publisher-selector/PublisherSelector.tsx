@@ -4,7 +4,7 @@ import { PublisherControls } from "./components/publisher-controls/PublisherCont
 import { PublisherSelectModal } from "../publisher-list/components/publisher-select-modal/PublisherSelectModal";
 import { PublisherSegment } from "./components/publisher-segment/PublisherSegment";
 import { ClearAssignmentButton } from "./components/clear-assignment-button/ClearAssignmentButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type {
   MidweekAssignment,

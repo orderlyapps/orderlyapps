@@ -1,9 +1,9 @@
 import { IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Select } from "@ui/components/inputs/select/Select";
-import { Space } from "@ui/components/layout/space/Space";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { sortOrderLabels } from "@proclaimer-content/pages/home/clam-overseer/schedule/assignment-detail/assignment-detail-content/components/publisher-selector/hooks/use-publisher-sort/types";
 import type { AvFilterSortPreset, AvPublisherFilter } from "../../hooks/use-av-presets/types";
 import type { PublisherSortOrder } from "../../hooks/use-av-presets/types";

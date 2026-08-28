@@ -1,4 +1,4 @@
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import type { AssignmentRow } from "../../helper/types";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 

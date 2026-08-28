@@ -1,7 +1,7 @@
 import { IonList } from "@ionic/react";
-import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { ImportPublisherDataButton } from "./components/import-publisher-data-button/ImportPublisherDataButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 export function SecretaryContent() {
   return (

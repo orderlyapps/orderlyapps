@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { PublisherSelectModal } from "./publisher-select-modal/PublisherSelectModal";
 import {
   getStoredPublisher,

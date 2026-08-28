@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
+import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { SuburbSelectModal } from "./suburb-select-modal/SuburbSelectModal";
 import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 

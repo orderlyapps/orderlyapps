@@ -11,7 +11,7 @@ import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midw
 import { PublisherList } from "../../../publisher-list/PublisherList";
 import { PublisherControls } from "../publisher-controls/PublisherControls";
 import { ClearAssignmentButton } from "../clear-assignment-button/ClearAssignmentButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { PublisherStats } from "../../hooks/use-publisher-stats/usePublisherStats";
 import type {
   FilterSortPreset,

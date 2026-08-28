@@ -2,9 +2,9 @@ import { useState } from "react";
 import { IonButton, IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addOutline, mailOutline } from "ionicons/icons";
 import type { Email } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { EmailAddModal } from "./components/email-add-modal/EmailAddModal";
 
 type EmailEntry = NonNullable<Email>[number];

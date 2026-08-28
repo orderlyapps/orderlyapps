@@ -9,9 +9,9 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Body } from "@ui/components/display/text/body/Body";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useParticipantPublishers } from "@proclaimer-content/pages/home/clam-overseer/participation/shared/hooks/useParticipantPublishers";
 import type { MidweekParticipation } from "@amodeo/proclaimer/database/schemas/midweek-participation";
 

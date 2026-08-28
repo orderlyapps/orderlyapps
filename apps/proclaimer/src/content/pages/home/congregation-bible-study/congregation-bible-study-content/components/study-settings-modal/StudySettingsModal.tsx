@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonContent, IonLabel } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { TimeInput } from "@ui/components/inputs/time/TimeInput";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { TimeInput } from "@amodeo/proclaimer/ui/components/inputs/time/TimeInput";
 import type { StudySection } from "@proclaimer-content/pages/home/congregation-bible-study/congregation-bible-study-content/hooks/useStudies";
 import { StudySettingsHeader } from "./components/study-settings-header/StudySettingsHeader";
 import { StudySettingsSectionList } from "./components/study-settings-section-list/StudySettingsSectionList";

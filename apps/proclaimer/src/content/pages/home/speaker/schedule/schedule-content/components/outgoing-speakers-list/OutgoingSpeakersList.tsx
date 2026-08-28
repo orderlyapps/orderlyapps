@@ -8,10 +8,10 @@ import { useStoredCongregation } from "@util/app/congregation/useStoredCongregat
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
-import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
+import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type OutgoingSpeakersListProps = { week_id: string };
 export function OutgoingSpeakersList({ week_id }: OutgoingSpeakersListProps) {

@@ -1,7 +1,7 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { useAssignments } from "@proclaimer-content/pages/home/assignments/useAssignments";
 import { AssignmentItem } from "@proclaimer-content/pages/home/assignments/components/assignment-item/AssignmentItem";
 import { localStorageKeys } from "@util/constants/localStorageKeys";

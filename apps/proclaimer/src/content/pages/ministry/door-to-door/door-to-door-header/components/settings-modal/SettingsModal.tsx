@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons } from "@ionic/react";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { MapDisplaySetting } from "./components/MapDisplaySetting";
 import { MapStyleSetting } from "./components/MapStyleSetting";
 import { QuickLinksSetting } from "./components/QuickLinksSetting";

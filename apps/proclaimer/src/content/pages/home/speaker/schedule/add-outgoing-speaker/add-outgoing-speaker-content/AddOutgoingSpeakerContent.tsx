@@ -1,6 +1,6 @@
-import { Select } from "@ui/components/inputs/select/Select";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { OutlineSelect } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-content/components/outline-select/OutlineSelect";
 import { EditSpeakerOutlinesModal } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-content/components/edit-speaker-outlines-modal/EditSpeakerOutlinesModal";
 import { AddCongregationAlert } from "@proclaimer-shared/components/add-congregation-alert/AddCongregationAlert";

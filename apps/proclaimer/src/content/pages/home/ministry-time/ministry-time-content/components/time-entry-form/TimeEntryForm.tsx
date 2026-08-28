@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { IonItem, IonList } from "@ionic/react";
-import { DateInput } from "@ui/components/inputs/date/DateInput";
-import { TimeInput } from "@ui/components/inputs/time/TimeInput";
-import { TextareaInput } from "@ui/components/inputs/textarea/TextareaInput";
-import { Select } from "@ui/components/inputs/select/Select";
-import { SaveTextButton } from "@ui/components/inputs/button/text/save/SaveTextButton";
-import { Space } from "@ui/components/layout/space/Space";
-import { Body } from "@ui/components/display/text/body/Body";
+import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
+import { TimeInput } from "@amodeo/proclaimer/ui/components/inputs/time/TimeInput";
+import { TextareaInput } from "@amodeo/proclaimer/ui/components/inputs/textarea/TextareaInput";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import {
   MINISTRY_TYPES,
   type MinistryType,

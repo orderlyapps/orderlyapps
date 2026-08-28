@@ -11,8 +11,8 @@ import {
   IonTitle,
 } from "@ionic/react";
 import { close, refresh } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { TimeInput } from "@ui/components/inputs/time/TimeInput";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { TimeInput } from "@amodeo/proclaimer/ui/components/inputs/time/TimeInput";
 import { SectionEditModal } from "../section-edit-modal/SectionEditModal";
 import type { WatchtowerSection } from "@proclaimer-content/pages/home/watchtower/watchtower-content/hooks/useWatchtowerSettings";
 

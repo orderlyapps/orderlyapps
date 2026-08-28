@@ -2,7 +2,7 @@ import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-na
 import { IonList } from "@ionic/react";
 // TODO: Create WeekEvents component or remove if not needed
 // import { WeekEvents } from "@feature/db/shared/week-events/WeekEvents";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { WeekendMeetingDisplay } from "./components/weekend-meeting-display/WeekendMeetingDisplay";
 import { WeekendAssignmentsDisplay } from "./components/weekend-assignments-display/WeekendAssignmentsDisplay";
 import { WeekendAttendantsDisplay } from "./components/weekend-attendants-display/WeekendAttendantsDisplay";

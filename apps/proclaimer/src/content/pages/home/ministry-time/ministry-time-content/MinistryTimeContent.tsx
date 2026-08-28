@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { useMinistryTime, type MinistryTimeEntry } from "./hooks/useMinistryTime";
 import { AddEntryFab } from "./components/add-entry-fab/AddEntryFab";
 import { TimeEntryList } from "./components/time-entry-list/TimeEntryList";

@@ -13,17 +13,17 @@ import {
   IonLabel,
 } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { TemplateEditor } from "./components/template-editor/TemplateEditor";
 import {
   type WeekendMeetingSmsTemplate,
   getWeekendMeetingSmsTemplates,
   saveWeekendMeetingSmsTemplates,
 } from "../../../shared/weekendMeetingSmsTemplate";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 
 interface SmsSettingsModalProps {
   is_open: boolean;

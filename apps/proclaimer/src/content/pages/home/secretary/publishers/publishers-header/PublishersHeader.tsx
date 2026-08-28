@@ -1,6 +1,6 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { SearchInput } from "@ui/components/inputs/search/SearchInput";
-import { AddIconButton } from "@ui/components/inputs/button/icon/add/AddIconButton";
+import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
 
 interface PublishersHeaderProps {
   searchTerm: string;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NumberInput } from "@ui/components/inputs/number/NumberInput";
+import { NumberInput } from "@amodeo/proclaimer/ui/components/inputs/number/NumberInput";
 
 interface ServiceYearInputProps {
   service_year: string;

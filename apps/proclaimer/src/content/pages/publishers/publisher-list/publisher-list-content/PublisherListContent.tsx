@@ -4,9 +4,9 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Space } from "@ui/components/layout/space/Space";
-import { Body } from "@ui/components/display/text/body/Body";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 
 type PublisherListContentProps = {
   filter: (publisher: Publisher) => boolean;

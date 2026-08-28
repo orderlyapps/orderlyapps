@@ -8,8 +8,8 @@ import {
   IonItem,
   IonText,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { getServiceYear } from "@util/format/service-year";
 import { usePioneerSettings } from "../../../hooks/usePioneerSettings";
 import { ServiceYearRow } from "./service-year-row/ServiceYearRow";

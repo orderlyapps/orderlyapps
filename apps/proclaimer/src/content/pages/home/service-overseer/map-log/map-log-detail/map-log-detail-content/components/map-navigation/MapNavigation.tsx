@@ -15,7 +15,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { chevronBackOutline, chevronForwardOutline } from "ionicons/icons";
 
 interface MapNavigationProps {

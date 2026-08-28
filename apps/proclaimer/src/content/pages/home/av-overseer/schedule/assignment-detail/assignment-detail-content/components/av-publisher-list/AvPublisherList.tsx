@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonList, IonNote } from "@ionic/react";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Space } from "@ui/components/layout/space/Space";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { AvPublisherFilter } from "../../hooks/use-av-presets/types";
 import type { PublisherSortOrder } from "../../hooks/use-av-presets/types";
 import type { AvPublisherStats } from "../../hooks/use-av-publisher-stats/useAvPublisherStats";

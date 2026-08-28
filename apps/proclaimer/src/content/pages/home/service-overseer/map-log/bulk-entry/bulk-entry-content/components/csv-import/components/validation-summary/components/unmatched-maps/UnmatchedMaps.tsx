@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonItem, IonList } from "@ionic/react";
-import { ModalSelect } from "@ui/components/inputs/modal-select/ModalSelect";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
+import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { MapSelectModal } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/checkout-modal/components/map-select-modal/MapSelectModal";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 

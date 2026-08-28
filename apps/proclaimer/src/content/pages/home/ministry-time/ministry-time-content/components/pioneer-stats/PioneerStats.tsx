@@ -2,7 +2,7 @@ import { IonGrid, IonRow, IonCol } from "@ionic/react";
 import type { MinistryTimeEntry } from "../../hooks/useMinistryTime";
 import { usePioneerStats } from "../../hooks/usePioneerStats";
 import { StatItem } from "./stat-item/StatItem";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface PioneerStatsProps {
   entries: MinistryTimeEntry[];

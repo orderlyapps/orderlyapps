@@ -16,8 +16,8 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import { mapMasterCollection } from "@amodeo/proclaimer/database/collections/map-master";
 import { searchSuburbs } from "@util/vendor/mapbox/helper/searchSuburbs";

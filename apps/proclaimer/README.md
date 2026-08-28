@@ -34,10 +34,6 @@ src/
   global/       # App-wide state and configuration
   routes/
     pages/      # Route page components (IonPage wrappers only)
-  ui/
-    colors/     # Design tokens
-    components/ # Shared UI components
-    css/        # Global styles
   main.tsx      # Entry point
 ```
 
@@ -49,4 +45,3 @@ src/
 | `@content` | `src/content/` |
 | `@global`  | `src/global/`  |
 | `@routes`  | `src/routes/`  |
-| `@ui`      | `src/ui/`      |

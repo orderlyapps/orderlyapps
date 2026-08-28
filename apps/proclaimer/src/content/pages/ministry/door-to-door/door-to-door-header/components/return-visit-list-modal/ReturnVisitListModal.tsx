@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonHeader, IonToolbar, IonTitle, IonButtons, IonContent, IonList } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { useAllReturnVisits } from "./hooks/useAllReturnVisits";
 import { SortControl, type SortMode } from "./components/sort-control/SortControl";
 import { SortedList } from "./components/sorted-list/SortedList";

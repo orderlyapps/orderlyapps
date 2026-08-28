@@ -1,4 +1,4 @@
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 
 export function CobeContent() {
   return (

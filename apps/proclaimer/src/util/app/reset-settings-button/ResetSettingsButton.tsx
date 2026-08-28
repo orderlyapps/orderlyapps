@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ConfirmationAlert } from "@ui/components/display/alert/ConfirmationAlert";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { ConfirmationAlert } from "@amodeo/proclaimer/ui/components/display/alert/ConfirmationAlert";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { clearStoredCongregation } from "@util/app/congregation/utils";
 import { clearStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
 import { setStoredFontSize, applyFontSize, DEFAULT_FONT_SIZE } from "@util/app/font-size/utils";

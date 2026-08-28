@@ -1,8 +1,8 @@
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import type { ParsedMeetingData as MeetingData } from "../../services/clam-data-service";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface DataPreviewProps {
   data: MeetingData[];

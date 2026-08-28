@@ -1,5 +1,5 @@
 import { IonList } from "@ionic/react";
-import { NavItem } from "@ui/components/navigation/nav-item/NavItem";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 
 export function PdfsContent() {
   return (

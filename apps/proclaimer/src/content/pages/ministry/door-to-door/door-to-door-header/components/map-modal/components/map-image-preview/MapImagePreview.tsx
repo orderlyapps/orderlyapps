@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import { IonButton, IonIcon } from "@ionic/react";
 import { close } from "ionicons/icons";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface Props {
   url: string;

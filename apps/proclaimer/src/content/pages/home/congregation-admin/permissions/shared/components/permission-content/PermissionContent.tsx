@@ -1,6 +1,6 @@
 import type React from "react";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
+import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 
 interface PermittedPublisher {
   id: string;

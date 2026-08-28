@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { IonButtons, IonContent, IonHeader, IonList, IonTitle, IonToolbar } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Select } from "@ui/components/inputs/select/Select";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { Space } from "@ui/components/layout/space/Space";
-import { NumberInput } from "@ui/components/inputs/number/NumberInput";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { NumberInput } from "@amodeo/proclaimer/ui/components/inputs/number/NumberInput";
 
 export type CreditHours = Partial<Record<"ldc" | "bethel" | "hlc" | "school", number>>;
 export type CreditType = keyof CreditHours;

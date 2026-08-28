@@ -2,7 +2,6 @@
   "files": [],
   "compilerOptions": {
     "paths": {
-      "@ui/*": ["./src/ui/*"],
       "@util/*": ["./src/util/*"]
     }
   },

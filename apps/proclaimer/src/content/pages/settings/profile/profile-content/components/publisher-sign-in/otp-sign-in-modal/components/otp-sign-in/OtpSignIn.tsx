@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { IonList, IonItem, IonNote, IonSpinner } from "@ionic/react";
-import { Space } from "@ui/components/layout/space/Space";
-import { Body } from "@ui/components/display/text/body/Body";
-import { OtpInput } from "@ui/components/inputs/otp/OtpInput";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { OtpInput } from "@amodeo/proclaimer/ui/components/inputs/otp/OtpInput";
 import { supabase } from "@util/vendor/supabase/supabase-client";
 
 const OTP_LENGTH = 6;

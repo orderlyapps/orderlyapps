@@ -12,9 +12,9 @@ import {
   IonToolbar,
   useIonAlert,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { Space } from "@ui/components/layout/space/Space";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
 import type { PublisherLocal } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
 

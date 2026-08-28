@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonButtons, IonContent, IonHeader, IonTitle, IonToast, IonToolbar } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { useNotAtHomeMarkers } from "../../hooks/useNotAtHomeMarkers";
 import { handleDeleteNotAtHome } from "../../handlers/handleDeleteNotAtHome";
 import { handleToggleNotAtHomeWrite } from "../../handlers/handleToggleNotAtHomeWrite";

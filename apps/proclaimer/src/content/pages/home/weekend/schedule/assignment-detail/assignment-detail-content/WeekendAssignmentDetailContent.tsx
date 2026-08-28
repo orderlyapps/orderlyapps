@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonList } from "@ionic/react";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
-import { Space } from "@ui/components/layout/space/Space";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { useWeekendAssignmentData } from "./hooks/useWeekendAssignmentData";
 import { useWeekendAssignmentHandlers } from "./hooks/useWeekendAssignmentHandlers";
 import { WeekendAssignedPublisher } from "./components/weekend-assigned-publisher/WeekendAssignedPublisher";

@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonIcon, IonGrid, IonCol, IonRow } from "@ionic/react";
 import { checkmarkCircleOutline } from "ionicons/icons";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Label } from "@ui/components/display/text/label/Label";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Label } from "@amodeo/proclaimer/ui/components/display/text/label/Label";
 
 interface ReportItemProps {
   label: string;

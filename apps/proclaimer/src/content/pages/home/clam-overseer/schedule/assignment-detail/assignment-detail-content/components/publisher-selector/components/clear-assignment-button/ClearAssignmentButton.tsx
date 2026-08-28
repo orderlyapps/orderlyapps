@@ -1,4 +1,4 @@
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 
 interface ClearAssignmentButtonProps {
   on_click: () => void;

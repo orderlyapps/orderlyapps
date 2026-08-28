@@ -18,6 +18,15 @@ catalogs:
     '@mapbox/mapbox-gl-draw':
       specifier: ^1.5.1
       version: 1.5.1
+    '@maskito/core':
+      specifier: ^5.3.1
+      version: 5.3.1
+    '@maskito/phone':
+      specifier: ^5.3.1
+      version: 5.3.1
+    '@maskito/react':
+      specifier: ^5.3.1
+      version: 5.3.1
     '@puppeteer/browsers':
       specifier: 2.13.0
       version: 2.13.0
@@ -452,6 +461,15 @@ importers:
       '@mapbox/mapbox-gl-draw':
         specifier: 'catalog:'
         version: 1.5.1
+      '@maskito/core':
+        specifier: 'catalog:'
+        version: 5.3.1
+      '@maskito/phone':
+        specifier: 'catalog:'
+        version: 5.3.1(@maskito/core@5.3.1)(@maskito/kit@5.3.1(@maskito/core@5.3.1))(libphonenumber-js@1.13.10)
+      '@maskito/react':
+        specifier: 'catalog:'
+        version: 5.3.1(@maskito/core@5.3.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@react-pdf/renderer':
         specifier: 'catalog:'
         version: 4.5.1(react@19.2.8)
@@ -479,6 +497,9 @@ importers:
       ionicons:
         specifier: 'catalog:'
         version: 8.0.13
+      libphonenumber-js:
+        specifier: ^1.11.21
+        version: 1.13.10
       react:
         specifier: 'catalog:'
         version: 19.2.8

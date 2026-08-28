@@ -1,5 +1,5 @@
 import { IonCol, IonGrid, IonRow, IonText } from "@ionic/react";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import type { StudySection } from "@proclaimer-content/pages/home/congregation-bible-study/congregation-bible-study-content/hooks/useStudies";
 
 function formatCountdown(seconds: number): string {

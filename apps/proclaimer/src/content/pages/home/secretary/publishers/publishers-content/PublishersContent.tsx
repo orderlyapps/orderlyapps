@@ -2,16 +2,16 @@ import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
-import { Body } from "@ui/components/display/text/body/Body";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePresets } from "./hooks/use-presets/usePresets";
 import { filterPublishers } from "./hooks/use-publisher-filter/usePublisherFilter";
 import { FilterSelectModal } from "./components/filter-modal/FilterSelectModal";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 
 export function PublishersContent({ searchTerm }: { searchTerm: string }) {
   const [is_filter_modal_open, set_is_filter_modal_open] = useState(false);

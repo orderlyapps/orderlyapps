@@ -5,7 +5,7 @@ import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-lo
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { MapListItem } from "./map-list-item/MapListItem";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { Heading } from "@ui/components/display/text/heading/Heading";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";

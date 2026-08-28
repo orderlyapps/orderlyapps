@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonChip } from "@ionic/react";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 
 interface AvPublisherListItemProps {
   publisher: Publisher;

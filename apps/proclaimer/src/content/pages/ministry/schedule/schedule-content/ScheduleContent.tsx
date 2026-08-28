@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow } from "@ionic/react";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 export const ScheduleContent: React.FC = () => {
   const weeklySchedule = [

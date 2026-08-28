@@ -1,4 +1,4 @@
-import { RangeInput } from "@ui/components/inputs/range/RangeInput";
+import { RangeInput } from "@amodeo/proclaimer/ui/components/inputs/range/RangeInput";
 import type { ScreenshotSettings } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/screenshotSettings";
 import type { CustomLocalStyleSettings } from "@util/vendor/mapbox/customLocalStyleSettings";
 import type { SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";

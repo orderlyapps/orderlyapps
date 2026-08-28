@@ -13,7 +13,7 @@ import {
 import { addMonths } from "date-fns/addMonths";
 import { format } from "date-fns/format";
 import { parseISO } from "date-fns/parseISO";
-import { Body } from "@ui/components/display/text/body/Body";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { chevronBackOutline, chevronForwardOutline } from "ionicons/icons";
 
 interface MonthNavigationProps {

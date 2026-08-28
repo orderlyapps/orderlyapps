@@ -1,5 +1,5 @@
-import { AlertTextInput } from "@ui/components/inputs/alert-text/AlertTextInput";
-import { Space } from "@ui/components/layout/space/Space";
+import { AlertTextInput } from "@amodeo/proclaimer/ui/components/inputs/alert-text/AlertTextInput";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { SelectedMap } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/types";
 import { MapTagSelect } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/components/map-menu/components/map-tag-select/MapTagSelect";
 

@@ -4,12 +4,12 @@ import { reportCollection } from "@amodeo/proclaimer/database/collections/report
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import type { Report } from "@amodeo/proclaimer/database/schemas/report";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Space } from "@ui/components/layout/space/Space";
-import { TextButton } from "@ui/components/inputs/button/text/TextButton";
-import { NumberInput } from "@ui/components/inputs/number/NumberInput";
-import { ToggleInput } from "@ui/components/inputs/toggle/ToggleInput";
-import { TextareaInput } from "@ui/components/inputs/textarea/TextareaInput";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { NumberInput } from "@amodeo/proclaimer/ui/components/inputs/number/NumberInput";
+import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
+import { TextareaInput } from "@amodeo/proclaimer/ui/components/inputs/textarea/TextareaInput";
 import {
   HourCreditsModal,
   type CreditHours,

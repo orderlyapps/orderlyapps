@@ -1,5 +1,5 @@
 import { IonList } from "@ionic/react";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import type {
   AvAssignment,
   AvAssignmentID,

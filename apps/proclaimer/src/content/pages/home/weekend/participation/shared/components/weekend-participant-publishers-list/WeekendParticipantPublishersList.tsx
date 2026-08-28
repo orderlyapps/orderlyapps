@@ -1,9 +1,9 @@
 import { IonItem, IonLabel, IonList, IonSkeletonText } from "@ionic/react";
-import { MultiColumnList } from "@ui/components/display/multi-column-list/MultiColumnList";
-import { Body } from "@ui/components/display/text/body/Body";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useWeekendParticipantPublishers } from "@proclaimer-content/pages/home/weekend/participation/shared/hooks/useWeekendParticipantPublishers";
 import type { WeekendParticipation } from "@amodeo/proclaimer/database/schemas/weekend-participation";
-import { DeleteIconButton } from "@ui/components/inputs/button/icon/delete/DeleteIconButton";
+import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 
 interface WeekendParticipantPublishersListProps {
   participation_id: WeekendParticipation["participation_id"];

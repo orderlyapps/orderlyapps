@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { useLetterWritingAddresses } from "../../hooks/use-letter-writing-addresses/useLetterWritingAddresses";
 import { groupBySuburbAndStreet } from "../../util/groupBySuburbAndStreet";
 import { SuburbGroup } from "../suburb-group/SuburbGroup";

@@ -1,7 +1,7 @@
 import { IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { MapLogList } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-detail/map-log-detail-content/components/map-log-list/MapLogList";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 
 interface MapLogModalProps {
   isOpen: boolean;

@@ -8,18 +8,18 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@ui/components/inputs/button/icon/close/CloseIconButton";
-import { TextInput } from "@ui/components/inputs/text/TextInput";
-import { PhoneInput } from "@ui/components/inputs/phone/PhoneInput";
-import { Select } from "@ui/components/inputs/select/Select";
-import { DeleteTextButton } from "@ui/components/inputs/button/text/delete/DeleteTextButton";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
+import { PhoneInput } from "@amodeo/proclaimer/ui/components/inputs/phone/PhoneInput";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
 import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
 import type {
   EmergencyContact,
   Phone,
 } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type Contact = NonNullable<EmergencyContact>[number];
 type PhoneEntry = NonNullable<Phone>[number];

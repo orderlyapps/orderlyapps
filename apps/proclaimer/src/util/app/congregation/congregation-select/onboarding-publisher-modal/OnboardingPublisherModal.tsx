@@ -8,11 +8,11 @@ import {
   IonToolbar,
   IonList,
 } from "@ionic/react";
-import { ResponsiveModal } from "@ui/components/display/responsive-modal/ResponsiveModal";
-import { Heading } from "@ui/components/display/text/heading/Heading";
-import { Body } from "@ui/components/display/text/body/Body";
-import { Space } from "@ui/components/layout/space/Space";
-import { LabelValueItem } from "@ui/components/display/data/label-value/LabelValueItem";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { PublisherSelectContent } from "@proclaimer-content/pages/settings/profile/profile-content/components/publisher-select/publisher-select-modal/publisher-select-content/PublisherSelectContent";
 import { PublisherSignIn } from "@proclaimer-content/pages/settings/profile/profile-content/components/publisher-sign-in/PublisherSignIn";
 import {

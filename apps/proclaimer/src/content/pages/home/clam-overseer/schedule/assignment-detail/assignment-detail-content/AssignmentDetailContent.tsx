@@ -1,4 +1,4 @@
-import { Spinner } from "@ui/components/display/spinner/Spinner";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { AssignmentInfo } from "./components/assignment-info/AssignmentInfo";
 import { AssignedPublishers } from "./components/assigned-publishers/AssignedPublishers";
 import { PublisherSelector } from "./components/publisher-selector/PublisherSelector";
@@ -6,7 +6,7 @@ import { useAssignmentData } from "./hooks/use-assignment-data";
 import { useAssignmentHandlers } from "./hooks/use-assignment-handlers";
 import { useAssistantHandlers } from "./hooks/use-assistant-handlers";
 import { IonContent, IonHeader } from "@ionic/react";
-import { Space } from "@ui/components/layout/space/Space";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface AssignmentDetailContentProps {
   week_id: string;
