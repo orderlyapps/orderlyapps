@@ -65,7 +65,7 @@ export function useMissingDetails(filter: MissingDetailFilter = "all") {
   }
 
   const with_missing: PublisherWithMissingDetails[] = all_publishers
-    .filter((p) => p.id && !p.archived_at && p.first_name && p.last_name)
+    .filter((p) => p.id && !p.archived_at && p.first_name && p.last_name && p.type !== "speaker")
     .map((p) => {
       const local = local_map.get(p.id!) ?? null;
       return {
