@@ -22,6 +22,11 @@ export function getServiceYear(date: Date): string {
   return date >= sep1 ? `${year}-${year + 1}` : `${year - 1}-${year}`;
 }
 
+export function formatServiceYear(sy: string): string {
+  const [start, end] = sy.split("-");
+  return `${start} & ${end}`;
+}
+
 export function buildServiceYear(
   sy: string,
   reports: Map<string, Report>,

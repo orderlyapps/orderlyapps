@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
+import { formatServiceYear } from "../../../utils/service-year.ts";
 
 const W = ["15%", "12.5%", "12.5%", "12.5%", "12.5%", "35%"];
 
@@ -37,7 +38,7 @@ export function HeaderRow({ service_year }: { service_year: string }) {
           style={[styles.cellView, styles.headerCell, { width: W[i] }, borders(i, true)]}
         >
           <Text style={styles.headerText}>{label}</Text>
-          {i === 0 && <Text style={styles.headerSubText}>{service_year}</Text>}
+          {i === 0 && <Text style={styles.headerSubText}>{formatServiceYear(service_year)}</Text>}
         </View>
       ))}
     </View>

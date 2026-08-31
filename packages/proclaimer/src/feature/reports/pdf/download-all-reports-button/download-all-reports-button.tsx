@@ -8,7 +8,7 @@ import {
   getCurrentAndPreviousServiceYears,
   getPreviousTwoServiceYears,
 } from "../utils/service-year.ts";
-import { ServiceYearSelectModal } from "./components/service-year-select-modal/service-year-select-modal.tsx";
+import { ServiceYearActionSheet } from "./components/service-year-action-sheet/service-year-action-sheet.tsx";
 
 export function DownloadAllReportsButton() {
   const [is_modal_open, set_is_modal_open] = useState(false);
@@ -50,11 +50,10 @@ export function DownloadAllReportsButton() {
         ) : (
           <Icon name="download" slot="start" />
         )}
-        Download All
+        Download Records
       </IonButton>
-      <ServiceYearSelectModal
+      <ServiceYearActionSheet
         is_open={is_modal_open}
-        is_generating={is_generating}
         on_close={() => set_is_modal_open(false)}
         on_select_current_previous={handle_current_previous}
         on_select_previous_two={handle_previous_two}
