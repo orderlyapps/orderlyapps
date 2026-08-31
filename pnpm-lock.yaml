@@ -503,6 +503,9 @@ importers:
       react:
         specifier: 'catalog:'
         version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
       rxdb:
         specifier: 'catalog:'
         version: 17.4.0(react@19.2.8)(rxjs@7.8.2)(supports-color@10.2.2)
@@ -534,9 +537,6 @@ importers:
       happy-dom:
         specifier: 'catalog:'
         version: 20.11.1
-      react-dom:
-        specifier: 'catalog:'
-        version: 19.2.8(react@19.2.8)
       supabase:
         specifier: 'catalog:'
         version: 2.112.0

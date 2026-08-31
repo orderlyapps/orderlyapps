@@ -83,6 +83,7 @@
     "ionicons": "catalog:",
     "libphonenumber-js": "^1.11.21",
     "react": "catalog:",
+    "react-dom": "catalog:",
     "rxdb": "catalog:",
     "zod": "catalog:"
   },
@@ -95,7 +96,6 @@
     "@types/react-dom": "catalog:",
     "bumpp": "^11.1.0",
     "happy-dom": "catalog:",
-    "react-dom": "catalog:",
     "supabase": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",

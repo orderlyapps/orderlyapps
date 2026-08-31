@@ -8,6 +8,7 @@ import {
   getPreviousTwoServiceYears,
 } from "../utils/service-year.ts";
 import { ServiceYearActionSheet } from "./components/service-year-action-sheet/service-year-action-sheet.tsx";
+import { DownloadBackdrop } from "./components/download-backdrop/download-backdrop.tsx";
 
 export function DownloadAllReportsButton() {
   const [is_modal_open, set_is_modal_open] = useState(false);
@@ -16,6 +17,11 @@ export function DownloadAllReportsButton() {
 
   async function generatePdf(service_years: string[], file_suffix: string) {
     set_is_generating(true);
+    // Yield to the browser so the action sheet dismissal and backdrop can
+    // paint before we start the heavy synchronous PDF work on the main thread.
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+    );
     try {
       const entries = buildEntries(service_years);
       if (entries.length === 0) return;
@@ -32,14 +38,18 @@ export function DownloadAllReportsButton() {
       console.error("Failed to generate PDF:", err);
     } finally {
       set_is_generating(false);
-      set_is_modal_open(false);
     }
   }
 
-  const handle_current_previous = () =>
-    generatePdf(getCurrentAndPreviousServiceYears(), "current_and_previous");
+  const handle_current_previous = () => {
+    set_is_modal_open(false);
+    void generatePdf(getCurrentAndPreviousServiceYears(), "current_and_previous");
+  };
 
-  const handle_previous_two = () => generatePdf(getPreviousTwoServiceYears(), "previous_two");
+  const handle_previous_two = () => {
+    set_is_modal_open(false);
+    void generatePdf(getPreviousTwoServiceYears(), "previous_two");
+  };
 
   return (
     <>
@@ -54,6 +64,7 @@ export function DownloadAllReportsButton() {
         on_select_current_previous={handle_current_previous}
         on_select_previous_two={handle_previous_two}
       />
+      <DownloadBackdrop is_open={is_generating} message="Generating PDF report..." />
     </>
   );
 }
