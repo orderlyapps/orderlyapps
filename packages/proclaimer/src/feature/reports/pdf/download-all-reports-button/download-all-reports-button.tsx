@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { IonButton, IonSpinner } from "@ionic/react";
 import { pdf } from "@react-pdf/renderer";
-import { Icon } from "../../../../ui/components/icons/Icon.tsx";
+import { TextButton } from "../../../../ui/components/inputs/button/text/TextButton.tsx";
 import { AllReportsPdf } from "../all-reports-pdf/all-reports-pdf.tsx";
 import { useAllReportsData } from "./hooks/use-all-reports-data.ts";
 import {
@@ -44,14 +43,11 @@ export function DownloadAllReportsButton() {
 
   return (
     <>
-      <IonButton fill="clear" onClick={() => set_is_modal_open(true)} disabled={is_generating}>
-        {is_generating ? (
-          <IonSpinner name="crescent" style={{ marginRight: 8 }} />
-        ) : (
-          <Icon name="download" slot="start" />
-        )}
-        Download Records
-      </IonButton>
+      <TextButton
+        label="Download Publisher Records"
+        disabled={is_generating}
+        on_click={() => set_is_modal_open(true)}
+      />
       <ServiceYearActionSheet
         is_open={is_modal_open}
         on_close={() => set_is_modal_open(false)}
