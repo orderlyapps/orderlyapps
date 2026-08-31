@@ -622,6 +622,9 @@ importers:
 
   packages/ui/mantine:
     devDependencies:
+      '@amodeo/config':
+        specifier: workspace:*
+        version: link:../../../tools/config
       '@types/node':
         specifier: ^26.1.1
         version: 26.1.1
