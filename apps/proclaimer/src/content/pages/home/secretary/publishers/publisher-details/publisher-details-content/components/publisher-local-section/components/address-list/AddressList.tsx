@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IonButton, IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addOutline, mapOutline } from "ionicons/icons";
 import { useLiveQuery } from "@tanstack/react-db";
-import type { Address } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
+import type { Address } from "@amodeo/proclaimer/feature/publisher-local";
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";

@@ -8,7 +8,10 @@ import {
 import { RxDBDevModePlugin } from "rxdb/plugins/dev-mode";
 import { wrappedValidateAjvStorage } from "rxdb/plugins/validate-ajv";
 import { RxDBMigrationSchemaPlugin } from "rxdb/plugins/migration-schema";
-import { publisherSchemaLiteral, type PublisherLocal } from "./collections/publisher.js";
+import {
+  publisherSchemaLiteral,
+  type PublisherLocal,
+} from "../../feature/publisher-local/schemas/publisher-local.js";
 import { ministryTimeSchemaLiteral, type MinistryTimeLocal } from "./collections/ministry-time.js";
 import { settingsSchemaLiteral, type SettingsLocal } from "./collections/settings.js";
 import { returnVisitSchemaLiteral, type ReturnVisitLocal } from "./collections/return-visit.js";

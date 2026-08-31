@@ -13,8 +13,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { AddressInput } from "@amodeo/proclaimer/ui/components/inputs/address/AddressInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
-import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
-import type { Address } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
+import { publisherLocalCollection, type Address } from "@amodeo/proclaimer/feature/publisher-local";
 import type { AddressValue } from "@amodeo/proclaimer/ui/components/inputs/address/types";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 

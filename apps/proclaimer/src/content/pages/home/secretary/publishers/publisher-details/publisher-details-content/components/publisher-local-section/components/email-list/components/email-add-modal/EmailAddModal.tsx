@@ -13,8 +13,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { EmailInput } from "@amodeo/proclaimer/ui/components/inputs/email/EmailInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
-import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
-import type { Email } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
+import { publisherLocalCollection, type Email } from "@amodeo/proclaimer/feature/publisher-local";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type EmailEntry = NonNullable<Email>[number];

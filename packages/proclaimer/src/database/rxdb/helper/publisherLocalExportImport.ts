@@ -1,4 +1,4 @@
-import type { PublisherLocal } from "../collections/publisher.js";
+import type { PublisherLocal } from "../../../feature/publisher-local/schemas/publisher-local.js";
 import { rxdb } from "../database.js";
 
 /**

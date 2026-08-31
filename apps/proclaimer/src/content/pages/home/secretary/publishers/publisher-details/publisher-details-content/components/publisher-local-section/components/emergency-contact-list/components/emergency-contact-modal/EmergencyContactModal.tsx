@@ -14,11 +14,11 @@ import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInpu
 import { PhoneInput } from "@amodeo/proclaimer/ui/components/inputs/phone/PhoneInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
-import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
-import type {
-  EmergencyContact,
-  Phone,
-} from "@amodeo/proclaimer/database/rxdb/collections/publisher";
+import {
+  publisherLocalCollection,
+  type EmergencyContact,
+  type Phone,
+} from "@amodeo/proclaimer/feature/publisher-local";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type Contact = NonNullable<EmergencyContact>[number];

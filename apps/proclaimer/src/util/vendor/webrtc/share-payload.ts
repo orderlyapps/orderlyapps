@@ -1,4 +1,4 @@
-import type { PublisherLocal } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
+import type { PublisherLocal } from "@amodeo/proclaimer/feature/publisher-local";
 
 export type SharePayload =
   | {

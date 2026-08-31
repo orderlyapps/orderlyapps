@@ -1,5 +1,5 @@
 import { useLiveQuery, eq, and } from "@tanstack/react-db";
-import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
+import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 
 export function usePublisherReport(publisher_id: string | undefined, date: string) {

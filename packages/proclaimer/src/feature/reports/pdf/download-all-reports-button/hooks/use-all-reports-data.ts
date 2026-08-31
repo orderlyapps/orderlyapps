@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection } from "../../../../../database/collections/publisher.ts";
-import { publisherLocalCollection } from "../../../../../database/collections/publisher-local.ts";
+import { publisherLocalCollection } from "../../../../publisher-local/collections/publisher-local.ts";
 import { groupCollection } from "../../../../../database/collections/group.ts";
 import { reportCollection } from "../../../collections/report.ts";
 import type { Report } from "../../../schemas/report.ts";

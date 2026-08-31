@@ -1,6 +1,6 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
+import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { Report } from "@amodeo/proclaimer/feature/reports";

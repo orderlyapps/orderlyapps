@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPeerConnection } from "@util/vendor/webrtc/peer-connection";
 import { sendOverDataChannel, waitForDataChannelOpen } from "@util/vendor/webrtc/data-channel";
 import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
-import type { PublisherLocal } from "@amodeo/proclaimer/database/rxdb/collections/publisher";
+import type { PublisherLocal } from "@amodeo/proclaimer/feature/publisher-local";
 import type { SharePayload } from "@util/vendor/webrtc/share-payload";
 
 const SESSION_TIMEOUT_SECONDS = 120;
