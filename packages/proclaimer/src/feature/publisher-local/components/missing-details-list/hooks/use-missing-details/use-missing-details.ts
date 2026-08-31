@@ -29,9 +29,20 @@ export const MISSING_DETAIL_LABELS: Record<MissingDetailType, string> = {
   baptism_date: "Baptism Date",
 };
 
-function getMissingDetails(local: PublisherLocal | null): MissingDetailType[] {
+function getMissingDetails(
+  publisher: Publisher,
+  local: PublisherLocal | null,
+): MissingDetailType[] {
   if (!local) {
-    return ["phone", "address", "email", "emergency_contact", "birth_date", "baptism_date"];
+    const all: MissingDetailType[] = [
+      "phone",
+      "address",
+      "email",
+      "emergency_contact",
+      "birth_date",
+    ];
+    if (publisher.standing !== "unbaptised_publisher") all.push("baptism_date");
+    return all;
   }
 
   const missing: MissingDetailType[] = [];
@@ -41,7 +52,8 @@ function getMissingDetails(local: PublisherLocal | null): MissingDetailType[] {
   if (!local.emergency_contact || local.emergency_contact.length === 0)
     missing.push("emergency_contact");
   if (!local.birth_date) missing.push("birth_date");
-  if (!local.baptism_date) missing.push("baptism_date");
+  if (!local.baptism_date && publisher.standing !== "unbaptised_publisher")
+    missing.push("baptism_date");
   return missing;
 }
 
@@ -71,7 +83,7 @@ export function useMissingDetails(filter: MissingDetailFilter = "all") {
       return {
         publisher: p,
         local,
-        missing_details: getMissingDetails(local),
+        missing_details: getMissingDetails(p, local),
       };
     })
     .filter((row) => row.missing_details.length > 0)
