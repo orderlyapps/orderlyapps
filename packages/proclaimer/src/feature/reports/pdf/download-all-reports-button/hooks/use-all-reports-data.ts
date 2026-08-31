@@ -6,9 +6,12 @@ import { reportCollection } from "../../../collections/report.ts";
 import type { Report } from "../../../schemas/report.ts";
 import type { Publisher } from "../../../../../database/schemas/publisher.ts";
 import type { Group } from "../../../../../database/schemas/group.ts";
-import type { PublisherRecordData, PublisherReportEntry } from "../../all-reports-pdf/types.ts";
-import { getPublisherDisplayName } from "../../../utils/publisher-name.ts";
-import { buildServiceYearReportsForYears, reportsToMap } from "../../../utils/service-year.ts";
+import type {
+  PublisherRecordData,
+  PublisherReportEntry,
+} from "../../publisher-report-page/types.ts";
+import { getPublisherDisplayName } from "../../utils/publisher-name.ts";
+import { buildServiceYearReportsForYears, reportsToMap } from "../../utils/service-year.ts";
 
 interface LocalPublisherData {
   publisher_id: string;

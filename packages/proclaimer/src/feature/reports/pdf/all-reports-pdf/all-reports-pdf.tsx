@@ -3,9 +3,9 @@ import { Document, Page, View, StyleSheet } from "@react-pdf/renderer";
 import { TableOfContentsPage } from "./components/table-of-contents-page/table-of-contents-page.tsx";
 import { PublisherLinksPage } from "./components/publisher-links-page/publisher-links-page.tsx";
 import { SectionLabelPage } from "./components/section-label-page/section-label-page.tsx";
-import { PublisherPage } from "./components/publisher-page/publisher-page.tsx";
+import { PublisherPage } from "../publisher-report-page/publisher-page.tsx";
 import { groupEntriesByLabel } from "./group-entries.ts";
-import type { PublisherReportEntry } from "./types.ts";
+import type { PublisherReportEntry } from "../publisher-report-page/types.ts";
 
 const styles = StyleSheet.create({
   page: { padding: 18, fontSize: 8 },

@@ -1,4 +1,5 @@
-import type { GroupedReportEntry, PublisherReportEntry } from "./types.ts";
+import type { PublisherReportEntry } from "../publisher-report-page/types.ts";
+import type { GroupedReportEntry } from "./types.ts";
 
 export function groupEntriesByLabel(entries: PublisherReportEntry[]): GroupedReportEntry[] {
   const groups: GroupedReportEntry[] = [];

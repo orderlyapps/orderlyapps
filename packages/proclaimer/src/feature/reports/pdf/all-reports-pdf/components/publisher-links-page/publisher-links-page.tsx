@@ -1,5 +1,5 @@
 import { Text, View, Link, StyleSheet } from "@react-pdf/renderer";
-import type { PublisherReportEntry } from "../../types.ts";
+import type { GroupedReportEntry } from "../../types.ts";
 
 const styles = StyleSheet.create({
   title: { fontSize: 20, fontWeight: "bold", textAlign: "center", marginBottom: 24 },
@@ -8,11 +8,7 @@ const styles = StyleSheet.create({
 });
 
 interface PublisherLinksPageProps {
-  groups: {
-    group_label: string;
-    group_id: string;
-    entries: PublisherReportEntry[];
-  }[];
+  groups: GroupedReportEntry[];
 }
 
 export function PublisherLinksPage({ groups }: PublisherLinksPageProps) {

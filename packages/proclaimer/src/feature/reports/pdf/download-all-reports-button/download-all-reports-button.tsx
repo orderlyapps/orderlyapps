@@ -7,7 +7,7 @@ import { useAllReportsData } from "./hooks/use-all-reports-data.ts";
 import {
   getCurrentAndPreviousServiceYears,
   getPreviousTwoServiceYears,
-} from "../../utils/service-year.ts";
+} from "../utils/service-year.ts";
 import { ServiceYearSelectModal } from "./components/service-year-select-modal/service-year-select-modal.tsx";
 
 export function DownloadAllReportsButton() {

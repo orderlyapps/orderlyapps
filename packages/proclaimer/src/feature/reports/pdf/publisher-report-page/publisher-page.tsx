@@ -1,6 +1,6 @@
 import { View } from "@react-pdf/renderer";
-import { ServiceYearReport } from "../service-year-report/service-year-report.tsx";
-import type { PublisherReportEntry } from "../../types.ts";
+import { ServiceYearReport } from "./components/service-year-report/service-year-report.tsx";
+import type { PublisherReportEntry } from "./types.ts";
 
 interface PublisherPageProps {
   entry: PublisherReportEntry;

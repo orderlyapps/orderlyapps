@@ -33,9 +33,3 @@ export interface PublisherReportEntry {
   reports: ServiceYearReportData[];
   group_label: string;
 }
-
-export interface GroupedReportEntry {
-  group_label: string;
-  group_id: string;
-  entries: PublisherReportEntry[];
-}
