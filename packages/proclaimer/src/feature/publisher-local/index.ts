@@ -4,7 +4,7 @@ export type {
   MissingDetailType,
   MissingDetailFilter,
   PublisherWithMissingDetails,
-} from "./hooks/use-missing-details/use-missing-details.ts";
+} from "./components/missing-details-list/hooks/use-missing-details/use-missing-details.ts";
 export type {
   PublisherLocal,
   Version,

@@ -1,6 +1,6 @@
 import { IonChip, IonItem, IonLabel, IonText } from "@ionic/react";
-import type { PublisherWithMissingDetails } from "../../../../hooks/use-missing-details/use-missing-details.ts";
-import { MISSING_DETAIL_LABELS } from "../../../../hooks/use-missing-details/use-missing-details.ts";
+import type { PublisherWithMissingDetails } from "../../hooks/use-missing-details/use-missing-details.ts";
+import { MISSING_DETAIL_LABELS } from "../../hooks/use-missing-details/use-missing-details.ts";
 
 interface MissingDetailsItemProps {
   entry: PublisherWithMissingDetails;

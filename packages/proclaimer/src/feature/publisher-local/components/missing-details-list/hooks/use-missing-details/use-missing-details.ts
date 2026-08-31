@@ -1,8 +1,8 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "../../../publisher/collections/publisher.ts";
-import { publisherLocalCollection } from "../../collections/publisher-local.ts";
-import type { PublisherLocal } from "../../schemas/publisher-local.ts";
-import type { Publisher } from "../../../publisher/schemas/publisher.ts";
+import { publisherCollection } from "../../../../../publisher/collections/publisher.ts";
+import { publisherLocalCollection } from "../../../../collections/publisher-local.ts";
+import type { PublisherLocal } from "../../../../schemas/publisher-local.ts";
+import type { Publisher } from "../../../../../publisher/schemas/publisher.ts";
 
 export type MissingDetailType =
   | "phone"

@@ -3,7 +3,7 @@ import { IonItem, IonLabel, IonList } from "@ionic/react";
 import {
   useMissingDetails,
   type MissingDetailFilter,
-} from "../../hooks/use-missing-details/use-missing-details.ts";
+} from "./hooks/use-missing-details/use-missing-details.ts";
 import { MissingDetailsSelect } from "./components/missing-details-select/missing-details-select.tsx";
 import { MissingDetailsItem } from "./components/missing-details-item/missing-details-item.tsx";
 

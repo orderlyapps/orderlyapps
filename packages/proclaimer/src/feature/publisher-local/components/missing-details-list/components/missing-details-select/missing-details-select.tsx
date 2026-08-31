@@ -3,7 +3,7 @@ import {
   MISSING_DETAIL_LABELS,
   type MissingDetailFilter,
   type MissingDetailType,
-} from "../../../../hooks/use-missing-details/use-missing-details.ts";
+} from "../../hooks/use-missing-details/use-missing-details.ts";
 
 interface MissingDetailsSelectProps {
   value: MissingDetailFilter;
