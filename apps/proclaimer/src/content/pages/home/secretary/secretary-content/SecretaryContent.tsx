@@ -13,6 +13,7 @@ export function SecretaryContent() {
         <NavItem label="Tools" to="/home/secretary/tools" />
         <NavItem label="Branch Report" to="/home/secretary/branch-report" />
         <NavItem label="CO Visit Info" to="/home/secretary/co-visit-info" />
+        <NavItem label="Missing Details" to="/home/secretary/missing-details" />
       </IonList>
       <Space />
       <ImportPublisherDataButton />
