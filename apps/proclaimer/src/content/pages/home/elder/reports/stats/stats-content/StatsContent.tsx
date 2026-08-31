@@ -1,5 +1,5 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { reportCollection } from "@amodeo/proclaimer/database/collections/report";
+import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";

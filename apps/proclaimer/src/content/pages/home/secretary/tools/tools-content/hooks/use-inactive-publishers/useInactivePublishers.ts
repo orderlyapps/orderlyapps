@@ -1,7 +1,7 @@
 import { useLiveQuery, eq, and, inArray, isNull } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/database/collections/publisher-local";
-import { reportCollection } from "@amodeo/proclaimer/database/collections/report";
+import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getInactivePublisherIds } from "@proclaimer-content/pages/home/reports/reports-content/utils/inactive-publishers";
