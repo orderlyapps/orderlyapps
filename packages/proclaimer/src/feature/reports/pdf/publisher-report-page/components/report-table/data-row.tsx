@@ -22,7 +22,7 @@ export function DataRow({ report, isLast }: { report: MonthReport; isLast: boole
   const c = { textAlign: "center" as const };
   const l = { textAlign: "left" as const };
   return (
-    <View style={styles.row}>
+    <View style={styles.row} wrap={false}>
       <View style={[styles.cellView, { width: W[0] }, borders(0, isLast)]}>
         <Text style={[styles.cellText, l]}>{report.month_name}</Text>
       </View>
