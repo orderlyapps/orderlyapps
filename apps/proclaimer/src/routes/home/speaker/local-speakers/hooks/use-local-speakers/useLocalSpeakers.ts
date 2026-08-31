@@ -1,8 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
 
 export function useLocalSpeakers() {

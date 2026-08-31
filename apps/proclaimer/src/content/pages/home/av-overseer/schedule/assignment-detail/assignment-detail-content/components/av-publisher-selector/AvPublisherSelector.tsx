@@ -8,7 +8,7 @@ import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assign
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { avParticipationTypeMap } from "../../utils/avParticipationTypeMap";

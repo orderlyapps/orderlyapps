@@ -1,4 +1,4 @@
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { PublisherSortOrder } from "../../../hooks/use-av-presets/types";
 import type { AvPublisherStats } from "../../../hooks/use-av-publisher-stats/useAvPublisherStats";

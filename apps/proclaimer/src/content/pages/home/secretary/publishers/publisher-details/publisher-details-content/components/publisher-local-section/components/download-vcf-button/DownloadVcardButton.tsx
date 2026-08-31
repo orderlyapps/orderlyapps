@@ -1,5 +1,5 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";

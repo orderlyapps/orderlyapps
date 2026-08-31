@@ -2,13 +2,12 @@ import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { GroupsPdf } from "@proclaimer-content/pages/home/secretary/groups/groups-header/components/groups-pdf/GroupsPdf";
 import type { PdfFilterType } from "@proclaimer-content/pages/home/secretary/groups/groups-header/components/pdf-action-sheet/PdfActionSheet";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 
 export function GroupsContent() {

@@ -1,8 +1,7 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { SpeakerInfoForm } from "@proclaimer-content/pages/home/speaker/visiting-speakers/speaker-detail/speaker-detail-content/components/speaker-info-form/SpeakerInfoForm";
 import { SpeakerOutlinesList } from "@proclaimer-content/pages/home/speaker/visiting-speakers/speaker-detail/speaker-detail-content/components/speaker-outlines-list/SpeakerOutlinesList";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 interface VisitingSpeakerDetailContentProps {
   speaker_id: string;

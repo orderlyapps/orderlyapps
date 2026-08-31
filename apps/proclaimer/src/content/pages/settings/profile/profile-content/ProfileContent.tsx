@@ -3,7 +3,7 @@ import { IonList } from "@ionic/react";
 import { PublisherSelect } from "./components/publisher-select/PublisherSelect";
 import { PublisherSignIn } from "./components/publisher-sign-in/PublisherSignIn";
 import { getStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 export function ProfileContent() {

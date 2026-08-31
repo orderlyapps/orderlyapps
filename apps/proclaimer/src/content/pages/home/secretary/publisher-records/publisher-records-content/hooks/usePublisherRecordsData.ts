@@ -1,10 +1,9 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { Report } from "@amodeo/proclaimer/feature/reports";
 import type { PublisherRecordEntry } from "../components/publisher-records-pdf/PublisherRecordsPdf";
 import type { PublisherRecordData } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-record-pdf/types";

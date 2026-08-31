@@ -2,7 +2,7 @@ import { Document, Text, View, StyleSheet } from "@react-pdf/renderer";
 import { PdfPage } from "@util/vendor/react-pdf/PdfPage";
 import { SchedulePdfHeader } from "@proclaimer-content/pages/home/elder/pdfs/clam/clam-content/components/schedule-pdf-header/SchedulePdfHeader";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvWeekData } from "../../hooks/useAudioVideoScheduleData";
 
 const midweekIDs = [

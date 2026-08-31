@@ -4,9 +4,8 @@ import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-na
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getAvAssignmentRows } from "./helper/getAvAssignmentRows";
 import { AvAssignmentCard } from "./components/av-assignment-card/AvAssignmentCard";

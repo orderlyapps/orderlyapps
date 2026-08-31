@@ -14,7 +14,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { AddVisitingSpeakerModal } from "../add-visiting-speaker-modal/AddVisitingSpeakerModal";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 interface SpeakerSelectProps {
   label: string;

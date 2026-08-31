@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { useLocation } from "react-router-dom";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";

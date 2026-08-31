@@ -16,11 +16,10 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
 import { useLiveQuery } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 const MAX_RECENT_PUBLISHERS = 15;
 

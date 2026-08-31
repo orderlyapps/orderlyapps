@@ -1,7 +1,6 @@
 import { IonButton, IonIcon, useIonAlert } from "@ionic/react";
 import { createOutline } from "ionicons/icons";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 const standingOptions: { label: string; value: Publisher["standing"] }[] = [
   { label: "Publisher", value: "publisher" },

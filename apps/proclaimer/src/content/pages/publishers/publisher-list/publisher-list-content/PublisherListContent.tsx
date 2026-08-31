@@ -1,9 +1,8 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { useLiveQuery } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";

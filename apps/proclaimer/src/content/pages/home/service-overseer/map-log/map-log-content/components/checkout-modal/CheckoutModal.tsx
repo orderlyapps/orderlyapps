@@ -16,7 +16,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
@@ -25,7 +25,6 @@ import { PublisherSelectModal } from "@proclaimer-content/pages/home/service-ove
 import { MapSelectModal } from "./components/map-select-modal/MapSelectModal";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 

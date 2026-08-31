@@ -1,9 +1,8 @@
 import { useLiveQuery, eq, and, inArray, isNull } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getInactivePublisherIds } from "@proclaimer-content/pages/home/reports/reports-content/utils/inactive-publishers";
 
 const PUBLISHER_TYPES = ["publisher", "regular_pioneer", "special_pioneer", "continuous_auxiliary"];

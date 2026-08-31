@@ -9,7 +9,7 @@ import {
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
 } from "@amodeo/proclaimer/database/schemas/av-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import type { AvAssignmentGroup } from "./types";
 

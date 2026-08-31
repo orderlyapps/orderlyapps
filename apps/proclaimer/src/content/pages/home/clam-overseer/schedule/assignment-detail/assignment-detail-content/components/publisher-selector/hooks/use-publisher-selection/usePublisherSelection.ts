@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 type SelectionMode = "assignee" | "assistant";
 

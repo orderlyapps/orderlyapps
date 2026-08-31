@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { GroupsPdf } from "../groups-pdf/GroupsPdf";
 import { PdfActionSheet, type PdfFilterType } from "../pdf-action-sheet/PdfActionSheet";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
 

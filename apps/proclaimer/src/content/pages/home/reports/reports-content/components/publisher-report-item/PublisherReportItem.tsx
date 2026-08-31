@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { usePublisherReport } from "../../hooks/usePublisherReport";
 import { ReportItem } from "../report-item/ReportItem";

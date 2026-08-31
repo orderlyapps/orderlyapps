@@ -1,6 +1,5 @@
 import { IonItem, IonInput, IonList, IonListHeader, IonLabel } from "@ionic/react";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { CongregationSelect } from "./components/congregation-select/CongregationSelect";
 
 interface SpeakerInfoFormProps {

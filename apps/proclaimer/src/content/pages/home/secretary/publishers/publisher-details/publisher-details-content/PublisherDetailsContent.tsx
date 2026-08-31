@@ -1,6 +1,6 @@
 import { IonContent, IonList } from "@ionic/react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";

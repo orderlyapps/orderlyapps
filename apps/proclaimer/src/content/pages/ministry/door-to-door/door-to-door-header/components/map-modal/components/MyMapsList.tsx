@@ -2,7 +2,7 @@ import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@io
 import { useLiveQuery } from "@tanstack/react-db";
 import { useMapsList } from "../hooks/useMapsList";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { useAuthSession } from "@util/app/auth/useAuthSession";
 import { MapListItem } from "./map-list-item/MapListItem";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
@@ -10,7 +10,6 @@ import { localStorageKeys } from "@util/constants/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 
 interface MyMapsListProps {
   onMapSelect: (map: MapRow & { boundary: number[][] }) => void;

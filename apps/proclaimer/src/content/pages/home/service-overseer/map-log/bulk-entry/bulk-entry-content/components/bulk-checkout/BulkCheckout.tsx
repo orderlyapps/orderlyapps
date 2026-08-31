@@ -10,7 +10,7 @@ import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherU
 import { PublisherSelectModal } from "./components/publisher-select-modal/PublisherSelectModal";
 import { MapNavigator } from "./components/map-navigator/MapNavigator";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { MapLogSummary } from "./components/map-log-summary/MapLogSummary";

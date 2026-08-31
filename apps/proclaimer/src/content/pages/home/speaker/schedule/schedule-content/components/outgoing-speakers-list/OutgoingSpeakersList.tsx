@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import { useLiveQuery } from "@tanstack/react-db";
 import { and, eq } from "@tanstack/react-db";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";

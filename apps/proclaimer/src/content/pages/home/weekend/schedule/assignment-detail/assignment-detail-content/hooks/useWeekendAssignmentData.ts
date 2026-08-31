@@ -1,9 +1,8 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import { weekendAssignmentLabels } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 
 interface UseWeekendAssignmentDataProps {

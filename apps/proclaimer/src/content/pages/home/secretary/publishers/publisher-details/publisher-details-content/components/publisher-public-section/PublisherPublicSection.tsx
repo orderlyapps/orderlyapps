@@ -1,5 +1,4 @@
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
-import { publisherCollection } from "@amodeo/proclaimer/database/collections/publisher";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { PublisherNameInput } from "@proclaimer-shared/publisher/components/publisher-name-input/PublisherNameInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";

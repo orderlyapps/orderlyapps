@@ -1,5 +1,5 @@
 import { localStorageKeys } from "@util/constants/localStorageKeys";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 export function getStoredPublisher(): Publisher | null {
   const stored = localStorage.getItem(localStorageKeys.selectedPublisher);

@@ -3,7 +3,7 @@ import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/la
 import { SmsIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/sms/SmsIconButton";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import type { Publisher } from "@amodeo/proclaimer/database/schemas/publisher";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getAvSmsTemplates, fillAvSmsTemplate } from "../../../shared/avSmsTemplate";
 import type { AvSmsTemplate } from "../../../shared/avSmsTemplate";
 import { SmsTemplateActionSheet } from "./components/sms-template-action-sheet/SmsTemplateActionSheet";
