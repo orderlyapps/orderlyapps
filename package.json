@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev:app:proclaimer": "vp run proclaimer#dev",
+    "dev:pkg:proclaimer": "vp run @amodeo/proclaimer#dev",
     "ready": "vp check && vp run -r test && vp run -r build",
-    "dev": "vp run website#dev",
     "prepare": "vp config"
   },
   "devDependencies": {
