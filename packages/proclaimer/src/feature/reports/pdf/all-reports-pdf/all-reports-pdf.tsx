@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { Document, Page, View, StyleSheet } from "@react-pdf/renderer";
-import { TableOfContentsPage } from "./components/table-of-contents-page/table-of-contents-page.tsx";
 import { PublisherLinksPage } from "./components/publisher-links-page/publisher-links-page.tsx";
 import { SectionLabelPage } from "./components/section-label-page/section-label-page.tsx";
 import { PublisherPage } from "../publisher-report-page/publisher-page.tsx";
@@ -20,9 +19,6 @@ export function AllReportsPdf({ entries }: AllReportsPdfProps) {
 
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
-        <TableOfContentsPage groups={groups} />
-      </Page>
       <Page size="A4" style={styles.page}>
         <PublisherLinksPage groups={groups} />
       </Page>
