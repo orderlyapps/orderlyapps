@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IonItem, IonLabel, IonList } from "@ionic/react";
+import { IonCol, IonGrid, IonLabel, IonRow } from "@ionic/react";
 import {
   useMissingDetails,
   type MissingDetailFilter,
@@ -14,15 +14,30 @@ export function MissingDetailsList() {
   return (
     <>
       <MissingDetailsSelect value={filter} on_change={set_filter} />
-      <IonList className="ion-margin" inset>
+      <IonGrid>
         {publishers.length === 0 ? (
-          <IonItem>
-            <IonLabel color="medium">No publishers with missing details.</IonLabel>
-          </IonItem>
+          <IonRow>
+            <IonCol>
+              <IonLabel color="medium">No publishers with missing details.</IonLabel>
+            </IonCol>
+          </IonRow>
         ) : (
-          publishers.map((entry) => <MissingDetailsItem key={entry.publisher.id} entry={entry} />)
+          <IonRow>
+            {publishers.map((entry) => (
+              <IonCol
+                key={entry.publisher.id}
+                sizeXs="12"
+                sizeSm="6"
+                sizeMd="6"
+                sizeLg="4"
+                sizeXl="3"
+              >
+                <MissingDetailsItem entry={entry} />
+              </IonCol>
+            ))}
+          </IonRow>
         )}
-      </IonList>
+      </IonGrid>
     </>
   );
 }

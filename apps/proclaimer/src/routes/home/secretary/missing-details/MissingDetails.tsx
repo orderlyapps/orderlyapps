@@ -8,7 +8,7 @@ function MissingDetailsPage() {
       <IonHeader>
         <MissingDetailsHeader />
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <MissingDetailsContent />
       </IonContent>
     </IonPage>

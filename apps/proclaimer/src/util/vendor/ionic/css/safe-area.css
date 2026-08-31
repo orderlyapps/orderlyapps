@@ -17,14 +17,6 @@ ion-footer {
 }
 
 ion-content::part(scroll) {
-  padding-left: max(
-    var(--content-gutter, 1rem),
-    calc((100% - var(--content-max-width, 720px)) / 2),
-    var(--ion-safe-area-left)
-  );
-  padding-right: max(
-    var(--content-gutter, 1rem),
-    calc((100% - var(--content-max-width, 720px)) / 2),
-    var(--ion-safe-area-right)
-  );
+  padding-left: max(var(--content-gutter, 1rem), var(--ion-safe-area-left));
+  padding-right: max(var(--content-gutter, 1rem), var(--ion-safe-area-right));
 }
