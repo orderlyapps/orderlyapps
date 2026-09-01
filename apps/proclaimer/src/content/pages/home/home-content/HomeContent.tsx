@@ -1,4 +1,4 @@
-import { LogoIcon } from "@shared/icons/logo/LogoIcon";
+import { LogoIcon } from "@amodeo/proclaimer/ui/components/icons/logo/LogoIcon";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";

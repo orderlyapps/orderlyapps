@@ -1,5 +1,5 @@
-import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
-import type { Size } from "@util/types/Size";
+import type { IonicColor } from "../../../types/ionic-color.ts";
+import type { Size } from "../../../types/size.ts";
 import type { SVGProps } from "react";
 
 type LogoSize = Size | "3xl" | "4xl" | "5xl";
