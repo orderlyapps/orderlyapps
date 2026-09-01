@@ -5,7 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { mapboxToken } from "@util/vendor/mapbox/mapboxToken";
 import { useMapLocation } from "@util/vendor/mapbox/useMapLocation";
 import { resolveMapStyle, type SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
-import { useTheme } from "@util/app/theme";
+import { useTheme } from "@amodeo/proclaimer/util/theme";
 import type { ViewState } from "react-map-gl/mapbox";
 import type { CustomLocalStyleSettings } from "@util/vendor/mapbox/customLocalStyleSettings";
 import { applyCustomLocalStyleOverrides } from "@util/vendor/mapbox/customLocalStyleSettings";

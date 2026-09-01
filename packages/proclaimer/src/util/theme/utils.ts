@@ -1,8 +1,9 @@
-import type { ThemeMode } from "@util/app/theme";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import type { ThemeMode } from "./types.ts";
+
+const THEME_KEY = "theme_mode";
 
 export function getStoredTheme(): ThemeMode | null {
-  const stored = localStorage.getItem(localStorageKeys.themeMode);
+  const stored = localStorage.getItem(THEME_KEY);
   if (stored === "light" || stored === "dark" || stored === "auto") {
     return stored;
   }
@@ -10,7 +11,7 @@ export function getStoredTheme(): ThemeMode | null {
 }
 
 export function setStoredTheme(mode: ThemeMode): void {
-  localStorage.setItem(localStorageKeys.themeMode, mode);
+  localStorage.setItem(THEME_KEY, mode);
 }
 
 export function applyTheme(mode: ThemeMode): void {

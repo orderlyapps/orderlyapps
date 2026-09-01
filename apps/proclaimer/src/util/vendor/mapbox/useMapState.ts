@@ -4,7 +4,7 @@ import {
   type SelectableStyleId,
   type StyleSpecification,
 } from "@util/vendor/mapbox/mapboxStyles";
-import { useTheme } from "@util/app/theme";
+import { useTheme } from "@amodeo/proclaimer/util/theme";
 import type { ViewState } from "react-map-gl/mapbox";
 
 type UseMapStateResult = ReturnType<typeof useMapLocation> & {

@@ -1,5 +1,5 @@
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import type { FontSize } from "@util/app/font-size/types";
+import type { FontSize } from "../types.ts";
 
 interface FontSizeSelectorProps {
   value: FontSize;

@@ -4,8 +4,8 @@ import {
   getStoredFontSize,
   setStoredFontSize,
   subscribeToFontSize,
-} from "@util/app/font-size/utils";
-import type { FontSize } from "@util/app/font-size/types";
+} from "../utils.ts";
+import type { FontSize } from "../types.ts";
 import { useEffect, useState } from "react";
 
 export function useFontSize() {

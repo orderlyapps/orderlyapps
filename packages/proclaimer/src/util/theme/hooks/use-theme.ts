@@ -1,5 +1,5 @@
-import { getStoredTheme, getSystemTheme, setStoredTheme, applyTheme } from "@util/app/theme";
-import type { ThemeMode } from "@util/app/theme/types";
+import { getStoredTheme, getSystemTheme, setStoredTheme, applyTheme } from "../utils.ts";
+import type { ThemeMode } from "../types.ts";
 import { useState, useEffect, useCallback } from "react";
 
 const THEME_CHANGE_EVENT = "theme-change";

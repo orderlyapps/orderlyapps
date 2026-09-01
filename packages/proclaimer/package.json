@@ -49,6 +49,16 @@
       "types": "./dist/ui/colors/jwColors.d.mts",
       "import": "./dist/ui/colors/jwColors.mjs"
     },
+    "./util/font-size": {
+      "development": "./src/util/font-size/index.ts",
+      "types": "./dist/util/font-size/index.d.mts",
+      "import": "./dist/util/font-size/index.mjs"
+    },
+    "./util/theme": {
+      "development": "./src/util/theme/index.ts",
+      "types": "./dist/util/theme/index.d.mts",
+      "import": "./dist/util/theme/index.mjs"
+    },
     "./util/*": {
       "development": "./src/util/*.ts",
       "types": "./dist/util/*.d.mts",

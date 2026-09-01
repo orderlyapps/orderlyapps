@@ -1,5 +1,6 @@
-import type { FontSize } from "@util/app/font-size/types";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import type { FontSize } from "./types.ts";
+
+const FONT_SIZE_KEY = "font_size";
 
 const FONT_SIZE_VALUES: readonly FontSize[] = ["xs", "sm", "md", "lg", "xl", "2xl"];
 
@@ -32,7 +33,7 @@ export function notifyFontSizeChange(size: FontSize): void {
 }
 
 export function getStoredFontSize(): FontSize | null {
-  const stored = localStorage.getItem(localStorageKeys.fontSize);
+  const stored = localStorage.getItem(FONT_SIZE_KEY);
   if (stored && (FONT_SIZE_VALUES as readonly string[]).includes(stored)) {
     return stored as FontSize;
   }
@@ -40,7 +41,7 @@ export function getStoredFontSize(): FontSize | null {
 }
 
 export function setStoredFontSize(size: FontSize): void {
-  localStorage.setItem(localStorageKeys.fontSize, size);
+  localStorage.setItem(FONT_SIZE_KEY, size);
   notifyFontSizeChange(size);
   window.dispatchEvent(new Event("font-size-change"));
 }

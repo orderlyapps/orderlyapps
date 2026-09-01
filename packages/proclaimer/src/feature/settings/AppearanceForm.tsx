@@ -1,11 +1,7 @@
 import type { ReactNode } from "react";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
-import { useFontSize } from "@util/app/font-size/hooks/use-font-size";
-import type { FontSize } from "@util/app/font-size/types";
-import { FontSizeSelector } from "@util/app/font-size/font-size-selector/FontSizeSelector";
-import { useTheme } from "@util/app/theme/hooks/use-theme";
-import type { ThemeMode } from "@util/app/theme/types";
-import { ThemeSelector } from "@util/app/theme/theme-selector/ThemeSelector";
+import { useFontSize, type FontSize, FontSizeSelector } from "@amodeo/proclaimer/util/font-size";
+import { useTheme, type ThemeMode, ThemeSelector } from "@amodeo/proclaimer/util/theme";
 
 type SelectorItem =
   | { id: "theme"; value: ThemeMode; onChange: (value: ThemeMode) => void }

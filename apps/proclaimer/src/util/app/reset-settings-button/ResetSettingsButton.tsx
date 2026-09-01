@@ -3,8 +3,12 @@ import { ConfirmationAlert } from "@amodeo/proclaimer/ui/components/display/aler
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { clearStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { clearStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
-import { setStoredFontSize, applyFontSize, DEFAULT_FONT_SIZE } from "@util/app/font-size/utils";
-import { setStoredTheme, applyTheme } from "@util/app/theme";
+import {
+  setStoredFontSize,
+  applyFontSize,
+  DEFAULT_FONT_SIZE,
+} from "@amodeo/proclaimer/util/font-size";
+import { setStoredTheme, applyTheme } from "@amodeo/proclaimer/util/theme";
 import { supabase } from "@util/vendor/supabase/supabase-client";
 import { clearAllTanstackData } from "@amodeo/proclaimer/database/persistence";
 
