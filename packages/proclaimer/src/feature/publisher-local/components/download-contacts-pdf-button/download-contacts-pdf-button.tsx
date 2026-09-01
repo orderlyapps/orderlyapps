@@ -4,7 +4,6 @@ import type React from "react";
 import { useState } from "react";
 import { ContactsPdfDocument } from "./components/contacts-pdf-document/contacts-pdf-document.tsx";
 import { useContactsForExport } from "./hooks/use-contacts-for-export/use-contacts-for-export.ts";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 
@@ -62,7 +61,6 @@ export const DownloadContactsPdfButton: React.FC<DownloadContactsPdfButtonProps>
 
   return (
     <>
-      <Space size="2xl" />
       <IonButton
         expand="block"
         fill="outline"
