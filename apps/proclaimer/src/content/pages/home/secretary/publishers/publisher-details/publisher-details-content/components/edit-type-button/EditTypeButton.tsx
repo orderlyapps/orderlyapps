@@ -10,6 +10,7 @@ const typeOptions: { label: string; value: Publisher["type"] }[] = [
   { label: "Circuit Overseer", value: "circuit_overseer" },
   { label: "Inactive", value: "inactive" },
   { label: "Associate", value: "associate" },
+  { label: "Removed", value: "removed" },
 ];
 
 export function EditTypeButton({

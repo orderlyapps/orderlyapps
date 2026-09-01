@@ -13,6 +13,7 @@ export const publisherSchema = z.object({
     "publisher",
     "unbaptised_publisher",
     "associate",
+    "congregation",
   ]),
   type: z.enum([
     "publisher",
@@ -22,6 +23,7 @@ export const publisherSchema = z.object({
     "inactive",
     "speaker",
     "associate",
+    "removed",
     "circuit_overseer",
   ]),
   gender: z.enum(["male", "female"]),

@@ -17,6 +17,7 @@ const TYPE_OPTIONS = [
   { label: "Circuit Overseer", value: "circuit_overseer" },
   { label: "Inactive", value: "inactive" },
   { label: "Associate", value: "associate" },
+  { label: "Removed", value: "removed" },
 ];
 
 const STANDING_OPTIONS = [
