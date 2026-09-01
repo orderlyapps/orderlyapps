@@ -1,12 +1,14 @@
 import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { addWeeks, format, parseISO } from "date-fns";
-import { cleanMajorCollection } from "@amodeo/proclaimer/database/collections/clean-major";
-import { cleanMinorCollection } from "@amodeo/proclaimer/database/collections/clean-minor";
+import {
+  cleanMajorCollection,
+  cleanMinorCollection,
+  type CleanMajor,
+  type CleanMinor,
+} from "@amodeo/proclaimer/feature/cleaning";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import type { CleanMajor } from "@amodeo/proclaimer/database/schemas/clean-major";
-import type { CleanMinor } from "@amodeo/proclaimer/database/schemas/clean-minor";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 
 export type CleaningWeekData = {

@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { cleanPermissionCollection } from "@amodeo/proclaimer/database/collections/clean-permission";
+import { cleanPermissionCollection } from "@amodeo/proclaimer/feature/cleaning";
 import { usePermittedPublishers } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/usePermittedPublishers";
 import { PermissionContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-content/PermissionContent";
 import { AddPublisherModal } from "./components/add-publisher-modal/AddPublisherModal";

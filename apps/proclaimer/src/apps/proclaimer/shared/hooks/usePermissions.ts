@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { cleanPermissionCollection } from "@amodeo/proclaimer/database/collections/clean-permission";
+import { cleanPermissionCollection } from "@amodeo/proclaimer/feature/cleaning";
 import { reportPermissionCollection } from "@amodeo/proclaimer/feature/reports";
 import { secretaryPermissionCollection } from "@amodeo/proclaimer/database/collections/secretary-permission";
 import { elderPermissionCollection } from "@amodeo/proclaimer/database/collections/elder-permission";
