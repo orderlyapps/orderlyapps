@@ -3,7 +3,7 @@ import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { OutlineSelect } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-content/components/outline-select/OutlineSelect";
 import { EditSpeakerOutlinesModal } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-content/components/edit-speaker-outlines-modal/EditSpeakerOutlinesModal";
-import { AddCongregationAlert } from "@proclaimer-shared/components/add-congregation-alert/AddCongregationAlert";
+import { AddCongregationAlert } from "@amodeo/proclaimer/feature/congregation";
 import { useAddOutgoingSpeakerForm } from "./hooks/use-add-outgoing-speaker-form/useAddOutgoingSpeakerForm";
 
 export function AddOutgoingSpeakerContent({ week_id }: { week_id: string }) {
