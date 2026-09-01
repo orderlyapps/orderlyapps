@@ -3,8 +3,8 @@ import { addMonths } from "date-fns/addMonths";
 import { parseISO } from "date-fns/parseISO";
 import { format } from "date-fns/format";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import { getWeekStart } from "@proclaimer-shared/util/date/getWeekStart";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
+import { getWeekStart } from "@amodeo/proclaimer/util/date/getWeekStart";
 
 interface WeekSelectProps {
   label?: string;

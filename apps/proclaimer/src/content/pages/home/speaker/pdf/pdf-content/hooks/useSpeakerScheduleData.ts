@@ -7,7 +7,7 @@ import { congregationCollection } from "@amodeo/proclaimer/feature/congregation"
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { Congregation } from "@amodeo/proclaimer/feature/congregation";

@@ -8,7 +8,7 @@ import {
 } from "@amodeo/proclaimer/feature/cleaning";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 
 export type CleaningWeekData = {

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { EditTalkHeader } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-header/EditTalkHeader";
 import { EditTalkContent } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-content/EditTalkContent";
 

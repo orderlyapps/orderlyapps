@@ -1,5 +1,5 @@
 import { format, parseISO, startOfWeek } from "date-fns";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 
 export type CleaningEntry = {
   week_id: string;

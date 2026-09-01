@@ -11,7 +11,7 @@ import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek"
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { ChairmanAssignmentCard } from "./components/chairman-assignment-card/ChairmanAssignmentCard";
 import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";

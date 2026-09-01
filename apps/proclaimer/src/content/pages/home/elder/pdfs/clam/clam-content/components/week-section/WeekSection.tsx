@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import { AssignmentRow } from "../assignment-row/AssignmentRow";
 import { SecondSchoolSection } from "../second-school-section/SecondSchoolSection";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { formatName } from "../../hooks/formatName";
 import type { WeekScheduleData } from "../../hooks/useMidweekScheduleData";
 

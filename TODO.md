@@ -34,6 +34,8 @@
 - [ ] **`download-contacts-pdf-button.tsx` exceeds 75-line limit** — `packages/proclaimer/src/feature/publisher-local/components/download-contacts-pdf-button/download-contacts-pdf-button.tsx` is 85 lines. Consider extracting the `handleDownload` logic into a custom hook (e.g. `use-download-pdf`).
 - [ ] **Object URL leak on error in `download-contacts-pdf-button.tsx`** — In `handleDownload`, `URL.revokeObjectURL(url)` is inside the `try` block. If `link.click()` throws, the object URL is never revoked. Move `URL.revokeObjectURL` to a `finally` block to prevent the resource leak.
 
+- [ ] **`getTheocraticWeekLabel` — capital-case format logic is inverted** — `packages/proclaimer/src/util/date/getTheocraticWeekLabel.ts:110-119`: The `isCapitalCase` flag inverts the uppercasing — when `format === "week-range-capital-case"`, months are **not** uppercased, but the default `"week-range"` **does** uppercase them. Additionally, `"week-label-capital-case"` (line 64) behaves identically to `"week-label"` with no capitalization difference. The capital-case variants should produce uppercase output.
+
 ## Utils Package — TODO
 
 - [ ] **`@amodeo/utils` main export missing `development` condition** — `packages/utils/package.json` defines `development` and `types@development` conditions for the `./supabase` subpath but not for the main `.` export. This means imports from `@amodeo/utils` (e.g. `toError`, `getErrorMessage`) resolve to built dist during development while `@amodeo/utils/supabase` resolves to source. If the dist is stale, main-entry imports may fail. Consider adding `"development": "./src/index.ts"` and `"types@development": "./src/index.ts"` to the `.` export.

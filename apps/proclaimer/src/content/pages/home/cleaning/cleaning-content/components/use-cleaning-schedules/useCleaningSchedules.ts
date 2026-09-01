@@ -2,7 +2,7 @@ import { eq, useLiveQuery } from "@tanstack/react-db";
 import { addWeeks, endOfYear, format, parseISO, startOfWeek } from "date-fns";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import {
   cleanMajorCollection,
   cleanMinorCollection,

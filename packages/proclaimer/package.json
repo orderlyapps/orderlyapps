@@ -49,6 +49,11 @@
       "types": "./dist/ui/colors/jwColors.d.mts",
       "import": "./dist/ui/colors/jwColors.mjs"
     },
+    "./util/*": {
+      "development": "./src/util/*.ts",
+      "types": "./dist/util/*.d.mts",
+      "import": "./dist/util/*.mjs"
+    },
     "./ui/css/index.css": "./src/ui/css/index.css",
     "./package.json": "./package.json"
   },

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader } from "@ionic/react";
 import { useParams } from "react-router-dom";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { WeekendAssignmentDetailHeader } from "@proclaimer-content/pages/home/weekend/schedule/assignment-detail/assignment-detail-header/WeekendAssignmentDetailHeader";
 import { WeekendAssignmentDetailContent } from "@proclaimer-content/pages/home/weekend/schedule/assignment-detail/assignment-detail-content/WeekendAssignmentDetailContent";
 

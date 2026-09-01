@@ -1,5 +1,5 @@
 import { IonList } from "@ionic/react";
-import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { useClamAssignments } from "../../hooks/use-clam-assignments/useClamAssignments";
 import { ClamAssignmentSchool } from "../clam-assignment-school/ClamAssignmentSchool";
 import type { MidweekAssignmentId } from "@amodeo/proclaimer/feature/midweek";
