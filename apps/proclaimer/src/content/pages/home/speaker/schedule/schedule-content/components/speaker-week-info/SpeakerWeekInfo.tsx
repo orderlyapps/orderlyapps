@@ -4,7 +4,7 @@ import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collect
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";

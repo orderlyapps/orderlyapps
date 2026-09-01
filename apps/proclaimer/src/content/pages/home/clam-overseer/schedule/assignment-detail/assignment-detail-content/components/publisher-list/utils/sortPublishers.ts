@@ -1,5 +1,5 @@
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { PublisherSortOrder } from "../../publisher-selector/hooks/use-publisher-sort/usePublisherSort";
 import type { PublisherStats } from "../../publisher-selector/hooks/use-publisher-stats/usePublisherStats";
 

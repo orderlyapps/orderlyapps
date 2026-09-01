@@ -20,7 +20,7 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { PublisherSelectModal } from "@proclaimer-content/pages/home/service-overseer/map-log/bulk-entry/bulk-entry-content/components/bulk-checkout/components/publisher-select-modal/PublisherSelectModal";
 import { MapSelectModal } from "./components/map-select-modal/MapSelectModal";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";

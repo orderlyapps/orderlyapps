@@ -2,10 +2,7 @@ import { useState } from "react";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { PublisherSelectModal } from "./publisher-select-modal/PublisherSelectModal";
-import {
-  getStoredPublisher,
-  getPublisherDisplayName,
-} from "@proclaimer-shared/publisher/publisherUtils";
+import { getStoredPublisher, getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 interface PublisherSelectProps {

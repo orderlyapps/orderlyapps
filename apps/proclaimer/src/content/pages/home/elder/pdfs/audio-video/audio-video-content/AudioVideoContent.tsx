@@ -10,7 +10,7 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { MonthPicker } from "@proclaimer-content/pages/home/elder/pdfs/shared/components/month-picker/MonthPicker";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
+import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { AudioVideoPdfDocument } from "./components/audio-video-pdf/AudioVideoPdfDocument";
 import { PdfPublisherSelect } from "@proclaimer-content/pages/home/elder/pdfs/shared/components/pdf-publisher-select/PdfPublisherSelect";
 import { useAudioVideoScheduleData } from "./hooks/useAudioVideoScheduleData";

@@ -4,7 +4,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";

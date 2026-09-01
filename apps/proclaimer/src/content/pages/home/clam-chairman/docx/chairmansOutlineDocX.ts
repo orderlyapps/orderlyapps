@@ -2,7 +2,7 @@ import { AlignmentType, type TableCell } from "docx";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import { JW_BROWN, JW_RED, JW_SLATE } from "@amodeo/proclaimer/ui/colors/jwColors";
 import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";

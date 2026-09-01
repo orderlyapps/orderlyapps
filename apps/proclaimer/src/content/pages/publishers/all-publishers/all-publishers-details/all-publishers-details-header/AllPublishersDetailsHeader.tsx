@@ -1,7 +1,7 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton, IonButton, IonIcon } from "@ionic/react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { createOutline, checkmarkOutline } from "ionicons/icons";
 

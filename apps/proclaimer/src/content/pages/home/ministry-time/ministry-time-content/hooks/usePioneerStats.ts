@@ -1,4 +1,4 @@
-import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
+import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { getServiceYear, getServiceYearStart } from "@util/format/service-year";
 import type { MinistryTimeEntry } from "./useMinistryTime";
 import { usePioneerSettings } from "./usePioneerSettings";

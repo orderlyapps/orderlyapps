@@ -12,7 +12,7 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";

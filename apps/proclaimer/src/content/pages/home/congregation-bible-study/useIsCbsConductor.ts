@@ -1,6 +1,6 @@
 import { and, eq, useLiveQuery } from "@tanstack/react-db";
 import { midweekParticipationCollection } from "@amodeo/proclaimer/feature/midweek";
-import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
+import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 
 export function useIsCbsConductor() {
   const publisher = useStoredPublisher();

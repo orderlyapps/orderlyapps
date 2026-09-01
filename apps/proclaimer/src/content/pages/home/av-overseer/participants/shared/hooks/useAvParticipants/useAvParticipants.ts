@@ -2,7 +2,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { avParticipationCollection } from "@amodeo/proclaimer/feature/av";
 import type { AvParticipation } from "@amodeo/proclaimer/feature/av";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 export interface AvParticipant {

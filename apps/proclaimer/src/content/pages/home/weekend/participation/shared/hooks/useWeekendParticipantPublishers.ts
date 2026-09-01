@@ -2,7 +2,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { weekendParticipationCollection } from "@amodeo/proclaimer/feature/weekend";
 import type { WeekendParticipation } from "@amodeo/proclaimer/feature/weekend";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 export interface WeekendParticipantPublisher {

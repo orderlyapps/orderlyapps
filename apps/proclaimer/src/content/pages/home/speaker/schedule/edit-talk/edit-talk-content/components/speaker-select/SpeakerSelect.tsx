@@ -12,7 +12,7 @@ import {
 import { InputWrapper } from "@amodeo/proclaimer/ui/components/display/input/InputWrapper";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { AddVisitingSpeakerModal } from "../add-visiting-speaker-modal/AddVisitingSpeakerModal";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 

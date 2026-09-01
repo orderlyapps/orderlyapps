@@ -5,7 +5,7 @@ import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-lo
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { CheckoutModal } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/checkout-modal/CheckoutModal";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { Label } from "@amodeo/proclaimer/ui/components/display/text/label/Label";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";

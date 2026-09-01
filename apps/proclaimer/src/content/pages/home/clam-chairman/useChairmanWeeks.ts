@@ -1,7 +1,7 @@
 import { and, eq, inArray, useLiveQuery } from "@tanstack/react-db";
 import { addWeeks, format, startOfWeek } from "date-fns";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
-import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
+import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 
 export function useChairmanWeeks() {

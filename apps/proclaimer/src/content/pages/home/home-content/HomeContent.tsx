@@ -1,6 +1,6 @@
 import { LogoIcon } from "@shared/icons/logo/LogoIcon";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
+import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { HomeTools } from "./components/home-tools/HomeTools";

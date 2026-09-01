@@ -19,7 +19,7 @@ import {
   getStoredPublisher,
   setStoredPublisher,
   getPublisherDisplayName,
-} from "@proclaimer-shared/publisher/publisherUtils";
+} from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 interface OnboardingPublisherModalProps {

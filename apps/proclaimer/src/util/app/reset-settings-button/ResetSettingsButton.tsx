@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ConfirmationAlert } from "@amodeo/proclaimer/ui/components/display/alert/ConfirmationAlert";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { clearStoredCongregation } from "@util/app/congregation/utils";
-import { clearStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
+import { clearStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { setStoredFontSize, applyFontSize, DEFAULT_FONT_SIZE } from "@util/app/font-size/utils";
 import { setStoredTheme, applyTheme } from "@util/app/theme";
 import { supabase } from "@util/vendor/supabase/supabase-client";

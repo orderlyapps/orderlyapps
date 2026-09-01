@@ -2,7 +2,7 @@ import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@io
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
+import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { useChairmanWeeks } from "@proclaimer-content/pages/home/clam-chairman/useChairmanWeeks";
 import { useIsCbsConductor } from "@proclaimer-content/pages/home/congregation-bible-study/useIsCbsConductor";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";

@@ -4,7 +4,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import { PublisherNameInput } from "@proclaimer-shared/publisher/components/publisher-name-input/PublisherNameInput";
+import { PublisherNameInput } from "@amodeo/proclaimer/feature/publisher";
 import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";

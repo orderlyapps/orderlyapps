@@ -10,7 +10,7 @@ import {
   getStoredPublisher,
   setStoredPublisher,
   getPublisherDisplayName,
-} from "@proclaimer-shared/publisher/publisherUtils";
+} from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 
 interface PublisherSelectContentProps {

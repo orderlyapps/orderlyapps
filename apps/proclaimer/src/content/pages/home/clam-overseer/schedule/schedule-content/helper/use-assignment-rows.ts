@@ -1,4 +1,4 @@
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { AssignmentItem, AssignmentRow } from "./types";

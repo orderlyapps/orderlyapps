@@ -17,7 +17,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 

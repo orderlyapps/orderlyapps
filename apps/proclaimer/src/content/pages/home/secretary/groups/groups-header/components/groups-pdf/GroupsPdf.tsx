@@ -2,7 +2,7 @@ import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { PdfFilterType } from "../pdf-action-sheet/PdfActionSheet";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 
 const styles = StyleSheet.create({
   page: {

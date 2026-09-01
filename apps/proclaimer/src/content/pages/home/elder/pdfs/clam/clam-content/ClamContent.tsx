@@ -13,7 +13,7 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { useMidweekScheduleData } from "./hooks/useMidweekScheduleData";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getStoredPublisher } from "@proclaimer-shared/publisher/publisherUtils";
+import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 
 type MonthRange = {
   readonly firstMonday: string;

@@ -7,7 +7,7 @@ import {
   weekendAttendantAssignmentIDs,
 } from "@amodeo/proclaimer/feature/av";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignmentGroup } from "./types";
 
 function makeGroup(

@@ -6,7 +6,7 @@ import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-lo
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { PublisherSelectModal } from "./components/publisher-select-modal/PublisherSelectModal";
 import { MapNavigator } from "./components/map-navigator/MapNavigator";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";

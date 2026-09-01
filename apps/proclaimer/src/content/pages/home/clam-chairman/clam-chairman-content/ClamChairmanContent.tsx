@@ -12,7 +12,7 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { ChairmanAssignmentCard } from "./components/chairman-assignment-card/ChairmanAssignmentCard";
 import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";
 import type { AssignmentRow } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/types";

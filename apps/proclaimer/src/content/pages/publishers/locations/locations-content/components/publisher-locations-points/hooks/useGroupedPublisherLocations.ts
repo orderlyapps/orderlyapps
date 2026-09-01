@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { usePublisherAddressPoints } from "@proclaimer-content/pages/publishers/locations/locations-content/components/publisher-locations-heatmap/hooks/usePublisherAddressPoints";
-import type { PublisherName } from "@proclaimer-shared/publisher/publisherUtils";
+import type { PublisherName } from "@amodeo/proclaimer/feature/publisher";
 
 export type PublisherAtAddress = PublisherName & {
   publisher_id: string;

@@ -7,7 +7,7 @@ import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { MapLogPdf } from "../map-log-pdf/MapLogPdf";
 import type { MapLogPdfEntry, MapLogPdfRow } from "../map-log-pdf/map-log-pdf-styles";
 

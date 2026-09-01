@@ -2,7 +2,7 @@ import { IonList, IonItem, IonLabel } from "@ionic/react";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 
 interface GroupPublishersListProps {

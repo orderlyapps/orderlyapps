@@ -4,7 +4,7 @@ import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { AlertTextInput } from "@amodeo/proclaimer/ui/components/inputs/alert-text/AlertTextInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 
 interface GroupFormProps {
   group_id: string;

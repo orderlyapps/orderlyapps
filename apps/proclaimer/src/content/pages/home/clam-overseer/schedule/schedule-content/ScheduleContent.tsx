@@ -12,7 +12,7 @@ import { AssignmentCard } from "./components/assignment-card/AssignmentCard";
 import { getMeetingParts } from "./helper/get-meeting-parts";
 import { useCircuitVisitEvent } from "./helper/use-circuit-visit-event";
 import { useAssignmentRows } from "./helper/use-assignment-rows";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { ScheduleContentProps, AssignmentRow } from "./helper/types";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";

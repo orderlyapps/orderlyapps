@@ -4,7 +4,6 @@ export const localStorageKeys = {
   authToken: "auth_token",
   mapViewLocation: "map_view",
   selectedCongregation: "selected_congregation",
-  selectedPublisher: "selected_publisher",
   filterSortPresets: "filter_sort_presets",
   filterSortActivePreset: "filter_sort_active_preset",
   publisherGenderFilter: "publisher_gender_filter",

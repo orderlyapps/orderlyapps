@@ -13,7 +13,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 
 interface Permission {
   $key: string;

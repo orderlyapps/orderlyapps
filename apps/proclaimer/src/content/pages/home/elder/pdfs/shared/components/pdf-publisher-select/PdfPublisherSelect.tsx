@@ -4,10 +4,7 @@ import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-selec
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { PublisherSelectContent } from "@proclaimer-content/pages/settings/profile/profile-content/components/publisher-select/publisher-select-modal/publisher-select-content/PublisherSelectContent";
-import {
-  getStoredPublisher,
-  getPublisherDisplayName,
-} from "@proclaimer-shared/publisher/publisherUtils";
+import { getStoredPublisher, getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 interface PdfPublisherSelectProps {

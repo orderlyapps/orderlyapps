@@ -5,7 +5,7 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";

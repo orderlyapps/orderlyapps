@@ -1,6 +1,6 @@
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { PublisherNameInput } from "@proclaimer-shared/publisher/components/publisher-name-input/PublisherNameInput";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
+import { PublisherNameInput } from "@amodeo/proclaimer/feature/publisher";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 

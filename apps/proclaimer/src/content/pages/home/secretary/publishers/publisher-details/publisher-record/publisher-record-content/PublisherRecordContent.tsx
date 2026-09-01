@@ -7,7 +7,7 @@ import { IonList, IonLabel, IonItemDivider } from "@ionic/react";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { getServiceYear } from "@util/format/service-year";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { Report } from "@amodeo/proclaimer/feature/reports";
 import { PublisherReportModal } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-report-modal/PublisherReportModal";
 import { usePublisherReports } from "@proclaimer-content/pages/home/reports/reports-content/hooks/usePublisherReports";

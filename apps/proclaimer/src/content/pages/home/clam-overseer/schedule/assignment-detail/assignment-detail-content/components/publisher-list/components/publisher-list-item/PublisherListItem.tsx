@@ -1,6 +1,6 @@
 import { IonItem, IonLabel, IonChip } from "@ionic/react";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 
 interface PublisherListItemProps {

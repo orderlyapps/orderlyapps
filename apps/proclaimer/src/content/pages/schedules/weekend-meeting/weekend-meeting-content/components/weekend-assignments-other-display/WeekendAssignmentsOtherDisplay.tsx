@@ -2,7 +2,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { and, eq } from "@tanstack/react-db";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 

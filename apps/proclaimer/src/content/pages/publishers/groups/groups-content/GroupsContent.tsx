@@ -7,7 +7,7 @@ import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinne
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
 import { isListablePublisher } from "@proclaimer-content/pages/home/secretary/groups/group-details/group-details-content/groupPublisherUtils";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";

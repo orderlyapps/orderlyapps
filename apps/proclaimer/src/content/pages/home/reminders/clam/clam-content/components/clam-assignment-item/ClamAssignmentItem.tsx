@@ -1,6 +1,6 @@
 import { IonItem, IonLabel } from "@ionic/react";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { ClamAssignmentDownload } from "../clam-assignment-download/ClamAssignmentDownload";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 

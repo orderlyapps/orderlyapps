@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useMinistryTime } from "@proclaimer-content/pages/home/ministry-time/ministry-time-content/hooks/useMinistryTime";
-import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getPreviousMonthValue } from "@util/format/report-date";
 import { loadMinistryReportForm, saveMinistryReportForm } from "./submit-ministry-time-storage";
 

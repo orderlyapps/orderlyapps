@@ -1,6 +1,6 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 
 export function usePublisherName(publisher_id: string): string {
   const { data: publishers } = useLiveQuery(

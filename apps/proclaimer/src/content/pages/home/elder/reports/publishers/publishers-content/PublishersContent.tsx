@@ -1,7 +1,7 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";

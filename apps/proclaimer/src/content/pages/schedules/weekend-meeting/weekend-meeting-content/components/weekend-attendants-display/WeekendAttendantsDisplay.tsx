@@ -3,7 +3,7 @@ import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { weekendAttendantAssignmentIDs, avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import { and, eq, inArray } from "@tanstack/react-db";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 

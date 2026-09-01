@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { SmsIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/sms/SmsIconButton";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getAvSmsTemplates, fillAvSmsTemplate } from "../../../shared/avSmsTemplate";

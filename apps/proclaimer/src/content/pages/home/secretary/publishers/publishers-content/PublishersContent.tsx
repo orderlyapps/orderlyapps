@@ -6,7 +6,7 @@ import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { getStoredCongregation } from "@util/app/congregation/utils";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { usePresets } from "./hooks/use-presets/usePresets";
 import { filterPublishers } from "./hooks/use-publisher-filter/usePublisherFilter";
 import { FilterSelectModal } from "./components/filter-modal/FilterSelectModal";

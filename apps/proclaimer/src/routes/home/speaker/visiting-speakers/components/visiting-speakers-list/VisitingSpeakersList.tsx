@@ -1,7 +1,7 @@
 import { useVisitingSpeakers } from "@proclaimer-routes/home/speaker/visiting-speakers/hooks/use-visiting-speakers/useVisitingSpeakers";
 import { SpeakerList } from "@proclaimer-routes/home/speaker/shared/components/speaker-list/SpeakerList";
 import type { SpeakerListItem } from "@proclaimer-routes/home/speaker/shared/components/speaker-list/SpeakerList";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 
 type VisitingSpeakersListProps = {
   search: string;

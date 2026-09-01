@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 
 export type SpeakerListItem = {
   id?: string;

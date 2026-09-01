@@ -1,7 +1,7 @@
-import { NameInput } from "@amodeo/proclaimer/ui/components/inputs/name/NameInput";
-import type { NameValue } from "@amodeo/proclaimer/ui/components/inputs/name/NameInput";
-import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { NameInput } from "../../../../ui/components/inputs/name/NameInput.tsx";
+import type { NameValue } from "../../../../ui/components/inputs/name/NameInput.tsx";
+import { publisherCollection } from "../../collections/publisher.ts";
+import { getPublisherDisplayName } from "../../utils/publisher-name.ts";
 
 interface PublisherNameInputProps {
   value: NameValue;

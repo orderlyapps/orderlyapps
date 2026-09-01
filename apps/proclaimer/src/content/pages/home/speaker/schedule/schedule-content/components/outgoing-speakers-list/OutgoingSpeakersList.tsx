@@ -6,7 +6,7 @@ import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";

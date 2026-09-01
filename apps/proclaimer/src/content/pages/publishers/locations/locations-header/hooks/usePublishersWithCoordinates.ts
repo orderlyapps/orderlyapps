@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 
 export type PublisherWithCoordinates = {
   publisher_id: string;
