@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { weekendPermissionCollection } from "@amodeo/proclaimer/database/collections/weekend-permission";
+import { weekendPermissionCollection } from "@amodeo/proclaimer/feature/weekend";
 import { useAddPermission } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/useAddPermission";
 import { GenericPermissionModal } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-modal/GenericPermissionModal";
 

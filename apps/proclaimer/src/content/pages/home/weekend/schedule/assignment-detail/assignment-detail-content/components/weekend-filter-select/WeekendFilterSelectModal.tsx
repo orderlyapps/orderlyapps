@@ -6,10 +6,7 @@ import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { IncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/IncrementInput";
 import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
-import {
-  weekendAssignmentIDs,
-  weekendAssignmentLabels,
-} from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import { weekendAssignmentIDs, weekendAssignmentLabels } from "@amodeo/proclaimer/feature/weekend";
 import type {
   WeekendFilterSortPreset,
   WeekendPublisherFilter,

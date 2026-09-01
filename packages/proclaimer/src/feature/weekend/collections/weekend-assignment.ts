@@ -1,47 +1,47 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { weekendParticipationSchema } from "../schemas/weekend-participation.js";
-import { makeCompositeKey } from "../util/composite-key.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { weekendAssignmentSchema } from "../schemas/weekend-assignment.js";
+import { makeCompositeKey } from "../../../database/util/composite-key.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "weekend_participation",
-  queryKey: ["weekend_participation"],
+  id: "weekend_assignment",
+  queryKey: ["weekend_assignment"],
   queryClient,
-  schema: weekendParticipationSchema,
-  getKey: (row) => makeCompositeKey(row.participant_id, row.participation_id),
+  schema: weekendAssignmentSchema,
+  getKey: (row) => makeCompositeKey(row.assignment_id, row.congregation_id, row.week_id),
   queryFn: async () => {
-    const { data, error } = await supabase.from("weekend_participation").select("*");
+    const { data, error } = await supabase.from("weekend_assignment").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("weekend_participation").insert(rows);
+    const { error } = await supabase.from("weekend_assignment").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { participant_id, participation_id } = mutation.original;
+      const { assignment_id, congregation_id, week_id } = mutation.original;
       const { error } = await supabase
-        .from("weekend_participation")
+        .from("weekend_assignment")
         .update(mutation.modified)
-        .match({ participant_id, participation_id });
+        .match({ assignment_id, congregation_id, week_id });
       if (error) throw error;
     }
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { participant_id, participation_id } = mutation.original;
+      const { assignment_id, congregation_id, week_id } = mutation.original;
       const { error } = await supabase
-        .from("weekend_participation")
+        .from("weekend_assignment")
         .delete()
-        .match({ participant_id, participation_id });
+        .match({ assignment_id, congregation_id, week_id });
       if (error) throw error;
     }
   },
@@ -53,7 +53,7 @@ const persistedOptions = persistedCollectionOptions({
   schemaVersion: 2,
 });
 
-export const weekendParticipationCollection = createCollection({
+export const weekendAssignmentCollection = createCollection({
   ...persistedOptions,
-  schema: weekendParticipationSchema,
+  schema: weekendAssignmentSchema,
 });

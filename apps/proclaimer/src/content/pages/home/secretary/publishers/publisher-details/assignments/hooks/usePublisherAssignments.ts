@@ -2,7 +2,7 @@ import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { format, startOfWeek } from "date-fns";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
-import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { useMidweekAssignments } from "@proclaimer-content/pages/home/assignments/useMidweekAssignments";
 import {

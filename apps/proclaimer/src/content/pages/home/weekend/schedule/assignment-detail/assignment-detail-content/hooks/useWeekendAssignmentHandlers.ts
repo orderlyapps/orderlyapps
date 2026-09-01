@@ -1,6 +1,6 @@
-import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
-import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
-import type { WeekendAssignmentID } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
+import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
+import type { WeekendAssignmentID } from "@amodeo/proclaimer/feature/weekend";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 interface UseWeekendAssignmentHandlersProps {

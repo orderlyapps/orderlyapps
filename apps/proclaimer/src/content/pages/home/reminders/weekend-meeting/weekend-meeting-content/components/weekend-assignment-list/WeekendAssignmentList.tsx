@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { IonItemDivider, IonList } from "@ionic/react";
-import {
-  weekendAssignmentIDs,
-  weekendAssignmentLabels,
-} from "@amodeo/proclaimer/database/schemas/weekend-assignment";
-import type { WeekendAssignmentID } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import { weekendAssignmentIDs, weekendAssignmentLabels } from "@amodeo/proclaimer/feature/weekend";
+import type { WeekendAssignmentID } from "@amodeo/proclaimer/feature/weekend";
 import { useWeekendAssignments } from "../../hooks/use-weekend-assignments/useWeekendAssignments";
 import { WeekendAssignmentItem } from "../weekend-assignment-item/WeekendAssignmentItem";
 import { SpeakerAssignmentItem } from "../speaker-assignment-item/SpeakerAssignmentItem";

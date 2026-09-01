@@ -1,7 +1,7 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { weekendPermissionSchema } from "../schemas/weekend-permission.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();

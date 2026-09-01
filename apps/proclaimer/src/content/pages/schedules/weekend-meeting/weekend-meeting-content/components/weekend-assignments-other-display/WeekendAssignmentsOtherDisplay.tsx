@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { and, eq } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";

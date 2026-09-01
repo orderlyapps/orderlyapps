@@ -2,7 +2,7 @@ import { IonItem, IonLabel, IonList, IonSkeletonText } from "@ionic/react";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useWeekendParticipantPublishers } from "@proclaimer-content/pages/home/weekend/participation/shared/hooks/useWeekendParticipantPublishers";
-import type { WeekendParticipation } from "@amodeo/proclaimer/database/schemas/weekend-participation";
+import type { WeekendParticipation } from "@amodeo/proclaimer/feature/weekend";
 import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 
 interface WeekendParticipantPublishersListProps {

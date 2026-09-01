@@ -9,7 +9,7 @@ import { cobePermissionCollection } from "@amodeo/proclaimer/database/collection
 import { territoryServantPermissionCollection } from "@amodeo/proclaimer/database/collections/territory-servant-permission";
 import { avOverseerPermissionCollection } from "@amodeo/proclaimer/feature/av";
 import { speakerPermissionCollection } from "@amodeo/proclaimer/database/collections/speaker-permission";
-import { weekendPermissionCollection } from "@amodeo/proclaimer/database/collections/weekend-permission";
+import { weekendPermissionCollection } from "@amodeo/proclaimer/feature/weekend";
 import { reminderPermissionCollection } from "@amodeo/proclaimer/database/collections/reminder-permission";
 import { eventPermissionCollection } from "@amodeo/proclaimer/feature/event";
 import { watchtowerPermissionCollection } from "@amodeo/proclaimer/database/collections/watchtower-permission";

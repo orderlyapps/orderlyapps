@@ -3,7 +3,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
-import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import { WeekendAssignmentHistory } from "./components/weekend-assignment-history/WeekendAssignmentHistory";
 

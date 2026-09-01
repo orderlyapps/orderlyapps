@@ -6,19 +6,19 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
-import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
+import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import {
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
 } from "@amodeo/proclaimer/feature/av";
-import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
+import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import { useWeekendPresets } from "../../hooks/use-weekend-presets/useWeekendPresets";
 import { useWeekendPublisherStats } from "../../hooks/use-weekend-publisher-stats/useWeekendPublisherStats";
-import { weekendParticipationCollection } from "@amodeo/proclaimer/database/collections/weekend-participation";
-import type { WeekendParticipation } from "@amodeo/proclaimer/database/schemas/weekend-participation";
+import { weekendParticipationCollection } from "@amodeo/proclaimer/feature/weekend";
+import type { WeekendParticipation } from "@amodeo/proclaimer/feature/weekend";
 import { WeekendFilterSelect } from "../weekend-filter-select/WeekendFilterSelect";
 import { WeekendConfirmModal } from "./components/weekend-confirm-modal/WeekendConfirmModal";
 
