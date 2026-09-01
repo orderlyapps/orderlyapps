@@ -20,7 +20,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapCheckoutMapCollection } from "@amodeo/proclaimer/database/collections/map-checkout-map";
 import { mapCheckoutPublisherCollection } from "@amodeo/proclaimer/database/collections/map-checkout-publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { IncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/IncrementInput";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";

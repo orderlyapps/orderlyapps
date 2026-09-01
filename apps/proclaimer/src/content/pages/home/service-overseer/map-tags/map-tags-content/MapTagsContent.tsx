@@ -13,7 +13,7 @@ import { createOutline, trashOutline } from "ionicons/icons";
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
 import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collections/map-tag-assignment";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
 import type { MapTagAssignmentRow } from "@amodeo/proclaimer/database/schemas/map-tag-assignment";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";

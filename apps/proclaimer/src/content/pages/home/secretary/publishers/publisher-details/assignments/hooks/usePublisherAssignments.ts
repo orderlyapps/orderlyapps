@@ -3,7 +3,7 @@ import { format, startOfWeek } from "date-fns";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { useMidweekAssignments } from "@proclaimer-content/pages/home/assignments/useMidweekAssignments";
 import {
   type Assignment,

@@ -1,7 +1,7 @@
 import { OtpSignInModal } from "./otp-sign-in-modal/OtpSignInModal";
 import { PasswordSignInModal } from "./password-sign-in-modal/PasswordSignInModal";
 import { SignedInStatus } from "./signed-in-status/SignedInStatus";
-import { useAuthSession } from "@util/app/auth/useAuthSession";
+import { useAuthSession } from "@amodeo/proclaimer/feature/permission";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 

@@ -1,4 +1,4 @@
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 interface PermissionRecord {

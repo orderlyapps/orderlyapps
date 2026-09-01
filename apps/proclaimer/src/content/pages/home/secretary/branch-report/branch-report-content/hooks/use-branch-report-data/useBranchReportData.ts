@@ -2,7 +2,7 @@ import { and, eq, gte, lte, useLiveQuery } from "@tanstack/react-db";
 import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 function formatMonthDate(year: number, month: number): string {
   return `${year}-${String(month + 1).padStart(2, "0")}-01`;

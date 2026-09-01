@@ -1,6 +1,6 @@
 import { useIonAlert } from "@ionic/react";
 import { supabase } from "@util/vendor/supabase/supabase-client";
-import { useAuthSession } from "@util/app/auth/useAuthSession";
+import { useAuthSession } from "@amodeo/proclaimer/feature/permission";
 import { useFetchLatestOtp } from "./useFetchLatestOtp";
 
 interface GenerateOptions {

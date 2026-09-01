@@ -17,7 +17,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { MapView } from "@util/vendor/mapbox/MapView";
 import { MapMasterLayer } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/map-master-layer/MapMasterLayer";
 import { MapShareActionSheet } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/map-share-action-sheet/MapShareActionSheet";

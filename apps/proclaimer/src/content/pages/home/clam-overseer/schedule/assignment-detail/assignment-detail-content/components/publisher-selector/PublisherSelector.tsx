@@ -14,7 +14,7 @@ import type { PublisherFilter, PublisherSortOrder } from "./hooks/use-presets/us
 import { usePublisherStats } from "./hooks/use-publisher-stats/usePublisherStats";
 import { usePublisherParticipationTypes } from "./hooks/use-publisher-participation-types/usePublisherParticipationTypes";
 import { usePublisherSelection } from "./hooks/use-publisher-selection/usePublisherSelection";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 interface PublisherSelectorProps {
   publishers: Publisher[];

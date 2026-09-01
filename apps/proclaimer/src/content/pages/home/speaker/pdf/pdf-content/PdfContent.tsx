@@ -6,7 +6,7 @@ import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { BimonthlyPicker } from "./components/bimonthly-picker/BimonthlyPicker";
 import { SpeakerSchedulePdf } from "./components/speaker-schedule-pdf/SpeakerSchedulePdf";
 import { useSpeakerScheduleData } from "./hooks/useSpeakerScheduleData";

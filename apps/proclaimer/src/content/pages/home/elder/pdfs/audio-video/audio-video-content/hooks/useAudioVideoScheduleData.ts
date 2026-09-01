@@ -2,7 +2,7 @@ import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { eventCollection, type EventRow } from "@amodeo/proclaimer/feature/event";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import {
   avAssignmentLabels,

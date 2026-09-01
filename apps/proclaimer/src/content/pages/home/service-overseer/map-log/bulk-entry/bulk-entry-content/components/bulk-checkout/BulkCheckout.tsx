@@ -3,7 +3,7 @@ import { IonItem, IonList, IonTextarea } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";

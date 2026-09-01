@@ -5,9 +5,11 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { PublisherNameInput } from "@amodeo/proclaimer/feature/publisher";
-import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
+import {
+  congregationCollection,
+  useStoredCongregation,
+} from "@amodeo/proclaimer/feature/congregation";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
 import type { NameValue } from "@amodeo/proclaimer/ui/components/inputs/name/NameInput";
 

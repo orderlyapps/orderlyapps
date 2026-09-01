@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import { isValidBoundary } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
 import { useMapDisplayMode } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useMapDisplayModeContext";

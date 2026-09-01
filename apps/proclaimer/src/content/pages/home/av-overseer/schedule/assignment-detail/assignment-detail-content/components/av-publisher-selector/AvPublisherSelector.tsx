@@ -10,7 +10,7 @@ import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignmentID } from "@amodeo/proclaimer/feature/av";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { avParticipationTypeMap } from "../../utils/avParticipationTypeMap";
 import { useAvPresets } from "../../hooks/use-av-presets/useAvPresets";
 import type { AvPublisherFilter, PublisherSortOrder } from "../../hooks/use-av-presets/types";

@@ -6,9 +6,9 @@ import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { isListablePublisher } from "@proclaimer-content/pages/home/secretary/groups/group-details/group-details-content/groupPublisherUtils";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 

@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { congregationAdminCollection } from "@amodeo/proclaimer/database/collections/congregation-admin";
-import { useAuthSession } from "@util/app/auth/useAuthSession";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { useAuthSession } from "@amodeo/proclaimer/feature/permission";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 export function useIsCongregationAdmin() {
   const session = useAuthSession();

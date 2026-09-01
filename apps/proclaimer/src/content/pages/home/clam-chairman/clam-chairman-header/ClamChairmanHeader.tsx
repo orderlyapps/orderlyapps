@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
 import { useChairmanWeeks } from "../useChairmanWeeks";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 
 const ChairmanDownloadButtons = lazy(() =>

@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 
 export function useCongregationGroups(): { groups: Group[]; isLoading: boolean } {

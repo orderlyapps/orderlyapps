@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";

@@ -6,7 +6,7 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { BimonthlyPicker } from "./components/bimonthly-picker/BimonthlyPicker";
 import { CleaningSchedulePdfDocument } from "./components/cleaning-schedule-pdf/CleaningSchedulePdfDocument";
 import { useCleaningScheduleData } from "./hooks/useCleaningScheduleData";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 type BimonthlyRange = {
   readonly firstMonday: string;

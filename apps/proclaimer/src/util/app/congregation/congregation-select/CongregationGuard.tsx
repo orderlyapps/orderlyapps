@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { CongregationSelectModal } from "./congregation-select-modal/CongregationSelectModal";
 import { OnboardingPublisherModal } from "./onboarding-publisher-modal/OnboardingPublisherModal";
-import { hasSelectedCongregation } from "@util/app/congregation/utils";
+import { hasSelectedCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 export function CongregationGuard() {
   const [showCongregationModal, setShowCongregationModal] = useState(false);

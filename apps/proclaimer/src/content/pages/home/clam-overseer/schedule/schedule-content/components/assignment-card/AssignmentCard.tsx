@@ -1,6 +1,6 @@
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import type { AssignmentRow } from "../../helper/types";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 
 const sectionLabels = ["main_hall_label", "second_school_label"];
 

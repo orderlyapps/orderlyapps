@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
-import { supabase } from "@util/vendor/supabase/supabase-client";
+import { getSupabase } from "../../../database/context.ts";
 
 export function useAuthSession(): Session | null | undefined {
   const [session, setSession] = useState<Session | null | undefined>(undefined);
 
   useEffect(() => {
+    const supabase = getSupabase();
+
     void supabase.auth
       .getSession()
       .then(({ data }) => {

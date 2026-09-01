@@ -5,7 +5,7 @@ import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { usePresets } from "./hooks/use-presets/usePresets";
 import { filterPublishers } from "./hooks/use-publisher-filter/usePublisherFilter";

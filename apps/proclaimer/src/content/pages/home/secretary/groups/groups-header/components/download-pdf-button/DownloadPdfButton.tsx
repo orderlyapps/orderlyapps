@@ -3,7 +3,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { GroupsPdf } from "../groups-pdf/GroupsPdf";
 import { PdfActionSheet, type PdfFilterType } from "../pdf-action-sheet/PdfActionSheet";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";

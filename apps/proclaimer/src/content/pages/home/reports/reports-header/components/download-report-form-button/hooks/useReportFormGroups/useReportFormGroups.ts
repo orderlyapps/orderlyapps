@@ -2,9 +2,8 @@ import { useLiveQuery, eq } from "@tanstack/react-db";
 import { reportPermissionCollection } from "@amodeo/proclaimer/feature/reports";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { useAuthSession } from "@util/app/auth/useAuthSession";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { usePermissions, useAuthSession } from "@amodeo/proclaimer/feature/permission";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Group } from "@amodeo/proclaimer/database/schemas/group";
 
 export function useReportFormGroups(): { groups: Group[]; can_download: boolean } {

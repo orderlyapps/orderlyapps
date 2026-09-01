@@ -21,7 +21,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import { mapMasterCollection } from "@amodeo/proclaimer/database/collections/map-master";
 import { searchSuburbs } from "@util/vendor/mapbox/helper/searchSuburbs";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapboxGeocodingFeature } from "@util/vendor/mapbox/types/MapboxGeocodingResponse";
 import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 

@@ -2,7 +2,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { notAtHomeCollection } from "@amodeo/proclaimer/database/collections/not-at-home";
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { NotAtHome } from "@amodeo/proclaimer/database/schemas/not-at-home";
 import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 import type { Street } from "@amodeo/proclaimer/database/schemas/street";

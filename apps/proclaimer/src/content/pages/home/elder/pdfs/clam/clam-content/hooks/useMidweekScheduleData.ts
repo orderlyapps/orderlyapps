@@ -2,7 +2,7 @@ import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 

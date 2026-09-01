@@ -4,7 +4,7 @@ import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { midweekAttendantAssignmentIDs, avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import { and, eq, inArray } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 
 type MidweekAttendantsDisplayProps = {

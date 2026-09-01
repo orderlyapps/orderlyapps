@@ -11,7 +11,7 @@ import { PdfPublisherSelect } from "@proclaimer-content/pages/home/elder/pdfs/sh
 import { MidweekSchedulePdfDocument } from "./components/midweek-schedule-pdf/MidweekSchedulePdfDocument";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { useMidweekScheduleData } from "./hooks/useMidweekScheduleData";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 

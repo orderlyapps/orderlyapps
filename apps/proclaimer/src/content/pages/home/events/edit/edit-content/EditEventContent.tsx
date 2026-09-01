@@ -6,8 +6,8 @@ import {
   type EventDetails,
   type EventRow,
 } from "@amodeo/proclaimer/feature/event";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";

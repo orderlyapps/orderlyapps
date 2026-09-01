@@ -5,7 +5,7 @@ import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/H
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
 import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";

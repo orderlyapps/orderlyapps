@@ -3,7 +3,7 @@ import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend"
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 import type { WeekendAssignmentID } from "@amodeo/proclaimer/feature/weekend";
 

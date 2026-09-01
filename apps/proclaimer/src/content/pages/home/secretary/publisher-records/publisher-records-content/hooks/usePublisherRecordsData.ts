@@ -3,7 +3,7 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Report } from "@amodeo/proclaimer/feature/reports";
 import type { PublisherRecordEntry } from "../components/publisher-records-pdf/PublisherRecordsPdf";
 import type { PublisherRecordData } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-record-pdf/types";

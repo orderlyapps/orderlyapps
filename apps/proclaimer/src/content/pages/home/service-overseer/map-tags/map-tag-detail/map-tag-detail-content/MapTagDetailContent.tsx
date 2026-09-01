@@ -3,7 +3,7 @@ import { IonItem, IonLabel, IonList, IonSelect, IonSelectOption, IonCheckbox } f
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collections/map-tag-assignment";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { MapTagAssignmentRow } from "@amodeo/proclaimer/database/schemas/map-tag-assignment";
 

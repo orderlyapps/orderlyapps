@@ -1,6 +1,6 @@
 import { IonAlert } from "@ionic/react";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 interface AddPublisherAlertProps {
   is_open: boolean;

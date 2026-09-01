@@ -18,7 +18,7 @@ import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/Sear
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { localStorageKeys } from "@util/constants/localStorageKeys";
 
 const MAX_RECENT_PUBLISHERS = 15;

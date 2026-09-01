@@ -7,7 +7,7 @@ import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInpu
 import { TimeInput } from "@amodeo/proclaimer/ui/components/inputs/time/TimeInput";
 import { WeekSelect } from "@proclaimer-shared/components/inputs/week-select/WeekSelect";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { formatPublisherName } from "@util/format/formatPublisherName";
 import type { EventFormFieldProps } from "../../types";
 

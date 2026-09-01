@@ -2,7 +2,7 @@ import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { useLiveQuery } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";

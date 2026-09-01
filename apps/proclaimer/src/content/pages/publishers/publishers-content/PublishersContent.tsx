@@ -1,10 +1,10 @@
 import { IonList } from "@ionic/react";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { useLiveQuery } from "@tanstack/react-db";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 export function PublishersContent() {
   const { data: publishers } = useLiveQuery((q) => q.from({ p: publisherCollection }));

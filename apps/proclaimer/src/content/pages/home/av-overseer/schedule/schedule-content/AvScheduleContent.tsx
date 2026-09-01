@@ -6,7 +6,7 @@ import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinne
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getAvAssignmentRows } from "./helper/getAvAssignmentRows";
 import { AvAssignmentCard } from "./components/av-assignment-card/AvAssignmentCard";
 import type { AvAssignmentGroup, AvScheduleContentProps } from "./helper/types";

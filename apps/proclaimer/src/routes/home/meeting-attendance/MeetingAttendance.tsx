@@ -14,8 +14,8 @@ import {
   MeetingAttendanceDisplay,
   MeetingAttendanceEdit,
 } from "@amodeo/proclaimer/feature/meeting-attendance";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 function MeetingAttendancePage() {
   const match = useRouteMatch<{ week_id?: string }>();

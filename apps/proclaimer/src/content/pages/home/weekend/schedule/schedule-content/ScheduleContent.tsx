@@ -7,9 +7,9 @@ import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend"
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { weekendAssignmentIDs, weekendAssignmentLabels } from "@amodeo/proclaimer/feature/weekend";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 
 type ScheduleContentProps = {
   week_id: string;

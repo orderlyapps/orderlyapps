@@ -34,6 +34,7 @@
 - [ ] **`download-contacts-pdf-button.tsx` exceeds 75-line limit** — `packages/proclaimer/src/feature/publisher-local/components/download-contacts-pdf-button/download-contacts-pdf-button.tsx` is 85 lines. Consider extracting the `handleDownload` logic into a custom hook (e.g. `use-download-pdf`).
 - [ ] **Object URL leak on error in `download-contacts-pdf-button.tsx`** — In `handleDownload`, `URL.revokeObjectURL(url)` is inside the `try` block. If `link.click()` throws, the object URL is never revoked. Move `URL.revokeObjectURL` to a `finally` block to prevent the resource leak.
 
+- [ ] **`usePermissions` — `has_reports` missing `congregation_id` filter** — `packages/proclaimer/src/feature/permission/hooks/use-permissions.ts:168-170`: Unlike every other permission check, `has_reports` does not filter by `congregation_id`. A user with report permissions in congregation A would also have report access in congregation B. Should add `&& rp.congregation_id === congregation_id` to the filter condition.
 - [ ] **`getTheocraticWeekLabel` — capital-case format logic is inverted** — `packages/proclaimer/src/util/date/getTheocraticWeekLabel.ts:110-119`: The `isCapitalCase` flag inverts the uppercasing — when `format === "week-range-capital-case"`, months are **not** uppercased, but the default `"week-range"` **does** uppercase them. Additionally, `"week-label-capital-case"` (line 64) behaves identically to `"week-label"` with no capitalization difference. The capital-case variants should produce uppercase output.
 
 ## Utils Package — TODO

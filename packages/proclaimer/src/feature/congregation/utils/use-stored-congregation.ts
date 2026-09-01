@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
-import { getStoredCongregation, CONGREGATION_CHANGE_EVENT } from "./utils";
+import type { Congregation } from "../schemas/congregation.ts";
+import { getStoredCongregation, CONGREGATION_CHANGE_EVENT } from "./stored-congregation.ts";
 
 export function useStoredCongregation(): Congregation | null {
   const [congregation, setCongregation] = useState<Congregation | null>(getStoredCongregation);

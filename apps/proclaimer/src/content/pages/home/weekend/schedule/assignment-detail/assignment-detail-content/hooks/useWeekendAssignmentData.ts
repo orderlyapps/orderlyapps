@@ -3,7 +3,7 @@ import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend"
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import { weekendAssignmentLabels } from "@amodeo/proclaimer/feature/weekend";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 interface UseWeekendAssignmentDataProps {
   week_id: string;

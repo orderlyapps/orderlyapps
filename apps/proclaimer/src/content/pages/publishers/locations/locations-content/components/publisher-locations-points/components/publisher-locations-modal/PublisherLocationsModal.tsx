@@ -11,7 +11,7 @@ import {
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import type { AddressPublisherGroup } from "../../hooks/useGroupedPublisherLocations";
 
 type PublisherLocationsModalProps = {

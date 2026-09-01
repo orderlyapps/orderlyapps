@@ -5,7 +5,7 @@ import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collect
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { cleanMajorCollection, cleanMinorCollection } from "@amodeo/proclaimer/feature/cleaning";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import { weekendAssignmentLabels } from "@amodeo/proclaimer/feature/weekend";
 import { useMidweekAssignments } from "./useMidweekAssignments";

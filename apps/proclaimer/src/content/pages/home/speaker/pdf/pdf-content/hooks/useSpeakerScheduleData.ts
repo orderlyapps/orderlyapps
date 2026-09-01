@@ -3,9 +3,11 @@ import { addWeeks, format, parseISO } from "date-fns";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
+import {
+  congregationCollection,
+  useStoredCongregation,
+} from "@amodeo/proclaimer/feature/congregation";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";

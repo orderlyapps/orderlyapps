@@ -15,7 +15,7 @@ import { useAssignmentRows } from "./helper/use-assignment-rows";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { ScheduleContentProps, AssignmentRow } from "./helper/types";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { CircuitVisitBanner } from "@proclaimer-content/pages/schedules/midweek-meeting/midweek-meeting-content/components/circuit-visit-banner/CircuitVisitBanner";
 

@@ -2,7 +2,7 @@ import { IonToolbar, IonTitle, IonButtons, IonBackButton, IonButton, IonIcon } f
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { createOutline, checkmarkOutline } from "ionicons/icons";
 
 export function PublisherDetailsHeader({

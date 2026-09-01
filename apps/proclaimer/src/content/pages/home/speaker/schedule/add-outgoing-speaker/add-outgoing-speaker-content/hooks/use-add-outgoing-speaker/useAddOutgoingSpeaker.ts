@@ -1,10 +1,12 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { useLocalSpeakers } from "@proclaimer-routes/home/speaker/local-speakers/hooks/use-local-speakers/useLocalSpeakers";
-import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
+import {
+  congregationCollection,
+  useStoredCongregation,
+} from "@amodeo/proclaimer/feature/congregation";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import type { Congregation } from "@amodeo/proclaimer/feature/congregation";

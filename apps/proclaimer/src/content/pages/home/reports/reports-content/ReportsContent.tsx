@@ -4,7 +4,7 @@ import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { getPreviousMonthDate } from "@util/format/report-date";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { usePermissionedPublishers } from "./hooks/usePermissionedPublishers";
 import { useReportedPublisherIds } from "./hooks/useReportedPublisherIds";
 import { useCongregationGroups } from "./hooks/useCongregationGroups";

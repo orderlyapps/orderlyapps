@@ -19,7 +19,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { searchStreets } from "@util/vendor/mapbox/helper/searchStreets";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapboxGeocodingFeature } from "@util/vendor/mapbox/types/MapboxGeocodingResponse";
 import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";

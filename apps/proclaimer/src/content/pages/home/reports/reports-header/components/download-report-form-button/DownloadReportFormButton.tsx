@@ -3,7 +3,7 @@ import { IonList, IonItem, IonPopover, IonSpinner, useIonToast } from "@ionic/re
 import { useLiveQuery, eq, isNull, and } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPreviousMonthDate } from "@util/format/report-date";
 import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";

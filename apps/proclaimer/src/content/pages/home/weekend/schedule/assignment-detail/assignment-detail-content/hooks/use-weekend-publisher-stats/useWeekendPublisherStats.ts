@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { computeWeekendStats } from "./computeWeekendStats";
 import type { WeekendPublisherStats } from "../use-weekend-presets/types";
 

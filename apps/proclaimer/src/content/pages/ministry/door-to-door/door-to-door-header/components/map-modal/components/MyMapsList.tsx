@@ -3,7 +3,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { useMapsList } from "../hooks/useMapsList";
 import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { useAuthSession } from "@util/app/auth/useAuthSession";
+import { useAuthSession } from "@amodeo/proclaimer/feature/permission";
 import { MapListItem } from "./map-list-item/MapListItem";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { localStorageKeys } from "@util/constants/localStorageKeys";

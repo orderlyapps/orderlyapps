@@ -17,7 +17,7 @@ import {
 } from "@util/vendor/mapbox/customLocalStyleSettings";
 import { localStorageKeys, localStorageKeyWithVariant } from "@util/constants/localStorageKeys";
 import { selectableStyles, type SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
-import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { boundaryToBounds } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
 

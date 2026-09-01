@@ -1,6 +1,6 @@
 import { IonToolbar, IonTitle, IonBackButton, IonButtons } from "@ionic/react";
 import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
-import { usePermissions } from "@proclaimer-shared/hooks/usePermissions";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { useHistory } from "react-router-dom";
 
 export function EventsHeader() {

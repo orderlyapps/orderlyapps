@@ -4,7 +4,7 @@ import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import { getStoredCongregation } from "@util/app/congregation/utils";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { isListablePublisher } from "./groupPublisherUtils";
 import { GroupForm } from "./components/GroupForm";
 import { GroupPublishersList } from "./components/GroupPublishersList";
