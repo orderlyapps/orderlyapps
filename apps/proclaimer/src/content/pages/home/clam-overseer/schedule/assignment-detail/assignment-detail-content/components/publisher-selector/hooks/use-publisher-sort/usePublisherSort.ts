@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { localStorageKeyWithVariant } from "@util/constants/localStorageKeys";
+import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
 import type { ParticipationType } from "../../utils/participationTypeMap";
 import type { PublisherSortOrder } from "./types";
 

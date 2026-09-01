@@ -1,6 +1,9 @@
 import { useState } from "react";
 import type { ViewState, ViewStateChangeEvent } from "react-map-gl/mapbox";
-import { localStorageKeys, localStorageKeyWithVariant } from "@util/constants/localStorageKeys";
+import {
+  localStorageKeys,
+  localStorageKeyWithVariant,
+} from "@amodeo/proclaimer/util/localStorageKeys";
 import { selectableStyles, type SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
 
 type StoredLocation = Pick<ViewState, "longitude" | "latitude" | "zoom" | "pitch" | "bearing">;

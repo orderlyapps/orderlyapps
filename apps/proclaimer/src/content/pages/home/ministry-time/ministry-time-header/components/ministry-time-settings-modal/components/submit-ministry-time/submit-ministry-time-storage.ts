@@ -1,4 +1,4 @@
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 
 export type MinistryReportFormState = {
   phone: string;

@@ -15,7 +15,7 @@ import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/H
 import { PioneerHoursSettings } from "../../../ministry-time-content/components/pioneer-stats/adjust-hours-modal/PioneerHoursSettings";
 import { DataManagement } from "./components/data-management/DataManagement";
 import { SubmitMinistryTime } from "./components/submit-ministry-time/SubmitMinistryTime";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
 
 interface MinistryTimeSettingsModalProps {

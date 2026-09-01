@@ -1,4 +1,4 @@
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
 import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 

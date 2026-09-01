@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { localStorageKeyWithVariant } from "@util/constants/localStorageKeys";
+import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
 import { DEFAULT_PRESET_ID, defaultPresets } from "./defaultPresets";
 import type { FilterSortPreset } from "./types";
 import type { PublisherFilter } from "../use-publisher-filter/types";

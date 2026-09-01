@@ -3,7 +3,7 @@ import { IonItem, IonLabel, IonList, IonToggle, useIonAlert, useIonToast } from 
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useCreatePublisherAuthUser } from "./hooks/useCreatePublisherAuthUser";
 import { useGeneratePublisherOtp } from "./hooks/useGeneratePublisherOtp";
 import { usePublisherPhoneLookup } from "./hooks/usePublisherPhone";

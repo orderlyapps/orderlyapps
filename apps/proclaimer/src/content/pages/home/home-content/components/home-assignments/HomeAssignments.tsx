@@ -4,7 +4,7 @@ import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/Na
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { useAssignments } from "@proclaimer-content/pages/home/assignments/useAssignments";
 import { AssignmentItem } from "@proclaimer-content/pages/home/assignments/components/assignment-item/AssignmentItem";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
 
 export function HomeAssignments() {

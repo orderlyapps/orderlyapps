@@ -4,7 +4,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
 import { mapMasterCollection } from "@amodeo/proclaimer/database/collections/map-master";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useMapLogPresets } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/use-map-log-presets/useMapLogPresets";
 import { useFilteredMapLogMaps } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/use-filtered-map-log-maps/useFilteredMapLogMaps";
 import { MapListFilterModal } from "./components/map-list-filter-modal/MapListFilterModal";

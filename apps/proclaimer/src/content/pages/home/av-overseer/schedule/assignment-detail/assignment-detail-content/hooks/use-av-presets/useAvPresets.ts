@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { localStorageKeyWithVariant } from "@util/constants/localStorageKeys";
+import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
 import type { AvParticipationType } from "../../utils/avParticipationTypeMap";
 import type { AvFilterSortPreset, AvPublisherFilter } from "./types";
 import type { PublisherSortOrder } from "@proclaimer-content/pages/home/clam-overseer/schedule/assignment-detail/assignment-detail-content/components/publisher-selector/hooks/use-publisher-sort/types";

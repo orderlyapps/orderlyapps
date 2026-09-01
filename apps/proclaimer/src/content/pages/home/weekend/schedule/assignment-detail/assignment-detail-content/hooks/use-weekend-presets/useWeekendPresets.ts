@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { localStorageKeyWithVariant } from "@util/constants/localStorageKeys";
+import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
 import type { WeekendFilterSortPreset, WeekendPublisherFilter, PublisherSortOrder } from "./types";
 import { DEFAULT_WEEKEND_PRESET_ID, makeDefaultWeekendPreset } from "./defaultWeekendPreset";
 

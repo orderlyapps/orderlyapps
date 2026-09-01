@@ -7,7 +7,7 @@ import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { EventItem } from "@proclaimer-content/pages/schedules/events/components/event-item/EventItem";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
 
 export function HomeEvents() {

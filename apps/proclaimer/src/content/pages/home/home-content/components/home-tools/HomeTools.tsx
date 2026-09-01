@@ -6,7 +6,7 @@ import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { useChairmanWeeks } from "@proclaimer-content/pages/home/clam-chairman/useChairmanWeeks";
 import { useIsCbsConductor } from "@proclaimer-content/pages/home/congregation-bible-study/useIsCbsConductor";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
-import { localStorageKeys } from "@util/constants/localStorageKeys";
+import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
 
 const COLOR: IonicColor = "medium";

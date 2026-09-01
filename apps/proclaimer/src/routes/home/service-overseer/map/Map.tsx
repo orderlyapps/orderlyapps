@@ -15,7 +15,10 @@ import {
   DEFAULT_CUSTOM_LOCAL_STYLE_SETTINGS,
   customLocalStyleSettingsSchema,
 } from "@util/vendor/mapbox/customLocalStyleSettings";
-import { localStorageKeys, localStorageKeyWithVariant } from "@util/constants/localStorageKeys";
+import {
+  localStorageKeys,
+  localStorageKeyWithVariant,
+} from "@amodeo/proclaimer/util/localStorageKeys";
 import { selectableStyles, type SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
