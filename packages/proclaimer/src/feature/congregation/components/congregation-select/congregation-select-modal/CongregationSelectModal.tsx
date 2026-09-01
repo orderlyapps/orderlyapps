@@ -1,6 +1,6 @@
 import { IonContent } from "@ionic/react";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
-import { CongregationSelectContent } from "./congregation-select-content/CongregationSelectContent";
+import { CongregationSelectContent } from "./congregation-select-content/CongregationSelectContent.tsx";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
@@ -9,7 +9,6 @@ interface CongregationSelectModalProps {
   isOpen: boolean;
   onDismiss: () => void;
   onSelect?: () => void;
-  title?: string;
 }
 
 export function CongregationSelectModal({
@@ -23,7 +22,7 @@ export function CongregationSelectModal({
   };
 
   return (
-    <ResponsiveModal isOpen={isOpen}>
+    <ResponsiveModal isOpen={isOpen} onDidDismiss={onDismiss} backdropDismiss={false}>
       <IonContent className="ion-padding content-wide">
         <Space size="lg" />
         <div className="ion-text-center ion-margin ion-padding">

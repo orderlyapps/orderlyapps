@@ -3,12 +3,12 @@ import { checkmark } from "ionicons/icons";
 import { useState } from "react";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { useLiveQuery, isNull } from "@tanstack/react-db";
+import { congregationCollection } from "../../../../collections/congregation.ts";
 import {
-  congregationCollection,
   getStoredCongregation,
   setStoredCongregation,
-} from "@amodeo/proclaimer/feature/congregation";
-import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
+} from "../../../../utils/stored-congregation.ts";
+import type { Congregation } from "../../../../schemas/congregation.ts";
 
 interface CongregationSelectContentProps {
   onSelect?: () => void;
@@ -97,7 +97,7 @@ export function CongregationSelectContent({ onSelect }: CongregationSelectConten
           render_item={(c) => {
             const is_selected = selected_id === c.id;
             return (
-              <IonItem onClick={() => handleSelect(c)}>
+              <IonItem button detail={false} onClick={() => handleSelect(c)}>
                 <IonLabel className="ion-margin-start ion-padding-start">{c.name}</IonLabel>
                 {is_selected && <IonIcon icon={checkmark} slot="end" color="primary" />}
               </IonItem>
