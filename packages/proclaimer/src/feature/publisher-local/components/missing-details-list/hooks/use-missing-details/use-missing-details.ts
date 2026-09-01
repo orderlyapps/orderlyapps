@@ -69,7 +69,16 @@ function sortByLastName(a: PublisherWithMissingDetails, b: PublisherWithMissingD
   );
 }
 
-export function useMissingDetails(filter: MissingDetailFilter = "all") {
+export interface MissingDetailsOptions {
+  show_associate?: boolean;
+  show_archived?: boolean;
+}
+
+export function useMissingDetails(
+  filter: MissingDetailFilter = "all",
+  options: MissingDetailsOptions = {},
+) {
+  const { show_associate = false, show_archived = false } = options;
   const { data: publishers } = useLiveQuery((q) => q.from({ p: publisherCollection }), []);
   const { data: local_data } = useLiveQuery((q) => q.from({ pl: publisherLocalCollection }), []);
 
@@ -82,7 +91,15 @@ export function useMissingDetails(filter: MissingDetailFilter = "all") {
   }
 
   const with_missing: PublisherWithMissingDetails[] = all_publishers
-    .filter((p) => p.id && !p.archived_at && p.first_name && p.last_name && p.type !== "speaker")
+    .filter(
+      (p) =>
+        p.id &&
+        p.first_name &&
+        p.last_name &&
+        p.type !== "speaker" &&
+        (show_archived || !p.archived_at) &&
+        (show_associate || p.standing !== "associate"),
+    )
     .map((p) => {
       const local = local_map.get(p.id!) ?? null;
       return {
