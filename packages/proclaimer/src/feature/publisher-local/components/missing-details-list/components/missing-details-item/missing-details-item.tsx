@@ -1,16 +1,7 @@
-import {
-  IonButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonItem,
-  IonLabel,
-  IonModal,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
+import { IonItem, IonLabel } from "@ionic/react";
 import { useState } from "react";
 import type { PublisherWithMissingDetails } from "../../hooks/use-missing-details/use-missing-details.ts";
+import { MissingDetailsModal } from "./components/missing-details-modal/missing-details-modal.tsx";
 
 interface MissingDetailsItemProps {
   entry: PublisherWithMissingDetails;
@@ -34,17 +25,7 @@ export function MissingDetailsItem({ entry }: MissingDetailsItemProps) {
         </IonLabel>
       </IonItem>
 
-      <IonModal isOpen={is_open} onDidDismiss={() => set_is_open(false)}>
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle>{getPublisherName(entry)}</IonTitle>
-            <IonButtons slot="end">
-              <IonButton onClick={() => set_is_open(false)}>Close</IonButton>
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent />
-      </IonModal>
+      <MissingDetailsModal entry={entry} isOpen={is_open} onClose={() => set_is_open(false)} />
     </>
   );
 }
