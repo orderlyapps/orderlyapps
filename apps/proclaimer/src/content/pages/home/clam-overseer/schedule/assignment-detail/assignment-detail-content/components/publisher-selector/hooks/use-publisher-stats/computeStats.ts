@@ -1,5 +1,5 @@
 import { differenceInWeeks, parseISO } from "date-fns";
-import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { ParticipationType } from "../../utils/participationTypeMap";
 import { participationAssignmentIds } from "./participationAssignmentIds";
 

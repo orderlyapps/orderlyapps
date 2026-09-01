@@ -1,4 +1,4 @@
-import type { MidweekAssignmentId } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { MidweekAssignmentId } from "@amodeo/proclaimer/feature/midweek";
 
 export type ParticipationType =
   | "prayer"

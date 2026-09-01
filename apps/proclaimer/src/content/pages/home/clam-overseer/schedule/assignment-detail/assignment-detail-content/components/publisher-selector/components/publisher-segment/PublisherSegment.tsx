@@ -7,7 +7,7 @@ import {
   IonItemDivider,
 } from "@ionic/react";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import { PublisherList } from "../../../publisher-list/PublisherList";
 import { PublisherControls } from "../publisher-controls/PublisherControls";
 import { ClearAssignmentButton } from "../clear-assignment-button/ClearAssignmentButton";

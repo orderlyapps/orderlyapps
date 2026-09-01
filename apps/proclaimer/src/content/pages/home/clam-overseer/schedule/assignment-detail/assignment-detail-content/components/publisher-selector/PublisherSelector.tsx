@@ -6,11 +6,8 @@ import { PublisherSegment } from "./components/publisher-segment/PublisherSegmen
 import { ClearAssignmentButton } from "./components/clear-assignment-button/ClearAssignmentButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type {
-  MidweekAssignment,
-  MidweekAssignmentId,
-} from "@amodeo/proclaimer/database/schemas/midweek-assignment";
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
+import type { MidweekAssignment, MidweekAssignmentId } from "@amodeo/proclaimer/feature/midweek";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
 import { participationTypeMap } from "./utils/participationTypeMap";
 import { usePresets } from "./hooks/use-presets/usePresets";
 import type { PublisherFilter, PublisherSortOrder } from "./hooks/use-presets/usePresets";

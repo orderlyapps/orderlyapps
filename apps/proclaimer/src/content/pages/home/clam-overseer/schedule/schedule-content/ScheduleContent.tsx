@@ -3,11 +3,11 @@ import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-na
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { IonList } from "@ionic/react";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
-import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
+import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
-import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import { AssignmentCard } from "./components/assignment-card/AssignmentCard";
 import { getMeetingParts } from "./helper/get-meeting-parts";
 import { useCircuitVisitEvent } from "./helper/use-circuit-visit-event";

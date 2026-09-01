@@ -2,8 +2,8 @@ import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
 import { midweekMeetingDataSchema } from "../schemas/midweek-meeting-data.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();

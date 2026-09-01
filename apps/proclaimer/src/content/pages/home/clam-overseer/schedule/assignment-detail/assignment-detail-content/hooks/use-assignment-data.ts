@@ -1,9 +1,9 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
-import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
+import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
-import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
+import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";
 import { getStoredCongregation } from "@util/app/congregation/utils";
 import { getAssignmentContext } from "../utils/get-assignment-context";

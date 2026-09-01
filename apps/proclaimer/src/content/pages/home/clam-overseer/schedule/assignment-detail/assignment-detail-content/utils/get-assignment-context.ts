@@ -1,4 +1,4 @@
-import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 
 export function getAssignmentContext(id: string, data: MidweekMeetingData): string | undefined {
   if (

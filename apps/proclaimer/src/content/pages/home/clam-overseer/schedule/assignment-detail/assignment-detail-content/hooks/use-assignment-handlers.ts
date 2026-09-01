@@ -1,5 +1,5 @@
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
-import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 interface UseAssignmentHandlersProps {

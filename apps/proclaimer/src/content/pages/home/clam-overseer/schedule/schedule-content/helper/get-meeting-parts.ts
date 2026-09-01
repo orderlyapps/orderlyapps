@@ -1,5 +1,5 @@
-import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
-import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { AssignmentItem } from "./types";
 import { formatLabel } from "./format-label";
 import { hasAssignment } from "./has-assignment";

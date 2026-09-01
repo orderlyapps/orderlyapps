@@ -1,9 +1,9 @@
 import { eq, useLiveQuery } from "@tanstack/react-db";
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
-import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
+import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
-import type { MidweekAssignmentId } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekAssignmentId } from "@amodeo/proclaimer/feature/midweek";
 
 export type ClamAssignment = {
   assignment_id: MidweekAssignmentId;

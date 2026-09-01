@@ -1,6 +1,6 @@
 import { ClamAssignmentItem } from "../clam-assignment-item/ClamAssignmentItem";
-import type { MidweekAssignmentId } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
-import type { MidweekMeetingData } from "@amodeo/proclaimer/database/schemas/midweek-meeting-data";
+import type { MidweekAssignmentId } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 type PartConfig = {

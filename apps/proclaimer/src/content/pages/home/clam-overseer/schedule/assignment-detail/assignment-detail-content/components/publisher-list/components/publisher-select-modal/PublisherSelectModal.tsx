@@ -2,7 +2,7 @@ import { IonButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } fr
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
+import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import { AssignmentHistory } from "./components/assignment-history/AssignmentHistory";
 
 interface PublisherSelectModalProps {

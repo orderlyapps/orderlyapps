@@ -13,7 +13,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useParticipantPublishers } from "@proclaimer-content/pages/home/clam-overseer/participation/shared/hooks/useParticipantPublishers";
-import type { MidweekParticipation } from "@amodeo/proclaimer/database/schemas/midweek-participation";
+import type { MidweekParticipation } from "@amodeo/proclaimer/feature/midweek";
 
 interface AddParticipantModalProps {
   participation_id: MidweekParticipation["participation_id"];

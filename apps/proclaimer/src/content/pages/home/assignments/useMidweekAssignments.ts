@@ -1,6 +1,6 @@
 import { and, eq, gte, inArray, useLiveQuery } from "@tanstack/react-db";
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/database/collections/midweek-assignment";
-import { midweekMeetingDataCollection } from "@amodeo/proclaimer/database/collections/midweek-meeting-data";
+import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
+import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
 import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";
 import type { Assignment } from "./useAssignments";
 
