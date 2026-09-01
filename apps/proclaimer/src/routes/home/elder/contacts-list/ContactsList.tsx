@@ -1,15 +1,27 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ContactsListHeader } from "@proclaimer-content/pages/home/elder/contacts-list/contacts-list-header/ContactsListHeader";
-import { ContactsListContent } from "@proclaimer-content/pages/home/elder/contacts-list/contacts-list-content/ContactsListContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { DownloadContactsPdfButton } from "@amodeo/proclaimer/feature/publisher-local";
 
 function ContactsListPage() {
   return (
     <IonPage>
       <IonHeader>
-        <ContactsListHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/elder/pdfs" />
+          </IonButtons>
+          <IonTitle>Contacts List</IonTitle>
+        </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <ContactsListContent />
+      <IonContent>
+        <DownloadContactsPdfButton />
       </IonContent>
     </IonPage>
   );
