@@ -1,6 +1,16 @@
-import { IonChip, IonItem, IonLabel, IonText } from "@ionic/react";
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonModal,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import { useState } from "react";
 import type { PublisherWithMissingDetails } from "../../hooks/use-missing-details/use-missing-details.ts";
-import { MISSING_DETAIL_LABELS } from "../../hooks/use-missing-details/use-missing-details.ts";
 
 interface MissingDetailsItemProps {
   entry: PublisherWithMissingDetails;
@@ -14,20 +24,27 @@ function getPublisherName(entry: PublisherWithMissingDetails): string {
 }
 
 export function MissingDetailsItem({ entry }: MissingDetailsItemProps) {
+  const [is_open, set_is_open] = useState(false);
+
   return (
-    <IonItem lines="full">
-      <IonLabel className="ion-text-wrap">
-        <h2>{getPublisherName(entry)}</h2>
-        <IonText>
-          <div style={{ display: "flex", gap: "0.25rem", flexWrap: "wrap", marginTop: "0.25rem" }}>
-            {entry.missing_details.map((detail) => (
-              <IonChip key={detail} color="warning">
-                {MISSING_DETAIL_LABELS[detail]}
-              </IonChip>
-            ))}
-          </div>
-        </IonText>
-      </IonLabel>
-    </IonItem>
+    <>
+      <IonItem lines="full" button detail onClick={() => set_is_open(true)}>
+        <IonLabel className="ion-text-wrap">
+          <h2>{getPublisherName(entry)}</h2>
+        </IonLabel>
+      </IonItem>
+
+      <IonModal isOpen={is_open} onDidDismiss={() => set_is_open(false)}>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>{getPublisherName(entry)}</IonTitle>
+            <IonButtons slot="end">
+              <IonButton onClick={() => set_is_open(false)}>Close</IonButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent />
+      </IonModal>
+    </>
   );
 }
