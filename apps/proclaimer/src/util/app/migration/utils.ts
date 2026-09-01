@@ -1,4 +1,4 @@
-import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
+import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 // Original app storage keys

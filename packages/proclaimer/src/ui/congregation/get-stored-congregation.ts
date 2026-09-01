@@ -1,4 +1,4 @@
-import type { Congregation } from "../../database/schemas/congregation.ts";
+import type { Congregation } from "../../feature/congregation/index.ts";
 
 const SELECTED_CONGREGATION_KEY = "selected_congregation";
 

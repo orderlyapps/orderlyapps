@@ -1,7 +1,7 @@
 import { useIonToast } from "@ionic/react";
-import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
+import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
+import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
 
 interface UseAddCongregationProps {
   congregations: Congregation[];

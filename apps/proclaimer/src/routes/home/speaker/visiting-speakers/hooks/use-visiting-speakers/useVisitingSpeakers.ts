@@ -1,6 +1,6 @@
 import { useLiveQuery, and, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
+import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 
 export type VisitingSpeaker = {

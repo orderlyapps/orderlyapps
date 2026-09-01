@@ -3,14 +3,14 @@ import { addWeeks, format, parseISO } from "date-fns";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { congregationCollection } from "@amodeo/proclaimer/database/collections/congregation";
+import { congregationCollection } from "@amodeo/proclaimer/feature/congregation";
 import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
 import { getTheocraticWeekLabel } from "@proclaimer-shared/util/date/getTheocraticWeekLabel";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
-import type { Congregation } from "@amodeo/proclaimer/database/schemas/congregation";
+import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
 
 export type OutgoingSpeaker = {
