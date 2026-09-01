@@ -41,7 +41,8 @@ function getMissingDetails(
       "emergency_contact",
       "birth_date",
     ];
-    if (publisher.standing !== "unbaptised_publisher") all.push("baptism_date");
+    if (publisher.standing !== "unbaptised_publisher" && publisher.standing !== "associate")
+      all.push("baptism_date");
     return all;
   }
 
@@ -52,7 +53,11 @@ function getMissingDetails(
   if (!local.emergency_contact || local.emergency_contact.length === 0)
     missing.push("emergency_contact");
   if (!local.birth_date) missing.push("birth_date");
-  if (!local.baptism_date && publisher.standing !== "unbaptised_publisher")
+  if (
+    !local.baptism_date &&
+    publisher.standing !== "unbaptised_publisher" &&
+    publisher.standing !== "associate"
+  )
     missing.push("baptism_date");
   return missing;
 }
