@@ -10,3 +10,4 @@ export { midweekMeetingDataSchema } from "./schemas/midweek-meeting-data.ts";
 export type { MidweekMeetingData } from "./schemas/midweek-meeting-data.ts";
 export { midweekParticipationSchema } from "./schemas/midweek-participation.ts";
 export type { MidweekParticipation } from "./schemas/midweek-participation.ts";
+export { getMidweekMeetingUrl } from "./util/getMidweekMeetingUrl.ts";
