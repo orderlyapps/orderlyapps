@@ -1,12 +1,5 @@
-import { ExportContactsButton } from "./components/ExportContactsButton";
-import { useContactsForExport } from "./hooks/useContactsForExport";
+import { DownloadContactsPdfButton } from "@amodeo/proclaimer/feature/publisher-local";
 
 export function ContactsListContent() {
-  const { data: contacts, isLoading, error } = useContactsForExport();
-
-  return (
-    <>
-      <ExportContactsButton contacts={contacts} isLoading={isLoading} error={error} />
-    </>
-  );
+  return <DownloadContactsPdfButton />;
 }

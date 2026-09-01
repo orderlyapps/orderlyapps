@@ -3,49 +3,13 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import {
   publisherLocalCollection,
   type PublisherLocal,
+  type Address,
 } from "@amodeo/proclaimer/feature/publisher-local";
 import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
 import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
 import type { Street } from "@amodeo/proclaimer/database/schemas/street";
 import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
-import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-
-/**
- * Type for address object from PublisherLocal
- */
-interface Address {
-  id: string;
-  label: string;
-  unit_number?: string;
-  house_number?: string;
-  street?: string;
-  suburb?: string;
-  coordinates?: number[];
-  version: {
-    created_by: string;
-    updated_by: string;
-    created_at: number;
-    updated_at: number;
-  };
-}
-
-/**
- * Type for contact data (publisher with contact information)
- */
-export interface ContactWithDetails extends Publisher {
-  formattedName: string;
-  phone?: string;
-  email?: string;
-  address?: {
-    street_line?: string;
-    suburb?: string;
-  };
-  emergency_contact?: {
-    first_name: string;
-    last_name: string;
-    phone?: string;
-  };
-}
+import type { ContactWithDetails } from "../../types.ts";
 
 /**
  * Custom hook to fetch contacts (publishers) with their contact details for export
@@ -74,7 +38,7 @@ export function useContactsForExport() {
         );
 
         // Format address using street and suburb names
-        const formatAddress = (address: Address) => {
+        const formatAddress = (address: NonNullable<Address>[number]) => {
           if (!address) return undefined;
 
           const streets = (streetsQuery.data as Street[]) || [];
@@ -115,7 +79,6 @@ export function useContactsForExport() {
 
         return {
           ...publisher,
-          formattedName: getPublisherDisplayName(publisher),
           phone: localData?.phone?.[0]?.number,
           email: localData?.email?.[0]?.address,
           address: localData?.address?.[0] ? formatAddress(localData.address[0]) : undefined,

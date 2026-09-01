@@ -1,6 +1,6 @@
 import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import type React from "react";
-import type { ContactWithDetails } from "../hooks/useContactsForExport";
+import type { ContactWithDetails } from "../../types.ts";
 
 const styles = StyleSheet.create({
   page: {
@@ -51,11 +51,6 @@ const styles = StyleSheet.create({
   },
   tableCell: {
     textAlign: "left",
-  },
-  tableCellIndented: {
-    fontSize: 8,
-    textAlign: "left",
-    paddingLeft: 16,
   },
   noData: {
     textAlign: "center",

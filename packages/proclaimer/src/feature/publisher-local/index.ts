@@ -21,3 +21,4 @@ export { EmailList } from "./components/publisher-local-details/components/email
 export { AddressList } from "./components/publisher-local-details/components/address-list/address-list.tsx";
 export { EmergencyContactList } from "./components/publisher-local-details/components/emergency-contact-list/emergency-contact-list.tsx";
 export { PublisherDates } from "./components/publisher-local-details/components/publisher-dates/publisher-dates.tsx";
+export { DownloadContactsPdfButton } from "./components/download-contacts-pdf-button/download-contacts-pdf-button.tsx";
