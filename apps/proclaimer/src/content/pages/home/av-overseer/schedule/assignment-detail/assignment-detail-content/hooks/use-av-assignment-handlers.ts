@@ -1,6 +1,6 @@
-import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
-import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
-import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
+import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
+import type { AvAssignmentID } from "@amodeo/proclaimer/feature/av";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 
 interface UseAvAssignmentHandlersProps {

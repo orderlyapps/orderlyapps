@@ -1,5 +1,5 @@
 import { differenceInWeeks, parseISO } from "date-fns";
-import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import type { AvParticipationType } from "../../utils/avParticipationTypeMap";
 import { avParticipationAssignmentIds } from "../../utils/avParticipationTypeMap";
 

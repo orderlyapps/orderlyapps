@@ -7,7 +7,7 @@ import { clamOverseerPermissionCollection } from "@amodeo/proclaimer/database/co
 import { serviceOverseerPermissionCollection } from "@amodeo/proclaimer/database/collections/service-overseer-permission";
 import { cobePermissionCollection } from "@amodeo/proclaimer/database/collections/cobe-permission";
 import { territoryServantPermissionCollection } from "@amodeo/proclaimer/database/collections/territory-servant-permission";
-import { avOverseerPermissionCollection } from "@amodeo/proclaimer/database/collections/av-overseer-permission";
+import { avOverseerPermissionCollection } from "@amodeo/proclaimer/feature/av";
 import { speakerPermissionCollection } from "@amodeo/proclaimer/database/collections/speaker-permission";
 import { weekendPermissionCollection } from "@amodeo/proclaimer/database/collections/weekend-permission";
 import { reminderPermissionCollection } from "@amodeo/proclaimer/database/collections/reminder-permission";

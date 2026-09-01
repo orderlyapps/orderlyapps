@@ -1,16 +1,16 @@
 import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
-import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
+import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { eventCollection, type EventRow } from "@amodeo/proclaimer/feature/event";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import {
   avAssignmentLabels,
   midweekAVAssignmentIDs,
   midweekAttendantAssignmentIDs,
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
-} from "@amodeo/proclaimer/database/schemas/av-assignment";
+} from "@amodeo/proclaimer/feature/av";
 
 export type AvWeekData = {
   weekId: string;

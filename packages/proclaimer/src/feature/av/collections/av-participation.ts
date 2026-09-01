@@ -1,47 +1,47 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { avAssignmentSchema } from "../schemas/av-assignment.js";
-import { makeCompositeKey } from "../util/composite-key.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { avParticipationSchema } from "../schemas/av-participation.js";
+import { makeCompositeKey } from "../../../database/util/composite-key.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "av_assignment",
-  queryKey: ["av_assignment"],
+  id: "av_participation",
+  queryKey: ["av_participation"],
   queryClient,
-  schema: avAssignmentSchema,
-  getKey: (row) => makeCompositeKey(row.assignment_id, row.congregation_id, row.week_id),
+  schema: avParticipationSchema,
+  getKey: (row) => makeCompositeKey(row.participant_id, row.participation_id),
   queryFn: async () => {
-    const { data, error } = await supabase.from("av_assignment").select("*");
+    const { data, error } = await supabase.from("av_participation").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("av_assignment").insert(rows);
+    const { error } = await supabase.from("av_participation").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { assignment_id, congregation_id, week_id } = mutation.original;
+      const { participant_id, participation_id } = mutation.original;
       const { error } = await supabase
-        .from("av_assignment")
+        .from("av_participation")
         .update(mutation.modified)
-        .match({ assignment_id, congregation_id, week_id });
+        .match({ participant_id, participation_id });
       if (error) throw error;
     }
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { assignment_id, congregation_id, week_id } = mutation.original;
+      const { participant_id, participation_id } = mutation.original;
       const { error } = await supabase
-        .from("av_assignment")
+        .from("av_participation")
         .delete()
-        .match({ assignment_id, congregation_id, week_id });
+        .match({ participant_id, participation_id });
       if (error) throw error;
     }
   },
@@ -53,7 +53,7 @@ const persistedOptions = persistedCollectionOptions({
   schemaVersion: 2,
 });
 
-export const avAssignmentCollection = createCollection({
+export const avParticipationCollection = createCollection({
   ...persistedOptions,
-  schema: avAssignmentSchema,
+  schema: avParticipationSchema,
 });

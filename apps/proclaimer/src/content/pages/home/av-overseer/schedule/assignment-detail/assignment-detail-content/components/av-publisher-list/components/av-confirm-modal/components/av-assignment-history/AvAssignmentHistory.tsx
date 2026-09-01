@@ -1,9 +1,6 @@
 import { IonList } from "@ionic/react";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import type {
-  AvAssignment,
-  AvAssignmentID,
-} from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { AvAssignment, AvAssignmentID } from "@amodeo/proclaimer/feature/av";
 import type { MidweekAssignment } from "@amodeo/proclaimer/database/schemas/midweek-assignment";
 import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";

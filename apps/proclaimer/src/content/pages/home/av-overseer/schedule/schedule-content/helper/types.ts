@@ -1,4 +1,4 @@
-import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { AvAssignmentID } from "@amodeo/proclaimer/feature/av";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
 
 export type AvScheduleContentProps = {

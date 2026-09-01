@@ -1,13 +1,13 @@
 import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { format, startOfWeek } from "date-fns";
-import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
+import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
 import { cleanMajorCollection } from "@amodeo/proclaimer/database/collections/clean-major";
 import { cleanMinorCollection } from "@amodeo/proclaimer/database/collections/clean-minor";
 import { useStoredPublisher } from "@proclaimer-shared/publisher/useStoredPublisher";
 import { useStoredCongregation } from "@util/app/congregation/useStoredCongregation";
-import { avAssignmentLabels } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import { avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import { weekendAssignmentLabels } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import { useMidweekAssignments } from "./useMidweekAssignments";
 

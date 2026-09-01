@@ -5,14 +5,14 @@ import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@proclaimer-shared/publisher/publisherUtils";
-import { avAssignmentCollection } from "@amodeo/proclaimer/database/collections/av-assignment";
+import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/database/collections/weekend-assignment";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
-import type { AvAssignment } from "@amodeo/proclaimer/database/schemas/av-assignment";
+import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import {
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
-} from "@amodeo/proclaimer/database/schemas/av-assignment";
+} from "@amodeo/proclaimer/feature/av";
 import type { WeekendAssignment } from "@amodeo/proclaimer/database/schemas/weekend-assignment";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
 import { useWeekendPresets } from "../../hooks/use-weekend-presets/useWeekendPresets";

@@ -5,8 +5,8 @@ import {
   midweekAttendantAssignmentIDs,
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
-} from "@amodeo/proclaimer/database/schemas/av-assignment";
-import type { AvAssignmentID } from "@amodeo/proclaimer/database/schemas/av-assignment";
+} from "@amodeo/proclaimer/feature/av";
+import type { AvAssignmentID } from "@amodeo/proclaimer/feature/av";
 import { useAvAssignments } from "../../hooks/use-av-assignments/useAvAssignments";
 import { AvAssignmentItem } from "../av-assignment-item/AvAssignmentItem";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";

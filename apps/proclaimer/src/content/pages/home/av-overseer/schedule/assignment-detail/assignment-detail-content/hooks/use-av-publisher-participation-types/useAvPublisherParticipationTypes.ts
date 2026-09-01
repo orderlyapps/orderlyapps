@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { avParticipationCollection } from "@amodeo/proclaimer/database/collections/av-participation";
+import { avParticipationCollection } from "@amodeo/proclaimer/feature/av";
 import type { AvParticipationType } from "../../utils/avParticipationTypeMap";
 
 export function useAvPublisherParticipationTypes(): Map<string, Set<AvParticipationType>> {

@@ -13,7 +13,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useAvParticipantPublishers } from "@proclaimer-content/pages/home/av-overseer/participation/shared/hooks/useAvParticipantPublishers";
-import type { AvParticipation } from "@amodeo/proclaimer/database/schemas/av-participation";
+import type { AvParticipation } from "@amodeo/proclaimer/feature/av";
 
 interface AddAvParticipantModalProps {
   participation_id: AvParticipation["participation_id"];
