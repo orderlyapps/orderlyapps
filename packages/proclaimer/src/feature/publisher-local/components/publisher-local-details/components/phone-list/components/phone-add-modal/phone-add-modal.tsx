@@ -47,13 +47,13 @@ export function PhoneAddModal({ is_open, on_dismiss, publisher_id, entry }: Prop
       updated_at: Date.now(),
     };
     publisherLocalCollection.update(publisher_id, (draft) => {
-      if (!draft.phone) draft.phone = [];
-      const updated = draft.phone.map((p) =>
+      const current_phone = draft.phone ?? [];
+      const updated = current_phone.map((p) =>
         p.id === id
           ? { ...p, label, number, version: { ...p.version, updated_at: Date.now() } }
           : p,
       );
-      if (!draft.phone.some((p) => p.id === id)) {
+      if (!current_phone.some((p) => p.id === id)) {
         updated.push({ id, label, number, version });
       }
       draft.phone = updated;

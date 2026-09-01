@@ -47,13 +47,13 @@ export function EmailAddModal({ is_open, on_dismiss, publisher_id, entry }: Prop
       updated_at: Date.now(),
     };
     publisherLocalCollection.update(publisher_id, (draft) => {
-      if (!draft.email) draft.email = [];
-      const updated = draft.email.map((e) =>
+      const current_email = draft.email ?? [];
+      const updated = current_email.map((e) =>
         e.id === id
           ? { ...e, label, address, version: { ...e.version, updated_at: Date.now() } }
           : e,
       );
-      if (!draft.email.some((e) => e.id === id)) {
+      if (!current_email.some((e) => e.id === id)) {
         updated.push({ id, label, address, version });
       }
       draft.email = updated;

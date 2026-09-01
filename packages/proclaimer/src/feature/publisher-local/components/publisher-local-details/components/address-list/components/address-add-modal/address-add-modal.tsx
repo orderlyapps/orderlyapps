@@ -64,13 +64,13 @@ export function AddressAddModal({
       coordinates: address_value.coordinates,
     };
     publisherLocalCollection.update(publisher_id, (draft) => {
-      if (!draft.address) draft.address = [];
-      const updated = draft.address.map((a) =>
+      const current_address = draft.address ?? [];
+      const updated = current_address.map((a) =>
         a.id === id
           ? { ...a, ...address_data, version: { ...a.version, updated_at: Date.now() } }
           : a,
       );
-      if (!draft.address.some((a) => a.id === id)) {
+      if (!current_address.some((a) => a.id === id)) {
         updated.push({ id, ...address_data, version });
       }
       draft.address = updated;

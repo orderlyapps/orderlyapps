@@ -57,8 +57,8 @@ export function useEmergencyContactForm(
       updated_at: Date.now(),
     };
     publisherLocalCollection.update(publisher_id, (draft) => {
-      if (!draft.emergency_contact) draft.emergency_contact = [];
-      const updated = draft.emergency_contact.map((c) =>
+      const current_contacts = draft.emergency_contact ?? [];
+      const updated = current_contacts.map((c) =>
         c.id === id
           ? {
               ...c,
@@ -70,7 +70,7 @@ export function useEmergencyContactForm(
             }
           : c,
       );
-      if (!draft.emergency_contact.some((c) => c.id === id)) {
+      if (!current_contacts.some((c) => c.id === id)) {
         updated.push({ id, first_name, last_name, relationship, phone: phones, version });
       }
       draft.emergency_contact = updated;
