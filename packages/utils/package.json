@@ -20,7 +20,9 @@
   "types": "./dist/index.d.mts",
   "exports": {
     ".": {
+      "types@development": "./src/index.ts",
       "types": "./dist/index.d.mts",
+      "development": "./src/index.ts",
       "import": "./dist/index.mjs"
     },
     "./supabase": {
@@ -49,6 +51,7 @@
     "prepublishOnly": "vp run build"
   },
   "dependencies": {
+    "date-fns": "catalog:",
     "rxdb": "catalog:"
   },
   "devDependencies": {

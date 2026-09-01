@@ -1,16 +1,18 @@
+import { useState } from "react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addCircleOutline } from "ionicons/icons";
-import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
-import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
-import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import {
+  publisherLocalCollection,
+  PhoneList,
+  AddressList,
+  EmailList,
+  EmergencyContactList,
+  PublisherDates,
+} from "@amodeo/proclaimer/feature/publisher-local";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { PhoneList } from "./components/phone-list/PhoneList";
-import { AddressList } from "./components/address-list/AddressList";
-import { EmailList } from "./components/email-list/EmailList";
-import { EmergencyContactList } from "./components/emergency-contact-list/EmergencyContactList";
 import { DownloadVcardButton } from "./components/download-vcf-button/DownloadVcardButton";
-import { getYearsMonthsSince } from "@proclaimer-shared/util/date/getYearsMonthsSince";
+import { MapShareActionSheet } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/map-share-action-sheet/MapShareActionSheet";
 
 interface Props {
   publisher_id: string;
@@ -23,6 +25,7 @@ export function PublisherLocalSection({ publisher_id, read_only = false }: Props
   );
 
   const local = data?.[0];
+  const [share_coords, set_share_coords] = useState<{ lat: number; lng: number } | null>(null);
 
   if (!local) {
     if (read_only) return null;
@@ -60,74 +63,18 @@ export function PublisherLocalSection({ publisher_id, read_only = false }: Props
 
   return (
     <>
-      <>
-        {read_only ? (
-          <>
-            <LabelValueItem
-              label="Date of Birth"
-              value={
-                local.birth_date
-                  ? new Date(local.birth_date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })
-                  : ""
-              }
-              value_2={local.birth_date ? getYearsMonthsSince(local.birth_date) : undefined}
-              value_2_color="medium"
-            />
-            <LabelValueItem
-              label="Baptism Date"
-              value={
-                local.baptism_date
-                  ? new Date(local.baptism_date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })
-                  : ""
-              }
-              value_2={
-                local.baptism_date
-                  ? `${getYearsMonthsSince(local.baptism_date)}${
-                      local.birth_date
-                        ? ` (Age: ${getYearsMonthsSince(local.birth_date, local.baptism_date)})`
-                        : ""
-                    }`
-                  : undefined
-              }
-              value_2_color="medium"
-            />
-          </>
-        ) : (
-          <>
-            <DateInput
-              label="Date of Birth"
-              value={local.birth_date ?? ""}
-              on_change={(value) =>
-                publisherLocalCollection.update(publisher_id, (draft) => {
-                  draft.birth_date = value;
-                })
-              }
-            />
-            <DateInput
-              label="Baptism Date"
-              value={local.baptism_date ?? ""}
-              on_change={(value) =>
-                publisherLocalCollection.update(publisher_id, (draft) => {
-                  draft.baptism_date = value;
-                })
-              }
-            />
-          </>
-        )}
-      </>
+      <PublisherDates
+        publisher_id={publisher_id}
+        birth_date={local.birth_date ?? ""}
+        baptism_date={local.baptism_date ?? ""}
+        read_only={read_only}
+      />
       <PhoneList publisher_id={publisher_id} phone={local.phone ?? []} read_only={read_only} />
       <AddressList
         publisher_id={publisher_id}
         address={local.address ?? []}
         read_only={read_only}
+        on_share_coordinates={set_share_coords}
       />
       <EmailList publisher_id={publisher_id} email={local.email ?? []} read_only={read_only} />
       <EmergencyContactList
@@ -137,6 +84,12 @@ export function PublisherLocalSection({ publisher_id, read_only = false }: Props
       />
       <Space />
       <DownloadVcardButton publisher_id={publisher_id} />
+      <MapShareActionSheet
+        lat={share_coords?.lat ?? 0}
+        lng={share_coords?.lng ?? 0}
+        is_open={share_coords !== null}
+        on_dismiss={() => set_share_coords(null)}
+      />
     </>
   );
 }

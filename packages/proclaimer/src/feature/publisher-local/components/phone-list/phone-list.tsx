@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { IonButton, IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addOutline, callOutline, chatbubbleEllipsesOutline } from "ionicons/icons";
-import type { Phone } from "@amodeo/proclaimer/feature/publisher-local";
-import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { PhoneAddModal } from "./components/phone-add-modal/PhoneAddModal";
+import type { Phone } from "../../index.ts";
+import { LabelValueItem } from "../../../../ui/components/display/data/label-value/LabelValueItem.tsx";
+import { Heading } from "../../../../ui/components/display/text/heading/Heading.tsx";
+import { Space } from "../../../../ui/components/layout/space/Space.tsx";
+import { PhoneAddModal } from "./components/phone-add-modal/phone-add-modal.tsx";
 
 type PhoneEntry = NonNullable<Phone>[number];
 

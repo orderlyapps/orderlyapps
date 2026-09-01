@@ -61,3 +61,5 @@ export {
 } from "./app-settings/init-app-preferences.ts";
 
 export { toError, getErrorMessage } from "./errors/errors.ts";
+
+export { getYearsMonthsSince } from "./date/get-years-months-since.ts";

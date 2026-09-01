@@ -8,14 +8,14 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { AddressInput } from "@amodeo/proclaimer/ui/components/inputs/address/AddressInput";
-import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
-import { publisherLocalCollection, type Address } from "@amodeo/proclaimer/feature/publisher-local";
-import type { AddressValue } from "@amodeo/proclaimer/ui/components/inputs/address/types";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { ResponsiveModal } from "../../../../../../ui/components/display/responsive-modal/ResponsiveModal.tsx";
+import { CloseIconButton } from "../../../../../../ui/components/inputs/button/icon/close/CloseIconButton.tsx";
+import { AddressInput } from "../../../../../../ui/components/inputs/address/AddressInput.tsx";
+import { Select } from "../../../../../../ui/components/inputs/select/Select.tsx";
+import { DeleteTextButton } from "../../../../../../ui/components/inputs/button/text/delete/DeleteTextButton.tsx";
+import { publisherLocalCollection, type Address } from "../../../../index.ts";
+import type { AddressValue } from "../../../../../../ui/components/inputs/address/types.ts";
+import { Space } from "../../../../../../ui/components/layout/space/Space.tsx";
 
 type AddressEntry = NonNullable<Address>[number];
 

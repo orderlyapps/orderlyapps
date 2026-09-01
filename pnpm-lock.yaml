@@ -649,6 +649,9 @@ importers:
       '@supabase/supabase-js':
         specifier: 'catalog:'
         version: 2.112.2
+      date-fns:
+        specifier: 'catalog:'
+        version: 4.4.0
       react:
         specifier: 'catalog:'
         version: 19.2.8

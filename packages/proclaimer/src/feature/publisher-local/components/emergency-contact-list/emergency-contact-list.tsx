@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
-import type { EmergencyContact } from "@amodeo/proclaimer/feature/publisher-local";
-import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
-import { EmergencyContactModal } from "./components/emergency-contact-modal/EmergencyContactModal";
-import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import type { EmergencyContact } from "../../index.ts";
+import { Heading } from "../../../../ui/components/display/text/heading/Heading.tsx";
+import { EmergencyContactModal } from "./components/emergency-contact-modal/emergency-contact-modal.tsx";
+import { LabelValueItem } from "../../../../ui/components/display/data/label-value/LabelValueItem.tsx";
+import { Space } from "../../../../ui/components/layout/space/Space.tsx";
 
 type Contact = NonNullable<EmergencyContact>[number];
 
@@ -50,16 +50,28 @@ export function EmergencyContactList({
             <IonIcon onClick={open_add} icon={addOutline} slot="end" color="primary" />
           )}
         </IonItem>
-        {emergency_contact.map((contact) =>
-          (contact.phone ?? []).map((p) => (
+        {emergency_contact.flatMap((contact) => {
+          const phones = contact.phone ?? [];
+          const label = `${contact.first_name} ${contact.last_name} (${contact.relationship})`;
+          if (phones.length === 0) {
+            return [
+              <LabelValueItem
+                key={contact.id}
+                label={label}
+                value="No phone number"
+                on_click={() => !read_only && open_edit(contact)}
+              />,
+            ];
+          }
+          return phones.map((p) => (
             <LabelValueItem
               key={p.id}
-              label={`${contact.first_name} ${contact.last_name} (${contact.relationship})`}
+              label={label}
               value={p.number}
               on_click={() => !read_only && open_edit(contact)}
             />
-          )),
-        )}
+          ));
+        })}
         {emergency_contact.length === 0 && (
           <IonItem>
             <IonLabel color="medium">No emergency contacts</IonLabel>

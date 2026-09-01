@@ -8,13 +8,13 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
-import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { PhoneInput } from "@amodeo/proclaimer/ui/components/inputs/phone/PhoneInput";
-import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
-import { publisherLocalCollection, type Phone } from "@amodeo/proclaimer/feature/publisher-local";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { ResponsiveModal } from "../../../../../../ui/components/display/responsive-modal/ResponsiveModal.tsx";
+import { CloseIconButton } from "../../../../../../ui/components/inputs/button/icon/close/CloseIconButton.tsx";
+import { PhoneInput } from "../../../../../../ui/components/inputs/phone/PhoneInput.tsx";
+import { Select } from "../../../../../../ui/components/inputs/select/Select.tsx";
+import { DeleteTextButton } from "../../../../../../ui/components/inputs/button/text/delete/DeleteTextButton.tsx";
+import { publisherLocalCollection, type Phone } from "../../../../index.ts";
+import { Space } from "../../../../../../ui/components/layout/space/Space.tsx";
 
 type PhoneEntry = NonNullable<Phone>[number];
 
