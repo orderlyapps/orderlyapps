@@ -15,8 +15,9 @@ export type {
   Photo,
 } from "./schemas/publisher-local.ts";
 export { publisherSchemaLiteral } from "./schemas/publisher-local.ts";
-export { PhoneList } from "./components/phone-list/phone-list.tsx";
-export { EmailList } from "./components/email-list/email-list.tsx";
-export { AddressList } from "./components/address-list/address-list.tsx";
-export { EmergencyContactList } from "./components/emergency-contact-list/emergency-contact-list.tsx";
-export { PublisherDates } from "./components/publisher-dates/publisher-dates.tsx";
+export { PublisherLocalDetails } from "./components/publisher-local-details/publisher-local-details.tsx";
+export { PhoneList } from "./components/publisher-local-details/components/phone-list/phone-list.tsx";
+export { EmailList } from "./components/publisher-local-details/components/email-list/email-list.tsx";
+export { AddressList } from "./components/publisher-local-details/components/address-list/address-list.tsx";
+export { EmergencyContactList } from "./components/publisher-local-details/components/emergency-contact-list/emergency-contact-list.tsx";
+export { PublisherDates } from "./components/publisher-local-details/components/publisher-dates/publisher-dates.tsx";
