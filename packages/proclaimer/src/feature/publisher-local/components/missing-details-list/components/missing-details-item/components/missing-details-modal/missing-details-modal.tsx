@@ -7,6 +7,8 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
+import { PublisherLocalDetails } from "../../../../../publisher-local-details/publisher-local-details.tsx";
+import type { PublisherLocal } from "../../../../../../schemas/publisher-local.ts";
 import type { PublisherWithMissingDetails } from "../../../../hooks/use-missing-details/use-missing-details.ts";
 
 interface MissingDetailsModalProps {
@@ -22,6 +24,21 @@ function getPublisherName(entry: PublisherWithMissingDetails): string {
   return middle ? `${publisher.last_name}, ${first} ${middle}` : `${publisher.last_name}, ${first}`;
 }
 
+function getPublisherLocal(entry: PublisherWithMissingDetails): PublisherLocal {
+  const publisher_id = entry.publisher.id ?? "";
+  if (entry.local) return entry.local;
+  return {
+    publisher_id,
+    confidential_id: "",
+    phone: [],
+    address: [],
+    email: [],
+    emergency_contact: [],
+    photo: [],
+    version: { created_by: "", updated_by: "", created_at: 0, updated_at: 0 },
+  };
+}
+
 export function MissingDetailsModal({ entry, isOpen, onClose }: MissingDetailsModalProps) {
   return (
     <IonModal isOpen={isOpen} onDidDismiss={onClose}>
@@ -33,7 +50,9 @@ export function MissingDetailsModal({ entry, isOpen, onClose }: MissingDetailsMo
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent />
+      <IonContent>
+        <PublisherLocalDetails publisher={getPublisherLocal(entry)} />
+      </IonContent>
     </IonModal>
   );
 }
