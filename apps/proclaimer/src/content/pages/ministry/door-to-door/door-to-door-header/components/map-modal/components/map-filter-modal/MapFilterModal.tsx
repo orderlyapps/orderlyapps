@@ -9,7 +9,7 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
+import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
 import { MINISTRY_DEFAULT_PRESET_IDS } from "../../hooks/defaultMinistryMapPresets";
 import { ministrySortOrderLabels } from "../../hooks/types";
 import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";

@@ -5,7 +5,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { TimeInput } from "@amodeo/proclaimer/ui/components/inputs/time/TimeInput";
-import { WeekSelect } from "@proclaimer-shared/components/inputs/week-select/WeekSelect";
+import { WeekSelect } from "@amodeo/proclaimer/ui/components/inputs/week-select/WeekSelect";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { formatPublisherName } from "@util/format/formatPublisherName";

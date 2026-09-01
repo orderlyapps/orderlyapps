@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
+import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { IonList } from "@ionic/react";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";

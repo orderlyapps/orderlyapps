@@ -111,7 +111,7 @@ export const WeekNavigation = ({ week_id, weeksToDisplay = 20 }: WeekNavigationP
                 router.push(getUpdatedPath(nextWeekId), "forward", "replace");
               }}
             >
-              <IonIcon src={chevronForwardOutline} slot="icon-only" size="large" />
+              <IonIcon icon={chevronForwardOutline} slot="icon-only" size="large" />
             </IonButton>
           </IonCol>
         </IonRow>

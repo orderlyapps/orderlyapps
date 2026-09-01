@@ -1,4 +1,4 @@
-import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
+import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
 import { SpeakerWeekInfo } from "./components/speaker-week-info/SpeakerWeekInfo";
 import { OutgoingSpeakersList } from "./components/outgoing-speakers-list/OutgoingSpeakersList";
 

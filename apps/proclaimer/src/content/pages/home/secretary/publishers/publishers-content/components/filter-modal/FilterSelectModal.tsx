@@ -4,7 +4,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import type { FilterSortPreset } from "../../hooks/use-presets/types";
 import type { PublisherFilter } from "../../hooks/use-publisher-filter/types";
-import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
+import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
 import { DEFAULT_PRESET_ID } from "../../hooks/use-presets/defaultPresets";
 import { getFilterInputItems } from "./components/filter-section/FilterSection";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";

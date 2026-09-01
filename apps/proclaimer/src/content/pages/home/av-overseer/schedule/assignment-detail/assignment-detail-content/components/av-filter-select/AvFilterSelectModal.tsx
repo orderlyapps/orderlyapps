@@ -8,7 +8,7 @@ import { sortOrderLabels } from "@proclaimer-content/pages/home/clam-overseer/sc
 import type { AvFilterSortPreset, AvPublisherFilter } from "../../hooks/use-av-presets/types";
 import type { PublisherSortOrder } from "../../hooks/use-av-presets/types";
 import { getAvFilterInputItems } from "./AvFilterSection";
-import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
+import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
 import { DEFAULT_AV_PRESET_ID } from "../../hooks/use-av-presets/defaultAvPresets";
 
 const sort_options: PublisherSortOrder[] = [

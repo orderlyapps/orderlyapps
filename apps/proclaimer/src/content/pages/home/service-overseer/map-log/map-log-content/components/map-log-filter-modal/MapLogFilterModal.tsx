@@ -8,7 +8,7 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
-import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
+import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
 import { DEFAULT_PRESET_IDS } from "../use-map-log-presets/defaultMapLogPresets";
 import { getMapLogFilterInputItems } from "./components/filter-section/MapLogFilterSection";
 import { sortOrderLabels } from "../use-map-log-presets/types";

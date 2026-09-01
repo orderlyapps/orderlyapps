@@ -1,4 +1,4 @@
-import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
+import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
 import { IonList } from "@ionic/react";
 // TODO: Create WeekEvents component or remove if not needed
 // import { WeekEvents } from "@feature/db/shared/week-events/WeekEvents";

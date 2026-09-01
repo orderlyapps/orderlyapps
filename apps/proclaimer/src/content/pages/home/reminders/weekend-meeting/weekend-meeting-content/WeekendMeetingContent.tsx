@@ -1,5 +1,5 @@
 import { IonList } from "@ionic/react";
-import { WeekNavigation } from "@proclaimer-shared/components/navigation/week-navigation/WeekNavigation";
+import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
 import { WeekendAssignmentList } from "./components/weekend-assignment-list/WeekendAssignmentList";
 
 type WeekendMeetingContentProps = {

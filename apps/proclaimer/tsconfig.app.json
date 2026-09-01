@@ -26,7 +26,6 @@
     "paths": {
       "@proclaimer-content/*": ["./src/content/*"],
       "@proclaimer-routes/*": ["./src/routes/*"],
-      "@proclaimer-shared/*": ["./src/apps/proclaimer/shared/*"],
       "@shared/*": ["./src/shared/*"],
       "@util/*": ["./src/util/*"]
     }

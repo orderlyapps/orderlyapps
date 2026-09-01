@@ -13,7 +13,7 @@ import type {
   PublisherSortOrder,
 } from "../../hooks/use-weekend-presets/types";
 import { sortOrderLabels } from "../../hooks/use-weekend-presets/types";
-import { PresetManager } from "@proclaimer-shared/components/preset-manager/PresetManager";
+import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
 import { DEFAULT_WEEKEND_PRESET_ID } from "../../hooks/use-weekend-presets/defaultWeekendPreset";
 
 const weekendAssignmentOptions = weekendAssignmentIDs.map((id) => ({
