@@ -3,6 +3,7 @@ import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/H
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
+import { MissingReportsList } from "@amodeo/proclaimer/feature/reports";
 import { useInactivePublishers } from "./hooks/use-inactive-publishers/useInactivePublishers";
 import { InactivePublisherItem } from "./components/inactive-publisher-item/InactivePublisherItem";
 
@@ -52,6 +53,16 @@ export function ToolsContent() {
               ))}
             </IonList>
           )}
+        </div>
+      </IonAccordion>
+      <IonAccordion value="missing-reports">
+        <IonItem slot="header">
+          <IonLabel>
+            <Heading>Missing Reports</Heading>
+          </IonLabel>
+        </IonItem>
+        <div slot="content">
+          <MissingReportsList />
         </div>
       </IonAccordion>
     </IonAccordionGroup>
