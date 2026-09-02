@@ -62,7 +62,7 @@ The apps are mobile-first but must work well on tablet and desktop. Always reach
 
 ### Breakpoints
 
-Defined in `src/util/hooks/use-breakpoint/breakpoints.ts`:
+Defined in `@amodeo/proclaimer/util/hooks/use-breakpoint` (`packages/proclaimer/src/util/hooks/use-breakpoint/breakpoints.ts`):
 
 - `xs` < 640
 - `sm` >= 640
@@ -95,7 +95,7 @@ Do not add page-specific percent-padding or media queries to constrain content w
 
 ### Hooks
 
-- `useBreakpoint()` (`src/util/hooks/use-breakpoint/use-breakpoint.ts`) → `{ width, breakpoint, is_mobile, is_tablet, is_desktop }`. Use for behavior branching (popover vs sheet, conditional UI).
+- `useBreakpoint()` (`@amodeo/proclaimer/util/hooks/use-breakpoint`) → `{ width, breakpoint, is_mobile, is_tablet, is_desktop }`. Use for behavior branching (popover vs sheet, conditional UI).
 - `useKeyboardShortcut(combo, handler, options?)` (`src/util/hooks/use-keyboard-shortcut/use-keyboard-shortcut.ts`) — global key bindings. Combo syntax: `"/"`, `"mod+k"`, `"shift+?"` where `mod` = ⌘ on mac, ctrl elsewhere. Skips text inputs by default. Use for desktop power-user affordances.
 
 ### Desktop affordances

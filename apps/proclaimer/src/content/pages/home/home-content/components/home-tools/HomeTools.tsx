@@ -7,7 +7,7 @@ import { useChairmanWeeks } from "@proclaimer-content/pages/home/clam-chairman/u
 import { useIsCbsConductor } from "@proclaimer-content/pages/home/congregation-bible-study/useIsCbsConductor";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
+import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 
 const COLOR: IonicColor = "medium";
 const CLASSNAME = "ion-text-end";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { breakpoints, type Breakpoint } from "./breakpoints";
+import { breakpoints, type Breakpoint } from "./breakpoints.ts";
 
 function getCurrentBreakpoint(width: number): Breakpoint | "xs" {
   if (width >= breakpoints["2xl"]) return "2xl";

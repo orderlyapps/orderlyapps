@@ -139,7 +139,7 @@ import WatchtowerToolPage from "@proclaimer-routes/home/watchtower/Watchtower";
 import CongregationBibleStudyPage from "@proclaimer-routes/home/congregation-bible-study/CongregationBibleStudy";
 import MeetingAttendancePage from "@proclaimer-routes/home/meeting-attendance/MeetingAttendance";
 import { Icon } from "@amodeo/proclaimer/ui/components/icons/Icon";
-import { useOrientation } from "@util/hooks/use-orientation/use-orientation";
+import { useOrientation } from "@amodeo/proclaimer/util/hooks/use-orientation";
 // import { getPlatforms } from "@ionic/react";
 
 function App() {

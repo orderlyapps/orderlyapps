@@ -16,7 +16,7 @@ import { PioneerHoursSettings } from "../../../ministry-time-content/components/
 import { DataManagement } from "./components/data-management/DataManagement";
 import { SubmitMinistryTime } from "./components/submit-ministry-time/SubmitMinistryTime";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
+import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 
 interface MinistryTimeSettingsModalProps {
   isOpen: boolean;

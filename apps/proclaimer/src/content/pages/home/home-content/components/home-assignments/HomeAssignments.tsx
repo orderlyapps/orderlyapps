@@ -5,7 +5,7 @@ import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinne
 import { useAssignments } from "@proclaimer-content/pages/home/assignments/useAssignments";
 import { AssignmentItem } from "@proclaimer-content/pages/home/assignments/components/assignment-item/AssignmentItem";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
+import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 
 export function HomeAssignments() {
   const { assignments, is_loading } = useAssignments();

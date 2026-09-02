@@ -7,7 +7,7 @@ import { useAuthSession } from "@amodeo/proclaimer/feature/permission";
 import { MapListItem } from "./map-list-item/MapListItem";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
+import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
 import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
 

@@ -8,7 +8,7 @@ import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/H
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { EventItem } from "@proclaimer-content/pages/schedules/events/components/event-item/EventItem";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import { useAccordionState } from "@util/hooks/use-accordion-state/useAccordionState";
+import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 
 export function HomeEvents() {
   const congregation = useStoredCongregation();
