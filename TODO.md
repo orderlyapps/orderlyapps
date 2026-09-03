@@ -36,6 +36,8 @@
 
 - [ ] **`usePermissions` — `has_reports` missing `congregation_id` filter** — `packages/proclaimer/src/feature/permission/hooks/use-permissions.ts:168-170`: Unlike every other permission check, `has_reports` does not filter by `congregation_id`. A user with report permissions in congregation A would also have report access in congregation B. Should add `&& rp.congregation_id === congregation_id` to the filter condition.
 - [ ] **`getTheocraticWeekLabel` — capital-case format logic is inverted** — `packages/proclaimer/src/util/date/getTheocraticWeekLabel.ts:110-119`: The `isCapitalCase` flag inverts the uppercasing — when `format === "week-range-capital-case"`, months are **not** uppercased, but the default `"week-range"` **does** uppercase them. Additionally, `"week-label-capital-case"` (line 64) behaves identically to `"week-label"` with no capitalization difference. The capital-case variants should produce uppercase output.
+- [ ] **`report-form.tsx` — State updates during render** — `packages/proclaimer/src/feature/reports/components/publisher-record/components/publisher-report-modal/components/report-form/report-form.tsx:56-67`: `set_form` and `set_initialized` are called directly in the render body to sync `existing_report` into local state. This is a React anti-pattern that can cause extra re-renders. Should be moved to a `useEffect`.
+- [ ] **`publisher-record.tsx` — In-place sort of reactive array** — `packages/proclaimer/src/feature/reports/components/publisher-record/publisher-record.tsx:39`: `(reports ?? []).sort(...)` mutates the array in-place. If `reports` is a reactive array from `useLiveQuery`, this could cause issues. Consider `[...reports].sort(...)` to avoid mutating the source.
 
 ## Utils Package — TODO
 

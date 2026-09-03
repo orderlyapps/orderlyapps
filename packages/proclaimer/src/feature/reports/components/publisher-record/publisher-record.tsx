@@ -5,13 +5,13 @@ import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinne
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { IonList, IonLabel, IonItemDivider } from "@ionic/react";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
-import { getServiceYear } from "../../pdf/utils/service-year.ts";
+import { getServiceYear } from "../pdf/utils/service-year.ts";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import type { Report } from "../../../schemas/report.ts";
-import { PublisherReportModal } from "../../publisher-report-modal/publisher-report-modal.tsx";
-import { usePublisherReports } from "../hooks/use-publisher-reports.ts";
-import { ReportItem } from "../../report-item/report-item.tsx";
+import type { Report } from "../../schemas/report.ts";
+import { PublisherReportModal } from "./components/publisher-report-modal/publisher-report-modal.tsx";
+import { usePublisherReports } from "./hooks/use-publisher-reports.ts";
+import { ReportItem } from "./components/report-item/report-item.tsx";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 const PIONEER_TYPES = ["regular_pioneer"];
