@@ -3,7 +3,7 @@ import { IonButtons, IonContent, IonHeader, IonTitle, IonToast, IonToolbar } fro
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { useDoNotCallMarkers } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/do-not-call-source/hooks/useDoNotCallMarkers";
-import { doNotCallCollection } from "@amodeo/proclaimer/database/collections/do-not-call";
+import { doNotCallCollection } from "@amodeo/proclaimer/feature/territory";
 import type { DoNotCall } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/do-not-call-source/types";
 import { DoNotCallUnitSection } from "./components/do-not-call-unit-section/DoNotCallUnitSection";
 

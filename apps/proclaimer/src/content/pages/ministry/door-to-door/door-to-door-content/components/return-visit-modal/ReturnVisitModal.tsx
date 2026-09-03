@@ -17,13 +17,13 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
 import { VisitList } from "./components/visit-list/VisitList";
 import { AddVisitForm } from "./components/add-visit-form/AddVisitForm";
 import { PersonDetailsForm } from "./components/person-details-form/PersonDetailsForm";
 import { PersonDetailsSection } from "./components/person-details-section/PersonDetailsSection";
 import { handleAddVisit } from "./handlers/handleAddVisit";
-import type { VisitLogEntry } from "@amodeo/proclaimer/database/schemas/return-visit";
+import type { VisitLogEntry } from "@amodeo/proclaimer/feature/territory";
 import type { ReturnVisit } from "../layers/return-visit-source/types";
 import { useReturnVisitLive } from "./hooks/useReturnVisitLive";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";

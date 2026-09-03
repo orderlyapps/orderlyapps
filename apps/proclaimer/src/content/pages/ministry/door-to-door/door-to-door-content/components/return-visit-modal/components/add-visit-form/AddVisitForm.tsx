@@ -6,8 +6,8 @@ import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/t
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { handleEditVisit } from "../../handlers/handleEditVisit";
-import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
-import type { VisitLogEntry } from "@amodeo/proclaimer/database/schemas/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
+import type { VisitLogEntry } from "@amodeo/proclaimer/feature/territory";
 
 type AddVisitFormProps = {
   onSave?: (visited_at: string, notes: string) => void;

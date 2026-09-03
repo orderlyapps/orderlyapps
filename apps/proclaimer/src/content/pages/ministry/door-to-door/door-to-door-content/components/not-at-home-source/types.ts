@@ -1,4 +1,4 @@
-import type { NotAtHome as NotAtHomeBase } from "@amodeo/proclaimer/database/schemas/not-at-home";
+import type { NotAtHome as NotAtHomeBase } from "@amodeo/proclaimer/feature/territory";
 
 export type NotAtHome = NotAtHomeBase & {
   street: string;

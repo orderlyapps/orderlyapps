@@ -5,10 +5,12 @@ import {
   type PublisherLocal,
   type Address,
 } from "@amodeo/proclaimer/feature/publisher-local";
-import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
-import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
-import type { Street } from "@amodeo/proclaimer/database/schemas/street";
-import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import {
+  streetCollection,
+  suburbCollection,
+  type Street,
+  type Suburb,
+} from "@amodeo/proclaimer/feature/territory";
 import type { ContactWithDetails } from "../../types.ts";
 
 /**

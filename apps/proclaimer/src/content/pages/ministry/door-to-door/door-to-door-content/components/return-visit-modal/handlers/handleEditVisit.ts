@@ -1,5 +1,5 @@
-import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
-import type { VisitLogEntry } from "@amodeo/proclaimer/database/schemas/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
+import type { VisitLogEntry } from "@amodeo/proclaimer/feature/territory";
 
 export function handleEditVisit(
   id: string,

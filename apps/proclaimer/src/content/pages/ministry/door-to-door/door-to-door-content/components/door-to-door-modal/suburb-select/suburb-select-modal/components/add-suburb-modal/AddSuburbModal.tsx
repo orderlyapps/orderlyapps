@@ -18,12 +18,12 @@ import {
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
+import { suburbCollection } from "@amodeo/proclaimer/feature/territory";
 import { mapMasterCollection } from "@amodeo/proclaimer/feature/territory";
 import { searchSuburbs } from "@util/vendor/mapbox/helper/searchSuburbs";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapboxGeocodingFeature } from "@util/vendor/mapbox/types/MapboxGeocodingResponse";
-import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Suburb } from "@amodeo/proclaimer/feature/territory";
 
 type AddSuburbModalProps = {
   isOpen: boolean;

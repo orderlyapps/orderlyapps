@@ -1,6 +1,6 @@
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
-import type { Street } from "@amodeo/proclaimer/database/schemas/street";
+import type { Suburb } from "@amodeo/proclaimer/feature/territory";
+import type { Street } from "@amodeo/proclaimer/feature/territory";
 
 export type DoorToDoorFormState = {
   suburb?: Suburb;

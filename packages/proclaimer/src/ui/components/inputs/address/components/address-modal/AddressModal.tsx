@@ -5,8 +5,7 @@ import { SuburbPicker } from "./components/suburb-picker/SuburbPicker.tsx";
 import { StreetPicker } from "./components/street-picker/StreetPicker.tsx";
 import { TextInput } from "../../../text/TextInput.tsx";
 import { geocodeAddress } from "../../../../../vendor/mapbox/geocode-address.ts";
-import type { Suburb } from "../../../../../../database/schemas/suburb.ts";
-import type { Street } from "../../../../../../database/schemas/street.ts";
+import type { Suburb, Street } from "@amodeo/proclaimer/feature/territory";
 import type { AddressValue, SuburbRef } from "../../types.ts";
 
 type AddressModalProps = {

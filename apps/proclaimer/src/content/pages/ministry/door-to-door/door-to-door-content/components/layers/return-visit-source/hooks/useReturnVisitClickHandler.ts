@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useMap } from "react-map-gl/mapbox";
 import type { MapMouseEvent } from "mapbox-gl";
-import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
-import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
-import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
+import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
+import { streetCollection } from "@amodeo/proclaimer/feature/territory";
+import { suburbCollection } from "@amodeo/proclaimer/feature/territory";
 import type { ReturnVisit } from "../types";
 
 const CLICKABLE_LAYERS = ["return-visit-house-points", "return-visit-unit-points"];

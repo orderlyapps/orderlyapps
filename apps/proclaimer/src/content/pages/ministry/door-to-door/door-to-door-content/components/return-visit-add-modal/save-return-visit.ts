@@ -1,8 +1,8 @@
-import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { geocodeAddress } from "@util/vendor/mapbox/helper/geocodeAddress";
-import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
-import type { Street } from "@amodeo/proclaimer/database/schemas/street";
+import type { Suburb } from "@amodeo/proclaimer/feature/territory";
+import type { Street } from "@amodeo/proclaimer/feature/territory";
 
 type SaveReturnVisitData = {
   suburb: Suburb;

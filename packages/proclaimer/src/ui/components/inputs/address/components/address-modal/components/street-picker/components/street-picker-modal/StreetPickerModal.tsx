@@ -14,9 +14,8 @@ import {
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "../../../../../../../../display/responsive-modal/ResponsiveModal.tsx";
-import { streetCollection } from "../../../../../../../../../../database/collections/street.ts";
+import { streetCollection, type Street } from "@amodeo/proclaimer/feature/territory";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import type { Street } from "../../../../../../../../../../database/schemas/street.ts";
 import type { SuburbRef } from "../../../../../../types.ts";
 import { AddStreetModal } from "./components/add-street-modal/AddStreetModal.tsx";
 

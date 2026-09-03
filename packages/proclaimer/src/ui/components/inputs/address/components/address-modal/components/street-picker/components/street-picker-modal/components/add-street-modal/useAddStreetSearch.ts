@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { streetCollection } from "../../../../../../../../../../../../database/collections/street.ts";
+import { streetCollection, type Street } from "@amodeo/proclaimer/feature/territory";
 import { searchStreets } from "../../../../../../../../../../../vendor/mapbox/search-streets.ts";
 import { getStoredCongregation } from "../../../../../../../../../../../congregation/get-stored-congregation.ts";
 import type { MapboxGeocodingFeature } from "../../../../../../../../../../../vendor/mapbox/types.ts";
-import type { Street } from "../../../../../../../../../../../../database/schemas/street.ts";
 import type { SuburbRef } from "../../../../../../../../types.ts";
 
 export function useAddStreetSearch(suburb: SuburbRef | undefined) {

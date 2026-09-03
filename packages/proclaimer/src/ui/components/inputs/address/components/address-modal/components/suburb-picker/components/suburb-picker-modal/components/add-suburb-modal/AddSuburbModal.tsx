@@ -16,7 +16,7 @@ import {
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "../../../../../../../../../../display/responsive-modal/ResponsiveModal.tsx";
-import type { Suburb } from "../../../../../../../../../../../../database/schemas/suburb.ts";
+import type { Suburb } from "@amodeo/proclaimer/feature/territory";
 import { useAddSuburbSearch } from "./useAddSuburbSearch.ts";
 
 type AddSuburbModalProps = {

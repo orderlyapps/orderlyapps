@@ -5,7 +5,7 @@ import { AlertPhoneInput } from "@amodeo/proclaimer/ui/components/inputs/alert-p
 import { TextareaInput } from "@amodeo/proclaimer/ui/components/inputs/textarea/TextareaInput";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
 import type { PersonDetails } from "../../handlers/handleUpdatePersonDetails";
 
 type PersonDetailsFormProps = {

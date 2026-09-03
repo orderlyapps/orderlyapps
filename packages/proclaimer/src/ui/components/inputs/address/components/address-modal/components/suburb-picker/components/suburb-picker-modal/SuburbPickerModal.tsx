@@ -14,9 +14,8 @@ import {
 } from "@ionic/react";
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "../../../../../../../../display/responsive-modal/ResponsiveModal.tsx";
-import { suburbCollection } from "../../../../../../../../../../database/collections/suburb.ts";
+import { suburbCollection, type Suburb } from "@amodeo/proclaimer/feature/territory";
 import { useLiveQuery } from "@tanstack/react-db";
-import type { Suburb } from "../../../../../../../../../../database/schemas/suburb.ts";
 import { AddSuburbModal } from "./components/add-suburb-modal/AddSuburbModal.tsx";
 
 type SuburbPickerModalProps = {

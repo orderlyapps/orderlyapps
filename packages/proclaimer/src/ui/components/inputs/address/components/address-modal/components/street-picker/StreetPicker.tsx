@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ModalSelect } from "../../../../../modal-select/ModalSelect.tsx";
 import { StreetPickerModal } from "./components/street-picker-modal/StreetPickerModal.tsx";
-import type { Street } from "../../../../../../../../database/schemas/street.ts";
+import type { Street } from "@amodeo/proclaimer/feature/territory";
 import type { SuburbRef } from "../../../../types.ts";
 
 type StreetPickerProps = {

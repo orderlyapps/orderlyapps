@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { suburbCollection } from "../../../../../../../../../../../../database/collections/suburb.ts";
-import { mapMasterCollection } from "@amodeo/proclaimer/feature/territory";
+import {
+  suburbCollection,
+  mapMasterCollection,
+  type Suburb,
+} from "@amodeo/proclaimer/feature/territory";
 import { searchSuburbs } from "../../../../../../../../../../../vendor/mapbox/search-suburbs.ts";
 import { getStoredCongregation } from "../../../../../../../../../../../congregation/get-stored-congregation.ts";
 import type { MapboxGeocodingFeature } from "../../../../../../../../../../../vendor/mapbox/types.ts";
-import type { Suburb } from "../../../../../../../../../../../../database/schemas/suburb.ts";
 
 function getBbox(boundary: unknown): [number, number, number, number] | undefined {
   if (!Array.isArray(boundary) || boundary.length === 0) return undefined;

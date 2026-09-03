@@ -1,5 +1,5 @@
 import { IonItem, IonLabel, IonText } from "@ionic/react";
-import type { VisitLogEntry } from "@amodeo/proclaimer/database/schemas/return-visit";
+import type { VisitLogEntry } from "@amodeo/proclaimer/feature/territory";
 
 type VisitListProps = {
   visits: VisitLogEntry[];

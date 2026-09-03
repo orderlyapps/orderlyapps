@@ -1,8 +1,8 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
-import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
-import { streetCollection } from "@amodeo/proclaimer/database/collections/street";
+import { suburbCollection } from "@amodeo/proclaimer/feature/territory";
+import { streetCollection } from "@amodeo/proclaimer/feature/territory";
 import { generateVcard, downloadVcard } from "./vcard";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 

@@ -15,9 +15,9 @@ import {
 import { addOutline } from "ionicons/icons";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { suburbCollection } from "@amodeo/proclaimer/database/collections/suburb";
+import { suburbCollection } from "@amodeo/proclaimer/feature/territory";
 import { useLiveQuery } from "@tanstack/react-db";
-import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Suburb } from "@amodeo/proclaimer/feature/territory";
 import { AddSuburbModal } from "./components/add-suburb-modal/AddSuburbModal";
 
 type SuburbSelectModalProps = {

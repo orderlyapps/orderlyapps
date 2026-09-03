@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { StreetSelectModal } from "./street-select-modal/StreetSelectModal";
-import type { Street } from "@amodeo/proclaimer/database/schemas/street";
-import type { Suburb } from "@amodeo/proclaimer/database/schemas/suburb";
+import type { Street } from "@amodeo/proclaimer/feature/territory";
+import type { Suburb } from "@amodeo/proclaimer/feature/territory";
 
 interface StreetSelectProps {
   label: string;

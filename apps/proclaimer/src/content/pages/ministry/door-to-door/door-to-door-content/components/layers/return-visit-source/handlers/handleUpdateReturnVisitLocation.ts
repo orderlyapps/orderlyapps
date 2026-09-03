@@ -1,4 +1,4 @@
-import { returnVisitCollection } from "@amodeo/proclaimer/database/collections/return-visit";
+import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
 import type { ReturnVisit } from "../types";
 
 export function handleUpdateReturnVisitLocation(

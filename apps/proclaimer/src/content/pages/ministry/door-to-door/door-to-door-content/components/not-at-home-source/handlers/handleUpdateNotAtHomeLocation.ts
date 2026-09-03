@@ -1,4 +1,4 @@
-import { notAtHomeCollection } from "@amodeo/proclaimer/database/collections/not-at-home";
+import { notAtHomeCollection } from "@amodeo/proclaimer/feature/territory";
 import type { NotAtHome } from "../types";
 
 export function handleUpdateNotAtHomeLocation(
