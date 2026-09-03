@@ -62,6 +62,19 @@ export function buildServiceYearReportsForYears(
   return service_years.map((sy) => buildServiceYear(sy, reports, publisher_type));
 }
 
+export function buildServiceYearReports(
+  reports: Map<string, Report>,
+  publisher_type?: string,
+): ServiceYearReportData[] {
+  const current_sy = getServiceYear(new Date());
+  const current_start = parseInt(current_sy.split("-")[0], 10);
+  const previous_sy = `${current_start - 1}-${current_start}`;
+  return [
+    buildServiceYear(current_sy, reports, publisher_type),
+    buildServiceYear(previous_sy, reports, publisher_type),
+  ];
+}
+
 export function reportsToMap(reports: Report[] | undefined): Map<string, Report> {
   const map = new Map<string, Report>();
   for (const r of reports ?? []) {

@@ -1,5 +1,5 @@
 import { IonToolbar, IonTitle, IonButtons, IonBackButton } from "@ionic/react";
-import { DownloadPublisherRecordButton } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-details-content/components/download-publisher-record-button/DownloadPublisherRecordButton";
+import { DownloadPublisherRecordButton } from "../../pdf/download-publisher-record-button/download-publisher-record-button.tsx";
 
 interface PublisherRecordHeaderProps {
   publisher_name: string;

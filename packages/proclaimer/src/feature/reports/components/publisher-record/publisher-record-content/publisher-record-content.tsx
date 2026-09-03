@@ -5,13 +5,13 @@ import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinne
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { IonList, IonLabel, IonItemDivider } from "@ionic/react";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
-import { getServiceYear } from "@util/format/service-year";
+import { getServiceYear } from "../../pdf/utils/service-year.ts";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import type { Report } from "@amodeo/proclaimer/feature/reports";
-import { PublisherReportModal } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-report-modal/PublisherReportModal";
-import { usePublisherReports } from "@proclaimer-content/pages/home/reports/reports-content/hooks/usePublisherReports";
-import { ReportItem } from "@proclaimer-content/pages/home/reports/reports-content/components/report-item/ReportItem";
+import type { Report } from "../../../schemas/report.ts";
+import { PublisherReportModal } from "../../publisher-report-modal/publisher-report-modal.tsx";
+import { usePublisherReports } from "../hooks/use-publisher-reports.ts";
+import { ReportItem } from "../../report-item/report-item.tsx";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 const PIONEER_TYPES = ["regular_pioneer"];

@@ -5,9 +5,9 @@ import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Report } from "@amodeo/proclaimer/feature/reports";
-import type { PublisherRecordEntry } from "../components/publisher-records-pdf/PublisherRecordsPdf";
-import type { PublisherRecordData } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-record-pdf/types";
-import { buildServiceYearReports } from "@proclaimer-content/pages/home/reports/reports-content/utils/service-year-reports";
+import type { PublisherRecordEntry } from "@amodeo/proclaimer/feature/reports";
+import type { PublisherRecordData } from "@amodeo/proclaimer/feature/reports";
+import { buildServiceYearReports } from "@amodeo/proclaimer/feature/reports";
 
 export type PublisherGroup =
   | "elders"

@@ -1,8 +1,10 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
-import { PublisherRecordHeader } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-record/publisher-record-header/PublisherRecordHeader";
-import { PublisherRecordContent } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-record/publisher-record-content/PublisherRecordContent";
-import { usePublisherName } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-record/hooks/usePublisherName";
+import {
+  PublisherRecordHeader,
+  PublisherRecordContent,
+  usePublisherName,
+} from "@amodeo/proclaimer/feature/reports";
 
 function PublisherReportsPage() {
   const { publisher_id } = useParams<{ publisher_id: string }>();

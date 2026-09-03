@@ -1,14 +1,11 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
-import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import type { Report } from "@amodeo/proclaimer/feature/reports";
-import type { PublisherRecordData } from "@proclaimer-content/pages/home/reports/reports-content/components/publisher-record-pdf/types";
-import {
-  buildServiceYearReports,
-  reportsToMap,
-} from "@proclaimer-content/pages/home/reports/reports-content/utils/service-year-reports";
+import { reportCollection } from "../../../../collections/report.ts";
+import type { Report } from "../../../../schemas/report.ts";
+import type { PublisherRecordData } from "../../publisher-report-page/types.ts";
+import { buildServiceYearReports, reportsToMap } from "../../utils/service-year.ts";
 
 export function usePublisherRecordData(publisher_id: string) {
   const { data: publisher_data } = useLiveQuery(

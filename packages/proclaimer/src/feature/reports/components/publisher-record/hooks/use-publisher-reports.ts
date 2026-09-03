@@ -1,7 +1,7 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
-import { reportCollection } from "@amodeo/proclaimer/feature/reports";
-import type { Report } from "@amodeo/proclaimer/feature/reports";
+import { reportCollection } from "../../../collections/report.ts";
+import type { Report } from "../../../schemas/report.ts";
 
 export function usePublisherReports(publisher_id: string | undefined) {
   const { data: local_data } = useLiveQuery(

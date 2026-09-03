@@ -1,9 +1,9 @@
 import { Fragment, useState } from "react";
 import { IonItem } from "@ionic/react";
-import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { Report } from "@amodeo/proclaimer/feature/reports";
+import { reportCollection } from "../../../../collections/report.ts";
+import type { Report } from "../../../../schemas/report.ts";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
@@ -14,7 +14,7 @@ import {
   HourCreditsModal,
   type CreditHours,
   type CreditType,
-} from "./components/hour-credits-modal/HourCreditsModal";
+} from "./components/hour-credits-modal/hour-credits-modal.tsx";
 
 interface FormState {
   active: boolean;

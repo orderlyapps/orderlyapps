@@ -2,7 +2,7 @@ import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { AssignmentsHeader } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/assignments/assignments-header/AssignmentsHeader";
 import { AssignmentsContent } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/assignments/assignments-content/AssignmentsContent";
-import { usePublisherName } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-record/hooks/usePublisherName";
+import { usePublisherName } from "@amodeo/proclaimer/feature/reports";
 
 function AllPublishersAssignmentsPage() {
   const { publisher_id } = useParams<{ publisher_id: string }>();

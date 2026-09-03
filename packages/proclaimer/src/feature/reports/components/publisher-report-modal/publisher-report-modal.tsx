@@ -1,8 +1,8 @@
 import { IonButtons, IonContent, IonHeader, IonList, IonTitle, IonToolbar } from "@ionic/react";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import type { Report } from "@amodeo/proclaimer/feature/reports";
-import { ReportForm } from "./components/report-form/ReportForm";
+import type { Report } from "../../schemas/report.ts";
+import { ReportForm } from "./components/report-form/report-form.tsx";
 
 interface PublisherReportModalProps {
   is_open: boolean;

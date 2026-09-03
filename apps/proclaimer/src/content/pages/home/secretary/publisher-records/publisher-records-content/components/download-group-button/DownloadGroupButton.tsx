@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonSpinner } from "@ionic/react";
 import { pdf } from "@react-pdf/renderer";
-import { PublisherRecordsPdf } from "../publisher-records-pdf/PublisherRecordsPdf";
+import { PublisherRecordsPdf } from "@amodeo/proclaimer/feature/reports";
 import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
-import type { PublisherRecordEntry } from "../publisher-records-pdf/PublisherRecordsPdf";
+import type { PublisherRecordEntry } from "@amodeo/proclaimer/feature/reports";
 
 interface DownloadGroupButtonProps {
   label: string;
