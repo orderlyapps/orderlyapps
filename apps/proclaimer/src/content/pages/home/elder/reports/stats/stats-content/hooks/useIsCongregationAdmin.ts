@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { congregationAdminCollection } from "@amodeo/proclaimer/database/collections/congregation-admin";
+import { congregationAdminCollection } from "@amodeo/proclaimer/feature/permission";
 import { useAuthSession } from "@amodeo/proclaimer/feature/permission";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 

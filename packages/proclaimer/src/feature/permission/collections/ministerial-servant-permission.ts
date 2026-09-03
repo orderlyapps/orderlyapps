@@ -1,32 +1,32 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
-import { reminderPermissionSchema } from "../schemas/reminder-permission.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { ministerialServantPermissionSchema } from "../schemas/ministerial-servant-permission.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "reminder_permission",
-  queryKey: ["reminder_permission"],
+  id: "ministerial_servant_permission",
+  queryKey: ["ministerial_servant_permission"],
   queryClient,
-  schema: reminderPermissionSchema,
+  schema: ministerialServantPermissionSchema,
   getKey: (row) => `${row.auth_user_id}:${row.congregation_id}`,
   queryFn: async () => {
-    const { data, error } = await supabase.from("reminder_permission").select("*");
+    const { data, error } = await supabase.from("ministerial_servant_permission").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("reminder_permission").insert(rows);
+    const { error } = await supabase.from("ministerial_servant_permission").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
       const [auth_user_id, congregation_id] = (mutation.key as string).split(":");
       const { error } = await supabase
-        .from("reminder_permission")
+        .from("ministerial_servant_permission")
         .update(mutation.modified)
         .eq("auth_user_id", auth_user_id)
         .eq("congregation_id", congregation_id);
@@ -37,7 +37,7 @@ const baseOptions = queryCollectionOptions({
     for (const mutation of transaction.mutations) {
       const [auth_user_id, congregation_id] = (mutation.key as string).split(":");
       const { error } = await supabase
-        .from("reminder_permission")
+        .from("ministerial_servant_permission")
         .delete()
         .eq("auth_user_id", auth_user_id)
         .eq("congregation_id", congregation_id);
@@ -46,7 +46,7 @@ const baseOptions = queryCollectionOptions({
   },
 });
 
-export const reminderPermissionCollection = createCollection({
+export const ministerialServantPermissionCollection = createCollection({
   ...baseOptions,
-  schema: reminderPermissionSchema,
+  schema: ministerialServantPermissionSchema,
 });
