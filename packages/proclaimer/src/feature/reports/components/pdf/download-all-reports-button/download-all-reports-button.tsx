@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { pdf } from "@react-pdf/renderer";
-import { TextButton } from "../../../../ui/components/inputs/button/text/TextButton.tsx";
+import { TextButton } from "../../../../../ui/components/inputs/button/text/TextButton.tsx";
 import { AllReportsPdf } from "../all-reports-pdf/all-reports-pdf.tsx";
 import { useAllReportsData } from "./hooks/use-all-reports-data.ts";
 import {

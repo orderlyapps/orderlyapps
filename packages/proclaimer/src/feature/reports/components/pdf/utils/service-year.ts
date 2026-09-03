@@ -1,4 +1,4 @@
-import type { Report } from "../../schemas/report.ts";
+import type { Report } from "../../../schemas/report.ts";
 import type { MonthReport, ServiceYearReportData } from "../publisher-report-page/types.ts";
 
 export const SERVICE_YEAR_MONTH_NAMES = [
