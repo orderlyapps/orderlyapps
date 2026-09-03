@@ -9,7 +9,7 @@ import {
 } from "@ionic/react";
 import { MissingReportsList } from "@amodeo/proclaimer/feature/reports";
 
-function ToolsPage() {
+function MissingReportsPage() {
   return (
     <IonPage>
       <IonHeader>
@@ -17,7 +17,7 @@ function ToolsPage() {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/home/secretary" />
           </IonButtons>
-          <IonTitle>Tools</IonTitle>
+          <IonTitle>Missing Reports</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -27,4 +27,4 @@ function ToolsPage() {
   );
 }
 
-export default ToolsPage;
+export default MissingReportsPage;

@@ -41,7 +41,7 @@ import PublisherParticipationPage from "@proclaimer-routes/home/secretary/publis
 import PublisherRecordsPage from "@proclaimer-routes/home/secretary/publisher-records/PublisherRecords";
 import GroupsPage from "@proclaimer-routes/home/secretary/groups/Groups";
 import GroupDetailsPage from "@proclaimer-routes/home/secretary/groups/group-details/GroupDetails";
-import SecretaryToolsPage from "@proclaimer-routes/home/secretary/tools/Tools";
+import MissingReportsPage from "@proclaimer-routes/home/secretary/missing-reports/MissingReports";
 import BranchReportPage from "@proclaimer-routes/home/secretary/branch-report/BranchReport";
 import CoVisitInfoPage from "@proclaimer-routes/home/secretary/co-visit-info/CoVisitInfo";
 import MissingDetailsPage from "@proclaimer-routes/home/secretary/missing-details/MissingDetails";
@@ -183,7 +183,7 @@ function App() {
         <Route path="/home/secretary/publisher-records" component={PublisherRecordsPage} exact />
         <Route path="/home/secretary/groups" component={GroupsPage} exact />
         <Route path="/home/secretary/groups/:group_id" component={GroupDetailsPage} exact />
-        <Route path="/home/secretary/tools" component={SecretaryToolsPage} exact />
+        <Route path="/home/secretary/missing-reports" component={MissingReportsPage} exact />
         <Route path="/home/secretary/branch-report" component={BranchReportPage} exact />
         <Route path="/home/secretary/co-visit-info" component={CoVisitInfoPage} exact />
         <Route path="/home/secretary/missing-details" component={MissingDetailsPage} exact />
