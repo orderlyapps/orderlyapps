@@ -1,15 +1,27 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ToolsHeader } from "@proclaimer-content/pages/home/secretary/tools/tools-header/ToolsHeader";
-import { ToolsContent } from "@proclaimer-content/pages/home/secretary/tools/tools-content/ToolsContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { MissingReportsList } from "@amodeo/proclaimer/feature/reports";
 
 function ToolsPage() {
   return (
     <IonPage>
       <IonHeader>
-        <ToolsHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/secretary" />
+          </IonButtons>
+          <IonTitle>Tools</IonTitle>
+        </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <ToolsContent />
+      <IonContent>
+        <MissingReportsList />
       </IonContent>
     </IonPage>
   );

@@ -42,14 +42,13 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 ## Page Component Architecture
 
-- **Route pages** in `src/routes/pages` should be minimal wrapper components that only contain `IonPage`, `IonHeader`, and `IonContent` structure
-- **Content components** should be placed in `src/content/pages/{page-name}/` and split into separate files:
-  - `{page-name}-header/` - Contains the header content (e.g., `IonToolbar`, `IonTitle`)
-  - `{page-name}-content/` - Contains the main page content
+- **Route pages** in `src/routes/pages` are self-contained: the page file holds the `IonPage`, `IonHeader`, `IonContent` structure **and** the page's header and content markup inline (e.g. `IonToolbar`, `IonTitle`, and the main page content).
+- Do not split page content into separate `src/content/pages/{page-name}/` header/content files. Keep the page's header and content inline in the route file.
+- Extract reusable, non-page-specific pieces into shared components under `src/ui/` (or the appropriate package) and import them — but page-specific header/content should live in the route file.
 
 ### Folder Hierarchy
 
-The folder structure in `src/content/pages/` must match `src/routes/pages/`:
+The folder structure in `src/routes/pages/` mirrors the route hierarchy:
 
 - Child pages (like detail pages) should be nested inside their parent page folder:
   - Route: `/tables/congregation` → `tables/congregation/`
