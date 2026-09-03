@@ -30,6 +30,11 @@ export interface MissingReportsEntry {
   group_label: string;
 }
 
+export interface MissingReportsBucket {
+  entries: MissingReportsEntry[];
+  previous_months: MonthKey[];
+}
+
 function sortByGroupThenName(a: MissingReportsEntry, b: MissingReportsEntry): number {
   const groupCmp = a.group_label.localeCompare(b.group_label);
   if (groupCmp !== 0) return groupCmp;
@@ -37,11 +42,15 @@ function sortByGroupThenName(a: MissingReportsEntry, b: MissingReportsEntry): nu
 }
 
 /**
- * Returns publishers who have not turned in a report for any of the previous
- * `months` calendar months. Inactive publishers are excluded since they are
- * not expected to report.
+ * Buckets publishers by the longest streak of consecutive months (ending at
+ * the current month) for which they have no active report. Each publisher
+ * appears in exactly one bucket — the largest `month_counts` value where
+ * they have no active report in all of the previous that-many months. A
+ * report marked `active: false` (e.g. inactive months) does not count as
+ * having reported. Inactive publishers are excluded since they are not
+ * expected to report.
  */
-export function useMissingReports(months: number) {
+export function useMissingReports(month_counts: number[]) {
   const { data: publishers, isLoading: publishers_loading } = useLiveQuery(
     (q) => q.from({ p: publisherCollection }),
     [],
@@ -69,19 +78,26 @@ export function useMissingReports(months: number) {
   const local_map = new Map<string, LocalPublisherData>();
   for (const l of all_local) local_map.set(l.publisher_id, l);
 
-  const reported_months_by_confidential = new Map<string, Set<string>>();
+  const active_months_by_confidential = new Map<string, Set<string>>();
   for (const r of all_reports) {
-    const set = reported_months_by_confidential.get(r.confidential_id);
+    if (!r.active) continue;
+    const set = active_months_by_confidential.get(r.confidential_id);
     if (set) set.add(r.date.slice(0, 7));
-    else reported_months_by_confidential.set(r.confidential_id, new Set([r.date.slice(0, 7)]));
+    else active_months_by_confidential.set(r.confidential_id, new Set([r.date.slice(0, 7)]));
   }
 
   const group_map = new Map<string, Group>();
   for (const g of all_groups) if (g.id) group_map.set(g.id, g);
 
-  const previous_months: MonthKey[] = getPreviousMonths(months);
+  // Largest first so each publisher is assigned to the longest qualifying streak.
+  const sorted_counts = [...month_counts].sort((a, b) => b - a);
+  const previous_months_by_count = new Map<number, MonthKey[]>();
+  const buckets = new Map<number, MissingReportsBucket>();
+  for (const c of month_counts) {
+    previous_months_by_count.set(c, getPreviousMonths(c));
+    buckets.set(c, { entries: [], previous_months: previous_months_by_count.get(c)! });
+  }
 
-  const entries: MissingReportsEntry[] = [];
   for (const publisher of all_publishers) {
     if (!publisher.id) continue;
     if (!INCLUDED_TYPES.has(publisher.type)) continue;
@@ -90,10 +106,19 @@ export function useMissingReports(months: number) {
     const local = local_map.get(publisher.id);
     if (!local?.confidential_id) continue;
 
-    const reported =
-      reported_months_by_confidential.get(local.confidential_id) ?? new Set<string>();
-    const has_any_previous = previous_months.some((m) => reported.has(m.key));
-    if (has_any_previous) continue;
+    const active_months =
+      active_months_by_confidential.get(local.confidential_id) ?? new Set<string>();
+
+    let assigned_count: number | undefined;
+    for (const c of sorted_counts) {
+      const months = previous_months_by_count.get(c)!;
+      const has_any_active_previous = months.some((m) => active_months.has(m.key));
+      if (!has_any_active_previous) {
+        assigned_count = c;
+        break;
+      }
+    }
+    if (assigned_count === undefined) continue;
 
     let group_label: string;
     if (PIONEER_TYPES.has(publisher.type)) {
@@ -103,13 +128,14 @@ export function useMissingReports(months: number) {
       group_label = group?.name ?? "Ungrouped";
     }
 
-    entries.push({
+    buckets.get(assigned_count)!.entries.push({
       publisher_id: publisher.id,
       full_name: getPublisherDisplayName(publisher),
       group_label,
     });
   }
 
-  entries.sort(sortByGroupThenName);
-  return { entries, previous_months, isLoading };
+  for (const bucket of buckets.values()) bucket.entries.sort(sortByGroupThenName);
+
+  return { buckets, isLoading };
 }
