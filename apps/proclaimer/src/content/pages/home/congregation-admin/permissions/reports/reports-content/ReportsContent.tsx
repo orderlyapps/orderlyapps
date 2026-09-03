@@ -1,6 +1,6 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 
 export function ReportsContent() {

@@ -1,6 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { IonList } from "@ionic/react";
-import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";

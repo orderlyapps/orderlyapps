@@ -3,7 +3,7 @@ import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/la
 import type { AvAssignment, AvAssignmentID } from "@amodeo/proclaimer/feature/av";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import { buildHistoryRows, type AssignmentRow } from "./utils/build-history-rows";
 
 interface AvAssignmentHistoryProps {

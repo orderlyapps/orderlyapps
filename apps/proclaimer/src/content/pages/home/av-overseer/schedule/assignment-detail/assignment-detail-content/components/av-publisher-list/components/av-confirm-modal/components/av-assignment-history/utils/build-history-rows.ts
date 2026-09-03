@@ -3,7 +3,7 @@ import type { AvAssignment, AvAssignmentID } from "@amodeo/proclaimer/feature/av
 import { avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 
 export interface AssignmentRow {
   week_id: string;

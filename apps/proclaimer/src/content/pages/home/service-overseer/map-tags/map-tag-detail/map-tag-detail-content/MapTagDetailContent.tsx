@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonSelect, IonSelectOption, IonCheckbox } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
-import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collections/map-tag-assignment";
+import { mapCollection } from "@amodeo/proclaimer/feature/territory";
+import { mapTagAssignmentCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
-import type { MapTagAssignmentRow } from "@amodeo/proclaimer/database/schemas/map-tag-assignment";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
+import type { MapTagAssignmentRow } from "@amodeo/proclaimer/feature/territory";
 
 type FilterMode = "all" | "tagged" | "untagged";
 

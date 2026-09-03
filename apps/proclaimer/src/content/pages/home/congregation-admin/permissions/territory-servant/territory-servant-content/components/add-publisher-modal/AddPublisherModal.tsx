@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { territoryServantPermissionCollection } from "@amodeo/proclaimer/database/collections/territory-servant-permission";
+import { territoryServantPermissionCollection } from "@amodeo/proclaimer/feature/territory";
 import { useAddPermission } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/hooks/useAddPermission";
 import { GenericPermissionModal } from "@proclaimer-content/pages/home/congregation-admin/permissions/shared/components/permission-modal/GenericPermissionModal";
 

@@ -2,7 +2,7 @@ import { IonButtons, IonButton, IonIcon } from "@ionic/react";
 import { imageOutline } from "ionicons/icons";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 
 type MapWithBoundary = MapRow & { boundary: number[][] };
 

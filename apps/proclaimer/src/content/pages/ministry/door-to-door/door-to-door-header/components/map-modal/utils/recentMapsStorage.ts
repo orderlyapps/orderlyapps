@@ -1,4 +1,4 @@
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 
 type MapWithBoundary = MapRow & { boundary: number[][] };

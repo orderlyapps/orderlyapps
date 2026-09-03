@@ -1,41 +1,38 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { mapTagSchema } from "../schemas/map-tag.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { mapSchema } from "../schemas/map.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "map_tag",
-  queryKey: ["map_tag"],
+  id: "map",
+  queryKey: ["map"],
   queryClient,
-  schema: mapTagSchema,
+  schema: mapSchema,
   getKey: (row) => row.id ?? "",
   queryFn: async () => {
-    const { data, error } = await supabase.from("map_tag").select("*");
+    const { data, error } = await supabase.from("map").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("map_tag").insert(rows);
+    const { error } = await supabase.from("map").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { error } = await supabase
-        .from("map_tag")
-        .update(mutation.modified)
-        .eq("id", mutation.key);
+      const { error } = await supabase.from("map").update(mutation.modified).eq("id", mutation.key);
       if (error) throw error;
     }
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { error } = await supabase.from("map_tag").delete().eq("id", mutation.key);
+      const { error } = await supabase.from("map").delete().eq("id", mutation.key);
       if (error) throw error;
     }
   },
@@ -44,10 +41,10 @@ const baseOptions = queryCollectionOptions({
 const persistedOptions = persistedCollectionOptions({
   ...baseOptions,
   persistence,
-  schemaVersion: 1,
+  schemaVersion: 2,
 });
 
-export const mapTagCollection = createCollection({
+export const mapCollection = createCollection({
   ...persistedOptions,
-  schema: mapTagSchema,
+  schema: mapSchema,
 });

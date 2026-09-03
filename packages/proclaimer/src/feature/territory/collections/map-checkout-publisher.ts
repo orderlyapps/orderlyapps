@@ -1,33 +1,33 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { groupSchema } from "../schemas/group.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { mapCheckoutPublisherSchema } from "../schemas/map-checkout-publisher.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "group",
-  queryKey: ["group"],
+  id: "map_checkout_publisher",
+  queryKey: ["map_checkout_publisher"],
   queryClient,
-  schema: groupSchema,
+  schema: mapCheckoutPublisherSchema,
   getKey: (row) => row.id ?? "",
   queryFn: async () => {
-    const { data, error } = await supabase.from("group").select("*");
+    const { data, error } = await supabase.from("map_checkout_publisher").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("group").insert(rows);
+    const { error } = await supabase.from("map_checkout_publisher").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
       const { error } = await supabase
-        .from("group")
+        .from("map_checkout_publisher")
         .update(mutation.modified)
         .eq("id", mutation.key);
       if (error) throw error;
@@ -35,7 +35,10 @@ const baseOptions = queryCollectionOptions({
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { error } = await supabase.from("group").delete().eq("id", mutation.key);
+      const { error } = await supabase
+        .from("map_checkout_publisher")
+        .delete()
+        .eq("id", mutation.key);
       if (error) throw error;
     }
   },
@@ -44,10 +47,10 @@ const baseOptions = queryCollectionOptions({
 const persistedOptions = persistedCollectionOptions({
   ...baseOptions,
   persistence,
-  schemaVersion: 2,
+  schemaVersion: 1,
 });
 
-export const groupCollection = createCollection({
+export const mapCheckoutPublisherCollection = createCollection({
   ...persistedOptions,
-  schema: groupSchema,
+  schema: mapCheckoutPublisherSchema,
 });

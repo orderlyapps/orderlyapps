@@ -1,5 +1,5 @@
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
 
 const EDIT_OUTLINES_VALUE = "edit_outlines";
 

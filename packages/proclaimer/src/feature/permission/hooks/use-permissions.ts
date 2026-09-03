@@ -6,9 +6,9 @@ import { elderPermissionCollection } from "../../../database/collections/elder-p
 import { clamOverseerPermissionCollection } from "../../midweek/index.ts";
 import { serviceOverseerPermissionCollection } from "../../../database/collections/service-overseer-permission.ts";
 import { cobePermissionCollection } from "../../../database/collections/cobe-permission.ts";
-import { territoryServantPermissionCollection } from "../../../database/collections/territory-servant-permission.ts";
+import { territoryServantPermissionCollection } from "@amodeo/proclaimer/feature/territory";
 import { avOverseerPermissionCollection } from "../../av/index.ts";
-import { speakerPermissionCollection } from "../../../database/collections/speaker-permission.ts";
+import { speakerPermissionCollection } from "@amodeo/proclaimer/feature/speaker";
 import { weekendPermissionCollection } from "../../weekend/index.ts";
 import { reminderPermissionCollection } from "../../../database/collections/reminder-permission.ts";
 import { eventPermissionCollection } from "../../event/index.ts";
@@ -16,7 +16,7 @@ import { watchtowerPermissionCollection } from "../../../database/collections/wa
 import { ministerialServantPermissionCollection } from "../../../database/collections/ministerial-servant-permission.ts";
 import { congregationAdminCollection } from "../../../database/collections/congregation-admin.ts";
 import { meetingAttendancePermissionCollection } from "../../meeting-attendance/index.ts";
-import { authUserCollection } from "../../../database/collections/auth-user.ts";
+import { authUserCollection } from "@amodeo/proclaimer/feature/auth";
 import { useAuthSession } from "./use-auth-session.ts";
 import { useStoredCongregation } from "../../congregation/utils/use-stored-congregation.ts";
 

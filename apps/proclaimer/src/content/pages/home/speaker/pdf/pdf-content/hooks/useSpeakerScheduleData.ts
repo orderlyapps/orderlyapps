@@ -1,19 +1,19 @@
 import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
 import { addWeeks, format, parseISO } from "date-fns";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import {
   congregationCollection,
   useStoredCongregation,
 } from "@amodeo/proclaimer/feature/congregation";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
 
 export type OutgoingSpeaker = {
   readonly speaker_name: string;

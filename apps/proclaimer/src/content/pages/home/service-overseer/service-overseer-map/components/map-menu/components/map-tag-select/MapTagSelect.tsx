@@ -1,11 +1,11 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { IonChip, IonLabel } from "@ionic/react";
-import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
-import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collections/map-tag-assignment";
+import { mapTagCollection } from "@amodeo/proclaimer/feature/territory";
+import { mapTagAssignmentCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
-import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
-import type { MapTagAssignmentRow } from "@amodeo/proclaimer/database/schemas/map-tag-assignment";
+import type { MapTagRow } from "@amodeo/proclaimer/feature/territory";
+import type { MapTagAssignmentRow } from "@amodeo/proclaimer/feature/territory";
 
 type Props = {
   map_id: string;

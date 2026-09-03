@@ -12,12 +12,12 @@ import {
 import { trashOutline } from "ionicons/icons";
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { mapCheckoutPublisherCollection } from "@amodeo/proclaimer/database/collections/map-checkout-publisher";
-import { mapCheckoutMapCollection } from "@amodeo/proclaimer/database/collections/map-checkout-map";
+import { mapCheckoutPublisherCollection } from "@amodeo/proclaimer/feature/territory";
+import { mapCheckoutMapCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import type { MapCheckoutPublisherRow } from "@amodeo/proclaimer/database/schemas/map-checkout-publisher";
-import type { MapCheckoutMapRow } from "@amodeo/proclaimer/database/schemas/map-checkout-map";
+import type { MapCheckoutPublisherRow } from "@amodeo/proclaimer/feature/territory";
+import type { MapCheckoutMapRow } from "@amodeo/proclaimer/feature/territory";
 
 type MapCheckoutContentProps = {
   showAddAlert: boolean;

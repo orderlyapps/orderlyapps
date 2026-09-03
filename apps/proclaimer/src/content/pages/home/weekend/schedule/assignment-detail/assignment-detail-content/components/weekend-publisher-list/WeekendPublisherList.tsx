@@ -7,14 +7,14 @@ import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import {
   weekendAVAssignmentIDs,
   weekendAttendantAssignmentIDs,
 } from "@amodeo/proclaimer/feature/av";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import { useWeekendPresets } from "../../hooks/use-weekend-presets/useWeekendPresets";
 import { useWeekendPublisherStats } from "../../hooks/use-weekend-publisher-stats/useWeekendPublisherStats";
 import { weekendParticipationCollection } from "@amodeo/proclaimer/feature/weekend";

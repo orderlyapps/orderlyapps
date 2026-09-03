@@ -1,7 +1,7 @@
 import { eq, useLiveQuery } from "@tanstack/react-db";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { cleanMajorCollection, cleanMinorCollection } from "@amodeo/proclaimer/feature/cleaning";
-import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { groupCleaningByMonth } from "./groupCleaningByMonth";

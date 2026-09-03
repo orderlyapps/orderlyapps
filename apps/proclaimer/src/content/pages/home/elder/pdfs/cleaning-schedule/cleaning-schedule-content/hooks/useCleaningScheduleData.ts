@@ -6,10 +6,10 @@ import {
   type CleanMajor,
   type CleanMinor,
 } from "@amodeo/proclaimer/feature/cleaning";
-import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import type { Group } from "@amodeo/proclaimer/database/schemas/group";
+import type { Group } from "@amodeo/proclaimer/feature/group";
 
 export type CleaningWeekData = {
   weekId: string;

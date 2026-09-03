@@ -1,11 +1,11 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import {
   congregationCollection,
   useStoredCongregation,
 } from "@amodeo/proclaimer/feature/congregation";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
 import { and, eq } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";

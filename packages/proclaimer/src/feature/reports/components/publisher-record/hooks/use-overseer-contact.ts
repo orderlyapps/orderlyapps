@@ -1,5 +1,5 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { groupCollection } from "../../../../../database/collections/group.ts";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 
 export function useOverseerContact(group_id: string | null) {

@@ -4,7 +4,7 @@ import { SmsIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/ic
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
 import { fillWeekendMeetingSmsTemplate } from "../../../shared/weekendMeetingSmsTemplate";
 import type { WeekendMeetingSmsTemplate } from "../../../shared/weekendMeetingSmsTemplate";
 import { SmsTemplateActionSheet } from "../weekend-assignment-item/components/sms-template-action-sheet/SmsTemplateActionSheet";

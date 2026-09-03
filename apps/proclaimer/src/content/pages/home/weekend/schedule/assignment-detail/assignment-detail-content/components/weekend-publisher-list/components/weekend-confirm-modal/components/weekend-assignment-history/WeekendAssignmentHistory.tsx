@@ -2,7 +2,7 @@ import { IonList } from "@ionic/react";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import { buildWeekendHistoryRows } from "./utils/build-weekend-history-rows";
 
 interface WeekendAssignmentHistoryProps {

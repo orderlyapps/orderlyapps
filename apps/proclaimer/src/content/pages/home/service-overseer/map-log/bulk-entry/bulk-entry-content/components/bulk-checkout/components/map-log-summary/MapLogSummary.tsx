@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
+import { mapLogCollection } from "@amodeo/proclaimer/feature/territory";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { CheckoutModal } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/checkout-modal/CheckoutModal";
-import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
+import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { Label } from "@amodeo/proclaimer/ui/components/display/text/label/Label";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";

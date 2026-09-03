@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
+import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import { useSelectedMap } from "./useSelectedMapContext";
 
 export function useSelectedMapName(): string | null {

@@ -1,47 +1,47 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { speakerOutlineSchema } from "../schemas/speaker-outline.js";
-import { makeCompositeKey } from "../util/composite-key.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { speakerAssignmentSchema } from "../schemas/speaker-assignment.js";
+import { makeCompositeKey } from "../../../database/util/composite-key.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "speaker_outline",
-  queryKey: ["speaker_outline"],
+  id: "speaker_assignment",
+  queryKey: ["speaker_assignment"],
   queryClient,
-  schema: speakerOutlineSchema,
-  getKey: (row) => makeCompositeKey(row.speaker_id, row.outline_id ?? ""),
+  schema: speakerAssignmentSchema,
+  getKey: (row) => makeCompositeKey(row.week_id, row.congregation_id),
   queryFn: async () => {
-    const { data, error } = await supabase.from("speaker_outline").select("*");
+    const { data, error } = await supabase.from("speaker_assignment").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("speaker_outline").insert(rows);
+    const { error } = await supabase.from("speaker_assignment").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { speaker_id, outline_id } = mutation.original;
+      const { week_id, congregation_id } = mutation.original;
       const { error } = await supabase
-        .from("speaker_outline")
+        .from("speaker_assignment")
         .update(mutation.modified)
-        .match({ speaker_id, outline_id });
+        .match({ week_id, congregation_id });
       if (error) throw error;
     }
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { speaker_id, outline_id } = mutation.original;
+      const { week_id, congregation_id } = mutation.original;
       const { error } = await supabase
-        .from("speaker_outline")
+        .from("speaker_assignment")
         .delete()
-        .match({ speaker_id, outline_id });
+        .match({ week_id, congregation_id });
       if (error) throw error;
     }
   },
@@ -53,7 +53,7 @@ const persistedOptions = persistedCollectionOptions({
   schemaVersion: 2,
 });
 
-export const speakerOutlineCollection = createCollection({
+export const speakerAssignmentCollection = createCollection({
   ...persistedOptions,
-  schema: speakerOutlineSchema,
+  schema: speakerAssignmentSchema,
 });

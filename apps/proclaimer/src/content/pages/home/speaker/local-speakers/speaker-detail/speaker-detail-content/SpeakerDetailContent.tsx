@@ -1,10 +1,10 @@
 import { IonItem, IonCheckbox, IonList, IonListHeader, IonLabel } from "@ionic/react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
-import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
+import { speakerOutlineCollection } from "@amodeo/proclaimer/feature/speaker";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
-import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
+import type { SpeakerOutline } from "@amodeo/proclaimer/feature/speaker";
 
 interface SpeakerDetailContentProps {
   speaker_id: string;

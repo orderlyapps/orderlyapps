@@ -1,44 +1,41 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { speakerAvailabilitySchema } from "../schemas/speaker-availability.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { groupSchema } from "../schemas/group.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "speaker_availability",
-  queryKey: ["speaker_availability"],
+  id: "group",
+  queryKey: ["group"],
   queryClient,
-  schema: speakerAvailabilitySchema,
-  getKey: (row) => row.speaker_id,
+  schema: groupSchema,
+  getKey: (row) => row.id ?? "",
   queryFn: async () => {
-    const { data, error } = await supabase.from("speaker_availability").select("*");
+    const { data, error } = await supabase.from("group").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("speaker_availability").insert(rows);
+    const { error } = await supabase.from("group").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
       const { error } = await supabase
-        .from("speaker_availability")
+        .from("group")
         .update(mutation.modified)
-        .eq("speaker_id", mutation.key);
+        .eq("id", mutation.key);
       if (error) throw error;
     }
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { error } = await supabase
-        .from("speaker_availability")
-        .delete()
-        .eq("speaker_id", mutation.key);
+      const { error } = await supabase.from("group").delete().eq("id", mutation.key);
       if (error) throw error;
     }
   },
@@ -50,7 +47,7 @@ const persistedOptions = persistedCollectionOptions({
   schemaVersion: 2,
 });
 
-export const speakerAvailabilityCollection = createCollection({
+export const groupCollection = createCollection({
   ...persistedOptions,
-  schema: speakerAvailabilitySchema,
+  schema: groupSchema,
 });

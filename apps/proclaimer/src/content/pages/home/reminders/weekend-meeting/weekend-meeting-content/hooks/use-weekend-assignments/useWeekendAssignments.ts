@@ -1,10 +1,10 @@
 import { and, eq, useLiveQuery } from "@tanstack/react-db";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
 import type { WeekendAssignmentID } from "@amodeo/proclaimer/feature/weekend";
 
 export type WeekendAssignmentWithPublisher = {

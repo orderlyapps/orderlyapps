@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
 import {
   congregationCollection,
   useStoredCongregation,

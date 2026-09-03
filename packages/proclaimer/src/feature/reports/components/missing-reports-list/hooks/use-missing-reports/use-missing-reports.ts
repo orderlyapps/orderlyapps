@@ -1,11 +1,11 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { publisherCollection } from "../../../../../publisher/collections/publisher.ts";
 import { publisherLocalCollection } from "../../../../../publisher-local/collections/publisher-local.ts";
-import { groupCollection } from "../../../../../../database/collections/group.ts";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { reportCollection } from "../../../../collections/report.ts";
 import type { Report } from "../../../../schemas/report.ts";
 import type { Publisher } from "../../../../../publisher/schemas/publisher.ts";
-import type { Group } from "../../../../../../database/schemas/group.ts";
+import type { Group } from "@amodeo/proclaimer/feature/group";
 import { getPublisherDisplayName } from "../../../../../publisher/utils/publisher-name.ts";
 import { getPreviousMonths, type MonthKey } from "../../utils/get-previous-months.ts";
 

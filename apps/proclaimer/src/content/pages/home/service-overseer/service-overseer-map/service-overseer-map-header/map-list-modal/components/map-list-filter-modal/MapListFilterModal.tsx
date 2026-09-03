@@ -5,9 +5,9 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { mapTagCollection } from "@amodeo/proclaimer/database/collections/map-tag";
+import { mapTagCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { MapTagRow } from "@amodeo/proclaimer/database/schemas/map-tag";
+import type { MapTagRow } from "@amodeo/proclaimer/feature/territory";
 import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
 import { DEFAULT_PRESET_IDS } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/use-map-log-presets/defaultMapLogPresets";
 import { getMapLogFilterInputItems } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/map-log-filter-modal/components/filter-section/MapLogFilterSection";

@@ -4,15 +4,15 @@ import {
   congregationCollection,
   useStoredCongregation,
 } from "@amodeo/proclaimer/feature/congregation";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
-import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
+import { speakerOutlineCollection } from "@amodeo/proclaimer/feature/speaker";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import type { Congregation } from "@amodeo/proclaimer/feature/congregation";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
-import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
+import type { SpeakerOutline } from "@amodeo/proclaimer/feature/speaker";
 
 export const ADD_NEW_CONGREGATION_VALUE = "add_new";
 

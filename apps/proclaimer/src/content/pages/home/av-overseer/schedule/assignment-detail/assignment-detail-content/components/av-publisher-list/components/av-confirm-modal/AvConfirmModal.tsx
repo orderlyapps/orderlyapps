@@ -5,7 +5,7 @@ import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignment, AvAssignmentID } from "@amodeo/proclaimer/feature/av";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import { AvAssignmentHistory } from "./components/av-assignment-history/AvAssignmentHistory";
 
 interface AvConfirmModalProps {

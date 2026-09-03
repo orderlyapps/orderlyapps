@@ -9,9 +9,9 @@ import {
   type CleanMajor,
   type CleanMinor,
 } from "@amodeo/proclaimer/feature/cleaning";
-import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
-import type { Group } from "@amodeo/proclaimer/database/schemas/group";
+import type { Group } from "@amodeo/proclaimer/feature/group";
 
 export interface CleaningWeek {
   week_id: string;

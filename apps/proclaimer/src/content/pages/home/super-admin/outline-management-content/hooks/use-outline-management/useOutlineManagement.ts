@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
 
 export function useOutlineManagement() {
   const { data: all_outlines } = useLiveQuery((q) =>

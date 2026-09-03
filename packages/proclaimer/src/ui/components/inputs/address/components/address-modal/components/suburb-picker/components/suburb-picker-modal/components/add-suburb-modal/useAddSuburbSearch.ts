@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { suburbCollection } from "../../../../../../../../../../../../database/collections/suburb.ts";
-import { mapMasterCollection } from "../../../../../../../../../../../../database/collections/map-master.ts";
+import { mapMasterCollection } from "@amodeo/proclaimer/feature/territory";
 import { searchSuburbs } from "../../../../../../../../../../../vendor/mapbox/search-suburbs.ts";
 import { getStoredCongregation } from "../../../../../../../../../../../congregation/get-stored-congregation.ts";
 import type { MapboxGeocodingFeature } from "../../../../../../../../../../../vendor/mapbox/types.ts";

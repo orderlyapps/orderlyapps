@@ -1,33 +1,31 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
-import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
-import { outlineSchema } from "../schemas/outline.js";
-import { persistence } from "../persistence.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { authOtpLogSchema } from "../schemas/auth-otp-log.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "outline",
-  queryKey: ["outline"],
+  id: "auth_otp_log",
+  queryKey: ["auth_otp_log"],
   queryClient,
-  schema: outlineSchema,
-  getKey: (row) => row.id,
+  schema: authOtpLogSchema,
+  getKey: (row) => row.id ?? "",
   queryFn: async () => {
-    const { data, error } = await supabase.from("outline").select("*");
+    const { data, error } = await supabase.from("auth_otp_log").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("outline").insert(rows);
+    const { error } = await supabase.from("auth_otp_log").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
       const { error } = await supabase
-        .from("outline")
+        .from("auth_otp_log")
         .update(mutation.modified)
         .eq("id", mutation.key);
       if (error) throw error;
@@ -35,19 +33,13 @@ const baseOptions = queryCollectionOptions({
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { error } = await supabase.from("outline").delete().eq("id", mutation.key);
+      const { error } = await supabase.from("auth_otp_log").delete().eq("id", mutation.key);
       if (error) throw error;
     }
   },
 });
 
-const persistedOptions = persistedCollectionOptions({
+export const authOtpLogCollection = createCollection({
   ...baseOptions,
-  persistence,
-  schemaVersion: 2,
-});
-
-export const outlineCollection = createCollection({
-  ...persistedOptions,
-  schema: outlineSchema,
+  schema: authOtpLogSchema,
 });

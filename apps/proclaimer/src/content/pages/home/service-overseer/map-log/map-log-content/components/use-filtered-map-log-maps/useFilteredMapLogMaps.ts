@@ -1,11 +1,11 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
-import { mapTagAssignmentCollection } from "@amodeo/proclaimer/database/collections/map-tag-assignment";
+import { mapLogCollection } from "@amodeo/proclaimer/feature/territory";
+import { mapTagAssignmentCollection } from "@amodeo/proclaimer/feature/territory";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
-import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
-import type { MapTagAssignmentRow } from "@amodeo/proclaimer/database/schemas/map-tag-assignment";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
+import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
+import type { MapTagAssignmentRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapLogFilters, MapLogSortOrder } from "../use-map-log-presets/types";
 
 export function useFilteredMapLogMaps<T extends MapRow>(

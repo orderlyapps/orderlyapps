@@ -1,7 +1,7 @@
 import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { format, startOfWeek } from "date-fns";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { cleanMajorCollection, cleanMinorCollection } from "@amodeo/proclaimer/feature/cleaning";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";

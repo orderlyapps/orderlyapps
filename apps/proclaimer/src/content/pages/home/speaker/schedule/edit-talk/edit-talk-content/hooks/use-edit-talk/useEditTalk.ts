@@ -1,15 +1,15 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { and, eq } from "@tanstack/react-db";
-import { speakerAssignmentCollection } from "@amodeo/proclaimer/database/collections/speaker-assignment";
+import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { outlineCollection } from "@amodeo/proclaimer/database/collections/outline";
-import { speakerOutlineCollection } from "@amodeo/proclaimer/database/collections/speaker-outline";
+import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
+import { speakerOutlineCollection } from "@amodeo/proclaimer/feature/speaker";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
-import type { SpeakerOutline } from "@amodeo/proclaimer/database/schemas/speaker-outline";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
+import type { SpeakerOutline } from "@amodeo/proclaimer/feature/speaker";
 
 interface UseEditTalkProps {
   week_id: string;

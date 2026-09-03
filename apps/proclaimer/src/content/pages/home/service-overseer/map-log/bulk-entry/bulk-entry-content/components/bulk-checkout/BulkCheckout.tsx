@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { IonItem, IonList, IonTextarea } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
-import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
+import { mapCollection } from "@amodeo/proclaimer/feature/territory";
+import { mapLogCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { PublisherSelectModal } from "./components/publisher-select-modal/PublisherSelectModal";
 import { MapNavigator } from "./components/map-navigator/MapNavigator";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";

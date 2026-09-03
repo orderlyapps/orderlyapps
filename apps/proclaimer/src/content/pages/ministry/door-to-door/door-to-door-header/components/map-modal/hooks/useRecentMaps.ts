@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from "react";
 import { getRecentMaps, addRecentMap } from "../utils/recentMapsStorage";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 
 type MapWithBoundary = MapRow & { boundary: number[][] };
 

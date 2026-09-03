@@ -12,9 +12,9 @@ import {
   useIonRouter,
 } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
+import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { chevronBackOutline, chevronForwardOutline } from "ionicons/icons";
 

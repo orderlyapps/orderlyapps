@@ -1,45 +1,53 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
-import { authUserSchema } from "../schemas/auth-user.js";
-import { getQueryClient, getSupabase } from "../context.js";
+import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
+import { outlineSchema } from "../schemas/outline.js";
+import { persistence } from "../../../database/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
 
 const baseOptions = queryCollectionOptions({
-  id: "auth_user",
-  queryKey: ["auth_user"],
+  id: "outline",
+  queryKey: ["outline"],
   queryClient,
-  schema: authUserSchema,
-  getKey: (row) => row.auth_user_id,
+  schema: outlineSchema,
+  getKey: (row) => row.id,
   queryFn: async () => {
-    const { data, error } = await supabase.from("auth_user").select("*");
+    const { data, error } = await supabase.from("outline").select("*");
     if (error) throw error;
     return data ?? [];
   },
   onInsert: async ({ transaction }) => {
     const rows = transaction.mutations.map((mutation) => mutation.modified);
-    const { error } = await supabase.from("auth_user").insert(rows);
+    const { error } = await supabase.from("outline").insert(rows);
     if (error) throw error;
   },
   onUpdate: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
       const { error } = await supabase
-        .from("auth_user")
+        .from("outline")
         .update(mutation.modified)
-        .eq("auth_user_id", mutation.key);
+        .eq("id", mutation.key);
       if (error) throw error;
     }
   },
   onDelete: async ({ transaction }) => {
     for (const mutation of transaction.mutations) {
-      const { error } = await supabase.from("auth_user").delete().eq("auth_user_id", mutation.key);
+      const { error } = await supabase.from("outline").delete().eq("id", mutation.key);
       if (error) throw error;
     }
   },
 });
 
-export const authUserCollection = createCollection({
+const persistedOptions = persistedCollectionOptions({
   ...baseOptions,
-  schema: authUserSchema,
+  persistence,
+  schemaVersion: 2,
+});
+
+export const outlineCollection = createCollection({
+  ...persistedOptions,
+  schema: outlineSchema,
 });

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { blockCoordinatesToBounds } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
 import { recordRecentMap } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/useRecentMaps";
-import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
-import { mapMasterCollection } from "@amodeo/proclaimer/database/collections/map-master";
+import { mapCollection } from "@amodeo/proclaimer/feature/territory";
+import { mapMasterCollection } from "@amodeo/proclaimer/feature/territory";
 import type {
   Block,
   SelectedMap,

@@ -1,5 +1,5 @@
 import { IonList } from "@ionic/react";
-import { groupCollection } from "@amodeo/proclaimer/database/collections/group";
+import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { AlertTextInput } from "@amodeo/proclaimer/ui/components/inputs/alert-text/AlertTextInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";

@@ -1,4 +1,4 @@
-import type { Outline } from "@amodeo/proclaimer/database/schemas/outline";
+import type { Outline } from "@amodeo/proclaimer/feature/speaker";
 import { OutlineListItem } from "./outline-list-item/OutlineListItem";
 
 interface OutlineListProps {

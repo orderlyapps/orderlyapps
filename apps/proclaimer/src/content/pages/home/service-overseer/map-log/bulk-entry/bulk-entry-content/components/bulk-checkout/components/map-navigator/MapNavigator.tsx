@@ -4,7 +4,7 @@ import { chevronBack, chevronForward } from "ionicons/icons";
 import { InputWrapper } from "@amodeo/proclaimer/ui/components/display/input/InputWrapper";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 
 interface MapNavigatorProps {
   maps: MapRow[];

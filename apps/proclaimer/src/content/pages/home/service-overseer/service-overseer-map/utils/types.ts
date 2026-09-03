@@ -1,5 +1,5 @@
 import type { LngLatBoundsLike } from "mapbox-gl";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 
 export type Block = NonNullable<MapRow["blocks"]>[number];
 

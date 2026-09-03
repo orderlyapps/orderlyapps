@@ -4,7 +4,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignment } from "@amodeo/proclaimer/feature/av";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
-import type { SpeakerAssignment } from "@amodeo/proclaimer/database/schemas/speaker-assignment";
+import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import { WeekendAssignmentHistory } from "./components/weekend-assignment-history/WeekendAssignmentHistory";
 
 interface WeekendConfirmModalProps {

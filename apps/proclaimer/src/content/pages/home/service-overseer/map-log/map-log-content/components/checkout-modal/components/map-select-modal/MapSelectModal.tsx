@@ -14,7 +14,7 @@ import { checkmark } from "ionicons/icons";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 
 interface MapSelectModalProps {
   isOpen: boolean;

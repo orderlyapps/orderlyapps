@@ -21,7 +21,7 @@ import {
 } from "@amodeo/proclaimer/util/localStorageKeys";
 import { selectableStyles, type SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
+import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { boundaryToBounds } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
 
 const SERVICE_OVERSEER_MAP_STYLE_KEY = localStorageKeyWithVariant("mapStyle", "service-overseer");

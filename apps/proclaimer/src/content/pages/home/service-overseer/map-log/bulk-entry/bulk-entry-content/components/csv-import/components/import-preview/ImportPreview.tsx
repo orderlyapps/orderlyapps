@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IonItem, IonLabel, IonList, IonAlert } from "@ionic/react";
-import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
+import { mapLogCollection } from "@amodeo/proclaimer/feature/territory";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";

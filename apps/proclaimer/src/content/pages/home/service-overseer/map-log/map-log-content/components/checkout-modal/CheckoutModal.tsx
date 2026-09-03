@@ -14,8 +14,8 @@ import {
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { useLiveQuery } from "@tanstack/react-db";
-import { mapCollection } from "@amodeo/proclaimer/database/collections/map";
-import { mapLogCollection } from "@amodeo/proclaimer/database/collections/map-log";
+import { mapCollection } from "@amodeo/proclaimer/feature/territory";
+import { mapLogCollection } from "@amodeo/proclaimer/feature/territory";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
@@ -23,8 +23,8 @@ import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInpu
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { PublisherSelectModal } from "@proclaimer-content/pages/home/service-overseer/map-log/bulk-entry/bulk-entry-content/components/bulk-checkout/components/publisher-select-modal/PublisherSelectModal";
 import { MapSelectModal } from "./components/map-select-modal/MapSelectModal";
-import type { MapRow } from "@amodeo/proclaimer/database/schemas/map";
-import type { MapLogRow } from "@amodeo/proclaimer/database/schemas/map-log";
+import type { MapRow } from "@amodeo/proclaimer/feature/territory";
+import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
 import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
