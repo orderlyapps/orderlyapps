@@ -32,7 +32,6 @@ export const localStorageKeys = {
   myMapsAccordion: "my_maps_accordion",
   recentMapsAccordion: "recent_maps_accordion",
   authUsersActiveOnly: "auth_users_active_only",
-  secretaryToolsInactiveAccordion: "secretary_tools_inactive_accordion",
   ministryReportForm: "ministry_report_form",
   ministryTimeSettingsAccordion: "ministry_time_settings_accordion",
   avSmsTemplate: "av_sms_template",
