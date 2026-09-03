@@ -28,6 +28,8 @@ export default defineConfig({
       "src/feature/**/*.tsx",
       "src/ui/**/*.ts",
       "src/ui/**/*.tsx",
+      "src/util/**/*.ts",
+      "src/util/**/*.tsx",
     ],
     unbundle: true,
     dts: true,
