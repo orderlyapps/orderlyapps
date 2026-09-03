@@ -1,5 +1,5 @@
-import type { CongregationBibleStudyLocal } from "../rxdb/collections/congregation-bible-study.js";
-import { rxdb } from "../rxdb/database.js";
+import type { CongregationBibleStudyLocal } from "../../../database/rxdb/collections/congregation-bible-study.js";
+import { rxdb } from "../../../database/rxdb/database.js";
 import { createCollection } from "@tanstack/react-db";
 import { rxdbCollectionOptions } from "@tanstack/rxdb-db-collection";
 

@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { settingsLocalCollection } from "@amodeo/proclaimer/database/collections/settings-local";
+import { settingsLocalCollection } from "@amodeo/proclaimer/feature/settings";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import { getServiceYear } from "@util/format/service-year";
 

@@ -1,5 +1,5 @@
-import type { MinistryTimeLocal } from "../rxdb/collections/ministry-time.js";
-import { rxdb } from "../rxdb/database.js";
+import type { MinistryTimeLocal } from "../../../database/rxdb/collections/ministry-time.js";
+import { rxdb } from "../../../database/rxdb/database.js";
 import { createCollection } from "@tanstack/react-db";
 import { rxdbCollectionOptions } from "@tanstack/rxdb-db-collection";
 

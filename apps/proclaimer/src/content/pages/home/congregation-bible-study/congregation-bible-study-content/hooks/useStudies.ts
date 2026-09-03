@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
-import { congregationBibleStudyLocalCollection } from "@amodeo/proclaimer/database/collections/congregation-bible-study-local";
-import { settingsLocalCollection } from "@amodeo/proclaimer/database/collections/settings-local";
+import { congregationBibleStudyLocalCollection } from "@amodeo/proclaimer/feature/congregation-bible-study-local";
+import { settingsLocalCollection } from "@amodeo/proclaimer/feature/settings";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import type { CongregationBibleStudyLocal } from "@amodeo/proclaimer/database/rxdb/collections/congregation-bible-study";
 

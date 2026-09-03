@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { ministryTimeLocalCollection } from "@amodeo/proclaimer/database/collections/ministry-time-local";
+import { ministryTimeLocalCollection } from "@amodeo/proclaimer/feature/ministry-time-local";
 import type {
   MinistryTimeLocal,
   MinistryType,
