@@ -9,7 +9,12 @@ interface MissingReportsItemProps {
 
 export function MissingReportsItem({ entry, lines = "full" }: MissingReportsItemProps) {
   return (
-    <IonItem lines={lines}>
+    <IonItem
+      lines={lines}
+      button
+      detail
+      routerLink={`/home/secretary/missing-reports/${entry.publisher_id}`}
+    >
       <IonLabel className="ion-text-wrap">
         <Body>{entry.full_name}</Body>
       </IonLabel>
