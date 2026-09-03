@@ -1,17 +1,19 @@
-import { IonItem, IonLabel } from "@ionic/react";
+import { IonItem, IonLabel, IonNote } from "@ionic/react";
 import type { MissingReportsEntry } from "../../hooks/use-missing-reports/use-missing-reports.ts";
+import { Body } from "../../../../../../ui/components/display/text/body/Body.tsx";
 
 interface MissingReportsItemProps {
   entry: MissingReportsEntry;
+  lines?: "full" | "inset" | "none";
 }
 
-export function MissingReportsItem({ entry }: MissingReportsItemProps) {
+export function MissingReportsItem({ entry, lines = "full" }: MissingReportsItemProps) {
   return (
-    <IonItem lines="full">
+    <IonItem lines={lines}>
       <IonLabel className="ion-text-wrap">
-        <h2>{entry.full_name}</h2>
-        <p>{entry.group_label}</p>
+        <Body>{entry.full_name}</Body>
       </IonLabel>
+      <IonNote slot="end">{entry.group_label}</IonNote>
     </IonItem>
   );
 }

@@ -1,23 +1,23 @@
 export interface MonthKey {
   /** Calendar month key in `YYYY-MM` format, matching `Report.date.slice(0, 7)`. */
   key: string;
-  /** Human-readable label, e.g. "August 2026". */
+  /** Human-readable label, e.g. "Feb". */
   label: string;
 }
 
 const MONTH_NAMES = [
-  "January",
-  "February",
-  "March",
-  "April",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
   "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
 /**
@@ -30,7 +30,7 @@ export function getPreviousMonths(count: number, today: Date = new Date()): Mont
   for (let i = 1; i <= count; i++) {
     const d = new Date(today.getFullYear(), today.getMonth() - i, 1);
     const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
-    months.push({ key, label: `${MONTH_NAMES[d.getMonth()]} ${d.getFullYear()}` });
+    months.push({ key, label: MONTH_NAMES[d.getMonth()] });
   }
   return months;
 }
