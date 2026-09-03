@@ -2,7 +2,7 @@ import { useMissingReports } from "./hooks/use-missing-reports/use-missing-repor
 import { MissingReportsSection } from "./components/missing-reports-section/missing-reports-section.tsx";
 import { IonGrid, IonRow } from "@ionic/react";
 
-const MONTH_COUNTS = [6, 5, 4];
+const MONTH_COUNTS = [6, 5, 4, 3, 2, 1];
 
 export function MissingReportsList() {
   const { buckets, isLoading } = useMissingReports(MONTH_COUNTS);

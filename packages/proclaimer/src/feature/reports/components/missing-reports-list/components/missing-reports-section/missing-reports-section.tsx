@@ -4,7 +4,6 @@ import type { MonthKey } from "../../utils/get-previous-months.ts";
 import { MissingReportsItem } from "../missing-reports-item/missing-reports-item.tsx";
 import { Heading } from "../../../../../../ui/components/display/text/heading/Heading.tsx";
 import { Body } from "../../../../../../ui/components/display/text/body/Body.tsx";
-import { RESPONSIVE_COL_SIZES } from "../../../../../../ui/types/responsive-col-sizes.ts";
 
 interface MissingReportsSectionProps {
   months: number;
@@ -26,7 +25,7 @@ export function MissingReportsSection({
   const heading = `${months} Month${months > 1 ? "s" : ""}`;
 
   return (
-    <IonCol {...RESPONSIVE_COL_SIZES}>
+    <IonCol sizeXs="12" sizeSm="6" sizeMd="6" sizeLg="4" sizeXl="4">
       <IonItem lines="none">
         <IonLabel className="ion-text-wrap">
           <Heading>{heading}</Heading>
