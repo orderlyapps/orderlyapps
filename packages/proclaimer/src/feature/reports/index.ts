@@ -7,7 +7,6 @@ export { MissingReportsList } from "./components/missing-reports-list/missing-re
 export { ReportItem } from "./components/report-item/report-item.tsx";
 export { PublisherReportModal } from "./components/publisher-report-modal/publisher-report-modal.tsx";
 export { PublisherRecordContent } from "./components/publisher-record/publisher-record-content/publisher-record-content.tsx";
-export { PublisherRecordHeader } from "./components/publisher-record/publisher-record-header/publisher-record-header.tsx";
 export { usePublisherName } from "./components/publisher-record/hooks/use-publisher-name.ts";
 export { usePublisherReports } from "./components/publisher-record/hooks/use-publisher-reports.ts";
 export { DownloadPublisherRecordButton } from "./components/pdf/download-publisher-record-button/download-publisher-record-button.tsx";
