@@ -2,8 +2,8 @@ import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
 import { doNotCallSchema } from "../schemas/do-not-call.js";
-import { persistence } from "../../../database/persistence.js";
-import { getQueryClient, getSupabase } from "../../../database/context.js";
+import { persistence } from "../../../database/supabase/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/supabase/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();

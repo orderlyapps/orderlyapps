@@ -48,7 +48,7 @@ function lazyProxy<T extends object>(resolve: () => T): T {
 
 const NOT_INITIALIZED_ERROR =
   "Database not initialized. Call initDatabase({ supabase, queryClient }) from " +
-  "@amodeo/proclaimer/database/context before using collection modules.";
+  "@amodeo/proclaimer/database/supabase/context before using collection modules.";
 
 export function getSupabase(): SupabaseClient {
   if (context) return context.supabase;

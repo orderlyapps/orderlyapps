@@ -4,8 +4,8 @@ import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persiste
 import { reportSchema } from "../schemas/report.js";
 import type { Report } from "../schemas/report.js";
 import { makeCompositeKey } from "../../../database/util/composite-key.js";
-import { persistence } from "../../../database/persistence.js";
-import { getQueryClient, getSupabase } from "../../../database/context.js";
+import { persistence } from "../../../database/supabase/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/supabase/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();

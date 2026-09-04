@@ -1,4 +1,4 @@
-import { initDatabase } from "@amodeo/proclaimer/database/context";
+import { initDatabase } from "@amodeo/proclaimer/database/supabase/context";
 import { queryClient } from "@util/vendor/react-query";
 import { supabase } from "@util/vendor/supabase/supabase-client";
 

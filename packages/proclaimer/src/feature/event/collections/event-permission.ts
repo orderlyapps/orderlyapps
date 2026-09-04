@@ -1,7 +1,7 @@
 import { createCollection } from "@tanstack/react-db";
 import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { eventPermissionSchema } from "../schemas/event-permission.js";
-import { getQueryClient, getSupabase } from "../../../database/context.js";
+import { getQueryClient, getSupabase } from "../../../database/supabase/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();

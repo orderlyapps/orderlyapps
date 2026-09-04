@@ -10,7 +10,7 @@ import {
 } from "@amodeo/proclaimer/util/font-size";
 import { setStoredTheme, applyTheme } from "@amodeo/proclaimer/util/theme";
 import { supabase } from "@util/vendor/supabase/supabase-client";
-import { clearAllTanstackData } from "@amodeo/proclaimer/database/persistence";
+import { clearAllTanstackData } from "@amodeo/proclaimer/database/supabase/persistence";
 
 export function ResetSettingsButton() {
   const [show_alert, set_show_alert] = useState(false);

@@ -3,8 +3,8 @@ import { queryCollectionOptions } from "@tanstack/query-db-collection";
 import { persistedCollectionOptions } from "@tanstack/browser-db-sqlite-persistence";
 import { mapLogSchema } from "../schemas/map-log.js";
 import type { MapLogRow } from "../schemas/map-log.js";
-import { persistence } from "../../../database/persistence.js";
-import { getQueryClient, getSupabase } from "../../../database/context.js";
+import { persistence } from "../../../database/supabase/persistence.js";
+import { getQueryClient, getSupabase } from "../../../database/supabase/context.js";
 
 const queryClient = getQueryClient();
 const supabase = getSupabase();
