@@ -4,6 +4,7 @@ export type { Report } from "./schemas/report.ts";
 export type { ReportPermission } from "./schemas/report-permission.ts";
 export { DownloadAllReportsButton } from "./components/pdf/download-all-reports-button/download-all-reports-button.tsx";
 export { MissingReportsList } from "./components/missing-reports-list/missing-reports-list.tsx";
+export { ReactivatedPublishersList } from "./components/reactivated-publishers-list/reactivated-publishers-list.tsx";
 export { ReportItem } from "./components/publisher-record/components/report-item/report-item.tsx";
 export { PublisherReportModal } from "./components/publisher-record/components/publisher-report-modal/publisher-report-modal.tsx";
 export { PublisherRecordContent } from "./components/publisher-record/publisher-record.tsx";

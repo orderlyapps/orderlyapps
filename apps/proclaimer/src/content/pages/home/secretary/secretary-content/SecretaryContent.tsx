@@ -11,6 +11,7 @@ export function SecretaryContent() {
         <NavItem label="Publisher Records" to="/home/secretary/publisher-records" />
         <NavItem label="Groups" to="/home/secretary/groups" />
         <NavItem label="Missing Reports" to="/home/secretary/missing-reports" />
+        <NavItem label="Reactivated Publishers" to="/home/secretary/reactivated-publishers" />
         <NavItem label="Branch Report" to="/home/secretary/branch-report" />
         <NavItem label="CO Visit Info" to="/home/secretary/co-visit-info" />
         <NavItem label="Missing Details" to="/home/secretary/missing-details" />
