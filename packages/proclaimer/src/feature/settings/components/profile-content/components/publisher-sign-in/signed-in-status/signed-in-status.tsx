@@ -1,7 +1,7 @@
 import type { Session } from "@supabase/supabase-js";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
-import { UpdatePasswordModal } from "../update-password-modal/UpdatePasswordModal";
-import { supabase } from "@util/vendor/supabase/supabase-client";
+import { UpdatePasswordModal } from "../update-password-modal/update-password-modal.js";
+import { getSupabase } from "@amodeo/proclaimer/database/supabase/context";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 interface SignedInStatusProps {
@@ -11,7 +11,7 @@ interface SignedInStatusProps {
 
 export function SignedInStatus({ session, on_sign_out }: SignedInStatusProps) {
   const handleSignOut = () => {
-    void supabase.auth.signOut({ scope: "local" }).then(on_sign_out);
+    void getSupabase().auth.signOut({ scope: "local" }).then(on_sign_out);
   };
 
   const has_password = !!session.user.identities?.some((identity) => identity.provider === "email");

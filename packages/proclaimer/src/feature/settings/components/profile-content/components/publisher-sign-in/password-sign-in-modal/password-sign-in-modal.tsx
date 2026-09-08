@@ -15,7 +15,7 @@ import { PasswordInput } from "@amodeo/proclaimer/ui/components/inputs/password/
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { supabase } from "@util/vendor/supabase/supabase-client";
+import { getSupabase } from "@amodeo/proclaimer/database/supabase/context";
 
 interface PasswordSignInModalProps {
   publisher_id: string;
@@ -43,7 +43,7 @@ export function PasswordSignInModal({ publisher_id, onSignIn }: PasswordSignInMo
   const handleSignIn = async () => {
     setLoading(true);
     setError(null);
-    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+    const { error: signInError } = await getSupabase().auth.signInWithPassword({ email, password });
     setLoading(false);
     if (signInError) {
       setError(signInError.message);

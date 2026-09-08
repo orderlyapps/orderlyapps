@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { ProfileHeader } from "@proclaimer-content/pages/settings/profile/profile-header/ProfileHeader";
-import { ProfileContent } from "@proclaimer-content/pages/settings/profile/profile-content/ProfileContent";
+import { ProfileContent } from "@amodeo/proclaimer/feature/settings";
 
 function ProfilePage() {
   return (

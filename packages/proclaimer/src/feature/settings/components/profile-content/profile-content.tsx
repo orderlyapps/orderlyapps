@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonList } from "@ionic/react";
-import { PublisherSelect } from "./components/publisher-select/PublisherSelect";
-import { PublisherSignIn } from "./components/publisher-sign-in/PublisherSignIn";
+import { PublisherSelect } from "./components/publisher-select/publisher-select.js";
+import { PublisherSignIn } from "./components/publisher-sign-in/publisher-sign-in.js";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";

@@ -3,9 +3,9 @@ import { IonButtons, IonContent, IonHeader, IonToolbar, IonTitle } from "@ionic/
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { UpdatePasswordForm } from "./components/update-password-form/UpdatePasswordForm";
-import { UpdatePasswordSuccess } from "./components/update-password-success/UpdatePasswordSuccess";
-import { supabase } from "@util/vendor/supabase/supabase-client";
+import { UpdatePasswordForm } from "./components/update-password-form/update-password-form.js";
+import { UpdatePasswordSuccess } from "./components/update-password-success/update-password-success.js";
+import { getSupabase } from "@amodeo/proclaimer/database/supabase/context";
 
 interface UpdatePasswordModalProps {
   has_password: boolean;
@@ -45,7 +45,7 @@ export function UpdatePasswordModal({ has_password, email }: UpdatePasswordModal
       return;
     }
     setLoading(true);
-    const { error: updateError } = await supabase.auth.updateUser({ password });
+    const { error: updateError } = await getSupabase().auth.updateUser({ password });
     setLoading(false);
     if (updateError) {
       setError(updateError.message);

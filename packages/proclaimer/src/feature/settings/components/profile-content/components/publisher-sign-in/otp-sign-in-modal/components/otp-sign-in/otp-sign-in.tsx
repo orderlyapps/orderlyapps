@@ -3,7 +3,7 @@ import { IonList, IonItem, IonNote, IonSpinner } from "@ionic/react";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { OtpInput } from "@amodeo/proclaimer/ui/components/inputs/otp/OtpInput";
-import { supabase } from "@util/vendor/supabase/supabase-client";
+import { getSupabase } from "@amodeo/proclaimer/database/supabase/context";
 
 const OTP_LENGTH = 6;
 
@@ -28,7 +28,7 @@ export function OtpSignIn({ email, onSignIn }: OtpSignInProps) {
     const sendOtp = async () => {
       setLoading(true);
       setError(null);
-      const { error: sendError } = await supabase.auth.signInWithOtp({ email });
+      const { error: sendError } = await getSupabase().auth.signInWithOtp({ email });
       setLoading(false);
       if (sendError) setError(sendError.message);
     };
@@ -42,7 +42,7 @@ export function OtpSignIn({ email, onSignIn }: OtpSignInProps) {
 
     setLoading(true);
     setError(null);
-    const { error: verifyError } = await supabase.auth.verifyOtp({
+    const { error: verifyError } = await getSupabase().auth.verifyOtp({
       email,
       token: completed_otp,
       type: "email",

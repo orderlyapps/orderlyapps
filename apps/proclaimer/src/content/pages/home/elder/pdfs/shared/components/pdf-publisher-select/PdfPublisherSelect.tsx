@@ -3,7 +3,7 @@ import { IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/
 import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-select/ModalSelect";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { PublisherSelectContent } from "@proclaimer-content/pages/settings/profile/profile-content/components/publisher-select/publisher-select-modal/publisher-select-content/PublisherSelectContent";
+import { PublisherSelectContent } from "@amodeo/proclaimer/feature/settings";
 import { getStoredPublisher, getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 

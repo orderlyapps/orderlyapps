@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonButtons, IonContent, IonHeader, IonToolbar, IonTitle } from "@ionic/react";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
-import { OtpSignIn } from "./components/otp-sign-in/OtpSignIn";
+import { OtpSignIn } from "./components/otp-sign-in/otp-sign-in.js";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 

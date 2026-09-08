@@ -13,8 +13,7 @@ import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/H
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import { PublisherSelectContent } from "@proclaimer-content/pages/settings/profile/profile-content/components/publisher-select/publisher-select-modal/publisher-select-content/PublisherSelectContent";
-import { PublisherSignIn } from "@proclaimer-content/pages/settings/profile/profile-content/components/publisher-sign-in/PublisherSignIn";
+import { PublisherSelectContent, PublisherSignIn } from "@amodeo/proclaimer/feature/settings";
 import {
   getStoredPublisher,
   setStoredPublisher,

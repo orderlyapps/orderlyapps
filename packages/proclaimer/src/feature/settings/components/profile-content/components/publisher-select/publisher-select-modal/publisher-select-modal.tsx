@@ -1,6 +1,6 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
-import { PublisherSelectContent } from "./publisher-select-content/PublisherSelectContent";
+import { PublisherSelectContent } from "./publisher-select-content/publisher-select-content.js";
 
 interface PublisherSelectModalProps {
   isOpen: boolean;
