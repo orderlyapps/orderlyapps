@@ -14,3 +14,4 @@ export { groupEventsByMonth } from "./utils/groupEventsByMonth.ts";
 export type { MonthGroup } from "./utils/groupEventsByMonth.ts";
 export { EventItem } from "./components/event-item/EventItem.tsx";
 export { EventMonthGroup } from "./components/event-month-group/EventMonthGroup.tsx";
+export { EventsList } from "./components/events-list/EventsList.tsx";
