@@ -1,17 +1,12 @@
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
-import type { EventFormFieldProps } from "../../types";
+import type { EventFormFieldProps } from "../../types.ts";
 
-export function KingdomMinistrySchoolForm(props: EventFormFieldProps) {
+export function MemorialForm(props: EventFormFieldProps) {
   const { on_change } = props;
   return (
     <>
       <TextInput label="Name" value={props.name} on_change={(v) => on_change("name", v)} />
-      <TextInput
-        label="Description"
-        value={props.description}
-        on_change={(v) => on_change("description", v)}
-      />
       <TextInput label="Address" value={props.address} on_change={(v) => on_change("address", v)} />
       <DateInput
         label="Date"
@@ -23,12 +18,6 @@ export function KingdomMinistrySchoolForm(props: EventFormFieldProps) {
         value={props.start_time}
         placeholder="HH:MM"
         on_change={(v) => on_change("start_time", v)}
-      />
-      <TextInput
-        label="End Time"
-        value={props.end_time}
-        placeholder="HH:MM"
-        on_change={(v) => on_change("end_time", v)}
       />
     </>
   );

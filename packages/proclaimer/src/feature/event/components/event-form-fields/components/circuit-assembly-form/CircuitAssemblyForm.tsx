@@ -1,7 +1,7 @@
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
-import type { EventFormFieldProps } from "../../types";
+import type { EventFormFieldProps } from "../../types.ts";
 
 const DESCRIPTION_OPTIONS = [
   { label: "with Circuit Overseer", value: "with Circuit Overseer" },

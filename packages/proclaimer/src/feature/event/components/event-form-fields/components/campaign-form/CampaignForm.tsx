@@ -1,13 +1,17 @@
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
-import type { EventFormFieldProps } from "../../types";
+import type { EventFormFieldProps } from "../../types.ts";
 
-export function ConventionForm(props: EventFormFieldProps) {
+export function CampaignForm(props: EventFormFieldProps) {
   const { on_change } = props;
   return (
     <>
       <TextInput label="Name" value={props.name} on_change={(v) => on_change("name", v)} />
-      <TextInput label="Address" value={props.address} on_change={(v) => on_change("address", v)} />
+      <TextInput
+        label="Description"
+        value={props.description}
+        on_change={(v) => on_change("description", v)}
+      />
       <DateInput
         label="Start Date"
         value={props.start_date}

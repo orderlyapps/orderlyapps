@@ -6,10 +6,13 @@ import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { TimeInput } from "@amodeo/proclaimer/ui/components/inputs/time/TimeInput";
 import { WeekSelect } from "@amodeo/proclaimer/ui/components/inputs/week-select/WeekSelect";
-import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
+import {
+  publisherCollection,
+  type Publisher,
+  getPublisherDisplayName,
+} from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { formatPublisherName } from "@util/format/formatPublisherName";
-import type { EventFormFieldProps } from "../../types";
+import type { EventFormFieldProps } from "../../types.ts";
 
 export function CircuitVisitForm(props: EventFormFieldProps) {
   const { on_change, on_details_change, details } = props;
@@ -24,7 +27,7 @@ export function CircuitVisitForm(props: EventFormFieldProps) {
         p.id &&
         (!congregation_id || p.congregation_id === congregation_id),
     )
-    .map((p) => ({ label: formatPublisherName(p), value: p.id as string }));
+    .map((p) => ({ label: getPublisherDisplayName(p, "first_last"), value: p.id as string }));
 
   function handleWeekChange(week_start: string) {
     on_change("start_date", week_start);

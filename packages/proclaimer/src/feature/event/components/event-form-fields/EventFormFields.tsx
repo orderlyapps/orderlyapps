@@ -1,18 +1,18 @@
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import { eventTypeSchema } from "@amodeo/proclaimer/feature/event";
-import type { EventFormFieldProps } from "./types";
-import { CircuitAssemblyForm } from "./components/circuit-assembly-form/CircuitAssemblyForm";
-import { ConventionForm } from "./components/convention-form/ConventionForm";
-import { MemorialForm } from "./components/memorial-form/MemorialForm";
-import { CircuitVisitForm } from "./components/circuit-visit-form/CircuitVisitForm";
-import { SpecialMeetingForm } from "./components/special-meeting-form/SpecialMeetingForm";
-import { CampaignForm } from "./components/campaign-form/CampaignForm";
-import { SpecialTalkForm } from "./components/special-talk-form/SpecialTalkForm";
-import { PioneerMeetingForm } from "./components/pioneer-meeting-form/PioneerMeetingForm";
-import { KingdomMinistrySchoolForm } from "./components/kingdom-ministry-school-form/KingdomMinistrySchoolForm";
-import { WorkingBeeForm } from "./components/working-bee-form/WorkingBeeForm";
-import { BethelSpeakerForm } from "./components/bethel-speaker-form/BethelSpeakerForm";
-import { OtherEventForm } from "./components/other-event-form/OtherEventForm";
+import { eventTypeSchema } from "../../schemas/event.ts";
+import type { EventFormFieldProps } from "./types.ts";
+import { CircuitAssemblyForm } from "./components/circuit-assembly-form/CircuitAssemblyForm.tsx";
+import { ConventionForm } from "./components/convention-form/ConventionForm.tsx";
+import { MemorialForm } from "./components/memorial-form/MemorialForm.tsx";
+import { CircuitVisitForm } from "./components/circuit-visit-form/CircuitVisitForm.tsx";
+import { SpecialMeetingForm } from "./components/special-meeting-form/SpecialMeetingForm.tsx";
+import { CampaignForm } from "./components/campaign-form/CampaignForm.tsx";
+import { SpecialTalkForm } from "./components/special-talk-form/SpecialTalkForm.tsx";
+import { PioneerMeetingForm } from "./components/pioneer-meeting-form/PioneerMeetingForm.tsx";
+import { KingdomMinistrySchoolForm } from "./components/kingdom-ministry-school-form/KingdomMinistrySchoolForm.tsx";
+import { WorkingBeeForm } from "./components/working-bee-form/WorkingBeeForm.tsx";
+import { BethelSpeakerForm } from "./components/bethel-speaker-form/BethelSpeakerForm.tsx";
+import { OtherEventForm } from "./components/other-event-form/OtherEventForm.tsx";
 
 const EVENT_TYPE_OPTIONS = eventTypeSchema.options.map((value) => ({
   label: value.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),

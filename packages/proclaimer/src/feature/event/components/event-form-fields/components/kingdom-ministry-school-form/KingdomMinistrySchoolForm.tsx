@@ -1,8 +1,8 @@
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
-import type { EventFormFieldProps } from "../../types";
+import type { EventFormFieldProps } from "../../types.ts";
 
-export function PioneerMeetingForm(props: EventFormFieldProps) {
+export function KingdomMinistrySchoolForm(props: EventFormFieldProps) {
   const { on_change } = props;
   return (
     <>
