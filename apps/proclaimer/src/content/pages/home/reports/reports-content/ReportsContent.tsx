@@ -7,7 +7,7 @@ import { getPreviousMonthDate } from "@util/format/report-date";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { usePermissionedPublishers } from "./hooks/usePermissionedPublishers";
 import { useReportedPublisherIds } from "./hooks/useReportedPublisherIds";
-import { useCongregationGroups } from "./hooks/useCongregationGroups";
+import { useCongregationGroups } from "@amodeo/proclaimer/feature/congregation";
 import { PublisherReportItem } from "./components/publisher-report-item/PublisherReportItem";
 
 export function ReportsContent() {

@@ -17,7 +17,7 @@ import {
   usePublishersWithCoordinates,
   type PublisherWithCoordinates,
 } from "../../hooks/usePublishersWithCoordinates";
-import { useCongregationGroups } from "../../hooks/useCongregationGroups";
+import { useCongregationGroups } from "@amodeo/proclaimer/feature/congregation";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 type FindPublisherModalProps = {

@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { groupCollection } from "@amodeo/proclaimer/feature/group";
-import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Group } from "@amodeo/proclaimer/feature/group";
+import { getStoredCongregation } from "./stored-congregation.ts";
 
 export function useCongregationGroups(): { groups: Group[]; isLoading: boolean } {
   const congregation_id = getStoredCongregation()?.id;

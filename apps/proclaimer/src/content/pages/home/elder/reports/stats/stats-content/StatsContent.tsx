@@ -4,7 +4,7 @@ import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { StatItem } from "./components/stat-item/StatItem";
-import { useIsCongregationAdmin } from "./hooks/useIsCongregationAdmin";
+import { useIsCongregationAdmin } from "@amodeo/proclaimer/feature/congregation";
 
 export function StatsContent() {
   const { is_congregation_admin, isLoading: is_admin_loading } = useIsCongregationAdmin();

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   IonButton,
   IonButtons,
@@ -13,7 +13,6 @@ import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/H
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import { PublisherSelectContent, PublisherSignIn } from "@amodeo/proclaimer/feature/settings";
 import {
   getStoredPublisher,
   setStoredPublisher,
@@ -24,9 +23,16 @@ import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 interface OnboardingPublisherModalProps {
   isOpen: boolean;
   onDismiss: () => void;
+  renderPublisherSelect: (onPublisherSelected: (publisher: Publisher) => void) => ReactNode;
+  renderPublisherSignIn: (publisher: Publisher) => ReactNode;
 }
 
-export function OnboardingPublisherModal({ isOpen, onDismiss }: OnboardingPublisherModalProps) {
+export function OnboardingPublisherModal({
+  isOpen,
+  onDismiss,
+  renderPublisherSelect,
+  renderPublisherSignIn,
+}: OnboardingPublisherModalProps) {
   const [publisher, setPublisher] = useState<Publisher | null>(getStoredPublisher());
 
   const handlePublisherSelected = (p: Publisher) => {
@@ -60,12 +66,12 @@ export function OnboardingPublisherModal({ isOpen, onDismiss }: OnboardingPublis
           </Body>
         </div>
         {!publisher ? (
-          <PublisherSelectContent onPublisherSelected={handlePublisherSelected} />
+          renderPublisherSelect(handlePublisherSelected)
         ) : (
           <IonList inset lines="none">
             <LabelValueItem label="Publisher" value={getPublisherDisplayName(publisher)} />
             <Space />
-            <PublisherSignIn publisher={publisher} />
+            {renderPublisherSignIn(publisher)}
           </IonList>
         )}
       </IonContent>

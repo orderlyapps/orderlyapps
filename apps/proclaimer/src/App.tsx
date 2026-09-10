@@ -1,6 +1,7 @@
 import { Redirect, Route } from "react-router-dom";
 import { IonTabs, IonTabBar, IonTabButton, IonLabel, IonRouterOutlet } from "@ionic/react";
-import { CongregationGuard } from "@util/app/congregation/congregation-select/CongregationGuard";
+import { CongregationGuard } from "@amodeo/proclaimer/feature/congregation";
+import { PublisherSelectContent, PublisherSignIn } from "@amodeo/proclaimer/feature/settings";
 import HomePage from "@proclaimer-routes/home/Home";
 import HomeEventsPage from "@proclaimer-routes/home/events/Events";
 import EditEventPage from "@proclaimer-routes/home/events/edit/EditEvent";
@@ -151,7 +152,12 @@ function App() {
 
   return (
     <IonTabs>
-      <CongregationGuard />
+      <CongregationGuard
+        renderPublisherSelect={(onPublisherSelected) => (
+          <PublisherSelectContent onPublisherSelected={onPublisherSelected} />
+        )}
+        renderPublisherSignIn={(publisher) => <PublisherSignIn publisher={publisher} />}
+      />
       <IonRouterOutlet>
         <Redirect exact path="/" to="/home" />
         <Route path="/home" component={HomePage} exact />
