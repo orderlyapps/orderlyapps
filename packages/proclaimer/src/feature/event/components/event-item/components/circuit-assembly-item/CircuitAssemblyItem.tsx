@@ -1,20 +1,20 @@
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import type { EventRow } from "@amodeo/proclaimer/feature/event";
+import type { EventRow } from "../../../../schemas/event.ts";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 
-interface SpecialTalkItemProps {
+interface CircuitAssemblyItemProps {
   event: EventRow;
   edit_href?: string;
 }
 
-export function SpecialTalkItem({ event, edit_href }: SpecialTalkItemProps) {
+export function CircuitAssemblyItem({ event, edit_href }: CircuitAssemblyItemProps) {
   return (
     <LabelValueItem
       label={getTheocraticWeekLabel(event.start_date, {
         format: "event-date",
         end_date: event.end_date,
       })}
-      value="Special Talk"
+      value="Circuit Assembly"
       value_2={event.name || undefined}
       router_link={edit_href}
     />

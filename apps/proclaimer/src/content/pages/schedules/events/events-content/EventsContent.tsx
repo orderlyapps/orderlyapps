@@ -1,13 +1,15 @@
 import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { format } from "date-fns";
-import { eventCollection } from "@amodeo/proclaimer/feature/event";
+import {
+  eventCollection,
+  groupEventsByMonth,
+  EventMonthGroup,
+} from "@amodeo/proclaimer/feature/event";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { groupEventsByMonth } from "../groupEventsByMonth";
-import { EventMonthGroup } from "../components/event-month-group/EventMonthGroup";
 
 export function EventsContent() {
   const congregation = useStoredCongregation();

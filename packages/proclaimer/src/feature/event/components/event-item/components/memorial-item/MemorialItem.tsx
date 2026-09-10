@@ -1,20 +1,20 @@
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import type { EventRow } from "@amodeo/proclaimer/feature/event";
+import type { EventRow } from "../../../../schemas/event.ts";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 
-interface SpecialMeetingItemProps {
+interface MemorialItemProps {
   event: EventRow;
   edit_href?: string;
 }
 
-export function SpecialMeetingItem({ event, edit_href }: SpecialMeetingItemProps) {
+export function MemorialItem({ event, edit_href }: MemorialItemProps) {
   return (
     <LabelValueItem
       label={getTheocraticWeekLabel(event.start_date, {
         format: "event-date",
         end_date: event.end_date,
       })}
-      value="Special Meeting"
+      value="Memorial"
       router_link={edit_href}
     />
   );

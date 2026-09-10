@@ -1,12 +1,12 @@
 import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
 import { format } from "date-fns";
-import { eventCollection } from "@amodeo/proclaimer/feature/event";
+import { eventCollection, EventItem } from "@amodeo/proclaimer/feature/event";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
-import { EventItem } from "@proclaimer-content/pages/schedules/events/components/event-item/EventItem";
+
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 

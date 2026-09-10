@@ -1,8 +1,8 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import type { MonthGroup } from "../../groupEventsByMonth";
-import { EventItem } from "../event-item/EventItem";
+import type { MonthGroup } from "../../utils/groupEventsByMonth.ts";
+import { EventItem } from "../event-item/EventItem.tsx";
 
 interface EventMonthGroupProps {
   group: MonthGroup;

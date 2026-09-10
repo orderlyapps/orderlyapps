@@ -1,12 +1,12 @@
-import type { EventRow } from "@amodeo/proclaimer/feature/event";
-import { CircuitAssemblyItem } from "./components/circuit-assembly-item/CircuitAssemblyItem";
-import { ConventionItem } from "./components/convention-item/ConventionItem";
-import { MemorialItem } from "./components/memorial-item/MemorialItem";
-import { CircuitVisitItem } from "./components/circuit-visit-item/CircuitVisitItem";
-import { SpecialMeetingItem } from "./components/special-meeting-item/SpecialMeetingItem";
-import { SpecialTalkItem } from "./components/special-talk-item/SpecialTalkItem";
-import { CampaignItem } from "./components/campaign-item/CampaignItem";
-import { OtherEventItem } from "./components/other-event-item/OtherEventItem";
+import type { EventRow } from "../../schemas/event.ts";
+import { CircuitAssemblyItem } from "./components/circuit-assembly-item/CircuitAssemblyItem.tsx";
+import { ConventionItem } from "./components/convention-item/ConventionItem.tsx";
+import { MemorialItem } from "./components/memorial-item/MemorialItem.tsx";
+import { CircuitVisitItem } from "./components/circuit-visit-item/CircuitVisitItem.tsx";
+import { SpecialMeetingItem } from "./components/special-meeting-item/SpecialMeetingItem.tsx";
+import { SpecialTalkItem } from "./components/special-talk-item/SpecialTalkItem.tsx";
+import { CampaignItem } from "./components/campaign-item/CampaignItem.tsx";
+import { OtherEventItem } from "./components/other-event-item/OtherEventItem.tsx";
 
 interface EventItemProps {
   event: EventRow;
