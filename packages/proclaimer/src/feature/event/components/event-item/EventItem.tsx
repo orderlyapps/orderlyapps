@@ -6,6 +6,10 @@ import { CircuitVisitItem } from "./components/circuit-visit-item/CircuitVisitIt
 import { SpecialMeetingItem } from "./components/special-meeting-item/SpecialMeetingItem.tsx";
 import { SpecialTalkItem } from "./components/special-talk-item/SpecialTalkItem.tsx";
 import { CampaignItem } from "./components/campaign-item/CampaignItem.tsx";
+import { PioneerMeetingItem } from "./components/pioneer-meeting-item/PioneerMeetingItem.tsx";
+import { KingdomMinistrySchoolItem } from "./components/kingdom-ministry-school-item/KingdomMinistrySchoolItem.tsx";
+import { WorkingBeeItem } from "./components/working-bee-item/WorkingBeeItem.tsx";
+import { BethelSpeakerItem } from "./components/bethel-speaker-item/BethelSpeakerItem.tsx";
 import { OtherEventItem } from "./components/other-event-item/OtherEventItem.tsx";
 
 interface EventItemProps {
@@ -29,6 +33,14 @@ export function EventItem({ event, edit_href }: EventItemProps) {
       return <SpecialTalkItem event={event} edit_href={edit_href} />;
     case "campaign":
       return <CampaignItem event={event} edit_href={edit_href} />;
+    case "pioneer_meeting":
+      return <PioneerMeetingItem event={event} edit_href={edit_href} />;
+    case "kingdom_ministry_school":
+      return <KingdomMinistrySchoolItem event={event} edit_href={edit_href} />;
+    case "working_bee":
+      return <WorkingBeeItem event={event} edit_href={edit_href} />;
+    case "bethel_speaker":
+      return <BethelSpeakerItem event={event} edit_href={edit_href} />;
     case "other":
       return <OtherEventItem event={event} edit_href={edit_href} />;
   }
