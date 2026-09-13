@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { formatTime } from "@amodeo/proclaimer/util/date/formatTime";
 import { InputWrapper } from "../../display/input/InputWrapper.tsx";
 import { Body } from "../../display/text/body/Body.tsx";
 import { useThemeColorWhileOpen } from "../date/hooks/useThemeColorWhileOpen.ts";
@@ -46,11 +47,4 @@ export function TimeInput({
       />
     </InputWrapper>
   );
-}
-
-function formatTime(hhmm: string): string {
-  const [h, m] = hhmm.split(":").map(Number);
-  const period = h >= 12 ? "PM" : "AM";
-  const hour12 = h % 12 === 0 ? 12 : h % 12;
-  return `${hour12}:${String(m).padStart(2, "0")} ${period}`;
 }

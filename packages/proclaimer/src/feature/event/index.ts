@@ -12,6 +12,7 @@ export { useEventEdit } from "./hooks/use-event-edit.ts";
 export type { EventFormState } from "./hooks/use-event-edit.ts";
 export { groupEventsByMonth } from "./utils/groupEventsByMonth.ts";
 export type { MonthGroup } from "./utils/groupEventsByMonth.ts";
+export { EventEditor } from "./components/event-editor/EventEditor.tsx";
 export { EventItem } from "./components/event-item/EventItem.tsx";
 export { EventMonthGroup } from "./components/event-month-group/EventMonthGroup.tsx";
 export { EventsList } from "./components/events-list/EventsList.tsx";

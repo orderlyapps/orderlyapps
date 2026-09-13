@@ -1,4 +1,5 @@
 import type { EventRow } from "../../schemas/event.ts";
+import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { CircuitAssemblyItem } from "./components/circuit-assembly-item/CircuitAssemblyItem.tsx";
 import { ConventionItem } from "./components/convention-item/ConventionItem.tsx";
 import { MemorialItem } from "./components/memorial-item/MemorialItem.tsx";
@@ -18,6 +19,8 @@ interface EventItemProps {
 }
 
 export function EventItem({ event, edit_href }: EventItemProps) {
+  const publisher = useStoredPublisher();
+
   switch (event.type) {
     case "circuit_assembly":
       return <CircuitAssemblyItem event={event} edit_href={edit_href} />;
@@ -34,6 +37,7 @@ export function EventItem({ event, edit_href }: EventItemProps) {
     case "campaign":
       return <CampaignItem event={event} edit_href={edit_href} />;
     case "pioneer_meeting":
+      if (publisher?.standing !== "elder" && publisher?.type !== "regular_pioneer") return null;
       return <PioneerMeetingItem event={event} edit_href={edit_href} />;
     case "kingdom_ministry_school":
       return <KingdomMinistrySchoolItem event={event} edit_href={edit_href} />;

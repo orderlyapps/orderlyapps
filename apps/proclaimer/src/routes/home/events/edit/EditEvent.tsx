@@ -8,10 +8,7 @@ import {
   IonBackButton,
 } from "@ionic/react";
 import { useParams, useHistory } from "react-router-dom";
-import { EventFormFields, useEventEdit } from "@amodeo/proclaimer/feature/event";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
-import { DeleteTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/delete/DeleteTextButton";
+import { EventEditor, useEventEdit } from "@amodeo/proclaimer/feature/event";
 
 function EditEventPage() {
   const { event_id } = useParams<{ event_id?: string }>();
@@ -42,27 +39,15 @@ function EditEventPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        {can_edit && (
-          <>
-            <EventFormFields
-              {...form}
-              on_change={handleFieldChange}
-              on_details_change={handleDetailsChange}
-            />
-            <Space size="lg" />
-            <SaveTextButton
-              variant={is_new ? "save" : "update"}
-              disabled={!form.name || !form.start_date}
-              on_click={handleSave}
-            />
-            {!is_new && (
-              <>
-                <Space size="sm" />
-                <DeleteTextButton on_click={handleDelete} />
-              </>
-            )}
-          </>
-        )}
+        <EventEditor
+          can_edit={can_edit}
+          is_new={is_new}
+          form={form}
+          on_change={handleFieldChange}
+          on_details_change={handleDetailsChange}
+          on_save={handleSave}
+          on_delete={handleDelete}
+        />
       </IonContent>
     </IonPage>
   );
