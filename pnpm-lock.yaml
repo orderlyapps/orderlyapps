@@ -461,6 +461,9 @@ importers:
       '@amodeo/ionic':
         specifier: workspace:*
         version: link:../ui/ionic
+      '@amodeo/proclaimer':
+        specifier: workspace:*
+        version: 'link:'
       '@amodeo/utils':
         specifier: workspace:*
         version: link:../utils
