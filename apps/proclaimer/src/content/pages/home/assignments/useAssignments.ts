@@ -8,7 +8,7 @@ import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import { weekendAssignmentLabels } from "@amodeo/proclaimer/feature/weekend";
-import { useMidweekAssignments } from "./useMidweekAssignments";
+import { useMidweekAssignments } from "@amodeo/proclaimer/feature/midweek";
 
 export type AssignmentType =
   | "av"

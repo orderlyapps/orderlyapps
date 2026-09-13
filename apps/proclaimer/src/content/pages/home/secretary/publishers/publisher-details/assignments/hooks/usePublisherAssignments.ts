@@ -4,7 +4,7 @@ import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { useMidweekAssignments } from "@proclaimer-content/pages/home/assignments/useMidweekAssignments";
+import { useMidweekAssignments } from "@amodeo/proclaimer/feature/midweek";
 import {
   type Assignment,
   getAssignmentLabel,

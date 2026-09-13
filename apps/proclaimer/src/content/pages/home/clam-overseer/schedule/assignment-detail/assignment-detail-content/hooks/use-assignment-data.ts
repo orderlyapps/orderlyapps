@@ -4,7 +4,7 @@ import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
-import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";
+import { getMeetingParts } from "@amodeo/proclaimer/feature/midweek";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getAssignmentContext } from "../utils/get-assignment-context";
 

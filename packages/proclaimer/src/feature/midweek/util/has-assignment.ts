@@ -1,4 +1,4 @@
-import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekAssignment } from "../schemas/midweek-assignment.ts";
 
 export function hasAssignment(
   assignments: MidweekAssignment[] | undefined,

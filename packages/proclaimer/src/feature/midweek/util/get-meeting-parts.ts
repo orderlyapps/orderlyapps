@@ -1,12 +1,23 @@
-import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
-import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
-import type { AssignmentItem } from "./types";
-import { formatLabel } from "./format-label";
-import { hasAssignment } from "./has-assignment";
+import type { MidweekMeetingData } from "../schemas/midweek-meeting-data.ts";
+import type { MidweekAssignment, MidweekAssignmentId } from "../schemas/midweek-assignment.ts";
+import type { IonicColor } from "../../../ui/types/ionic-color.ts";
+import { formatLabel } from "./format-label.ts";
+import { hasAssignment } from "./has-assignment.ts";
 
 export type CircuitVisitInfo = {
   theme: string;
   overseer_name?: string;
+};
+
+export type AssignmentItem = {
+  title: string;
+  time: number | null;
+  assignmentId: MidweekAssignmentId | (string & {});
+  color: IonicColor;
+  assistantId?: MidweekAssignmentId;
+  pin_to_first_column?: boolean;
+  publisher_override?: string;
+  is_read_only?: boolean;
 };
 
 export function getMeetingParts(

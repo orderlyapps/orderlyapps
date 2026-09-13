@@ -1,20 +1,8 @@
-import type { MidweekAssignmentId } from "@amodeo/proclaimer/feature/midweek";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
 
 export type ScheduleContentProps = {
   week_id: string;
   base_path: string;
-};
-
-export type AssignmentItem = {
-  title: string;
-  time: number | null;
-  assignmentId: MidweekAssignmentId | (string & {});
-  color: IonicColor;
-  assistantId?: MidweekAssignmentId;
-  pin_to_first_column?: boolean;
-  publisher_override?: string;
-  is_read_only?: boolean;
 };
 
 export type AssignmentRow = {

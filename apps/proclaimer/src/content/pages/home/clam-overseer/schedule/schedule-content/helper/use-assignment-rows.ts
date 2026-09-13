@@ -1,7 +1,7 @@
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
-import type { AssignmentItem, AssignmentRow } from "./types";
+import type { AssignmentItem, MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
+import type { AssignmentRow } from "./types";
 
 function getAssignedPublisherName(
   assignments: MidweekAssignment[] | undefined,

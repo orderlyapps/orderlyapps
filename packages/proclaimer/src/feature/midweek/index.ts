@@ -11,3 +11,8 @@ export type { MidweekMeetingData } from "./schemas/midweek-meeting-data.ts";
 export { midweekParticipationSchema } from "./schemas/midweek-participation.ts";
 export type { MidweekParticipation } from "./schemas/midweek-participation.ts";
 export { getMidweekMeetingUrl } from "./util/getMidweekMeetingUrl.ts";
+export { getMeetingParts } from "./util/get-meeting-parts.ts";
+export type { AssignmentItem, CircuitVisitInfo } from "./util/get-meeting-parts.ts";
+export { hasAssignment } from "./util/has-assignment.ts";
+export { useMidweekAssignments } from "./hooks/use-midweek-assignments.ts";
+export type { MidweekAssignmentItem } from "./hooks/use-midweek-assignments.ts";

@@ -1,14 +1,20 @@
 import { and, eq, gte, inArray, useLiveQuery } from "@tanstack/react-db";
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
-import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
-import { getMeetingParts } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/helper/get-meeting-parts";
-import type { Assignment } from "./useAssignments";
+import { midweekAssignmentCollection } from "../collections/midweek-assignment.ts";
+import { midweekMeetingDataCollection } from "../collections/midweek-meeting-data.ts";
+import { getMeetingParts } from "../util/get-meeting-parts.ts";
+
+export type MidweekAssignmentItem = {
+  id: string;
+  type: "midweek";
+  week_id: string;
+  label: string;
+};
 
 export function useMidweekAssignments(
   congregation_id: string,
   publisher_id: string,
   today_str: string,
-): { assignments: Assignment[]; is_loading: boolean } {
+): { assignments: MidweekAssignmentItem[]; is_loading: boolean } {
   const { data: assignments, isLoading: isLoadingAssignments } = useLiveQuery(
     (q) =>
       congregation_id && publisher_id

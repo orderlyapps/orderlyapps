@@ -9,7 +9,7 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
 import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
 import { AssignmentCard } from "./components/assignment-card/AssignmentCard";
-import { getMeetingParts } from "./helper/get-meeting-parts";
+import { getMeetingParts } from "@amodeo/proclaimer/feature/midweek";
 import { useCircuitVisitEvent } from "./helper/use-circuit-visit-event";
 import { useAssignmentRows } from "./helper/use-assignment-rows";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
