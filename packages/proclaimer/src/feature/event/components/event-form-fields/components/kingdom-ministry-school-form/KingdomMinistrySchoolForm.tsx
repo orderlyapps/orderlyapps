@@ -1,16 +1,21 @@
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
+import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
+import { TimeInput } from "@amodeo/proclaimer/ui/components/inputs/time/TimeInput";
 import type { EventFormFieldProps } from "../../types.ts";
 
 export function KingdomMinistrySchoolForm(props: EventFormFieldProps) {
   const { on_change } = props;
   return (
     <>
-      <TextInput label="Name" value={props.name} on_change={(v) => on_change("name", v)} />
-      <TextInput
-        label="Description"
-        value={props.description}
-        on_change={(v) => on_change("description", v)}
+      <Select
+        label="Type"
+        value={props.name}
+        options={[
+          { label: "Elders", value: "Kingdom Ministry School for Elders" },
+          { label: "MS's", value: "Kingdom Ministry School for MS's" },
+        ]}
+        on_change={(v) => on_change("name", typeof v === "string" ? v : "")}
       />
       <TextInput label="Address" value={props.address} on_change={(v) => on_change("address", v)} />
       <DateInput
@@ -18,17 +23,10 @@ export function KingdomMinistrySchoolForm(props: EventFormFieldProps) {
         value={props.start_date}
         on_change={(v) => on_change("start_date", v)}
       />
-      <TextInput
+      <TimeInput
         label="Start Time"
         value={props.start_time}
-        placeholder="HH:MM"
         on_change={(v) => on_change("start_time", v)}
-      />
-      <TextInput
-        label="End Time"
-        value={props.end_time}
-        placeholder="HH:MM"
-        on_change={(v) => on_change("end_time", v)}
       />
     </>
   );

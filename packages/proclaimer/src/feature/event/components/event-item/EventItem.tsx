@@ -40,6 +40,8 @@ export function EventItem({ event, edit_href }: EventItemProps) {
       if (publisher?.standing !== "elder" && publisher?.type !== "regular_pioneer") return null;
       return <PioneerMeetingItem event={event} edit_href={edit_href} />;
     case "kingdom_ministry_school":
+      if (publisher?.standing !== "elder" && publisher?.standing !== "ministerial_servant")
+        return null;
       return <KingdomMinistrySchoolItem event={event} edit_href={edit_href} />;
     case "working_bee":
       return <WorkingBeeItem event={event} edit_href={edit_href} />;
