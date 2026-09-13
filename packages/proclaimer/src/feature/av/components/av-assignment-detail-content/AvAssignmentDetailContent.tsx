@@ -1,0 +1,54 @@
+import { IonContent, IonHeader, IonList } from "@ionic/react";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { useAvAssignmentData } from "../../hooks/use-av-assignment-data.ts";
+import { useAvAssignmentHandlers } from "../../hooks/use-av-assignment-handlers.ts";
+import { AvAssignedPublisher } from "../av-assigned-publisher/AvAssignedPublisher.tsx";
+import { AvPublisherSelector } from "../av-publisher-selector/AvPublisherSelector.tsx";
+import type { AvAssignmentID } from "../../schemas/av-assignment.ts";
+
+interface AvAssignmentDetailContentProps {
+  week_id: string;
+  assignment_id: string;
+}
+
+export function AvAssignmentDetailContent({
+  week_id,
+  assignment_id,
+}: AvAssignmentDetailContentProps) {
+  const { congregation_id, assignment, publishers, assignee, assignmentTitle, isLoading } =
+    useAvAssignmentData({ week_id, assignment_id });
+
+  const { handleDelete, handleSelect } = useAvAssignmentHandlers({
+    congregation_id,
+    assignment_id,
+    week_id,
+    assignment,
+  });
+
+  if (isLoading) {
+    return <Spinner centered />;
+  }
+
+  return (
+    <>
+      <IonHeader>
+        <IonList>
+          <LabelValueItem label={assignmentTitle} />
+        </IonList>
+        <AvAssignedPublisher label="Assigned" assignee={assignee} on_delete={handleDelete} />
+      </IonHeader>
+      <IonContent className="content-wide remove-top-padding remove-bottom-padding">
+        <Space />
+        <AvPublisherSelector
+          publishers={publishers}
+          assignment={assignment}
+          assignment_id={assignment_id as AvAssignmentID}
+          week_id={week_id}
+          on_select={handleSelect}
+        />
+      </IonContent>
+    </>
+  );
+}

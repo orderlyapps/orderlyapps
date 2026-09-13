@@ -1,15 +1,37 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AvParticipationHeader } from "@proclaimer-content/pages/home/av-overseer/participation/participation-header/AvParticipationHeader";
-import { AvParticipationContent } from "@proclaimer-content/pages/home/av-overseer/participation/participation-content/AvParticipationContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonBackButton,
+  IonButtons,
+  IonList,
+} from "@ionic/react";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
+import { avParticipationTypeLabels, avParticipationTypes } from "@amodeo/proclaimer/feature/av";
 
 function ParticipationPage() {
   return (
     <IonPage>
       <IonHeader>
-        <AvParticipationHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/av-overseer" />
+          </IonButtons>
+          <IonTitle>Participation</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent>
-        <AvParticipationContent />
+        <IonList>
+          {avParticipationTypes.map((type) => (
+            <NavItem
+              key={type}
+              label={avParticipationTypeLabels[type]}
+              to={`/home/av-overseer/participation/${type}`}
+            />
+          ))}
+        </IonList>
       </IonContent>
     </IonPage>
   );

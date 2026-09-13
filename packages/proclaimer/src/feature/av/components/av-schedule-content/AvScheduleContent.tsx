@@ -1,0 +1,56 @@
+import { useLiveQuery } from "@tanstack/react-db";
+import { IonList } from "@ionic/react";
+import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { avAssignmentCollection } from "../../collections/av-assignment.ts";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
+import type { AvAssignment } from "../../schemas/av-assignment.ts";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
+import { getAvAssignmentRows } from "../../utils/get-av-assignment-rows.ts";
+import { AvAssignmentCard } from "../av-assignment-card/AvAssignmentCard.tsx";
+import type { AvAssignmentGroup } from "../../utils/types.ts";
+
+export interface AvScheduleContentProps {
+  week_id: string;
+  base_path: string;
+}
+
+export function AvScheduleContent({ week_id, base_path }: AvScheduleContentProps) {
+  const congregation_id = getStoredCongregation()?.id;
+
+  const { data: allAssignments } = useLiveQuery((q) => q.from({ aa: avAssignmentCollection }));
+  const { data: allPublishers } = useLiveQuery((q) =>
+    q.from({ p: publisherCollection }).orderBy(({ p }) => p.last_name),
+  );
+
+  const is_loading = allAssignments === undefined || allPublishers === undefined;
+
+  if (is_loading) return <Spinner className="flex-center" />;
+
+  const assignments = ((allAssignments as AvAssignment[] | undefined) ?? []).filter(
+    (a) => !congregation_id || a.congregation_id === congregation_id,
+  );
+
+  const publishers = ((allPublishers as Publisher[] | undefined) ?? []).filter(
+    (p) => !congregation_id || p.congregation_id === congregation_id,
+  );
+
+  const rows = getAvAssignmentRows(week_id, base_path, assignments, publishers);
+
+  return (
+    <>
+      <WeekNavigation week_id={week_id} />
+      <IonList inset>
+        <MultiColumnList<AvAssignmentGroup>
+          items={rows}
+          get_id={(row) => row.id}
+          render_item={(row) => <AvAssignmentCard {...row} />}
+          pin_to_first_column={(row) =>
+            row.is_header || row.id.startsWith("video") || row.id.startsWith("entrance")
+          }
+        />
+      </IonList>
+    </>
+  );
+}
