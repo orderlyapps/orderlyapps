@@ -1,7 +1,7 @@
 import { IonList, IonListHeader } from "@ionic/react";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import type { MonthGroup } from "../../groupCleaningByMonth";
-import { CleaningWeekGroup } from "../cleaning-week-group/CleaningWeekGroup";
+import type { MonthGroup } from "../../utils/groupCleaningByMonth.ts";
+import { CleaningWeekGroup } from "../cleaning-week-group/CleaningWeekGroup.tsx";
 
 interface CleaningMonthGroupProps {
   group: MonthGroup;

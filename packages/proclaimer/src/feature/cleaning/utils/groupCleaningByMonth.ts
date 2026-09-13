@@ -19,9 +19,8 @@ export type MonthGroup = {
   weeks: WeekGroup[];
 };
 
-const current_year = new Date().getFullYear();
-
 export function groupCleaningByMonth(entries: CleaningEntry[]): MonthGroup[] {
+  const current_year = new Date().getFullYear();
   const this_week_id = format(startOfWeek(new Date(), { weekStartsOn: 1 }), "yyyy-MM-dd");
   const months = new Map<string, Map<string, CleaningEntry[]>>();
 

@@ -1,11 +1,13 @@
 import { eq, useLiveQuery } from "@tanstack/react-db";
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { cleanMajorCollection, cleanMinorCollection } from "@amodeo/proclaimer/feature/cleaning";
 import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import { groupCleaningByMonth } from "./groupCleaningByMonth";
-import { CleaningMonthGroup } from "./components/cleaning-month-group/CleaningMonthGroup";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { cleanMajorCollection } from "../../collections/clean-major.ts";
+import { cleanMinorCollection } from "../../collections/clean-minor.ts";
+import { groupCleaningByMonth } from "../../utils/groupCleaningByMonth.ts";
+import { CleaningMonthGroup } from "../cleaning-month-group/CleaningMonthGroup.tsx";
 
 export function CleaningList() {
   const congregation = useStoredCongregation();
@@ -41,12 +43,19 @@ export function CleaningList() {
     [congregation_id],
   );
 
+  const is_loading =
+    major_entries === undefined || minor_entries === undefined || groups === undefined;
+
   const group_map = new Map(groups?.map((g) => [g.id ?? "", g.name]) ?? []);
 
   const combined = [
     ...(major_entries?.map((e) => ({ ...e, type: "major" as const })) ?? []),
     ...(minor_entries?.map((e) => ({ ...e, type: "minor" as const })) ?? []),
   ].sort((a, b) => a.week_id.localeCompare(b.week_id));
+
+  if (is_loading) {
+    return <Spinner className="flex-center" />;
+  }
 
   if (!combined.length) {
     return (

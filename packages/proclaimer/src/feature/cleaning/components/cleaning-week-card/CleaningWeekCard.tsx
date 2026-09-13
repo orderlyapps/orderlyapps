@@ -1,10 +1,7 @@
 import type { ReactNode } from "react";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import type {
-  CleaningScheduleOption,
-  CleaningWeek,
-} from "../use-cleaning-schedules/useCleaningSchedules";
+import type { CleaningScheduleOption, CleaningWeek } from "../../hooks/use-cleaning-schedules.ts";
 import { IonItem, IonLabel } from "@ionic/react";
 import { Label } from "@amodeo/proclaimer/ui/components/display/text/label/Label";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";

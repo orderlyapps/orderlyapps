@@ -1,10 +1,7 @@
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import type {
-  CleaningMonth,
-  CleaningScheduleOption,
-} from "../use-cleaning-schedules/useCleaningSchedules";
-import { CleaningWeekCard } from "../cleaning-week-card/CleaningWeekCard";
+import type { CleaningMonth, CleaningScheduleOption } from "../../hooks/use-cleaning-schedules.ts";
+import { CleaningWeekCard } from "../cleaning-week-card/CleaningWeekCard.tsx";
 import { Fragment } from "react";
 import { IonItemDivider } from "@ionic/react";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";

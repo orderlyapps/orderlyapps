@@ -1,15 +1,27 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CleaningHeader } from "@proclaimer-content/pages/schedules/cleaning/cleaning-header/CleaningHeader";
-import { CleaningContent } from "@proclaimer-content/pages/schedules/cleaning/cleaning-content/CleaningContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { CleaningList } from "@amodeo/proclaimer/feature/cleaning";
 
 function CleaningPage() {
   return (
     <IonPage>
       <IonHeader>
-        <CleaningHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>Cleaning</IonTitle>
+        </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <CleaningContent />
+      <IonContent className="content-wide">
+        <CleaningList />
       </IonContent>
     </IonPage>
   );

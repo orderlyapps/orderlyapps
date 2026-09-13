@@ -3,15 +3,13 @@ import { addWeeks, endOfYear, format, parseISO, startOfWeek } from "date-fns";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import {
-  cleanMajorCollection,
-  cleanMinorCollection,
-  type CleanMajor,
-  type CleanMinor,
-} from "@amodeo/proclaimer/feature/cleaning";
 import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key";
 import type { Group } from "@amodeo/proclaimer/feature/group";
+import { cleanMajorCollection } from "../collections/clean-major.ts";
+import { cleanMinorCollection } from "../collections/clean-minor.ts";
+import type { CleanMajor } from "../schemas/clean-major.ts";
+import type { CleanMinor } from "../schemas/clean-minor.ts";
 
 export interface CleaningWeek {
   week_id: string;
