@@ -43,7 +43,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
       attrs: {
         name: "theme-color",
         media: "(prefers-color-scheme: light)",
-        content: options.themeColorLight ?? "#0054e9",
+        content: options.themeColorLight ?? "#f7f7f7",
       },
     },
     // Browser UI color when the user prefers dark mode
@@ -53,7 +53,7 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
       attrs: {
         name: "theme-color",
         media: "(prefers-color-scheme: dark)",
-        content: options.themeColorDark ?? "#eb445a",
+        content: options.themeColorDark ?? "#0d0d0d",
       },
     },
     // Makes the web app capable of running in standalone mode on iOS
