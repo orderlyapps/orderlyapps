@@ -1,0 +1,91 @@
+import { useLiveQuery } from "@tanstack/react-db";
+import { midweekAssignmentCollection } from "../../../collections/midweek-assignment.ts";
+import { midweekMeetingDataCollection } from "../../../collections/midweek-meeting-data.ts";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
+import type { MidweekAssignment } from "../../../schemas/midweek-assignment.ts";
+import type { MidweekMeetingData } from "../../../schemas/midweek-meeting-data.ts";
+import { getMeetingParts } from "../../../utils/get-meeting-parts.ts";
+import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
+import { getAssignmentContext } from "../utils/get-assignment-context.ts";
+
+interface UseAssignmentDataProps {
+  week_id: string;
+  assignment_id: string;
+}
+
+export function useAssignmentData({ week_id, assignment_id }: UseAssignmentDataProps) {
+  const congregation_id = getStoredCongregation()?.id;
+
+  const { data: allAssignments, isLoading: isLoadingAssignments } = useLiveQuery((q) =>
+    q.from({ ma: midweekAssignmentCollection }),
+  );
+
+  const { data: allMeetingData, isLoading: isLoadingMeetingData } = useLiveQuery((q) =>
+    q.from({ mmd: midweekMeetingDataCollection }),
+  );
+
+  const { data: allPublishers, isLoading: isLoadingPublishers } = useLiveQuery((q) =>
+    q.from({ p: publisherCollection }).orderBy(({ p }) => p.last_name),
+  );
+
+  const assignment = (allAssignments as MidweekAssignment[] | undefined)?.find(
+    (a) => a.week_id === week_id && a.assignment_id === assignment_id,
+  );
+
+  const weekData = (allMeetingData as MidweekMeetingData[] | undefined)?.find(
+    (m) => m.week_id === week_id,
+  );
+
+  const show_school_2 =
+    (allAssignments as MidweekAssignment[] | undefined)?.some(
+      (a) => a.week_id === week_id && a.assignment_id === "chairman_2",
+    ) ?? false;
+
+  const matchedPart = weekData
+    ? getMeetingParts(
+        weekData,
+        allAssignments as MidweekAssignment[] | undefined,
+        show_school_2,
+      ).find((p) => p.assignmentId === assignment_id)
+    : undefined;
+
+  const publishers = ((allPublishers as Publisher[] | undefined) ?? []).filter(
+    (p) => p.congregation_id === congregation_id,
+  );
+
+  const assignee = publishers.find((p) => p.id === assignment?.participant_id);
+
+  const assigneeLabel = (() => {
+    if (/^school_\d_(bible_reading|apply_\d)$/.test(assignment_id)) return "Student";
+    if (assignment_id === "cbs_reader") return "Reader";
+    if (assignment_id === "cbs_conductor") return "Conductor";
+    return "Participant";
+  })();
+
+  const assistantId = matchedPart?.assistantId;
+  const assistantAssignment = assistantId
+    ? (allAssignments as MidweekAssignment[] | undefined)?.find(
+        (a) => a.week_id === week_id && a.assignment_id === assistantId,
+      )
+    : undefined;
+  const assistantAssignee = publishers.find((p) => p.id === assistantAssignment?.participant_id);
+
+  const isLoading = isLoadingAssignments || isLoadingPublishers || isLoadingMeetingData;
+
+  return {
+    congregation_id,
+    assignment,
+    weekData,
+    publishers,
+    matchedPart,
+    assignee,
+    assigneeLabel,
+    assistantId,
+    assistantAssignment,
+    assistantAssignee,
+    isLoading,
+    assignmentTitle: matchedPart?.title ?? assignment_id.replace(/_/g, " "),
+    assignmentColor: matchedPart?.color ?? "medium",
+    assignmentContext: weekData ? getAssignmentContext(assignment_id, weekData) : undefined,
+  };
+}

@@ -1,4 +1,4 @@
-import { IonPage, IonHeader } from "@ionic/react";
+import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { AssignmentDetailHeader } from "@amodeo/proclaimer/feature/midweek";
@@ -15,7 +15,16 @@ function AssignmentDetailPage() {
           back_href={`/home/clam-overseer/schedule/${week_id}`}
         />
       </IonHeader>
-      <AssignmentDetailContent week_id={week_id} assignment_id={assignment_id} />
+      <AssignmentDetailContent week_id={week_id} assignment_id={assignment_id}>
+        {({ info, selector }) => (
+          <>
+            <IonHeader>{info}</IonHeader>
+            <IonContent className="content-wide remove-top-padding remove-bottom-padding">
+              {selector}
+            </IonContent>
+          </>
+        )}
+      </AssignmentDetailContent>
     </IonPage>
   );
 }

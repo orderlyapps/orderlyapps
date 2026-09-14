@@ -1,7 +1,7 @@
 import { and, eq, gte, inArray, useLiveQuery } from "@tanstack/react-db";
 import { midweekAssignmentCollection } from "../collections/midweek-assignment.ts";
 import { midweekMeetingDataCollection } from "../collections/midweek-meeting-data.ts";
-import { getMeetingParts } from "../util/get-meeting-parts.ts";
+import { getMeetingParts } from "../utils/get-meeting-parts.ts";
 
 export type MidweekAssignmentItem = {
   id: string;

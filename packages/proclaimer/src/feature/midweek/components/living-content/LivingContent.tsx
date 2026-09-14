@@ -1,0 +1,13 @@
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { ParticipantPublishersList } from "../participant-publishers-list/ParticipantPublishersList.tsx";
+
+export function LivingContent() {
+  return (
+    <div className="ion-padding">
+      <Heading size="lg" bold>
+        Living
+      </Heading>
+      <ParticipantPublishersList participation_id="living" />
+    </div>
+  );
+}

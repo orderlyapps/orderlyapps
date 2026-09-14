@@ -1,5 +1,5 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { useCircuitVisitEvent } from "../../clam-overseer/schedule/schedule-content/helper/use-circuit-visit-event.ts";
+import { useCircuitVisitEvent } from "../schedule-content/hooks/use-circuit-visit-event.ts";
 
 interface CircuitVisitBannerProps {
   week_id: string;
