@@ -1,15 +1,29 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CobeHeader } from "@proclaimer-content/pages/home/cobe/cobe-header/CobeHeader";
-import { CobeContent } from "@proclaimer-content/pages/home/cobe/cobe-content/CobeContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 
 function CobePage() {
   return (
     <IonPage>
       <IonHeader>
-        <CobeHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>COBE</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <CobeContent />
+        <Heading size="lg" bold>
+          COBE
+        </Heading>
       </IonContent>
     </IonPage>
   );
