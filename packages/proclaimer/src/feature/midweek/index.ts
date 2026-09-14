@@ -77,5 +77,4 @@ export { DocXDownloadButton } from "./clam-chairman/clam-chairman-header/compone
 export { useChairmanWeeks } from "./clam-chairman/useChairmanWeeks.ts";
 export { chairmansOutlineDocX } from "./clam-chairman/docx/chairmansOutlineDocX.ts";
 
-export { MidweekMeetingHeader } from "./midweek-meeting/midweek-meeting-header/MidweekMeetingHeader.tsx";
 export { MidweekMeetingContent } from "./midweek-meeting/midweek-meeting-content/MidweekMeetingContent.tsx";
