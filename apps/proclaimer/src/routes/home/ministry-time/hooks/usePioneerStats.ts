@@ -62,7 +62,7 @@ export function usePioneerStats(entries: MinistryTimeEntry[]): PioneerStatsData 
         credited_minutes += non_credit;
       } else {
         const capped_hours = Math.min(MONTHLY_HOUR_CAP, non_credit_hours + credit / 60);
-        credited_minutes += capped_hours * 60;
+        credited_minutes += Math.round(capped_hours * 60);
       }
     }
 
@@ -72,7 +72,7 @@ export function usePioneerStats(entries: MinistryTimeEntry[]): PioneerStatsData 
     const hours_remaining = Math.max(0, regular_pioneer_yearly_hours - year_hours);
     const raw_hours_remaining = Math.max(0, regular_pioneer_yearly_hours - raw_year_hours);
 
-    const pioneer_end = new Date(pioneer_start.getFullYear() + 1, 7, 30);
+    const pioneer_end = new Date(pioneer_start.getFullYear() + 1, 7, 31);
     const ms_per_week = 7 * 24 * 60 * 60 * 1000;
     const weeks_remaining = Math.max(1, (pioneer_end.getTime() - now.getTime()) / ms_per_week);
 

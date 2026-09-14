@@ -11,6 +11,7 @@ function computeMinutes(start_time: string, end_time: string): number {
   const [sh, sm] = start_time.split(":").map(Number);
   const [eh, em] = end_time.split(":").map(Number);
   const diff = eh * 60 + em - (sh * 60 + sm);
+  if (Number.isNaN(diff)) return 0;
   return Math.max(0, Math.round(diff / 5) * 5);
 }
 

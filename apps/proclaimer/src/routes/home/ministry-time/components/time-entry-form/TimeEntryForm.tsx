@@ -59,7 +59,7 @@ export function TimeEntryForm({ on_add, initial_values }: TimeEntryFormProps) {
       : null;
 
   function handleSubmit() {
-    if (time_error) return;
+    if (!start_time || !end_time || time_error) return;
     on_add(date, start_time, end_time, ministry_type, note.trim());
     set_note("");
   }
@@ -89,7 +89,7 @@ export function TimeEntryForm({ on_add, initial_values }: TimeEntryFormProps) {
         label={initial_values ? "Update Entry" : "Add Entry"}
         variant="save"
         skip_confirmation
-        disabled={!!time_error}
+        disabled={!start_time || !end_time || !!time_error}
         on_click={handleSubmit}
       />
       <Space size="lg" />

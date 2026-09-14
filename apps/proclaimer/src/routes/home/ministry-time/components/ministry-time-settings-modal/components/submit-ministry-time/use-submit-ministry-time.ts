@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useMinistryTime } from "@proclaimer-content/pages/home/ministry-time/ministry-time-content/hooks/useMinistryTime";
+import { useMinistryTime } from "@proclaimer-routes/home/ministry-time/hooks/useMinistryTime";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getPreviousMonthValue } from "@util/format/report-date";

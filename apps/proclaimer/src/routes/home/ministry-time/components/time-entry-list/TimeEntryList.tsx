@@ -55,7 +55,7 @@ export function TimeEntryList({ entries, on_delete, on_edit }: TimeEntryListProp
   const creditedMinutes =
     nonCreditHours >= MONTHLY_HOUR_CAP
       ? nonCreditMinutes
-      : Math.min(MONTHLY_HOUR_CAP, nonCreditHours + creditMinutes / 60) * 60;
+      : Math.round(Math.min(MONTHLY_HOUR_CAP, nonCreditHours + creditMinutes / 60) * 60);
 
   return (
     <>

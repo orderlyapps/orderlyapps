@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { IonItem, IonLabel } from "@ionic/react";
 import { PhoneInput } from "@amodeo/proclaimer/ui/components/inputs/phone/PhoneInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
@@ -50,12 +51,12 @@ export function SubmitMinistryTime() {
         <IonItem lines="none">
           <IonLabel slot="end" className="ion-text-end">
             {credit_hours.map((c) => (
-              <>
-                <Body key={c.type} size="sm" color="medium">
+              <Fragment key={c.type}>
+                <Body size="sm" color="medium">
                   {c.label}: {c.hours}
                 </Body>
                 <br />
-              </>
+              </Fragment>
             ))}
           </IonLabel>
         </IonItem>

@@ -25,7 +25,7 @@ export function PioneerHoursSettings() {
       </IonItem>
       {serviceYears.map((sy) => (
         <ServiceYearInput
-          key={sy}
+          key={`${sy}-${getHoursForServiceYear(sy)}`}
           service_year={sy}
           hours={getHoursForServiceYear(sy)}
           is_current={sy === currentServiceYear}
