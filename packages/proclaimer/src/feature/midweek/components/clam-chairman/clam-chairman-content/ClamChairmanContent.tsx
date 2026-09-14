@@ -1,0 +1,147 @@
+import { useLiveQuery } from "@tanstack/react-db";
+import { IonList } from "@ionic/react";
+import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
+import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
+import { midweekMeetingDataCollection } from "../../../collections/midweek-meeting-data.ts";
+import { midweekAssignmentCollection } from "../../../collections/midweek-assignment.ts";
+import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
+import type { MidweekMeetingData } from "../../../schemas/midweek-meeting-data.ts";
+import type { MidweekAssignment } from "../../../schemas/midweek-assignment.ts";
+import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
+import { ChairmanAssignmentCard } from "./components/chairman-assignment-card/ChairmanAssignmentCard.tsx";
+import { getMeetingParts } from "../../../utils/get-meeting-parts.ts";
+import type { AssignmentRow } from "../../schedule/schedule-content/types.ts";
+import { useChairmanWeeks } from "../../../hooks/use-chairman-weeks.ts";
+
+const BASE_PATH = "/home/clam-overseer/schedule";
+
+function ChairmanWeekSchedule({
+  week_id,
+  allMeetingData,
+  allAssignments,
+  publishers,
+}: {
+  week_id: string;
+  allMeetingData: MidweekMeetingData[] | undefined;
+  allAssignments: MidweekAssignment[] | undefined;
+  publishers: Publisher[] | undefined;
+}) {
+  const weekData = allMeetingData?.find((m) => m.week_id === week_id);
+  const assignments = allAssignments?.filter((a) => a.week_id === week_id);
+  const show_school_2 = assignments?.some((a) => a.assignment_id === "chairman_2") ?? false;
+  const meetingParts = weekData ? getMeetingParts(weekData, assignments, show_school_2) : [];
+  const week_label = getTheocraticWeekLabel(week_id, {
+    format: "week-range",
+    useRelativeWeek: true,
+    relativeWeekStyle: "append",
+  });
+
+  const rows: (AssignmentRow & {
+    publisher_id?: string;
+    publisher_first_name?: string;
+  })[] = meetingParts.map((part) => {
+    const assignment = assignments?.find((a) => a.assignment_id === part.assignmentId);
+    const assignedPublisher = assignment
+      ? publishers?.find((p) => p.id === assignment.participant_id)
+      : undefined;
+    const assignedName = assignedPublisher
+      ? getPublisherDisplayName(assignedPublisher, "first_last")
+      : undefined;
+    const assistantAssignment = part.assistantId
+      ? assignments?.find((a) => a.assignment_id === part.assistantId)
+      : undefined;
+    const assistantPublisher = assistantAssignment
+      ? publishers?.find((p) => p.id === assistantAssignment.participant_id)
+      : undefined;
+    const assistantName = assistantPublisher
+      ? getPublisherDisplayName(assistantPublisher, "first_last")
+      : undefined;
+
+    return {
+      id: part.assignmentId,
+      week_id,
+      title: part.title,
+      color: part.color,
+      publisher: assignedName,
+      assistant: assistantName,
+      pin_to_first_column: part.pin_to_first_column,
+      base_path: BASE_PATH,
+      publisher_id: assignedPublisher?.id,
+      publisher_first_name: assignedPublisher?.display_name || assignedPublisher?.first_name,
+    };
+  });
+
+  return (
+    <div>
+      <Heading>{week_label}</Heading>
+      <Space size="xs" />
+      <IonList inset>
+        <MultiColumnList<
+          AssignmentRow & {
+            publisher_id?: string;
+            publisher_first_name?: string;
+          }
+        >
+          items={rows}
+          get_id={(row) => row.id}
+          render_item={(row) => <ChairmanAssignmentCard {...row} />}
+          pin_to_first_column={(row) => row.pin_to_first_column ?? false}
+        />
+      </IonList>
+    </div>
+  );
+}
+
+interface ClamChairmanContentProps {
+  week_id: string;
+}
+
+export function ClamChairmanContent({ week_id }: ClamChairmanContentProps) {
+  const permissions = usePermissions();
+  const { chairman_week_ids } = useChairmanWeeks();
+  const is_overseer = permissions.has_clam_overseer;
+
+  const { data: allMeetingData } = useLiveQuery((q) =>
+    q.from({ mmd: midweekMeetingDataCollection }),
+  );
+  const { data: allAssignments } = useLiveQuery((q) => q.from({ ma: midweekAssignmentCollection }));
+  const { data: publishers } = useLiveQuery((q) => q.from({ p: publisherCollection }));
+
+  const is_loading =
+    allMeetingData === undefined || allAssignments === undefined || publishers === undefined;
+
+  if (is_loading) return <Spinner className="flex-center" />;
+
+  if (is_overseer) {
+    return (
+      <>
+        <WeekNavigation week_id={week_id} />
+        <ChairmanWeekSchedule
+          week_id={week_id}
+          allMeetingData={allMeetingData as MidweekMeetingData[] | undefined}
+          allAssignments={allAssignments as MidweekAssignment[] | undefined}
+          publishers={publishers as Publisher[] | undefined}
+        />
+      </>
+    );
+  }
+
+  return (
+    <>
+      {chairman_week_ids.map((w_id) => (
+        <ChairmanWeekSchedule
+          key={w_id}
+          week_id={w_id}
+          allMeetingData={allMeetingData as MidweekMeetingData[] | undefined}
+          allAssignments={allAssignments as MidweekAssignment[] | undefined}
+          publishers={publishers as Publisher[] | undefined}
+        />
+      ))}
+    </>
+  );
+}

@@ -1,6 +1,6 @@
 import { IonList } from "@ionic/react";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { ScheduleContent } from "../schedule-content/ScheduleContent.tsx";
+import { ScheduleContent } from "../schedule/schedule-content/ScheduleContent.tsx";
 import { MidweekAssignmentsDisplay } from "./components/midweek-assignments-display/MidweekAssignmentsDisplay.tsx";
 import { MidweekAttendantsDisplay } from "./components/midweek-attendants-display/MidweekAttendantsDisplay.tsx";
 
