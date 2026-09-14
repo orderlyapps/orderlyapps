@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ParticipationHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/participation-header/ParticipationHeader";
-import { ParticipationContent } from "@proclaimer-content/pages/home/clam-overseer/participation/participation-content/ParticipationContent";
+import { ParticipationHeader } from "@amodeo/proclaimer/feature/midweek";
+import { ParticipationContent } from "@amodeo/proclaimer/feature/midweek";
 
 function ParticipationPage() {
   return (

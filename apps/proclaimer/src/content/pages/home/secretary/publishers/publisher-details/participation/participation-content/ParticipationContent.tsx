@@ -4,7 +4,7 @@ import { midweekParticipationCollection } from "@amodeo/proclaimer/feature/midwe
 import { weekendParticipationCollection } from "@amodeo/proclaimer/feature/weekend";
 import { avParticipationTypeLabels } from "@amodeo/proclaimer/feature/av";
 import { weekendParticipationTypeLabels } from "@proclaimer-content/pages/home/weekend/participation/shared/constants/weekendParticipationTypeLabels";
-import { midweekParticipationTypeLabels } from "@proclaimer-content/pages/home/clam-overseer/participation/shared/constants/midweekParticipationTypeLabels";
+import { midweekParticipationTypeLabels } from "@amodeo/proclaimer/feature/midweek";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { ParticipationSection } from "./components/participation-section/ParticipationSection";

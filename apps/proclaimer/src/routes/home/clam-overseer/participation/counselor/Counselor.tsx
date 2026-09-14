@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CounselorHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/counselor/counselor-header/CounselorHeader";
-import { CounselorContent } from "@proclaimer-content/pages/home/clam-overseer/participation/counselor/counselor-content/CounselorContent";
+import { CounselorHeader } from "@amodeo/proclaimer/feature/midweek";
+import { CounselorContent } from "@amodeo/proclaimer/feature/midweek";
 
 function CounselorPage() {
   return (

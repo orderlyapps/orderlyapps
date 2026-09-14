@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { GemsHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/gems/gems-header/GemsHeader";
-import { GemsContent } from "@proclaimer-content/pages/home/clam-overseer/participation/gems/gems-content/GemsContent";
+import { GemsHeader } from "@amodeo/proclaimer/feature/midweek";
+import { GemsContent } from "@amodeo/proclaimer/feature/midweek";
 
 function GemsPage() {
   return (

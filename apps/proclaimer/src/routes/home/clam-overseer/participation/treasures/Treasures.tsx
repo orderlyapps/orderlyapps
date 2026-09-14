@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { TreasuresHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/treasures/treasures-header/TreasuresHeader";
-import { TreasuresContent } from "@proclaimer-content/pages/home/clam-overseer/participation/treasures/treasures-content/TreasuresContent";
+import { TreasuresHeader } from "@amodeo/proclaimer/feature/midweek";
+import { TreasuresContent } from "@amodeo/proclaimer/feature/midweek";
 
 function TreasuresPage() {
   return (

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CbsReaderHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/cbs-reader/cbs-reader-header/CbsReaderHeader";
-import { CbsReaderContent } from "@proclaimer-content/pages/home/clam-overseer/participation/cbs-reader/cbs-reader-content/CbsReaderContent";
+import { CbsReaderHeader } from "@amodeo/proclaimer/feature/midweek";
+import { CbsReaderContent } from "@amodeo/proclaimer/feature/midweek";
 
 function CbsReaderPage() {
   return (

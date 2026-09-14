@@ -1,0 +1,85 @@
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { AssignmentInfo } from "./components/assignment-info/AssignmentInfo.tsx";
+import { AssignedPublishers } from "./components/assigned-publishers/AssignedPublishers.tsx";
+import { PublisherSelector } from "./components/publisher-selector/PublisherSelector.tsx";
+import { useAssignmentData } from "./hooks/use-assignment-data.ts";
+import { useAssignmentHandlers } from "./hooks/use-assignment-handlers.ts";
+import { useAssistantHandlers } from "./hooks/use-assistant-handlers.ts";
+import { IonContent, IonHeader } from "@ionic/react";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+
+interface AssignmentDetailContentProps {
+  week_id: string;
+  assignment_id: string;
+}
+
+export function AssignmentDetailContent({ week_id, assignment_id }: AssignmentDetailContentProps) {
+  const {
+    congregation_id,
+    assignment,
+    publishers,
+    assignee,
+    assigneeLabel,
+    assistantId,
+    assistantAssignment,
+    assistantAssignee,
+    isLoading,
+    assignmentTitle,
+    assignmentColor,
+    assignmentContext,
+  } = useAssignmentData({ week_id, assignment_id });
+
+  const { handleDelete, handleSelect } = useAssignmentHandlers({
+    congregation_id,
+    assignment_id,
+    week_id,
+    assignment,
+  });
+
+  const { handleDeleteAssistant, handleSelectAssistant } = useAssistantHandlers({
+    congregation_id,
+    assistantId,
+    week_id,
+    assistantAssignment,
+  });
+
+  if (isLoading) {
+    return <Spinner centered />;
+  }
+
+  return (
+    <>
+      <IonHeader>
+        <AssignmentInfo
+          title={assignmentTitle}
+          color={assignmentColor}
+          context={assignmentContext}
+        />
+
+        <AssignedPublishers
+          assignee={assignee}
+          assigneeLabel={assigneeLabel}
+          onDeleteAssignee={handleDelete}
+          assistantId={assistantId}
+          assistantAssignee={assistantAssignee}
+          onDeleteAssistant={handleDeleteAssistant}
+        />
+      </IonHeader>
+      <IonContent className="content-wide remove-top-padding remove-bottom-padding">
+        <Space />
+        <PublisherSelector
+          publishers={publishers}
+          assignment={assignment}
+          assistantId={assistantId}
+          assistantAssignment={assistantAssignment}
+          onSelectAssignee={handleSelect}
+          onSelectAssistant={handleSelectAssistant}
+          onClearAssignee={handleDelete}
+          onClearAssistant={handleDeleteAssistant}
+          assignment_id={assignment_id}
+          week_id={week_id}
+        />
+      </IonContent>
+    </>
+  );
+}

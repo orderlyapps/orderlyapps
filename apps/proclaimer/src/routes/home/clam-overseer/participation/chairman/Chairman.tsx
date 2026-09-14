@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ChairmanHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/chairman/chairman-header/ChairmanHeader";
-import { ChairmanContent } from "@proclaimer-content/pages/home/clam-overseer/participation/chairman/chairman-content/ChairmanContent";
+import { ChairmanHeader } from "@amodeo/proclaimer/feature/midweek";
+import { ChairmanContent } from "@amodeo/proclaimer/feature/midweek";
 
 function ChairmanPage() {
   return (

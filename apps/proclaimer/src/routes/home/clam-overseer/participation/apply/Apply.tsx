@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ApplyHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/apply/apply-header/ApplyHeader";
-import { ApplyContent } from "@proclaimer-content/pages/home/clam-overseer/participation/apply/apply-content/ApplyContent";
+import { ApplyHeader } from "@amodeo/proclaimer/feature/midweek";
+import { ApplyContent } from "@amodeo/proclaimer/feature/midweek";
 
 function ApplyPage() {
   return (

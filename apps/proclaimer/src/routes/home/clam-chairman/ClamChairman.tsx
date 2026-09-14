@@ -1,8 +1,8 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { ClamChairmanHeader } from "@proclaimer-content/pages/home/clam-chairman/clam-chairman-header/ClamChairmanHeader";
-import { ClamChairmanContent } from "@proclaimer-content/pages/home/clam-chairman/clam-chairman-content/ClamChairmanContent";
+import { ClamChairmanHeader } from "@amodeo/proclaimer/feature/midweek";
+import { ClamChairmanContent } from "@amodeo/proclaimer/feature/midweek";
 
 function ClamChairmanPage() {
   const match = useRouteMatch<{ week_id?: string }>();

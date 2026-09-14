@@ -111,6 +111,7 @@
     "@tanstack/react-query": "catalog:",
     "@tanstack/rxdb-db-collection": "catalog:",
     "date-fns": "catalog:",
+    "docx": "catalog:",
     "ionicons": "catalog:",
     "libphonenumber-js": "^1.11.21",
     "react": "catalog:",

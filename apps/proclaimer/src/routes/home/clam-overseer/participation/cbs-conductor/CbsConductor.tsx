@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CbsConductorHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/cbs-conductor/cbs-conductor-header/CbsConductorHeader";
-import { CbsConductorContent } from "@proclaimer-content/pages/home/clam-overseer/participation/cbs-conductor/cbs-conductor-content/CbsConductorContent";
+import { CbsConductorHeader } from "@amodeo/proclaimer/feature/midweek";
+import { CbsConductorContent } from "@amodeo/proclaimer/feature/midweek";
 
 function CbsConductorPage() {
   return (

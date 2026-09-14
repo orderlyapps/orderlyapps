@@ -6,7 +6,7 @@ import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useCreatePublisherAuthUser } from "./hooks/useCreatePublisherAuthUser";
 import { useGeneratePublisherOtp } from "./hooks/useGeneratePublisherOtp";
-import { usePublisherPhoneLookup } from "./hooks/usePublisherPhone";
+import { usePublisherPhoneLookup } from "@amodeo/proclaimer/feature/publisher-local";
 import { OtpDisplayModal } from "./components/otp-display-modal/OtpDisplayModal";
 
 export function AuthUsersContent() {

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AssistantHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/assistant/assistant-header/AssistantHeader";
-import { AssistantContent } from "@proclaimer-content/pages/home/clam-overseer/participation/assistant/assistant-content/AssistantContent";
+import { AssistantHeader } from "@amodeo/proclaimer/feature/midweek";
+import { AssistantContent } from "@amodeo/proclaimer/feature/midweek";
 
 function AssistantPage() {
   return (

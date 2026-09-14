@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { LivingHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/living/living-header/LivingHeader";
-import { LivingContent } from "@proclaimer-content/pages/home/clam-overseer/participation/living/living-content/LivingContent";
+import { LivingHeader } from "@amodeo/proclaimer/feature/midweek";
+import { LivingContent } from "@amodeo/proclaimer/feature/midweek";
 
 function LivingPage() {
   return (

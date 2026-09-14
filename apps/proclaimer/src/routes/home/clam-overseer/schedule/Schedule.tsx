@@ -1,8 +1,8 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { ScheduleHeader } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-header/ScheduleHeader";
-import { ScheduleContent } from "@proclaimer-content/pages/home/clam-overseer/schedule/schedule-content/ScheduleContent";
+import { ScheduleHeader } from "@amodeo/proclaimer/feature/midweek";
+import { ScheduleContent } from "@amodeo/proclaimer/feature/midweek";
 
 function SchedulePage() {
   const match = useRouteMatch<{ week_id?: string }>();

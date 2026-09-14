@@ -3,7 +3,7 @@ import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/H
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
-import { useChairmanWeeks } from "@proclaimer-content/pages/home/clam-chairman/useChairmanWeeks";
+import { useChairmanWeeks } from "@amodeo/proclaimer/feature/midweek";
 import { useIsCbsConductor } from "@proclaimer-content/pages/home/congregation-bible-study/useIsCbsConductor";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";

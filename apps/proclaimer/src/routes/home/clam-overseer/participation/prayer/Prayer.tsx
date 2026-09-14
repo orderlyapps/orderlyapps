@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PrayerHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/prayer/prayer-header/PrayerHeader";
-import { PrayerContent } from "@proclaimer-content/pages/home/clam-overseer/participation/prayer/prayer-content/PrayerContent";
+import { PrayerHeader } from "@amodeo/proclaimer/feature/midweek";
+import { PrayerContent } from "@amodeo/proclaimer/feature/midweek";
 
 function PrayerPage() {
   return (

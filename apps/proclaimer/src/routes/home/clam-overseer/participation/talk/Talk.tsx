@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { TalkHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/talk/talk-header/TalkHeader";
-import { TalkContent } from "@proclaimer-content/pages/home/clam-overseer/participation/talk/talk-content/TalkContent";
+import { TalkHeader } from "@amodeo/proclaimer/feature/midweek";
+import { TalkContent } from "@amodeo/proclaimer/feature/midweek";
 
 function TalkPage() {
   return (

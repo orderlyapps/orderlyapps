@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ClamOverseerHeader } from "@proclaimer-content/pages/home/clam-overseer/clam-overseer-header/ClamOverseerHeader";
-import { ClamOverseerContent } from "@proclaimer-content/pages/home/clam-overseer/clam-overseer-content/ClamOverseerContent";
+import { ClamOverseerHeader } from "@amodeo/proclaimer/feature/midweek";
+import { ClamOverseerContent } from "@amodeo/proclaimer/feature/midweek";
 
 function ClamOverseerPage() {
   return (

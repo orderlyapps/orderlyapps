@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { BibleReadingHeader } from "@proclaimer-content/pages/home/clam-overseer/participation/bible-reading/bible-reading-header/BibleReadingHeader";
-import { BibleReadingContent } from "@proclaimer-content/pages/home/clam-overseer/participation/bible-reading/bible-reading-content/BibleReadingContent";
+import { BibleReadingHeader } from "@amodeo/proclaimer/feature/midweek";
+import { BibleReadingContent } from "@amodeo/proclaimer/feature/midweek";
 
 function BibleReadingPage() {
   return (
