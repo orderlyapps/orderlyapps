@@ -18,3 +18,7 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 - [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
 
 <!--VITE PLUS END-->
+
+# Project Rules
+
+- `IonPage`, `IonHeader`, and `IonContent` should preferably only be used in app route files under `src/routes`. Exception: `IonContent` may be used inside `IonModal` components.
