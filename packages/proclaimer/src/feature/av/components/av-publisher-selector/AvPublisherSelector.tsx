@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { avAssignmentCollection } from "../../collections/av-assignment.ts";
-import { midweekAssignmentCollection } from "@amodeo/proclaimer/feature/midweek";
+import { midweekAssignmentCollection } from "../../../midweek/collections/midweek-assignment.ts";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import type { AvAssignment } from "../../schemas/av-assignment.ts";
-import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekAssignment } from "../../../midweek/schemas/midweek-assignment.ts";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";

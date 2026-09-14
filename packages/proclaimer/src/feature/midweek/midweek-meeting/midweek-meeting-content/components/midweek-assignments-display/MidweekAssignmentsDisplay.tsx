@@ -8,10 +8,10 @@ import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 
 type MidweekAssignmentsDisplayProps = {
-  weekId: string;
+  week_id: string;
 };
 
-export const MidweekAssignmentsDisplay: React.FC<MidweekAssignmentsDisplayProps> = ({ weekId }) => {
+export function MidweekAssignmentsDisplay({ week_id }: MidweekAssignmentsDisplayProps) {
   const congregation = useStoredCongregation();
   const congregationId = congregation?.id;
 
@@ -22,7 +22,7 @@ export const MidweekAssignmentsDisplay: React.FC<MidweekAssignmentsDisplayProps>
         .leftJoin({ p: publisherCollection }, ({ av, p }) => eq(av.participant_id, p!.id))
         .where(({ av }) =>
           and(
-            eq(av.week_id, weekId),
+            eq(av.week_id, week_id),
             eq(av.congregation_id, congregationId ?? ""),
             inArray(av.assignment_id, [...midweekAVAssignmentIDs]),
           ),
@@ -34,7 +34,7 @@ export const MidweekAssignmentsDisplay: React.FC<MidweekAssignmentsDisplayProps>
           last_name: p?.last_name,
           display_name: p?.display_name,
         })),
-    [weekId, congregationId],
+    [week_id, congregationId],
   );
 
   return (
@@ -69,4 +69,4 @@ export const MidweekAssignmentsDisplay: React.FC<MidweekAssignmentsDisplayProps>
       )}
     </>
   );
-};
+}

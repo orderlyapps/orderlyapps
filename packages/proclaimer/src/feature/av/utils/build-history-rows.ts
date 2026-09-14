@@ -1,7 +1,7 @@
 import { differenceInWeeks, parseISO } from "date-fns";
 import type { AvAssignment, AvAssignmentID } from "../schemas/av-assignment.ts";
 import { avAssignmentLabels } from "../schemas/av-assignment.ts";
-import type { MidweekAssignment } from "@amodeo/proclaimer/feature/midweek";
+import type { MidweekAssignment } from "../../midweek/schemas/midweek-assignment.ts";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 
