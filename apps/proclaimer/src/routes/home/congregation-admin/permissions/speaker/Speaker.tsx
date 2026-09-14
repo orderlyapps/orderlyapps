@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { SpeakerHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/speaker/speaker-header/SpeakerHeader";
-import { SpeakerContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/speaker/speaker-content/SpeakerContent";
+import { SpeakerHeader } from "@amodeo/proclaimer/feature/permission";
+import { SpeakerContent } from "@amodeo/proclaimer/feature/permission";
 
 function SpeakerPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PermissionsHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/permissions-header/PermissionsHeader";
-import { PermissionsContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/permissions-content/PermissionsContent";
+import { PermissionsHeader } from "@amodeo/proclaimer/feature/permission";
+import { PermissionsContent } from "@amodeo/proclaimer/feature/permission";
 
 function PermissionsPage() {
   return (

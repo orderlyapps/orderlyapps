@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { RemindersHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/reminders/reminders-header/RemindersHeader";
-import { RemindersContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/reminders/reminders-content/RemindersContent";
+import { RemindersHeader } from "@amodeo/proclaimer/feature/permission";
+import { RemindersContent } from "@amodeo/proclaimer/feature/permission";
 
 function RemindersPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

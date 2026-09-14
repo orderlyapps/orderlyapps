@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ElderHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/elder/elder-header/ElderHeader";
-import { ElderContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/elder/elder-content/ElderContent";
+import { ElderHeader } from "@amodeo/proclaimer/feature/permission";
+import { ElderContent } from "@amodeo/proclaimer/feature/permission";
 
 function ElderPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

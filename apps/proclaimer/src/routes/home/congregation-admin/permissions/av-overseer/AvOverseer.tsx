@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AvOverseerHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/av-overseer/av-overseer-header/AvOverseerHeader";
-import { AvOverseerContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/av-overseer/av-overseer-content/AvOverseerContent";
+import { AvOverseerHeader } from "@amodeo/proclaimer/feature/permission";
+import { AvOverseerContent } from "@amodeo/proclaimer/feature/permission";
 
 function AvOverseerPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

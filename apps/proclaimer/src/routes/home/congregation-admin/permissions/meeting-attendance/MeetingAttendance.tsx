@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { MeetingAttendanceHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/meeting-attendance/meeting-attendance-header/MeetingAttendanceHeader";
-import { MeetingAttendanceContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/meeting-attendance/meeting-attendance-content/MeetingAttendanceContent";
+import { MeetingAttendanceHeader } from "@amodeo/proclaimer/feature/permission";
+import { MeetingAttendanceContent } from "@amodeo/proclaimer/feature/permission";
 
 function MeetingAttendancePage() {
   const [show_add_modal, setShowAddModal] = useState(false);

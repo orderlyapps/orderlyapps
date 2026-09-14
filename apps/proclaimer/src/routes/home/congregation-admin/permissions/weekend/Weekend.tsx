@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { WeekendHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/weekend/weekend-header/WeekendHeader";
-import { WeekendContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/weekend/weekend-content/WeekendContent";
+import { WeekendHeader } from "@amodeo/proclaimer/feature/permission";
+import { WeekendContent } from "@amodeo/proclaimer/feature/permission";
 
 function WeekendPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

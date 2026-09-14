@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { TerritoryServantHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/territory-servant/territory-servant-header/TerritoryServantHeader";
-import { TerritoryServantContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/territory-servant/territory-servant-content/TerritoryServantContent";
+import { TerritoryServantHeader } from "@amodeo/proclaimer/feature/permission";
+import { TerritoryServantContent } from "@amodeo/proclaimer/feature/permission";
 
 function TerritoryServantPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

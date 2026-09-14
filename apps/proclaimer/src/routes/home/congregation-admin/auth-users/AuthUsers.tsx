@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AuthUsersHeader } from "@proclaimer-content/pages/home/congregation-admin/auth-users/auth-users-header/AuthUsersHeader";
-import { AuthUsersContent } from "@proclaimer-content/pages/home/congregation-admin/auth-users/auth-users-content/AuthUsersContent";
+import { AuthUsersHeader } from "@amodeo/proclaimer/feature/permission";
+import { AuthUsersContent } from "@amodeo/proclaimer/feature/permission";
 
 function AuthUsersPage() {
   return (

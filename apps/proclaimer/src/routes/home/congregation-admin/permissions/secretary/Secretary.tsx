@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { SecretaryHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/secretary/secretary-header/SecretaryHeader";
-import { SecretaryContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/secretary/secretary-content/SecretaryContent";
+import { SecretaryHeader } from "@amodeo/proclaimer/feature/permission";
+import { SecretaryContent } from "@amodeo/proclaimer/feature/permission";
 
 function SecretaryPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

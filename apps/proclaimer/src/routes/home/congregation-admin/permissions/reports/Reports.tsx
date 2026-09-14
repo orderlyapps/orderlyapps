@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ReportsHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/reports/reports-header/ReportsHeader";
-import { ReportsContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/reports/reports-content/ReportsContent";
+import { ReportsHeader } from "@amodeo/proclaimer/feature/permission";
+import { ReportsContent } from "@amodeo/proclaimer/feature/permission";
 
 function ReportsPage() {
   return (

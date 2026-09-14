@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CongregationAdminHeader } from "@proclaimer-content/pages/home/congregation-admin/congregation-admin-header/CongregationAdminHeader";
-import { CongregationAdminContent } from "@proclaimer-content/pages/home/congregation-admin/congregation-admin-content/CongregationAdminContent";
+import { CongregationAdminHeader } from "@amodeo/proclaimer/feature/permission";
+import { CongregationAdminContent } from "@amodeo/proclaimer/feature/permission";
 
 function CongregationAdminPage() {
   return (

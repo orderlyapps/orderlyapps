@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CleaningHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/cleaning/cleaning-header/CleaningHeader";
-import { CleaningContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/cleaning/cleaning-content/CleaningContent";
+import { CleaningHeader } from "@amodeo/proclaimer/feature/permission";
+import { CleaningContent } from "@amodeo/proclaimer/feature/permission";
 
 function CleaningPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

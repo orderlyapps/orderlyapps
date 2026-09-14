@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ClamOverseerHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/clam-overseer/clam-overseer-header/ClamOverseerHeader";
-import { ClamOverseerContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/clam-overseer/clam-overseer-content/ClamOverseerContent";
+import { ClamOverseerHeader } from "@amodeo/proclaimer/feature/permission";
+import { ClamOverseerContent } from "@amodeo/proclaimer/feature/permission";
 
 function ClamOverseerPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

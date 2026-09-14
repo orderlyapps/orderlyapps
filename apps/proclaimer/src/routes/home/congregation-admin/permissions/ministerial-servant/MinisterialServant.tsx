@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { MinisterialServantHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/ministerial-servant/ministerial-servant-header/MinisterialServantHeader";
-import { MinisterialServantContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/ministerial-servant/ministerial-servant-content/MinisterialServantContent";
+import { MinisterialServantHeader } from "@amodeo/proclaimer/feature/permission";
+import { MinisterialServantContent } from "@amodeo/proclaimer/feature/permission";
 
 function MinisterialServantPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { EventsHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/events/events-header/EventsHeader";
-import { EventsContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/events/events-content/EventsContent";
+import { EventsHeader } from "@amodeo/proclaimer/feature/permission";
+import { EventsContent } from "@amodeo/proclaimer/feature/permission";
 
 function EventsPermissionsPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

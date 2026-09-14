@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { WatchtowerHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/watchtower/watchtower-header/WatchtowerHeader";
-import { WatchtowerContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/watchtower/watchtower-content/WatchtowerContent";
+import { WatchtowerHeader } from "@amodeo/proclaimer/feature/permission";
+import { WatchtowerContent } from "@amodeo/proclaimer/feature/permission";
 
 function WatchtowerPermissionsPage() {
   const [show_add_modal, setShowAddModal] = useState(false);

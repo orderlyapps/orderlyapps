@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ServiceOverseerHeader } from "@proclaimer-content/pages/home/congregation-admin/permissions/service-overseer/service-overseer-header/ServiceOverseerHeader";
-import { ServiceOverseerContent } from "@proclaimer-content/pages/home/congregation-admin/permissions/service-overseer/service-overseer-content/ServiceOverseerContent";
+import { ServiceOverseerHeader } from "@amodeo/proclaimer/feature/permission";
+import { ServiceOverseerContent } from "@amodeo/proclaimer/feature/permission";
 
 function ServiceOverseerPage() {
   const [show_add_modal, setShowAddModal] = useState(false);
