@@ -11,10 +11,10 @@ function isEventInWeek(event: EventRow, week_id: string): boolean {
   return eventDate >= weekStart && eventDate <= weekEnd;
 }
 
-export function useCircuitVisitEvent(week_id: string) {
+export function useEventInWeek(week_id: string, type: EventRow["type"]) {
   const { data: events } = useLiveQuery((q) => q.from({ e: eventCollection }));
 
-  const event = events?.find((e) => e.type === "circuit_visit" && isEventInWeek(e, week_id));
+  const event = events?.find((e) => e.type === type && isEventInWeek(e, week_id));
 
   return { event, is_loading: events === undefined };
 }

@@ -10,14 +10,16 @@ import type { MidweekMeetingData } from "../../schemas/midweek-meeting-data.ts";
 import type { MidweekAssignment } from "../../schemas/midweek-assignment.ts";
 import { AssignmentCard } from "./components/assignment-card/AssignmentCard.tsx";
 import { getMeetingParts } from "../../utils/get-meeting-parts.ts";
-import { useCircuitVisitEvent } from "./hooks/use-circuit-visit-event.ts";
+import { useCircuitVisitEvent } from "./components/event-banners/hooks/use-circuit-visit-event.ts";
 import { useAssignmentRows } from "./hooks/use-assignment-rows.ts";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { ScheduleContentProps, AssignmentRow } from "./types.ts";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
-import { CircuitVisitBanner } from "../circuit-visit-banner/CircuitVisitBanner.tsx";
+import { CircuitVisitBanner } from "./components/event-banners/circuit-visit-banner/CircuitVisitBanner.tsx";
+import { CircuitAssemblyBanner } from "./components/event-banners/circuit-assembly-banner/CircuitAssemblyBanner.tsx";
+import { ConventionBanner } from "./components/event-banners/convention-banner/ConventionBanner.tsx";
 
 export function ScheduleContent({ week_id, base_path }: ScheduleContentProps) {
   const permissions = usePermissions();
@@ -77,7 +79,9 @@ export function ScheduleContent({ week_id, base_path }: ScheduleContentProps) {
   return (
     <>
       <WeekNavigation week_id={week_id} />
-      <CircuitVisitBanner week_id={week_id} />
+      <CircuitVisitBanner event={circuit_visit_event} />
+      <CircuitAssemblyBanner week_id={week_id} />
+      <ConventionBanner week_id={week_id} />
 
       <IonList inset>
         <MultiColumnList<AssignmentRow>

@@ -25,7 +25,9 @@ export { useChairmanWeeks } from "./hooks/use-chairman-weeks.ts";
 export { useParticipantPublishers } from "./hooks/use-participant-publishers.ts";
 export type { ParticipantPublisher } from "./hooks/use-participant-publishers.ts";
 
-export { CircuitVisitBanner } from "./components/circuit-visit-banner/CircuitVisitBanner.tsx";
+export { CircuitVisitBanner } from "./components/schedule-content/components/event-banners/circuit-visit-banner/CircuitVisitBanner.tsx";
+export { CircuitAssemblyBanner } from "./components/schedule-content/components/event-banners/circuit-assembly-banner/CircuitAssemblyBanner.tsx";
+export { ConventionBanner } from "./components/schedule-content/components/event-banners/convention-banner/ConventionBanner.tsx";
 export { AddParticipantModal } from "./components/add-participant-modal/AddParticipantModal.tsx";
 export { ParticipantPublishersList } from "./components/participant-publishers-list/ParticipantPublishersList.tsx";
 
@@ -34,7 +36,10 @@ export { ClamOverseerContent } from "./components/clam-overseer-content/ClamOver
 export { ScheduleHeader } from "./components/schedule-header/ScheduleHeader.tsx";
 export { ScheduleContent } from "./components/schedule-content/ScheduleContent.tsx";
 export type { ScheduleContentProps, AssignmentRow } from "./components/schedule-content/types.ts";
-export { useCircuitVisitEvent } from "./components/schedule-content/hooks/use-circuit-visit-event.ts";
+export { useEventInWeek } from "./components/schedule-content/components/event-banners/hooks/use-event-in-week.ts";
+export { useCircuitVisitEvent } from "./components/schedule-content/components/event-banners/hooks/use-circuit-visit-event.ts";
+export { useCircuitAssemblyEvent } from "./components/schedule-content/components/event-banners/hooks/use-circuit-assembly-event.ts";
+export { useConventionEvent } from "./components/schedule-content/components/event-banners/hooks/use-convention-event.ts";
 export { useAssignmentRows } from "./components/schedule-content/hooks/use-assignment-rows.ts";
 export { AssignmentCard } from "./components/schedule-content/components/assignment-card/AssignmentCard.tsx";
 export { AssignmentDetailHeader } from "./components/assignment-detail-header/AssignmentDetailHeader.tsx";

@@ -1,13 +1,11 @@
 import { IonItem, IonLabel, IonList } from "@ionic/react";
-import { useCircuitVisitEvent } from "../schedule-content/hooks/use-circuit-visit-event.ts";
+import type { EventRow } from "@amodeo/proclaimer/feature/event";
 
 interface CircuitVisitBannerProps {
-  week_id: string;
+  event: EventRow | undefined;
 }
 
-export function CircuitVisitBanner({ week_id }: CircuitVisitBannerProps) {
-  const { event } = useCircuitVisitEvent(week_id);
-
+export function CircuitVisitBanner({ event }: CircuitVisitBannerProps) {
   if (!event) return null;
 
   return (
