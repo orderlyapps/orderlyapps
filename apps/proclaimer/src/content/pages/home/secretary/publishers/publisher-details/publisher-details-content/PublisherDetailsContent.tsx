@@ -6,6 +6,7 @@ import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { PublisherPublicSection } from "./components/publisher-public-section/PublisherPublicSection";
 import { PublisherLocalSection } from "./components/publisher-local-section/PublisherLocalSection";
+import { PublisherPioneerSection } from "@amodeo/proclaimer/feature/regular-pioneer";
 import { ArchivePublisherButton } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-details-content/components/archive-publisher-button/ArchivePublisherButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
@@ -56,6 +57,8 @@ export function PublisherDetailsContent({
         />
 
         <PublisherLocalSection publisher_id={publisher_id} read_only={read_only} />
+
+        <PublisherPioneerSection publisher_id={publisher_id} read_only={read_only} />
 
         <Space />
 

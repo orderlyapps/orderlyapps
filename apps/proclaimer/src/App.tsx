@@ -48,6 +48,7 @@ import BranchReportPage from "@proclaimer-routes/home/secretary/branch-report/Br
 import CoVisitInfoPage from "@proclaimer-routes/home/secretary/co-visit-info/CoVisitInfo";
 import MissingDetailsPage from "@proclaimer-routes/home/secretary/missing-details/MissingDetails";
 import ReactivatedPublishersPage from "@proclaimer-routes/home/secretary/reactivated-publishers/ReactivatedPublishers";
+import SecretaryPioneersPage from "@proclaimer-routes/home/secretary/pioneers/Pioneers";
 import CongregationAdminPage from "@proclaimer-routes/home/congregation-admin/CongregationAdmin";
 import AuthUsersPage from "@proclaimer-routes/home/congregation-admin/auth-users/AuthUsers";
 import SuperAdminPage from "@proclaimer-routes/home/super-admin/SuperAdmin";
@@ -189,6 +190,7 @@ function App() {
           exact
         />
         <Route path="/home/secretary/publisher-records" component={PublisherRecordsPage} exact />
+        <Route path="/home/secretary/pioneers" component={SecretaryPioneersPage} exact />
         <Route path="/home/secretary/groups" component={GroupsPage} exact />
         <Route path="/home/secretary/groups/:group_id" component={GroupDetailsPage} exact />
         <Route path="/home/secretary/missing-reports" component={MissingReportsPage} exact />

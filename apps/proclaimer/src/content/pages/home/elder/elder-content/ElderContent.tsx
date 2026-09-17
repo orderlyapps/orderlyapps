@@ -7,6 +7,7 @@ export function ElderContent() {
       <NavItem label="Reports" to="/home/elder/reports" />
       <NavItem label="Stats" to="/home/elder/stats" />
       <NavItem label="PDFs" to="/home/elder/pdfs" />
+      <NavItem label="Regular Pioneers" to="/home/secretary/pioneers" />
     </IonList>
   );
 }
