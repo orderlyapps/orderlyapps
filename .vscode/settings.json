@@ -30,5 +30,6 @@
   "explorer.excludeGitIgnore": true,
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Monokai",
-  "workbench.preferredLightColorTheme": "Solarized Light"
+  "workbench.preferredLightColorTheme": "Solarized Light",
+  "editor.minimap.enabled": false
 }
