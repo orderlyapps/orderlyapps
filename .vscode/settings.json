@@ -21,13 +21,13 @@
   },
   "js/ts.preferences.includePackageJsonAutoImports": "on",
   "files.exclude": {
+    "**/*dist": true,
     "**/node_modules": true
   },
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock,*"
   },
-  "explorer.excludeGitIgnore": true,
   "window.autoDetectColorScheme": true,
   "workbench.preferredDarkColorTheme": "Monokai",
   "workbench.preferredLightColorTheme": "Solarized Light",
