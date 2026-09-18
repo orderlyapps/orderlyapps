@@ -157,7 +157,23 @@ importers:
         version: 4.114.0
 
   apps/homepage:
+    dependencies:
+      react:
+        specifier: 'catalog:'
+        version: 19.2.8
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.8(react@19.2.8)
     devDependencies:
+      '@amodeo/config':
+        specifier: workspace:*
+        version: link:../../tools/config
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.17
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.2.3(@types/react@19.2.17)
       typescript:
         specifier: ~6.0.2
         version: 6.0.3
