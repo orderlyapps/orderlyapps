@@ -1,7 +1,7 @@
 import { IonItem, IonLabel } from "@ionic/react";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { ClamAssignmentDownload } from "../clam-assignment-download/ClamAssignmentDownload";
+import { ClamAssignmentShareButton } from "@amodeo/proclaimer/feature/midweek";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 type ClamAssignmentItemProps = {
@@ -38,7 +38,7 @@ export function ClamAssignmentItem({
           {getPublisherDisplayName(student)}
         </Body>
       </IonLabel>
-      <ClamAssignmentDownload
+      <ClamAssignmentShareButton
         data={{
           date: week_label,
           school,

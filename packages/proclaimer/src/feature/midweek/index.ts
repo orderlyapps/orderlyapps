@@ -83,3 +83,7 @@ export { DocXDownloadButton } from "./components/clam-chairman/clam-chairman-hea
 export { chairmansOutlineDocX } from "./components/clam-chairman/clam-chairman-header/docx/chairmans-outline-docx.ts";
 
 export { MidweekMeetingContent } from "./components/midweek-meeting-content/MidweekMeetingContent.tsx";
+
+export { ClamAssignmentPdf } from "./components/clam-assignment-pdf/ClamAssignmentPdf.tsx";
+export type { ClamAssignmentPdfData } from "./components/clam-assignment-pdf/ClamAssignmentPdf.tsx";
+export { ClamAssignmentShareButton } from "./components/clam-assignment-share-button/ClamAssignmentShareButton.tsx";
