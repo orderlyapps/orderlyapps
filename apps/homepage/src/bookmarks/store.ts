@@ -2,6 +2,8 @@ import type { Bookmark, BookmarkInput } from "./types.ts";
 
 const STORAGE_KEY = "homepage:bookmarks";
 
+const LOCAL_HOST = /^(?:(?:[\w-]+\.)*localhost\.?|127(?:\.\d{1,3}){3}|\[::1\]|::1)$/i;
+
 function read(): Bookmark[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -41,7 +43,7 @@ export function getBookmarks(): Bookmark[] {
 export function addBookmark(input: BookmarkInput): Bookmark | null {
   const url = normalizeUrl(input.url);
   if (!url) return null;
-  const name = input.name.trim() || hostnameFromUrl(url);
+  const name = input.name.trim() || hostFromUrl(url);
   const bookmark: Bookmark = {
     id: crypto.randomUUID(),
     name,
@@ -62,22 +64,35 @@ export function removeBookmark(id: string): void {
 export function normalizeUrl(raw: string): string | null {
   const trimmed = raw.trim();
   if (!trimmed) return null;
-  let candidate = trimmed;
-  if (!/^https?:\/\//i.test(candidate)) {
-    candidate = `https://${candidate}`;
-  }
+  const hasScheme = /^https?:\/\//i.test(trimmed);
   try {
-    const u = new URL(candidate);
-    if (!u.hostname.includes(".")) return null;
+    const u = new URL(hasScheme ? trimmed : `https://${trimmed}`);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+    if (!isValidHost(u.hostname)) return null;
+    if (!hasScheme && LOCAL_HOST.test(u.hostname)) {
+      return new URL(`http://${trimmed}`).toString();
+    }
     return u.toString();
   } catch {
     return null;
   }
 }
 
+function isValidHost(hostname: string): boolean {
+  return hostname === "localhost" || hostname.includes(".") || hostname.includes(":");
+}
+
 export function hostnameFromUrl(url: string): string {
   try {
     return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+export function hostFromUrl(url: string): string {
+  try {
+    return new URL(url).host.replace(/^www\./, "");
   } catch {
     return url;
   }

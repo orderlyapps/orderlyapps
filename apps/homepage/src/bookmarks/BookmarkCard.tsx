@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Bookmark } from "./types.ts";
-import { faviconUrl, hostnameFromUrl } from "./store.ts";
+import { faviconUrl, hostFromUrl } from "./store.ts";
 
 export function BookmarkCard({
   bookmark,
@@ -31,7 +31,7 @@ export function BookmarkCard({
         )}
         <span className="bookmark-meta">
           <span className="bookmark-name">{bookmark.name}</span>
-          <span className="bookmark-host">{hostnameFromUrl(bookmark.url)}</span>
+          <span className="bookmark-host">{hostFromUrl(bookmark.url)}</span>
         </span>
       </a>
       <button

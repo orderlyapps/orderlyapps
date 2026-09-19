@@ -7,6 +7,7 @@
     "dev": "vp dev --port 4220 --open",
     "build": "tsc && vp build",
     "lint": "vp lint",
+    "test": "vp test",
     "deploy": "tsc && vp build && wrangler pages deploy dist --project-name=orderly --branch=homepage && echo deployed HOMEPAGE",
     "preview": "vp preview"
   },
