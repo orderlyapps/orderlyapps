@@ -1,5 +1,9 @@
-import { supabase } from "@util/vendor/supabase/supabase-client";
-import type { SignalingChannel, SignalingChannelOptions, SignalMessage } from "./signaling-types";
+import { getSupabase } from "@amodeo/proclaimer/database/supabase/context";
+import type {
+  SignalingChannel,
+  SignalingChannelOptions,
+  SignalMessage,
+} from "./signaling-types.ts";
 
 function channelName(session_id: string): string {
   return `share-session:${session_id}`;
@@ -7,6 +11,7 @@ function channelName(session_id: string): string {
 
 export function createSignalingChannel(options: SignalingChannelOptions): SignalingChannel {
   const { session_id, device_id, onMessage, onSubscribed, onError } = options;
+  const supabase = getSupabase();
   let subscribed = false;
 
   const channel = supabase.channel(channelName(session_id), {

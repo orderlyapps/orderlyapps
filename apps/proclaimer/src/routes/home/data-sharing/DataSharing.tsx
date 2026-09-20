@@ -1,12 +1,24 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { DataSharingHeader } from "@proclaimer-content/pages/home/data-sharing/data-sharing-header/DataSharingHeader";
-import { DataSharingContent } from "@proclaimer-content/pages/home/data-sharing/data-sharing-content/DataSharingContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { DataSharingContent } from "@amodeo/proclaimer/feature/publisher-local";
 
 function DataSharingPage() {
   return (
     <IonPage>
       <IonHeader>
-        <DataSharingHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home" />
+          </IonButtons>
+          <IonTitle>Data Sharing</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
         <DataSharingContent />

@@ -17,8 +17,8 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
-import type { PublisherLocal } from "@amodeo/proclaimer/feature/publisher-local";
 import {
+  createPublisherLocalExporter,
   generateExportFilename,
   type OptionalPublisherExportField,
 } from "@amodeo/proclaimer/database/rxdb/helper/publisherLocalExportImport";
@@ -68,27 +68,8 @@ export function ExportModal({ is_open, onClose }: Props) {
     set_error(null);
     set_exported_count(null);
     try {
-      const docs = await rxdb.publisher.find().exec();
-      const data = docs.map((doc) => {
-        const full = doc.toJSON() as PublisherLocal;
-        const filtered: Record<string, unknown> = {
-          publisher_id: full.publisher_id,
-          confidential_id: full.confidential_id,
-          version: full.version,
-        };
-        for (const field of EXPORT_FIELDS) {
-          if (selected.has(field.key)) {
-            const value = full[field.key];
-            if (value !== undefined) {
-              filtered[field.key] = value;
-            }
-          }
-        }
-        return filtered;
-      });
-
-      const json = JSON.stringify(data, null, 2);
-      const blob = new Blob([json], { type: "application/json" });
+      const exporter = createPublisherLocalExporter([...selected]);
+      const blob = await exporter();
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -97,7 +78,7 @@ export function ExportModal({ is_open, onClose }: Props) {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      set_exported_count(data.length);
+      set_exported_count(await rxdb.publisher.count().exec());
     } catch (err) {
       const message = err instanceof Error ? err.message : "Export failed";
       set_error(message);

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { createPeerConnection } from "@util/vendor/webrtc/peer-connection";
-import { onDataChannelMessage } from "@util/vendor/webrtc/data-channel";
-import type { SharePayload } from "@util/vendor/webrtc/share-payload";
+import { createPeerConnection } from "../../../../webrtc/peer-connection.ts";
+import { onDataChannelMessage } from "../../../../webrtc/data-channel.ts";
+import type { SharePayload } from "../../../../webrtc/share-payload.ts";
 
 const CONNECTION_TIMEOUT_MS = 30000;
 

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { SendModal } from "./components/send-modal/SendModal";
-import { ReceiveModal } from "./components/receive-modal/ReceiveModal";
-import { ExportModal } from "./components/export-modal/ExportModal";
-import { ImportModal } from "./components/import-modal/ImportModal";
+import { SendModal } from "./components/send-modal/send-modal.tsx";
+import { ReceiveModal } from "./components/receive-modal/receive-modal.tsx";
+import { ExportModal } from "./components/export-modal/export-modal.tsx";
+import { ImportModal } from "./components/import-modal/import-modal.tsx";
 
 export function DataSharingContent() {
   const [send_open, setSendOpen] = useState(false);

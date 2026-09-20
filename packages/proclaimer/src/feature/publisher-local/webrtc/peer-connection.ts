@@ -1,5 +1,5 @@
-import { createSignalingChannel } from "./signaling-channel";
-import type { SignalingChannel, SignalMessage } from "./signaling-types";
+import { createSignalingChannel } from "./signaling-channel.ts";
+import type { SignalingChannel, SignalMessage } from "./signaling-types.ts";
 
 export interface PeerConnectionOptions {
   session_id: string;

@@ -15,7 +15,7 @@ import {
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { useReceiveSession } from "./useReceiveSession";
+import { useReceiveSession } from "./use-receive-session.ts";
 
 interface Props {
   is_open: boolean;

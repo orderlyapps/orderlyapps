@@ -22,4 +22,6 @@ export { AddressList } from "./components/publisher-local-details/components/add
 export { EmergencyContactList } from "./components/publisher-local-details/components/emergency-contact-list/emergency-contact-list.tsx";
 export { PublisherDates } from "./components/publisher-local-details/components/publisher-dates/publisher-dates.tsx";
 export { DownloadContactsPdfButton } from "./components/download-contacts-pdf-button/download-contacts-pdf-button.tsx";
+export { DataSharingContent } from "./components/data-sharing/data-sharing-content.tsx";
+export { ImportPublisherDataButton } from "./components/import-publisher-data-button/import-publisher-data-button.tsx";
 export { usePublisherPhoneLookup } from "./hooks/use-publisher-phone.ts";

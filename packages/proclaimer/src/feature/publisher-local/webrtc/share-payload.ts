@@ -1,4 +1,4 @@
-import type { PublisherLocal } from "@amodeo/proclaimer/feature/publisher-local";
+import type { PublisherLocal } from "../schemas/publisher-local.ts";
 
 export type SharePayload =
   | {

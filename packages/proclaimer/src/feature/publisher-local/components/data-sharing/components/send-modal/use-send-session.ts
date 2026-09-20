@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { createPeerConnection } from "@util/vendor/webrtc/peer-connection";
-import { sendOverDataChannel, waitForDataChannelOpen } from "@util/vendor/webrtc/data-channel";
+import { createPeerConnection } from "../../../../webrtc/peer-connection.ts";
+import { sendOverDataChannel, waitForDataChannelOpen } from "../../../../webrtc/data-channel.ts";
 import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
 import type { PublisherLocal } from "@amodeo/proclaimer/feature/publisher-local";
-import type { SharePayload } from "@util/vendor/webrtc/share-payload";
+import type { SharePayload } from "../../../../webrtc/share-payload.ts";
 
 const SESSION_TIMEOUT_SECONDS = 120;
 
