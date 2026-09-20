@@ -10,6 +10,7 @@ import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapTagAssignmentRow } from "@amodeo/proclaimer/feature/territory";
 import type { MinistryMapFilters, MinistryMapSortOrder } from "../hooks/types";
+import { normalizeMapSearchText } from "../utils/mapSearch";
 
 type MapWithBoundary = MapRow & { boundary: number[][] };
 
@@ -76,13 +77,13 @@ export function MapList({
     if (!filter.untagged_only && filter.tag_ids.length > 0 && !tag_map_ids.has(map.id!)) {
       return false;
     }
-    if (search_query) {
-      const q = search_query.toLowerCase();
+    const q = normalizeMapSearchText(search_query);
+    if (q) {
       const checked_out_name = checked_out_name_by_map_id.get(map.id ?? "") ?? "";
       if (
-        !map.name.toLowerCase().includes(q) &&
-        !(map.details ?? "").toLowerCase().includes(q) &&
-        !checked_out_name.toLowerCase().includes(q)
+        !normalizeMapSearchText(map.name).includes(q) &&
+        !normalizeMapSearchText(map.details ?? "").includes(q) &&
+        !normalizeMapSearchText(checked_out_name).includes(q)
       ) {
         return false;
       }

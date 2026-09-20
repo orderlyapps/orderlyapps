@@ -19,6 +19,7 @@ import { RecentMapsList } from "./components/RecentMapsList";
 import { MapImagePreview } from "./components/map-image-preview/MapImagePreview";
 import { MapFilterModal } from "./components/map-filter-modal/MapFilterModal";
 import { useRecentMaps } from "./hooks/useRecentMaps";
+import { normalizeMapSearchText } from "./utils/mapSearch";
 import { useMinistryMapPresets } from "./hooks/useMinistryMapPresets";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
@@ -74,7 +75,7 @@ export function MapModal({ is_open, on_dismiss, onMapSelect }: MapModalProps) {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-          {search_query.trim() === "" && (
+          {normalizeMapSearchText(search_query) === "" && (
             <>
               <MyMapsList onMapSelect={handleMapSelect} onPreviewImage={set_preview_url} />
 
