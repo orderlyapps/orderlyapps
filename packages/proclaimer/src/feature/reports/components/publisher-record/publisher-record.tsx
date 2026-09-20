@@ -61,6 +61,7 @@ export function PublisherRecordContent({ publisher_id }: { publisher_id: string 
         publisher_name={publisher_name}
         group_id={group_id}
         reports={reports}
+        is_loading={isLoading}
         on_dismiss={() => set_selected_date(null)}
       />
     </>

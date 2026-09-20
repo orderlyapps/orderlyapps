@@ -1,8 +1,11 @@
 import { useState } from "react";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { ReportItem, PublisherReportModal } from "@amodeo/proclaimer/feature/reports";
-import { usePublisherReport } from "../../hooks/usePublisherReport";
+import {
+  ReportItem,
+  PublisherReportModal,
+  usePublisherReports,
+} from "@amodeo/proclaimer/feature/reports";
 
 interface PublisherReportItemProps {
   publisher: Publisher;
@@ -11,7 +14,8 @@ interface PublisherReportItemProps {
 
 export function PublisherReportItem({ publisher, date }: PublisherReportItemProps) {
   const [is_open, set_is_open] = useState(false);
-  const { confidential_id, report } = usePublisherReport(publisher.id, date);
+  const { confidential_id, reports, isLoading } = usePublisherReports(publisher.id);
+  const report = reports.find((r) => r.date.slice(0, 7) === date.slice(0, 7));
   const publisher_name = getPublisherDisplayName(publisher, "last_first");
 
   return (
@@ -37,7 +41,8 @@ export function PublisherReportItem({ publisher, date }: PublisherReportItemProp
           confidential_id={confidential_id}
           group_id={publisher.group_id ?? null}
           date={date}
-          existing_report={report}
+          reports={reports}
+          is_loading={isLoading}
         />
       )}
     </>

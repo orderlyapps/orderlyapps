@@ -4,7 +4,6 @@ import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { reportCollection } from "../../../../../../collections/report.ts";
 import type { Report } from "../../../../../../schemas/report.ts";
-import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { NumberInput } from "@amodeo/proclaimer/ui/components/inputs/number/NumberInput";
@@ -39,6 +38,7 @@ interface ReportFormProps {
   group_id: string | null;
   date: string;
   existing_report: Report | undefined;
+  is_loading: boolean;
   on_save: () => void;
 }
 
@@ -47,6 +47,7 @@ export function ReportForm({
   group_id,
   date,
   existing_report,
+  is_loading,
   on_save,
 }: ReportFormProps) {
   const [form, set_form] = useState<FormState>(default_form);
@@ -66,10 +67,16 @@ export function ReportForm({
     set_initialized(true);
   }
 
+  const editForm = (updater: (prev: FormState) => FormState) => {
+    set_initialized(true);
+    set_form(updater);
+  };
+
   const updateField = <K extends keyof FormState>(field: K, value: FormState[K]) =>
-    set_form((prev) => ({ ...prev, [field]: value }));
+    editForm((prev) => ({ ...prev, [field]: value }));
 
   const handleSave = () => {
+    if (is_loading) return;
     const congregation_id = getStoredCongregation()?.id;
     if (!congregation_id) return;
 
@@ -87,17 +94,20 @@ export function ReportForm({
     };
 
     if (existing_report) {
-      reportCollection.update(makeCompositeKey(confidential_id, congregation_id, date), (draft) => {
-        draft.active = payload.active;
-        draft.aux_pio = payload.aux_pio;
-        draft.hours = payload.hours;
-        draft.bible_studies = payload.bible_studies;
-        draft.credit_hours = payload.credit_hours;
-        draft.comments = payload.comments;
-        if (draft.group_id == null && group_id != null) {
-          draft.group_id = group_id;
-        }
-      });
+      reportCollection.update(
+        makeCompositeKey(confidential_id, existing_report.congregation_id, existing_report.date),
+        (draft) => {
+          draft.active = payload.active;
+          draft.aux_pio = payload.aux_pio;
+          draft.hours = payload.hours;
+          draft.bible_studies = payload.bible_studies;
+          draft.credit_hours = payload.credit_hours;
+          draft.comments = payload.comments;
+          if (draft.group_id == null && group_id != null) {
+            draft.group_id = group_id;
+          }
+        },
+      );
     } else {
       reportCollection.insert(payload);
     }
@@ -105,24 +115,14 @@ export function ReportForm({
     on_save();
   };
 
-  const month_label = new Date(date + "T00:00:00").toLocaleDateString(undefined, {
-    month: "long",
-    year: "numeric",
-  });
-
   return (
     <>
-      <IonItem lines="none">
-        <Heading size="lg" bold color="medium">
-          {month_label}
-        </Heading>
-      </IonItem>
-
       <ToggleInput
         label="Participated"
         checked={form.active}
+        disabled={is_loading}
         on_change={(checked) => {
-          set_form((prev) => ({
+          editForm((prev) => ({
             ...prev,
             active: checked,
             aux_pio: checked ? prev.aux_pio : false,
@@ -136,7 +136,7 @@ export function ReportForm({
       <ToggleInput
         label="Auxiliary Pioneer"
         checked={form.aux_pio}
-        disabled={!form.active}
+        disabled={is_loading || !form.active}
         on_change={(checked) => updateField("aux_pio", checked)}
       />
 
@@ -144,20 +144,21 @@ export function ReportForm({
         label="Hours"
         value={form.hours}
         placeholder="optional"
-        disabled={!form.active}
+        disabled={is_loading || !form.active}
         on_change={(val) => updateField("hours", val)}
       />
 
       <NumberInput
         label="Bible Studies"
         value={form.bible_studies}
-        disabled={!form.active}
+        disabled={is_loading || !form.active}
         on_change={(val) => updateField("bible_studies", val)}
       />
 
       <TextareaInput
         label="Comments"
         value={form.comments}
+        disabled={is_loading}
         on_change={(val) => updateField("comments", val)}
       />
 
@@ -168,9 +169,9 @@ export function ReportForm({
             <NumberInput
               label={`${key.toUpperCase()} Hours`}
               value={String(val)}
-              disabled={!form.active}
+              disabled={is_loading || !form.active}
               on_change={(input_val) => {
-                set_form((prev) => {
+                editForm((prev) => {
                   const next = { ...prev.credit_hours };
                   if (input_val !== "") {
                     next[credit_key] = Number(input_val);
@@ -186,12 +187,12 @@ export function ReportForm({
               <div slot="end">
                 <TextButton
                   size="small"
-                  disabled={!form.active}
+                  disabled={is_loading || !form.active}
                   label="Remove Credit"
                   fill="clear"
                   color="danger"
                   on_click={() => {
-                    set_form((prev) => {
+                    editForm((prev) => {
                       const next = { ...prev.credit_hours };
                       delete next[credit_key];
                       return { ...prev, credit_hours: next };
@@ -210,17 +211,21 @@ export function ReportForm({
         on_click={() => set_show_credits_modal(true)}
         label="+ Hour Credits"
         fill="clear"
-        disabled={!form.active}
+        disabled={is_loading || !form.active}
       />
 
       <Space />
 
-      <TextButton on_click={handleSave} label={existing_report ? "Update Report" : "Save Report"} />
+      <TextButton
+        on_click={handleSave}
+        disabled={is_loading}
+        label={existing_report ? "Update Report" : "Save Report"}
+      />
 
       <HourCreditsModal
         is_open={show_credits_modal}
         on_dismiss={() => set_show_credits_modal(false)}
-        on_save={(credits: CreditHours) => set_form((prev) => ({ ...prev, credit_hours: credits }))}
+        on_save={(credits: CreditHours) => editForm((prev) => ({ ...prev, credit_hours: credits }))}
         initial_values={form.credit_hours}
       />
     </>

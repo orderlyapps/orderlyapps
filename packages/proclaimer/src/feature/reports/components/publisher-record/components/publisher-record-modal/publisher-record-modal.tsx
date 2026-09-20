@@ -7,6 +7,7 @@ interface PublisherRecordModalWrapperProps {
   publisher_name: string;
   group_id: string | null;
   reports: Report[] | undefined;
+  is_loading: boolean;
   on_dismiss: () => void;
 }
 
@@ -16,11 +17,10 @@ export function PublisherRecordModalWrapper({
   publisher_name,
   group_id,
   reports,
+  is_loading,
   on_dismiss,
 }: PublisherRecordModalWrapperProps) {
   if (!selected_date || !confidential_id) return null;
-
-  const existing_report = reports?.find((r) => r.date === selected_date);
 
   return (
     <PublisherReportModal
@@ -30,7 +30,8 @@ export function PublisherRecordModalWrapper({
       confidential_id={confidential_id}
       group_id={group_id}
       date={selected_date}
-      existing_report={existing_report as Report | undefined}
+      reports={reports ?? []}
+      is_loading={is_loading}
     />
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId } from "react";
 import {
   IonButton,
   IonCol,
@@ -27,7 +27,7 @@ function currentMonthStr(): string {
 }
 
 export function MonthNavigation({ month, on_change }: MonthNavigationProps) {
-  const [popoverOpen, setPopoverOpen] = useState(false);
+  const triggerId = `month-popover-trigger-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
   const currentDate = parseISO(`${month}-01T00:00:00`);
   const monthLabel = format(currentDate, "MMMM yyyy");
   const now = new Date();
@@ -48,28 +48,18 @@ export function MonthNavigation({ month, on_change }: MonthNavigationProps) {
               <IonIcon icon={chevronBackOutline} slot="icon-only" size="large" />
             </IonButton>
           </IonCol>
-          <IonCol
-            id="month-popover-trigger"
-            className="ion-text-center ion-align-self-center"
-            onClick={() => setPopoverOpen(true)}
-          >
+          <IonCol id={triggerId} className="ion-text-center ion-align-self-center">
             <Body color="primary" size="sm" bold>
               {monthLabel}
             </Body>
           </IonCol>
-          <IonPopover
-            id="month-nav"
-            trigger="month-popover-trigger"
-            isOpen={popoverOpen}
-            onDidDismiss={() => setPopoverOpen(false)}
-          >
+          <IonPopover trigger={triggerId} dismissOnSelect>
             <IonList>
               {monthOptions.map((opt) => (
                 <IonItem
                   key={opt.monthId}
                   lines="none"
                   onClick={() => {
-                    setPopoverOpen(false);
                     if (!opt.is_selected) on_change(opt.monthId);
                   }}
                 >
