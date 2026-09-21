@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CongregationBibleStudyHeader } from "@proclaimer-content/pages/home/congregation-bible-study/congregation-bible-study-header/CongregationBibleStudyHeader";
-import { CongregationBibleStudyContent } from "@proclaimer-content/pages/home/congregation-bible-study/congregation-bible-study-content/CongregationBibleStudyContent";
+import { CongregationBibleStudyHeader } from "@amodeo/proclaimer/feature/timers";
+import { CongregationBibleStudyContent } from "@amodeo/proclaimer/feature/timers";
 
 function CongregationBibleStudyPage() {
   const [show_settings, setShowSettings] = useState(false);

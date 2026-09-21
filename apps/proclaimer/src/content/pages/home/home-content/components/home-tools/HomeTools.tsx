@@ -4,7 +4,7 @@ import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/Na
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { useChairmanWeeks } from "@amodeo/proclaimer/feature/midweek";
-import { useIsCbsConductor } from "@proclaimer-content/pages/home/congregation-bible-study/useIsCbsConductor";
+import { useIsCbsConductor } from "@amodeo/proclaimer/feature/timers";
 import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { WatchtowerHeader } from "@proclaimer-content/pages/home/watchtower/watchtower-header/WatchtowerHeader";
-import { WatchtowerContent } from "@proclaimer-content/pages/home/watchtower/watchtower-content/WatchtowerContent";
+import { WatchtowerHeader, WatchtowerContent } from "@amodeo/proclaimer/feature/timers";
 
 function WatchtowerToolPage() {
   const [show_settings, setShowSettings] = useState(false);
