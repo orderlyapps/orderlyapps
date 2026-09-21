@@ -70,13 +70,11 @@ import EventsPermissionsPage from "@proclaimer-routes/home/congregation-admin/pe
 import WatchtowerPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/watchtower/Watchtower";
 import MeetingAttendancePermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/meeting-attendance/MeetingAttendance";
 import ElderPage from "@proclaimer-routes/home/elder/Elder";
-import ElderStatsPageNew from "@proclaimer-routes/home/elder/stats/Stats";
 import ContactsListPage from "@proclaimer-routes/home/elder/contacts-list/ContactsList";
 import PdfsPage from "@proclaimer-routes/home/elder/pdfs/Pdfs";
 import GroupsPdfPage from "@proclaimer-routes/home/elder/pdfs/groups/Groups";
 import ElderSpeakerSchedulePage from "@proclaimer-routes/home/elder/pdfs/speaker-schedule/SpeakerSchedule";
 import ElderReportsPage from "@proclaimer-routes/home/elder/reports/Reports";
-import ElderStatsPage from "@proclaimer-routes/home/elder/reports/stats/Stats";
 import ElderPublishersPage from "@proclaimer-routes/home/elder/reports/publishers/Publishers";
 import ElderPublisherDetailPage from "@proclaimer-routes/home/elder/reports/publishers/publisher-detail/PublisherDetail";
 import AudioVideoPage from "@proclaimer-routes/home/elder/audio-video/AudioVideo";
@@ -302,14 +300,12 @@ function App() {
         <Route path="/home/elder/cleaning-schedule" component={CleaningSchedulePage} exact />
         <Route path="/home/elder/audio-video" component={AudioVideoPage} exact />
         <Route path="/home/elder/reports" component={ElderReportsPage} exact />
-        <Route path="/home/elder/reports/stats" component={ElderStatsPage} exact />
         <Route path="/home/elder/reports/publishers" component={ElderPublishersPage} exact />
         <Route
           path="/home/elder/reports/publishers/:publisher_id"
           component={ElderPublisherDetailPage}
           exact
         />
-        <Route path="/home/elder/stats" component={ElderStatsPageNew} exact />
         <Route path="/home/elder/clam" component={ElderClamPage} exact />
         <Route path="/home/clam-overseer" component={ClamOverseerPage} exact />
         <Route path="/home/clam-chairman/:week_id?" component={ClamChairmanPage} exact />

@@ -4,7 +4,6 @@ import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/Na
 export function ReportsContent() {
   return (
     <IonList>
-      <NavItem label="Stats" to="/home/elder/reports/stats" />
       <NavItem label="Publishers" to="/home/elder/reports/publishers" />
     </IonList>
   );
