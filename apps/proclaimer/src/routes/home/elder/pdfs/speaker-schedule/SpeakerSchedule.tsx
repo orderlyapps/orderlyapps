@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { SpeakerScheduleHeader } from "@proclaimer-content/pages/home/elder/pdfs/speaker-schedule/speaker-schedule-header/SpeakerScheduleHeader";
-import { SpeakerScheduleContent } from "@proclaimer-content/pages/home/elder/pdfs/speaker-schedule/speaker-schedule-content/SpeakerScheduleContent";
+import { SpeakerScheduleHeader, SpeakerScheduleContent } from "@amodeo/proclaimer/feature/speaker";
 
 function SpeakerSchedulePage() {
   return (

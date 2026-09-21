@@ -1,20 +1,18 @@
 import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
-import {
-  groupCollection,
-  GroupsPdf,
-  PdfActionSheet,
-  type Group,
-  type PdfFilterType,
-} from "@amodeo/proclaimer/feature/group";
+import { groupCollection } from "../../collections/group.ts";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { GroupsPdf } from "../groups-pdf/GroupsPdf.tsx";
+import type { PdfFilterType } from "../pdf-action-sheet/PdfActionSheet.tsx";
+import type { Group } from "../../schemas/group.ts";
 
-export function DownloadPdfButton() {
-  const [is_modal_open, set_is_modal_open] = useState(false);
+export function GroupsContent() {
   const [is_generating, set_is_generating] = useState(false);
+
   const congregation = getStoredCongregation();
   const congregation_id = congregation?.id;
 
@@ -34,12 +32,11 @@ export function DownloadPdfButton() {
   ) as Publisher[];
 
   if (groups.length === 0) {
-    return null;
+    return <p style={{ color: "var(--ion-color-medium)" }}>No groups available.</p>;
   }
 
   const handle_download = async (filter_type: PdfFilterType) => {
     set_is_generating(true);
-    set_is_modal_open(false);
 
     const file_name = congregation?.name
       ? `${congregation.name.replace(/\s+/g, "_")}_Groups_${filter_type}.pdf`
@@ -68,16 +65,20 @@ export function DownloadPdfButton() {
 
   return (
     <>
-      <PDFIconButton
-        fill="clear"
+      <TextButton
+        expand="block"
         disabled={is_generating}
-        on_click={() => set_is_modal_open(true)}
+        on_click={() => handle_download("default")}
+        label={is_generating ? "Generating..." : "Notice Board List"}
       />
 
-      <PdfActionSheet
-        is_open={is_modal_open}
-        on_select={handle_download}
-        on_dismiss={() => set_is_modal_open(false)}
+      <Space />
+
+      <TextButton
+        expand="block"
+        disabled={is_generating}
+        on_click={() => handle_download("confidential")}
+        label={is_generating ? "Generating..." : "Confidential List"}
       />
     </>
   );

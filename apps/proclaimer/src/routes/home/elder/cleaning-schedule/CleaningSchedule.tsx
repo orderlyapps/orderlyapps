@@ -1,6 +1,8 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CleaningScheduleHeader } from "@proclaimer-content/pages/home/elder/pdfs/cleaning-schedule/cleaning-schedule-header/CleaningScheduleHeader";
-import { CleaningScheduleContent } from "@proclaimer-content/pages/home/elder/pdfs/cleaning-schedule/cleaning-schedule-content/CleaningScheduleContent";
+import {
+  CleaningScheduleHeader,
+  CleaningScheduleContent,
+} from "@amodeo/proclaimer/feature/cleaning";
 
 function CleaningSchedulePage() {
   return (

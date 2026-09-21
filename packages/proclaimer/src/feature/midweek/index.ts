@@ -87,3 +87,10 @@ export { MidweekMeetingContent } from "./components/midweek-meeting-content/Midw
 export { ClamAssignmentPdf } from "./components/clam-assignment-pdf/ClamAssignmentPdf.tsx";
 export type { ClamAssignmentPdfData } from "./components/clam-assignment-pdf/ClamAssignmentPdf.tsx";
 export { ClamAssignmentShareButton } from "./components/clam-assignment-share-button/ClamAssignmentShareButton.tsx";
+
+export { ClamHeader } from "./components/clam-header/ClamHeader.tsx";
+export { MidweekSchedulePdfDocument } from "./components/midweek-schedule-pdf/MidweekSchedulePdfDocument.tsx";
+export { SchedulePdfHeader } from "./components/schedule-pdf-header/SchedulePdfHeader.tsx";
+export { useMidweekScheduleData } from "./hooks/use-midweek-schedule-data.ts";
+export type { WeekScheduleData } from "./hooks/use-midweek-schedule-data.ts";
+export { formatName } from "./utils/format-name.ts";

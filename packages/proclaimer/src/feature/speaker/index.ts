@@ -13,3 +13,11 @@ export { speakerOutlineSchema } from "./schemas/speaker-outline.ts";
 export type { SpeakerOutline } from "./schemas/speaker-outline.ts";
 export { speakerPermissionSchema } from "./schemas/speaker-permission.ts";
 export type { SpeakerPermission } from "./schemas/speaker-permission.ts";
+
+export { SpeakerScheduleHeader } from "./components/speaker-schedule-header/SpeakerScheduleHeader.tsx";
+export { SpeakerScheduleContent } from "./components/speaker-schedule-content/SpeakerScheduleContent.tsx";
+export { PdfHeader } from "./components/pdf-header/PdfHeader.tsx";
+export { PdfContent } from "./components/pdf-content/PdfContent.tsx";
+export { SpeakerSchedulePdf } from "./components/pdf-content/components/speaker-schedule-pdf/SpeakerSchedulePdf.tsx";
+export { useSpeakerScheduleData } from "./hooks/use-speaker-schedule-data.ts";
+export type { SpeakerWeekData, OutgoingSpeaker } from "./hooks/use-speaker-schedule-data.ts";

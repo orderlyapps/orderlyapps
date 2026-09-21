@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AudioVideoHeader } from "@proclaimer-content/pages/home/elder/pdfs/audio-video/audio-video-header/AudioVideoHeader";
-import { AudioVideoContent } from "@proclaimer-content/pages/home/elder/pdfs/audio-video/audio-video-content/AudioVideoContent";
+import { AudioVideoHeader } from "@amodeo/proclaimer/feature/av";
+import { AudioVideoContent } from "@proclaimer-content/pages/home/elder/audio-video/audio-video-content/AudioVideoContent";
 
 function AudioVideoPage() {
   return (

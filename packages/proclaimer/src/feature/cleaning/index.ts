@@ -16,3 +16,9 @@ export type {
 export { CleaningScheduleList } from "./components/cleaning-schedule-list/CleaningScheduleList.tsx";
 export { CleaningList } from "./components/cleaning-list/CleaningList.tsx";
 export type { CleaningEntry, WeekGroup, MonthGroup } from "./utils/groupCleaningByMonth.ts";
+
+export { CleaningScheduleHeader } from "./components/cleaning-schedule-header/CleaningScheduleHeader.tsx";
+export { CleaningScheduleContent } from "./components/cleaning-schedule-content/CleaningScheduleContent.tsx";
+export { CleaningSchedulePdfDocument } from "./components/cleaning-schedule-content/components/cleaning-schedule-pdf/CleaningSchedulePdfDocument.tsx";
+export { useCleaningScheduleData } from "./hooks/use-cleaning-schedule-data.ts";
+export type { CleaningWeekData } from "./hooks/use-cleaning-schedule-data.ts";

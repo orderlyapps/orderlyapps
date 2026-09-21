@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PdfHeader } from "@proclaimer-content/pages/home/speaker/pdf/pdf-header/PdfHeader";
-import { PdfContent } from "@proclaimer-content/pages/home/speaker/pdf/pdf-content/PdfContent";
+import { PdfHeader, PdfContent } from "@amodeo/proclaimer/feature/speaker";
 
 function SpeakerPdfPage() {
   return (

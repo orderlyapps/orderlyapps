@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { GroupsHeader } from "@proclaimer-content/pages/home/elder/pdfs/groups/groups-header/GroupsHeader";
-import { GroupsContent } from "@proclaimer-content/pages/home/elder/pdfs/groups/groups-content/GroupsContent";
+import { GroupsHeader, GroupsContent } from "@amodeo/proclaimer/feature/group";
 
 function GroupsPage() {
   return (

@@ -1,15 +1,35 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PdfsHeader } from "@proclaimer-content/pages/home/elder/pdfs/pdfs-header/PdfsHeader";
-import { PdfsContent } from "@proclaimer-content/pages/home/elder/pdfs/pdfs-content/PdfsContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+  IonList,
+} from "@ionic/react";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 
 function PdfsPage() {
   return (
     <IonPage>
       <IonHeader>
-        <PdfsHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/elder" />
+          </IonButtons>
+          <IonTitle>PDFs</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <PdfsContent />
+        <IonList>
+          <NavItem label="Contacts List" to="/home/elder/contacts-list" />
+          <NavItem label="Groups" to="/home/elder/pdfs/groups" />
+          <NavItem label="Midweek Meeting" to="/home/elder/clam" />
+          <NavItem label="Weekend Meeting" to="/home/elder/pdfs/speaker-schedule" />
+          <NavItem label="Audio Video" to="/home/elder/audio-video" />
+          <NavItem label="Cleaning" to="/home/elder/cleaning-schedule" />
+        </IonList>
       </IonContent>
     </IonPage>
   );

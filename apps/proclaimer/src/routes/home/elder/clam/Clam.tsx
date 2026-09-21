@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ClamHeader } from "@proclaimer-content/pages/home/elder/pdfs/clam/clam-header/ClamHeader";
-import { ClamContent } from "@proclaimer-content/pages/home/elder/pdfs/clam/clam-content/ClamContent";
+import { ClamHeader } from "@amodeo/proclaimer/feature/midweek";
+import { ClamContent } from "@proclaimer-content/pages/home/elder/clam/clam-content/ClamContent";
 
 function ClamPage() {
   return (
