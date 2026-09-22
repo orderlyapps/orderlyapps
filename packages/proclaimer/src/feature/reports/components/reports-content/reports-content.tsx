@@ -3,12 +3,12 @@ import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
-import { getPreviousMonthDate } from "@util/format/report-date";
+import { getPreviousMonthDate } from "../../utils/report-date.ts";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
-import { usePermissionedPublishers } from "./hooks/usePermissionedPublishers";
-import { useReportedPublisherIds } from "./hooks/useReportedPublisherIds";
+import { usePermissionedPublishers } from "./hooks/use-permissioned-publishers.ts";
+import { useReportedPublisherIds } from "./hooks/use-reported-publisher-ids.ts";
 import { useCongregationGroups } from "@amodeo/proclaimer/feature/congregation";
-import { PublisherReportItem } from "./components/publisher-report-item/PublisherReportItem";
+import { PublisherReportItem } from "../publisher-report-item/publisher-report-item.tsx";
 
 export function ReportsContent() {
   const { publishers, has_access, isLoading } = usePermissionedPublishers();

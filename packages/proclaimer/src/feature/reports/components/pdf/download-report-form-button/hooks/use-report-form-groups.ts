@@ -1,5 +1,5 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
-import { reportPermissionCollection } from "@amodeo/proclaimer/feature/reports";
+import { reportPermissionCollection } from "../../../../collections/report-permission.ts";
 import { groupCollection } from "@amodeo/proclaimer/feature/group";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { usePermissions, useAuthSession } from "@amodeo/proclaimer/feature/permission";

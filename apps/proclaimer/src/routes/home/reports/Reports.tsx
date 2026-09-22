@@ -1,12 +1,27 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ReportsHeader } from "@proclaimer-content/pages/home/reports/reports-header/ReportsHeader";
-import { ReportsContent } from "@proclaimer-content/pages/home/reports/reports-content/ReportsContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { DownloadReportFormButton, ReportsContent } from "@amodeo/proclaimer/feature/reports";
 
 function ReportsPage() {
   return (
     <IonPage>
       <IonHeader>
-        <ReportsHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home" />
+          </IonButtons>
+          <IonTitle>Reports</IonTitle>
+          <IonButtons slot="end">
+            <DownloadReportFormButton />
+          </IonButtons>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
         <ReportsContent />

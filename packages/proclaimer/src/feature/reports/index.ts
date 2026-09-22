@@ -21,3 +21,6 @@ export type {
   ServiceYearReportData,
 } from "./components/pdf/publisher-report-page/types.ts";
 export { buildServiceYearReports, reportsToMap } from "./components/pdf/utils/service-year.ts";
+export { DownloadReportFormButton } from "./components/pdf/download-report-form-button/download-report-form-button.tsx";
+export { ReportsContent } from "./components/reports-content/reports-content.tsx";
+export { getPreviousMonthDate, getPreviousMonthValue } from "./utils/report-date.ts";

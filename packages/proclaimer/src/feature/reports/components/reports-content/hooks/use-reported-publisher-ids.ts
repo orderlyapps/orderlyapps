@@ -1,6 +1,6 @@
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
-import { reportCollection } from "@amodeo/proclaimer/feature/reports";
+import { reportCollection } from "../../../collections/report.ts";
 
 export function useReportedPublisherIds(date: string): {
   reported_publisher_ids: Set<string>;

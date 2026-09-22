@@ -1,11 +1,9 @@
 import { useState } from "react";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import {
-  ReportItem,
-  PublisherReportModal,
-  usePublisherReports,
-} from "@amodeo/proclaimer/feature/reports";
+import { ReportItem } from "../publisher-record/components/report-item/report-item.tsx";
+import { PublisherReportModal } from "../publisher-record/components/publisher-report-modal/publisher-report-modal.tsx";
+import { usePublisherReports } from "../publisher-record/hooks/use-publisher-reports.ts";
 
 interface PublisherReportItemProps {
   publisher: Publisher;
