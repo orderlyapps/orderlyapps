@@ -73,6 +73,7 @@ export { ParticipantParticipationModal } from "./components/participant-particip
 export { ParticipantsContent } from "./components/participants-content/ParticipantsContent.tsx";
 export { PublisherLetterDivider } from "./components/publisher-letter-divider/PublisherLetterDivider.tsx";
 
+export { AudioVideoContent } from "./components/audio-video-content/AudioVideoContent.tsx";
 export { AudioVideoHeader } from "./components/audio-video-header/AudioVideoHeader.tsx";
 export { AudioVideoPdfDocument } from "./components/audio-video-pdf/AudioVideoPdfDocument.tsx";
 export { useAudioVideoScheduleData } from "./hooks/use-audio-video-schedule-data.ts";

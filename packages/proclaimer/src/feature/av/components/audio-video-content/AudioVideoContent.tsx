@@ -11,9 +11,9 @@ import { MonthPicker } from "@amodeo/proclaimer/ui/components/inputs/month-picke
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
-import { AudioVideoPdfDocument } from "@amodeo/proclaimer/feature/av";
+import { AudioVideoPdfDocument } from "../audio-video-pdf/AudioVideoPdfDocument.tsx";
 import { PdfPublisherSelect } from "@amodeo/proclaimer/ui/components/inputs/pdf-publisher-select/PdfPublisherSelect";
-import { useAudioVideoScheduleData } from "@amodeo/proclaimer/feature/av";
+import { useAudioVideoScheduleData } from "../../hooks/use-audio-video-schedule-data.ts";
 
 type MonthRange = {
   readonly firstMonday: string;
