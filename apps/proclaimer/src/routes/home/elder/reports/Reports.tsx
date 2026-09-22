@@ -1,15 +1,30 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ReportsHeader } from "@proclaimer-content/pages/home/elder/reports/reports-header/ReportsHeader";
-import { ReportsContent } from "@proclaimer-content/pages/home/elder/reports/reports-content/ReportsContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+  IonList,
+} from "@ionic/react";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 
 function ReportsPage() {
   return (
     <IonPage>
       <IonHeader>
-        <ReportsHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/elder" />
+          </IonButtons>
+          <IonTitle>Reports</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <ReportsContent />
+        <IonList>
+          <NavItem label="Publishers" to="/home/elder/reports/publishers" />
+        </IonList>
       </IonContent>
     </IonPage>
   );

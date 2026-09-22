@@ -1,15 +1,27 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PublishersHeader } from "@proclaimer-content/pages/home/elder/reports/publishers/publishers-header/PublishersHeader";
-import { PublishersContent } from "@proclaimer-content/pages/home/elder/reports/publishers/publishers-content/PublishersContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { PublishersList } from "@amodeo/proclaimer/feature/reports";
 
 function PublishersPage() {
   return (
     <IonPage>
       <IonHeader>
-        <PublishersHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/elder/reports" />
+          </IonButtons>
+          <IonTitle>Publishers</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding content-wide">
-        <PublishersContent />
+        <PublishersList base_path="/home/elder/reports/publishers" />
       </IonContent>
     </IonPage>
   );
