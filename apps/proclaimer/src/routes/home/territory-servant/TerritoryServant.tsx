@@ -1,15 +1,30 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { TerritoryServantHeader } from "@proclaimer-content/pages/home/territory-servant/territory-servant-header/TerritoryServantHeader";
-import { TerritoryServantContent } from "@proclaimer-content/pages/home/territory-servant/territory-servant-content/TerritoryServantContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+  IonList,
+} from "@ionic/react";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 
 function TerritoryServantPage() {
   return (
     <IonPage>
       <IonHeader>
-        <TerritoryServantHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>Territory Servant</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <TerritoryServantContent />
+        <IonList>
+          <NavItem label="Map" to="/home/service-overseer/map" />
+        </IonList>
       </IonContent>
     </IonPage>
   );
