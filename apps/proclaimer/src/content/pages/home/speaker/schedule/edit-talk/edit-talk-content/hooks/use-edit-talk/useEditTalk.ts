@@ -57,10 +57,6 @@ export function useEditTalk({ week_id }: UseEditTalkProps) {
     ? `${current_outline.id}: ${current_outline.theme}`
     : undefined;
 
-  const speaker_outline_ids = new Set(
-    ((all_speaker_outlines as SpeakerOutline[] | undefined) ?? []).map((so) => so.speaker_id),
-  );
-
   const male_publishers = ((all_publishers as Publisher[] | undefined) ?? []).filter(
     (p) => !p.archived_at && p.gender === "male",
   );
@@ -68,7 +64,7 @@ export function useEditTalk({ week_id }: UseEditTalkProps) {
   const local_speakers = male_publishers.filter(
     (p) =>
       p.congregation_id === congregation_id &&
-      (p.type === "speaker" || speaker_outline_ids.has(p.id ?? "")),
+      (p.standing === "elder" || p.standing === "ministerial_servant"),
   );
   const visiting_speakers = male_publishers.filter(
     (p) => p.congregation_id !== congregation_id && p.type === "speaker",
