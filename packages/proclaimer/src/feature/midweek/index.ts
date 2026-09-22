@@ -90,6 +90,9 @@ export { ClamAssignmentShareButton } from "./components/clam-assignment-share-bu
 
 export { ClamHeader } from "./components/clam-header/ClamHeader.tsx";
 export { ClamContent } from "./components/clam-content/ClamContent.tsx";
+export { ClamAssignmentList } from "./components/clam-assignment-list/ClamAssignmentList.tsx";
+export { useClamAssignments } from "./hooks/use-clam-assignments.ts";
+export type { ClamAssignment } from "./hooks/use-clam-assignments.ts";
 export { MidweekSchedulePdfDocument } from "./components/midweek-schedule-pdf/MidweekSchedulePdfDocument.tsx";
 export { SchedulePdfHeader } from "./components/schedule-pdf-header/SchedulePdfHeader.tsx";
 export { useMidweekScheduleData } from "./hooks/use-midweek-schedule-data.ts";

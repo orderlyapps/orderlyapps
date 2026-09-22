@@ -78,3 +78,17 @@ export { AudioVideoHeader } from "./components/audio-video-header/AudioVideoHead
 export { AudioVideoPdfDocument } from "./components/audio-video-pdf/AudioVideoPdfDocument.tsx";
 export { useAudioVideoScheduleData } from "./hooks/use-audio-video-schedule-data.ts";
 export type { AvWeekData } from "./hooks/use-audio-video-schedule-data.ts";
+
+export { AvAssignmentList } from "./components/av-assignment-list/AvAssignmentList.tsx";
+export { AvSmsSettingsModal } from "./components/av-sms-settings-modal/AvSmsSettingsModal.tsx";
+export { useAvAssignments } from "./hooks/use-av-assignments.ts";
+export type { AvAssignmentWithPublisher } from "./hooks/use-av-assignments.ts";
+export {
+  getAvSmsTemplates,
+  saveAvSmsTemplates,
+  fillAvSmsTemplate,
+  DEFAULT_AV_SMS_TEMPLATE_TEXT,
+  DEFAULT_AV_SMS_TEMPLATES,
+  AV_SMS_PLACEHOLDERS,
+} from "./utils/av-sms-template.ts";
+export type { AvSmsTemplate } from "./utils/av-sms-template.ts";

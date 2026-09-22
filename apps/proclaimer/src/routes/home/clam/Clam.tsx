@@ -1,8 +1,17 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+  IonList,
+} from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { ClamHeader } from "@proclaimer-content/pages/home/reminders/clam/clam-header/ClamHeader";
-import { ClamContent } from "@proclaimer-content/pages/home/reminders/clam/clam-content/ClamContent";
+import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
+import { ClamAssignmentList } from "@amodeo/proclaimer/feature/midweek";
 
 function ClamPage() {
   const match = useRouteMatch<{ week_id?: string }>();
@@ -12,10 +21,18 @@ function ClamPage() {
   return (
     <IonPage>
       <IonHeader>
-        <ClamHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>CLAM</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide remove-top-padding">
-        <ClamContent week_id={week_id} />
+        <IonList>
+          <WeekNavigation week_id={week_id} />
+          <ClamAssignmentList week_id={week_id} />
+        </IonList>
       </IonContent>
     </IonPage>
   );
