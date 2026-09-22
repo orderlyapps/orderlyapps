@@ -7,12 +7,12 @@ import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/Togg
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { MonthPicker } from "@shared/components/month-picker/MonthPicker";
+import { MonthPicker } from "@amodeo/proclaimer/ui/components/inputs/month-picker/MonthPicker";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { AudioVideoPdfDocument } from "@amodeo/proclaimer/feature/av";
-import { PdfPublisherSelect } from "@shared/components/pdf-publisher-select/PdfPublisherSelect";
+import { PdfPublisherSelect } from "@amodeo/proclaimer/ui/components/inputs/pdf-publisher-select/PdfPublisherSelect";
 import { useAudioVideoScheduleData } from "@amodeo/proclaimer/feature/av";
 
 type MonthRange = {
@@ -91,7 +91,7 @@ export function AudioVideoContent() {
           <MonthPicker
             label="Select Month"
             value={selected_month ? selected_month.firstMonday.substring(0, 7) : undefined}
-            onValueChange={set_selected_month}
+            on_value_change={set_selected_month}
           />
 
           <Space />

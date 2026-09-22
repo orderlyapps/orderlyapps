@@ -6,11 +6,11 @@ import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/
 import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
-import { MonthPicker } from "@shared/components/month-picker/MonthPicker";
-import { PdfPublisherSelect } from "@shared/components/pdf-publisher-select/PdfPublisherSelect";
-import { MidweekSchedulePdfDocument } from "@amodeo/proclaimer/feature/midweek";
+import { MonthPicker } from "@amodeo/proclaimer/ui/components/inputs/month-picker/MonthPicker";
+import { PdfPublisherSelect } from "@amodeo/proclaimer/ui/components/inputs/pdf-publisher-select/PdfPublisherSelect";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { useMidweekScheduleData } from "@amodeo/proclaimer/feature/midweek";
+import { MidweekSchedulePdfDocument } from "../midweek-schedule-pdf/MidweekSchedulePdfDocument.tsx";
+import { useMidweekScheduleData } from "../../hooks/use-midweek-schedule-data.ts";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
@@ -91,7 +91,7 @@ export function ClamContent() {
           <MonthPicker
             label="Select Month"
             value={selected_month ? selected_month.firstMonday.substring(0, 7) : undefined}
-            onValueChange={set_selected_month}
+            on_value_change={set_selected_month}
           />
 
           <Space />

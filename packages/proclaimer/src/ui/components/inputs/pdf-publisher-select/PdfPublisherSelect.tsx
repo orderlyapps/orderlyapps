@@ -12,13 +12,13 @@ interface PdfPublisherSelectProps {
 }
 
 export function PdfPublisherSelect({ on_change }: PdfPublisherSelectProps) {
-  const [showSelectModal, setShowSelectModal] = useState(false);
-  const [publisher, setPublisher] = useState(getStoredPublisher);
+  const [show_select_modal, set_show_select_modal] = useState(false);
+  const [publisher, set_publisher] = useState(getStoredPublisher);
 
   const handleSelect = (p: Publisher) => {
-    setPublisher(p);
+    set_publisher(p);
     on_change(p);
-    setShowSelectModal(false);
+    set_show_select_modal(false);
   };
 
   return (
@@ -27,14 +27,14 @@ export function PdfPublisherSelect({ on_change }: PdfPublisherSelectProps) {
         label="Publisher"
         display_value={publisher ? getPublisherDisplayName(publisher) : ""}
         placeholder="Select publisher..."
-        on_open={() => setShowSelectModal(true)}
+        on_open={() => set_show_select_modal(true)}
       />
-      <ResponsiveModal isOpen={showSelectModal} onDidDismiss={() => setShowSelectModal(false)}>
+      <ResponsiveModal isOpen={show_select_modal} onDidDismiss={() => set_show_select_modal(false)}>
         <IonHeader>
           <IonToolbar>
             <IonTitle>Select Publisher</IonTitle>
             <IonButtons slot="end">
-              <CloseIconButton on_click={() => setShowSelectModal(false)} skip_confirmation />
+              <CloseIconButton on_click={() => set_show_select_modal(false)} skip_confirmation />
             </IonButtons>
           </IonToolbar>
         </IonHeader>
