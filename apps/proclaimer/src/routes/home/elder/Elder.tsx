@@ -1,15 +1,31 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ElderHeader } from "@proclaimer-content/pages/home/elder/elder-header/ElderHeader";
-import { ElderContent } from "@proclaimer-content/pages/home/elder/elder-content/ElderContent";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+  IonList,
+} from "@ionic/react";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 
 function ElderPage() {
   return (
     <IonPage>
       <IonHeader>
-        <ElderHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>Elder</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent>
-        <ElderContent />
+        <IonList>
+          <NavItem label="Reports" to="/home/elder/reports" />
+          <NavItem label="PDFs" to="/home/elder/pdfs" />
+        </IonList>
       </IonContent>
     </IonPage>
   );
