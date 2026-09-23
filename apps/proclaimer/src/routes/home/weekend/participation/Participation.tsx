@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ParticipationHeader } from "@proclaimer-content/pages/home/weekend/participation/participation-header/ParticipationHeader";
-import { ParticipationContent } from "@proclaimer-content/pages/home/weekend/participation/participation-content/ParticipationContent";
+import { ParticipationHeader, ParticipationContent } from "@amodeo/proclaimer/feature/weekend";
 
 function WeekendParticipationPage() {
   return (

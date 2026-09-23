@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { WeekendHeader } from "@proclaimer-content/pages/home/weekend/weekend-header/WeekendHeader";
-import { WeekendContent } from "@proclaimer-content/pages/home/weekend/weekend-content/WeekendContent";
+import { WeekendHeader, WeekendContent } from "@amodeo/proclaimer/feature/weekend";
 
 function WeekendPage() {
   return (

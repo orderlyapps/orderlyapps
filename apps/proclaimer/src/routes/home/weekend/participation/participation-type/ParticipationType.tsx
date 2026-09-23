@@ -1,12 +1,12 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
-import { ParticipationTypeHeader } from "@proclaimer-content/pages/home/weekend/participation/participation-type-header/ParticipationTypeHeader";
-import { ParticipationTypeContent } from "@proclaimer-content/pages/home/weekend/participation/participation-type-content/ParticipationTypeContent";
 import {
+  ParticipationTypeHeader,
+  ParticipationTypeContent,
   weekendParticipationTypeLabels,
   weekendParticipationTypes,
   type WeekendParticipationType,
-} from "@proclaimer-content/pages/home/weekend/participation/shared/constants/weekendParticipationTypeLabels";
+} from "@amodeo/proclaimer/feature/weekend";
 
 function ParticipationTypePage() {
   const { participation_id } = useParams<{ participation_id: string }>();

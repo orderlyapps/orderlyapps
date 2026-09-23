@@ -1,0 +1,53 @@
+import { IonContent, IonHeader, IonList } from "@ionic/react";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
+import { useWeekendAssignmentData } from "../../../hooks/use-weekend-assignment-data.ts";
+import { useWeekendAssignmentHandlers } from "../../../hooks/use-weekend-assignment-handlers.ts";
+import { WeekendAssignedPublisher } from "./components/weekend-assigned-publisher/WeekendAssignedPublisher.tsx";
+import { WeekendPublisherList } from "./components/weekend-publisher-list/WeekendPublisherList.tsx";
+
+interface WeekendAssignmentDetailContentProps {
+  week_id: string;
+  assignment_id: string;
+}
+
+export function WeekendAssignmentDetailContent({
+  week_id,
+  assignment_id,
+}: WeekendAssignmentDetailContentProps) {
+  const { congregation_id, assignment, publishers, assignee, assignmentTitle, isLoading } =
+    useWeekendAssignmentData({ week_id, assignment_id });
+
+  const { handleDelete, handleSelect } = useWeekendAssignmentHandlers({
+    congregation_id,
+    assignment_id,
+    week_id,
+    assignment,
+  });
+
+  if (isLoading) {
+    return <Spinner centered />;
+  }
+
+  return (
+    <>
+      <IonHeader>
+        <IonList>
+          <LabelValueItem label={assignmentTitle} />
+        </IonList>
+        <WeekendAssignedPublisher label="Assigned" assignee={assignee} on_delete={handleDelete} />
+      </IonHeader>
+      <IonContent className="content-wide remove-top-padding remove-bottom-padding">
+        <Space />
+        <WeekendPublisherList
+          publishers={publishers}
+          selected_id={assignment?.participant_id}
+          week_id={week_id}
+          assignment_id={assignment_id}
+          on_select={handleSelect}
+        />
+      </IonContent>
+    </>
+  );
+}

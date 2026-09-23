@@ -1,8 +1,10 @@
 import { IonPage, IonHeader } from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import { WeekendAssignmentDetailHeader } from "@proclaimer-content/pages/home/weekend/schedule/assignment-detail/assignment-detail-header/WeekendAssignmentDetailHeader";
-import { WeekendAssignmentDetailContent } from "@proclaimer-content/pages/home/weekend/schedule/assignment-detail/assignment-detail-content/WeekendAssignmentDetailContent";
+import {
+  WeekendAssignmentDetailHeader,
+  WeekendAssignmentDetailContent,
+} from "@amodeo/proclaimer/feature/weekend";
 
 function WeekendAssignmentDetailPage() {
   const { week_id, assignment_id } = useParams<{ week_id: string; assignment_id: string }>();
