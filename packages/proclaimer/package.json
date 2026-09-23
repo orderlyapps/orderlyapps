@@ -114,6 +114,7 @@
     "docx": "catalog:",
     "ionicons": "catalog:",
     "libphonenumber-js": "^1.11.21",
+    "meeting-schedules-parser": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "rxdb": "catalog:",

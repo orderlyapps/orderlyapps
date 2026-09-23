@@ -1,5 +1,5 @@
 import type { Outline } from "@amodeo/proclaimer/feature/speaker";
-import { OutlineListItem } from "./outline-list-item/OutlineListItem";
+import { OutlineListItem } from "./outline-list-item/OutlineListItem.tsx";
 
 interface OutlineListProps {
   outlines: Outline[];

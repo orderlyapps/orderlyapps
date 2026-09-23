@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ClamDataHeader } from "@proclaimer-content/pages/home/super-admin/clam-data-header/ClamDataHeader";
-import { ClamDataContent } from "@proclaimer-content/pages/home/super-admin/clam-data-content/ClamDataContent";
+import { ClamDataHeader, ClamDataContent } from "@amodeo/proclaimer/feature/super-admin";
 
 function ClamDataPage() {
   return (

@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { SuperAdminHeader } from "@proclaimer-content/pages/home/super-admin/super-admin-header/SuperAdminHeader";
-import { SuperAdminContent } from "@proclaimer-content/pages/home/super-admin/super-admin-content/SuperAdminContent";
+import { SuperAdminHeader, SuperAdminContent } from "@amodeo/proclaimer/feature/super-admin";
 
 function SuperAdminPage() {
   return (

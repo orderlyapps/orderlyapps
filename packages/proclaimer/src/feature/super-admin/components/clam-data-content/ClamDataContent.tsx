@@ -1,7 +1,7 @@
 import { IonAlert, IonButton, IonSpinner } from "@ionic/react";
-import { EpubUpload } from "./components/epub-upload/EpubUpload";
-import { DataPreview } from "./components/data-preview/DataPreview";
-import { ClamDataService, type ParsedMeetingData } from "./services/clam-data-service";
+import { EpubUpload } from "./components/epub-upload/EpubUpload.tsx";
+import { DataPreview } from "./components/data-preview/DataPreview.tsx";
+import { ClamDataService, type ParsedMeetingData } from "../../services/clam-data-service.ts";
 import { useState } from "react";
 
 export function ClamDataContent() {

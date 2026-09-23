@@ -1,6 +1,8 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { OutlineManagementHeader } from "@proclaimer-content/pages/home/super-admin/outline-management-header/OutlineManagementHeader";
-import { OutlineManagementContent } from "@proclaimer-content/pages/home/super-admin/outline-management-content/OutlineManagementContent";
+import {
+  OutlineManagementHeader,
+  OutlineManagementContent,
+} from "@amodeo/proclaimer/feature/super-admin";
 
 function OutlineManagementPage() {
   return (

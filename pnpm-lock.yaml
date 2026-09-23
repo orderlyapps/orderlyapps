@@ -99,6 +99,9 @@ catalogs:
     ionicons:
       specifier: ^8.0.13
       version: 8.0.13
+    meeting-schedules-parser:
+      specifier: ^4.5.0
+      version: 4.5.0
     pwa-asset-generator:
       specifier: ^8.1.5
       version: 8.1.5
@@ -246,9 +249,6 @@ importers:
       mapbox-gl:
         specifier: ^3.23.1
         version: 3.28.1
-      meeting-schedules-parser:
-        specifier: ^4.4.0
-        version: 4.5.0
       qrcode.react:
         specifier: ^4.2.0
         version: 4.2.0(react@19.2.8)
@@ -537,6 +537,9 @@ importers:
       libphonenumber-js:
         specifier: ^1.11.21
         version: 1.13.10
+      meeting-schedules-parser:
+        specifier: 'catalog:'
+        version: 4.5.0
       react:
         specifier: 'catalog:'
         version: 19.2.8

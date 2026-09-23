@@ -35,7 +35,6 @@
     "ionicons": "^8.0.13",
     "libphonenumber-js": "^1.11.21",
     "mapbox-gl": "^3.23.1",
-    "meeting-schedules-parser": "^4.4.0",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
