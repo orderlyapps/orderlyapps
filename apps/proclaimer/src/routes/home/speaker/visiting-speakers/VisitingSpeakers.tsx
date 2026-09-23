@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { VisitingSpeakersHeader } from "@proclaimer-content/pages/home/speaker/visiting-speakers/visiting-speakers-header/VisitingSpeakersHeader";
-import { VisitingSpeakersContent } from "@proclaimer-content/pages/home/speaker/visiting-speakers/visiting-speakers-content/VisitingSpeakersContent";
+import {
+  VisitingSpeakersHeader,
+  VisitingSpeakersContent,
+} from "@amodeo/proclaimer/feature/speaker";
 
 function VisitingSpeakersPage() {
   const [search, setSearch] = useState("");

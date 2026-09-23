@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { LocalSpeakersContent } from "@proclaimer-content/pages/home/speaker/local-speakers/local-speakers-content/LocalSpeakersContent";
-import { LocalSpeakersHeader } from "@proclaimer-content/pages/home/speaker/local-speakers/local-speakers-header/LocalSpeakersHeader";
+import { LocalSpeakersContent, LocalSpeakersHeader } from "@amodeo/proclaimer/feature/speaker";
 
 function LocalSpeakersPage() {
   return (

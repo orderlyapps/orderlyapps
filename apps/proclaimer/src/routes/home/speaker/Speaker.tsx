@@ -1,6 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { SpeakerHeader } from "@proclaimer-content/pages/home/speaker/speaker-header/SpeakerHeader";
-import { SpeakerContent } from "@proclaimer-content/pages/home/speaker/speaker-content/SpeakerContent";
+import { SpeakerHeader, SpeakerContent } from "@amodeo/proclaimer/feature/speaker";
 
 function SpeakerPage() {
   return (

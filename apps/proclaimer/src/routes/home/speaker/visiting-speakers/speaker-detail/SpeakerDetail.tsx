@@ -1,7 +1,9 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
-import { VisitingSpeakerDetailHeader } from "@proclaimer-content/pages/home/speaker/visiting-speakers/speaker-detail/speaker-detail-header/VisitingSpeakerDetailHeader";
-import { VisitingSpeakerDetailContent } from "@proclaimer-content/pages/home/speaker/visiting-speakers/speaker-detail/speaker-detail-content/VisitingSpeakerDetailContent";
+import {
+  VisitingSpeakerDetailHeader,
+  VisitingSpeakerDetailContent,
+} from "@amodeo/proclaimer/feature/speaker";
 
 function VisitingSpeakerDetailPage() {
   const { speaker_id } = useParams<{ speaker_id: string }>();

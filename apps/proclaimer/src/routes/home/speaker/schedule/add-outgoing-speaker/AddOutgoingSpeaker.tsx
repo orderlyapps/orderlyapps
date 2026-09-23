@@ -1,7 +1,9 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
-import { AddOutgoingSpeakerHeader } from "@proclaimer-content/pages/home/speaker/schedule/add-outgoing-speaker/add-outgoing-speaker-header/AddOutgoingSpeakerHeader";
-import { AddOutgoingSpeakerContent } from "@proclaimer-content/pages/home/speaker/schedule/add-outgoing-speaker/add-outgoing-speaker-content/AddOutgoingSpeakerContent";
+import {
+  AddOutgoingSpeakerHeader,
+  AddOutgoingSpeakerContent,
+} from "@amodeo/proclaimer/feature/speaker";
 
 function AddOutgoingSpeakerPage() {
   const { week_id } = useParams<{ week_id: string }>();

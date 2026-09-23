@@ -1,8 +1,7 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import { EditTalkHeader } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-header/EditTalkHeader";
-import { EditTalkContent } from "@proclaimer-content/pages/home/speaker/schedule/edit-talk/edit-talk-content/EditTalkContent";
+import { EditTalkHeader, EditTalkContent } from "@amodeo/proclaimer/feature/speaker";
 
 function EditTalkPage() {
   const { week_id } = useParams<{ week_id: string }>();
