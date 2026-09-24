@@ -12,7 +12,7 @@ import {
   DownloadPublisherRecordButton,
   usePublisherName,
 } from "@amodeo/proclaimer/feature/reports";
-import { AssignmentsContent } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/assignments/assignments-content/AssignmentsContent";
+import { AssignmentsContent } from "@amodeo/proclaimer/feature/secretary";
 
 function PublisherAssignmentsPage() {
   const { publisher_id } = useParams<{ publisher_id: string }>();

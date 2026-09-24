@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AssignmentsHeader } from "@proclaimer-content/pages/home/assignments/assignments-header/AssignmentsHeader";
-import { AssignmentsContent } from "@proclaimer-content/pages/home/assignments/assignments-content/AssignmentsContent";
+import { AssignmentsHeader } from "@amodeo/proclaimer/feature/assignments";
+import { AssignmentsContent } from "@amodeo/proclaimer/feature/assignments";
 
 function AssignmentsPage() {
   return (

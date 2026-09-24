@@ -8,7 +8,7 @@ import { NotAtHomeUnitModal } from "./components/not-at-home-source/components/n
 import type { NotAtHome } from "./components/not-at-home-source/types";
 import { DoorToDoorModal } from "./components/door-to-door-modal/DoorToDoorModal";
 import { MapZoomToController } from "./components/map-zoom-to-controller/MapZoomToController";
-import { MapShareActionSheet } from "./components/map-share-action-sheet/MapShareActionSheet";
+import { MapShareActionSheet } from "@amodeo/proclaimer/ui/components/display/map-share-action-sheet/MapShareActionSheet";
 import { NotAtHomeEditLocationMarker } from "./components/not-at-home-source/components/not-at-home-location-editor/NotAtHomeEditLocationMarker";
 import { NotAtHomeEditLocationFabs } from "./components/not-at-home-source/components/not-at-home-location-editor/NotAtHomeEditLocationFabs";
 import { MapMasterLayer } from "./components/layers/map-master-layer/MapMasterLayer";

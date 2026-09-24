@@ -1,4 +1,4 @@
-import { PublisherDetailsContent } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/publisher-details-content/PublisherDetailsContent";
+import { PublisherDetailsContent } from "@amodeo/proclaimer/feature/secretary";
 
 export function AllPublishersDetailsContent({
   publisher_id,

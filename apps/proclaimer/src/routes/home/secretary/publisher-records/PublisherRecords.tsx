@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PublisherRecordsHeader } from "@proclaimer-content/pages/home/secretary/publisher-records/publisher-records-header/PublisherRecordsHeader";
-import { PublisherRecordsContent } from "@proclaimer-content/pages/home/secretary/publisher-records/publisher-records-content/PublisherRecordsContent";
+import { PublisherRecordsHeader } from "@amodeo/proclaimer/feature/secretary";
+import { PublisherRecordsContent } from "@amodeo/proclaimer/feature/secretary";
 
 function PublisherRecordsPage() {
   return (

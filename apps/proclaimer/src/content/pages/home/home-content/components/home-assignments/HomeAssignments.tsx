@@ -2,8 +2,8 @@ import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@io
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
-import { useAssignments } from "@proclaimer-content/pages/home/assignments/useAssignments";
-import { AssignmentItem } from "@proclaimer-content/pages/home/assignments/components/assignment-item/AssignmentItem";
+import { useAssignments } from "@amodeo/proclaimer/feature/assignments";
+import { AssignmentItem } from "@amodeo/proclaimer/feature/assignments";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 

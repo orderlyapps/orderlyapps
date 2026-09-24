@@ -12,7 +12,7 @@ import {
   DownloadPublisherRecordButton,
   usePublisherName,
 } from "@amodeo/proclaimer/feature/reports";
-import { ParticipationContent } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/participation/participation-content/ParticipationContent";
+import { ParticipationContent } from "@amodeo/proclaimer/feature/secretary";
 
 function PublisherParticipationPage() {
   const { publisher_id } = useParams<{ publisher_id: string }>();

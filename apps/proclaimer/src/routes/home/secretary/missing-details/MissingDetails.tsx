@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { MissingDetailsHeader } from "@proclaimer-content/pages/home/secretary/missing-details/missing-details-header/MissingDetailsHeader";
-import { MissingDetailsContent } from "@proclaimer-content/pages/home/secretary/missing-details/missing-details-content/MissingDetailsContent";
+import { MissingDetailsHeader } from "@amodeo/proclaimer/feature/secretary";
+import { MissingDetailsContent } from "@amodeo/proclaimer/feature/secretary";
 
 function MissingDetailsPage() {
   return (

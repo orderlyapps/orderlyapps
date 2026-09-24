@@ -1,7 +1,7 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PublishersHeader } from "@proclaimer-content/pages/home/secretary/publishers/publishers-header/PublishersHeader";
-import { PublishersContent } from "@proclaimer-content/pages/home/secretary/publishers/publishers-content/PublishersContent";
-import { AddPublisherAlert } from "@proclaimer-content/pages/home/secretary/publishers/publishers-header/components/add-publisher-alert/AddPublisherAlert";
+import { PublishersHeader } from "@amodeo/proclaimer/feature/secretary";
+import { PublishersContent } from "@amodeo/proclaimer/feature/secretary";
+import { AddPublisherAlert } from "@amodeo/proclaimer/feature/secretary";
 import { useState } from "react";
 
 function PublishersPage() {

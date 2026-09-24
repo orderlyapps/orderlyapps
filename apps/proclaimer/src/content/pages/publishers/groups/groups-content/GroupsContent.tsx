@@ -9,7 +9,7 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
-import { isListablePublisher } from "@proclaimer-content/pages/home/secretary/groups/group-details/group-details-content/groupPublisherUtils";
+import { isListablePublisher } from "@amodeo/proclaimer/feature/secretary";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 
 export function GroupsContent() {

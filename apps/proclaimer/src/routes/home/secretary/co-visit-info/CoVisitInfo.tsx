@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { CoVisitInfoHeader } from "@proclaimer-content/pages/home/secretary/co-visit-info/co-visit-info-header/CoVisitInfoHeader";
-import { CoVisitInfoContent } from "@proclaimer-content/pages/home/secretary/co-visit-info/co-visit-info-content/CoVisitInfoContent";
+import { CoVisitInfoHeader } from "@amodeo/proclaimer/feature/secretary";
+import { CoVisitInfoContent } from "@amodeo/proclaimer/feature/secretary";
 
 function CoVisitInfoPage() {
   return (

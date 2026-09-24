@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { BranchReportHeader } from "@proclaimer-content/pages/home/secretary/branch-report/branch-report-header/BranchReportHeader";
-import { BranchReportContent } from "@proclaimer-content/pages/home/secretary/branch-report/branch-report-content/BranchReportContent";
+import { BranchReportHeader } from "@amodeo/proclaimer/feature/secretary";
+import { BranchReportContent } from "@amodeo/proclaimer/feature/secretary";
 
 function BranchReportPage() {
   return (

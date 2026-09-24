@@ -9,9 +9,9 @@ import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
-import { usePresets } from "@proclaimer-content/pages/home/secretary/publishers/publishers-content/hooks/use-presets/usePresets";
-import { filterPublishers } from "@proclaimer-content/pages/home/secretary/publishers/publishers-content/hooks/use-publisher-filter/usePublisherFilter";
-import { FilterSelectModal } from "@proclaimer-content/pages/home/secretary/publishers/publishers-content/components/filter-modal/FilterSelectModal";
+import { usePresets } from "@amodeo/proclaimer/feature/secretary";
+import { filterPublishers } from "@amodeo/proclaimer/feature/secretary";
+import { FilterSelectModal } from "@amodeo/proclaimer/feature/secretary";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 

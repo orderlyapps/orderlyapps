@@ -1,7 +1,7 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
-import { ParticipationHeader } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/participation/participation-header/ParticipationHeader";
-import { ParticipationContent } from "@proclaimer-content/pages/home/secretary/publishers/publisher-details/participation/participation-content/ParticipationContent";
+import { ParticipationHeader } from "@amodeo/proclaimer/feature/secretary";
+import { ParticipationContent } from "@amodeo/proclaimer/feature/secretary";
 
 function AllPublishersParticipationPage() {
   const { publisher_id } = useParams<{ publisher_id: string }>();
