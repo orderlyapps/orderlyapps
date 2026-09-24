@@ -13,6 +13,9 @@ export interface MapLogPdfRow {
 }
 
 export const shared = StyleSheet.create({
+  page: { flexDirection: "column", backgroundColor: "#ffffff", padding: 30 },
+  caption: { fontSize: 9, lineHeight: 1.4 },
+  row: { flexDirection: "row" },
   footer: { position: "absolute", bottom: 24, left: 30, right: 30 },
   table: { borderWidth: 3, borderColor: "#000", flex: 1, marginTop: 2, marginBottom: 30 },
   firstCol: { flex: 1, borderRightWidth: 3, borderRightColor: "#000" },

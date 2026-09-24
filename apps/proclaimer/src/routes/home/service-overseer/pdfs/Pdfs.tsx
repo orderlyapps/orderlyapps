@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PdfsHeader } from "@proclaimer-content/pages/home/service-overseer/pdfs/pdfs-header/PdfsHeader";
-import { PdfsContent } from "@proclaimer-content/pages/home/service-overseer/pdfs/pdfs-content/PdfsContent";
+import { PdfsHeader } from "@amodeo/proclaimer/feature/map";
+import { PdfsContent } from "@amodeo/proclaimer/feature/map";
 
 function PdfsPage() {
   return (

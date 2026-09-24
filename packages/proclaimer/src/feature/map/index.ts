@@ -57,6 +57,10 @@ export { MapTagsContent } from "./components/map-tags/map-tags-content/MapTagsCo
 export { MapTagDetailHeader } from "./components/map-tags/map-tag-detail/map-tag-detail-header/MapTagDetailHeader.tsx";
 export { MapTagDetailContent } from "./components/map-tags/map-tag-detail/map-tag-detail-content/MapTagDetailContent.tsx";
 
+// PDFs page
+export { PdfsHeader } from "./components/pdfs/pdfs-header/PdfsHeader.tsx";
+export { PdfsContent } from "./components/pdfs/pdfs-content/PdfsContent.tsx";
+
 // Map checkout pages
 export { MapCheckoutHeader } from "./components/map-checkout/map-checkout-header/MapCheckoutHeader.tsx";
 export { MapCheckoutContent } from "./components/map-checkout/map-checkout-content/MapCheckoutContent.tsx";

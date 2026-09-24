@@ -8,8 +8,8 @@ import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/
 import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { MapLogPdf } from "../map-log-pdf/MapLogPdf";
-import type { MapLogPdfEntry, MapLogPdfRow } from "../map-log-pdf/map-log-pdf-styles";
+import { MapLogPdf } from "../map-log-pdf/MapLogPdf.tsx";
+import type { MapLogPdfEntry, MapLogPdfRow } from "../map-log-pdf/map-log-pdf-styles.ts";
 
 function buildPdfRows(
   maps: MapRow[],
