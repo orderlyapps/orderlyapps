@@ -1,6 +1,6 @@
 import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { geocodeAddress } from "@util/vendor/mapbox/helper/geocodeAddress";
+import { geocodeAddress } from "@amodeo/proclaimer/ui/vendor/mapbox/geocode-address";
 import type { Suburb } from "@amodeo/proclaimer/feature/territory";
 import type { Street } from "@amodeo/proclaimer/feature/territory";
 

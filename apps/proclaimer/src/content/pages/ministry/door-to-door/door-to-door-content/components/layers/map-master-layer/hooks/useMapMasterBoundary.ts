@@ -1,7 +1,7 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { mapMasterCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { isValidBoundary } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
+import { isValidBoundary } from "@amodeo/proclaimer/feature/map";
 import type { MapMaster } from "@amodeo/proclaimer/feature/territory";
 
 type PolygonFeature = {

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent, IonFab, IonFabButton, IonIcon } from "@ionic/react";
 import { add } from "ionicons/icons";
-import { MapLogHeader } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-header/MapLogHeader";
-import { MapLogContent } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/MapLogContent";
-import { CheckoutModal } from "@proclaimer-content/pages/home/service-overseer/map-log/map-log-content/components/checkout-modal/CheckoutModal";
+import { MapLogHeader } from "@amodeo/proclaimer/feature/map";
+import { MapLogContent } from "@amodeo/proclaimer/feature/map";
+import { CheckoutModal } from "@amodeo/proclaimer/feature/map";
 
 function MapLogPage() {
   const [show_checkout, set_show_checkout] = useState(false);

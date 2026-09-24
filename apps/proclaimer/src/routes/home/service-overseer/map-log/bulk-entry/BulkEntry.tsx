@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { BulkEntryHeader } from "@proclaimer-content/pages/home/service-overseer/map-log/bulk-entry/bulk-entry-header/BulkEntryHeader";
-import { BulkEntryContent } from "@proclaimer-content/pages/home/service-overseer/map-log/bulk-entry/bulk-entry-content/BulkEntryContent";
+import { BulkEntryHeader } from "@amodeo/proclaimer/feature/map";
+import { BulkEntryContent } from "@amodeo/proclaimer/feature/map";
 
 function BulkEntryPage() {
   return (

@@ -1,28 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { ServiceOverseerMapHeader } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/service-overseer-map-header/ServiceOverseerMapHeader";
-import { ServiceOverseerMapContent } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/service-overseer-map-content/ServiceOverseerMapContent";
-import MapMenu from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/components/map-menu/MapMenu";
-import type { FitBoundsFn } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/components/map-fit-bounds-controller/MapFitBoundsController";
-import { useMapPage } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/useMapPage";
+import { ServiceOverseerMapHeader } from "@amodeo/proclaimer/feature/map";
+import { ServiceOverseerMapContent } from "@amodeo/proclaimer/feature/map";
+import { MapMenu } from "@amodeo/proclaimer/feature/map";
+import type { FitBoundsFn } from "@amodeo/proclaimer/feature/map";
+import { useMapPage } from "@amodeo/proclaimer/feature/map";
 import {
   type ScreenshotSettings,
   DEFAULT_SCREENSHOT_SETTINGS,
   screenshotSettingsSchema,
-} from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/screenshotSettings";
+} from "@amodeo/proclaimer/feature/map";
 import {
   type CustomLocalStyleSettings,
   DEFAULT_CUSTOM_LOCAL_STYLE_SETTINGS,
   customLocalStyleSettingsSchema,
-} from "@util/vendor/mapbox/customLocalStyleSettings";
+} from "@amodeo/proclaimer/ui/vendor/mapbox/custom-local-style-settings";
 import {
   localStorageKeys,
   localStorageKeyWithVariant,
 } from "@amodeo/proclaimer/util/localStorageKeys";
-import { selectableStyles, type SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
+import {
+  selectableStyles,
+  type SelectableStyleId,
+} from "@amodeo/proclaimer/ui/vendor/mapbox/mapbox-styles";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { mapCollection } from "@amodeo/proclaimer/feature/territory";
-import { boundaryToBounds } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
+import { boundaryToBounds } from "@amodeo/proclaimer/feature/map";
 
 const SERVICE_OVERSEER_MAP_STYLE_KEY = localStorageKeyWithVariant("mapStyle", "service-overseer");
 

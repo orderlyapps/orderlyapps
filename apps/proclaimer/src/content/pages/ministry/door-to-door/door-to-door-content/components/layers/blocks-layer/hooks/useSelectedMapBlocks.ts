@@ -2,10 +2,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
-import {
-  blockToLineStringCoords,
-  blockToPolygonCoords,
-} from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
+import { blockToLineStringCoords, blockToPolygonCoords } from "@amodeo/proclaimer/feature/map";
 import { useSelectedMap } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useSelectedMapContext";
 
 type PolygonBlockFeature = {

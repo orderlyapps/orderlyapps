@@ -44,6 +44,21 @@
       "types": "./dist/ui/components/inputs/address/types.d.mts",
       "import": "./dist/ui/components/inputs/address/types.mjs"
     },
+    "./ui/vendor/mapbox/MapView": {
+      "development": "./src/ui/vendor/mapbox/MapView.tsx",
+      "types": "./dist/ui/vendor/mapbox/MapView.d.mts",
+      "import": "./dist/ui/vendor/mapbox/MapView.mjs"
+    },
+    "./ui/vendor/mapbox/MapStyleSelect": {
+      "development": "./src/ui/vendor/mapbox/MapStyleSelect.tsx",
+      "types": "./dist/ui/vendor/mapbox/MapStyleSelect.d.mts",
+      "import": "./dist/ui/vendor/mapbox/MapStyleSelect.mjs"
+    },
+    "./ui/vendor/mapbox/*": {
+      "development": "./src/ui/vendor/mapbox/*.ts",
+      "types": "./dist/ui/vendor/mapbox/*.d.mts",
+      "import": "./dist/ui/vendor/mapbox/*.mjs"
+    },
     "./ui/colors/jwColors": {
       "development": "./src/ui/colors/jwColors.ts",
       "types": "./dist/ui/colors/jwColors.d.mts",
@@ -114,9 +129,11 @@
     "docx": "catalog:",
     "ionicons": "catalog:",
     "libphonenumber-js": "^1.11.21",
+    "mapbox-gl": "catalog:",
     "meeting-schedules-parser": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
+    "react-map-gl": "catalog:",
     "rxdb": "catalog:",
     "zod": "catalog:"
   },
@@ -124,6 +141,7 @@
     "@amodeo/config": "workspace:*",
     "@tanstack/react-query-devtools": "catalog:",
     "@testing-library/react": "catalog:",
+    "@types/mapbox__mapbox-gl-draw": "^1.4.5",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

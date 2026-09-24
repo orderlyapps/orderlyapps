@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { IonPage, IonHeader, IonContent, IonFab, IonFabButton, IonIcon } from "@ionic/react";
 import { add } from "ionicons/icons";
-import { MapTagsHeader } from "@proclaimer-content/pages/home/service-overseer/map-tags/map-tags-header/MapTagsHeader";
-import { MapTagsContent } from "@proclaimer-content/pages/home/service-overseer/map-tags/map-tags-content/MapTagsContent";
+import { MapTagsHeader } from "@amodeo/proclaimer/feature/map";
+import { MapTagsContent } from "@amodeo/proclaimer/feature/map";
 
 function MapTagsPage() {
   const [show_add_alert, set_show_add_alert] = useState(false);

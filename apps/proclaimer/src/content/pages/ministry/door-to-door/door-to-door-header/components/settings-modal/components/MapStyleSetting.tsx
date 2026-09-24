@@ -1,5 +1,5 @@
 import { IonList } from "@ionic/react";
-import { MapStyleSelect } from "@util/vendor/mapbox/MapStyleSelect";
+import { MapStyleSelect } from "@amodeo/proclaimer/ui/vendor/mapbox/MapStyleSelect";
 import { useMapStyle } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useMapStyleContext";
 
 export function MapStyleSetting() {

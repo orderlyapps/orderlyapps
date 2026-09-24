@@ -3,8 +3,8 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { TextInput } from "@amodeo/proclaimer/ui/components/inputs/text/TextInput";
 import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { SuburbSelect } from "./suburb-select/SuburbSelect";
-import { StreetSelect } from "./street-select/StreetSelect";
+import { SuburbSelect } from "@amodeo/proclaimer/feature/map";
+import { StreetSelect } from "@amodeo/proclaimer/feature/map";
 import { VisitTypeSelect } from "./components/visit-type-select/VisitTypeSelect";
 import { saveNotAtHome } from "./save-not-at-home";
 import { saveReturnVisit } from "../return-visit-add-modal/save-return-visit";

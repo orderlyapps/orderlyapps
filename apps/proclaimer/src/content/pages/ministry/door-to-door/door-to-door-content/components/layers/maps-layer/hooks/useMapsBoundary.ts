@@ -2,7 +2,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
-import { isValidBoundary } from "@proclaimer-content/pages/home/service-overseer/service-overseer-map/utils/boundary";
+import { isValidBoundary } from "@amodeo/proclaimer/feature/map";
 import { useMapDisplayMode } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useMapDisplayModeContext";
 import { useSelectedMap } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useSelectedMapContext";
 

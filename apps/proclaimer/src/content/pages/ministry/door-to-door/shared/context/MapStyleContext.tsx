@@ -1,6 +1,9 @@
 import { createContext, useState, type ReactNode } from "react";
 import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
-import { selectableStyles, type SelectableStyleId } from "@util/vendor/mapbox/mapboxStyles";
+import {
+  selectableStyles,
+  type SelectableStyleId,
+} from "@amodeo/proclaimer/ui/vendor/mapbox/mapbox-styles";
 
 interface MapStyleContextType {
   styleId: SelectableStyleId;

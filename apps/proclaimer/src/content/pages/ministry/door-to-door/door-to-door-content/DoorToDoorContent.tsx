@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IonFab, IonFabButton, IonIcon } from "@ionic/react";
 import { add } from "ionicons/icons";
-import { MapView } from "@util/vendor/mapbox/MapView";
+import { MapView } from "@amodeo/proclaimer/ui/vendor/mapbox/MapView";
 import { NotAtHomeSource } from "./components/not-at-home-source/NotAtHomeSource";
 import { NotAtHomeAlert } from "./components/not-at-home-source/components/not-at-home-alert/NotAtHomeAlert";
 import { NotAtHomeUnitModal } from "./components/not-at-home-source/components/not-at-home-unit-modal/NotAtHomeUnitModal";
@@ -15,9 +15,9 @@ import { MapMasterLayer } from "./components/layers/map-master-layer/MapMasterLa
 import { MapsLayer } from "./components/layers/maps-layer/MapsLayer";
 import { BlocksLayer } from "./components/layers/blocks-layer/BlocksLayer";
 import { useMapZoom } from "./context/mapZoomContext";
-import { DoNotCallSource } from "./components/layers/do-not-call-source/DoNotCallSource";
-import { DoNotCallAlert } from "./components/layers/do-not-call-source/components/do-not-call-alert/DoNotCallAlert";
-import type { DoNotCall } from "./components/layers/do-not-call-source/types";
+import { DoNotCallSource } from "@amodeo/proclaimer/feature/map";
+import { DoNotCallAlert } from "@amodeo/proclaimer/feature/map";
+import type { DoNotCall } from "@amodeo/proclaimer/feature/map";
 import { useMapStyle } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useMapStyleContext";
 import { useQuickLinks } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useQuickLinksContext";
 import { QuickLinksFab } from "./components/quick-links-fab/QuickLinksFab";
