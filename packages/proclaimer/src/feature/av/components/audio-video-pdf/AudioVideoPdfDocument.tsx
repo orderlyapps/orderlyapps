@@ -120,8 +120,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     color: "#333",
-    backgroundColor: "#f0f0f0",
-    padding: 3,
+    padding: 10,
     marginVertical: 3,
     textAlign: "center",
   },
@@ -220,19 +219,23 @@ function WeekSection({
       </View>
       {hasCircuitAssembly && <Text style={styles.eventBanner}>Circuit Assembly</Text>}
       {hasConvention && <Text style={styles.eventBanner}>Convention</Text>}
-      <MeetingRow
-        label="Midweek"
-        ids={midweekIDs}
-        assignments={assignments}
-        highlightPublisherId={highlightPublisherId}
-      />
-      <View style={{ paddingBottom: 30 }}>
+      {!hasCircuitAssembly && !hasConvention && (
         <MeetingRow
-          label="Weekend"
-          ids={weekendIDs}
+          label="Midweek"
+          ids={midweekIDs}
           assignments={assignments}
           highlightPublisherId={highlightPublisherId}
         />
+      )}
+      <View style={{ paddingBottom: 30 }}>
+        {!hasCircuitAssembly && !hasConvention && (
+          <MeetingRow
+            label="Weekend"
+            ids={weekendIDs}
+            assignments={assignments}
+            highlightPublisherId={highlightPublisherId}
+          />
+        )}
       </View>
     </>
   );

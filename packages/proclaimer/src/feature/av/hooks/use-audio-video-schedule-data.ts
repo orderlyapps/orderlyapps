@@ -1,4 +1,5 @@
 import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
+import { format } from "date-fns";
 import { avAssignmentCollection } from "../collections/av-assignment.ts";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { eventCollection, type EventRow } from "@amodeo/proclaimer/feature/event";
@@ -15,7 +16,7 @@ import {
 export type AvWeekData = {
   weekId: string;
   assignments: Map<string, Publisher | undefined>;
-  events: { type: string }[];
+  events: { type: EventRow["type"] }[];
 };
 
 export function useAudioVideoScheduleData(
@@ -73,9 +74,9 @@ export function useAudioVideoScheduleData(
   }
 
   const weeks: AvWeekData[] = [];
-  for (const [weekId, weekAssignments] of assignmentsByWeek) {
+  for (const weekId of getWeekIdsInRange(dateRange)) {
     const assignmentMap = new Map<string, Publisher | undefined>();
-    for (const assignment of weekAssignments) {
+    for (const assignment of assignmentsByWeek.get(weekId) ?? []) {
       const publisher = publisherMap.get(assignment.participant_id);
       assignmentMap.set(assignment.assignment_id, publisher);
     }
@@ -84,14 +85,17 @@ export function useAudioVideoScheduleData(
       .filter((e) => isEventInWeek(e, weekId))
       .map((e) => ({ type: e.type }));
 
+    const hasSpecialEvent = weekEvents.some(
+      (e) => e.type === "circuit_assembly" || e.type === "convention",
+    );
+    if (assignmentMap.size === 0 && !hasSpecialEvent) continue;
+
     weeks.push({
       weekId,
       assignments: assignmentMap,
       events: weekEvents,
     });
   }
-
-  weeks.sort((a, b) => a.weekId.localeCompare(b.weekId));
 
   const isLoading = dateRange
     ? assignments === undefined || publishers === undefined || events === undefined
@@ -108,11 +112,27 @@ export function useAudioVideoScheduleData(
   };
 }
 
+function getWeekIdsInRange(
+  dateRange: { firstMonday: string; lastMonday: string } | null,
+): string[] {
+  if (!dateRange) return [];
+  const ids: string[] = [];
+  let monday = dateRange.firstMonday;
+  while (monday <= dateRange.lastMonday) {
+    ids.push(monday);
+    const [year, month, day] = monday.split("-").map(Number);
+    monday = format(new Date(year, month - 1, day + 7), "yyyy-MM-dd");
+  }
+  return ids;
+}
+
+// Compare ISO date strings directly to avoid timezone issues from Date parsing,
+// and treat multi-day events as spanning start_date..end_date.
 function isEventInWeek(event: EventRow, weekId: string): boolean {
   const [year, month, day] = weekId.split("-").map(Number);
-  const weekStart = new Date(year, month - 1, day);
-  const weekEnd = new Date(year, month - 1, day + 6);
+  const weekEnd = format(new Date(year, month - 1, day + 6), "yyyy-MM-dd");
 
-  const eventDate = new Date(event.start_date);
-  return eventDate >= weekStart && eventDate <= weekEnd;
+  const eventStart = event.start_date.slice(0, 10);
+  const eventEnd = (event.end_date ?? event.start_date).slice(0, 10);
+  return eventStart <= weekEnd && eventEnd >= weekId;
 }
