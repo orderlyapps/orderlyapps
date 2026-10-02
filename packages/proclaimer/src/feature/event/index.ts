@@ -16,3 +16,4 @@ export { EventEditor } from "./components/event-editor/EventEditor.tsx";
 export { EventItem } from "./components/event-item/EventItem.tsx";
 export { EventMonthGroup } from "./components/event-month-group/EventMonthGroup.tsx";
 export { EventsList } from "./components/events-list/EventsList.tsx";
+export { HomeEvents } from "./components/home-events/HomeEvents.tsx";

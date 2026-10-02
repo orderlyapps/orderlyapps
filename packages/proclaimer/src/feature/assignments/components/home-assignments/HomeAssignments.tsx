@@ -2,10 +2,10 @@ import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@io
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
-import { useAssignments } from "@amodeo/proclaimer/feature/assignments";
-import { AssignmentItem } from "@amodeo/proclaimer/feature/assignments";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
+import { useAssignments } from "../../hooks/useAssignments.ts";
+import { AssignmentItem } from "../assignment-item/AssignmentItem.tsx";
 
 export function HomeAssignments() {
   const { assignments, is_loading } = useAssignments();

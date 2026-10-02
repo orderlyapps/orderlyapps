@@ -45,6 +45,7 @@ export { ElderHeader } from "./components/elder-header/ElderHeader.tsx";
 export { ElderContent } from "./components/elder-content/ElderContent.tsx";
 export { EventsHeader } from "./components/events-header/EventsHeader.tsx";
 export { EventsContent } from "./components/events-content/EventsContent.tsx";
+export { HomeTools } from "./components/home-tools/HomeTools.tsx";
 export { MeetingAttendanceHeader } from "./components/meeting-attendance-header/MeetingAttendanceHeader.tsx";
 export { MeetingAttendanceContent } from "./components/meeting-attendance-content/MeetingAttendanceContent.tsx";
 export { MinisterialServantHeader } from "./components/ministerial-servant-header/MinisterialServantHeader.tsx";

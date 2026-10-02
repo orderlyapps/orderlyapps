@@ -1,13 +1,13 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
-import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { useChairmanWeeks } from "@amodeo/proclaimer/feature/midweek";
 import { useIsCbsConductor } from "@amodeo/proclaimer/feature/timers";
-import type { IonicColor } from "@util/vendor/ionic/types/IonicColor";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
+import type { IonicColor } from "../../../../ui/types/ionic-color.ts";
+import { usePermissions } from "../../hooks/use-permissions.ts";
 
 const COLOR: IonicColor = "medium";
 const CLASSNAME = "ion-text-end";

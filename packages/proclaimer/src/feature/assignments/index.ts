@@ -7,3 +7,4 @@ export { AssignmentItem } from "./components/assignment-item/AssignmentItem.tsx"
 export { AssignmentMonthGroup } from "./components/assignment-month-group/AssignmentMonthGroup.tsx";
 export { AssignmentsHeader } from "./components/assignments-header/AssignmentsHeader.tsx";
 export { AssignmentsContent } from "./components/assignments-content/AssignmentsContent.tsx";
+export { HomeAssignments } from "./components/home-assignments/HomeAssignments.tsx";

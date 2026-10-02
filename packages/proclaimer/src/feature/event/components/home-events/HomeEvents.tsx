@@ -1,7 +1,6 @@
 import { and, eq, gte, useLiveQuery } from "@tanstack/react-db";
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
 import { format } from "date-fns";
-import { eventCollection, EventItem } from "@amodeo/proclaimer/feature/event";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
@@ -9,6 +8,8 @@ import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/Na
 
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
+import { eventCollection } from "../../collections/event.ts";
+import { EventItem } from "../event-item/EventItem.tsx";
 
 export function HomeEvents() {
   const congregation = useStoredCongregation();
