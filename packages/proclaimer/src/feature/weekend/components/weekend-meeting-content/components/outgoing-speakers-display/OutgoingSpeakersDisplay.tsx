@@ -6,17 +6,17 @@ import {
   useStoredCongregation,
 } from "@amodeo/proclaimer/feature/congregation";
 import { outlineCollection } from "@amodeo/proclaimer/feature/speaker";
-import { and, eq } from "@tanstack/react-db";
+import { and, eq, not } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { IonItem, IonLabel } from "@ionic/react";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 
 type OutgoingSpeakersDisplayProps = {
-  weekId: string;
+  week_id: string;
 };
 
-export const OutgoingSpeakersDisplay: React.FC<OutgoingSpeakersDisplayProps> = ({ weekId }) => {
+export function OutgoingSpeakersDisplay({ week_id }: OutgoingSpeakersDisplayProps) {
   const congregation = useStoredCongregation();
   const congregationId = congregation?.id;
 
@@ -29,9 +29,9 @@ export const OutgoingSpeakersDisplay: React.FC<OutgoingSpeakersDisplayProps> = (
         .leftJoin({ o: outlineCollection }, ({ sa, o }) => eq(sa.outline_id, o!.id))
         .where(({ sa, p }) =>
           and(
-            eq(sa.week_id, weekId),
+            eq(sa.week_id, week_id),
             eq(p?.congregation_id, congregationId ?? ""),
-            sa.congregation_id !== (congregationId as string),
+            not(eq(sa.congregation_id, congregationId ?? "")),
           ),
         )
         .select(({ sa, p, c, o }) => ({
@@ -44,7 +44,7 @@ export const OutgoingSpeakersDisplay: React.FC<OutgoingSpeakersDisplayProps> = (
           targetCongregationName: c?.name,
           outlineTheme: o?.theme,
         })),
-    [weekId, congregationId],
+    [week_id, congregationId],
   );
 
   return (
@@ -88,4 +88,4 @@ export const OutgoingSpeakersDisplay: React.FC<OutgoingSpeakersDisplayProps> = (
       )}
     </>
   );
-};
+}

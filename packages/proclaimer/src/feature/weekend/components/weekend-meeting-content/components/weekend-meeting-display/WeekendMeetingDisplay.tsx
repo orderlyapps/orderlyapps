@@ -11,10 +11,10 @@ import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 
 type WeekendMeetingDisplayProps = {
-  weekId: string;
+  week_id: string;
 };
 
-export const WeekendMeetingDisplay: React.FC<WeekendMeetingDisplayProps> = ({ weekId }) => {
+export function WeekendMeetingDisplay({ week_id }: WeekendMeetingDisplayProps) {
   const congregation = useStoredCongregation();
   const congregationId = congregation?.id;
 
@@ -26,7 +26,7 @@ export const WeekendMeetingDisplay: React.FC<WeekendMeetingDisplayProps> = ({ we
         .leftJoin({ o: outlineCollection }, ({ sa, o }) => eq(sa.outline_id, o!.id))
         .leftJoin({ c: congregationCollection }, ({ p, c }) => eq(p?.congregation_id, c!.id))
         .where(({ sa }) =>
-          and(eq(sa.week_id, weekId), eq(sa.congregation_id, congregationId ?? "")),
+          and(eq(sa.week_id, week_id), eq(sa.congregation_id, congregationId ?? "")),
         )
         .select(({ sa, p, o, c }) => ({
           speakerId: sa.speaker_id,
@@ -38,7 +38,7 @@ export const WeekendMeetingDisplay: React.FC<WeekendMeetingDisplayProps> = ({ we
           congregationName: c?.name,
           outlineTheme: o?.theme,
         })),
-    [weekId, congregationId],
+    [week_id, congregationId],
   );
 
   const currentAssignment = currentAssignments?.[0];
@@ -75,4 +75,4 @@ export const WeekendMeetingDisplay: React.FC<WeekendMeetingDisplayProps> = ({ we
       )}
     </>
   );
-};
+}

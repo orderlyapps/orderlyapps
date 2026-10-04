@@ -58,6 +58,7 @@ export { useWeekendAssignmentHandlers } from "./hooks/use-weekend-assignment-han
 export { useWeekendPresets } from "./hooks/use-weekend-presets.ts";
 export { useWeekendPublisherStats } from "./hooks/use-weekend-publisher-stats.ts";
 
+export { WeekendMeetingContent } from "./components/weekend-meeting-content/WeekendMeetingContent.tsx";
 export { WeekendAssignmentList } from "./components/weekend-assignment-list/WeekendAssignmentList.tsx";
 export { WeekendSmsSettingsModal } from "./components/weekend-sms-settings-modal/WeekendSmsSettingsModal.tsx";
 export { useWeekendAssignments } from "./hooks/use-weekend-assignments.ts";

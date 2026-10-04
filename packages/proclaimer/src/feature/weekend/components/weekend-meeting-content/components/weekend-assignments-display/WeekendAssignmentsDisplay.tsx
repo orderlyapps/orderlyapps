@@ -1,30 +1,30 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { weekendAttendantAssignmentIDs, avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
+import { weekendAVAssignmentIDs, avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import { and, eq, inArray } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 
-type WeekendAttendantsDisplayProps = {
-  weekId: string;
+type WeekendAssignmentsDisplayProps = {
+  week_id: string;
 };
 
-export const WeekendAttendantsDisplay: React.FC<WeekendAttendantsDisplayProps> = ({ weekId }) => {
+export function WeekendAssignmentsDisplay({ week_id }: WeekendAssignmentsDisplayProps) {
   const congregation = useStoredCongregation();
   const congregationId = congregation?.id;
 
-  const { data: attendantAssignments } = useLiveQuery(
+  const { data: avAssignments } = useLiveQuery(
     (q) =>
       q
         .from({ av: avAssignmentCollection })
         .leftJoin({ p: publisherCollection }, ({ av, p }) => eq(av.participant_id, p!.id))
         .where(({ av }) =>
           and(
-            eq(av.week_id, weekId),
+            eq(av.week_id, week_id),
             eq(av.congregation_id, congregationId ?? ""),
-            inArray(av.assignment_id, [...weekendAttendantAssignmentIDs]),
+            inArray(av.assignment_id, [...weekendAVAssignmentIDs]),
           ),
         )
         .select(({ av, p }) => ({
@@ -34,13 +34,13 @@ export const WeekendAttendantsDisplay: React.FC<WeekendAttendantsDisplayProps> =
           last_name: p?.last_name,
           display_name: p?.display_name,
         })),
-    [weekId, congregationId],
+    [week_id, congregationId],
   );
 
   return (
     <>
-      {attendantAssignments && attendantAssignments.length > 0 ? (
-        attendantAssignments.map((assignment, index) => {
+      {avAssignments && avAssignments.length > 0 ? (
+        avAssignments.map((assignment, index) => {
           const participantName =
             assignment?.first_name && assignment?.last_name
               ? getPublisherDisplayName({
@@ -54,7 +54,7 @@ export const WeekendAttendantsDisplay: React.FC<WeekendAttendantsDisplayProps> =
             <div key={index}>
               <LabelValueItem
                 label={avAssignmentLabels[assignment.assignmentId] || assignment.assignmentId}
-                label_color="jw_red"
+                label_color="primary"
                 value={participantName}
               />
             </div>
@@ -62,11 +62,11 @@ export const WeekendAttendantsDisplay: React.FC<WeekendAttendantsDisplayProps> =
         })
       ) : (
         <LabelValueItem
-          label="Weekend Attendants"
-          value="No attendant assignments for this week"
+          label="Weekend AV Assignments"
+          value="No AV assignments for this week"
           value_color="medium"
         />
       )}
     </>
   );
-};
+}

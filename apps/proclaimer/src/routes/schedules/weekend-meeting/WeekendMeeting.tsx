@@ -1,8 +1,15 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { WeekendMeetingHeader } from "@proclaimer-content/pages/schedules/weekend-meeting/weekend-meeting-header/WeekendMeetingHeader";
-import { WeekendMeetingContent } from "@proclaimer-content/pages/schedules/weekend-meeting/weekend-meeting-content/WeekendMeetingContent";
+import { WeekendMeetingContent } from "@amodeo/proclaimer/feature/weekend";
 
 function WeekendMeetingPage() {
   const match = useRouteMatch<{ week_id?: string }>();
@@ -12,10 +19,15 @@ function WeekendMeetingPage() {
   return (
     <IonPage>
       <IonHeader>
-        <WeekendMeetingHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>Weekend Meeting</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide remove-top-padding">
-        <WeekendMeetingContent weekId={week_id} />
+        <WeekendMeetingContent week_id={week_id} />
       </IonContent>
     </IonPage>
   );
