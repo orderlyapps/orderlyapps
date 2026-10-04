@@ -15,3 +15,4 @@ export {
 } from "./utils/stored-publisher.ts";
 export { useStoredPublisher } from "./utils/use-stored-publisher.ts";
 export { PublisherNameInput } from "./components/publisher-name-input/publisher-name-input.tsx";
+export { Publishers } from "./components/publishers/Publishers.tsx";

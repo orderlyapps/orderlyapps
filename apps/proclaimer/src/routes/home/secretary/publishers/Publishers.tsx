@@ -1,29 +1,28 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { PublishersHeader } from "@amodeo/proclaimer/feature/secretary";
-import { PublishersContent } from "@amodeo/proclaimer/feature/secretary";
-import { AddPublisherAlert } from "@amodeo/proclaimer/feature/secretary";
-import { useState } from "react";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { Publishers } from "@amodeo/proclaimer/feature/publisher";
 
 function PublishersPage() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [is_add_modal_open, set_is_add_modal_open] = useState(false);
-
   return (
     <IonPage>
       <IonHeader>
-        <PublishersHeader
-          searchTerm={searchTerm}
-          onSearch={setSearchTerm}
-          on_add={() => set_is_add_modal_open(true)}
-        />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/secretary" />
+          </IonButtons>
+          <IonTitle>Publishers</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide">
-        <PublishersContent searchTerm={searchTerm} />
+        <Publishers base_path="/home/secretary/publishers" />
       </IonContent>
-      <AddPublisherAlert
-        is_open={is_add_modal_open}
-        on_dismiss={() => set_is_add_modal_open(false)}
-      />
     </IonPage>
   );
 }
