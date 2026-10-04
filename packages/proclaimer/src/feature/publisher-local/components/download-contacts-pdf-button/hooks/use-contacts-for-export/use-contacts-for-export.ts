@@ -98,7 +98,8 @@ export function useContactsForExport() {
           !publisher.archived_at &&
           publisher.type !== "inactive" &&
           publisher.type !== "speaker" &&
-          publisher.type !== "associate",
+          publisher.type !== "associate" &&
+          publisher.type !== "removed",
       )
       .sort((a, b) => {
         // Sort by last_name, then display_name, then first_name
