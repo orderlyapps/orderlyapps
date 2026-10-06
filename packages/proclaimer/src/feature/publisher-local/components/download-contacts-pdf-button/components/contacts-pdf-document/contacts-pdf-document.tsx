@@ -1,13 +1,14 @@
 import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import type React from "react";
 import type { ContactWithDetails } from "../../types.ts";
+import { CONTACTS_PDF_FONT_FAMILY } from "./contacts-pdf-fonts.ts";
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
     padding: 15,
     fontSize: 9,
-    fontFamily: "Helvetica",
+    fontFamily: CONTACTS_PDF_FONT_FAMILY,
   },
   title: {
     fontSize: 12,
