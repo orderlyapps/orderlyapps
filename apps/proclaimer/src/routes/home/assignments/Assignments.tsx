@@ -1,14 +1,26 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AssignmentsHeader } from "@amodeo/proclaimer/feature/assignments";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonBackButton,
+  IonButtons,
+} from "@ionic/react";
 import { AssignmentsContent } from "@amodeo/proclaimer/feature/assignments";
 
 function AssignmentsPage() {
   return (
     <IonPage>
       <IonHeader>
-        <AssignmentsHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home" />
+          </IonButtons>
+          <IonTitle>Assignments</IonTitle>
+        </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <AssignmentsContent />
       </IonContent>
     </IonPage>
