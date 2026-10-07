@@ -68,7 +68,7 @@ export function AudioVideoContent() {
 
   return (
     <>
-      <TextButton label="Audio & Video Schedule" on_click={() => set_is_modal_open(true)} />
+      <TextButton label="Export to PDF" on_click={() => set_is_modal_open(true)} />
 
       <ResponsiveModal
         isOpen={is_modal_open}

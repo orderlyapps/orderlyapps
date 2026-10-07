@@ -131,7 +131,6 @@ import AvAssignmentDetailPage from "@proclaimer-routes/home/av-overseer/schedule
 import AvParticipationPage from "@proclaimer-routes/home/av-overseer/participation/Participation";
 import AvParticipationTypePage from "@proclaimer-routes/home/av-overseer/participation/AvParticipationType";
 import ParticipantsPage from "@proclaimer-routes/home/av-overseer/participants/Participants";
-import AvPdfPage from "@proclaimer-routes/home/av-overseer/pdf/Pdf";
 import RemindersPage from "@proclaimer-routes/home/reminders/Reminders";
 import RemindersAudioVideoPage from "@proclaimer-routes/home/reminders/audio-video/AudioVideo";
 import RemindersWeekendMeetingPage from "@proclaimer-routes/home/reminders/weekend-meeting/WeekendMeeting";
@@ -445,7 +444,6 @@ function App() {
           component={AvParticipationTypePage}
           exact
         />
-        <Route path="/home/av-overseer/pdf" component={AvPdfPage} exact />
         <Route path="/home/super-admin" component={SuperAdminPage} exact />
         <Route path="/home/super-admin/clam-data" component={ClamDataPage} exact />
         <Route path="/home/super-admin/outlines" component={OutlineManagementPage} exact />
