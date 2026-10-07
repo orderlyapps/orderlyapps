@@ -7,7 +7,7 @@ import {
   IonBackButton,
   IonButtons,
 } from "@ionic/react";
-import { AssignmentsContent } from "@amodeo/proclaimer/feature/assignments";
+import { AssignmentList } from "@amodeo/proclaimer/feature/assignments";
 
 function AssignmentsPage() {
   return (
@@ -21,7 +21,7 @@ function AssignmentsPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <AssignmentsContent />
+        <AssignmentList />
       </IonContent>
     </IonPage>
   );

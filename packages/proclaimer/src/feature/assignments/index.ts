@@ -5,5 +5,5 @@ export type { AssignmentMonthGroup as AssignmentMonthGroupType } from "./utils/g
 
 export { AssignmentItem } from "./components/assignment-item/AssignmentItem.tsx";
 export { AssignmentMonthGroup } from "./components/assignment-month-group/AssignmentMonthGroup.tsx";
-export { AssignmentsContent } from "./components/assignments-content/AssignmentsContent.tsx";
+export { AssignmentList } from "./components/assignment-list/AssignmentList.tsx";
 export { HomeAssignments } from "./components/home-assignments/HomeAssignments.tsx";

@@ -6,7 +6,7 @@ import { useAssignments } from "../../hooks/useAssignments.ts";
 import { groupAssignmentsByMonth } from "../../utils/groupAssignmentsByMonth.ts";
 import { AssignmentMonthGroup } from "../assignment-month-group/AssignmentMonthGroup.tsx";
 
-export function AssignmentsContent() {
+export function AssignmentList() {
   const { assignments, is_loading } = useAssignments();
 
   if (is_loading) {
