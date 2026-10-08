@@ -13,7 +13,7 @@ import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { AudioVideoPdfDocument } from "../audio-video-pdf/AudioVideoPdfDocument.tsx";
 import { PdfPublisherSelect } from "@amodeo/proclaimer/ui/components/inputs/pdf-publisher-select/PdfPublisherSelect";
-import { useAudioVideoScheduleData } from "../../hooks/use-audio-video-schedule-data.ts";
+import { useAudioVideoScheduleData } from "../../../hooks/use-audio-video-schedule-data.ts";
 
 type MonthRange = {
   readonly firstMonday: string;
