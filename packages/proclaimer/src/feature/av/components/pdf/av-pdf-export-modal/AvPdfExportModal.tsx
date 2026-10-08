@@ -1,6 +1,16 @@
 import { useState } from "react";
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons } from "@ionic/react";
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButtons,
+  IonGrid,
+  IonRow,
+  IonCol,
+} from "@ionic/react";
 import { format } from "date-fns";
+import { downloadOutline, shareOutline } from "ionicons/icons";
 import { pdf } from "@react-pdf/renderer";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
@@ -42,29 +52,58 @@ export function AvPdfExportModal({ is_open, on_dismiss }: AvPdfExportModalProps)
     return `Audio-Video_${first}_${last}`;
   };
 
+  const generate_pdf = async () => {
+    if (!selected_month) return null;
+    return pdf(
+      <AudioVideoPdfDocument
+        weeks={weeks}
+        isLoading={isLoading}
+        dateRange={selected_month}
+        highlightPublisherId={highlight_publisher ? pdf_publisher?.id : undefined}
+      />,
+    ).toBlob();
+  };
+
+  const download_blob = (blob: Blob) => {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${get_filename()}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   const handle_download = async () => {
-    if (!selected_month) return;
     set_is_generating(true);
     set_error_message(null);
     try {
-      const blob = await pdf(
-        <AudioVideoPdfDocument
-          weeks={weeks}
-          isLoading={isLoading}
-          dateRange={selected_month}
-          highlightPublisherId={highlight_publisher ? pdf_publisher?.id : undefined}
-        />,
-      ).toBlob();
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `${get_filename()}.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      const blob = await generate_pdf();
+      if (blob) download_blob(blob);
     } catch {
       set_error_message("Failed to generate PDF. Please try again.");
+    } finally {
+      set_is_generating(false);
+    }
+  };
+
+  const handle_share = async () => {
+    set_is_generating(true);
+    set_error_message(null);
+    try {
+      const blob = await generate_pdf();
+      if (!blob) return;
+      const filename = `${get_filename()}.pdf`;
+      const file = new File([blob], filename, { type: "application/pdf" });
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: filename });
+      } else {
+        download_blob(blob);
+      }
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") return;
+      set_error_message("Failed to share PDF. Please try again.");
     } finally {
       set_is_generating(false);
     }
@@ -118,21 +157,29 @@ export function AvPdfExportModal({ is_open, on_dismiss }: AvPdfExportModalProps)
 
         {!congregation ? (
           <TextButton expand="block" disabled label="No congregation selected" />
-        ) : selected_month ? (
-          <TextButton
-            expand="block"
-            disabled={is_generating || isLoading}
-            on_click={handle_download}
-            label={
-              is_generating
-                ? "Generating..."
-                : isLoading
-                  ? "Loading data..."
-                  : `Download PDF (${format(new Date(selected_month.firstMonday), "MMM d")} - ${format(new Date(selected_month.lastMonday), "MMM d, yyyy")})`
-            }
-          />
         ) : (
-          <TextButton expand="block" disabled label="Select a month to download" />
+          selected_month && (
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <TextButton
+                    icon={shareOutline}
+                    disabled={is_generating || isLoading}
+                    on_click={handle_share}
+                    label={is_generating ? "Generating..." : isLoading ? "Loading..." : "Share"}
+                  />
+                </IonCol>
+                <IonCol>
+                  <TextButton
+                    icon={downloadOutline}
+                    disabled={is_generating || isLoading}
+                    on_click={handle_download}
+                    label={is_generating ? "Generating..." : isLoading ? "Loading..." : "Download"}
+                  />
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          )
         )}
       </IonContent>
     </ResponsiveModal>
