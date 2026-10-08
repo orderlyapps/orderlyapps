@@ -1,5 +1,5 @@
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
-import type { AvAssignmentGroup } from "../../utils/types.ts";
+import type { AvAssignmentGroup } from "../../../utils/types.ts";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 
 export function AvAssignmentCard({

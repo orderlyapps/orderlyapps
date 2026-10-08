@@ -3,13 +3,13 @@ import { IonList } from "@ionic/react";
 import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
-import { avAssignmentCollection } from "../../collections/av-assignment.ts";
+import { avAssignmentCollection } from "../../../collections/av-assignment.ts";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { AvAssignment } from "../../schemas/av-assignment.ts";
+import type { AvAssignment } from "../../../schemas/av-assignment.ts";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { getAvAssignmentRows } from "../../utils/get-av-assignment-rows.ts";
+import { getAvAssignmentRows } from "../../../utils/get-av-assignment-rows.ts";
 import { AvAssignmentCard } from "../av-assignment-card/AvAssignmentCard.tsx";
-import type { AvAssignmentGroup } from "../../utils/types.ts";
+import type { AvAssignmentGroup } from "../../../utils/types.ts";
 
 export interface AvScheduleContentProps {
   week_id: string;
