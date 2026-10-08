@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons } from "@ionic/react";
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonModal } from "@ionic/react";
 import { format } from "date-fns";
 import { pdf } from "@react-pdf/renderer";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
-import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { MonthPicker } from "@amodeo/proclaimer/ui/components/inputs/month-picker/MonthPicker";
@@ -70,7 +69,7 @@ export function AvPdfExportModal() {
     <>
       <TextButton label="Export to PDF" on_click={() => set_is_modal_open(true)} />
 
-      <ResponsiveModal
+      <IonModal
         isOpen={is_modal_open}
         onDidDismiss={() => {
           set_is_modal_open(false);
@@ -137,7 +136,7 @@ export function AvPdfExportModal() {
             <TextButton expand="block" disabled label="Select a month to download" />
           )}
         </IonContent>
-      </ResponsiveModal>
+      </IonModal>
     </>
   );
 }
