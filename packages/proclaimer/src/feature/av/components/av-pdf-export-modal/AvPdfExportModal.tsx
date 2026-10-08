@@ -20,7 +20,7 @@ type MonthRange = {
   readonly lastMonday: string;
 };
 
-export function AudioVideoContent() {
+export function AvPdfExportModal() {
   const [is_modal_open, set_is_modal_open] = useState(false);
   const [selected_month, set_selected_month] = useState<MonthRange | null>(null);
   const [is_generating, set_is_generating] = useState(false);
@@ -76,8 +76,8 @@ export function AudioVideoContent() {
           set_is_modal_open(false);
           set_selected_month(null);
           set_error_message(null);
+          set_highlight_publisher(false);
         }}
-        fullscreen={false}
       >
         <IonHeader>
           <IonToolbar>
@@ -101,7 +101,6 @@ export function AudioVideoContent() {
               label="Highlight Publisher"
               checked={highlight_publisher}
               on_change={set_highlight_publisher}
-              disabled={!pdf_publisher}
             />
           )}
 

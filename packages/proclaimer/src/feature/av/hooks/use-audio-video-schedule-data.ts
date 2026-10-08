@@ -53,11 +53,7 @@ export function useAudioVideoScheduleData(
 
   const { data: events } = useLiveQuery(
     (q) =>
-      dateRange
-        ? q
-            .from({ e: eventCollection })
-            .where(({ e }) => eq(e.congregation_id, congregation_id ?? ""))
-        : undefined,
+      q.from({ e: eventCollection }).where(({ e }) => eq(e.congregation_id, congregation_id ?? "")),
     [congregation_id],
   );
 

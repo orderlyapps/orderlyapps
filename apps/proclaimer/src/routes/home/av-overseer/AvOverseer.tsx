@@ -10,7 +10,7 @@ import {
 } from "@ionic/react";
 import { format, startOfWeek } from "date-fns";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
-import { AudioVideoContent } from "@amodeo/proclaimer/feature/av";
+import { AvPdfExportModal } from "@amodeo/proclaimer/feature/av";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 function AvOverseerPage() {
@@ -33,7 +33,7 @@ function AvOverseerPage() {
           <NavItem label="Schedule" to={`/home/av-overseer/schedule/${currentWeekId}`} />
         </IonList>
         <Space />
-        <AudioVideoContent />
+        <AvPdfExportModal />
       </IonContent>
     </IonPage>
   );
