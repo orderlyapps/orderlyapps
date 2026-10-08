@@ -1,7 +1,6 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { IonList } from "@ionic/react";
+import { IonCol, IonGrid, IonList, IonRow } from "@ionic/react";
 import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
-import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { avAssignmentCollection } from "../../../collections/av-assignment.ts";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
@@ -38,18 +37,34 @@ export function AvScheduleContent({ week_id, base_path }: AvScheduleContentProps
 
   const rows = getAvAssignmentRows(week_id, base_path, assignments, publishers);
 
+  const starts_new_row = (row: AvAssignmentGroup) =>
+    row.is_header || row.id.startsWith("video") || row.id.startsWith("entrance");
+
+  const groups = rows.reduce<AvAssignmentGroup[][]>((groups, row) => {
+    const last = groups[groups.length - 1];
+    if (!last || starts_new_row(row)) {
+      groups.push([row]);
+    } else {
+      last.push(row);
+    }
+    return groups;
+  }, []);
+
   return (
     <>
       <WeekNavigation week_id={week_id} />
       <IonList inset>
-        <MultiColumnList<AvAssignmentGroup>
-          items={rows}
-          get_id={(row) => row.id}
-          render_item={(row) => <AvAssignmentCard {...row} />}
-          pin_to_first_column={(row) =>
-            row.is_header || row.id.startsWith("video") || row.id.startsWith("entrance")
-          }
-        />
+        <IonGrid>
+          {groups.map((group) => (
+            <IonRow key={group[0].id}>
+              {group.map((row) => (
+                <IonCol key={row.id} size="12" sizeMd="6" sizeLg="4" sizeXl="3">
+                  <AvAssignmentCard {...row} />
+                </IonCol>
+              ))}
+            </IonRow>
+          ))}
+        </IonGrid>
       </IonList>
     </>
   );
