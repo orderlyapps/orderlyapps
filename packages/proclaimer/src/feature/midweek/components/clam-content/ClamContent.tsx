@@ -14,6 +14,7 @@ import { useMidweekScheduleData } from "../../hooks/use-midweek-schedule-data.ts
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
+import { parseLocalDate } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 
 type MonthRange = {
   readonly firstMonday: string;
@@ -33,8 +34,8 @@ export function ClamContent() {
 
   const get_filename = () => {
     if (!selected_month) return "Midweek-Meeting";
-    const first = format(new Date(selected_month.firstMonday), "MMM-d");
-    const last = format(new Date(selected_month.lastMonday), "MMM-d-yyyy");
+    const first = format(parseLocalDate(selected_month.firstMonday), "MMM-d");
+    const last = format(parseLocalDate(selected_month.lastMonday), "MMM-d-yyyy");
     return `Midweek-Meeting_${first}_${last}`;
   };
 
@@ -101,13 +102,14 @@ export function ClamContent() {
               label="Highlight Publisher"
               checked={highlight_publisher}
               on_change={set_highlight_publisher}
-              disabled={!pdf_publisher}
             />
           )}
 
           <Space />
 
-          {highlight_publisher && <PdfPublisherSelect on_change={set_pdf_publisher} />}
+          {highlight_publisher && (
+            <PdfPublisherSelect value={pdf_publisher} on_change={set_pdf_publisher} />
+          )}
 
           <Space />
 
@@ -131,7 +133,7 @@ export function ClamContent() {
                   ? "Generating..."
                   : isLoading
                     ? "Loading data..."
-                    : `Download PDF (${format(new Date(selected_month.firstMonday), "MMM d")} - ${format(new Date(selected_month.lastMonday), "MMM d, yyyy")})`
+                    : `Download PDF (${format(parseLocalDate(selected_month.firstMonday), "MMM d")} - ${format(parseLocalDate(selected_month.lastMonday), "MMM d, yyyy")})`
               }
             ></TextButton>
           ) : (

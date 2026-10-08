@@ -1,5 +1,14 @@
 import { startOfWeek, endOfWeek, isWithinInterval, addWeeks } from "date-fns";
 
+/**
+ * Parses a "YYYY-MM-DD" string as a local date — `new Date(str)` would parse it
+ * as UTC midnight, which formats as the previous day in timezones behind UTC.
+ */
+export const parseLocalDate = (iso: string): Date => {
+  const [year, month, day] = iso.split("-").map(Number);
+  return new Date(year, month - 1, day);
+};
+
 interface FormatOptions {
   format?:
     | "week-label"

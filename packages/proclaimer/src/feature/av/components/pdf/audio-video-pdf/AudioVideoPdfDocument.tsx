@@ -3,46 +3,24 @@ import { SchedulePdfHeader } from "@amodeo/proclaimer/feature/midweek";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvWeekData } from "../../../hooks/use-audio-video-schedule-data.ts";
+import {
+  avAssignmentLabels,
+  midweekAVAssignmentIDs,
+  midweekAttendantAssignmentIDs,
+  weekendAVAssignmentIDs,
+  weekendAttendantAssignmentIDs,
+} from "../../../schemas/av-assignment.ts";
 
-const midweekIDs = [
-  "video_midweek",
-  "audio_midweek",
-  "platform_midweek",
-  "microphone_1_midweek",
-  "microphone_2_midweek",
-  "entrance_midweek",
-  "auditorium_midweek",
-  "zoom_midweek",
-] as const;
+const midweekIDs = [...midweekAVAssignmentIDs, ...midweekAttendantAssignmentIDs];
 
-const weekendIDs = [
-  "video_weekend",
-  "audio_weekend",
-  "platform_weekend",
-  "microphone_1_weekend",
-  "microphone_2_weekend",
-  "entrance_weekend",
-  "auditorium_weekend",
-  "zoom_weekend",
-] as const;
+const weekendIDs = [...weekendAVAssignmentIDs, ...weekendAttendantAssignmentIDs];
 
 const columnLabels: Record<string, string> = {
-  video_midweek: "Video",
-  audio_midweek: "Audio",
-  platform_midweek: "Platform",
+  ...avAssignmentLabels,
   microphone_1_midweek: "Mic",
   microphone_2_midweek: "Mic",
-  entrance_midweek: "Entrance",
-  auditorium_midweek: "Auditorium",
-  zoom_midweek: "Zoom",
-  video_weekend: "Video",
-  audio_weekend: "Audio",
-  platform_weekend: "Platform",
   microphone_1_weekend: "Mic",
   microphone_2_weekend: "Mic",
-  entrance_weekend: "Entrance",
-  auditorium_weekend: "Auditorium",
-  zoom_weekend: "Zoom",
 };
 
 const styles = StyleSheet.create({
@@ -61,12 +39,6 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
     marginBottom: 6,
     fontWeight: "bold",
-  },
-  meetingLabelCell: {
-    width: "12%",
-    fontSize: 11,
-    fontWeight: "bold",
-    color: "#333",
   },
   columnHeaderCell: {
     fontSize: 10,
@@ -209,6 +181,8 @@ function WeekSection({
 }) {
   const dateLabel = getTheocraticWeekLabel(weekId, { format: "week-range-capital-case" });
 
+  // There is no midweek meeting during circuit assembly or convention weeks,
+  // so both meeting rows are intentionally suppressed in favor of the banner.
   const hasCircuitAssembly = events.some((e) => e.type === "circuit_assembly");
   const hasConvention = events.some((e) => e.type === "convention");
 

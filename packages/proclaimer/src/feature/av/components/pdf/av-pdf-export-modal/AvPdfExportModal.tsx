@@ -24,6 +24,7 @@ import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { AudioVideoPdfDocument } from "../audio-video-pdf/AudioVideoPdfDocument.tsx";
 import { PdfPublisherSelect } from "@amodeo/proclaimer/ui/components/inputs/pdf-publisher-select/PdfPublisherSelect";
 import { useAudioVideoScheduleData } from "../../../hooks/use-audio-video-schedule-data.ts";
+import { parseLocalDate } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 
 type MonthRange = {
   readonly firstMonday: string;
@@ -47,8 +48,8 @@ export function AvPdfExportModal({ is_open, on_dismiss }: AvPdfExportModalProps)
 
   const get_filename = () => {
     if (!selected_month) return "Audio-Video";
-    const first = format(new Date(selected_month.firstMonday), "MMM-d");
-    const last = format(new Date(selected_month.lastMonday), "MMM-d-yyyy");
+    const first = format(parseLocalDate(selected_month.firstMonday), "MMM-d");
+    const last = format(parseLocalDate(selected_month.lastMonday), "MMM-d-yyyy");
     return `Audio-Video_${first}_${last}`;
   };
 
@@ -145,7 +146,9 @@ export function AvPdfExportModal({ is_open, on_dismiss }: AvPdfExportModalProps)
 
         <Space />
 
-        {highlight_publisher && <PdfPublisherSelect on_change={set_pdf_publisher} />}
+        {highlight_publisher && (
+          <PdfPublisherSelect value={pdf_publisher} on_change={set_pdf_publisher} />
+        )}
 
         <Space />
 

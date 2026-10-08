@@ -4,19 +4,18 @@ import { ModalSelect } from "@amodeo/proclaimer/ui/components/inputs/modal-selec
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { PublisherSelectContent } from "@amodeo/proclaimer/feature/settings";
-import { getStoredPublisher, getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 interface PdfPublisherSelectProps {
+  value: Publisher | null;
   on_change: (publisher: Publisher | null) => void;
 }
 
-export function PdfPublisherSelect({ on_change }: PdfPublisherSelectProps) {
+export function PdfPublisherSelect({ value, on_change }: PdfPublisherSelectProps) {
   const [show_select_modal, set_show_select_modal] = useState(false);
-  const [publisher, set_publisher] = useState(getStoredPublisher);
 
   const handleSelect = (p: Publisher) => {
-    set_publisher(p);
     on_change(p);
     set_show_select_modal(false);
   };
@@ -25,7 +24,7 @@ export function PdfPublisherSelect({ on_change }: PdfPublisherSelectProps) {
     <>
       <ModalSelect
         label="Publisher"
-        display_value={publisher ? getPublisherDisplayName(publisher) : ""}
+        display_value={value ? getPublisherDisplayName(value) : ""}
         placeholder="Select publisher..."
         on_open={() => set_show_select_modal(true)}
       />
@@ -41,7 +40,7 @@ export function PdfPublisherSelect({ on_change }: PdfPublisherSelectProps) {
         <IonContent className="ion-padding content-wide">
           <PublisherSelectContent
             onPublisherSelected={handleSelect}
-            selectedPublisherId={publisher?.id}
+            selectedPublisherId={value?.id}
           />
         </IonContent>
       </ResponsiveModal>

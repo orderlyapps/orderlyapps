@@ -22,3 +22,8 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 # Project Rules
 
 - `IonPage`, `IonHeader`, and `IonContent` should preferably only be used in app route files under `src/routes`. Exception: `IonContent` may be used inside `IonModal` components.
+
+# Domain Rules
+
+- Schedules: there is NO midweek meeting during weeks that contain a circuit assembly or convention. Schedule/PDF exports intentionally omit meeting assignment rows for those weeks (they show an event banner instead). Do not "fix" this.
+- Month-based schedule exports only include weeks whose Monday falls within the selected calendar month. Weekend meetings occurring on the 1st–2nd of the month (when that week began in the previous month) are intentionally excluded from that month's export. Do not "fix" this.
