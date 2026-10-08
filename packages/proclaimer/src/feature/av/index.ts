@@ -73,6 +73,7 @@ export { ParticipantParticipationModal } from "./components/participant-particip
 export { ParticipantsContent } from "./components/participants-content/ParticipantsContent.tsx";
 export { PublisherLetterDivider } from "./components/publisher-letter-divider/PublisherLetterDivider.tsx";
 
+export { AvPdfExportButton } from "./components/pdf/av-pdf-export-modal/AvPdfExportButton.tsx";
 export { AvPdfExportModal } from "./components/pdf/av-pdf-export-modal/AvPdfExportModal.tsx";
 export { AudioVideoHeader } from "./components/audio-video-header/AudioVideoHeader.tsx";
 export { AudioVideoPdfDocument } from "./components/pdf/audio-video-pdf/AudioVideoPdfDocument.tsx";

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonModal } from "@ionic/react";
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons } from "@ionic/react";
 import { format } from "date-fns";
 import { pdf } from "@react-pdf/renderer";
+import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
@@ -19,8 +20,12 @@ type MonthRange = {
   readonly lastMonday: string;
 };
 
-export function AvPdfExportModal() {
-  const [is_modal_open, set_is_modal_open] = useState(false);
+interface AvPdfExportModalProps {
+  is_open: boolean;
+  on_dismiss: () => void;
+}
+
+export function AvPdfExportModal({ is_open, on_dismiss }: AvPdfExportModalProps) {
   const [selected_month, set_selected_month] = useState<MonthRange | null>(null);
   const [is_generating, set_is_generating] = useState(false);
   const [error_message, set_error_message] = useState<string | null>(null);
@@ -65,78 +70,71 @@ export function AvPdfExportModal() {
     }
   };
 
+  const handle_dismiss = () => {
+    set_selected_month(null);
+    set_error_message(null);
+    set_highlight_publisher(false);
+    on_dismiss();
+  };
+
   return (
-    <>
-      <TextButton label="Export to PDF" on_click={() => set_is_modal_open(true)} />
+    <ResponsiveModal isOpen={is_open} onDidDismiss={handle_dismiss} fullscreen={false}>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <CloseIconButton on_click={handle_dismiss} skip_confirmation />
+          </IonButtons>
+          <IonTitle>Audio & Video Schedule</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="ion-padding">
+        <MonthPicker
+          label="Select Month"
+          value={selected_month ? selected_month.firstMonday.substring(0, 7) : undefined}
+          on_value_change={set_selected_month}
+        />
 
-      <IonModal
-        isOpen={is_modal_open}
-        onDidDismiss={() => {
-          set_is_modal_open(false);
-          set_selected_month(null);
-          set_error_message(null);
-          set_highlight_publisher(false);
-        }}
-      >
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <CloseIconButton on_click={() => set_is_modal_open(false)} skip_confirmation />
-            </IonButtons>
-            <IonTitle>Audio & Video Schedule</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent className="ion-padding">
-          <MonthPicker
-            label="Select Month"
-            value={selected_month ? selected_month.firstMonday.substring(0, 7) : undefined}
-            on_value_change={set_selected_month}
+        <Space />
+
+        {selected_month && (
+          <ToggleInput
+            label="Highlight Publisher"
+            checked={highlight_publisher}
+            on_change={set_highlight_publisher}
           />
+        )}
 
-          <Space />
+        <Space />
 
-          {selected_month && (
-            <ToggleInput
-              label="Highlight Publisher"
-              checked={highlight_publisher}
-              on_change={set_highlight_publisher}
-            />
-          )}
+        {highlight_publisher && <PdfPublisherSelect on_change={set_pdf_publisher} />}
 
-          <Space />
+        <Space />
 
-          {highlight_publisher && <PdfPublisherSelect on_change={set_pdf_publisher} />}
+        {error_message && (
+          <p style={{ color: "var(--ion-color-danger)", fontSize: "0.875rem", margin: "0.5rem 0" }}>
+            {error_message}
+          </p>
+        )}
 
-          <Space />
-
-          {error_message && (
-            <p
-              style={{ color: "var(--ion-color-danger)", fontSize: "0.875rem", margin: "0.5rem 0" }}
-            >
-              {error_message}
-            </p>
-          )}
-
-          {!congregation ? (
-            <TextButton expand="block" disabled label="No congregation selected" />
-          ) : selected_month ? (
-            <TextButton
-              expand="block"
-              disabled={is_generating || isLoading}
-              on_click={handle_download}
-              label={
-                is_generating
-                  ? "Generating..."
-                  : isLoading
-                    ? "Loading data..."
-                    : `Download PDF (${format(new Date(selected_month.firstMonday), "MMM d")} - ${format(new Date(selected_month.lastMonday), "MMM d, yyyy")})`
-              }
-            />
-          ) : (
-            <TextButton expand="block" disabled label="Select a month to download" />
-          )}
-        </IonContent>
-      </IonModal>
-    </>
+        {!congregation ? (
+          <TextButton expand="block" disabled label="No congregation selected" />
+        ) : selected_month ? (
+          <TextButton
+            expand="block"
+            disabled={is_generating || isLoading}
+            on_click={handle_download}
+            label={
+              is_generating
+                ? "Generating..."
+                : isLoading
+                  ? "Loading data..."
+                  : `Download PDF (${format(new Date(selected_month.firstMonday), "MMM d")} - ${format(new Date(selected_month.lastMonday), "MMM d, yyyy")})`
+            }
+          />
+        ) : (
+          <TextButton expand="block" disabled label="Select a month to download" />
+        )}
+      </IonContent>
+    </ResponsiveModal>
   );
 }

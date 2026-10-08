@@ -1,5 +1,5 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AvPdfExportModal, AudioVideoHeader } from "@amodeo/proclaimer/feature/av";
+import { AvPdfExportButton, AudioVideoHeader } from "@amodeo/proclaimer/feature/av";
 
 function AudioVideoPage() {
   return (
@@ -8,7 +8,7 @@ function AudioVideoPage() {
         <AudioVideoHeader />
       </IonHeader>
       <IonContent className="ion-padding">
-        <AvPdfExportModal />
+        <AvPdfExportButton />
       </IonContent>
     </IonPage>
   );
