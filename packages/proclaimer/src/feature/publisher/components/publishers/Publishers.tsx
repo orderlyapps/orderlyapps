@@ -6,13 +6,18 @@ import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinne
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { publisherCollection } from "../../collections/publisher.ts";
 import { getPublisherDisplayName } from "../../utils/publisher-name.ts";
+import {
+  filterPublishers,
+  type PublisherFilter,
+} from "../publisher-filter-select/PublisherFilterSelect.tsx";
 
 interface PublishersProps {
   base_path: string;
   search_term?: string;
+  filter?: PublisherFilter;
 }
 
-export function Publishers({ base_path, search_term = "" }: PublishersProps) {
+export function Publishers({ base_path, search_term = "", filter }: PublishersProps) {
   const congregation_id = useStoredCongregation()?.id;
 
   const { data, isLoading } = useLiveQuery(
@@ -30,7 +35,7 @@ export function Publishers({ base_path, search_term = "" }: PublishersProps) {
   }
 
   const normalized_search = search_term.trim().toLowerCase();
-  const publishers = (data ?? []).filter((p) =>
+  const publishers = (filter ? filterPublishers(data ?? [], filter) : (data ?? [])).filter((p) =>
     getPublisherDisplayName(p).toLowerCase().includes(normalized_search),
   );
 

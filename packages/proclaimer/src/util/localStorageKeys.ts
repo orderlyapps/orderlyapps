@@ -34,6 +34,7 @@ export const localStorageKeys = {
   authUsersActiveOnly: "auth_users_active_only",
   ministryReportForm: "ministry_report_form",
   ministryTimeSettingsAccordion: "ministry_time_settings_accordion",
+  publishersFilterAccordion: "publishers_filter_accordion",
   avSmsTemplate: "av_sms_template",
   weekendMeetingSmsTemplate: "weekend_meeting_sms_template",
 } as const;

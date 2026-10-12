@@ -9,6 +9,27 @@ export interface PublisherFilter {
   archived: "all" | "exclude" | "only";
 }
 
+export function filterPublishers(publishers: Publisher[], filter: PublisherFilter): Publisher[] {
+  return publishers.filter((publisher) => {
+    if (filter.gender !== "all" && publisher.gender !== filter.gender) {
+      return false;
+    }
+    if (filter.standing !== "all" && !filter.standing.includes(publisher.standing)) {
+      return false;
+    }
+    if (filter.type !== "all" && !filter.type.includes(publisher.type)) {
+      return false;
+    }
+    if (filter.archived === "exclude" && publisher.archived_at) {
+      return false;
+    }
+    if (filter.archived === "only" && !publisher.archived_at) {
+      return false;
+    }
+    return true;
+  });
+}
+
 type ArchivedValue = "active" | "archived";
 
 function formatLabel(value: string) {

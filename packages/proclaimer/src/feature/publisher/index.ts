@@ -16,5 +16,8 @@ export {
 export { useStoredPublisher } from "./utils/use-stored-publisher.ts";
 export { PublisherNameInput } from "./components/publisher-name-input/publisher-name-input.tsx";
 export { Publishers } from "./components/publishers/Publishers.tsx";
-export { PublisherFilterSelect } from "./components/publisher-filter-select/PublisherFilterSelect.tsx";
+export {
+  PublisherFilterSelect,
+  filterPublishers,
+} from "./components/publisher-filter-select/PublisherFilterSelect.tsx";
 export type { PublisherFilter } from "./components/publisher-filter-select/PublisherFilterSelect.tsx";
