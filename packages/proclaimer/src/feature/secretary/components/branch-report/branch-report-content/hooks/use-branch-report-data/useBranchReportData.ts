@@ -3,6 +3,9 @@ import { reportCollection } from "@amodeo/proclaimer/feature/reports";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { publisherLocalCollection } from "@amodeo/proclaimer/feature/publisher-local";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
+import { useAverageWeekendAttendance } from "@amodeo/proclaimer/feature/meeting-attendance";
+import { getWeekStart } from "@amodeo/proclaimer/util/date/getWeekStart";
+import { endOfMonth, format, isMonday, nextMonday } from "date-fns";
 
 function formatMonthDate(year: number, month: number): string {
   return `${year}-${String(month + 1).padStart(2, "0")}-01`;
@@ -18,6 +21,14 @@ export function useBranchReportData() {
   const start_date = formatMonthDate(start.getFullYear(), start.getMonth());
   const end_date = formatMonthDate(end.getFullYear(), end.getMonth());
   const previous_month_date = end_date;
+  const first_monday = format(isMonday(end) ? end : nextMonday(end), "yyyy-MM-dd");
+  const last_monday = getWeekStart(endOfMonth(end));
+
+  const { average: weekend_attendance_average, is_loading: weekend_attendance_loading } =
+    useAverageWeekendAttendance(
+      congregation_id ? { firstMonday: first_monday, lastMonday: last_monday } : null,
+      congregation_id ?? "",
+    );
 
   const { data: reports, isLoading: reports_loading } = useLiveQuery(
     (q) =>
@@ -158,6 +169,7 @@ export function useBranchReportData() {
 
   return {
     active_publishers_count: active_publisher_ids.size,
+    weekend_attendance_average,
     publisher_reports_count,
     publisher_bible_studies,
     aux_pio_reports_count,
@@ -172,6 +184,7 @@ export function useBranchReportData() {
       aux_pio_loading ||
       all_prev_loading ||
       local_publishers_loading ||
-      publishers_loading,
+      publishers_loading ||
+      weekend_attendance_loading,
   };
 }

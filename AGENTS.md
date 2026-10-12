@@ -27,3 +27,4 @@ Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.de
 
 - Schedules: there is NO midweek meeting during weeks that contain a circuit assembly or convention. Schedule/PDF exports intentionally omit meeting assignment rows for those weeks (they show an event banner instead). Do not "fix" this.
 - Month-based schedule exports only include weeks whose Monday falls within the selected calendar month. Weekend meetings occurring on the 1st–2nd of the month (when that week began in the previous month) are intentionally excluded from that month's export. Do not "fix" this.
+- The branch report's Average Weekend Meeting Attendance uses the same rule: it averages only weeks whose Monday falls within the report month. Weekend meetings on the 1st–2nd (week began in the previous month) are excluded, and weeks starting on the 29th–31st are included even though their weekend falls in the next month. Do not "fix" this.

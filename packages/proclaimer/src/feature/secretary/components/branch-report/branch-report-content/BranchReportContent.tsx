@@ -7,6 +7,7 @@ import { useBranchReportData } from "./hooks/use-branch-report-data/useBranchRep
 export function BranchReportContent() {
   const {
     active_publishers_count,
+    weekend_attendance_average,
     publisher_reports_count,
     publisher_bible_studies,
     aux_pio_reports_count,
@@ -23,7 +24,12 @@ export function BranchReportContent() {
         <Heading>Congregation</Heading>
       </IonItemDivider>
       <LabelValueItem label="All Active Publishers" value={String(active_publishers_count)} />
-      <LabelValueItem label="Average Weekend Meeting Attendance" value="—" />
+      <LabelValueItem
+        label="Average Weekend Meeting Attendance"
+        value={
+          weekend_attendance_average === null ? "—" : String(Math.round(weekend_attendance_average))
+        }
+      />
       <Space />
       <IonItemDivider sticky className="ion-padding">
         <Heading>Publishers</Heading>
