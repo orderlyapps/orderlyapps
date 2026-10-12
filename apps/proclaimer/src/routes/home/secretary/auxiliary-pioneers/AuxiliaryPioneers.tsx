@@ -7,7 +7,7 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/react";
-import { AuxiliaryPioneersContent } from "@amodeo/proclaimer/feature/reports";
+import { AuxiliaryPioneerList } from "@amodeo/proclaimer/feature/reports";
 
 function AuxiliaryPioneersPage() {
   return (
@@ -21,7 +21,7 @@ function AuxiliaryPioneersPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <AuxiliaryPioneersContent />
+        <AuxiliaryPioneerList />
       </IonContent>
     </IonPage>
   );

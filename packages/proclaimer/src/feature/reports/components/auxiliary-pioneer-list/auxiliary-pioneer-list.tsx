@@ -13,7 +13,7 @@ function currentMonthStr(): string {
   return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
 }
 
-export function AuxiliaryPioneersContent() {
+export function AuxiliaryPioneerList() {
   const [month, set_month] = useState(currentMonthStr());
   const [modal_open, set_modal_open] = useState(false);
   const { entries, isLoading, show_continuous } = useAuxiliaryPioneers(month);

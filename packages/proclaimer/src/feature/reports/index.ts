@@ -6,7 +6,7 @@ export { DownloadAllReportsButton } from "./components/pdf/download-all-reports-
 export { MissingReportsList } from "./components/missing-reports-list/missing-reports-list.tsx";
 export { PublishersList } from "./components/publishers-list/publishers-list.tsx";
 export { ReactivatedPublishersList } from "./components/reactivated-publishers-list/reactivated-publishers-list.tsx";
-export { AuxiliaryPioneersContent } from "./components/auxiliary-pioneers-content/auxiliary-pioneers-content.tsx";
+export { AuxiliaryPioneerList } from "./components/auxiliary-pioneer-list/auxiliary-pioneer-list.tsx";
 export { ReportItem } from "./components/publisher-record/components/report-item/report-item.tsx";
 export { PublisherReportModal } from "./components/publisher-record/components/publisher-report-modal/publisher-report-modal.tsx";
 export { PublisherRecordContent } from "./components/publisher-record/publisher-record.tsx";
