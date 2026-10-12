@@ -43,6 +43,9 @@ export function AuxiliaryPioneersContent() {
                 <IonItem
                   key={entry.publisher_id}
                   lines={i === entries.length - 1 ? "none" : "full"}
+                  button
+                  detail
+                  routerLink={`/home/secretary/auxiliary-pioneers/${entry.publisher_id}`}
                 >
                   <IonLabel className="ion-text-wrap">
                     <Body>{entry.full_name}</Body>

@@ -49,6 +49,7 @@ import MissingDetailsPage from "@proclaimer-routes/home/secretary/missing-detail
 import ReactivatedPublishersPage from "@proclaimer-routes/home/secretary/reactivated-publishers/ReactivatedPublishers";
 import SecretaryPioneersPage from "@proclaimer-routes/home/secretary/pioneers/Pioneers";
 import SecretaryAuxiliaryPioneersPage from "@proclaimer-routes/home/secretary/auxiliary-pioneers/AuxiliaryPioneers";
+import SecretaryAuxiliaryPioneerDetailsPage from "@proclaimer-routes/home/secretary/auxiliary-pioneers/publisher-details/PublisherDetails";
 import CongregationAdminPage from "@proclaimer-routes/home/congregation-admin/CongregationAdmin";
 import AuthUsersPage from "@proclaimer-routes/home/congregation-admin/auth-users/AuthUsers";
 import SuperAdminPage from "@proclaimer-routes/home/super-admin/SuperAdmin";
@@ -191,6 +192,11 @@ function App() {
         <Route
           path="/home/secretary/auxiliary-pioneers"
           component={SecretaryAuxiliaryPioneersPage}
+          exact
+        />
+        <Route
+          path="/home/secretary/auxiliary-pioneers/:publisher_id"
+          component={SecretaryAuxiliaryPioneerDetailsPage}
           exact
         />
         <Route path="/home/secretary/groups" component={GroupsPage} exact />
