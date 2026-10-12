@@ -1,6 +1,3 @@
-export { SecretaryHeader } from "./components/secretary-header/SecretaryHeader.tsx";
-export { SecretaryContent } from "./components/secretary-content/SecretaryContent.tsx";
-
 export { CoVisitInfoHeader } from "./components/co-visit-info/co-visit-info-header/CoVisitInfoHeader.tsx";
 export { CoVisitInfoContent } from "./components/co-visit-info/co-visit-info-content/CoVisitInfoContent.tsx";
 
