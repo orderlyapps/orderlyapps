@@ -9,9 +9,10 @@ import { getPublisherDisplayName } from "../../utils/publisher-name.ts";
 
 interface PublishersProps {
   base_path: string;
+  search_term?: string;
 }
 
-export function Publishers({ base_path }: PublishersProps) {
+export function Publishers({ base_path, search_term = "" }: PublishersProps) {
   const congregation_id = useStoredCongregation()?.id;
 
   const { data, isLoading } = useLiveQuery(
@@ -28,7 +29,10 @@ export function Publishers({ base_path }: PublishersProps) {
     return <Spinner />;
   }
 
-  const publishers = data ?? [];
+  const normalized_search = search_term.trim().toLowerCase();
+  const publishers = (data ?? []).filter((p) =>
+    getPublisherDisplayName(p).toLowerCase().includes(normalized_search),
+  );
 
   if (publishers.length === 0) {
     return (

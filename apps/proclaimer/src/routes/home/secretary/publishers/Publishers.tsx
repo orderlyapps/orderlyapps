@@ -7,9 +7,13 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/react";
+import { useState } from "react";
 import { Publishers } from "@amodeo/proclaimer/feature/publisher";
+import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
 
 function PublishersPage() {
+  const [search_term, setSearchTerm] = useState("");
+
   return (
     <IonPage>
       <IonHeader>
@@ -19,9 +23,12 @@ function PublishersPage() {
           </IonButtons>
           <IonTitle>Publishers</IonTitle>
         </IonToolbar>
+        <IonToolbar>
+          <SearchInput value={search_term} on_change={setSearchTerm} />
+        </IonToolbar>
       </IonHeader>
-      <IonContent className="content-wide">
-        <Publishers base_path="/home/secretary/publishers" />
+      <IonContent>
+        <Publishers base_path="/home/secretary/publishers" search_term={search_term} />
       </IonContent>
     </IonPage>
   );
