@@ -1,15 +1,6 @@
 export { SecretaryHeader } from "./components/secretary-header/SecretaryHeader.tsx";
 export { SecretaryContent } from "./components/secretary-content/SecretaryContent.tsx";
 
-export { PublisherRecordsHeader } from "./components/publisher-records/publisher-records-header/PublisherRecordsHeader.tsx";
-export { PublisherRecordsContent } from "./components/publisher-records/publisher-records-content/PublisherRecordsContent.tsx";
-export {
-  usePublisherRecordsData,
-  filterPublishersByGroup,
-  GROUP_LABELS,
-} from "./components/publisher-records/publisher-records-content/hooks/usePublisherRecordsData.ts";
-export type { PublisherGroup } from "./components/publisher-records/publisher-records-content/hooks/usePublisherRecordsData.ts";
-
 export { CoVisitInfoHeader } from "./components/co-visit-info/co-visit-info-header/CoVisitInfoHeader.tsx";
 export { CoVisitInfoContent } from "./components/co-visit-info/co-visit-info-content/CoVisitInfoContent.tsx";
 

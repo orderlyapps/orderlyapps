@@ -39,7 +39,6 @@ import PublisherDetailsPage from "@proclaimer-routes/home/secretary/publishers/p
 import SecretaryPublisherReportsPage from "@proclaimer-routes/home/secretary/publishers/publisher-reports/PublisherReports";
 import PublisherAssignmentsPage from "@proclaimer-routes/home/secretary/publishers/publisher-assignments/PublisherAssignments";
 import PublisherParticipationPage from "@proclaimer-routes/home/secretary/publishers/publisher-participation/PublisherParticipation";
-import PublisherRecordsPage from "@proclaimer-routes/home/secretary/publisher-records/PublisherRecords";
 import GroupsPage from "@proclaimer-routes/home/secretary/groups/Groups";
 import GroupDetailsPage from "@proclaimer-routes/home/secretary/groups/group-details/GroupDetails";
 import MissingReportsPage from "@proclaimer-routes/home/secretary/missing-reports/MissingReports";
@@ -187,7 +186,6 @@ function App() {
           component={PublisherParticipationPage}
           exact
         />
-        <Route path="/home/secretary/publisher-records" component={PublisherRecordsPage} exact />
         <Route path="/home/secretary/pioneers" component={SecretaryPioneersPage} exact />
         <Route path="/home/secretary/groups" component={GroupsPage} exact />
         <Route path="/home/secretary/groups/:group_id" component={GroupDetailsPage} exact />
