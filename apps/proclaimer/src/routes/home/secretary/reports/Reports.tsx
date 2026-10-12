@@ -24,6 +24,7 @@ function ReportsPage() {
       <IonContent>
         <IonList>
           <NavItem label="Missing Reports" to="/home/secretary/reports/missing-reports" />
+          <NavItem label="Branch Report" to="/home/secretary/reports/branch-report" />
           <NavItem label="Records" to="/home/secretary/reports/records" />
         </IonList>
       </IonContent>

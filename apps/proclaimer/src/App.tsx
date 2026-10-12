@@ -48,6 +48,7 @@ import MissingDetailsPage from "@proclaimer-routes/home/secretary/missing-detail
 import SecretaryReportsPage from "@proclaimer-routes/home/secretary/reports/Reports";
 import SecretaryReportsMissingReportsPage from "@proclaimer-routes/home/secretary/reports/missing-reports/MissingReports";
 import SecretaryReportsRecordsPage from "@proclaimer-routes/home/secretary/reports/records/Records";
+import SecretaryReportsBranchReportPage from "@proclaimer-routes/home/secretary/reports/branch-report/BranchReport";
 import ReactivatedPublishersPage from "@proclaimer-routes/home/secretary/reactivated-publishers/ReactivatedPublishers";
 import SecretaryPioneersPage from "@proclaimer-routes/home/secretary/pioneers/Pioneers";
 import SecretaryAuxiliaryPioneersPage from "@proclaimer-routes/home/secretary/auxiliary-pioneers/AuxiliaryPioneers";
@@ -220,6 +221,11 @@ function App() {
         <Route
           path="/home/secretary/reports/records"
           component={SecretaryReportsRecordsPage}
+          exact
+        />
+        <Route
+          path="/home/secretary/reports/branch-report"
+          component={SecretaryReportsBranchReportPage}
           exact
         />
         <Route
