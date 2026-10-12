@@ -60,6 +60,7 @@ export function PublisherRecordContent({ publisher_id }: { publisher_id: string 
         confidential_id={confidential_id}
         publisher_name={publisher_name}
         group_id={group_id}
+        publisher_type={publisher?.type}
         reports={reports}
         is_loading={isLoading}
         on_dismiss={() => set_selected_date(null)}

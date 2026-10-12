@@ -1,3 +1,4 @@
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { Report } from "../../../../schemas/report.ts";
 import { PublisherReportModal } from "../publisher-report-modal/publisher-report-modal.tsx";
 
@@ -6,6 +7,7 @@ interface PublisherRecordModalWrapperProps {
   confidential_id: string | undefined;
   publisher_name: string;
   group_id: string | null;
+  publisher_type: Publisher["type"] | undefined;
   reports: Report[] | undefined;
   is_loading: boolean;
   on_dismiss: () => void;
@@ -16,6 +18,7 @@ export function PublisherRecordModalWrapper({
   confidential_id,
   publisher_name,
   group_id,
+  publisher_type,
   reports,
   is_loading,
   on_dismiss,
@@ -29,6 +32,7 @@ export function PublisherRecordModalWrapper({
       publisher_name={publisher_name}
       confidential_id={confidential_id}
       group_id={group_id}
+      publisher_type={publisher_type}
       date={selected_date}
       reports={reports ?? []}
       is_loading={is_loading}

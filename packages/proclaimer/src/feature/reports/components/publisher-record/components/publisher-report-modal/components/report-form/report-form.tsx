@@ -4,6 +4,7 @@ import { makeCompositeKey } from "@amodeo/proclaimer/database/util/composite-key
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { reportCollection } from "../../../../../../collections/report.ts";
 import type { Report } from "../../../../../../schemas/report.ts";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { NumberInput } from "@amodeo/proclaimer/ui/components/inputs/number/NumberInput";
@@ -33,9 +34,16 @@ const default_form: FormState = {
   comments: "",
 };
 
+const PIONEER_TYPES_WITHOUT_AUX_TOGGLE: Publisher["type"][] = [
+  "regular_pioneer",
+  "special_pioneer",
+  "continuous_auxiliary",
+];
+
 interface ReportFormProps {
   confidential_id: string;
   group_id: string | null;
+  publisher_type: Publisher["type"] | undefined;
   date: string;
   existing_report: Report | undefined;
   is_loading: boolean;
@@ -45,11 +53,15 @@ interface ReportFormProps {
 export function ReportForm({
   confidential_id,
   group_id,
+  publisher_type,
   date,
   existing_report,
   is_loading,
   on_save,
 }: ReportFormProps) {
+  const show_aux_toggle =
+    !publisher_type || !PIONEER_TYPES_WITHOUT_AUX_TOGGLE.includes(publisher_type);
+  const is_continuous_auxiliary = publisher_type === "continuous_auxiliary";
   const [form, set_form] = useState<FormState>(default_form);
   const [initialized, set_initialized] = useState(false);
   const [show_credits_modal, set_show_credits_modal] = useState(false);
@@ -75,8 +87,11 @@ export function ReportForm({
   const updateField = <K extends keyof FormState>(field: K, value: FormState[K]) =>
     editForm((prev) => ({ ...prev, [field]: value }));
 
+  const aux_pio = is_continuous_auxiliary ? form.active : show_aux_toggle && form.aux_pio;
+  const is_missing_required_hours = aux_pio && !(Number(form.hours) > 0);
+
   const handleSave = () => {
-    if (is_loading) return;
+    if (is_loading || is_missing_required_hours) return;
     const congregation_id = getStoredCongregation()?.id;
     if (!congregation_id) return;
 
@@ -86,7 +101,7 @@ export function ReportForm({
       group_id,
       date,
       active: form.active,
-      aux_pio: form.aux_pio,
+      aux_pio,
       hours: form.hours !== "" ? Number(form.hours) : null,
       bible_studies: form.bible_studies !== "" ? Number(form.bible_studies) : null,
       credit_hours: Object.keys(form.credit_hours).length > 0 ? form.credit_hours : null,
@@ -133,17 +148,19 @@ export function ReportForm({
         }}
       />
 
-      <ToggleInput
-        label="Auxiliary Pioneer"
-        checked={form.aux_pio}
-        disabled={is_loading || !form.active}
-        on_change={(checked) => updateField("aux_pio", checked)}
-      />
+      {show_aux_toggle && (
+        <ToggleInput
+          label="Auxiliary Pioneer"
+          checked={form.aux_pio}
+          disabled={is_loading || !form.active}
+          on_change={(checked) => updateField("aux_pio", checked)}
+        />
+      )}
 
       <NumberInput
         label="Hours"
         value={form.hours}
-        placeholder="optional"
+        placeholder={aux_pio ? "required" : "optional"}
         disabled={is_loading || !form.active}
         on_change={(val) => updateField("hours", val)}
       />
@@ -218,7 +235,7 @@ export function ReportForm({
 
       <TextButton
         on_click={handleSave}
-        disabled={is_loading}
+        disabled={is_loading || is_missing_required_hours}
         label={existing_report ? "Update Report" : "Save Report"}
       />
 

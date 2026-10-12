@@ -4,6 +4,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { MonthNavigation } from "@amodeo/proclaimer/ui/components/navigation/month-navigation/MonthNavigation";
 import type { Report } from "../../../../schemas/report.ts";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { ReportForm } from "./components/report-form/report-form.tsx";
 
 interface PublisherReportModalProps {
@@ -12,6 +13,7 @@ interface PublisherReportModalProps {
   publisher_name: string;
   confidential_id: string;
   group_id: string | null;
+  publisher_type: Publisher["type"] | undefined;
   date: string;
   reports: Report[];
   is_loading: boolean;
@@ -23,6 +25,7 @@ export function PublisherReportModal({
   publisher_name,
   confidential_id,
   group_id,
+  publisher_type,
   date,
   reports,
   is_loading,
@@ -52,6 +55,7 @@ export function PublisherReportModal({
             key={month}
             confidential_id={confidential_id}
             group_id={group_id}
+            publisher_type={publisher_type}
             date={selected_date}
             existing_report={existing_report}
             is_loading={is_loading}

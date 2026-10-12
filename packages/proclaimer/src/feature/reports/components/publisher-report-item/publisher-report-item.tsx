@@ -38,6 +38,7 @@ export function PublisherReportItem({ publisher, date }: PublisherReportItemProp
           publisher_name={publisher_name}
           confidential_id={confidential_id}
           group_id={publisher.group_id ?? null}
+          publisher_type={publisher.type}
           date={date}
           reports={reports}
           is_loading={isLoading}
