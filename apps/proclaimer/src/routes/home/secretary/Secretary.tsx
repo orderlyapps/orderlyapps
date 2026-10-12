@@ -23,7 +23,7 @@ function SecretaryPage() {
           <IonTitle>Secretary</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
+      <IonContent>
         <IonList>
           <NavItem label="Publishers" to="/home/secretary/publishers" />
           <NavItem label="Regular Pioneers" to="/home/secretary/pioneers" />
@@ -34,6 +34,7 @@ function SecretaryPage() {
           <NavItem label="Branch Report" to="/home/secretary/branch-report" />
           <NavItem label="CO Visit Info" to="/home/secretary/co-visit-info" />
           <NavItem label="Missing Details" to="/home/secretary/missing-details" />
+          <NavItem label="Reports" to="/home/secretary/reports" />
         </IonList>
         <Space />
         <ImportPublisherDataButton />
