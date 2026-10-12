@@ -19,25 +19,23 @@ import { chevronBackOutline, chevronForwardOutline } from "ionicons/icons";
 interface MonthNavigationProps {
   month: string;
   on_change: (month: string) => void;
+  max_months_ahead?: number;
 }
 
-function currentMonthStr(): string {
-  const now = new Date();
-  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
-}
-
-export function MonthNavigation({ month, on_change }: MonthNavigationProps) {
+export function MonthNavigation({ month, on_change, max_months_ahead = 0 }: MonthNavigationProps) {
   const triggerId = `month-popover-trigger-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
   const currentDate = parseISO(`${month}-01T00:00:00`);
   const monthLabel = format(currentDate, "MMMM yyyy");
   const now = new Date();
-  const monthOptions = Array.from({ length: 24 }, (_, i) => {
-    const monthDate = addMonths(new Date(now.getFullYear(), now.getMonth(), 1), -i);
+  const firstOfCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+  const monthOptions = Array.from({ length: 24 + max_months_ahead }, (_, i) => {
+    const monthDate = addMonths(firstOfCurrentMonth, max_months_ahead - i);
     const monthId = format(monthDate, "yyyy-MM");
     return { monthId, label: format(monthDate, "MMMM yyyy"), is_selected: monthId === month };
   });
   const prevMonth = format(addMonths(currentDate, -1), "yyyy-MM");
   const nextMonth = format(addMonths(currentDate, 1), "yyyy-MM");
+  const maxMonth = format(addMonths(firstOfCurrentMonth, max_months_ahead), "yyyy-MM");
 
   return (
     <IonItemDivider sticky style={{ zIndex: 1000 }}>
@@ -77,7 +75,7 @@ export function MonthNavigation({ month, on_change }: MonthNavigationProps) {
           <IonCol size="auto">
             <IonButton
               fill="clear"
-              disabled={nextMonth > currentMonthStr()}
+              disabled={nextMonth > maxMonth}
               onClick={() => on_change(nextMonth)}
             >
               <IonIcon icon={chevronForwardOutline} slot="icon-only" size="large" />
