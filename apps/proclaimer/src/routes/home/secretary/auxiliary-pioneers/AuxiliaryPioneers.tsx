@@ -20,7 +20,7 @@ function AuxiliaryPioneersPage() {
           <IonTitle>Auxiliary Pioneers</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="remove-top-padding">
         <AuxiliaryPioneerList />
       </IonContent>
     </IonPage>
