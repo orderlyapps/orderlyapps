@@ -13,7 +13,7 @@ export function MissingReportsItem({ entry, lines = "full" }: MissingReportsItem
       lines={lines}
       button
       detail
-      routerLink={`/home/secretary/missing-reports/${entry.publisher_id}`}
+      routerLink={`/home/secretary/reports/missing-reports/${entry.publisher_id}`}
     >
       <IonLabel className="ion-text-wrap">
         <Body>{entry.full_name}</Body>

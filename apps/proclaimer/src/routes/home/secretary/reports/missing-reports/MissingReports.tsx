@@ -7,6 +7,7 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/react";
+import { MissingReportsList } from "@amodeo/proclaimer/feature/reports";
 
 function MissingReportsPage() {
   return (
@@ -19,7 +20,9 @@ function MissingReportsPage() {
           <IonTitle>Missing Reports</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent></IonContent>
+      <IonContent>
+        <MissingReportsList />
+      </IonContent>
     </IonPage>
   );
 }

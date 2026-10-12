@@ -23,7 +23,7 @@ function PublisherRecordPage() {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/home/secretary/missing-reports" />
+            <IonBackButton defaultHref="/home/secretary/reports/missing-reports" />
           </IonButtons>
           <IonTitle>{publisher_name}</IonTitle>
           <IonButtons slot="end">
