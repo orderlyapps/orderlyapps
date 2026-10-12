@@ -99,5 +99,5 @@ export function useAuxiliaryPioneers(month: string) {
 
   entries.sort(sortByName);
 
-  return { entries, isLoading };
+  return { entries, isLoading, show_continuous };
 }
