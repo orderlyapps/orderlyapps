@@ -14,6 +14,8 @@ export const reportSchema = z.object({
     .nullable(),
   comments: z.string().nullable(),
   aux_pio: z.boolean().default(false),
+  /** True when the report was submitted to a previous congregation and entered only for the publisher's record — excluded from this congregation's stats. */
+  reported_elsewhere: z.boolean().default(false),
 });
 
 export type Report = z.infer<typeof reportSchema>;

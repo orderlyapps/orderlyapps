@@ -19,6 +19,7 @@ import {
 interface FormState {
   active: boolean;
   aux_pio: boolean;
+  reported_elsewhere: boolean;
   hours: string;
   bible_studies: string;
   credit_hours: CreditHours;
@@ -28,6 +29,7 @@ interface FormState {
 const default_form: FormState = {
   active: false,
   aux_pio: false,
+  reported_elsewhere: false,
   hours: "",
   bible_studies: "",
   credit_hours: {},
@@ -70,6 +72,7 @@ export function ReportForm({
     set_form({
       active: existing_report.active,
       aux_pio: existing_report.aux_pio,
+      reported_elsewhere: existing_report.reported_elsewhere,
       hours: existing_report.hours != null ? String(existing_report.hours) : "",
       bible_studies:
         existing_report.bible_studies != null ? String(existing_report.bible_studies) : "",
@@ -102,6 +105,7 @@ export function ReportForm({
       date,
       active: form.active,
       aux_pio,
+      reported_elsewhere: form.reported_elsewhere,
       hours: form.hours !== "" ? Number(form.hours) : null,
       bible_studies: form.bible_studies !== "" ? Number(form.bible_studies) : null,
       credit_hours: Object.keys(form.credit_hours).length > 0 ? form.credit_hours : null,
@@ -114,6 +118,7 @@ export function ReportForm({
         (draft) => {
           draft.active = payload.active;
           draft.aux_pio = payload.aux_pio;
+          draft.reported_elsewhere = payload.reported_elsewhere;
           draft.hours = payload.hours;
           draft.bible_studies = payload.bible_studies;
           draft.credit_hours = payload.credit_hours;
@@ -156,6 +161,13 @@ export function ReportForm({
           on_change={(checked) => updateField("aux_pio", checked)}
         />
       )}
+
+      <ToggleInput
+        label="Reported to Previous Congregation"
+        checked={form.reported_elsewhere}
+        disabled={is_loading}
+        on_change={(checked) => updateField("reported_elsewhere", checked)}
+      />
 
       <NumberInput
         label="Hours"
