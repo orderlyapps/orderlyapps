@@ -6,7 +6,9 @@ import {
   IonTitle,
   IonButtons,
   IonBackButton,
+  IonList,
 } from "@ionic/react";
+import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 
 function ReportsPage() {
   return (
@@ -19,7 +21,12 @@ function ReportsPage() {
           <IonTitle>Reports</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent></IonContent>
+      <IonContent>
+        <IonList>
+          <NavItem label="Missing Reports" to="/home/secretary/reports/missing-reports" />
+          <NavItem label="Records" to="/home/secretary/reports/records" />
+        </IonList>
+      </IonContent>
     </IonPage>
   );
 }

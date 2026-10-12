@@ -47,6 +47,8 @@ import BranchReportPage from "@proclaimer-routes/home/secretary/branch-report/Br
 import CoVisitInfoPage from "@proclaimer-routes/home/secretary/co-visit-info/CoVisitInfo";
 import MissingDetailsPage from "@proclaimer-routes/home/secretary/missing-details/MissingDetails";
 import SecretaryReportsPage from "@proclaimer-routes/home/secretary/reports/Reports";
+import SecretaryReportsMissingReportsPage from "@proclaimer-routes/home/secretary/reports/missing-reports/MissingReports";
+import SecretaryReportsRecordsPage from "@proclaimer-routes/home/secretary/reports/records/Records";
 import ReactivatedPublishersPage from "@proclaimer-routes/home/secretary/reactivated-publishers/ReactivatedPublishers";
 import SecretaryPioneersPage from "@proclaimer-routes/home/secretary/pioneers/Pioneers";
 import SecretaryAuxiliaryPioneersPage from "@proclaimer-routes/home/secretary/auxiliary-pioneers/AuxiliaryPioneers";
@@ -212,6 +214,16 @@ function App() {
         <Route path="/home/secretary/co-visit-info" component={CoVisitInfoPage} exact />
         <Route path="/home/secretary/missing-details" component={MissingDetailsPage} exact />
         <Route path="/home/secretary/reports" component={SecretaryReportsPage} exact />
+        <Route
+          path="/home/secretary/reports/missing-reports"
+          component={SecretaryReportsMissingReportsPage}
+          exact
+        />
+        <Route
+          path="/home/secretary/reports/records"
+          component={SecretaryReportsRecordsPage}
+          exact
+        />
         <Route
           path="/home/secretary/reactivated-publishers"
           component={ReactivatedPublishersPage}
