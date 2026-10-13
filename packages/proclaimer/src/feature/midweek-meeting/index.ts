@@ -31,29 +31,29 @@ export { useMidweekMeetingChairmanWeeks } from "./hooks/use-midweek-meeting-chai
 export { useMidweekMeetingParticipantPublishers } from "./hooks/use-midweek-meeting-participant-publishers.ts";
 export type { MidweekMeetingParticipantPublisher } from "./hooks/use-midweek-meeting-participant-publishers.ts";
 
-export { CircuitVisitBanner } from "./components/schedule/midweek-meeting-schedule-content/components/event-banners/circuit-visit-banner/CircuitVisitBanner.tsx";
-export { CircuitAssemblyBanner } from "./components/schedule/midweek-meeting-schedule-content/components/event-banners/circuit-assembly-banner/CircuitAssemblyBanner.tsx";
-export { ConventionBanner } from "./components/schedule/midweek-meeting-schedule-content/components/event-banners/convention-banner/ConventionBanner.tsx";
+export { CircuitVisitBanner } from "./components/schedule/schedule-content/components/event-banners/circuit-visit-banner/CircuitVisitBanner.tsx";
+export { CircuitAssemblyBanner } from "./components/schedule/schedule-content/components/event-banners/circuit-assembly-banner/CircuitAssemblyBanner.tsx";
+export { ConventionBanner } from "./components/schedule/schedule-content/components/event-banners/convention-banner/ConventionBanner.tsx";
 export { AddMidweekMeetingParticipantModal } from "./components/participation/add-midweek-meeting-participant-modal/AddMidweekMeetingParticipantModal.tsx";
 export { MidweekMeetingParticipantPublishersList } from "./components/participation/midweek-meeting-participant-publishers-list/MidweekMeetingParticipantPublishersList.tsx";
 
 export { MidweekMeetingOverseerHeader } from "./components/midweek-meeting-overseer/midweek-meeting-overseer-header/MidweekMeetingOverseerHeader.tsx";
 export { MidweekMeetingOverseerContent } from "./components/midweek-meeting-overseer/midweek-meeting-overseer-content/MidweekMeetingOverseerContent.tsx";
-export { MidweekMeetingScheduleHeader } from "./components/schedule/midweek-meeting-schedule-header/MidweekMeetingScheduleHeader.tsx";
-export { MidweekMeetingScheduleContent } from "./components/schedule/midweek-meeting-schedule-content/MidweekMeetingScheduleContent.tsx";
+export { MidweekScheduleHeader } from "./components/schedule/schedule-header/MidweekScheduleHeader.tsx";
+export { MidweekScheduleContent } from "./components/schedule/schedule-content/MidweekScheduleContent.tsx";
 export type {
-  MidweekMeetingScheduleContentProps,
-  MidweekMeetingAssignmentRow,
-} from "./components/schedule/midweek-meeting-schedule-content/types.ts";
+  MidweekScheduleContentProps,
+  MidweekAssignmentRow,
+} from "./components/schedule/schedule-content/types.ts";
 export { useEventInWeek } from "./hooks/use-event-in-week.ts";
 export { useCircuitVisitEvent } from "./hooks/use-circuit-visit-event.ts";
 export { useCircuitAssemblyEvent } from "./hooks/use-circuit-assembly-event.ts";
 export { useConventionEvent } from "./hooks/use-convention-event.ts";
-export { useMidweekMeetingAssignmentRows } from "./components/schedule/midweek-meeting-schedule-content/hooks/use-midweek-meeting-assignment-rows.ts";
-export { MidweekMeetingAssignmentCard } from "./components/schedule/midweek-meeting-schedule-content/components/midweek-meeting-assignment-card/MidweekMeetingAssignmentCard.tsx";
-export { MidweekMeetingAssignmentDetailHeader } from "./components/schedule/midweek-meeting-assignment-detail-header/MidweekMeetingAssignmentDetailHeader.tsx";
-export { MidweekMeetingAssignmentDetailContent } from "./components/schedule/midweek-meeting-assignment-detail-content/MidweekMeetingAssignmentDetailContent.tsx";
-export { MidweekMeetingPublisherSelector } from "./components/schedule/midweek-meeting-assignment-detail-content/components/midweek-meeting-publisher-selector/MidweekMeetingPublisherSelector.tsx";
+export { useMidweekAssignmentRows } from "./components/schedule/schedule-content/hooks/use-midweek-assignment-rows.ts";
+export { MidweekAssignmentCard } from "./components/schedule/schedule-content/components/midweek-assignment-card/MidweekAssignmentCard.tsx";
+export { MidweekAssignmentDetailHeader } from "./components/schedule/assignment-detail-header/MidweekAssignmentDetailHeader.tsx";
+export { MidweekAssignmentDetailContent } from "./components/schedule/assignment-detail-content/MidweekAssignmentDetailContent.tsx";
+export { MidweekPublisherSelector } from "./components/schedule/assignment-detail-content/components/midweek-publisher-selector/MidweekPublisherSelector.tsx";
 export { MidweekMeetingParticipationHeader } from "./components/participation/midweek-meeting-participation-header/MidweekMeetingParticipationHeader.tsx";
 export { MidweekMeetingParticipationContent } from "./components/participation/midweek-meeting-participation-content/MidweekMeetingParticipationContent.tsx";
 export { MidweekMeetingParticipationTypeHeader } from "./components/participation/midweek-meeting-participation-type-header/MidweekMeetingParticipationTypeHeader.tsx";
@@ -76,8 +76,8 @@ export { MidweekMeetingPdfContent } from "./components/midweek-meeting-pdf-conte
 export { MidweekMeetingAssignmentList } from "./components/midweek-meeting-assignment-list/MidweekMeetingAssignmentList.tsx";
 export { useMidweekMeetingAssignments } from "./hooks/use-midweek-meeting-assignments.ts";
 export type { MidweekMeetingParticipantAssignment } from "./hooks/use-midweek-meeting-assignments.ts";
-export { MidweekMeetingSchedulePdfDocument } from "./components/midweek-meeting-schedule-pdf/MidweekMeetingSchedulePdfDocument.tsx";
-export { SchedulePdfHeader } from "./components/schedule-pdf-header/SchedulePdfHeader.tsx";
+export { MidweekSchedulePdfDocument } from "./components/schedule/schedule-pdf/MidweekSchedulePdfDocument.tsx";
+export { SchedulePdfHeader } from "./components/schedule/schedule-pdf/components/schedule-pdf-header/SchedulePdfHeader.tsx";
 export { useMidweekMeetingScheduleData } from "./hooks/use-midweek-meeting-schedule-data.ts";
 export type { WeekScheduleData } from "./hooks/use-midweek-meeting-schedule-data.ts";
 export { getPublisherDisplayNameOrEmpty } from "./utils/get-publisher-display-name-or-empty.ts";

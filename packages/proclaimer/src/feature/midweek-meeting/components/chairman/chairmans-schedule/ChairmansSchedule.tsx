@@ -15,7 +15,7 @@ import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocrat
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { ChairmanAssignmentCard } from "./components/chairman-assignment-card/ChairmanAssignmentCard.tsx";
 import { getMeetingParts } from "../../../utils/get-meeting-parts.ts";
-import type { MidweekMeetingAssignmentRow } from "../../schedule/midweek-meeting-schedule-content/types.ts";
+import type { MidweekAssignmentRow } from "../../schedule/schedule-content/types.ts";
 import { useMidweekMeetingChairmanWeeks } from "../../../hooks/use-midweek-meeting-chairman-weeks.ts";
 
 function ChairmanWeekSchedule({
@@ -39,7 +39,7 @@ function ChairmanWeekSchedule({
     relativeWeekStyle: "append",
   });
 
-  const rows: (Omit<MidweekMeetingAssignmentRow, "base_path"> & {
+  const rows: (Omit<MidweekAssignmentRow, "base_path"> & {
     publisher_id?: string;
     publisher_first_name?: string;
   })[] = meetingParts.map((part) => {
@@ -79,7 +79,7 @@ function ChairmanWeekSchedule({
       <Space size="xs" />
       <IonList inset>
         <MultiColumnList<
-          Omit<MidweekMeetingAssignmentRow, "base_path"> & {
+          Omit<MidweekAssignmentRow, "base_path"> & {
             publisher_id?: string;
             publisher_first_name?: string;
           }

@@ -9,7 +9,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { MonthPicker } from "@amodeo/proclaimer/ui/components/inputs/month-picker/MonthPicker";
 import { PdfPublisherSelect } from "@amodeo/proclaimer/ui/components/inputs/pdf-publisher-select/PdfPublisherSelect";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { MidweekMeetingSchedulePdfDocument } from "../midweek-meeting-schedule-pdf/MidweekMeetingSchedulePdfDocument.tsx";
+import { MidweekSchedulePdfDocument } from "../schedule/schedule-pdf/MidweekSchedulePdfDocument.tsx";
 import { useMidweekMeetingScheduleData } from "../../hooks/use-midweek-meeting-schedule-data.ts";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
@@ -45,7 +45,7 @@ export function MidweekMeetingPdfContent() {
     set_error_message(null);
     try {
       const blob = await pdf(
-        <MidweekMeetingSchedulePdfDocument
+        <MidweekSchedulePdfDocument
           weeks={weeks}
           isLoading={isLoading}
           monthDate={selected_month.firstMonday}

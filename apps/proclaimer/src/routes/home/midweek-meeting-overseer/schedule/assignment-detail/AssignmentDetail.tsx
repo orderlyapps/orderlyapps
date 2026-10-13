@@ -1,8 +1,8 @@
 import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import { MidweekMeetingAssignmentDetailHeader } from "@amodeo/proclaimer/feature/midweek-meeting";
-import { MidweekMeetingAssignmentDetailContent } from "@amodeo/proclaimer/feature/midweek-meeting";
+import { MidweekAssignmentDetailHeader } from "@amodeo/proclaimer/feature/midweek-meeting";
+import { MidweekAssignmentDetailContent } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 function AssignmentDetailPage() {
   const { week_id, assignment_id } = useParams<{ week_id: string; assignment_id: string }>();
@@ -10,12 +10,12 @@ function AssignmentDetailPage() {
   return (
     <IonPage>
       <IonHeader>
-        <MidweekMeetingAssignmentDetailHeader
+        <MidweekAssignmentDetailHeader
           title={getTheocraticWeekLabel(week_id)}
           back_href={`/home/midweek-meeting-overseer/schedule/${week_id}`}
         />
       </IonHeader>
-      <MidweekMeetingAssignmentDetailContent week_id={week_id} assignment_id={assignment_id}>
+      <MidweekAssignmentDetailContent week_id={week_id} assignment_id={assignment_id}>
         {({ info, selector }) => (
           <>
             <IonHeader>{info}</IonHeader>
@@ -24,7 +24,7 @@ function AssignmentDetailPage() {
             </IonContent>
           </>
         )}
-      </MidweekMeetingAssignmentDetailContent>
+      </MidweekAssignmentDetailContent>
     </IonPage>
   );
 }
