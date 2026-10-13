@@ -11,7 +11,7 @@ import {
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
 import {
-  MidweekMeetingChairmanContent,
+  ChairmansSchedule,
   useMidweekMeetingChairmanWeeks,
 } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
@@ -51,7 +51,7 @@ function MidweekMeetingChairmanPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide">
-        <MidweekMeetingChairmanContent week_id={week_id} />
+        <ChairmansSchedule week_id={week_id} />
       </IonContent>
     </IonPage>
   );

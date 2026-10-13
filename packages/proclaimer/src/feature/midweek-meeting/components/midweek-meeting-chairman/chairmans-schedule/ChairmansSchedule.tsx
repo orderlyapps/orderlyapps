@@ -94,11 +94,11 @@ function ChairmanWeekSchedule({
   );
 }
 
-interface MidweekMeetingChairmanContentProps {
+interface ChairmansScheduleProps {
   week_id: string;
 }
 
-export function MidweekMeetingChairmanContent({ week_id }: MidweekMeetingChairmanContentProps) {
+export function ChairmansSchedule({ week_id }: ChairmansScheduleProps) {
   const permissions = usePermissions();
   const { chairman_week_ids } = useMidweekMeetingChairmanWeeks();
   const is_overseer = permissions.has_midweek_meeting_overseer;
