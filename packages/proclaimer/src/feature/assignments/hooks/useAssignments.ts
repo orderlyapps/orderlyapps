@@ -8,7 +8,7 @@ import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
 import { weekendAssignmentLabels } from "@amodeo/proclaimer/feature/weekend";
-import { useMidweekAssignments } from "@amodeo/proclaimer/feature/midweek";
+import { useMidweekMeetingUpcomingAssignments } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 export type AssignmentType =
   | "av"
@@ -75,11 +75,8 @@ export function useAssignments() {
     [congregation_id, publisher_id, today_str],
   );
 
-  const { assignments: midweek, is_loading: isLoadingMidweek } = useMidweekAssignments(
-    congregation_id,
-    publisher_id,
-    today_str,
-  );
+  const { assignments: midweek, is_loading: isLoadingMidweek } =
+    useMidweekMeetingUpcomingAssignments(congregation_id, publisher_id, today_str);
 
   const { data: weekend, isLoading: isLoadingWeekend } = useLiveQuery(
     (q) =>

@@ -1,5 +1,5 @@
 import { and, eq, useLiveQuery } from "@tanstack/react-db";
-import { midweekParticipationCollection } from "@amodeo/proclaimer/feature/midweek";
+import { midweekMeetingParticipationCollection } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
 
 export function useIsCbsConductor() {
@@ -10,7 +10,7 @@ export function useIsCbsConductor() {
     (q) =>
       publisher_id
         ? q
-            .from({ mp: midweekParticipationCollection })
+            .from({ mp: midweekMeetingParticipationCollection })
             .where(({ mp }) =>
               and(eq(mp.participant_id, publisher_id), eq(mp.participation_id, "cbs_conductor")),
             )

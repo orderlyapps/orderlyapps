@@ -9,7 +9,7 @@ import { reminderPermissionCollection } from "../collections/reminder-permission
 import { watchtowerPermissionCollection } from "../collections/watchtower-permission.ts";
 import { ministerialServantPermissionCollection } from "../collections/ministerial-servant-permission.ts";
 import { congregationAdminCollection } from "../collections/congregation-admin.ts";
-import { clamOverseerPermissionCollection } from "../../midweek/index.ts";
+import { midweekMeetingOverseerPermissionCollection } from "../../midweek-meeting/index.ts";
 import { territoryServantPermissionCollection } from "@amodeo/proclaimer/feature/territory";
 import { avOverseerPermissionCollection } from "../../av/index.ts";
 import { speakerPermissionCollection } from "@amodeo/proclaimer/feature/speaker";
@@ -26,7 +26,7 @@ interface Permissions {
   has_secretary: boolean;
   has_elder: boolean;
   has_ministerial_servant: boolean;
-  has_clam_overseer: boolean;
+  has_midweek_meeting_overseer: boolean;
   has_service_overseer: boolean;
   has_cobe: boolean;
   has_territory_servant: boolean;
@@ -61,8 +61,8 @@ export function usePermissions(): Permissions {
   const { data: elder_permissions } = useLiveQuery((q) =>
     q.from({ ep: elderPermissionCollection }),
   );
-  const { data: clam_permissions } = useLiveQuery((q) =>
-    q.from({ cp: clamOverseerPermissionCollection }),
+  const { data: midweek_meeting_overseer_permissions } = useLiveQuery((q) =>
+    q.from({ cp: midweekMeetingOverseerPermissionCollection }),
   );
   const { data: service_permissions } = useLiveQuery((q) =>
     q.from({ sop: serviceOverseerPermissionCollection }),
@@ -107,7 +107,7 @@ export function usePermissions(): Permissions {
       has_secretary: false,
       has_elder: false,
       has_ministerial_servant: false,
-      has_clam_overseer: false,
+      has_midweek_meeting_overseer: false,
       has_service_overseer: false,
       has_cobe: false,
       has_territory_servant: false,
@@ -133,7 +133,7 @@ export function usePermissions(): Permissions {
       has_secretary: false,
       has_elder: false,
       has_ministerial_servant: false,
-      has_clam_overseer: false,
+      has_midweek_meeting_overseer: false,
       has_service_overseer: false,
       has_cobe: false,
       has_territory_servant: false,
@@ -179,7 +179,7 @@ export function usePermissions(): Permissions {
       ep.auth_user_id === auth_user_id && ep.congregation_id === congregation_id && ep.can_edit,
   );
 
-  const has_clam_overseer = clam_permissions.some(
+  const has_midweek_meeting_overseer = midweek_meeting_overseer_permissions.some(
     (cp) =>
       cp.auth_user_id === auth_user_id && cp.congregation_id === congregation_id && cp.can_edit,
   );
@@ -252,7 +252,7 @@ export function usePermissions(): Permissions {
     has_secretary,
     has_elder,
     has_ministerial_servant,
-    has_clam_overseer,
+    has_midweek_meeting_overseer,
     has_service_overseer,
     has_cobe,
     has_territory_servant,

@@ -62,7 +62,7 @@ import ReportsPermissionsPage from "@proclaimer-routes/home/congregation-admin/p
 import SecretaryPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/secretary/Secretary";
 import ElderPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/elder/Elder";
 import MinisterialServantPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/ministerial-servant/MinisterialServant";
-import ClamOverseerPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/clam-overseer/ClamOverseer";
+import MidweekMeetingOverseerPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/midweek-meeting-overseer/MidweekMeetingOverseer";
 import ServiceOverseerPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/service-overseer/ServiceOverseer";
 import CobePermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/cobe/Cobe";
 import TerritoryServantPermissionsPage from "@proclaimer-routes/home/congregation-admin/permissions/territory-servant/TerritoryServant";
@@ -83,9 +83,9 @@ import ElderPublishersPage from "@proclaimer-routes/home/elder/reports/publisher
 import ElderPublisherDetailPage from "@proclaimer-routes/home/elder/reports/publishers/publisher-detail/PublisherDetail";
 import AudioVideoPage from "@proclaimer-routes/home/elder/audio-video/AudioVideo";
 import CleaningSchedulePage from "@proclaimer-routes/home/elder/cleaning-schedule/CleaningSchedule";
-import ElderClamPage from "@proclaimer-routes/home/elder/clam/Clam";
-import ClamOverseerPage from "@proclaimer-routes/home/clam-overseer/ClamOverseer";
-import ClamChairmanPage from "@proclaimer-routes/home/clam-chairman/ClamChairman";
+import ElderMidweekMeetingPage from "@proclaimer-routes/home/elder/midweek-meeting/MidweekMeeting";
+import MidweekMeetingOverseerPage from "@proclaimer-routes/home/midweek-meeting-overseer/MidweekMeetingOverseer";
+import MidweekMeetingChairmanPage from "@proclaimer-routes/home/midweek-meeting-chairman/MidweekMeetingChairman";
 import ServiceOverseerPage from "@proclaimer-routes/home/service-overseer/ServiceOverseer";
 import ServiceOverseerMapPage from "@proclaimer-routes/home/service-overseer/map/Map";
 import MapLogPage from "@proclaimer-routes/home/service-overseer/map-log/MapLog";
@@ -115,21 +115,21 @@ import WeekendParticipationTypePage from "@proclaimer-routes/home/weekend/partic
 import AvOverseerPage from "@proclaimer-routes/home/av-overseer/AvOverseer";
 import ClamDataPage from "@proclaimer-routes/home/super-admin/clam-data/ClamData";
 import OutlineManagementPage from "@proclaimer-routes/home/super-admin/outline-management/OutlineManagement";
-import ParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/Participation";
-import ChairmanParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/chairman/Chairman";
-import PrayerParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/prayer/Prayer";
-import TreasuresParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/treasures/Treasures";
-import GemsParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/gems/Gems";
-import BibleReadingParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/bible-reading/BibleReading";
-import ApplyParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/apply/Apply";
-import TalkParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/talk/Talk";
-import AssistantParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/assistant/Assistant";
-import CounselorParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/counselor/Counselor";
-import LivingParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/living/Living";
-import CbsConductorParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/cbs-conductor/CbsConductor";
-import CbsReaderParticipationPage from "@proclaimer-routes/home/clam-overseer/participation/cbs-reader/CbsReader";
-import ClamOverseerSchedulePage from "@proclaimer-routes/home/clam-overseer/schedule/Schedule";
-import AssignmentDetailPage from "@proclaimer-routes/home/clam-overseer/schedule/assignment-detail/AssignmentDetail";
+import ParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/Participation";
+import ChairmanParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/chairman/Chairman";
+import PrayerParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/prayer/Prayer";
+import TreasuresParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/treasures/Treasures";
+import GemsParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/gems/Gems";
+import BibleReadingParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/bible-reading/BibleReading";
+import ApplyParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/apply/Apply";
+import TalkParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/talk/Talk";
+import AssistantParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/assistant/Assistant";
+import CounselorParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/counselor/Counselor";
+import LivingParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/living/Living";
+import CbsConductorParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/cbs-conductor/CbsConductor";
+import CbsReaderParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/cbs-reader/CbsReader";
+import MidweekMeetingOverseerSchedulePage from "@proclaimer-routes/home/midweek-meeting-overseer/schedule/Schedule";
+import AssignmentDetailPage from "@proclaimer-routes/home/midweek-meeting-overseer/schedule/assignment-detail/AssignmentDetail";
 import AvSchedulePage from "@proclaimer-routes/home/av-overseer/schedule/AvSchedule";
 import AvAssignmentDetailPage from "@proclaimer-routes/home/av-overseer/schedule/assignment-detail/AvAssignmentDetail";
 import AvParticipationPage from "@proclaimer-routes/home/av-overseer/participation/Participation";
@@ -138,7 +138,7 @@ import ParticipantsPage from "@proclaimer-routes/home/av-overseer/participants/P
 import RemindersPage from "@proclaimer-routes/home/reminders/Reminders";
 import RemindersAudioVideoPage from "@proclaimer-routes/home/reminders/audio-video/AudioVideo";
 import RemindersWeekendMeetingPage from "@proclaimer-routes/home/reminders/weekend-meeting/WeekendMeeting";
-import ClamPage from "@proclaimer-routes/home/clam/Clam";
+import HomeMidweekMeetingPage from "@proclaimer-routes/home/midweek-meeting/MidweekMeeting";
 import DataSharingPage from "@proclaimer-routes/home/data-sharing/DataSharing";
 import MinistryTimePage from "@proclaimer-routes/home/ministry-time/MinistryTime";
 import WatchtowerToolPage from "@proclaimer-routes/home/watchtower/Watchtower";
@@ -262,8 +262,8 @@ function App() {
           exact
         />
         <Route
-          path="/home/congregation-admin/permissions/clam-overseer"
-          component={ClamOverseerPermissionsPage}
+          path="/home/congregation-admin/permissions/midweek-meeting-overseer"
+          component={MidweekMeetingOverseerPermissionsPage}
           exact
         />
         <Route
@@ -334,78 +334,86 @@ function App() {
           component={ElderPublisherDetailPage}
           exact
         />
-        <Route path="/home/elder/clam" component={ElderClamPage} exact />
-        <Route path="/home/clam-overseer" component={ClamOverseerPage} exact />
-        <Route path="/home/clam-chairman/:week_id?" component={ClamChairmanPage} exact />
-        <Route path="/home/clam-overseer/participation" component={ParticipationPage} exact />
+        <Route path="/home/elder/midweek-meeting" component={ElderMidweekMeetingPage} exact />
+        <Route path="/home/midweek-meeting-overseer" component={MidweekMeetingOverseerPage} exact />
         <Route
-          path="/home/clam-overseer/participation/chairman"
+          path="/home/midweek-meeting-chairman/:week_id?"
+          component={MidweekMeetingChairmanPage}
+          exact
+        />
+        <Route
+          path="/home/midweek-meeting-overseer/participation"
+          component={ParticipationPage}
+          exact
+        />
+        <Route
+          path="/home/midweek-meeting-overseer/participation/chairman"
           component={ChairmanParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/prayer"
+          path="/home/midweek-meeting-overseer/participation/prayer"
           component={PrayerParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/treasures"
+          path="/home/midweek-meeting-overseer/participation/treasures"
           component={TreasuresParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/gems"
+          path="/home/midweek-meeting-overseer/participation/gems"
           component={GemsParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/bible-reading"
+          path="/home/midweek-meeting-overseer/participation/bible-reading"
           component={BibleReadingParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/apply"
+          path="/home/midweek-meeting-overseer/participation/apply"
           component={ApplyParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/talk"
+          path="/home/midweek-meeting-overseer/participation/talk"
           component={TalkParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/assistant"
+          path="/home/midweek-meeting-overseer/participation/assistant"
           component={AssistantParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/counselor"
+          path="/home/midweek-meeting-overseer/participation/counselor"
           component={CounselorParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/living"
+          path="/home/midweek-meeting-overseer/participation/living"
           component={LivingParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/cbs-conductor"
+          path="/home/midweek-meeting-overseer/participation/cbs-conductor"
           component={CbsConductorParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/participation/cbs-reader"
+          path="/home/midweek-meeting-overseer/participation/cbs-reader"
           component={CbsReaderParticipationPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/schedule/:week_id/assignment/:assignment_id"
+          path="/home/midweek-meeting-overseer/schedule/:week_id/assignment/:assignment_id"
           component={AssignmentDetailPage}
           exact
         />
         <Route
-          path="/home/clam-overseer/schedule/:week_id?"
-          component={ClamOverseerSchedulePage}
+          path="/home/midweek-meeting-overseer/schedule/:week_id?"
+          component={MidweekMeetingOverseerSchedulePage}
           exact
         />
         <Route path="/home/service-overseer" component={ServiceOverseerPage} exact />
@@ -486,7 +494,7 @@ function App() {
           component={RemindersWeekendMeetingPage}
           exact
         />
-        <Route path="/home/clam/:week_id?" component={ClamPage} exact />
+        <Route path="/home/midweek-meeting/:week_id?" component={HomeMidweekMeetingPage} exact />
         <Route path="/home/data-sharing" component={DataSharingPage} exact />
         <Route path="/home/ministry-time" component={MinistryTimePage} exact />
         <Route path="/home/meeting-attendance/:week_id?" component={MeetingAttendancePage} exact />

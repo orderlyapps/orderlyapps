@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { avAssignmentCollection } from "../../collections/av-assignment.ts";
-import { midweekAssignmentCollection } from "../../../midweek/collections/midweek-assignment.ts";
+import { midweekMeetingAssignmentCollection } from "../../../midweek-meeting/collections/midweek-meeting-assignment.ts";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import type { AvAssignment } from "../../schemas/av-assignment.ts";
-import type { MidweekAssignment } from "../../../midweek/schemas/midweek-assignment.ts";
+import type { MidweekMeetingAssignment } from "../../../midweek-meeting/schemas/midweek-meeting-assignment.ts";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
@@ -51,7 +51,7 @@ export function AvPublisherSelector({
 
   const { data: allAssignments } = useLiveQuery((q) => q.from({ aa: avAssignmentCollection }));
   const { data: allMidweekAssignments } = useLiveQuery((q) =>
-    q.from({ ma: midweekAssignmentCollection }),
+    q.from({ ma: midweekMeetingAssignmentCollection }),
   );
   const { data: allWeekendAssignments } = useLiveQuery((q) =>
     q.from({ wa: weekendAssignmentCollection }),
@@ -70,8 +70,8 @@ export function AvPublisherSelector({
     )
     .map((a) => a.participant_id);
 
-  const clam_publisher_ids = is_midweek
-    ? ((allMidweekAssignments as MidweekAssignment[] | undefined) ?? [])
+  const midweek_meeting_publisher_ids = is_midweek
+    ? ((allMidweekAssignments as MidweekMeetingAssignment[] | undefined) ?? [])
         .filter((a) => a.week_id === week_id && a.participant_id)
         .map((a) => a.participant_id)
     : [
@@ -83,7 +83,10 @@ export function AvPublisherSelector({
           .map((a) => a.speaker_id),
       ];
 
-  const publisher_ids_with_week_assignment = new Set([...av_publisher_ids, ...clam_publisher_ids]);
+  const publisher_ids_with_week_assignment = new Set([
+    ...av_publisher_ids,
+    ...midweek_meeting_publisher_ids,
+  ]);
 
   const [is_modal_open, set_is_modal_open] = useState(false);
   const [selected_publisher, set_selected_publisher] = useState<Publisher | undefined>();
@@ -130,7 +133,9 @@ export function AvPublisherSelector({
         week_id={week_id}
         assignment_id={assignment_id}
         all_assignments={(allAssignments as AvAssignment[] | undefined) ?? []}
-        midweek_assignments={(allMidweekAssignments as MidweekAssignment[] | undefined) ?? []}
+        midweek_assignments={
+          (allMidweekAssignments as MidweekMeetingAssignment[] | undefined) ?? []
+        }
         weekend_assignments={(allWeekendAssignments as WeekendAssignment[] | undefined) ?? []}
         speaker_assignments={(allSpeakerAssignments as SpeakerAssignment[] | undefined) ?? []}
         on_dismiss={() => set_is_modal_open(false)}

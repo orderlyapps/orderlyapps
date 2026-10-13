@@ -4,7 +4,7 @@ import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
 import { speakerAssignmentCollection } from "@amodeo/proclaimer/feature/speaker";
 import { weekendAssignmentCollection } from "@amodeo/proclaimer/feature/weekend";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { useMidweekAssignments } from "@amodeo/proclaimer/feature/midweek";
+import { useMidweekMeetingUpcomingAssignments } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { type Assignment, getAssignmentLabel } from "@amodeo/proclaimer/feature/assignments";
 
 export function usePublisherAssignments(publisher_id: string): { assignments: Assignment[] } {
@@ -27,7 +27,7 @@ export function usePublisherAssignments(publisher_id: string): { assignments: As
     [congregation_id, publisher_id, today_str],
   );
 
-  const midweek = useMidweekAssignments(congregation_id, publisher_id, today_str);
+  const midweek = useMidweekMeetingUpcomingAssignments(congregation_id, publisher_id, today_str);
 
   const { data: weekend } = useLiveQuery(
     (q) =>

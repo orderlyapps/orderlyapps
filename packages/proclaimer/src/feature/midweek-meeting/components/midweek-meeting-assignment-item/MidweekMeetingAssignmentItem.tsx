@@ -1,0 +1,55 @@
+import { IonItem, IonLabel } from "@ionic/react";
+import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
+import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
+import { MidweekMeetingAssignmentShareButton } from "../midweek-meeting-assignment-share-button/MidweekMeetingAssignmentShareButton.tsx";
+import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
+
+type MidweekMeetingAssignmentItemProps = {
+  week_label: string;
+  school: string;
+  label: string;
+  material: string;
+  student?: Publisher;
+  assistant?: Publisher;
+  counselor?: Publisher;
+  filename: string;
+};
+
+export function MidweekMeetingAssignmentItem({
+  week_label,
+  school,
+  label,
+  material,
+  student,
+  assistant,
+  counselor,
+  filename,
+}: MidweekMeetingAssignmentItemProps) {
+  if (!student) {
+    return null;
+  }
+
+  return (
+    <IonItem>
+      <IonLabel>
+        <Body bold>{label}</Body>
+        <br />
+        <Body size="sm" color="medium">
+          {getPublisherDisplayName(student)}
+        </Body>
+      </IonLabel>
+      <MidweekMeetingAssignmentShareButton
+        data={{
+          date: week_label,
+          school,
+          student: getPublisherDisplayName(student, "first_last"),
+          assistant: assistant ? getPublisherDisplayName(assistant, "first_last") : undefined,
+          counselor: counselor ? getPublisherDisplayName(counselor, "first_last") : "",
+          assignment: label,
+          material,
+        }}
+        filename={filename}
+      />
+    </IonItem>
+  );
+}

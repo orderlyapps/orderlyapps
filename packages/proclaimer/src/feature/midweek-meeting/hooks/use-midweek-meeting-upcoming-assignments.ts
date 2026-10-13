@@ -1,0 +1,83 @@
+import { and, eq, gte, inArray, useLiveQuery } from "@tanstack/react-db";
+import { midweekMeetingAssignmentCollection } from "../collections/midweek-meeting-assignment.ts";
+import { midweekMeetingDataCollection } from "../collections/midweek-meeting-data.ts";
+import { getMeetingParts } from "../utils/get-meeting-parts.ts";
+
+export type MidweekMeetingUpcomingAssignment = {
+  id: string;
+  type: "midweek";
+  week_id: string;
+  label: string;
+};
+
+export function useMidweekMeetingUpcomingAssignments(
+  congregation_id: string,
+  publisher_id: string,
+  today_str: string,
+): { assignments: MidweekMeetingUpcomingAssignment[]; is_loading: boolean } {
+  const { data: assignments, isLoading: isLoadingAssignments } = useLiveQuery(
+    (q) =>
+      congregation_id && publisher_id
+        ? q
+            .from({ a: midweekMeetingAssignmentCollection })
+            .where(({ a }) =>
+              and(
+                eq(a.congregation_id, congregation_id),
+                eq(a.participant_id, publisher_id),
+                gte(a.week_id, today_str),
+              ),
+            )
+            .orderBy(({ a }) => a.week_id)
+        : undefined,
+    [congregation_id, publisher_id, today_str],
+  );
+
+  const week_ids = assignments?.map((a) => a.week_id) ?? [];
+  const week_ids_key = week_ids.join(",");
+
+  const { data: meetingData, isLoading: isLoadingMeetingData } = useLiveQuery(
+    (q) =>
+      week_ids.length > 0
+        ? q.from({ m: midweekMeetingDataCollection }).where(({ m }) => inArray(m.week_id, week_ids))
+        : undefined,
+    [week_ids_key],
+  );
+
+  const { data: allWeekAssignments, isLoading: isLoadingWeekAssignments } = useLiveQuery(
+    (q) =>
+      week_ids.length > 0
+        ? q
+            .from({ a: midweekMeetingAssignmentCollection })
+            .where(({ a }) =>
+              and(eq(a.congregation_id, congregation_id), inArray(a.week_id, week_ids)),
+            )
+        : undefined,
+    [congregation_id, week_ids_key],
+  );
+
+  const is_loading =
+    isLoadingAssignments ||
+    (week_ids.length > 0 && (isLoadingMeetingData || isLoadingWeekAssignments));
+
+  const mapped_assignments =
+    assignments?.map((a) => {
+      const week_data = meetingData?.find((m) => m.week_id === a.week_id);
+      const week_assignments = allWeekAssignments?.filter((x) => x.week_id === a.week_id);
+      const show_school_2 =
+        week_assignments?.some((x) => x.assignment_id === "chairman_2") ?? false;
+      const parts = week_data ? getMeetingParts(week_data, week_assignments, show_school_2) : [];
+      const part = parts.find((p) => p.assignmentId === a.assignment_id);
+      const fallback = a.assignment_id.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+      const base_label = part?.title ?? fallback;
+      const label = a.assignment_id === "chairman_1" ? `${base_label} (Midweek)` : base_label;
+
+      return {
+        id: `${a.week_id}-midweek-${a.assignment_id}`,
+        type: "midweek" as const,
+        week_id: a.week_id,
+        label,
+      };
+    }) ?? [];
+
+  return { assignments: mapped_assignments, is_loading };
+}

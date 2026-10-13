@@ -3,7 +3,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignment, AvAssignmentID } from "../../schemas/av-assignment.ts";
-import type { MidweekAssignment } from "../../../midweek/schemas/midweek-assignment.ts";
+import type { MidweekMeetingAssignment } from "../../../midweek-meeting/schemas/midweek-meeting-assignment.ts";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import { AvAssignmentHistory } from "../av-assignment-history/AvAssignmentHistory.tsx";
@@ -14,7 +14,7 @@ interface AvConfirmModalProps {
   week_id: string;
   assignment_id: AvAssignmentID;
   all_assignments: AvAssignment[];
-  midweek_assignments: MidweekAssignment[];
+  midweek_assignments: MidweekMeetingAssignment[];
   weekend_assignments: WeekendAssignment[];
   speaker_assignments: SpeakerAssignment[];
   on_dismiss: () => void;

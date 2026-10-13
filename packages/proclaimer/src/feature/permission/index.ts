@@ -35,8 +35,8 @@ export { AuthUsersHeader } from "./components/auth-users-header/AuthUsersHeader.
 export { AuthUsersContent } from "./components/auth-users-content/AuthUsersContent.tsx";
 export { AvOverseerHeader } from "./components/av-overseer-header/AvOverseerHeader.tsx";
 export { AvOverseerContent } from "./components/av-overseer-content/AvOverseerContent.tsx";
-export { ClamOverseerHeader } from "./components/clam-overseer-header/ClamOverseerHeader.tsx";
-export { ClamOverseerContent } from "./components/clam-overseer-content/ClamOverseerContent.tsx";
+export { MidweekMeetingOverseerPermissionHeader } from "./components/midweek-meeting-overseer-permission-header/MidweekMeetingOverseerPermissionHeader.tsx";
+export { MidweekMeetingOverseerPermissionContent } from "./components/midweek-meeting-overseer-permission-content/MidweekMeetingOverseerPermissionContent.tsx";
 export { CleaningHeader } from "./components/cleaning-header/CleaningHeader.tsx";
 export { CleaningContent } from "./components/cleaning-content/CleaningContent.tsx";
 export { CobeHeader } from "./components/cobe-header/CobeHeader.tsx";

@@ -1,6 +1,6 @@
 import { loadPub, type MWBSchedule } from "meeting-schedules-parser";
-import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek";
-import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek";
+import { midweekMeetingDataCollection } from "@amodeo/proclaimer/feature/midweek-meeting";
+import type { MidweekMeetingData } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 export interface ParsedMeetingData {
   week_id: string;

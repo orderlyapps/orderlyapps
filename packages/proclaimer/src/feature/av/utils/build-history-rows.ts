@@ -1,7 +1,7 @@
 import { differenceInWeeks, parseISO } from "date-fns";
 import type { AvAssignment, AvAssignmentID } from "../schemas/av-assignment.ts";
 import { avAssignmentLabels } from "../schemas/av-assignment.ts";
-import type { MidweekAssignment } from "../../midweek/schemas/midweek-assignment.ts";
+import type { MidweekMeetingAssignment } from "../../midweek-meeting/schemas/midweek-meeting-assignment.ts";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 
@@ -39,8 +39,8 @@ function avAssignmentRow(
   };
 }
 
-function clamAssignmentRow(
-  assignment: MidweekAssignment | WeekendAssignment,
+function meetingAssignmentRow(
+  assignment: MidweekMeetingAssignment | WeekendAssignment,
   current_date: Date,
   is_current: boolean,
   is_future: boolean,
@@ -61,7 +61,7 @@ export function buildHistoryRows(
   week_id: string,
   assignment_id: AvAssignmentID,
   all_assignments: AvAssignment[],
-  midweek_assignments: MidweekAssignment[],
+  midweek_assignments: MidweekMeetingAssignment[],
   weekend_assignments: WeekendAssignment[],
   speaker_assignments: SpeakerAssignment[],
 ): AssignmentRow[] {
@@ -92,36 +92,36 @@ export function buildHistoryRows(
     .filter((a) => a.week_id < week_id)
     .sort((a, b) => b.week_id.localeCompare(a.week_id))
     .slice(0, 1)
-    .map((a) => clamAssignmentRow(a, current_date, false, false, "Midweek"));
+    .map((a) => meetingAssignmentRow(a, current_date, false, false, "Midweek"));
 
   const past_weekend = publisher_weekend
     .filter((a) => a.week_id < week_id)
     .sort((a, b) => b.week_id.localeCompare(a.week_id))
     .slice(0, 1)
-    .map((a) => clamAssignmentRow(a, current_date, false, false, "Weekend"));
+    .map((a) => meetingAssignmentRow(a, current_date, false, false, "Weekend"));
 
   const future_weekend = publisher_weekend
     .filter((a) => a.week_id > week_id)
     .sort((a, b) => a.week_id.localeCompare(b.week_id))
     .slice(0, 1)
-    .map((a) => clamAssignmentRow(a, current_date, false, true, "Weekend"));
+    .map((a) => meetingAssignmentRow(a, current_date, false, true, "Weekend"));
 
   const future_midweek = publisher_midweek
     .filter((a) => a.week_id > week_id)
     .sort((a, b) => a.week_id.localeCompare(b.week_id))
     .slice(0, 1)
-    .map((a) => clamAssignmentRow(a, current_date, false, true, "Midweek"));
+    .map((a) => meetingAssignmentRow(a, current_date, false, true, "Midweek"));
 
   const current_midweek = is_midweek
     ? publisher_midweek
         .filter((a) => a.week_id === week_id)
-        .map((a) => clamAssignmentRow(a, current_date, true, false, "Midweek"))
+        .map((a) => meetingAssignmentRow(a, current_date, true, false, "Midweek"))
     : [];
 
   const current_weekend = !is_midweek
     ? publisher_weekend
         .filter((a) => a.week_id === week_id)
-        .map((a) => clamAssignmentRow(a, current_date, true, false, "Weekend"))
+        .map((a) => meetingAssignmentRow(a, current_date, true, false, "Weekend"))
     : [];
 
   const current_speaker = !is_midweek

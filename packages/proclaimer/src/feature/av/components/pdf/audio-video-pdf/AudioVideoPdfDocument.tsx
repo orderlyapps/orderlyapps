@@ -1,5 +1,5 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import { SchedulePdfHeader } from "@amodeo/proclaimer/feature/midweek";
+import { SchedulePdfHeader } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvWeekData } from "../../../hooks/use-audio-video-schedule-data.ts";

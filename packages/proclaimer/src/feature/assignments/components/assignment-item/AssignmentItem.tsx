@@ -1,6 +1,6 @@
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import { getMidweekMeetingUrl } from "@amodeo/proclaimer/feature/midweek";
+import { getMidweekMeetingUrl } from "@amodeo/proclaimer/feature/midweek-meeting";
 import type { Assignment } from "../../hooks/useAssignments.ts";
 
 interface AssignmentItemProps {

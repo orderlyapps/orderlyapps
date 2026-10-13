@@ -1,7 +1,7 @@
 import { IonList } from "@ionic/react";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import type { AvAssignment, AvAssignmentID } from "../../schemas/av-assignment.ts";
-import type { MidweekAssignment } from "../../../midweek/schemas/midweek-assignment.ts";
+import type { MidweekMeetingAssignment } from "../../../midweek-meeting/schemas/midweek-meeting-assignment.ts";
 import type { WeekendAssignment } from "@amodeo/proclaimer/feature/weekend";
 import type { SpeakerAssignment } from "@amodeo/proclaimer/feature/speaker";
 import { buildHistoryRows, type AssignmentRow } from "../../utils/build-history-rows.ts";
@@ -11,7 +11,7 @@ interface AvAssignmentHistoryProps {
   week_id: string;
   assignment_id: AvAssignmentID;
   all_assignments: AvAssignment[];
-  midweek_assignments: MidweekAssignment[];
+  midweek_assignments: MidweekMeetingAssignment[];
   weekend_assignments: WeekendAssignment[];
   speaker_assignments: SpeakerAssignment[];
 }

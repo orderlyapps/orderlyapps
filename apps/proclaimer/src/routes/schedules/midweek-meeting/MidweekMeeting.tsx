@@ -9,7 +9,7 @@ import {
 } from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { MidweekMeetingContent } from "@amodeo/proclaimer/feature/midweek";
+import { MidweekMeetingContent } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 function MidweekMeetingPage() {
   const match = useRouteMatch<{ week_id?: string }>();

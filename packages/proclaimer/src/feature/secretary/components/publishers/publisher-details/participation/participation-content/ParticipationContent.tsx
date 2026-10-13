@@ -1,10 +1,10 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { avParticipationCollection } from "@amodeo/proclaimer/feature/av";
-import { midweekParticipationCollection } from "@amodeo/proclaimer/feature/midweek";
+import { midweekMeetingParticipationCollection } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { weekendParticipationCollection } from "@amodeo/proclaimer/feature/weekend";
 import { avParticipationTypeLabels } from "@amodeo/proclaimer/feature/av";
 import { weekendParticipationTypeLabels } from "@amodeo/proclaimer/feature/weekend";
-import { midweekParticipationTypeLabels } from "@amodeo/proclaimer/feature/midweek";
+import { midweekMeetingParticipationTypeLabels } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { ParticipationSection } from "./components/participation-section/ParticipationSection.tsx";
@@ -14,7 +14,7 @@ export function ParticipationContent({ publisher_id }: { publisher_id: string })
     q.from({ ap: avParticipationCollection }),
   );
   const { data: midweek, isLoading: isLoadingMidweek } = useLiveQuery((q) =>
-    q.from({ mp: midweekParticipationCollection }),
+    q.from({ mp: midweekMeetingParticipationCollection }),
   );
   const { data: weekend, isLoading: isLoadingWeekend } = useLiveQuery((q) =>
     q.from({ wp: weekendParticipationCollection }),
@@ -60,7 +60,7 @@ export function ParticipationContent({ publisher_id }: { publisher_id: string })
         <ParticipationSection
           title="Midweek Meeting"
           participations={midweekParticipation}
-          labels={midweekParticipationTypeLabels}
+          labels={midweekMeetingParticipationTypeLabels}
         />
         <ParticipationSection
           title="Weekend Meeting"

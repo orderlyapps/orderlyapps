@@ -2,7 +2,7 @@ import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@io
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { useStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
-import { useChairmanWeeks } from "@amodeo/proclaimer/feature/midweek";
+import { useMidweekMeetingChairmanWeeks } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { useIsCbsConductor } from "@amodeo/proclaimer/feature/timers";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
@@ -21,7 +21,7 @@ export function HomeTools() {
     publisher?.type === "special_pioneer" ||
     publisher?.type === "continuous_auxiliary";
 
-  const { is_chairman } = useChairmanWeeks();
+  const { is_chairman } = useMidweekMeetingChairmanWeeks();
   const { is_cbs_conductor } = useIsCbsConductor();
   const { value, onIonChange } = useAccordionState(localStorageKeys.homeToolsAccordion, "tools");
 
@@ -32,7 +32,7 @@ export function HomeTools() {
     permissions.has_secretary ||
     permissions.has_service_overseer ||
     permissions.has_elder ||
-    permissions.has_clam_overseer ||
+    permissions.has_midweek_meeting_overseer ||
     permissions.has_reports ||
     permissions.has_territory_servant ||
     permissions.has_av_overseer ||
@@ -129,25 +129,25 @@ export function HomeTools() {
               />
             )}
 
-            {(canSeeAll || permissions.has_clam_overseer) && (
+            {(canSeeAll || permissions.has_midweek_meeting_overseer) && (
               <NavItem
                 color={COLOR}
                 size="md"
                 lines="none"
                 label_class={CLASSNAME}
                 label="CLAM Overseer"
-                to="/home/clam-overseer"
+                to="/home/midweek-meeting-overseer"
               />
             )}
 
-            {(is_chairman || permissions.has_clam_overseer) && (
+            {(is_chairman || permissions.has_midweek_meeting_overseer) && (
               <NavItem
                 color={COLOR}
                 size="md"
                 lines="none"
                 label_class={CLASSNAME}
                 label="CLAM Chairman"
-                to="/home/clam-chairman"
+                to="/home/midweek-meeting-chairman"
               />
             )}
 
