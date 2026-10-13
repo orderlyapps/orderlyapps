@@ -59,11 +59,11 @@ export { MidweekMeetingParticipationContent } from "./components/participation/m
 export { MidweekMeetingParticipationTypeHeader } from "./components/participation/midweek-meeting-participation-type-header/MidweekMeetingParticipationTypeHeader.tsx";
 export { MidweekMeetingParticipationTypeContent } from "./components/participation/midweek-meeting-participation-type-content/MidweekMeetingParticipationTypeContent.tsx";
 
-export { ChairmansSchedule } from "./components/midweek-meeting-chairman/chairmans-schedule/ChairmansSchedule.tsx";
-export { ChairmanAssignmentCard } from "./components/midweek-meeting-chairman/chairmans-schedule/components/chairman-assignment-card/ChairmanAssignmentCard.tsx";
-export { ChairmansOutlineDownloadButtons } from "./components/midweek-meeting-chairman/chairmans-outline/components/chairmans-outline-download-buttons/ChairmansOutlineDownloadButtons.tsx";
-export { DocxDownloadButton } from "./components/midweek-meeting-chairman/chairmans-outline/components/docx-download-button/DocxDownloadButton.tsx";
-export { chairmansOutlineDocx } from "./components/midweek-meeting-chairman/chairmans-outline/docx/chairmans-outline-docx.ts";
+export { ChairmansSchedule } from "./components/chairman/chairmans-schedule/ChairmansSchedule.tsx";
+export { ChairmanAssignmentCard } from "./components/chairman/chairmans-schedule/components/chairman-assignment-card/ChairmanAssignmentCard.tsx";
+export { ChairmansOutlineDownloadButtons } from "./components/chairman/chairmans-outline/components/chairmans-outline-download-buttons/ChairmansOutlineDownloadButtons.tsx";
+export { DocxDownloadButton } from "./components/chairman/chairmans-outline/components/docx-download-button/DocxDownloadButton.tsx";
+export { chairmansOutlineDocx } from "./components/chairman/chairmans-outline/docx/chairmans-outline-docx.ts";
 
 export { MidweekMeetingContent } from "./components/midweek-meeting-content/MidweekMeetingContent.tsx";
 
