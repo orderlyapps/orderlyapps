@@ -67,7 +67,7 @@ export function ChairmansOutlineDownloadButtons({
           <DocxDownloadButton
             key={week_id}
             doc={doc}
-            fileName={`Chairman's Outline - ${week_label}.docx`}
+            file_name={`Chairman's Outline - ${week_label}.docx`}
             label={week_ids.length > 1 ? week_label : "Outline"}
           />
         );
