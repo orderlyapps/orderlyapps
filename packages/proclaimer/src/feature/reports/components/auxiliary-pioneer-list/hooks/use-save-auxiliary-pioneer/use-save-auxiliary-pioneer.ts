@@ -60,6 +60,8 @@ export function useSaveAuxiliaryPioneer(month: string) {
         date: month_date,
         active: false,
         aux_pio: true,
+        reg_pio: false,
+        spe_pio: false,
         reported_elsewhere: false,
         hours: null,
         bible_studies: null,

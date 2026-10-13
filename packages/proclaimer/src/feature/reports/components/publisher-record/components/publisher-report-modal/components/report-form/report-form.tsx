@@ -19,6 +19,8 @@ import {
 interface FormState {
   active: boolean;
   aux_pio: boolean;
+  reg_pio: boolean;
+  spe_pio: boolean;
   reported_elsewhere: boolean;
   hours: string;
   bible_studies: string;
@@ -29,6 +31,8 @@ interface FormState {
 const default_form: FormState = {
   active: false,
   aux_pio: false,
+  reg_pio: false,
+  spe_pio: false,
   reported_elsewhere: false,
   hours: "",
   bible_studies: "",
@@ -36,7 +40,7 @@ const default_form: FormState = {
   comments: "",
 };
 
-const PIONEER_TYPES_WITHOUT_AUX_TOGGLE: Publisher["type"][] = [
+const PIONEER_TYPES_WITHOUT_TOGGLES: Publisher["type"][] = [
   "regular_pioneer",
   "special_pioneer",
   "continuous_auxiliary",
@@ -61,9 +65,11 @@ export function ReportForm({
   is_loading,
   on_save,
 }: ReportFormProps) {
-  const show_aux_toggle =
-    !publisher_type || !PIONEER_TYPES_WITHOUT_AUX_TOGGLE.includes(publisher_type);
+  const show_pioneer_toggles =
+    !publisher_type || !PIONEER_TYPES_WITHOUT_TOGGLES.includes(publisher_type);
   const is_continuous_auxiliary = publisher_type === "continuous_auxiliary";
+  const is_regular_pioneer = publisher_type === "regular_pioneer";
+  const is_special_pioneer = publisher_type === "special_pioneer";
   const [form, set_form] = useState<FormState>(default_form);
   const [initialized, set_initialized] = useState(false);
   const [show_credits_modal, set_show_credits_modal] = useState(false);
@@ -72,6 +78,8 @@ export function ReportForm({
     set_form({
       active: existing_report.active,
       aux_pio: existing_report.aux_pio,
+      reg_pio: existing_report.reg_pio,
+      spe_pio: existing_report.spe_pio,
       reported_elsewhere: existing_report.reported_elsewhere,
       hours: existing_report.hours != null ? String(existing_report.hours) : "",
       bible_studies:
@@ -90,8 +98,11 @@ export function ReportForm({
   const updateField = <K extends keyof FormState>(field: K, value: FormState[K]) =>
     editForm((prev) => ({ ...prev, [field]: value }));
 
-  const aux_pio = is_continuous_auxiliary ? form.active : show_aux_toggle && form.aux_pio;
-  const is_missing_required_hours = aux_pio && !(Number(form.hours) > 0);
+  const aux_pio = is_continuous_auxiliary ? form.active : show_pioneer_toggles && form.aux_pio;
+  const reg_pio = is_regular_pioneer ? form.active : show_pioneer_toggles && form.reg_pio;
+  const spe_pio = is_special_pioneer ? form.active : show_pioneer_toggles && form.spe_pio;
+  const is_pioneer = aux_pio || reg_pio || spe_pio;
+  const is_missing_required_hours = is_pioneer && !(Number(form.hours) > 0);
 
   const handleSave = () => {
     if (is_loading || is_missing_required_hours) return;
@@ -105,6 +116,8 @@ export function ReportForm({
       date,
       active: form.active,
       aux_pio,
+      reg_pio,
+      spe_pio,
       reported_elsewhere: form.reported_elsewhere,
       hours: form.hours !== "" ? Number(form.hours) : null,
       bible_studies: form.bible_studies !== "" ? Number(form.bible_studies) : null,
@@ -118,6 +131,8 @@ export function ReportForm({
         (draft) => {
           draft.active = payload.active;
           draft.aux_pio = payload.aux_pio;
+          draft.reg_pio = payload.reg_pio;
+          draft.spe_pio = payload.spe_pio;
           draft.reported_elsewhere = payload.reported_elsewhere;
           draft.hours = payload.hours;
           draft.bible_studies = payload.bible_studies;
@@ -146,6 +161,8 @@ export function ReportForm({
             ...prev,
             active: checked,
             aux_pio: checked ? prev.aux_pio : false,
+            reg_pio: checked ? prev.reg_pio : false,
+            spe_pio: checked ? prev.spe_pio : false,
             hours: checked ? prev.hours : "",
             bible_studies: checked ? prev.bible_studies : "",
             credit_hours: checked ? prev.credit_hours : {},
@@ -153,13 +170,48 @@ export function ReportForm({
         }}
       />
 
-      {show_aux_toggle && (
-        <ToggleInput
-          label="Auxiliary Pioneer"
-          checked={form.aux_pio}
-          disabled={is_loading || !form.active}
-          on_change={(checked) => updateField("aux_pio", checked)}
-        />
+      {show_pioneer_toggles && (
+        <>
+          <ToggleInput
+            label="Auxiliary Pioneer"
+            checked={form.aux_pio}
+            disabled={is_loading || !form.active}
+            on_change={(checked) =>
+              editForm((prev) => ({
+                ...prev,
+                aux_pio: checked,
+                reg_pio: checked ? false : prev.reg_pio,
+                spe_pio: checked ? false : prev.spe_pio,
+              }))
+            }
+          />
+          <ToggleInput
+            label="Regular Pioneer"
+            checked={form.reg_pio}
+            disabled={is_loading || !form.active}
+            on_change={(checked) =>
+              editForm((prev) => ({
+                ...prev,
+                reg_pio: checked,
+                aux_pio: checked ? false : prev.aux_pio,
+                spe_pio: checked ? false : prev.spe_pio,
+              }))
+            }
+          />
+          <ToggleInput
+            label="Special Pioneer"
+            checked={form.spe_pio}
+            disabled={is_loading || !form.active}
+            on_change={(checked) =>
+              editForm((prev) => ({
+                ...prev,
+                spe_pio: checked,
+                aux_pio: checked ? false : prev.aux_pio,
+                reg_pio: checked ? false : prev.reg_pio,
+              }))
+            }
+          />
+        </>
       )}
 
       <ToggleInput
@@ -172,7 +224,7 @@ export function ReportForm({
       <NumberInput
         label="Hours"
         value={form.hours}
-        placeholder={aux_pio ? "required" : "optional"}
+        placeholder={is_pioneer ? "required" : "optional"}
         disabled={is_loading || !form.active}
         on_change={(val) => updateField("hours", val)}
       />
