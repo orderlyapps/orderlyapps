@@ -1,5 +1,5 @@
 import { useLiveQuery } from "@tanstack/react-db";
-import { addWeeks, format, startOfWeek } from "date-fns";
+import { addWeeks, format, parseISO, startOfWeek } from "date-fns";
 import { midweekMeetingDataCollection } from "../../../../../collections/midweek-meeting-data.ts";
 import { midweekMeetingAssignmentCollection } from "../../../../../collections/midweek-meeting-assignment.ts";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
@@ -7,14 +7,16 @@ import type { MidweekMeetingData } from "../../../../../schemas/midweek-meeting-
 import type { MidweekMeetingAssignment } from "../../../../../schemas/midweek-meeting-assignment.ts";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
-import { chairmansOutlineDocX } from "../../docx/chairmans-outline-docx.ts";
-import { DocXDownloadButton } from "../docx-download-button/DocXDownloadButton.tsx";
+import { chairmansOutlineDocx } from "../../docx/chairmans-outline-docx.ts";
+import { DocxDownloadButton } from "../docx-download-button/DocxDownloadButton.tsx";
 
-interface ChairmanDownloadButtonsProps {
+interface ChairmansOutlineDownloadButtonsProps {
   week_ids: string[];
 }
 
-export function ChairmanDownloadButtons({ week_ids }: ChairmanDownloadButtonsProps) {
+export function ChairmansOutlineDownloadButtons({
+  week_ids,
+}: ChairmansOutlineDownloadButtonsProps) {
   const { data: allMeetingData } = useLiveQuery((q) =>
     q.from({ mmd: midweekMeetingDataCollection }),
   );
@@ -37,7 +39,7 @@ export function ChairmanDownloadButtons({ week_ids }: ChairmanDownloadButtonsPro
           (a) => a.week_id === week_id,
         );
         const next_week_id = format(
-          startOfWeek(addWeeks(new Date(week_id), 1), { weekStartsOn: 1 }),
+          startOfWeek(addWeeks(parseISO(week_id), 1), { weekStartsOn: 1 }),
           "yyyy-MM-dd",
         );
         const nextMeetingData = (allMeetingData as MidweekMeetingData[] | undefined)?.find(
@@ -47,7 +49,7 @@ export function ChairmanDownloadButtons({ week_ids }: ChairmanDownloadButtonsPro
           (a) => a.week_id === next_week_id,
         );
 
-        const doc = chairmansOutlineDocX(
+        const doc = chairmansOutlineDocx(
           week_id,
           meetingData,
           assignments,
@@ -62,7 +64,7 @@ export function ChairmanDownloadButtons({ week_ids }: ChairmanDownloadButtonsPro
         });
 
         return (
-          <DocXDownloadButton
+          <DocxDownloadButton
             key={week_id}
             doc={doc}
             fileName={`Chairman's Outline - ${week_label}.docx`}

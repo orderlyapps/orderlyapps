@@ -1,13 +1,13 @@
 import { IonButton } from "@ionic/react";
 import { Packer, type Document } from "docx";
 
-interface DocXDownloadButtonProps {
+interface DocxDownloadButtonProps {
   doc: Document;
   fileName: string;
   label?: string;
 }
 
-export function DocXDownloadButton({ doc, fileName, label = "Download" }: DocXDownloadButtonProps) {
+export function DocxDownloadButton({ doc, fileName, label = "Download" }: DocxDownloadButtonProps) {
   const handleDownload = async () => {
     const blob = await Packer.toBlob(doc);
     const url = URL.createObjectURL(blob);
@@ -15,7 +15,7 @@ export function DocXDownloadButton({ doc, fileName, label = "Download" }: DocXDo
     link.href = url;
     link.download = fileName;
     link.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url));
   };
 
   return (

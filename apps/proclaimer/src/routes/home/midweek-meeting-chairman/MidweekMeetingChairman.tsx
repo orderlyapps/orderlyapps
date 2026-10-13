@@ -17,9 +17,9 @@ import {
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 
-const ChairmanDownloadButtons = lazy(() =>
+const ChairmansOutlineDownloadButtons = lazy(() =>
   import("@amodeo/proclaimer/feature/midweek-meeting").then((m) => ({
-    default: m.ChairmanDownloadButtons,
+    default: m.ChairmansOutlineDownloadButtons,
   })),
 );
 
@@ -44,7 +44,7 @@ function MidweekMeetingChairmanPage() {
           {download_week_ids.length > 0 && (
             <IonButtons slot="end">
               <Suspense fallback={<Spinner size="sm" centered={false} />}>
-                <ChairmanDownloadButtons week_ids={download_week_ids} />
+                <ChairmansOutlineDownloadButtons week_ids={download_week_ids} />
               </Suspense>
             </IonButtons>
           )}

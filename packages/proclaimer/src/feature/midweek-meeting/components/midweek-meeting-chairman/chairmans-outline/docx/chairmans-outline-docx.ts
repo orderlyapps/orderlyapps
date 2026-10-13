@@ -141,7 +141,7 @@ function nextWeekAssignments(
   ];
 }
 
-export function chairmansOutlineDocX(
+export function chairmansOutlineDocx(
   week_id: string,
   meetingData: MidweekMeetingData | undefined,
   assignments: MidweekMeetingAssignment[] | undefined,

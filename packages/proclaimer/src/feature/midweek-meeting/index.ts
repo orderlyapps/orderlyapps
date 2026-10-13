@@ -61,9 +61,9 @@ export { MidweekMeetingParticipationTypeContent } from "./components/participati
 
 export { MidweekMeetingChairmanContent } from "./components/midweek-meeting-chairman/midweek-meeting-chairman-content/MidweekMeetingChairmanContent.tsx";
 export { ChairmanAssignmentCard } from "./components/midweek-meeting-chairman/midweek-meeting-chairman-content/components/chairman-assignment-card/ChairmanAssignmentCard.tsx";
-export { ChairmanDownloadButtons } from "./components/midweek-meeting-chairman/midweek-meeting-chairman-header/components/chairman-download-buttons/ChairmanDownloadButtons.tsx";
-export { DocXDownloadButton } from "./components/midweek-meeting-chairman/midweek-meeting-chairman-header/components/docx-download-button/DocXDownloadButton.tsx";
-export { chairmansOutlineDocX } from "./components/midweek-meeting-chairman/midweek-meeting-chairman-header/docx/chairmans-outline-docx.ts";
+export { ChairmansOutlineDownloadButtons } from "./components/midweek-meeting-chairman/chairmans-outline/components/chairmans-outline-download-buttons/ChairmansOutlineDownloadButtons.tsx";
+export { DocxDownloadButton } from "./components/midweek-meeting-chairman/chairmans-outline/components/docx-download-button/DocxDownloadButton.tsx";
+export { chairmansOutlineDocx } from "./components/midweek-meeting-chairman/chairmans-outline/docx/chairmans-outline-docx.ts";
 
 export { MidweekMeetingContent } from "./components/midweek-meeting-content/MidweekMeetingContent.tsx";
 
