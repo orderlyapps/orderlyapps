@@ -16,8 +16,10 @@ import { useState } from "react";
 import {
   Publishers,
   PublisherFilterSelect,
+  AddPublisherModal,
   type PublisherFilter,
 } from "@amodeo/proclaimer/feature/publisher";
+import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
 import { SearchInput } from "@amodeo/proclaimer/ui/components/inputs/search/SearchInput";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
@@ -34,6 +36,7 @@ const default_filter: PublisherFilter = {
 function PublishersPage() {
   const [search_term, setSearchTerm] = useState("");
   const [filter, set_filter] = useState<PublisherFilter>(default_filter);
+  const [is_add_open, set_is_add_open] = useState(false);
   const { value, onIonChange } = useAccordionState(
     localStorageKeys.publishersFilterAccordion,
     "filters",
@@ -47,6 +50,9 @@ function PublishersPage() {
             <IonBackButton defaultHref="/home/secretary" />
           </IonButtons>
           <IonTitle>Publishers</IonTitle>
+          <IonButtons slot="end">
+            <AddIconButton on_click={() => set_is_add_open(true)} />
+          </IonButtons>
         </IonToolbar>
         <IonToolbar>
           <SearchInput value={search_term} on_change={setSearchTerm} />
@@ -71,6 +77,7 @@ function PublishersPage() {
           search_term={search_term}
           filter={filter}
         />
+        <AddPublisherModal is_open={is_add_open} on_dismiss={() => set_is_add_open(false)} />
       </IonContent>
     </IonPage>
   );
