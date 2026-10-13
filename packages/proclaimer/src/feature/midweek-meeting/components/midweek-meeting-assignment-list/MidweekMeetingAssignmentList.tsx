@@ -1,7 +1,7 @@
 import { IonList } from "@ionic/react";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import { useMidweekMeetingAssignments } from "../../hooks/use-midweek-meeting-assignments.ts";
-import { MidweekMeetingAssignmentSchool } from "../midweek-meeting-assignment-school/MidweekMeetingAssignmentSchool.tsx";
+import { MidweekMeetingAssignmentSchool } from "./components/midweek-meeting-assignment-school/MidweekMeetingAssignmentSchool.tsx";
 import type { MidweekMeetingAssignmentId } from "../../schemas/midweek-meeting-assignment.ts";
 
 type SchoolConfig = {

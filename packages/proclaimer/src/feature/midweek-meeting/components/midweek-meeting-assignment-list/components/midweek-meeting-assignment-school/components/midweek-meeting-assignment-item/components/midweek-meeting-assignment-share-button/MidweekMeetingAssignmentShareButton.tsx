@@ -2,8 +2,8 @@ import { useState } from "react";
 import { IonButton, IonIcon } from "@ionic/react";
 import { shareOutline } from "ionicons/icons";
 import { pdf } from "@react-pdf/renderer";
-import { MidweekMeetingAssignmentPdf } from "../midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
-import type { MidweekMeetingAssignmentPdfData } from "../midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
+import { MidweekMeetingAssignmentPdf } from "./components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
+import type { MidweekMeetingAssignmentPdfData } from "./components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
 
 type MidweekMeetingAssignmentShareButtonProps = {
   data: MidweekMeetingAssignmentPdfData;

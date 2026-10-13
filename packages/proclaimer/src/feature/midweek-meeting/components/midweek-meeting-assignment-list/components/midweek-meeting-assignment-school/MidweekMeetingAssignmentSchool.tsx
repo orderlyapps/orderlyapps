@@ -1,6 +1,6 @@
-import { MidweekMeetingAssignmentItem } from "../midweek-meeting-assignment-item/MidweekMeetingAssignmentItem.tsx";
-import type { MidweekMeetingAssignmentId } from "../../schemas/midweek-meeting-assignment.ts";
-import type { MidweekMeetingData } from "../../schemas/midweek-meeting-data.ts";
+import { MidweekMeetingAssignmentItem } from "./components/midweek-meeting-assignment-item/MidweekMeetingAssignmentItem.tsx";
+import type { MidweekMeetingAssignmentId } from "../../../../schemas/midweek-meeting-assignment.ts";
+import type { MidweekMeetingData } from "../../../../schemas/midweek-meeting-data.ts";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 type PartConfig = {

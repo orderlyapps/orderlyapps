@@ -1,7 +1,7 @@
 import { IonItem, IonLabel } from "@ionic/react";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import { MidweekMeetingAssignmentShareButton } from "../midweek-meeting-assignment-share-button/MidweekMeetingAssignmentShareButton.tsx";
+import { MidweekMeetingAssignmentShareButton } from "./components/midweek-meeting-assignment-share-button/MidweekMeetingAssignmentShareButton.tsx";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 
 type MidweekMeetingAssignmentItemProps = {
