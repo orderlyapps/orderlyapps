@@ -55,7 +55,7 @@ export { useAvPublisherParticipationTypes } from "./hooks/use-av-publisher-parti
 export { useAvPublisherStats } from "./hooks/use-av-publisher-stats.ts";
 export { useAvPresets } from "./hooks/use-av-presets.ts";
 
-export { AddAvParticipantModal } from "./components/add-av-participant-modal/AddAvParticipantModal.tsx";
+export { AddAvParticipantModal } from "./components/participation/components/add-av-participant-modal/AddAvParticipantModal.tsx";
 export { AddParticipantModal } from "./components/add-participant-modal/AddParticipantModal.tsx";
 export { AvAssignedPublisher } from "./components/av-assigned-publisher/AvAssignedPublisher.tsx";
 export { AvAssignmentCard } from "./components/av-schedule/av-assignment-card/AvAssignmentCard.tsx";
@@ -63,7 +63,7 @@ export { AvAssignmentDetailContent } from "./components/av-assignment-detail-con
 export { AvAssignmentHistory } from "./components/av-assignment-history/AvAssignmentHistory.tsx";
 export { AvConfirmModal } from "./components/av-confirm-modal/AvConfirmModal.tsx";
 export { AvFilterSelect } from "./components/av-filter-select/AvFilterSelect.tsx";
-export { AvParticipantPublishersList } from "./components/av-participant-publishers-list/AvParticipantPublishersList.tsx";
+export { AvParticipantPublishersList } from "./components/participation/components/av-participant-publishers-list/AvParticipantPublishersList.tsx";
 export { AvPublisherList } from "./components/av-publisher-list/AvPublisherList.tsx";
 export { AvPublisherListItem } from "./components/av-publisher-list-item/AvPublisherListItem.tsx";
 export { AvPublisherSelector } from "./components/av-publisher-selector/AvPublisherSelector.tsx";

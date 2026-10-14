@@ -1,8 +1,8 @@
 import { IonItem, IonLabel, IonList, IonSkeletonText } from "@ionic/react";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import { useAvParticipantPublishers } from "../../hooks/use-av-participant-publishers.ts";
-import type { AvParticipation } from "../../schemas/av-participation.ts";
+import { useAvParticipantPublishers } from "../../../../hooks/use-av-participant-publishers.ts";
+import type { AvParticipation } from "../../../../schemas/av-participation.ts";
 import { DeleteIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/delete/DeleteIconButton";
 
 interface AvParticipantPublishersListProps {

@@ -12,8 +12,8 @@ import {
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import { useAvParticipantPublishers } from "../../hooks/use-av-participant-publishers.ts";
-import type { AvParticipation } from "../../schemas/av-participation.ts";
+import { useAvParticipantPublishers } from "../../../../hooks/use-av-participant-publishers.ts";
+import type { AvParticipation } from "../../../../schemas/av-participation.ts";
 
 interface AddAvParticipantModalProps {
   participation_id: AvParticipation["participation_id"];
