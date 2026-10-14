@@ -22,9 +22,12 @@ export function MidweekMeetingAssignmentShareButton({
     link.href = url;
     link.download = `${filename}.pdf`;
     document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    try {
+      link.click();
+    } finally {
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
   };
 
   const handle_share = async () => {

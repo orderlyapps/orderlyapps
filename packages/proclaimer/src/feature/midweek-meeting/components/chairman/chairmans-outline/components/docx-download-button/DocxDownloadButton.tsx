@@ -24,9 +24,12 @@ export function DocxDownloadButton({
     link.href = url;
     link.download = file_name;
     document.body.appendChild(link);
-    link.click();
-    link.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    try {
+      link.click();
+    } finally {
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
   };
 
   const handleDownload = async () => {

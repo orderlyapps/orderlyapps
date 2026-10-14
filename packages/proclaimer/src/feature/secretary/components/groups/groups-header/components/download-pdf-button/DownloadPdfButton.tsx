@@ -41,29 +41,36 @@ export function DownloadPdfButton() {
     set_is_generating(true);
     set_is_modal_open(false);
 
-    const file_name = congregation?.name
-      ? `${congregation.name.replace(/\s+/g, "_")}_Groups_${filter_type}.pdf`
-      : `Field_Service_Groups_${filter_type}.pdf`;
+    try {
+      const file_name = congregation?.name
+        ? `${congregation.name.replace(/\s+/g, "_")}_Groups_${filter_type}.pdf`
+        : `Field_Service_Groups_${filter_type}.pdf`;
 
-    const blob = await pdf(
-      <GroupsPdf
-        groups={groups}
-        publishers={publishers}
-        congregation_name={congregation?.name}
-        filter_type={filter_type}
-      />,
-    ).toBlob();
+      const blob = await pdf(
+        <GroupsPdf
+          groups={groups}
+          publishers={publishers}
+          congregation_name={congregation?.name}
+          filter_type={filter_type}
+        />,
+      ).toBlob();
 
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = file_name;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-
-    set_is_generating(false);
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = file_name;
+      document.body.appendChild(link);
+      try {
+        link.click();
+      } finally {
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+    } catch (err) {
+      console.error("Failed to generate PDF:", err);
+    } finally {
+      set_is_generating(false);
+    }
   };
 
   return (

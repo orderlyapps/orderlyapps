@@ -75,9 +75,12 @@ export function ExportModal({ is_open, onClose }: Props) {
       a.href = url;
       a.download = generateExportFilename();
       document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      try {
+        a.click();
+      } finally {
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
       set_exported_count(await rxdb.publisher.count().exec());
     } catch (err) {
       const message = err instanceof Error ? err.message : "Export failed";

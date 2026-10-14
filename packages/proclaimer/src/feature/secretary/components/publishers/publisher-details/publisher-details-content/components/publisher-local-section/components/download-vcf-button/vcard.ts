@@ -104,7 +104,10 @@ export function downloadVcard(filename: string, vcard: string): void {
   link.href = url;
   link.download = `${filename}.vcf`;
   document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  try {
+    link.click();
+  } finally {
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
 }

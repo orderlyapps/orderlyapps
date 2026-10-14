@@ -23,9 +23,12 @@ export function DataManagement() {
       a.href = url;
       a.download = generateMinistryTimeExportFilename();
       document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      try {
+        a.click();
+      } finally {
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
     } catch (err) {
       void presentAlert({
         header: "Export Failed",

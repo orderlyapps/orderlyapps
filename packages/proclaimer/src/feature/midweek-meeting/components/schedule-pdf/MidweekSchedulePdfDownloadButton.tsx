@@ -57,9 +57,12 @@ export function MidweekSchedulePdfDownloadButton() {
       link.href = url;
       link.download = `${get_filename()}.pdf`;
       document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      try {
+        link.click();
+      } finally {
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
     } catch {
       set_error_message("Failed to generate PDF. Please try again.");
     } finally {
@@ -78,6 +81,7 @@ export function MidweekSchedulePdfDownloadButton() {
           set_selected_month(null);
           set_error_message(null);
           set_highlight_publisher(false);
+          set_pdf_publisher(getStoredPublisher());
         }}
         fullscreen={false}
       >

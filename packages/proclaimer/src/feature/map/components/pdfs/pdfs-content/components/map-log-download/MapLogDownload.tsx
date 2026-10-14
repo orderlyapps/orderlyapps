@@ -65,9 +65,12 @@ export function MapLogDownload() {
       link.href = url;
       link.download = "Map_Log_S-13.pdf";
       document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      try {
+        link.click();
+      } finally {
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
     } catch (err) {
       console.error("Failed to generate PDF:", err);
     } finally {

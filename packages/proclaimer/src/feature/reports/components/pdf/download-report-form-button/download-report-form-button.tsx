@@ -70,9 +70,12 @@ export function DownloadReportFormButton() {
       link.href = url;
       link.download = `${group_name.replace(/\s+/g, "_")}_Report_Form_${report_date}.pdf`;
       document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      try {
+        link.click();
+      } finally {
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
     } catch (err) {
       console.error("Failed to generate report form PDF:", err);
       void presentToast({

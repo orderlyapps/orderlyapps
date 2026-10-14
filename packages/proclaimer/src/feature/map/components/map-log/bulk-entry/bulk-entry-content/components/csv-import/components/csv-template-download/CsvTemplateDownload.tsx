@@ -13,8 +13,13 @@ export function CsvTemplateDownload() {
     const a = document.createElement("a");
     a.href = url;
     a.download = "map-log-template.csv";
-    a.click();
-    URL.revokeObjectURL(url);
+    document.body.appendChild(a);
+    try {
+      a.click();
+    } finally {
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
   }
 
   return (

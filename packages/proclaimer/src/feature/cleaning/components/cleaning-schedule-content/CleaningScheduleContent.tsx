@@ -45,9 +45,12 @@ export function CleaningScheduleContent() {
       link.href = url;
       link.download = `${get_filename()}.pdf`;
       document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      try {
+        link.click();
+      } finally {
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
     } catch {
       set_error_message("Failed to generate PDF. Please try again.");
     } finally {

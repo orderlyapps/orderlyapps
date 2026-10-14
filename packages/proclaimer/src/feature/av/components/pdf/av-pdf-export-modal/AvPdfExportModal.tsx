@@ -71,9 +71,12 @@ export function AvPdfExportModal({ is_open, on_dismiss }: AvPdfExportModalProps)
     link.href = url;
     link.download = `${get_filename()}.pdf`;
     document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    try {
+      link.click();
+    } finally {
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
   };
 
   const handle_download = async () => {

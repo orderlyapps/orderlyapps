@@ -42,9 +42,12 @@ export async function exportAppSettings<T extends SettingsMap>(
     anchor.href = url;
     anchor.download = resolveSettingsFileName(fileName, extension);
     document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    try {
+      anchor.click();
+    } finally {
+      document.body.removeChild(anchor);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
   }
 
   return json;
@@ -78,9 +81,12 @@ export async function exportAppDatabase(
     anchor.href = url;
     anchor.download = resolveSettingsFileName(fileName, extension);
     document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    try {
+      anchor.click();
+    } finally {
+      document.body.removeChild(anchor);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
   }
 
   return json;
