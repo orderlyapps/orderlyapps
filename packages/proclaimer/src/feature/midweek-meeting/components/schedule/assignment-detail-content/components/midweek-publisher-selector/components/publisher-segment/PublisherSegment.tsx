@@ -9,15 +9,10 @@ import {
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { MidweekMeetingAssignment } from "../../../../../../../schemas/midweek-meeting-assignment.ts";
 import { PublisherList } from "../../../publisher-list/PublisherList.tsx";
-import { PublisherControls } from "../publisher-controls/PublisherControls.tsx";
-import { ClearAssignmentButton } from "../clear-assignment-button/ClearAssignmentButton.tsx";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { SettingsAccordion } from "../settings-accordion/SettingsAccordion.tsx";
 import type { PublisherStats } from "../../hooks/use-publisher-stats/use-publisher-stats.ts";
-import type {
-  FilterSortPreset,
-  PublisherFilter,
-  PublisherSortOrder,
-} from "../../hooks/use-presets/use-presets.ts";
+import type { PublisherSelectorSettings } from "../../hooks/use-selector-settings/use-selector-settings.ts";
+import { usesGenderFilter } from "../../hooks/use-selector-settings/use-selector-settings.ts";
 import type { ParticipationType } from "../../utils/participation-type-map.ts";
 
 interface PublisherSegmentProps {
@@ -25,29 +20,17 @@ interface PublisherSegmentProps {
   assignment: MidweekMeetingAssignment | undefined;
   assistantAssignment: MidweekMeetingAssignment | undefined;
   assistant_label: string;
-  assignee_preset: FilterSortPreset;
-  assistant_preset: FilterSortPreset;
-  assignee_presets: FilterSortPreset[];
-  assistant_presets: FilterSortPreset[];
-  assignee_is_default_active: boolean;
-  assistant_is_default_active: boolean;
+  participation_type: ParticipationType;
+  assistant_participation_type: ParticipationType;
+  assignee_settings: PublisherSelectorSettings;
+  assistant_settings: PublisherSelectorSettings;
   assignee_stats: Map<string, PublisherStats>;
   assistant_stats: Map<string, PublisherStats>;
   participation_types: Map<string, Set<ParticipationType>>;
-  onSelectAssigneePreset: (id: string) => void;
-  onCreateAssigneePreset: (name: string) => void;
-  onRenameAssigneePreset: (id: string, name: string) => void;
-  onDeleteAssigneePreset: (id: string) => void;
-  onChangeAssignee: (filter: PublisherFilter, sort_order: PublisherSortOrder) => void;
-  onSelectAssistantPreset: (id: string) => void;
-  onCreateAssistantPreset: (name: string) => void;
-  onRenameAssistantPreset: (id: string, name: string) => void;
-  onDeleteAssistantPreset: (id: string) => void;
-  onChangeAssistant: (filter: PublisherFilter, sort_order: PublisherSortOrder) => void;
+  onChangeAssignee: (settings: PublisherSelectorSettings) => void;
+  onChangeAssistant: (settings: PublisherSelectorSettings) => void;
   onSelectAssignee: (id: string) => void;
   onSelectAssistant: (id: string) => void;
-  onClearAssignee: () => void;
-  onClearAssistant: () => void;
   publisher_ids_with_week_assignment?: Set<string>;
 }
 
@@ -56,29 +39,17 @@ export function PublisherSegment({
   assignment,
   assistantAssignment,
   assistant_label,
-  assignee_preset,
-  assistant_preset,
-  assignee_presets,
-  assistant_presets,
-  assignee_is_default_active,
-  assistant_is_default_active,
+  participation_type,
+  assistant_participation_type,
+  assignee_settings,
+  assistant_settings,
   assignee_stats,
   assistant_stats,
   participation_types,
-  onSelectAssigneePreset,
-  onCreateAssigneePreset,
-  onRenameAssigneePreset,
-  onDeleteAssigneePreset,
   onChangeAssignee,
-  onSelectAssistantPreset,
-  onCreateAssistantPreset,
-  onRenameAssistantPreset,
-  onDeleteAssistantPreset,
   onChangeAssistant,
   onSelectAssignee,
   onSelectAssistant,
-  onClearAssignee,
-  onClearAssistant,
   publisher_ids_with_week_assignment,
 }: PublisherSegmentProps) {
   return (
@@ -95,56 +66,39 @@ export function PublisherSegment({
       </IonItemDivider>
       <IonSegmentView>
         <IonSegmentContent id="assignee">
-          <PublisherControls
-            presets={assignee_presets}
-            active_preset={assignee_preset}
-            is_default_active={assignee_is_default_active}
-            on_select_preset={onSelectAssigneePreset}
-            on_create_preset={onCreateAssigneePreset}
-            on_rename_preset={onRenameAssigneePreset}
-            on_delete_preset={onDeleteAssigneePreset}
+          <SettingsAccordion
+            participation_type={participation_type}
+            settings={assignee_settings}
             on_change={onChangeAssignee}
-          />
-          <Space size="sm" />
-          <ClearAssignmentButton
-            on_click={onClearAssignee}
-            disabled={!assignment?.participant_id}
           />
           <PublisherList
             publishers={publishers}
             selected_id={assignment?.participant_id}
             on_select={onSelectAssignee}
-            sort_order={assignee_preset.sort_order}
             stats={assignee_stats}
-            filter={assignee_preset.filter}
+            participant_groups={assignee_settings.participant_groups}
+            gender={usesGenderFilter(participation_type) ? assignee_settings.gender : null}
+            participation_type={participation_type}
             participation_types={participation_types}
             publisher_ids_with_week_assignment={publisher_ids_with_week_assignment}
           />
         </IonSegmentContent>
         <IonSegmentContent id="assistant">
-          <PublisherControls
-            presets={assistant_presets}
-            active_preset={assistant_preset}
-            is_default_active={assistant_is_default_active}
-            on_select_preset={onSelectAssistantPreset}
-            on_create_preset={onCreateAssistantPreset}
-            on_rename_preset={onRenameAssistantPreset}
-            on_delete_preset={onDeleteAssistantPreset}
+          <SettingsAccordion
+            participation_type={assistant_participation_type}
+            settings={assistant_settings}
             on_change={onChangeAssistant}
-          />
-          <Space size="sm" />
-          <ClearAssignmentButton
-            label={`Clear ${assistant_label}`}
-            on_click={onClearAssistant}
-            disabled={!assistantAssignment?.participant_id}
           />
           <PublisherList
             publishers={publishers}
             selected_id={assistantAssignment?.participant_id}
             on_select={onSelectAssistant}
-            sort_order={assistant_preset.sort_order}
             stats={assistant_stats}
-            filter={assistant_preset.filter}
+            participant_groups={assistant_settings.participant_groups}
+            gender={
+              usesGenderFilter(assistant_participation_type) ? assistant_settings.gender : null
+            }
+            participation_type={assistant_participation_type}
             participation_types={participation_types}
             publisher_ids_with_week_assignment={publisher_ids_with_week_assignment}
           />

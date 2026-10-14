@@ -2,24 +2,24 @@ import { IonItem, IonLabel, IonList, IonNote } from "@ionic/react";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import type { PublisherSortOrder } from "../midweek-publisher-selector/hooks/use-publisher-sort/use-publisher-sort.ts";
 import type { PublisherStats } from "../midweek-publisher-selector/hooks/use-publisher-stats/use-publisher-stats.ts";
-import type { PublisherFilter } from "../midweek-publisher-selector/hooks/use-publisher-filter/use-publisher-filter.ts";
+import type {
+  GenderFilter,
+  ParticipantGroup,
+} from "../midweek-publisher-selector/hooks/use-selector-settings/use-selector-settings.ts";
 import type { ParticipationType } from "../midweek-publisher-selector/utils/participation-type-map.ts";
-import { buildAlphabeticalItems, isDivider } from "./utils/build-alphabetical-items.ts";
-import type { ListItem } from "./utils/build-alphabetical-items.ts";
 import { sortPublishers } from "./utils/sort-publishers.ts";
 import { getStatLabel } from "./utils/get-stat-label.ts";
-import { PublisherLetterDivider } from "./components/publisher-letter-divider/PublisherLetterDivider.tsx";
 import { PublisherListItem } from "./components/publisher-list-item/PublisherListItem.tsx";
 
 interface PublisherListProps {
   publishers: Publisher[];
   selected_id: string | undefined;
   on_select: (publisher_id: string) => void;
-  sort_order: PublisherSortOrder;
   stats: Map<string, PublisherStats>;
-  filter: PublisherFilter;
+  participant_groups: ParticipantGroup[];
+  gender: GenderFilter | null;
+  participation_type: ParticipationType;
   participation_types: Map<string, Set<ParticipationType>>;
   publisher_ids_with_week_assignment?: Set<string>;
 }
@@ -28,39 +28,23 @@ export function PublisherList({
   publishers,
   selected_id,
   on_select,
-  sort_order,
   stats,
-  filter,
+  participant_groups,
+  gender,
+  participation_type,
   participation_types,
   publisher_ids_with_week_assignment,
 }: PublisherListProps) {
   const filtered_publishers = publishers.filter((p) => {
     if (p.archived_at) return false;
-    if (filter.gender !== "all" && p.gender !== filter.gender) return false;
 
-    const publisher_stats = p.id ? stats.get(p.id) : undefined;
-    const publisher_participation_types = p.id ? participation_types.get(p.id) : undefined;
+    const is_participant = p.id
+      ? (participation_types.get(p.id)?.has(participation_type) ?? false)
+      : false;
+    const group: ParticipantGroup = is_participant ? "participants" : "non_participants";
+    if (!participant_groups.includes(group)) return false;
 
-    if (filter.participation_types.length > 0) {
-      const has_any_type = filter.participation_types.some((type) =>
-        publisher_participation_types?.has(type),
-      );
-      if (!has_any_type) return false;
-    }
-
-    if (filter.min_weeks_away_closest > 0) {
-      const weeks_away_closest = publisher_stats?.weeks_away_closest;
-      if (weeks_away_closest !== null && weeks_away_closest !== undefined) {
-        if (weeks_away_closest < filter.min_weeks_away_closest) return false;
-      }
-    }
-
-    if (filter.min_avg_weeks_between > 0) {
-      const avg_weeks_between = publisher_stats?.avg_weeks_between;
-      if (avg_weeks_between !== null && avg_weeks_between !== undefined) {
-        if (avg_weeks_between < filter.min_avg_weeks_between) return false;
-      }
-    }
+    if (gender && gender !== "all" && p.gender !== gender) return false;
 
     return true;
   });
@@ -75,12 +59,7 @@ export function PublisherList({
     );
   }
 
-  const sorted = sortPublishers(filtered_publishers, sort_order, stats);
-
-  const { items, pinned_ids } =
-    sort_order === "alphabetical"
-      ? buildAlphabeticalItems(sorted)
-      : { items: sorted as ListItem[], pinned_ids: new Set<string>() };
+  const sorted = sortPublishers(filtered_publishers, stats);
 
   return (
     <>
@@ -90,28 +69,18 @@ export function PublisherList({
           <IonNote slot="end">{publishers.length} total</IonNote>
         </IonItem>
       </IonList>
-      <MultiColumnList<ListItem>
-        items={items}
-        get_id={(item) => (isDivider(item) ? item.id : (item.id ?? ""))}
-        pin_to_first_column={
-          pinned_ids.size > 0
-            ? (item) => pinned_ids.has(isDivider(item) ? item.id : (item.id ?? ""))
-            : undefined
-        }
-        render_item={(item) => {
-          if (isDivider(item)) {
-            return <PublisherLetterDivider letter={item.letter} />;
-          }
-          return (
-            <PublisherListItem
-              publisher={item}
-              selected={selected_id === item.id}
-              stat_label={getStatLabel(item.id, sort_order, stats)}
-              on_select={() => on_select(item.id ?? "")}
-              has_week_assignment={publisher_ids_with_week_assignment?.has(item.id ?? "") ?? false}
-            />
-          );
-        }}
+      <MultiColumnList<Publisher>
+        items={sorted}
+        get_id={(item) => item.id ?? ""}
+        render_item={(item) => (
+          <PublisherListItem
+            publisher={item}
+            selected={selected_id === item.id}
+            stat_label={getStatLabel(item.id, stats)}
+            on_select={() => on_select(item.id ?? "")}
+            has_week_assignment={publisher_ids_with_week_assignment?.has(item.id ?? "") ?? false}
+          />
+        )}
       />
       <Space size="2xl" />
     </>

@@ -13,9 +13,9 @@ export function computeStats(
   assignments: MidweekMeetingAssignment[],
   participation_type: ParticipationType,
   current_week_id: string,
-  extra_stat_types: ParticipationType[] = [],
+  stat_participation_types?: ParticipationType[],
 ): Map<string, PublisherStats> {
-  const types_for_stats = extra_stat_types.length > 0 ? extra_stat_types : [participation_type];
+  const types_for_stats = stat_participation_types ?? [participation_type];
   const relevant_ids = new Set<string>();
   for (const type of types_for_stats) {
     for (const id of participationAssignmentIds[type]) {

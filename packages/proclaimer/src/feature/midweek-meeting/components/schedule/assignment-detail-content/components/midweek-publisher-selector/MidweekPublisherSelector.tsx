@@ -1,10 +1,8 @@
 import { useLiveQuery } from "@tanstack/react-db";
 import { PublisherList } from "../publisher-list/PublisherList.tsx";
-import { PublisherControls } from "./components/publisher-controls/PublisherControls.tsx";
 import { PublisherSelectModal } from "../publisher-list/components/publisher-select-modal/PublisherSelectModal.tsx";
 import { PublisherSegment } from "./components/publisher-segment/PublisherSegment.tsx";
-import { ClearAssignmentButton } from "./components/clear-assignment-button/ClearAssignmentButton.tsx";
-import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { SettingsAccordion } from "./components/settings-accordion/SettingsAccordion.tsx";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type {
   MidweekMeetingAssignment,
@@ -12,8 +10,8 @@ import type {
 } from "../../../../../schemas/midweek-meeting-assignment.ts";
 import { midweekMeetingAssignmentCollection } from "../../../../../collections/midweek-meeting-assignment.ts";
 import { participationTypeMap } from "./utils/participation-type-map.ts";
-import { usePresets } from "./hooks/use-presets/use-presets.ts";
-import type { PublisherFilter, PublisherSortOrder } from "./hooks/use-presets/use-presets.ts";
+import { useSelectorSettings } from "./hooks/use-selector-settings/use-selector-settings.ts";
+import { usesGenderFilter } from "./hooks/use-selector-settings/use-selector-settings.ts";
 import { usePublisherStats } from "./hooks/use-publisher-stats/use-publisher-stats.ts";
 import { usePublisherParticipationTypes } from "./hooks/use-publisher-participation-types/use-publisher-participation-types.ts";
 import { usePublisherSelection } from "./hooks/use-publisher-selection/use-publisher-selection.ts";
@@ -26,8 +24,6 @@ interface PublisherSelectorProps {
   assistantAssignment: MidweekMeetingAssignment | undefined;
   onSelectAssignee: (publisher_id: string) => void;
   onSelectAssistant: (publisher_id: string) => void;
-  onClearAssignee: () => void;
-  onClearAssistant: () => void;
   assignment_id: string;
   week_id: string;
 }
@@ -39,8 +35,6 @@ export function MidweekPublisherSelector({
   assistantAssignment,
   onSelectAssignee,
   onSelectAssistant,
-  onClearAssignee,
-  onClearAssistant,
   assignment_id,
   week_id,
 }: PublisherSelectorProps) {
@@ -52,20 +46,20 @@ export function MidweekPublisherSelector({
     ? (participationTypeMap[assistantId as MidweekMeetingAssignmentId] ?? "assistant")
     : null;
 
-  const assignee_presets_api = usePresets(participation_type);
-  const assistant_presets_api = usePresets(assistant_participation_type);
+  const assignee_settings_api = useSelectorSettings(participation_type);
+  const assistant_settings_api = useSelectorSettings(assistant_participation_type);
 
   const assignee_stats = usePublisherStats(
     participation_type,
     week_id,
     congregation_id,
-    assignee_presets_api.active_preset.filter.stat_participation_types,
+    assignee_settings_api.settings.stat_participation_types,
   );
   const assistant_stats = usePublisherStats(
     assistant_participation_type,
     week_id,
     congregation_id,
-    assistant_presets_api.active_preset.filter.stat_participation_types,
+    assistant_settings_api.settings.stat_participation_types,
   );
   const participation_types = usePublisherParticipationTypes(congregation_id);
 
@@ -81,36 +75,24 @@ export function MidweekPublisherSelector({
       .map((a) => a.participant_id),
   );
 
-  function handleAssigneeChange(filter: PublisherFilter, sort_order: PublisherSortOrder) {
-    assignee_presets_api.updatePreset(filter, sort_order);
-  }
-
-  function handleAssistantChange(filter: PublisherFilter, sort_order: PublisherSortOrder) {
-    assistant_presets_api.updatePreset(filter, sort_order);
-  }
-
   if (!assistantId) {
     return (
       <>
-        <PublisherControls
-          presets={assignee_presets_api.presets}
-          active_preset={assignee_presets_api.active_preset}
-          is_default_active={assignee_presets_api.is_default_active}
-          on_select_preset={assignee_presets_api.selectPreset}
-          on_create_preset={assignee_presets_api.createPreset}
-          on_rename_preset={assignee_presets_api.renamePreset}
-          on_delete_preset={assignee_presets_api.deletePreset}
-          on_change={handleAssigneeChange}
+        <SettingsAccordion
+          participation_type={participation_type}
+          settings={assignee_settings_api.settings}
+          on_change={assignee_settings_api.setSettings}
         />
-        <Space size="sm" />
-        <ClearAssignmentButton on_click={onClearAssignee} disabled={!assignment?.participant_id} />
         <PublisherList
           publishers={publishers}
           selected_id={assignment?.participant_id}
           on_select={(id) => handleSelectPublisher(id, "assignee")}
-          sort_order={assignee_presets_api.active_preset.sort_order}
           stats={assignee_stats}
-          filter={assignee_presets_api.active_preset.filter}
+          participant_groups={assignee_settings_api.settings.participant_groups}
+          gender={
+            usesGenderFilter(participation_type) ? assignee_settings_api.settings.gender : null
+          }
+          participation_type={participation_type}
           participation_types={participation_types}
           publisher_ids_with_week_assignment={publisher_ids_with_week_assignment}
         />
@@ -134,29 +116,17 @@ export function MidweekPublisherSelector({
         assignment={assignment}
         assistantAssignment={assistantAssignment}
         assistant_label={assistantId === "cbs_reader" ? "Reader" : "Assistant"}
-        assignee_preset={assignee_presets_api.active_preset}
-        assistant_preset={assistant_presets_api.active_preset}
-        assignee_presets={assignee_presets_api.presets}
-        assistant_presets={assistant_presets_api.presets}
-        assignee_is_default_active={assignee_presets_api.is_default_active}
-        assistant_is_default_active={assistant_presets_api.is_default_active}
+        participation_type={participation_type}
+        assistant_participation_type={assistant_participation_type ?? "assistant"}
+        assignee_settings={assignee_settings_api.settings}
+        assistant_settings={assistant_settings_api.settings}
         assignee_stats={assignee_stats}
         assistant_stats={assistant_stats}
         participation_types={participation_types}
-        onSelectAssigneePreset={assignee_presets_api.selectPreset}
-        onCreateAssigneePreset={assignee_presets_api.createPreset}
-        onRenameAssigneePreset={assignee_presets_api.renamePreset}
-        onDeleteAssigneePreset={assignee_presets_api.deletePreset}
-        onChangeAssignee={handleAssigneeChange}
-        onSelectAssistantPreset={assistant_presets_api.selectPreset}
-        onCreateAssistantPreset={assistant_presets_api.createPreset}
-        onRenameAssistantPreset={assistant_presets_api.renamePreset}
-        onDeleteAssistantPreset={assistant_presets_api.deletePreset}
-        onChangeAssistant={handleAssistantChange}
+        onChangeAssignee={assignee_settings_api.setSettings}
+        onChangeAssistant={assistant_settings_api.setSettings}
         onSelectAssignee={(id) => handleSelectPublisher(id, "assignee")}
         onSelectAssistant={(id) => handleSelectPublisher(id, "assistant")}
-        onClearAssignee={onClearAssignee}
-        onClearAssistant={onClearAssistant}
         publisher_ids_with_week_assignment={publisher_ids_with_week_assignment}
       />
       <PublisherSelectModal

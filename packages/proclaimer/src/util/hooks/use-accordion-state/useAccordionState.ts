@@ -1,19 +1,28 @@
 import { useState } from "react";
 import type { AccordionGroupCustomEvent } from "@ionic/react";
 
+function readStoredValue(storageKey: string, defaultValue: string | undefined) {
+  try {
+    const stored = localStorage.getItem(storageKey);
+    return stored === null ? defaultValue : stored || undefined;
+  } catch {
+    return defaultValue;
+  }
+}
+
 export function useAccordionState(storageKey: string, defaultValue: string | undefined) {
-  const [value, setValue] = useState<string | undefined>(() => {
-    try {
-      const stored = localStorage.getItem(storageKey);
-      return stored === null ? defaultValue : stored || undefined;
-    } catch {
-      return defaultValue;
-    }
-  });
+  const [state, setState] = useState<{ key: string; value: string | undefined }>(() => ({
+    key: storageKey,
+    value: readStoredValue(storageKey, defaultValue),
+  }));
+
+  if (state.key !== storageKey) {
+    setState({ key: storageKey, value: readStoredValue(storageKey, defaultValue) });
+  }
 
   function onIonChange(event: AccordionGroupCustomEvent) {
     const next = event.detail.value as string | undefined;
-    setValue(next);
+    setState({ key: storageKey, value: next });
     try {
       localStorage.setItem(storageKey, next ?? "");
     } catch {
@@ -21,5 +30,5 @@ export function useAccordionState(storageKey: string, defaultValue: string | und
     }
   }
 
-  return { value, onIonChange };
+  return { value: state.value, onIonChange };
 }
