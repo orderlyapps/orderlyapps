@@ -3,11 +3,9 @@ import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorage
 import type { ParticipationType } from "../../utils/participation-type-map.ts";
 import { participationTypeMap } from "../../utils/participation-type-map.ts";
 
-export type ParticipantGroup = "participants" | "non_participants";
 export type GenderFilter = "all" | "male" | "female";
 
 export interface PublisherSelectorSettings {
-  participant_groups: ParticipantGroup[];
   gender: GenderFilter;
   stat_participation_types: ParticipationType[];
 }
@@ -18,13 +16,11 @@ export function usesGenderFilter(participation_type: ParticipationType): boolean
   return genderFilteredTypes.includes(participation_type);
 }
 
-const participantGroupValues: ParticipantGroup[] = ["participants", "non_participants"];
 const genderFilterValues: GenderFilter[] = ["all", "male", "female"];
 const participationTypeValues = new Set<string>(Object.values(participationTypeMap));
 
 function defaultSettings(participation_type: ParticipationType): PublisherSelectorSettings {
   return {
-    participant_groups: ["participants"],
     gender: "all",
     stat_participation_types: [participation_type],
   };
@@ -40,11 +36,6 @@ function readStoredSettings(participation_type: ParticipationType): PublisherSel
     if (typeof parsed !== "object" || parsed === null) return defaults;
     const p = parsed as Record<string, unknown>;
     return {
-      participant_groups:
-        Array.isArray(p.participant_groups) &&
-        p.participant_groups.every((g) => participantGroupValues.includes(g as ParticipantGroup))
-          ? (p.participant_groups as ParticipantGroup[])
-          : defaults.participant_groups,
       gender: genderFilterValues.includes(p.gender as GenderFilter)
         ? (p.gender as GenderFilter)
         : defaults.gender,

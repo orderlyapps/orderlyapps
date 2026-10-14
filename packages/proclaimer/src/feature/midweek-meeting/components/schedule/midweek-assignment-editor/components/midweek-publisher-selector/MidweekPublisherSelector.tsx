@@ -99,7 +99,6 @@ export function MidweekPublisherSelector({
           selected_id={assignment?.participant_id}
           on_select={(id) => handleSelectPublisher(id, "assignee")}
           stats={assignee_stats}
-          participant_groups={assignee_settings_api.settings.participant_groups}
           gender={
             usesGenderFilter(participation_type) ? assignee_settings_api.settings.gender : null
           }

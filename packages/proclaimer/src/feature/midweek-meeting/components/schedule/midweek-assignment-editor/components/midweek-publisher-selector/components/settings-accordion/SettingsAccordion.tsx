@@ -1,4 +1,6 @@
-import { IonAccordion, IonAccordionGroup, IonItem, IonLabel } from "@ionic/react";
+import { useState } from "react";
+import { IonAccordion, IonAccordionGroup, IonIcon, IonItem, IonLabel, IonList } from "@ionic/react";
+import { addOutline } from "ionicons/icons";
 import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
@@ -7,15 +9,11 @@ import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-s
 import type { ParticipationType } from "../../utils/participation-type-map.ts";
 import type {
   GenderFilter,
-  ParticipantGroup,
   PublisherSelectorSettings,
 } from "../../hooks/use-selector-settings/use-selector-settings.ts";
 import { usesGenderFilter } from "../../hooks/use-selector-settings/use-selector-settings.ts";
-
-const participantOptions: { label: string; value: ParticipantGroup }[] = [
-  { label: "Participants", value: "participants" },
-  { label: "Non-Participants", value: "non_participants" },
-];
+import { AddMidweekMeetingParticipantModal } from "../../../../../../participation/add-midweek-meeting-participant-modal/AddMidweekMeetingParticipantModal.tsx";
+import { midweekMeetingParticipationTypeLabels } from "../../../../../../../utils/midweek-meeting-participation-type-labels.ts";
 
 const genderOptions: { label: string; value: GenderFilter }[] = [
   { label: "Both", value: "all" },
@@ -52,40 +50,49 @@ export function SettingsAccordion({
     localStorageKeyWithVariant("midweekSelectorAccordion", participation_type),
     undefined,
   );
+  const [add_modal_open, set_add_modal_open] = useState(false);
 
   return (
-    <IonAccordionGroup value={value} onIonChange={onIonChange}>
-      <IonAccordion value="settings">
-        <IonItem slot="header">
-          <IonLabel>
-            <Heading>Sort &amp; Filters</Heading>
-          </IonLabel>
-        </IonItem>
-        <div slot="content" className="ion-padding-bottom">
-          <AlertMultiSelect
-            label="Show"
-            options={participantOptions}
-            selected={settings.participant_groups}
-            on_change={(participant_groups) => on_change({ ...settings, participant_groups })}
-          />
-          {usesGenderFilter(participation_type) && (
-            <Select
-              label="Gender"
-              value={settings.gender}
-              options={genderOptions}
-              on_change={(value) => on_change({ ...settings, gender: value as GenderFilter })}
+    <>
+      <IonAccordionGroup value={value} onIonChange={onIonChange}>
+        <IonAccordion value="settings">
+          <IonItem slot="header">
+            <IonLabel>
+              <Heading>List Settings</Heading>
+            </IonLabel>
+          </IonItem>
+          <div slot="content" className="ion-padding-bottom">
+            {usesGenderFilter(participation_type) && (
+              <Select
+                label="Gender"
+                value={settings.gender}
+                options={genderOptions}
+                on_change={(value) => on_change({ ...settings, gender: value as GenderFilter })}
+              />
+            )}
+            <AlertMultiSelect
+              label="Weeks Away Calculated From"
+              options={participationTypeOptions}
+              selected={settings.stat_participation_types}
+              on_change={(stat_participation_types) =>
+                on_change({ ...settings, stat_participation_types })
+              }
             />
-          )}
-          <AlertMultiSelect
-            label="Weeks Away Calculated From"
-            options={participationTypeOptions}
-            selected={settings.stat_participation_types}
-            on_change={(stat_participation_types) =>
-              on_change({ ...settings, stat_participation_types })
-            }
-          />
-        </div>
-      </IonAccordion>
-    </IonAccordionGroup>
+            <IonList className="ion-margin" inset>
+              <IonItem button detail={false} onClick={() => set_add_modal_open(true)}>
+                <IonIcon icon={addOutline} slot="start" color="primary" />
+                <IonLabel color="primary">Add Participant</IonLabel>
+              </IonItem>
+            </IonList>
+          </div>
+        </IonAccordion>
+      </IonAccordionGroup>
+      <AddMidweekMeetingParticipantModal
+        participation_id={participation_type}
+        modal_title={`${midweekMeetingParticipationTypeLabels[participation_type]} Participant`}
+        is_open={add_modal_open}
+        on_dismiss={() => set_add_modal_open(false)}
+      />
+    </>
   );
 }

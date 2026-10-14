@@ -82,7 +82,6 @@ export function PublisherSegment({
             selected_id={assignment?.participant_id}
             on_select={onSelectAssignee}
             stats={assignee_stats}
-            participant_groups={assignee_settings.participant_groups}
             gender={usesGenderFilter(participation_type) ? assignee_settings.gender : null}
             participation_type={participation_type}
             participation_types={participation_types}
@@ -100,7 +99,6 @@ export function PublisherSegment({
             selected_id={assistantAssignment?.participant_id}
             on_select={onSelectAssistant}
             stats={assistant_stats}
-            participant_groups={assistant_settings.participant_groups}
             gender={
               usesGenderFilter(assistant_participation_type) ? assistant_settings.gender : null
             }
