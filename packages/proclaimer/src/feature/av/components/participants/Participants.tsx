@@ -9,11 +9,11 @@ import {
   type AvParticipationType,
 } from "../../utils/av-participation-type-labels.ts";
 import { useAvParticipants, type AvParticipant } from "../../hooks/use-av-participants.ts";
-import { ParticipantParticipationModal } from "../participant-participation-modal/ParticipantParticipationModal.tsx";
+import { ParticipantParticipationModal } from "./components/participant-participation-modal/ParticipantParticipationModal.tsx";
 
 const ALL_VALUE = "all";
 
-export function ParticipantsContent() {
+export function Participants() {
   const { participants, isLoading, addParticipation, removeParticipation } = useAvParticipants();
   const [selected, setSelected] = useState<AvParticipant | null>(null);
   const [filterType, setFilterType] = useState<string>(ALL_VALUE);

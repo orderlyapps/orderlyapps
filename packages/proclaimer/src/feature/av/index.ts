@@ -69,8 +69,8 @@ export { AvPublisherListItem } from "./components/av-publisher-list-item/AvPubli
 export { AvPublisherSelector } from "./components/av-publisher-selector/AvPublisherSelector.tsx";
 export { AvScheduleContent } from "./components/av-schedule/av-schedule-content/AvScheduleContent.tsx";
 export type { AvScheduleContentProps } from "./components/av-schedule/av-schedule-content/AvScheduleContent.tsx";
-export { ParticipantParticipationModal } from "./components/participant-participation-modal/ParticipantParticipationModal.tsx";
-export { ParticipantsContent } from "./components/participants-content/ParticipantsContent.tsx";
+export { ParticipantParticipationModal } from "./components/participants/components/participant-participation-modal/ParticipantParticipationModal.tsx";
+export { Participants } from "./components/participants/Participants.tsx";
 export { PublisherLetterDivider } from "./components/publisher-letter-divider/PublisherLetterDivider.tsx";
 
 export { AvPdfExportButton } from "./components/pdf/av-pdf-export-modal/AvPdfExportButton.tsx";

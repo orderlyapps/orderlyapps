@@ -9,7 +9,7 @@ import {
   IonButtons,
 } from "@ionic/react";
 import { AddIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/add/AddIconButton";
-import { AddParticipantModal, ParticipantsContent } from "@amodeo/proclaimer/feature/av";
+import { AddParticipantModal, Participants } from "@amodeo/proclaimer/feature/av";
 
 function ParticipantsPage() {
   const [showModal, setShowModal] = useState(false);
@@ -29,7 +29,7 @@ function ParticipantsPage() {
         <AddParticipantModal is_open={showModal} on_dismiss={() => setShowModal(false)} />
       </IonHeader>
       <IonContent className="content-wide">
-        <ParticipantsContent />
+        <Participants />
       </IonContent>
     </IonPage>
   );

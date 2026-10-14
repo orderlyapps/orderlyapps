@@ -14,7 +14,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import {
   avParticipationTypeLabels,
   avParticipationTypes,
-} from "../../utils/av-participation-type-labels.ts";
+} from "../../../../utils/av-participation-type-labels.ts";
 
 interface ParticipantParticipationModalProps {
   participant_id: string;
