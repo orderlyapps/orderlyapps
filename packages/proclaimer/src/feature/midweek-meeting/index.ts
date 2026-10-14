@@ -67,7 +67,6 @@ export { MidweekMeetingAssignmentPdf } from "./components/reminders/components/m
 export type { MidweekMeetingAssignmentPdfData } from "./components/reminders/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
 export { MidweekMeetingAssignmentShareButton } from "./components/reminders/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/MidweekMeetingAssignmentShareButton.tsx";
 
-export { MidweekMeetingPdfHeader } from "./components/midweek-meeting-pdf-header/MidweekMeetingPdfHeader.tsx";
 export { MidweekMeetingPdfContent } from "./components/midweek-meeting-pdf-content/MidweekMeetingPdfContent.tsx";
 export { MidweekMeetingAssignmentList } from "./components/reminders/MidweekMeetingAssignmentList.tsx";
 export { useMidweekMeetingAssignments } from "./hooks/use-midweek-meeting-assignments.ts";

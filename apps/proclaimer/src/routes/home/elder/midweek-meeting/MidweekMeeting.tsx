@@ -1,14 +1,24 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
 import {
-  MidweekMeetingPdfHeader,
-  MidweekMeetingPdfContent,
-} from "@amodeo/proclaimer/feature/midweek-meeting";
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { MidweekMeetingPdfContent } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 function MidweekMeetingPage() {
   return (
     <IonPage>
       <IonHeader>
-        <MidweekMeetingPdfHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/elder" />
+          </IonButtons>
+          <IonTitle>CLAM</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
         <MidweekMeetingPdfContent />
