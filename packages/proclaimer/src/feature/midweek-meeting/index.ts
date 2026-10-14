@@ -49,7 +49,6 @@ export { useCircuitAssemblyEvent } from "./hooks/use-circuit-assembly-event.ts";
 export { useConventionEvent } from "./hooks/use-convention-event.ts";
 export { useMidweekAssignmentRows } from "./components/schedule/schedule-content/hooks/use-midweek-assignment-rows.ts";
 export { MidweekAssignmentCard } from "./components/schedule/schedule-content/components/midweek-assignment-card/MidweekAssignmentCard.tsx";
-export { MidweekAssignmentDetailHeader } from "./components/schedule/assignment-detail-header/MidweekAssignmentDetailHeader.tsx";
 export { MidweekAssignmentDetailContent } from "./components/schedule/assignment-detail-content/MidweekAssignmentDetailContent.tsx";
 export { MidweekPublisherSelector } from "./components/schedule/assignment-detail-content/components/midweek-publisher-selector/MidweekPublisherSelector.tsx";
 export { MidweekMeetingParticipationHeader } from "./components/participation/midweek-meeting-participation-header/MidweekMeetingParticipationHeader.tsx";

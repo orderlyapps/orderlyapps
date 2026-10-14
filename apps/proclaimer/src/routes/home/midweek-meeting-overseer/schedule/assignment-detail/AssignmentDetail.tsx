@@ -1,7 +1,14 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import { MidweekAssignmentDetailHeader } from "@amodeo/proclaimer/feature/midweek-meeting";
 import { MidweekAssignmentDetailContent } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 function AssignmentDetailPage() {
@@ -10,10 +17,12 @@ function AssignmentDetailPage() {
   return (
     <IonPage>
       <IonHeader>
-        <MidweekAssignmentDetailHeader
-          title={getTheocraticWeekLabel(week_id)}
-          back_href={`/home/midweek-meeting-overseer/schedule/${week_id}`}
-        />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref={`/home/midweek-meeting-overseer/schedule/${week_id}`} />
+          </IonButtons>
+          <IonTitle>{getTheocraticWeekLabel(week_id)}</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <MidweekAssignmentDetailContent week_id={week_id} assignment_id={assignment_id}>
         {({ info, selector }) => (
