@@ -4,8 +4,8 @@ import { SmsIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/ic
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
-import { getAvSmsTemplates, fillAvSmsTemplate } from "../../utils/av-sms-template.ts";
-import type { AvSmsTemplate } from "../../utils/av-sms-template.ts";
+import { getAvSmsTemplates, fillAvSmsTemplate } from "../../../../utils/av-sms-template.ts";
+import type { AvSmsTemplate } from "../../../../utils/av-sms-template.ts";
 import { SmsTemplateActionSheet } from "./components/sms-template-action-sheet/SmsTemplateActionSheet.tsx";
 
 type AvAssignmentItemProps = {

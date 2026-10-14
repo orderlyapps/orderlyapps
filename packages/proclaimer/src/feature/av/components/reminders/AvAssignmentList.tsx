@@ -8,7 +8,7 @@ import {
 } from "../../schemas/av-assignment.ts";
 import type { AvAssignmentID } from "../../schemas/av-assignment.ts";
 import { useAvAssignments } from "../../hooks/use-av-assignments.ts";
-import { AvAssignmentItem } from "../av-assignment-item/AvAssignmentItem.tsx";
+import { AvAssignmentItem } from "./components/av-assignment-item/AvAssignmentItem.tsx";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 

@@ -1,7 +1,7 @@
 import { IonActionSheet } from "@ionic/react";
 import type { ActionSheetButton } from "@ionic/react";
 import { chatbubbleOutline } from "ionicons/icons";
-import type { AvSmsTemplate } from "../../../../utils/av-sms-template.ts";
+import type { AvSmsTemplate } from "../../../../../../utils/av-sms-template.ts";
 
 interface SmsTemplateActionSheetProps {
   is_open: boolean;

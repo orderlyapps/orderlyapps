@@ -79,7 +79,7 @@ export { AudioVideoPdfDocument } from "./components/pdf/audio-video-pdf/AudioVid
 export { useAudioVideoScheduleData } from "./hooks/use-audio-video-schedule-data.ts";
 export type { AvWeekData } from "./hooks/use-audio-video-schedule-data.ts";
 
-export { AvAssignmentList } from "./components/av-assignment-list/AvAssignmentList.tsx";
+export { AvAssignmentList } from "./components/reminders/AvAssignmentList.tsx";
 export { MidweekAssignmentsDisplay } from "./components/midweek-assignments-display/MidweekAssignmentsDisplay.tsx";
 export { MidweekAttendantsDisplay } from "./components/midweek-attendants-display/MidweekAttendantsDisplay.tsx";
 export { AvSmsSettingsModal } from "./components/av-sms-settings-modal/AvSmsSettingsModal.tsx";
