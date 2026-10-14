@@ -133,7 +133,7 @@ import AssignmentDetailPage from "@proclaimer-routes/home/midweek-meeting-overse
 import AvSchedulePage from "@proclaimer-routes/home/av-overseer/schedule/AvSchedule";
 import AvAssignmentDetailPage from "@proclaimer-routes/home/av-overseer/schedule/assignment-detail/AvAssignmentDetail";
 import AvParticipationPage from "@proclaimer-routes/home/av-overseer/participation/Participation";
-import AvParticipationTypePage from "@proclaimer-routes/home/av-overseer/participation/AvParticipationType";
+import AvParticipationTypePage from "@proclaimer-routes/home/av-overseer/participation/participation-type/AvParticipationType";
 import ParticipantsPage from "@proclaimer-routes/home/av-overseer/participants/Participants";
 import RemindersPage from "@proclaimer-routes/home/reminders/Reminders";
 import RemindersAudioVideoPage from "@proclaimer-routes/home/reminders/audio-video/AudioVideo";
