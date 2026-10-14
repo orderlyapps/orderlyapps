@@ -5,7 +5,7 @@ import type {
   AvFilterSortPreset,
   AvPublisherFilter,
   PublisherSortOrder,
-} from "../../utils/types.ts";
+} from "../../../../utils/types.ts";
 
 interface AvFilterSelectProps {
   presets: AvFilterSortPreset[];

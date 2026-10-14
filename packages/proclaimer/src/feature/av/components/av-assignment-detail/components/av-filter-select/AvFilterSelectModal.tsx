@@ -9,10 +9,10 @@ import {
   type AvFilterSortPreset,
   type AvPublisherFilter,
   type PublisherSortOrder,
-} from "../../utils/types.ts";
+} from "../../../../utils/types.ts";
 import { getAvFilterInputItems } from "./AvFilterSection.tsx";
 import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
-import { DEFAULT_AV_PRESET_ID } from "../../utils/default-av-presets.ts";
+import { DEFAULT_AV_PRESET_ID } from "../../../../utils/default-av-presets.ts";
 
 const sort_options: PublisherSortOrder[] = [
   "alphabetical",

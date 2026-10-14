@@ -4,8 +4,8 @@ import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
 import { useAvAssignmentData } from "../../hooks/use-av-assignment-data.ts";
 import { useAvAssignmentHandlers } from "../../hooks/use-av-assignment-handlers.ts";
-import { AvAssignedPublisher } from "../av-assigned-publisher/AvAssignedPublisher.tsx";
-import { AvPublisherSelector } from "../av-publisher-selector/AvPublisherSelector.tsx";
+import { AvAssignedPublisher } from "./components/av-assigned-publisher/AvAssignedPublisher.tsx";
+import { AvPublisherSelector } from "./components/av-publisher-selector/AvPublisherSelector.tsx";
 import type { AvAssignmentID } from "../../schemas/av-assignment.ts";
 
 interface AvAssignmentDetailContentProps {

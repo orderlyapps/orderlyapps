@@ -2,8 +2,8 @@ import { IonChip } from "@ionic/react";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { IncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/IncrementInput";
 import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
-import type { AvPublisherFilter } from "../../utils/types.ts";
-import type { AvParticipationType } from "../../utils/av-participation-type-labels.ts";
+import type { AvPublisherFilter } from "../../../../utils/types.ts";
+import type { AvParticipationType } from "../../../../utils/av-participation-type-labels.ts";
 
 const genderOptions = [
   { label: "All", value: "all" },
