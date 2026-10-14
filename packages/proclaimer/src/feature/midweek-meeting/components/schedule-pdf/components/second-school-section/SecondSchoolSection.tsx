@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import { MidweekPdfAssignmentRow } from "../midweek-pdf-assignment-row/MidweekPdfAssignmentRow.tsx";
-import { getPublisherDisplayNameOrEmpty } from "../../../../../utils/get-publisher-display-name-or-empty.ts";
-import type { WeekScheduleData } from "../../../../../hooks/use-midweek-meeting-schedule-data.ts";
+import { getPublisherDisplayNameOrEmpty } from "../../../../utils/get-publisher-display-name-or-empty.ts";
+import type { WeekScheduleData } from "../../hooks/use-midweek-meeting-schedule-data.ts";
 
 const styles = StyleSheet.create({
   heading: {

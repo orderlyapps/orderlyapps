@@ -67,12 +67,12 @@ export { MidweekMeetingAssignmentPdf } from "./components/reminders/components/m
 export type { MidweekMeetingAssignmentPdfData } from "./components/reminders/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
 export { MidweekMeetingAssignmentShareButton } from "./components/reminders/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/MidweekMeetingAssignmentShareButton.tsx";
 
-export { MidweekMeetingPdfContent } from "./components/midweek-meeting-pdf-content/MidweekMeetingPdfContent.tsx";
+export { MidweekSchedulePdfDownloadButton } from "./components/schedule-pdf/MidweekSchedulePdfDownloadButton.tsx";
 export { MidweekMeetingAssignmentList } from "./components/reminders/MidweekMeetingAssignmentList.tsx";
 export { useMidweekMeetingAssignments } from "./hooks/use-midweek-meeting-assignments.ts";
 export type { MidweekMeetingParticipantAssignment } from "./hooks/use-midweek-meeting-assignments.ts";
-export { MidweekSchedulePdfDocument } from "./components/schedule/schedule-pdf/MidweekSchedulePdfDocument.tsx";
-export { SchedulePdfHeader } from "./components/schedule/schedule-pdf/components/schedule-pdf-header/SchedulePdfHeader.tsx";
-export { useMidweekMeetingScheduleData } from "./hooks/use-midweek-meeting-schedule-data.ts";
-export type { WeekScheduleData } from "./hooks/use-midweek-meeting-schedule-data.ts";
+export { MidweekSchedulePdfDocument } from "./components/schedule-pdf/MidweekSchedulePdfDocument.tsx";
+export { SchedulePdfHeader } from "./components/schedule-pdf/components/schedule-pdf-header/SchedulePdfHeader.tsx";
+export { useMidweekMeetingScheduleData } from "./components/schedule-pdf/hooks/use-midweek-meeting-schedule-data.ts";
+export type { WeekScheduleData } from "./components/schedule-pdf/hooks/use-midweek-meeting-schedule-data.ts";
 export { getPublisherDisplayNameOrEmpty } from "./utils/get-publisher-display-name-or-empty.ts";

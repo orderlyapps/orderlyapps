@@ -9,8 +9,8 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { MonthPicker } from "@amodeo/proclaimer/ui/components/inputs/month-picker/MonthPicker";
 import { PdfPublisherSelect } from "@amodeo/proclaimer/ui/components/inputs/pdf-publisher-select/PdfPublisherSelect";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { MidweekSchedulePdfDocument } from "../schedule/schedule-pdf/MidweekSchedulePdfDocument.tsx";
-import { useMidweekMeetingScheduleData } from "../../hooks/use-midweek-meeting-schedule-data.ts";
+import { MidweekSchedulePdfDocument } from "./MidweekSchedulePdfDocument.tsx";
+import { useMidweekMeetingScheduleData } from "./hooks/use-midweek-meeting-schedule-data.ts";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { getStoredPublisher } from "@amodeo/proclaimer/feature/publisher";
@@ -21,7 +21,7 @@ type MonthRange = {
   readonly lastMonday: string;
 };
 
-export function MidweekMeetingPdfContent() {
+export function MidweekSchedulePdfDownloadButton() {
   const [is_modal_open, set_is_modal_open] = useState(false);
   const [selected_month, set_selected_month] = useState<MonthRange | null>(null);
   const [is_generating, set_is_generating] = useState(false);

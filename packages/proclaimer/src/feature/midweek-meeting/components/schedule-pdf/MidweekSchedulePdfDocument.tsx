@@ -1,7 +1,7 @@
 import { Document, Page, Text, StyleSheet } from "@react-pdf/renderer";
 import { SchedulePdfHeader } from "./components/schedule-pdf-header/SchedulePdfHeader.tsx";
 import { WeekSection } from "./components/week-section/WeekSection.tsx";
-import type { WeekScheduleData } from "../../../hooks/use-midweek-meeting-schedule-data.ts";
+import type { WeekScheduleData } from "./hooks/use-midweek-meeting-schedule-data.ts";
 
 const styles = StyleSheet.create({
   page: {

@@ -1,10 +1,10 @@
 import { and, gte, lte, eq, useLiveQuery } from "@tanstack/react-db";
-import { midweekMeetingDataCollection } from "../collections/midweek-meeting-data.ts";
-import { midweekMeetingAssignmentCollection } from "../collections/midweek-meeting-assignment.ts";
+import { midweekMeetingDataCollection } from "../../../collections/midweek-meeting-data.ts";
+import { midweekMeetingAssignmentCollection } from "../../../collections/midweek-meeting-assignment.ts";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { MidweekMeetingData } from "../schemas/midweek-meeting-data.ts";
-import type { MidweekMeetingAssignment } from "../schemas/midweek-meeting-assignment.ts";
+import type { MidweekMeetingData } from "../../../schemas/midweek-meeting-data.ts";
+import type { MidweekMeetingAssignment } from "../../../schemas/midweek-meeting-assignment.ts";
 
 export type WeekScheduleData = {
   weekId: string;

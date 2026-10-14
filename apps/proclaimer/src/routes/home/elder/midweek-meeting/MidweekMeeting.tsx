@@ -7,7 +7,7 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/react";
-import { MidweekMeetingPdfContent } from "@amodeo/proclaimer/feature/midweek-meeting";
+import { MidweekSchedulePdfDownloadButton } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 function MidweekMeetingPage() {
   return (
@@ -21,7 +21,7 @@ function MidweekMeetingPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <MidweekMeetingPdfContent />
+        <MidweekSchedulePdfDownloadButton />
       </IonContent>
     </IonPage>
   );
