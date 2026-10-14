@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   IonButtons,
   IonContent,
@@ -5,6 +6,7 @@ import {
   IonItem,
   IonLabel,
   IonList,
+  IonSearchbar,
   IonSkeletonText,
   IonTitle,
   IonToolbar,
@@ -30,20 +32,39 @@ export function AddMidweekMeetingParticipantModal({
 }: AddParticipantModalProps) {
   const { nonParticipantPublishers, addParticipant, isLoading } =
     useMidweekMeetingParticipantPublishers(participation_id);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  function handleSelect(publisher_id: string) {
-    addParticipant(publisher_id);
+  const filteredPublishers = nonParticipantPublishers.filter(
+    ({ publisher, display_name }) =>
+      publisher.id && display_name.toLowerCase().includes(searchQuery.trim().toLowerCase()),
+  );
+
+  function handleDismiss() {
+    setSearchQuery("");
     on_dismiss();
   }
 
+  function handleSelect(publisher_id: string) {
+    addParticipant(publisher_id);
+    handleDismiss();
+  }
+
   return (
-    <ResponsiveModal isOpen={is_open} onDidDismiss={on_dismiss}>
+    <ResponsiveModal isOpen={is_open} onDidDismiss={handleDismiss}>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Add {modal_title}</IonTitle>
           <IonButtons slot="end">
-            <CloseIconButton on_click={on_dismiss} skip_confirmation />
+            <CloseIconButton on_click={handleDismiss} skip_confirmation />
           </IonButtons>
+        </IonToolbar>
+        <IonToolbar>
+          <IonSearchbar
+            value={searchQuery}
+            onIonInput={(e) => setSearchQuery(e.detail.value ?? "")}
+            debounce={100}
+            placeholder="Search names"
+          />
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -56,20 +77,20 @@ export function AddMidweekMeetingParticipantModal({
                 </IonLabel>
               </IonItem>
             ))
-          ) : nonParticipantPublishers.length === 0 ? (
+          ) : filteredPublishers.length === 0 ? (
             <IonItem>
               <IonLabel>
-                <Body color="medium">No available publishers.</Body>
+                <Body color="medium">
+                  {searchQuery.trim() ? "No matching publishers." : "No available publishers."}
+                </Body>
               </IonLabel>
             </IonItem>
           ) : (
-            nonParticipantPublishers
-              .filter(({ publisher }) => publisher.id)
-              .map(({ publisher, display_name }) => (
-                <IonItem key={publisher.id} button onClick={() => handleSelect(publisher.id ?? "")}>
-                  <IonLabel>{display_name}</IonLabel>
-                </IonItem>
-              ))
+            filteredPublishers.map(({ publisher, display_name }) => (
+              <IonItem key={publisher.id} button onClick={() => handleSelect(publisher.id ?? "")}>
+                <IonLabel>{display_name}</IonLabel>
+              </IonItem>
+            ))
           )}
         </IonList>
       </IonContent>

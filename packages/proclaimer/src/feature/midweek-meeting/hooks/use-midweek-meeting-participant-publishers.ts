@@ -61,7 +61,7 @@ export function useMidweekMeetingParticipantPublishers(
   const participantIds = new Set(participations.map((p) => p.participant_id));
 
   const nonParticipantPublishers: MidweekMeetingParticipantPublisher[] = (publishers ?? [])
-    .filter((p) => !participantIds.has(p.id ?? ""))
+    .filter((p) => !p.archived_at && !participantIds.has(p.id ?? ""))
     .map((p) => ({
       participant_id: p.id ?? "",
       publisher: p,
