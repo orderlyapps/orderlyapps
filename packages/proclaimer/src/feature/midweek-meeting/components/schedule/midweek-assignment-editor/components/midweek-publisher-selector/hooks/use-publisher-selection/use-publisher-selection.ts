@@ -41,6 +41,7 @@ export function usePublisherSelection({
   return {
     is_modal_open,
     selected_publisher,
+    selection_mode,
     handleSelectPublisher,
     handleConfirm,
     handleDismiss,

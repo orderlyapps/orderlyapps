@@ -63,8 +63,19 @@ export function MidweekPublisherSelector({
   );
   const participation_types = usePublisherParticipationTypes(congregation_id);
 
-  const { is_modal_open, selected_publisher, handleSelectPublisher, handleConfirm, handleDismiss } =
-    usePublisherSelection({ publishers, onSelectAssignee, onSelectAssistant });
+  const {
+    is_modal_open,
+    selected_publisher,
+    selection_mode,
+    handleSelectPublisher,
+    handleConfirm,
+    handleDismiss,
+  } = usePublisherSelection({ publishers, onSelectAssignee, onSelectAssistant });
+
+  const modal_participation_type =
+    selection_mode === "assistant"
+      ? (assistant_participation_type ?? "assistant")
+      : participation_type;
 
   const { data: allAssignments } = useLiveQuery((q) =>
     q.from({ ma: midweekMeetingAssignmentCollection }),
@@ -104,6 +115,7 @@ export function MidweekPublisherSelector({
           week_id={week_id}
           all_assignments={(allAssignments as MidweekMeetingAssignment[] | undefined) ?? []}
           publishers={publishers}
+          participation_type={modal_participation_type}
         />
       </>
     );
@@ -137,6 +149,7 @@ export function MidweekPublisherSelector({
         week_id={week_id}
         all_assignments={(allAssignments as MidweekMeetingAssignment[] | undefined) ?? []}
         publishers={publishers}
+        participation_type={modal_participation_type}
       />
     </>
   );
