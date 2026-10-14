@@ -9,7 +9,7 @@ import {
 } from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { AvScheduleContent } from "@amodeo/proclaimer/feature/av";
+import { AvSchedule } from "@amodeo/proclaimer/feature/av";
 
 function AvSchedulePage() {
   const match = useRouteMatch<{ week_id?: string }>();
@@ -27,7 +27,7 @@ function AvSchedulePage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide remove-top-padding">
-        <AvScheduleContent week_id={week_id} base_path="/home/av-overseer/schedule" />
+        <AvSchedule week_id={week_id} base_path="/home/av-overseer/schedule" />
       </IonContent>
     </IonPage>
   );

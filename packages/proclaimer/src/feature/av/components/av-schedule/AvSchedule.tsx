@@ -2,20 +2,20 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { IonCol, IonGrid, IonList, IonRow } from "@ionic/react";
 import { WeekNavigation } from "@amodeo/proclaimer/ui/components/navigation/week-navigation/WeekNavigation";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
-import { avAssignmentCollection } from "../../../collections/av-assignment.ts";
+import { avAssignmentCollection } from "../../collections/av-assignment.ts";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
-import type { AvAssignment } from "../../../schemas/av-assignment.ts";
+import type { AvAssignment } from "../../schemas/av-assignment.ts";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { getAvAssignmentRows } from "../../../utils/get-av-assignment-rows.ts";
-import { AvAssignmentCard } from "../av-assignment-card/AvAssignmentCard.tsx";
-import type { AvAssignmentGroup } from "../../../utils/types.ts";
+import { getAvAssignmentRows } from "../../utils/get-av-assignment-rows.ts";
+import { AvAssignmentCard } from "./av-assignment-card/AvAssignmentCard.tsx";
+import type { AvAssignmentGroup } from "../../utils/types.ts";
 
-export interface AvScheduleContentProps {
+export interface AvScheduleProps {
   week_id: string;
   base_path: string;
 }
 
-export function AvScheduleContent({ week_id, base_path }: AvScheduleContentProps) {
+export function AvSchedule({ week_id, base_path }: AvScheduleProps) {
   const congregation_id = getStoredCongregation()?.id;
 
   const { data: allAssignments } = useLiveQuery((q) => q.from({ aa: avAssignmentCollection }));
