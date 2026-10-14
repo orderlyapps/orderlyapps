@@ -1,4 +1,6 @@
-import { IonItem, IonLabel, IonList, IonNote } from "@ionic/react";
+import { useState } from "react";
+import { IonIcon, IonItem, IonLabel, IonList, IonNote } from "@ionic/react";
+import { addOutline } from "ionicons/icons";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
@@ -11,6 +13,8 @@ import type { ParticipationType } from "../midweek-publisher-selector/utils/part
 import { sortPublishers } from "./utils/sort-publishers.ts";
 import { getStatLabel } from "./utils/get-stat-label.ts";
 import { PublisherListItem } from "./components/publisher-list-item/PublisherListItem.tsx";
+import { AddMidweekMeetingParticipantModal } from "../../../../participation/add-midweek-meeting-participant-modal/AddMidweekMeetingParticipantModal.tsx";
+import { midweekMeetingParticipationTypeLabels } from "../../../../../utils/midweek-meeting-participation-type-labels.ts";
 
 interface PublisherListProps {
   publishers: Publisher[];
@@ -35,6 +39,25 @@ export function PublisherList({
   participation_types,
   publisher_ids_with_week_assignment,
 }: PublisherListProps) {
+  const [add_modal_open, set_add_modal_open] = useState(false);
+
+  const add_participant = (
+    <>
+      <IonList className="ion-margin" inset>
+        <IonItem button detail={false} onClick={() => set_add_modal_open(true)}>
+          <IonIcon icon={addOutline} slot="start" color="primary" />
+          <IonLabel color="primary">Add Participant</IonLabel>
+        </IonItem>
+      </IonList>
+      <AddMidweekMeetingParticipantModal
+        participation_id={participation_type}
+        modal_title={`${midweekMeetingParticipationTypeLabels[participation_type]} Participant`}
+        is_open={add_modal_open}
+        on_dismiss={() => set_add_modal_open(false)}
+      />
+    </>
+  );
+
   const filtered_publishers = publishers.filter((p) => {
     if (p.archived_at) return false;
 
@@ -51,11 +74,14 @@ export function PublisherList({
 
   if (filtered_publishers.length === 0) {
     return (
-      <IonList className="ion-margin" inset>
-        <IonItem>
-          <IonLabel color="medium">No publishers found.</IonLabel>
-        </IonItem>
-      </IonList>
+      <>
+        <IonList className="ion-margin" inset>
+          <IonItem>
+            <IonLabel color="medium">No publishers found.</IonLabel>
+          </IonItem>
+        </IonList>
+        {add_participant}
+      </>
     );
   }
 
@@ -82,6 +108,7 @@ export function PublisherList({
           />
         )}
       />
+      {add_participant}
       <Space size="2xl" />
     </>
   );
