@@ -17,8 +17,8 @@ import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import {
   avParticipationTypeLabels,
   avParticipationTypes,
-} from "../../utils/av-participation-type-labels.ts";
-import { useAvParticipants } from "../../hooks/use-av-participants.ts";
+} from "../../../../utils/av-participation-type-labels.ts";
+import { useAvParticipants } from "../../../../hooks/use-av-participants.ts";
 
 interface AddParticipantModalProps {
   is_open: boolean;

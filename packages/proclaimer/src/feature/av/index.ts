@@ -56,7 +56,7 @@ export { useAvPublisherStats } from "./hooks/use-av-publisher-stats.ts";
 export { useAvPresets } from "./hooks/use-av-presets.ts";
 
 export { AddAvParticipantModal } from "./components/participation/components/add-av-participant-modal/AddAvParticipantModal.tsx";
-export { AddParticipantModal } from "./components/add-participant-modal/AddParticipantModal.tsx";
+export { AddParticipantModal } from "./components/participants/components/add-participant-modal/AddParticipantModal.tsx";
 export { AvAssignedPublisher } from "./components/av-assignment-detail/components/av-assigned-publisher/AvAssignedPublisher.tsx";
 export { AvAssignmentCard } from "./components/av-schedule/av-assignment-card/AvAssignmentCard.tsx";
 export { AvAssignmentDetailContent } from "./components/av-assignment-detail/AvAssignmentDetailContent.tsx";
