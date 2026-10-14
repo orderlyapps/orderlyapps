@@ -6,6 +6,7 @@ import {
   IonLabel,
   IonItemDivider,
 } from "@ionic/react";
+import { useState } from "react";
 import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { MidweekMeetingAssignment } from "../../../../../../../schemas/midweek-meeting-assignment.ts";
 import { PublisherList } from "../../../publisher-list/PublisherList.tsx";
@@ -52,10 +53,15 @@ export function PublisherSegment({
   onSelectAssistant,
   publisher_ids_with_week_assignment,
 }: PublisherSegmentProps) {
+  const [segment, set_segment] = useState<"assignee" | "assistant">("assignee");
+
   return (
     <>
       <IonItemDivider sticky style={{ paddingBlock: "1rem" }}>
-        <IonSegment value="assignee">
+        <IonSegment
+          value={segment}
+          onIonChange={(e) => set_segment(e.detail.value as "assignee" | "assistant")}
+        >
           <IonSegmentButton value="assignee" contentId="assignee">
             <IonLabel>Assignee</IonLabel>
           </IonSegmentButton>
