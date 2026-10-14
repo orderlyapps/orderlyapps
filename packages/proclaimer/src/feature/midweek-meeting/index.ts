@@ -37,7 +37,6 @@ export { ConventionBanner } from "./components/schedule/schedule-content/compone
 export { AddMidweekMeetingParticipantModal } from "./components/participation/add-midweek-meeting-participant-modal/AddMidweekMeetingParticipantModal.tsx";
 export { MidweekMeetingParticipantPublishersList } from "./components/participation/midweek-meeting-participant-publishers-list/MidweekMeetingParticipantPublishersList.tsx";
 
-export { MidweekScheduleHeader } from "./components/schedule/schedule-header/MidweekScheduleHeader.tsx";
 export { MidweekScheduleContent } from "./components/schedule/schedule-content/MidweekScheduleContent.tsx";
 export type {
   MidweekScheduleContentProps,
