@@ -18,7 +18,8 @@ interface AssignmentHistoryRow {
   weeks_away: number;
   is_future: boolean;
   is_current: boolean;
-  assistant_name: string | null;
+  partner_name: string | null;
+  partner_preposition: "with" | "for" | null;
 }
 
 function getAssignmentTypeLabel(assignment_id: string): string {
@@ -27,10 +28,29 @@ function getAssignmentTypeLabel(assignment_id: string): string {
   return type.replace(/_/g, " ");
 }
 
-function getAssistantId(assignment_id: string): string | null {
-  const match = assignment_id.match(/^(school_\d)_apply_(\d)$/);
-  if (match) return `${match[1]}_assistant_${match[2]}`;
-  if (assignment_id === "cbs_conductor") return "cbs_reader";
+function getPartnerAssignment(
+  assignment_id: string,
+): { assignment_id: string; preposition: "with" | "for" } | null {
+  const apply_match = assignment_id.match(/^(school_\d)_apply_(\d)$/);
+  if (apply_match) {
+    return {
+      assignment_id: `${apply_match[1]}_assistant_${apply_match[2]}`,
+      preposition: "with",
+    };
+  }
+  const assistant_match = assignment_id.match(/^(school_\d)_assistant_(\d)$/);
+  if (assistant_match) {
+    return {
+      assignment_id: `${assistant_match[1]}_apply_${assistant_match[2]}`,
+      preposition: "for",
+    };
+  }
+  if (assignment_id === "cbs_conductor") {
+    return { assignment_id: "cbs_reader", preposition: "with" };
+  }
+  if (assignment_id === "cbs_reader") {
+    return { assignment_id: "cbs_conductor", preposition: "for" };
+  }
   return null;
 }
 
@@ -61,19 +81,19 @@ export function AssignmentHistory({
     const is_current = a.week_id === week_id;
     const is_future = a.week_id > week_id;
 
-    const assistant_assignment_id = getAssistantId(a.assignment_id);
-    let assistant_name: string | null = null;
-    if (assistant_assignment_id) {
-      const assistant_record = all_assignments.find(
-        (x) => x.week_id === a.week_id && x.assignment_id === assistant_assignment_id,
+    const partner_assignment = getPartnerAssignment(a.assignment_id);
+    let partner_name: string | null = null;
+    let partner_preposition: "with" | "for" | null = null;
+    if (partner_assignment) {
+      const partner_record = all_assignments.find(
+        (x) => x.week_id === a.week_id && x.assignment_id === partner_assignment.assignment_id,
       );
-      if (assistant_record) {
-        const assistant_publisher = publishers.find(
-          (p) => p.id === assistant_record.participant_id,
-        );
-        if (assistant_publisher) {
-          assistant_name = `${assistant_publisher.first_name} ${assistant_publisher.last_name}`;
-        }
+      const partner_publisher = partner_record
+        ? publishers.find((p) => p.id === partner_record.participant_id)
+        : undefined;
+      if (partner_publisher) {
+        partner_name = `${partner_publisher.first_name} ${partner_publisher.last_name}`;
+        partner_preposition = partner_assignment.preposition;
       }
     }
 
@@ -83,7 +103,8 @@ export function AssignmentHistory({
       weeks_away: Math.abs(diff),
       is_future,
       is_current,
-      assistant_name,
+      partner_name,
+      partner_preposition,
     };
   });
 
@@ -104,9 +125,10 @@ export function AssignmentHistory({
             label={weeks_label}
             label_size={row.is_current ? "xl" : undefined}
             label_color={row.is_current ? "primary" : undefined}
+            value_color={row.is_current ? "primary" : row.is_future ? "medium" : undefined}
             value={
               getAssignmentTypeLabel(row.assignment_id).replace(/\b\w/g, (c) => c.toUpperCase()) +
-              `${row.assistant_name ? ` with ${row.assistant_name}` : ""}`
+              `${row.partner_name ? ` ${row.partner_preposition} ${row.partner_name}` : ""}`
             }
           />
         );
