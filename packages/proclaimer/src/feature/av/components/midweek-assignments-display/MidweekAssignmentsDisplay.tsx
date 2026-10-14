@@ -1,8 +1,7 @@
-import { useLiveQuery } from "@tanstack/react-db";
-import { avAssignmentCollection } from "@amodeo/proclaimer/feature/av";
+import { and, eq, inArray, useLiveQuery } from "@tanstack/react-db";
+import { avAssignmentCollection } from "../../collections/av-assignment.ts";
+import { midweekAVAssignmentIDs, avAssignmentLabels } from "../../schemas/av-assignment.ts";
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
-import { midweekAVAssignmentIDs, avAssignmentLabels } from "@amodeo/proclaimer/feature/av";
-import { and, eq, inArray } from "@tanstack/react-db";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
@@ -40,7 +39,7 @@ export function MidweekAssignmentsDisplay({ week_id }: MidweekAssignmentsDisplay
   return (
     <>
       {avAssignments && avAssignments.length > 0 ? (
-        avAssignments.map((assignment, index) => {
+        avAssignments.map((assignment) => {
           const participantName =
             assignment?.first_name && assignment?.last_name
               ? getPublisherDisplayName({
@@ -51,7 +50,7 @@ export function MidweekAssignmentsDisplay({ week_id }: MidweekAssignmentsDisplay
               : "Unassigned";
 
           return (
-            <div key={index}>
+            <div key={assignment.assignmentId}>
               <LabelValueItem
                 label={avAssignmentLabels[assignment.assignmentId] || assignment.assignmentId}
                 label_color="primary"

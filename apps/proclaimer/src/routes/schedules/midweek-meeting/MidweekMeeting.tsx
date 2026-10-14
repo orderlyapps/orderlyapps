@@ -6,10 +6,13 @@ import {
   IonTitle,
   IonButtons,
   IonBackButton,
+  IonList,
 } from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { MidweekMeetingContent } from "@amodeo/proclaimer/feature/midweek-meeting";
+import { MidweekScheduleContent } from "@amodeo/proclaimer/feature/midweek-meeting";
+import { MidweekAssignmentsDisplay, MidweekAttendantsDisplay } from "@amodeo/proclaimer/feature/av";
+import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
 function MidweekMeetingPage() {
   const match = useRouteMatch<{ week_id?: string }>();
@@ -27,7 +30,13 @@ function MidweekMeetingPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide remove-top-padding">
-        <MidweekMeetingContent week_id={week_id} base_path="/schedules/midweek-meeting" />
+        <MidweekScheduleContent week_id={week_id} base_path="/schedules/midweek-meeting" />
+        <IonList inset>
+          <Space />
+          <MidweekAssignmentsDisplay week_id={week_id} />
+          <Space />
+          <MidweekAttendantsDisplay week_id={week_id} />
+        </IonList>
       </IonContent>
     </IonPage>
   );
