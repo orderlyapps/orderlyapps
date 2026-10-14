@@ -13,7 +13,7 @@ import { getMeetingParts } from "../../../utils/get-meeting-parts.ts";
 import { useCircuitVisitEvent } from "../../../hooks/use-circuit-visit-event.ts";
 import { useMidweekAssignmentRows } from "./hooks/use-midweek-assignment-rows.ts";
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
-import type { MidweekScheduleContentProps, MidweekAssignmentRow } from "./types.ts";
+import type { MidweekScheduleProps, MidweekAssignmentRow } from "./types.ts";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { Spinner } from "@amodeo/proclaimer/ui/components/display/spinner/Spinner";
@@ -21,7 +21,7 @@ import { CircuitVisitBanner } from "./components/event-banners/circuit-visit-ban
 import { CircuitAssemblyBanner } from "./components/event-banners/circuit-assembly-banner/CircuitAssemblyBanner.tsx";
 import { ConventionBanner } from "./components/event-banners/convention-banner/ConventionBanner.tsx";
 
-export function MidweekScheduleContent({ week_id, base_path }: MidweekScheduleContentProps) {
+export function MidweekSchedule({ week_id, base_path }: MidweekScheduleProps) {
   const permissions = usePermissions();
   const can_edit = permissions.has_midweek_meeting_overseer;
 

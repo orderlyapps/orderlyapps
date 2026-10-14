@@ -1,9 +1,9 @@
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonBackButton, IonButtons } from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import { AvAssignmentDetailContent } from "@amodeo/proclaimer/feature/av";
+import { AvAssignmentEditor } from "@amodeo/proclaimer/feature/av";
 
-function AvAssignmentDetailPage() {
+function EditAvAssignmentPage() {
   const { week_id, assignment_id } = useParams<{ week_id: string; assignment_id: string }>();
 
   return (
@@ -16,9 +16,9 @@ function AvAssignmentDetailPage() {
           <IonTitle>{getTheocraticWeekLabel(week_id)}</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <AvAssignmentDetailContent week_id={week_id} assignment_id={assignment_id} />
+      <AvAssignmentEditor week_id={week_id} assignment_id={assignment_id} />
     </IonPage>
   );
 }
 
-export default AvAssignmentDetailPage;
+export default EditAvAssignmentPage;

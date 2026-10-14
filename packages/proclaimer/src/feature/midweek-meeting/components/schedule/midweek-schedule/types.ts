@@ -1,6 +1,6 @@
 import type { IonicColor } from "../../../../../ui/types/ionic-color.ts";
 
-export type MidweekScheduleContentProps = {
+export type MidweekScheduleProps = {
   week_id: string;
   base_path: string;
 };

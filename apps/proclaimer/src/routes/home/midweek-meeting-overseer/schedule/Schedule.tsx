@@ -9,7 +9,7 @@ import {
 } from "@ionic/react";
 import { useRouteMatch } from "react-router-dom";
 import { startOfWeek, format } from "date-fns";
-import { MidweekScheduleContent } from "@amodeo/proclaimer/feature/midweek-meeting";
+import { MidweekSchedule } from "@amodeo/proclaimer/feature/midweek-meeting";
 
 function SchedulePage() {
   const match = useRouteMatch<{ week_id?: string }>();
@@ -27,10 +27,7 @@ function SchedulePage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide remove-top-padding">
-        <MidweekScheduleContent
-          week_id={week_id}
-          base_path="/home/midweek-meeting-overseer/schedule"
-        />
+        <MidweekSchedule week_id={week_id} base_path="/home/midweek-meeting-overseer/schedule" />
       </IonContent>
     </IonPage>
   );

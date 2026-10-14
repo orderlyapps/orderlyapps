@@ -8,15 +8,12 @@ import { AvAssignedPublisher } from "./components/av-assigned-publisher/AvAssign
 import { AvPublisherSelector } from "./components/av-publisher-selector/AvPublisherSelector.tsx";
 import type { AvAssignmentID } from "../../schemas/av-assignment.ts";
 
-interface AvAssignmentDetailContentProps {
+interface AvAssignmentEditorProps {
   week_id: string;
   assignment_id: string;
 }
 
-export function AvAssignmentDetailContent({
-  week_id,
-  assignment_id,
-}: AvAssignmentDetailContentProps) {
+export function AvAssignmentEditor({ week_id, assignment_id }: AvAssignmentEditorProps) {
   const { congregation_id, assignment, publishers, assignee, assignmentTitle, isLoading } =
     useAvAssignmentData({ week_id, assignment_id });
 

@@ -9,9 +9,9 @@ import {
 } from "@ionic/react";
 import { useParams } from "react-router-dom";
 import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocraticWeekLabel";
-import { MidweekAssignmentDetailContent } from "@amodeo/proclaimer/feature/midweek-meeting";
+import { MidweekAssignmentEditor } from "@amodeo/proclaimer/feature/midweek-meeting";
 
-function AssignmentDetailPage() {
+function EditMidweekAssignmentPage() {
   const { week_id, assignment_id } = useParams<{ week_id: string; assignment_id: string }>();
 
   return (
@@ -24,7 +24,7 @@ function AssignmentDetailPage() {
           <IonTitle>{getTheocraticWeekLabel(week_id)}</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <MidweekAssignmentDetailContent week_id={week_id} assignment_id={assignment_id}>
+      <MidweekAssignmentEditor week_id={week_id} assignment_id={assignment_id}>
         {({ info, selector }) => (
           <>
             <IonHeader>{info}</IonHeader>
@@ -33,9 +33,9 @@ function AssignmentDetailPage() {
             </IonContent>
           </>
         )}
-      </MidweekAssignmentDetailContent>
+      </MidweekAssignmentEditor>
     </IonPage>
   );
 }
 
-export default AssignmentDetailPage;
+export default EditMidweekAssignmentPage;

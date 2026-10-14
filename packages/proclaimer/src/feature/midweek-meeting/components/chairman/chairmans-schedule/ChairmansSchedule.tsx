@@ -15,7 +15,7 @@ import { getTheocraticWeekLabel } from "@amodeo/proclaimer/util/date/getTheocrat
 import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { ChairmanAssignmentCard } from "./components/chairman-assignment-card/ChairmanAssignmentCard.tsx";
 import { getMeetingParts } from "../../../utils/get-meeting-parts.ts";
-import type { MidweekAssignmentRow } from "../../schedule/schedule-content/types.ts";
+import type { MidweekAssignmentRow } from "../../schedule/midweek-schedule/types.ts";
 import { useMidweekMeetingChairmanWeeks } from "../../../hooks/use-midweek-meeting-chairman-weeks.ts";
 
 function ChairmanWeekSchedule({

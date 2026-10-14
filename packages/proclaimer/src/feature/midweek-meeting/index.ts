@@ -31,25 +31,25 @@ export { useMidweekMeetingChairmanWeeks } from "./hooks/use-midweek-meeting-chai
 export { useMidweekMeetingParticipantPublishers } from "./hooks/use-midweek-meeting-participant-publishers.ts";
 export type { MidweekMeetingParticipantPublisher } from "./hooks/use-midweek-meeting-participant-publishers.ts";
 
-export { CircuitVisitBanner } from "./components/schedule/schedule-content/components/event-banners/circuit-visit-banner/CircuitVisitBanner.tsx";
-export { CircuitAssemblyBanner } from "./components/schedule/schedule-content/components/event-banners/circuit-assembly-banner/CircuitAssemblyBanner.tsx";
-export { ConventionBanner } from "./components/schedule/schedule-content/components/event-banners/convention-banner/ConventionBanner.tsx";
+export { CircuitVisitBanner } from "./components/schedule/midweek-schedule/components/event-banners/circuit-visit-banner/CircuitVisitBanner.tsx";
+export { CircuitAssemblyBanner } from "./components/schedule/midweek-schedule/components/event-banners/circuit-assembly-banner/CircuitAssemblyBanner.tsx";
+export { ConventionBanner } from "./components/schedule/midweek-schedule/components/event-banners/convention-banner/ConventionBanner.tsx";
 export { AddMidweekMeetingParticipantModal } from "./components/participation/add-midweek-meeting-participant-modal/AddMidweekMeetingParticipantModal.tsx";
 export { MidweekMeetingParticipantPublishersList } from "./components/participation/midweek-meeting-participant-publishers-list/MidweekMeetingParticipantPublishersList.tsx";
 
-export { MidweekScheduleContent } from "./components/schedule/schedule-content/MidweekScheduleContent.tsx";
+export { MidweekSchedule } from "./components/schedule/midweek-schedule/MidweekSchedule.tsx";
 export type {
-  MidweekScheduleContentProps,
+  MidweekScheduleProps,
   MidweekAssignmentRow,
-} from "./components/schedule/schedule-content/types.ts";
+} from "./components/schedule/midweek-schedule/types.ts";
 export { useEventInWeek } from "./hooks/use-event-in-week.ts";
 export { useCircuitVisitEvent } from "./hooks/use-circuit-visit-event.ts";
 export { useCircuitAssemblyEvent } from "./hooks/use-circuit-assembly-event.ts";
 export { useConventionEvent } from "./hooks/use-convention-event.ts";
-export { useMidweekAssignmentRows } from "./components/schedule/schedule-content/hooks/use-midweek-assignment-rows.ts";
-export { MidweekAssignmentCard } from "./components/schedule/schedule-content/components/midweek-assignment-card/MidweekAssignmentCard.tsx";
-export { MidweekAssignmentDetailContent } from "./components/schedule/assignment-detail-content/MidweekAssignmentDetailContent.tsx";
-export { MidweekPublisherSelector } from "./components/schedule/assignment-detail-content/components/midweek-publisher-selector/MidweekPublisherSelector.tsx";
+export { useMidweekAssignmentRows } from "./components/schedule/midweek-schedule/hooks/use-midweek-assignment-rows.ts";
+export { MidweekAssignmentCard } from "./components/schedule/midweek-schedule/components/midweek-assignment-card/MidweekAssignmentCard.tsx";
+export { MidweekAssignmentEditor } from "./components/schedule/midweek-assignment-editor/MidweekAssignmentEditor.tsx";
+export { MidweekPublisherSelector } from "./components/schedule/midweek-assignment-editor/components/midweek-publisher-selector/MidweekPublisherSelector.tsx";
 export { MidweekMeetingParticipationHeader } from "./components/participation/midweek-meeting-participation-header/MidweekMeetingParticipationHeader.tsx";
 export { MidweekMeetingParticipationContent } from "./components/participation/midweek-meeting-participation-content/MidweekMeetingParticipationContent.tsx";
 export { MidweekMeetingParticipationTypeHeader } from "./components/participation/midweek-meeting-participation-type-header/MidweekMeetingParticipationTypeHeader.tsx";

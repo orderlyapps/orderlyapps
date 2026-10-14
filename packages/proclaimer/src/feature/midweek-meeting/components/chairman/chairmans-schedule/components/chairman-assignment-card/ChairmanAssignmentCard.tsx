@@ -1,6 +1,6 @@
 import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { usePublisherPhoneLookup } from "@amodeo/proclaimer/feature/publisher-local";
-import type { MidweekAssignmentRow } from "../../../../schedule/schedule-content/types.ts";
+import type { MidweekAssignmentRow } from "../../../../schedule/midweek-schedule/types.ts";
 
 const sectionLabels = ["main_hall_label", "second_school_label"];
 

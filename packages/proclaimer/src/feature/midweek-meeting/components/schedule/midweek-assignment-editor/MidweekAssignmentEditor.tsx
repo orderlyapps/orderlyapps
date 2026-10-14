@@ -8,17 +8,17 @@ import { useAssignmentHandlers } from "./hooks/use-assignment-handlers.ts";
 import { useAssistantHandlers } from "./hooks/use-assistant-handlers.ts";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
-interface AssignmentDetailContentProps {
+interface MidweekAssignmentEditorProps {
   week_id: string;
   assignment_id: string;
   children: (parts: { info: ReactNode; selector: ReactNode }) => ReactNode;
 }
 
-export function MidweekAssignmentDetailContent({
+export function MidweekAssignmentEditor({
   week_id,
   assignment_id,
   children,
-}: AssignmentDetailContentProps) {
+}: MidweekAssignmentEditorProps) {
   const {
     congregation_id,
     assignment,

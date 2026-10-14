@@ -129,9 +129,9 @@ import LivingParticipationPage from "@proclaimer-routes/home/midweek-meeting-ove
 import CbsConductorParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/cbs-conductor/CbsConductor";
 import CbsReaderParticipationPage from "@proclaimer-routes/home/midweek-meeting-overseer/participation/cbs-reader/CbsReader";
 import MidweekMeetingOverseerSchedulePage from "@proclaimer-routes/home/midweek-meeting-overseer/schedule/Schedule";
-import AssignmentDetailPage from "@proclaimer-routes/home/midweek-meeting-overseer/schedule/assignment-detail/AssignmentDetail";
+import EditMidweekAssignmentPage from "@proclaimer-routes/home/midweek-meeting-overseer/schedule/edit-assignment/EditMidweekAssignment";
 import AvSchedulePage from "@proclaimer-routes/home/av-overseer/schedule/AvSchedule";
-import AvAssignmentDetailPage from "@proclaimer-routes/home/av-overseer/schedule/assignment-detail/AvAssignmentDetail";
+import EditAvAssignmentPage from "@proclaimer-routes/home/av-overseer/schedule/edit-assignment/EditAvAssignment";
 import AvParticipationPage from "@proclaimer-routes/home/av-overseer/participation/Participation";
 import AvParticipationTypePage from "@proclaimer-routes/home/av-overseer/participation/participation-type/AvParticipationType";
 import ParticipantsPage from "@proclaimer-routes/home/av-overseer/participants/Participants";
@@ -408,7 +408,7 @@ function App() {
         />
         <Route
           path="/home/midweek-meeting-overseer/schedule/:week_id/assignment/:assignment_id"
-          component={AssignmentDetailPage}
+          component={EditMidweekAssignmentPage}
           exact
         />
         <Route
@@ -469,7 +469,7 @@ function App() {
         <Route path="/home/av-overseer" component={AvOverseerPage} exact />
         <Route
           path="/home/av-overseer/schedule/:week_id/assignment/:assignment_id"
-          component={AvAssignmentDetailPage}
+          component={EditAvAssignmentPage}
           exact
         />
         <Route path="/home/av-overseer/schedule/:week_id?" component={AvSchedulePage} exact />
@@ -516,7 +516,7 @@ function App() {
         <Route path="/schedules/midweek-meeting/:week_id?" component={MidweekMeetingPage} exact />
         <Route
           path="/schedules/midweek-meeting/:week_id/assignment/:assignment_id?"
-          component={AssignmentDetailPage}
+          component={EditMidweekAssignmentPage}
           exact
         />
         <Route path="/schedules/weekend-meeting/:week_id?" component={WeekendMeetingPage} exact />
