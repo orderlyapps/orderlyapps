@@ -8,7 +8,7 @@ import {
   type AvSmsTemplate,
   DEFAULT_AV_SMS_TEMPLATE_TEXT,
   AV_SMS_PLACEHOLDERS,
-} from "../../../../utils/av-sms-template.ts";
+} from "../../../../../../utils/av-sms-template.ts";
 
 interface TemplateEditorProps {
   index: number;

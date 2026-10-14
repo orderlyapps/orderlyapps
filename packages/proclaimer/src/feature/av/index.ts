@@ -82,7 +82,7 @@ export type { AvWeekData } from "./hooks/use-audio-video-schedule-data.ts";
 export { AvAssignmentList } from "./components/reminders/AvAssignmentList.tsx";
 export { MidweekAssignmentsDisplay } from "./components/midweek-assignments-display/MidweekAssignmentsDisplay.tsx";
 export { MidweekAttendantsDisplay } from "./components/midweek-attendants-display/MidweekAttendantsDisplay.tsx";
-export { AvSmsSettingsModal } from "./components/av-sms-settings-modal/AvSmsSettingsModal.tsx";
+export { AvSmsSettingsModal } from "./components/reminders/components/av-sms-settings-modal/AvSmsSettingsModal.tsx";
 export { useAvAssignments } from "./hooks/use-av-assignments.ts";
 export type { AvAssignmentWithPublisher } from "./hooks/use-av-assignments.ts";
 export {

@@ -21,7 +21,7 @@ import {
   type AvSmsTemplate,
   getAvSmsTemplates,
   saveAvSmsTemplates,
-} from "../../utils/av-sms-template.ts";
+} from "../../../../utils/av-sms-template.ts";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 
