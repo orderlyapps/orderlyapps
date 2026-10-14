@@ -75,7 +75,6 @@ export { PublisherLetterDivider } from "./components/av-assignment-detail/compon
 
 export { AvPdfExportButton } from "./components/pdf/av-pdf-export-modal/AvPdfExportButton.tsx";
 export { AvPdfExportModal } from "./components/pdf/av-pdf-export-modal/AvPdfExportModal.tsx";
-export { AudioVideoHeader } from "./components/audio-video-header/AudioVideoHeader.tsx";
 export { AudioVideoPdfDocument } from "./components/pdf/audio-video-pdf/AudioVideoPdfDocument.tsx";
 export { useAudioVideoScheduleData } from "./hooks/use-audio-video-schedule-data.ts";
 export type { AvWeekData } from "./hooks/use-audio-video-schedule-data.ts";

@@ -1,11 +1,24 @@
-import { IonPage, IonHeader, IonContent } from "@ionic/react";
-import { AvPdfExportButton, AudioVideoHeader } from "@amodeo/proclaimer/feature/av";
+import {
+  IonPage,
+  IonHeader,
+  IonContent,
+  IonToolbar,
+  IonTitle,
+  IonButtons,
+  IonBackButton,
+} from "@ionic/react";
+import { AvPdfExportButton } from "@amodeo/proclaimer/feature/av";
 
 function AudioVideoPage() {
   return (
     <IonPage>
       <IonHeader>
-        <AudioVideoHeader />
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/home/elder" />
+          </IonButtons>
+          <IonTitle>Audio Video</IonTitle>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
         <AvPdfExportButton />
