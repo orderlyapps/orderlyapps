@@ -23,7 +23,7 @@ function MidweekMeetingPage() {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton />
+            <IonBackButton defaultHref="/home/reminders" />
           </IonButtons>
           <IonTitle>CLAM</IonTitle>
         </IonToolbar>

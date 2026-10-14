@@ -138,7 +138,7 @@ import ParticipantsPage from "@proclaimer-routes/home/av-overseer/participants/P
 import RemindersPage from "@proclaimer-routes/home/reminders/Reminders";
 import RemindersAudioVideoPage from "@proclaimer-routes/home/reminders/audio-video/AudioVideo";
 import RemindersWeekendMeetingPage from "@proclaimer-routes/home/reminders/weekend-meeting/WeekendMeeting";
-import HomeMidweekMeetingPage from "@proclaimer-routes/home/midweek-meeting/MidweekMeeting";
+import HomeMidweekMeetingPage from "@proclaimer-routes/home/reminders/midweek-meeting/MidweekMeeting";
 import DataSharingPage from "@proclaimer-routes/home/data-sharing/DataSharing";
 import MinistryTimePage from "@proclaimer-routes/home/ministry-time/MinistryTime";
 import WatchtowerToolPage from "@proclaimer-routes/home/watchtower/Watchtower";
@@ -494,7 +494,11 @@ function App() {
           component={RemindersWeekendMeetingPage}
           exact
         />
-        <Route path="/home/midweek-meeting/:week_id?" component={HomeMidweekMeetingPage} exact />
+        <Route
+          path="/home/reminders/midweek-meeting/:week_id?"
+          component={HomeMidweekMeetingPage}
+          exact
+        />
         <Route path="/home/data-sharing" component={DataSharingPage} exact />
         <Route path="/home/ministry-time" component={MinistryTimePage} exact />
         <Route path="/home/meeting-attendance/:week_id?" component={MeetingAttendancePage} exact />

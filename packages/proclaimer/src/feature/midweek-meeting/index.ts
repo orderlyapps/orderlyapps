@@ -67,13 +67,13 @@ export { chairmansOutlineDocx } from "./components/chairman/chairmans-outline/do
 
 export { MidweekMeetingContent } from "./components/midweek-meeting-content/MidweekMeetingContent.tsx";
 
-export { MidweekMeetingAssignmentPdf } from "./components/midweek-meeting-assignment-list/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
-export type { MidweekMeetingAssignmentPdfData } from "./components/midweek-meeting-assignment-list/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
-export { MidweekMeetingAssignmentShareButton } from "./components/midweek-meeting-assignment-list/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/MidweekMeetingAssignmentShareButton.tsx";
+export { MidweekMeetingAssignmentPdf } from "./components/reminders/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
+export type { MidweekMeetingAssignmentPdfData } from "./components/reminders/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/components/midweek-meeting-assignment-pdf/MidweekMeetingAssignmentPdf.tsx";
+export { MidweekMeetingAssignmentShareButton } from "./components/reminders/components/midweek-meeting-assignment-school/components/midweek-meeting-assignment-item/components/midweek-meeting-assignment-share-button/MidweekMeetingAssignmentShareButton.tsx";
 
 export { MidweekMeetingPdfHeader } from "./components/midweek-meeting-pdf-header/MidweekMeetingPdfHeader.tsx";
 export { MidweekMeetingPdfContent } from "./components/midweek-meeting-pdf-content/MidweekMeetingPdfContent.tsx";
-export { MidweekMeetingAssignmentList } from "./components/midweek-meeting-assignment-list/MidweekMeetingAssignmentList.tsx";
+export { MidweekMeetingAssignmentList } from "./components/reminders/MidweekMeetingAssignmentList.tsx";
 export { useMidweekMeetingAssignments } from "./hooks/use-midweek-meeting-assignments.ts";
 export type { MidweekMeetingParticipantAssignment } from "./hooks/use-midweek-meeting-assignments.ts";
 export { MidweekSchedulePdfDocument } from "./components/schedule/schedule-pdf/MidweekSchedulePdfDocument.tsx";

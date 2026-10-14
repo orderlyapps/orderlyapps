@@ -26,7 +26,7 @@ function RemindersPage() {
       </IonHeader>
       <IonContent>
         <IonList>
-          <NavItem label="CLAM" to={`/home/midweek-meeting/${current_week_id}`} />
+          <NavItem label="CLAM" to={`/home/reminders/midweek-meeting/${current_week_id}`} />
           <NavItem label="Audio Video" to="/home/reminders/audio-video" />
           <NavItem label="Weekend Meeting" to="/home/reminders/weekend-meeting" />
         </IonList>
