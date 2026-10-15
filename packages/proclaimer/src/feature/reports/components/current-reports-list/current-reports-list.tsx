@@ -10,7 +10,7 @@ import { useReportedPublisherIds } from "./hooks/use-reported-publisher-ids.ts";
 import { useCongregationGroups } from "@amodeo/proclaimer/feature/congregation";
 import { PublisherReportItem } from "../publisher-report-item/publisher-report-item.tsx";
 
-export function ReportsContent() {
+export function CurrentReportsList() {
   const { publishers, has_access, isLoading } = usePermissionedPublishers();
   const { has_secretary } = usePermissions();
   const { groups } = useCongregationGroups();

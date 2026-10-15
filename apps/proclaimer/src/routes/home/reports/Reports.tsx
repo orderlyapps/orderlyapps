@@ -7,7 +7,7 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/react";
-import { DownloadReportFormButton, ReportsContent } from "@amodeo/proclaimer/feature/reports";
+import { DownloadReportFormButton, CurrentReportsList } from "@amodeo/proclaimer/feature/reports";
 
 function ReportsPage() {
   return (
@@ -24,7 +24,7 @@ function ReportsPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <ReportsContent />
+        <CurrentReportsList />
       </IonContent>
     </IonPage>
   );
