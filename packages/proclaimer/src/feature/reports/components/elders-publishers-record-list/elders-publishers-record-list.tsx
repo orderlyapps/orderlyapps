@@ -6,7 +6,7 @@ import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { MultiColumnList } from "@amodeo/proclaimer/ui/components/display/multi-column-list/MultiColumnList";
 import { IonList, IonItem } from "@ionic/react";
 
-export function PublishersList({ base_path }: { base_path: string }) {
+export function EldersPublishersRecordList({ base_path }: { base_path: string }) {
   const congregation_id = useStoredCongregation()?.id;
 
   const { data, isLoading } = useLiveQuery(

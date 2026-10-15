@@ -7,7 +7,7 @@ import {
   IonButtons,
   IonBackButton,
 } from "@ionic/react";
-import { PublishersList } from "@amodeo/proclaimer/feature/reports";
+import { EldersPublishersRecordList } from "@amodeo/proclaimer/feature/reports";
 
 function PublishersPage() {
   return (
@@ -21,7 +21,7 @@ function PublishersPage() {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding content-wide">
-        <PublishersList base_path="/home/elder/reports/publishers" />
+        <EldersPublishersRecordList base_path="/home/elder/reports/publishers" />
       </IonContent>
     </IonPage>
   );
