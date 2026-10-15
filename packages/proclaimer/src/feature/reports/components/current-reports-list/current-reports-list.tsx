@@ -8,7 +8,7 @@ import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { usePermissionedPublishers } from "./hooks/use-permissioned-publishers.ts";
 import { useReportedPublisherIds } from "./hooks/use-reported-publisher-ids.ts";
 import { useCongregationGroups } from "@amodeo/proclaimer/feature/congregation";
-import { PublisherReportItem } from "../publisher-report-item/publisher-report-item.tsx";
+import { PublisherReportItem } from "./components/publisher-report-item/publisher-report-item.tsx";
 
 export function CurrentReportsList() {
   const { publishers, has_access, isLoading } = usePermissionedPublishers();
