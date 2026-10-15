@@ -8,21 +8,14 @@ import type { Publisher } from "../../../../../publisher/schemas/publisher.ts";
 import type { Group } from "@amodeo/proclaimer/feature/group";
 import { getPublisherDisplayName } from "../../../../../publisher/utils/publisher-name.ts";
 import { getPreviousMonths, type MonthKey } from "../../utils/get-previous-months.ts";
+import { PIONEER_TYPES, REPORTABLE_TYPES } from "../../../../utils/report-types.ts";
 
 interface LocalPublisherData {
   publisher_id: string;
   confidential_id: string;
 }
 
-/** Active publisher types that are expected to turn in a monthly report. */
-const INCLUDED_TYPES = new Set([
-  "publisher",
-  "regular_pioneer",
-  "special_pioneer",
-  "continuous_auxiliary",
-]);
-
-const PIONEER_TYPES = new Set(["regular_pioneer", "special_pioneer"]);
+const INCLUDED_TYPES = REPORTABLE_TYPES;
 
 export interface MissingReportsEntry {
   publisher_id: string;

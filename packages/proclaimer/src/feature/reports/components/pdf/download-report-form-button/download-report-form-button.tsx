@@ -5,6 +5,7 @@ import { pdf } from "@react-pdf/renderer";
 import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { getPreviousMonthDate } from "../../../utils/report-date.ts";
+import { REPORTABLE_TYPES } from "../../../utils/report-types.ts";
 import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { useReportFormGroups } from "./hooks/use-report-form-groups.ts";
@@ -42,12 +43,7 @@ export function DownloadReportFormButton() {
     set_is_generating(true);
 
     const group_publishers = ((publishers_data ?? []) as Publisher[]).filter(
-      (p) =>
-        p.group_id === group_id &&
-        p.type !== "inactive" &&
-        p.type !== "speaker" &&
-        p.type !== "associate" &&
-        p.type !== "circuit_overseer",
+      (p) => p.group_id === group_id && REPORTABLE_TYPES.has(p.type),
     );
 
     if (group_publishers.length === 0) {

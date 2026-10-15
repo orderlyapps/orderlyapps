@@ -4,6 +4,7 @@ import { congregationAdminCollection } from "@amodeo/proclaimer/feature/permissi
 import { publisherCollection } from "@amodeo/proclaimer/feature/publisher";
 import { useAuthSession } from "@amodeo/proclaimer/feature/permission";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
+import { REPORTABLE_TYPES } from "../../../utils/report-types.ts";
 
 export function usePermissionedPublishers() {
   const session = useAuthSession();
@@ -44,13 +45,7 @@ export function usePermissionedPublishers() {
   const has_access = is_congregation_admin || allowed_group_ids.length > 0;
 
   return {
-    publishers: (publishers ?? []).filter(
-      (p) =>
-        p.type !== "inactive" &&
-        p.type !== "speaker" &&
-        p.type !== "associate" &&
-        p.type !== "circuit_overseer",
-    ),
+    publishers: (publishers ?? []).filter((p) => REPORTABLE_TYPES.has(p.type)),
     has_access,
     isLoading: isLoading || session === undefined,
   };

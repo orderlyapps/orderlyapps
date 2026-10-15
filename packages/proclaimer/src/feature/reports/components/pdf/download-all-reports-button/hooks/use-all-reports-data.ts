@@ -11,6 +11,7 @@ import type {
   PublisherReportEntry,
 } from "../../publisher-report-page/types.ts";
 import { getPublisherDisplayName } from "../../utils/publisher-name.ts";
+import { PIONEER_TYPES, REPORTABLE_TYPES } from "../../../../utils/report-types.ts";
 import { buildServiceYearReportsForYears, reportsToMap } from "../../utils/service-year.ts";
 
 interface LocalPublisherData {
@@ -20,15 +21,7 @@ interface LocalPublisherData {
   baptism_date?: string;
 }
 
-const INCLUDED_TYPES = new Set([
-  "inactive",
-  "regular_pioneer",
-  "special_pioneer",
-  "publisher",
-  "continuous_auxiliary",
-]);
-
-const PIONEER_TYPES = new Set(["regular_pioneer", "special_pioneer"]);
+const INCLUDED_TYPES = new Set([...REPORTABLE_TYPES, "inactive"]);
 
 function buildPublisherRecord(
   publisher: Publisher,
