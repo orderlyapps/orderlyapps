@@ -16,7 +16,8 @@ export function useFilteredMapLogMaps<T extends MapRow>(
   maps: T[];
   last_activity_by_map_id: Map<string, string>;
   last_checkout_by_map_id: Map<string, string>;
-  checked_out_name_by_map_id: Map<string, string>;
+  checked_out_map_ids: Set<string>;
+  last_checkout_publisher_by_map_id: Map<string, string>;
 } {
   const { data: logs_data } = useLiveQuery((q) => q.from({ l: mapLogCollection }));
   const { data: assignments_data } = useLiveQuery((q) => q.from({ a: mapTagAssignmentCollection }));
@@ -34,14 +35,9 @@ export function useFilteredMapLogMaps<T extends MapRow>(
     all_logs.filter((log) => log.checked_out_at && !log.checked_in_at).map((log) => log.map_id),
   );
 
-  const checked_out_name_by_map_id = new Map(
-    all_logs
-      .filter((log) => log.checked_out_at && !log.checked_in_at)
-      .map((log) => [log.map_id, publisher_name_by_id.get(log.publisher_id) ?? ""]),
-  );
-
   const last_activity_by_map_id = new Map<string, string>();
   const last_checkout_by_map_id = new Map<string, string>();
+  const last_checkout_publisher_by_map_id = new Map<string, string>();
   for (const log of all_logs) {
     const map_id = log.map_id;
     const activity = log.checked_in_at ?? log.checked_out_at ?? "";
@@ -53,6 +49,10 @@ export function useFilteredMapLogMaps<T extends MapRow>(
     const current_checkout = last_checkout_by_map_id.get(map_id) ?? "";
     if (checked_out > current_checkout) {
       last_checkout_by_map_id.set(map_id, checked_out);
+      last_checkout_publisher_by_map_id.set(
+        map_id,
+        publisher_name_by_id.get(log.publisher_id) ?? "",
+      );
     }
   }
 
@@ -107,6 +107,7 @@ export function useFilteredMapLogMaps<T extends MapRow>(
     maps: sorted,
     last_activity_by_map_id,
     last_checkout_by_map_id,
-    checked_out_name_by_map_id,
+    checked_out_map_ids,
+    last_checkout_publisher_by_map_id,
   };
 }

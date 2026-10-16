@@ -24,7 +24,8 @@ type MapListModalContentProps = {
   search_filtered_maps: MapRow[];
   active_preset_name: string;
   master?: MapMaster;
-  checked_out_name_by_map_id: Map<string, string>;
+  checked_out_map_ids: Set<string>;
+  last_checkout_publisher_by_map_id: Map<string, string>;
   on_select_map: (map: MapRow) => void;
   on_select_master: (master: MapMaster) => void;
 };
@@ -36,7 +37,8 @@ export function MapListModalContent({
   search_filtered_maps,
   active_preset_name,
   master,
-  checked_out_name_by_map_id,
+  checked_out_map_ids,
+  last_checkout_publisher_by_map_id,
   on_select_map,
   on_select_master,
 }: MapListModalContentProps) {
@@ -56,14 +58,16 @@ export function MapListModalContent({
             </IonItem>
 
             {recent_maps.map((map) => {
-              const checked_out_name = checked_out_name_by_map_id.get(map.id ?? "") ?? "";
+              const is_checked_out = checked_out_map_ids.has(map.id ?? "");
+              const publisher_name = last_checkout_publisher_by_map_id.get(map.id ?? "") ?? "";
               return (
                 <LabelValueItem
                   key={`recent-${map.id}`}
                   label={map.name}
-                  label_color={checked_out_name ? "success" : undefined}
+                  label_color={is_checked_out ? "success" : undefined}
                   value={map.details ?? undefined}
-                  value_2={checked_out_name || undefined}
+                  value_2={publisher_name || undefined}
+                  value_2_color={is_checked_out ? undefined : "medium"}
                   on_click={() => on_select_map(map)}
                   end_detail={
                     map.id ? (
@@ -104,14 +108,16 @@ export function MapListModalContent({
         {master && <LabelValueItem label="Master Map" on_click={() => on_select_master(master)} />}
 
         {search_filtered_maps.map((map) => {
-          const checked_out_name = checked_out_name_by_map_id.get(map.id ?? "") ?? "";
+          const is_checked_out = checked_out_map_ids.has(map.id ?? "");
+          const publisher_name = last_checkout_publisher_by_map_id.get(map.id ?? "") ?? "";
           return (
             <LabelValueItem
               key={map.id ?? map.name}
               label={map.name}
-              label_color={checked_out_name ? "success" : undefined}
+              label_color={is_checked_out ? "success" : undefined}
               value={map.details ?? undefined}
-              value_2={checked_out_name || undefined}
+              value_2={publisher_name || undefined}
+              value_2_color={is_checked_out ? undefined : "medium"}
               on_click={() => on_select_map(map)}
               end_detail={
                 map.id ? (

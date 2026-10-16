@@ -3,7 +3,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
-import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
+import { LabelValueItem } from "@amodeo/proclaimer/ui/components/display/data/label-value/LabelValueItem";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { MapLogSettingsAccordion } from "./components/map-log-settings-accordion/MapLogSettingsAccordion.tsx";
 import { useMapLogSettings } from "./components/use-map-log-settings/useMapLogSettings.ts";
@@ -22,7 +22,12 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
   const congregation_maps = all_maps.filter((m) => m.congregation_id === congregation_id);
 
   const { settings, setSettings } = useMapLogSettings();
-  const { maps: filtered_maps, last_checkout_by_map_id } = useFilteredMapLogMaps(
+  const {
+    maps: filtered_maps,
+    last_checkout_by_map_id,
+    checked_out_map_ids,
+    last_checkout_publisher_by_map_id,
+  } = useFilteredMapLogMaps(
     congregation_maps,
     {
       checkout_filter: settings.checkout_filter,
@@ -36,7 +41,12 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
   const search_filtered_maps = search_term.trim()
     ? filtered_maps.filter((map) => {
         const q = search_term.toLowerCase();
-        return map.name.toLowerCase().includes(q) || (map.details ?? "").toLowerCase().includes(q);
+        const publisher_name = last_checkout_publisher_by_map_id.get(map.id ?? "") ?? "";
+        return (
+          map.name.toLowerCase().includes(q) ||
+          (map.details ?? "").toLowerCase().includes(q) ||
+          publisher_name.toLowerCase().includes(q)
+        );
       })
     : filtered_maps;
 
@@ -74,18 +84,29 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
             </IonLabel>
           </IonItem>
         )}
-        {search_filtered_maps.map((map) => (
-          <NavItem
-            key={map.id}
-            to={`/home/service-overseer/map-log/${map.id}`}
-            label={map.name}
-            stat={
-              settings.sort_order === "checked_out" || settings.checkout_filter !== "any"
-                ? weeksSinceCheckout(map.id)
-                : undefined
-            }
-          />
-        ))}
+        {search_filtered_maps.map((map) => {
+          const is_checked_out = checked_out_map_ids.has(map.id ?? "");
+          const publisher_name = last_checkout_publisher_by_map_id.get(map.id ?? "") ?? "";
+          const weeks_since_checkout =
+            settings.sort_order === "checked_out" || settings.checkout_filter !== "any"
+              ? weeksSinceCheckout(map.id)
+              : undefined;
+          return (
+            <LabelValueItem
+              key={map.id}
+              label={map.name}
+              label_color={is_checked_out ? "success" : undefined}
+              value={map.details ?? undefined}
+              value_2={publisher_name || undefined}
+              value_2_color={is_checked_out ? undefined : "medium"}
+              router_link={`/home/service-overseer/map-log/${map.id}`}
+              detail
+              end_detail={
+                weeks_since_checkout ? <Body size="sm">{weeks_since_checkout}</Body> : undefined
+              }
+            />
+          );
+        })}
       </IonList>
     </>
   );

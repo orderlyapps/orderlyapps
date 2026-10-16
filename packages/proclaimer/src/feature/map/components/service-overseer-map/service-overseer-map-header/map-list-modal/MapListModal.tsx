@@ -43,7 +43,11 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
   const congregation_id = congregation?.id;
 
   const congregation_maps = maps?.filter((map) => map.congregation_id === congregation_id) ?? [];
-  const { maps: filtered_maps, checked_out_name_by_map_id } = useFilteredMapLogMaps(
+  const {
+    maps: filtered_maps,
+    checked_out_map_ids,
+    last_checkout_publisher_by_map_id,
+  } = useFilteredMapLogMaps(
     congregation_maps,
     presets_api.active_preset.filter,
     presets_api.active_preset.sort_order,
@@ -53,11 +57,11 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
   const search_filtered_maps = search_query.trim()
     ? filtered_maps.filter((map) => {
         const q = search_query.toLowerCase();
-        const checked_out_name = checked_out_name_by_map_id.get(map.id ?? "") ?? "";
+        const publisher_name = last_checkout_publisher_by_map_id.get(map.id ?? "") ?? "";
         return (
           map.name.toLowerCase().includes(q) ||
           (map.details ?? "").toLowerCase().includes(q) ||
-          checked_out_name.toLowerCase().includes(q)
+          publisher_name.toLowerCase().includes(q)
         );
       })
     : filtered_maps;
@@ -111,7 +115,8 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
         search_filtered_maps={search_filtered_maps}
         active_preset_name={presets_api.active_preset.name}
         master={master}
-        checked_out_name_by_map_id={checked_out_name_by_map_id}
+        checked_out_map_ids={checked_out_map_ids}
+        last_checkout_publisher_by_map_id={last_checkout_publisher_by_map_id}
         on_select_map={handleSelectMap}
         on_select_master={handleSelectMaster}
       />
