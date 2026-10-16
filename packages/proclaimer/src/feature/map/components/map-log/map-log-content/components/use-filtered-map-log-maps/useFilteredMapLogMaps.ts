@@ -15,7 +15,7 @@ export function useFilteredMapLogMaps<T extends MapRow>(
 ): {
   maps: T[];
   last_activity_by_map_id: Map<string, string>;
-  last_checkout_by_map_id: Map<string, string>;
+  status_date_by_map_id: Map<string, string>;
   checked_out_map_ids: Set<string>;
   last_checkout_publisher_by_map_id: Map<string, string>;
 } {
@@ -37,6 +37,7 @@ export function useFilteredMapLogMaps<T extends MapRow>(
 
   const last_activity_by_map_id = new Map<string, string>();
   const last_checkout_by_map_id = new Map<string, string>();
+  const last_checkin_by_map_id = new Map<string, string>();
   const last_checkout_publisher_by_map_id = new Map<string, string>();
   for (const log of all_logs) {
     const map_id = log.map_id;
@@ -54,7 +55,16 @@ export function useFilteredMapLogMaps<T extends MapRow>(
         publisher_name_by_id.get(log.publisher_id) ?? "",
       );
     }
+    const checked_in = log.checked_in_at ?? "";
+    if (checked_in > (last_checkin_by_map_id.get(map_id) ?? "")) {
+      last_checkin_by_map_id.set(map_id, checked_in);
+    }
   }
+
+  const status_date_by_map_id =
+    filters.checkout_filter === "hide_checked_out"
+      ? last_checkin_by_map_id
+      : last_checkout_by_map_id;
 
   const tag_map_ids = new Set(
     all_assignments.filter((a) => filters.tag_ids.includes(a.tag_id)).map((a) => a.map_id),
@@ -85,12 +95,12 @@ export function useFilteredMapLogMaps<T extends MapRow>(
       return a.name.localeCompare(b.name);
     }
     if (sort_order === "checked_out") {
-      const a_checkout = last_checkout_by_map_id.get(a.id ?? "") ?? "";
-      const b_checkout = last_checkout_by_map_id.get(b.id ?? "") ?? "";
-      if (!a_checkout && !b_checkout) return a.name.localeCompare(b.name);
-      if (!a_checkout) return -1;
-      if (!b_checkout) return 1;
-      return a_checkout.localeCompare(b_checkout) || a.name.localeCompare(b.name);
+      const a_date = status_date_by_map_id.get(a.id ?? "") ?? "";
+      const b_date = status_date_by_map_id.get(b.id ?? "") ?? "";
+      if (!a_date && !b_date) return a.name.localeCompare(b.name);
+      if (!a_date) return -1;
+      if (!b_date) return 1;
+      return a_date.localeCompare(b_date) || a.name.localeCompare(b.name);
     }
     const a_activity = last_activity_by_map_id.get(a.id ?? "") ?? "";
     const b_activity = last_activity_by_map_id.get(b.id ?? "") ?? "";
@@ -106,7 +116,7 @@ export function useFilteredMapLogMaps<T extends MapRow>(
   return {
     maps: sorted,
     last_activity_by_map_id,
-    last_checkout_by_map_id,
+    status_date_by_map_id,
     checked_out_map_ids,
     last_checkout_publisher_by_map_id,
   };

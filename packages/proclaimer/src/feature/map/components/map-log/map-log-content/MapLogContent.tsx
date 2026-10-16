@@ -25,7 +25,7 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
   const { settings, setSettings } = useMapLogSettings();
   const {
     maps: filtered_maps,
-    last_checkout_by_map_id,
+    status_date_by_map_id,
     checked_out_map_ids,
     last_checkout_publisher_by_map_id,
   } = useFilteredMapLogMaps(
@@ -51,10 +51,10 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
       })
     : filtered_maps;
 
-  function weeksSinceCheckout(map_id: string | undefined): string | undefined {
+  function weeksSinceStatusDate(map_id: string | undefined): string | undefined {
     if (!map_id) return undefined;
-    const checked_out = last_checkout_by_map_id.get(map_id);
-    return checked_out ? formatWeeksSince(checked_out) : undefined;
+    const status_date = status_date_by_map_id.get(map_id);
+    return status_date ? formatWeeksSince(status_date) : undefined;
   }
 
   return (
@@ -78,9 +78,9 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
         {search_filtered_maps.map((map) => {
           const is_checked_out = checked_out_map_ids.has(map.id ?? "");
           const publisher_name = last_checkout_publisher_by_map_id.get(map.id ?? "") ?? "";
-          const weeks_since_checkout =
+          const weeks_since_status =
             settings.sort_order === "checked_out" || settings.checkout_filter !== "any"
-              ? weeksSinceCheckout(map.id)
+              ? weeksSinceStatusDate(map.id)
               : undefined;
           return (
             <LabelValueItem
@@ -93,7 +93,7 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
               router_link={`/home/service-overseer/map-log/${map.id}`}
               detail
               end_detail={
-                weeks_since_checkout ? <Body size="sm">{weeks_since_checkout}</Body> : undefined
+                weeks_since_status ? <Body size="sm">{weeks_since_status}</Body> : undefined
               }
             />
           );

@@ -15,9 +15,14 @@ import type {
 } from "../use-map-log-settings/useMapLogSettings.ts";
 import type { CheckoutFilter } from "../types.ts";
 
-const sortOptions: { label: string; value: MapLogListSortOrder }[] = [
+const sortOptions = (
+  checkout_filter: CheckoutFilter,
+): { label: string; value: MapLogListSortOrder }[] => [
   { label: "Alphabetical", value: "alphabetical" },
-  { label: "Checked Out Date", value: "checked_out" },
+  {
+    label: checkout_filter === "hide_checked_out" ? "Checked In Date" : "Checked Out Date",
+    value: "checked_out",
+  },
 ];
 
 const checkoutOptions = (Object.keys(checkoutFilterLabels) as CheckoutFilter[]).map((o) => ({
@@ -66,9 +71,10 @@ export function MapLogSettingsAccordion({
             interface_type="popover"
           />
           <Select
+            key={`sort-${settings.checkout_filter}`}
             label="Sort"
             value={settings.sort_order}
-            options={sortOptions}
+            options={sortOptions(settings.checkout_filter)}
             on_change={(v) => on_change({ ...settings, sort_order: v as MapLogListSortOrder })}
             interface_type="popover"
           />

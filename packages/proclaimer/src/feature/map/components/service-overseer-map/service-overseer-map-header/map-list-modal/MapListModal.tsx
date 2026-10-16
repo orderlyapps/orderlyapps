@@ -43,7 +43,7 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
   const congregation_maps = maps?.filter((map) => map.congregation_id === congregation_id) ?? [];
   const {
     maps: filtered_maps,
-    last_activity_by_map_id,
+    status_date_by_map_id,
     checked_out_map_ids,
     last_checkout_publisher_by_map_id,
   } = useFilteredMapLogMaps(
@@ -118,7 +118,7 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
         on_settings_change={setSettings}
         master={master}
         checked_out_map_ids={checked_out_map_ids}
-        last_activity_by_map_id={last_activity_by_map_id}
+        status_date_by_map_id={status_date_by_map_id}
         last_checkout_publisher_by_map_id={last_checkout_publisher_by_map_id}
         on_select_map={handleSelectMap}
         on_select_master={handleSelectMaster}

@@ -21,7 +21,7 @@ type MapListModalContentProps = {
   on_settings_change: (settings: MapLogListSettings) => void;
   master?: MapMaster;
   checked_out_map_ids: Set<string>;
-  last_activity_by_map_id: Map<string, string>;
+  status_date_by_map_id: Map<string, string>;
   last_checkout_publisher_by_map_id: Map<string, string>;
   on_select_map: (map: MapRow) => void;
   on_select_master: (master: MapMaster) => void;
@@ -36,7 +36,7 @@ export function MapListModalContent({
   on_settings_change,
   master,
   checked_out_map_ids,
-  last_activity_by_map_id,
+  status_date_by_map_id,
   last_checkout_publisher_by_map_id,
   on_select_map,
   on_select_master,
@@ -67,7 +67,7 @@ export function MapListModalContent({
                 map={map}
                 is_checked_out={checked_out_map_ids.has(map.id ?? "")}
                 publisher_name={last_checkout_publisher_by_map_id.get(map.id ?? "")}
-                last_activity={last_activity_by_map_id.get(map.id ?? "")}
+                status_date={status_date_by_map_id.get(map.id ?? "")}
                 on_select={on_select_map}
                 on_show_log={set_log_map_id}
               />
@@ -98,7 +98,7 @@ export function MapListModalContent({
             map={map}
             is_checked_out={checked_out_map_ids.has(map.id ?? "")}
             publisher_name={last_checkout_publisher_by_map_id.get(map.id ?? "")}
-            last_activity={last_activity_by_map_id.get(map.id ?? "")}
+            status_date={status_date_by_map_id.get(map.id ?? "")}
             on_select={on_select_map}
             on_show_log={set_log_map_id}
           />

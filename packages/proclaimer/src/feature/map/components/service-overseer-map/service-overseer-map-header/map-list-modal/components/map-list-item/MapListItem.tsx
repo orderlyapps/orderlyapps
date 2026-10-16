@@ -9,7 +9,7 @@ type MapListItemProps = {
   map: MapRow;
   is_checked_out: boolean;
   publisher_name?: string;
-  last_activity?: string;
+  status_date?: string;
   on_select: (map: MapRow) => void;
   on_show_log: (map_id: string) => void;
 };
@@ -18,11 +18,11 @@ export function MapListItem({
   map,
   is_checked_out,
   publisher_name,
-  last_activity,
+  status_date,
   on_select,
   on_show_log,
 }: MapListItemProps) {
-  const weeks_since_activity = last_activity ? formatWeeksSince(last_activity) : undefined;
+  const weeks_since = status_date ? formatWeeksSince(status_date) : undefined;
   return (
     <LabelValueItem
       label={map.name}
@@ -33,7 +33,7 @@ export function MapListItem({
       on_click={() => on_select(map)}
       end_detail={
         <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-          {weeks_since_activity && <Body size="sm">{weeks_since_activity}</Body>}
+          {weeks_since && <Body size="sm">{weeks_since}</Body>}
           {map.id && (
             <IonButtons>
               <IonButton
