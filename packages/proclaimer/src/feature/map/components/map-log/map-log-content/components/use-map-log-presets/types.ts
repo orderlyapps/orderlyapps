@@ -6,12 +6,17 @@ export const checkoutFilterLabels: Record<CheckoutFilter, string> = {
   hide_checked_out: "Checked In",
 };
 
-export type MapLogSortOrder = "alphabetical" | "recent_activity" | "oldest_activity";
+export type MapLogSortOrder =
+  | "alphabetical"
+  | "recent_activity"
+  | "oldest_activity"
+  | "checked_out";
 
 export const sortOrderLabels: Record<MapLogSortOrder, string> = {
   alphabetical: "Alphabetical",
   recent_activity: "Recent Activity",
   oldest_activity: "Oldest Activity",
+  checked_out: "Checked Out Date",
 };
 
 export type MapLogFilters = {

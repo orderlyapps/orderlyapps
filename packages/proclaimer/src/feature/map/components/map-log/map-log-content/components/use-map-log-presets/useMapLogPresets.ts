@@ -37,6 +37,7 @@ const VALID_SORT_ORDERS = new Set<MapLogSortOrder>([
   "alphabetical",
   "recent_activity",
   "oldest_activity",
+  "checked_out",
 ]);
 
 function isPreset(value: unknown): value is MapLogFilterSortPreset {

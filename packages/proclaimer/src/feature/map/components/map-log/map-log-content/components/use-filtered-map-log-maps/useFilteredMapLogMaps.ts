@@ -15,6 +15,7 @@ export function useFilteredMapLogMaps<T extends MapRow>(
 ): {
   maps: T[];
   last_activity_by_map_id: Map<string, string>;
+  last_checkout_by_map_id: Map<string, string>;
   checked_out_name_by_map_id: Map<string, string>;
 } {
   const { data: logs_data } = useLiveQuery((q) => q.from({ l: mapLogCollection }));
@@ -40,12 +41,18 @@ export function useFilteredMapLogMaps<T extends MapRow>(
   );
 
   const last_activity_by_map_id = new Map<string, string>();
+  const last_checkout_by_map_id = new Map<string, string>();
   for (const log of all_logs) {
     const map_id = log.map_id;
     const activity = log.checked_in_at ?? log.checked_out_at ?? "";
     const current = last_activity_by_map_id.get(map_id) ?? "";
     if (activity > current) {
       last_activity_by_map_id.set(map_id, activity);
+    }
+    const checked_out = log.checked_out_at ?? "";
+    const current_checkout = last_checkout_by_map_id.get(map_id) ?? "";
+    if (checked_out > current_checkout) {
+      last_checkout_by_map_id.set(map_id, checked_out);
     }
   }
 
@@ -77,6 +84,14 @@ export function useFilteredMapLogMaps<T extends MapRow>(
     if (sort_order === "alphabetical") {
       return a.name.localeCompare(b.name);
     }
+    if (sort_order === "checked_out") {
+      const a_checkout = last_checkout_by_map_id.get(a.id ?? "") ?? "";
+      const b_checkout = last_checkout_by_map_id.get(b.id ?? "") ?? "";
+      if (!a_checkout && !b_checkout) return a.name.localeCompare(b.name);
+      if (!a_checkout) return -1;
+      if (!b_checkout) return 1;
+      return a_checkout.localeCompare(b_checkout) || a.name.localeCompare(b.name);
+    }
     const a_activity = last_activity_by_map_id.get(a.id ?? "") ?? "";
     const b_activity = last_activity_by_map_id.get(b.id ?? "") ?? "";
     if (sort_order === "recent_activity") {
@@ -88,5 +103,10 @@ export function useFilteredMapLogMaps<T extends MapRow>(
     return a_activity.localeCompare(b_activity) || a.name.localeCompare(b.name);
   });
 
-  return { maps: sorted, last_activity_by_map_id, checked_out_name_by_map_id };
+  return {
+    maps: sorted,
+    last_activity_by_map_id,
+    last_checkout_by_map_id,
+    checked_out_name_by_map_id,
+  };
 }

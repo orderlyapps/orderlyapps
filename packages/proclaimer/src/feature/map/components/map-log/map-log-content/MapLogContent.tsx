@@ -5,8 +5,8 @@ import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import { NavItem } from "@amodeo/proclaimer/ui/components/navigation/nav-item/NavItem";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
-import { MapLogFilterButton } from "./components/map-log-filter-button/MapLogFilterButton.tsx";
-import { useMapLogPresets } from "./components/use-map-log-presets/useMapLogPresets.ts";
+import { MapLogSettingsAccordion } from "./components/map-log-settings-accordion/MapLogSettingsAccordion.tsx";
+import { useMapLogSettings } from "./components/use-map-log-settings/useMapLogSettings.ts";
 import { useFilteredMapLogMaps } from "./components/use-filtered-map-log-maps/useFilteredMapLogMaps.ts";
 
 interface MapLogContentProps {
@@ -21,11 +21,16 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
   const all_maps = (maps_data as MapRow[] | undefined) ?? [];
   const congregation_maps = all_maps.filter((m) => m.congregation_id === congregation_id);
 
-  const presets_api = useMapLogPresets();
-  const { maps: filtered_maps, last_activity_by_map_id } = useFilteredMapLogMaps(
+  const { settings, setSettings } = useMapLogSettings();
+  const { maps: filtered_maps, last_checkout_by_map_id } = useFilteredMapLogMaps(
     congregation_maps,
-    presets_api.active_preset.filter,
-    presets_api.active_preset.sort_order,
+    {
+      checkout_filter: settings.checkout_filter,
+      untagged_only: false,
+      tag_ids: settings.tag_ids,
+      min_weeks_since_activity: null,
+    },
+    settings.sort_order,
   );
 
   const search_filtered_maps = search_term.trim()
@@ -35,11 +40,11 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
       })
     : filtered_maps;
 
-  function weeksSinceActivity(map_id: string | undefined): string | undefined {
+  function weeksSinceCheckout(map_id: string | undefined): string | undefined {
     if (!map_id) return undefined;
-    const activity = last_activity_by_map_id.get(map_id);
-    if (!activity) return undefined;
-    const diff_ms = Date.now() - new Date(activity).getTime();
+    const checked_out = last_checkout_by_map_id.get(map_id);
+    if (!checked_out) return undefined;
+    const diff_ms = Date.now() - new Date(checked_out).getTime();
     const weeks = Math.floor(diff_ms / (1000 * 60 * 60 * 24 * 7));
     if (weeks <= 0) return "This week";
     if (weeks === 1) return "Last week";
@@ -53,16 +58,7 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
 
   return (
     <>
-      <MapLogFilterButton
-        presets={presets_api.presets}
-        active_preset={presets_api.active_preset}
-        is_default_active={presets_api.is_default_active}
-        on_select_preset={presets_api.selectPreset}
-        on_create_preset={presets_api.createPreset}
-        on_rename_preset={presets_api.renamePreset}
-        on_delete_preset={presets_api.deletePreset}
-        on_change={presets_api.updatePreset}
-      />
+      <MapLogSettingsAccordion settings={settings} on_change={setSettings} />
       <IonItem className="ion-text-center" lines="none">
         <IonLabel>
           <Body size="sm" color="medium" style={{ padding: "0 16px 4px" }}>
@@ -84,8 +80,8 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
             to={`/home/service-overseer/map-log/${map.id}`}
             label={map.name}
             stat={
-              presets_api.active_preset.filter.checkout_filter !== "any"
-                ? weeksSinceActivity(map.id)
+              settings.sort_order === "checked_out" || settings.checkout_filter !== "any"
+                ? weeksSinceCheckout(map.id)
                 : undefined
             }
           />

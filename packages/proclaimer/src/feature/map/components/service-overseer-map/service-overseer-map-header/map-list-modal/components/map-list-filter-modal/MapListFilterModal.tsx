@@ -10,7 +10,7 @@ import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapTagRow } from "@amodeo/proclaimer/feature/territory";
 import { PresetManager } from "@amodeo/proclaimer/ui/components/preset-manager/PresetManager";
 import { DEFAULT_PRESET_IDS } from "../../../../../map-log/map-log-content/components/use-map-log-presets/defaultMapLogPresets.ts";
-import { getMapLogFilterInputItems } from "../../../../../map-log/map-log-content/components/map-log-filter-modal/components/filter-section/MapLogFilterSection.tsx";
+import { getMapLogFilterInputItems } from "../../../../../map-log/map-log-content/components/filter-section/MapLogFilterSection.tsx";
 import { sortOrderLabels } from "../../../../../map-log/map-log-content/components/use-map-log-presets/types.ts";
 import type {
   MapLogFilterSortPreset,

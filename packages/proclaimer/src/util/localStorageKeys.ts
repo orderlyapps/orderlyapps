@@ -21,6 +21,8 @@ export const localStorageKeys = {
   recentMapPublishers: "recent_map_publishers",
   mapLogFilterSortPresets: "map_log_filter_sort_presets",
   mapLogFilterSortActivePreset: "map_log_filter_sort_active_preset",
+  mapLogListSettings: "map_log_list_settings",
+  mapLogListAccordion: "map_log_list_accordion",
   ministryMapFilterSortPresets: "ministry_map_filter_sort_presets",
   ministryMapFilterSortActivePreset: "ministry_map_filter_sort_active_preset",
   soMapListFilterSortPresets: "so_map_list_filter_sort_presets",

@@ -3,8 +3,8 @@ import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { NumberInput } from "@amodeo/proclaimer/ui/components/inputs/number/NumberInput";
 import { ToggleInput } from "@amodeo/proclaimer/ui/components/inputs/toggle/ToggleInput";
 import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
-import { checkoutFilterLabels } from "../../../use-map-log-presets/types.ts";
-import type { MapLogFilters, CheckoutFilter } from "../../../use-map-log-presets/types.ts";
+import { checkoutFilterLabels } from "../use-map-log-presets/types.ts";
+import type { MapLogFilters, CheckoutFilter } from "../use-map-log-presets/types.ts";
 
 export interface MapLogFilterInputItem {
   id: string;
