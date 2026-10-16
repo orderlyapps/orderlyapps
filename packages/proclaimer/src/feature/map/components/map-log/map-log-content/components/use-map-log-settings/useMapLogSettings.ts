@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
-import type { CheckoutFilter } from "../use-map-log-presets/types.ts";
+import type { CheckoutFilter } from "../types.ts";
 
 export type MapLogListSortOrder = "alphabetical" | "checked_out";
 
@@ -12,6 +12,8 @@ export interface MapLogListSettings {
 
 const sortOrderValues: MapLogListSortOrder[] = ["alphabetical", "checked_out"];
 const checkoutFilterValues: CheckoutFilter[] = ["any", "checked_out_only", "hide_checked_out"];
+
+const SETTINGS_EVENT = "map-log-list-settings-changed";
 
 const DEFAULT_SETTINGS: MapLogListSettings = {
   checkout_filter: "any",
@@ -50,8 +52,20 @@ export function useMapLogSettings(
     readStoredSettings(storage_key),
   );
 
+  useEffect(() => {
+    function handleSettingsChange(e: Event) {
+      const detail = (e as CustomEvent).detail;
+      if (detail?.storage_key === storage_key) {
+        set_settings(readStoredSettings(storage_key));
+      }
+    }
+    window.addEventListener(SETTINGS_EVENT, handleSettingsChange);
+    return () => window.removeEventListener(SETTINGS_EVENT, handleSettingsChange);
+  }, [storage_key]);
+
   function setSettings(next: MapLogListSettings) {
     localStorage.setItem(storage_key, JSON.stringify(next));
+    window.dispatchEvent(new CustomEvent(SETTINGS_EVENT, { detail: { storage_key } }));
     set_settings(next);
   }
 

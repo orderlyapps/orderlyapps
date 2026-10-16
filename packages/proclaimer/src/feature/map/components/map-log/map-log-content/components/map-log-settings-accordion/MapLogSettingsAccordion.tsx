@@ -8,12 +8,12 @@ import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-s
 import { mapTagCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapTagRow } from "@amodeo/proclaimer/feature/territory";
-import { checkoutFilterLabels } from "../use-map-log-presets/types.ts";
+import { checkoutFilterLabels } from "../types.ts";
 import type {
   MapLogListSettings,
   MapLogListSortOrder,
 } from "../use-map-log-settings/useMapLogSettings.ts";
-import type { CheckoutFilter } from "../use-map-log-presets/types.ts";
+import type { CheckoutFilter } from "../types.ts";
 
 const sortOptions: { label: string; value: MapLogListSortOrder }[] = [
   { label: "Alphabetical", value: "alphabetical" },
@@ -28,11 +28,16 @@ const checkoutOptions = (Object.keys(checkoutFilterLabels) as CheckoutFilter[]).
 interface MapLogSettingsAccordionProps {
   settings: MapLogListSettings;
   on_change: (settings: MapLogListSettings) => void;
+  variant?: string;
 }
 
-export function MapLogSettingsAccordion({ settings, on_change }: MapLogSettingsAccordionProps) {
+export function MapLogSettingsAccordion({
+  settings,
+  on_change,
+  variant = "map_log",
+}: MapLogSettingsAccordionProps) {
   const { value, onIonChange } = useAccordionState(
-    localStorageKeyWithVariant("mapLogListAccordion", "map_log"),
+    localStorageKeyWithVariant("mapLogListAccordion", variant),
     undefined,
   );
   const { data: tags_data } = useLiveQuery((q) =>

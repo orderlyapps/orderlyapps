@@ -6,7 +6,7 @@ import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapTagAssignmentRow } from "@amodeo/proclaimer/feature/territory";
-import type { MapLogFilters, MapLogSortOrder } from "../use-map-log-presets/types.ts";
+import type { MapLogFilters, MapLogSortOrder } from "../types.ts";
 
 export function useFilteredMapLogMaps<T extends MapRow>(
   maps: T[],

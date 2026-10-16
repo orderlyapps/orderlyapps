@@ -12,23 +12,9 @@ export type MapLogSortOrder =
   | "oldest_activity"
   | "checked_out";
 
-export const sortOrderLabels: Record<MapLogSortOrder, string> = {
-  alphabetical: "Alphabetical",
-  recent_activity: "Recent Activity",
-  oldest_activity: "Oldest Activity",
-  checked_out: "Checked Out Date",
-};
-
 export type MapLogFilters = {
   checkout_filter: CheckoutFilter;
   untagged_only: boolean;
   tag_ids: string[];
   min_weeks_since_activity: number | null;
 };
-
-export interface MapLogFilterSortPreset {
-  id: string;
-  name: string;
-  filter: MapLogFilters;
-  sort_order: MapLogSortOrder;
-}

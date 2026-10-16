@@ -8,6 +8,7 @@ import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { MapLogSettingsAccordion } from "./components/map-log-settings-accordion/MapLogSettingsAccordion.tsx";
 import { useMapLogSettings } from "./components/use-map-log-settings/useMapLogSettings.ts";
 import { useFilteredMapLogMaps } from "./components/use-filtered-map-log-maps/useFilteredMapLogMaps.ts";
+import { formatWeeksSince } from "@amodeo/proclaimer/util/date/formatWeeksSince";
 
 interface MapLogContentProps {
   search_term?: string;
@@ -53,17 +54,7 @@ export function MapLogContent({ search_term = "" }: MapLogContentProps) {
   function weeksSinceCheckout(map_id: string | undefined): string | undefined {
     if (!map_id) return undefined;
     const checked_out = last_checkout_by_map_id.get(map_id);
-    if (!checked_out) return undefined;
-    const diff_ms = Date.now() - new Date(checked_out).getTime();
-    const weeks = Math.floor(diff_ms / (1000 * 60 * 60 * 24 * 7));
-    if (weeks <= 0) return "This week";
-    if (weeks === 1) return "Last week";
-    if (weeks > 26) {
-      const months = Math.floor(weeks / 4.345);
-      if (months === 1) return "1 mo";
-      return `${months}mo`;
-    }
-    return `${weeks}w`;
+    return checked_out ? formatWeeksSince(checked_out) : undefined;
   }
 
   return (

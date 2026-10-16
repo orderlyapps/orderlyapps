@@ -4,10 +4,9 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { mapMasterCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
-import { useMapLogPresets } from "../../../map-log/map-log-content/components/use-map-log-presets/useMapLogPresets.ts";
+import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
+import { useMapLogSettings } from "../../../map-log/map-log-content/components/use-map-log-settings/useMapLogSettings.ts";
 import { useFilteredMapLogMaps } from "../../../map-log/map-log-content/components/use-filtered-map-log-maps/useFilteredMapLogMaps.ts";
-import { MapListFilterModal } from "./components/map-list-filter-modal/MapListFilterModal.tsx";
 import { MapListModalHeader } from "./components/map-list-modal-header/MapListModalHeader.tsx";
 import { MapListModalContent } from "./components/map-list-modal-content/MapListModalContent.tsx";
 import { MapListModalAlerts } from "./components/map-list-modal-alerts/MapListModalAlerts.tsx";
@@ -15,6 +14,7 @@ import { boundaryToBounds } from "../../utils/boundary.ts";
 import { getRecentMapIds, recordRecentMap } from "../../utils/useRecentMaps.ts";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapMaster } from "@amodeo/proclaimer/feature/territory";
+import { SO_MAP_LIST_SETTINGS_VARIANT } from "../../utils/types.ts";
 import type { SelectedMap } from "../../utils/types.ts";
 
 type MapListModalProps = {
@@ -29,10 +29,8 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
   const [show_add_action_sheet, set_show_add_action_sheet] = useState(false);
   const [show_error_alert, set_show_error_alert] = useState(false);
   const [search_query, set_search_query] = useState("");
-  const [show_filters, set_show_filters] = useState(false);
-  const presets_api = useMapLogPresets(
-    localStorageKeys.soMapListFilterSortPresets,
-    localStorageKeys.soMapListFilterSortActivePreset,
+  const { settings, setSettings } = useMapLogSettings(
+    localStorageKeyWithVariant("mapLogListSettings", SO_MAP_LIST_SETTINGS_VARIANT),
   );
 
   const { data: maps } = useLiveQuery((q) =>
@@ -45,14 +43,19 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
   const congregation_maps = maps?.filter((map) => map.congregation_id === congregation_id) ?? [];
   const {
     maps: filtered_maps,
+    last_activity_by_map_id,
     checked_out_map_ids,
     last_checkout_publisher_by_map_id,
   } = useFilteredMapLogMaps(
     congregation_maps,
-    presets_api.active_preset.filter,
-    presets_api.active_preset.sort_order,
+    {
+      checkout_filter: settings.checkout_filter,
+      untagged_only: false,
+      tag_ids: settings.tag_ids,
+      min_weeks_since_activity: null,
+    },
+    settings.sort_order,
   );
-  const has_active_filters = presets_api.has_active_filters;
 
   const search_filtered_maps = search_query.trim()
     ? filtered_maps.filter((map) => {
@@ -103,9 +106,7 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
       <MapListModalHeader
         search_query={search_query}
         on_search_change={set_search_query}
-        has_active_filters={has_active_filters}
         on_close={onDidDismiss}
-        on_show_filters={() => set_show_filters(true)}
         on_add={() => set_show_add_action_sheet(true)}
       />
       <MapListModalContent
@@ -113,24 +114,14 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
         recent_maps={recent_maps}
         congregation_maps={congregation_maps}
         search_filtered_maps={search_filtered_maps}
-        active_preset_name={presets_api.active_preset.name}
+        settings={settings}
+        on_settings_change={setSettings}
         master={master}
         checked_out_map_ids={checked_out_map_ids}
+        last_activity_by_map_id={last_activity_by_map_id}
         last_checkout_publisher_by_map_id={last_checkout_publisher_by_map_id}
         on_select_map={handleSelectMap}
         on_select_master={handleSelectMaster}
-      />
-      <MapListFilterModal
-        is_open={show_filters}
-        on_dismiss={() => set_show_filters(false)}
-        presets={presets_api.presets}
-        active_preset={presets_api.active_preset}
-        is_default_active={presets_api.is_default_active}
-        on_select_preset={presets_api.selectPreset}
-        on_create_preset={presets_api.createPreset}
-        on_rename_preset={presets_api.renamePreset}
-        on_delete_preset={presets_api.deletePreset}
-        on_change={presets_api.updatePreset}
       />
       <MapListModalAlerts
         show_add_alert={show_add_alert}
