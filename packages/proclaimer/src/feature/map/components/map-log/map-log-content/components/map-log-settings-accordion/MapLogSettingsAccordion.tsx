@@ -54,16 +54,18 @@ export function MapLogSettingsAccordion({ settings, on_change }: MapLogSettingsA
         </IonItem>
         <div slot="content" className="ion-padding-bottom">
           <Select
-            label="Checked Out"
+            label="Checked Out Status"
             value={settings.checkout_filter}
             options={checkoutOptions}
             on_change={(v) => on_change({ ...settings, checkout_filter: v as CheckoutFilter })}
+            interface_type="popover"
           />
           <Select
             label="Sort"
             value={settings.sort_order}
             options={sortOptions}
             on_change={(v) => on_change({ ...settings, sort_order: v as MapLogListSortOrder })}
+            interface_type="popover"
           />
           <AlertMultiSelect
             label="Tags"
