@@ -53,6 +53,7 @@ export function MapListModal({ isOpen, onDidDismiss, onSelect, onImportKml }: Ma
       untagged_only: false,
       tag_ids: settings.tag_ids,
       min_weeks_since_activity: null,
+      min_weeks_since_checkin: settings.min_weeks_since_checkin,
     },
     settings.sort_order,
   );

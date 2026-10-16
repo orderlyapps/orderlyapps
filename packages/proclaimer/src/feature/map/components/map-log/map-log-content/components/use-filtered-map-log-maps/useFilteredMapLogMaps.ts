@@ -87,6 +87,12 @@ export function useFilteredMapLogMaps<T extends MapRow>(
       const weeks = Math.floor((now_ms - new Date(activity).getTime()) / (1000 * 60 * 60 * 24 * 7));
       if (weeks < filters.min_weeks_since_activity) return false;
     }
+    if (filters.checkout_filter === "hide_checked_out") {
+      const checkin = last_checkin_by_map_id.get(map.id ?? "");
+      if (!checkin) return true;
+      const weeks = Math.floor((now_ms - new Date(checkin).getTime()) / (1000 * 60 * 60 * 24 * 7));
+      if (weeks < filters.min_weeks_since_checkin) return false;
+    }
     return true;
   });
 

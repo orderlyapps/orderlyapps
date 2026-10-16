@@ -17,4 +17,5 @@ export type MapLogFilters = {
   untagged_only: boolean;
   tag_ids: string[];
   min_weeks_since_activity: number | null;
+  min_weeks_since_checkin: number;
 };

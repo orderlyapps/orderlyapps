@@ -1,6 +1,7 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel } from "@ionic/react";
 import { useLiveQuery } from "@tanstack/react-db";
 import { AlertMultiSelect } from "@amodeo/proclaimer/ui/components/inputs/alert-multi-select/AlertMultiSelect";
+import { IncrementInput } from "@amodeo/proclaimer/ui/components/inputs/increment-input/IncrementInput";
 import { Select } from "@amodeo/proclaimer/ui/components/inputs/select/Select";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
@@ -70,6 +71,14 @@ export function MapLogSettingsAccordion({
             on_change={(v) => on_change({ ...settings, checkout_filter: v as CheckoutFilter })}
             interface_type="popover"
           />
+          {settings.checkout_filter === "hide_checked_out" && (
+            <IncrementInput
+              label="Min Weeks Since Checked In"
+              value={settings.min_weeks_since_checkin}
+              min={0}
+              on_change={(value) => on_change({ ...settings, min_weeks_since_checkin: value })}
+            />
+          )}
           <Select
             key={`sort-${settings.checkout_filter}`}
             label="Sort"

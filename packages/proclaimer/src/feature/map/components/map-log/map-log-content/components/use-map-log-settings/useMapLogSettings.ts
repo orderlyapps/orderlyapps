@@ -8,6 +8,7 @@ export interface MapLogListSettings {
   checkout_filter: CheckoutFilter;
   sort_order: MapLogListSortOrder;
   tag_ids: string[];
+  min_weeks_since_checkin: number;
 }
 
 const sortOrderValues: MapLogListSortOrder[] = ["alphabetical", "checked_out"];
@@ -19,6 +20,7 @@ const DEFAULT_SETTINGS: MapLogListSettings = {
   checkout_filter: "any",
   sort_order: "alphabetical",
   tag_ids: [],
+  min_weeks_since_checkin: 52,
 };
 
 function readStoredSettings(storage_key: string): MapLogListSettings {
@@ -39,6 +41,10 @@ function readStoredSettings(storage_key: string): MapLogListSettings {
         Array.isArray(p.tag_ids) && p.tag_ids.every((t) => typeof t === "string")
           ? p.tag_ids
           : DEFAULT_SETTINGS.tag_ids,
+      min_weeks_since_checkin:
+        typeof p.min_weeks_since_checkin === "number" && p.min_weeks_since_checkin >= 0
+          ? p.min_weeks_since_checkin
+          : DEFAULT_SETTINGS.min_weeks_since_checkin,
     };
   } catch {
     return DEFAULT_SETTINGS;
