@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { IonContent, IonItem, IonLabel, IonList } from "@ionic/react";
+import {
+  IonAccordion,
+  IonAccordionGroup,
+  IonContent,
+  IonItem,
+  IonLabel,
+  IonList,
+} from "@ionic/react";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { Body } from "@amodeo/proclaimer/ui/components/display/text/body/Body";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
@@ -11,6 +18,8 @@ import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapMaster } from "@amodeo/proclaimer/feature/territory";
 import { SO_MAP_LIST_SETTINGS_VARIANT } from "../../../../utils/types.ts";
 import type { MapLogListSettings } from "../../../../../map-log/map-log-content/components/use-map-log-settings/useMapLogSettings.ts";
+import { localStorageKeyWithVariant } from "@amodeo/proclaimer/util/localStorageKeys";
+import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 
 type MapListModalContentProps = {
   search_query: string;
@@ -42,6 +51,10 @@ export function MapListModalContent({
   on_select_master,
 }: MapListModalContentProps) {
   const [log_map_id, set_log_map_id] = useState<string | null>(null);
+  const { value, onIonChange } = useAccordionState(
+    localStorageKeyWithVariant("recentMapsAccordion", SO_MAP_LIST_SETTINGS_VARIANT),
+    "recent",
+  );
 
   return (
     <IonContent className="content-wide">
@@ -52,36 +65,37 @@ export function MapListModalContent({
       />
       <IonList>
         {search_query.trim() === "" && recent_maps.length > 0 && (
-          <>
-            <IonItem>
-              <IonLabel>
-                <Heading size="md" bold>
-                  Recent Maps
-                </Heading>
-              </IonLabel>
-            </IonItem>
-
-            {recent_maps.map((map) => (
-              <MapListItem
-                key={`recent-${map.id}`}
-                map={map}
-                is_checked_out={checked_out_map_ids.has(map.id ?? "")}
-                publisher_name={last_checkout_publisher_by_map_id.get(map.id ?? "")}
-                status_date={status_date_by_map_id.get(map.id ?? "")}
-                on_select={on_select_map}
-                on_show_log={set_log_map_id}
-              />
-            ))}
-          </>
+          <IonAccordionGroup value={value} onIonChange={onIonChange}>
+            <IonAccordion value="recent">
+              <IonItem slot="header">
+                <IonLabel>
+                  <Heading>Recent Maps</Heading>
+                </IonLabel>
+              </IonItem>
+              <div slot="content">
+                <IonList>
+                  {recent_maps.map((map) => (
+                    <MapListItem
+                      key={`recent-${map.id}`}
+                      map={map}
+                      is_checked_out={checked_out_map_ids.has(map.id ?? "")}
+                      publisher_name={last_checkout_publisher_by_map_id.get(map.id ?? "")}
+                      status_date={status_date_by_map_id.get(map.id ?? "")}
+                      on_select={on_select_map}
+                      on_show_log={set_log_map_id}
+                    />
+                  ))}
+                </IonList>
+              </div>
+            </IonAccordion>
+          </IonAccordionGroup>
         )}
 
         <Space></Space>
 
         <IonItem>
           <IonLabel>
-            <Heading size="md" bold>
-              Maps
-            </Heading>
+            <Heading>Maps</Heading>
           </IonLabel>
           <div slot="end">
             <Body size="sm">
