@@ -54,6 +54,7 @@ interface GroupsPdfProps {
   publishers: Publisher[];
   congregation_name?: string;
   filter_type?: PdfFilterType;
+  member_ids_by_group?: Record<string, string[]>;
 }
 
 const DEFAULT_TYPES = ["publisher", "regular_pioneer", "special_pioneer", "continuous_auxiliary"];
@@ -69,10 +70,15 @@ export function GroupsPdf({
   publishers,
   congregation_name,
   filter_type = "default",
+  member_ids_by_group,
 }: GroupsPdfProps) {
   const filtered_publishers = filterPublishers(publishers, filter_type);
 
   const getGroupPublishers = (group_id: string) => {
+    const member_ids = member_ids_by_group?.[group_id];
+    if (member_ids) {
+      return filtered_publishers.filter((p) => p.id && member_ids.includes(p.id));
+    }
     return filtered_publishers.filter((p) => p.group_id === group_id);
   };
 

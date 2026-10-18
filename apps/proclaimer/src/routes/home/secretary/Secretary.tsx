@@ -29,6 +29,7 @@ function SecretaryPage() {
           <NavItem label="Regular Pioneers" to="/home/secretary/pioneers" />
           <NavItem label="Auxiliary Pioneers" to="/home/secretary/auxiliary-pioneers" />
           <NavItem label="Groups" to="/home/secretary/groups" />
+          <NavItem label="Reorganise Groups" to="/home/secretary/reorganise-groups" />
           <NavItem label="Reactivated Publishers" to="/home/secretary/reactivated-publishers" />
           <NavItem label="Branch Report" to="/home/secretary/branch-report" />
           <NavItem label="CO Visit Info" to="/home/secretary/co-visit-info" />

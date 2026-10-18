@@ -41,6 +41,8 @@ import PublisherAssignmentsPage from "@proclaimer-routes/home/secretary/publishe
 import PublisherParticipationPage from "@proclaimer-routes/home/secretary/publishers/publisher-participation/PublisherParticipation";
 import GroupsPage from "@proclaimer-routes/home/secretary/groups/Groups";
 import GroupDetailsPage from "@proclaimer-routes/home/secretary/groups/group-details/GroupDetails";
+import ReorganiseGroupsPage from "@proclaimer-routes/home/secretary/reorganise-groups/ReorganiseGroups";
+import ReorganisedGroupDetailsPage from "@proclaimer-routes/home/secretary/reorganise-groups/reorganised-group-details/ReorganisedGroupDetails";
 import SecretaryReportsPublisherRecordPage from "@proclaimer-routes/home/secretary/reports/missing-reports/publisher-record/PublisherRecord";
 import BranchReportPage from "@proclaimer-routes/home/secretary/branch-report/BranchReport";
 import CoVisitInfoPage from "@proclaimer-routes/home/secretary/co-visit-info/CoVisitInfo";
@@ -204,6 +206,12 @@ function App() {
         />
         <Route path="/home/secretary/groups" component={GroupsPage} exact />
         <Route path="/home/secretary/groups/:group_id" component={GroupDetailsPage} exact />
+        <Route path="/home/secretary/reorganise-groups" component={ReorganiseGroupsPage} exact />
+        <Route
+          path="/home/secretary/reorganise-groups/:group_id"
+          component={ReorganisedGroupDetailsPage}
+          exact
+        />
         <Route path="/home/secretary/branch-report" component={BranchReportPage} exact />
         <Route path="/home/secretary/co-visit-info" component={CoVisitInfoPage} exact />
         <Route path="/home/secretary/missing-details" component={MissingDetailsPage} exact />
