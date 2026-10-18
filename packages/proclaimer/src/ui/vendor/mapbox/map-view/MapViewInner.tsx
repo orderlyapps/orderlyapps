@@ -11,9 +11,17 @@ import type { CustomLocalStyleSettings } from "../custom-local-style-settings.ts
 import { applyCustomLocalStyleOverrides } from "../custom-local-style-settings.ts";
 import type { StyleSpecification } from "mapbox-gl";
 
-// mapbox-gl's UMD bundle puts these on the default-exported object at runtime;
-// nodenext resolves that shape only on `mapboxgl.default`.
-const mapboxglDefaults = mapboxgl as unknown as typeof mapboxgl.default;
+// mapbox-gl's UMD bundle puts these on the default-exported object at runtime.
+// nodenext resolves that shape only on `mapboxgl.default`; bundler resolution
+// exposes it as the default import itself.
+type MapboxglDefaults = {
+  workerCount: number;
+  maxParallelImageRequests: number;
+  prewarm: () => void;
+};
+const mapboxglDefaults =
+  (mapboxgl as unknown as { default?: MapboxglDefaults }).default ??
+  (mapboxgl as unknown as MapboxglDefaults);
 mapboxglDefaults.workerCount = 1;
 mapboxglDefaults.maxParallelImageRequests = 6;
 mapboxglDefaults.prewarm();

@@ -7,7 +7,8 @@
     "dev:app:proclaimer": "vp run proclaimer#dev",
     "dev:pkg:proclaimer": "vp run @amodeo/proclaimer#dev",
     "ready": "vp check && vp run -r test && vp run -r build",
-    "prepare": "vp config"
+    "prepare": "vp config",
+    "postinstall": "vp run @amodeo/config#build && vp run @amodeo/proclaimer#build"
   },
   "devDependencies": {
     "vite": "catalog:",

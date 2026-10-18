@@ -56,12 +56,21 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
         content: options.themeColorDark ?? "#0d0d0d",
       },
     },
-    // Makes the web app capable of running in standalone mode on iOS
+    // Makes the web app capable of running in standalone mode on iOS.
+    // iOS < 26 only honors the apple-prefixed name, so emit both.
     {
       injectTo: "head",
       tag: "meta",
       attrs: {
         name: "mobile-web-app-capable",
+        content: "yes",
+      },
+    },
+    {
+      injectTo: "head",
+      tag: "meta",
+      attrs: {
+        name: "apple-mobile-web-app-capable",
         content: "yes",
       },
     },
@@ -92,14 +101,15 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
         href: "/assets/images/apple-icon-180.png",
       },
     },
-    // Favicon
+    // Favicon — the 180px Apple icon doubles as the favicon; maskable icons
+    // carry safe-zone padding that would render the favicon too small.
     {
       injectTo: "head",
       tag: "link",
       attrs: {
         rel: "icon",
         type: "image/png",
-        href: "/assets/images/manifest-icon-192.maskable.png",
+        href: "/assets/images/apple-icon-180.png",
       },
     },
     // iOS PWA splash screen
@@ -113,7 +123,11 @@ export const htmlInject = (options: HtmlInjectOptions): PluginOption[] => {
     {
       injectTo: "head",
       tag: "script",
-      children: `if (typeof iosPWASplash === 'function') iosPWASplash('/assets/images/manifest-icon-512.maskable.png', '${options.splashColor ?? "#3880ff"}');`,
+      // Only iOS reads apple-touch-startup-image links (at home-screen launch),
+      // so skip the canvas work elsewhere and never let a failure break the page.
+      // iPadOS 13+ reports a "Macintosh" UA by default, so detect iPads via
+      // platform + touch points.
+      children: `(function(){var isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);if(isIOS&&typeof iosPWASplash==='function'){try{iosPWASplash('/assets/images/manifest-icon-512.maskable.png',${JSON.stringify(options.splashColor ?? "#3880ff")})}catch(e){}}})()`,
     },
   ];
 

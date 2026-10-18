@@ -1,9 +1,9 @@
-import { defineConfig, loadEnv } from "vite-plus";
-import react, { reactCompilerPreset } from "@vitejs/plugin-react";
-import babel from "@rolldown/plugin-babel";
 import path from "node:path";
 import fs from "node:fs";
-import { VitePWA } from "vite-plugin-pwa";
+import { loadEnv, defineConfig, type PluginOption } from "vite-plus";
+import { reactAppDefaults } from "@amodeo/config";
+
+const APP_NAME = "Proclaimer";
 
 /**
  * Vite plugin that serves the @tanstack/browser-db-sqlite-persistence OPFS
@@ -15,7 +15,7 @@ import { VitePWA } from "vite-plugin-pwa";
  * `new Worker(url)`, not an import) gets a 403. This plugin intercepts the
  * worker file request and serves it directly from disk.
  */
-function serveOpfsWorker(): import("vite").Plugin {
+function serveOpfsWorker(): PluginOption {
   const workerFilePattern = "/@tanstack/browser-db-sqlite-persistence/dist/assets/opfs-worker-";
   return {
     name: "serve-opfs-worker",
@@ -43,203 +43,26 @@ function serveOpfsWorker(): import("vite").Plugin {
   };
 }
 
-// Load env vars for the proclaimer mode (.env, .env.proclaimer)
-const env = loadEnv("proclaimer", import.meta.dirname, "");
-
 // https://vite.dev/config/
-export default defineConfig({
-  staged: {
-    "*": "vp check --fix",
-  },
-  fmt: {},
-  lint: {
-    plugins: ["oxc", "typescript", "unicorn", "react"],
-    categories: {
-      correctness: "warn",
-    },
-    env: {
-      builtin: true,
-    },
-    ignorePatterns: ["dist", "example-code"],
-    overrides: [
-      {
-        files: ["vite.config.ts"],
-        env: {
-          node: true,
-        },
-      },
-      {
-        files: ["**/*.{ts,tsx}"],
-        rules: {
-          "constructor-super": "error",
-          "for-direction": "error",
-          "getter-return": "error",
-          "no-async-promise-executor": "error",
-          "no-case-declarations": "error",
-          "no-class-assign": "error",
-          "no-compare-neg-zero": "error",
-          "no-cond-assign": "error",
-          "no-const-assign": "error",
-          "no-constant-binary-expression": "error",
-          "no-constant-condition": "error",
-          "no-control-regex": "error",
-          "no-debugger": "error",
-          "no-delete-var": "error",
-          "no-dupe-class-members": "error",
-          "no-dupe-else-if": "error",
-          "no-dupe-keys": "error",
-          "no-duplicate-case": "error",
-          "no-empty": "error",
-          "no-empty-character-class": "error",
-          "no-empty-pattern": "error",
-          "no-empty-static-block": "error",
-          "no-ex-assign": "error",
-          "no-extra-boolean-cast": "error",
-          "no-fallthrough": "error",
-          "no-func-assign": "error",
-          "no-global-assign": "error",
-          "no-import-assign": "error",
-          "no-invalid-regexp": "error",
-          "no-irregular-whitespace": "error",
-          "no-loss-of-precision": "error",
-          "no-misleading-character-class": "error",
-          "no-new-native-nonconstructor": "error",
-          "no-nonoctal-decimal-escape": "error",
-          "no-obj-calls": "error",
-          "no-prototype-builtins": "error",
-          "no-redeclare": "error",
-          "no-regex-spaces": "error",
-          "no-self-assign": "error",
-          "no-setter-return": "error",
-          "no-shadow-restricted-names": "error",
-          "no-sparse-arrays": "error",
-          "no-this-before-super": "error",
-          "no-unassigned-vars": "error",
-          "no-undef": "error",
-          "no-unexpected-multiline": "error",
-          "no-unreachable": "error",
-          "no-unsafe-finally": "error",
-          "no-unsafe-negation": "error",
-          "no-unsafe-optional-chaining": "error",
-          "no-unused-labels": "error",
-          "no-unused-private-class-members": "error",
-          "no-unused-vars": "error",
-          "no-useless-assignment": "error",
-          "no-useless-backreference": "error",
-          "no-useless-catch": "error",
-          "no-useless-escape": "error",
-          "no-with": "error",
-          "preserve-caught-error": "error",
-          "require-yield": "error",
-          "use-isnan": "error",
-          "valid-typeof": "error",
-          "no-array-constructor": "error",
-          "no-unused-expressions": "error",
-          "typescript/ban-ts-comment": "error",
-          "typescript/no-duplicate-enum-values": "error",
-          "typescript/no-empty-object-type": "error",
-          "typescript/no-explicit-any": "error",
-          "typescript/no-extra-non-null-assertion": "error",
-          "typescript/no-misused-new": "error",
-          "typescript/no-namespace": "error",
-          "typescript/no-non-null-asserted-optional-chain": "error",
-          "typescript/no-require-imports": "error",
-          "typescript/no-this-alias": "error",
-          "typescript/no-unnecessary-type-constraint": "error",
-          "typescript/no-unsafe-declaration-merging": "error",
-          "typescript/no-unsafe-function-type": "error",
-          "typescript/no-wrapper-object-types": "error",
-          "typescript/prefer-as-const": "error",
-          "typescript/prefer-namespace-keyword": "error",
-          "typescript/triple-slash-reference": "error",
-          "react/rules-of-hooks": "error",
-          "react/exhaustive-deps": "warn",
-          "react/only-export-components": [
-            "error",
-            {
-              allowConstantExport: true,
-            },
-          ],
-        },
-        env: {
-          browser: true,
-        },
-      },
-    ],
-    options: {
-      typeAware: true,
-      typeCheck: true,
-    },
-  },
-  envDir: import.meta.dirname,
-  server: {
-    fs: {
-      allow: [
-        import.meta.dirname,
-        // The linked @amodeo/proclaimer workspace package (consumed from dist)
-        path.resolve(import.meta.dirname, "../../packages/proclaimer"),
-      ],
-    },
-  },
-  resolve: {
-    alias: {
-      "@shared": path.resolve(import.meta.dirname, "./src/shared"),
-      "@util": path.resolve(import.meta.dirname, "./src/util"),
-      "@proclaimer-content": path.resolve(import.meta.dirname, "./src/content"),
-      "@proclaimer-routes": path.resolve(import.meta.dirname, "./src/routes"),
-    },
-  },
-  optimizeDeps: {
-    // Exclude browser-db-sqlite-persistence from pre-bundling so Vite serves
-    // its ESM files directly. The package creates an OPFS Web Worker via
-    // `new URL("../assets/opfs-worker-*.js", import.meta.url)`. When
-    // pre-bundled, import.meta.url points at /node_modules/.vite/deps/ and the
-    // resolved worker URL falls outside the dev server root, triggering the
-    // SPA fallback (index.html) instead of the JS file — which causes the
-    // worker to terminate immediately with "OPFS worker terminated
-    // unexpectedly". Serving the package as native ESM lets Vite's middleware
-    // resolve the worker URL correctly.
-    exclude: ["@tanstack/browser-db-sqlite-persistence"],
-  },
-  build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
-    emptyOutDir: true,
-  },
-  plugins: [
-    react(),
-    babel({ presets: [reactCompilerPreset()] }),
-    serveOpfsWorker(),
-    VitePWA({
-      registerType: "autoUpdate",
+export default defineConfig(({ mode }) => {
+  // Resolve env relative to this config file, not cwd, so theme values are
+  // still found if the config is loaded from another directory.
+  const env = loadEnv(mode, import.meta.dirname, "VITE_");
+
+  const base = reactAppDefaults({
+    pwaOptions: {
+      name: APP_NAME,
+      short_name: APP_NAME,
+      description: "Proclaimer app",
+      theme_color: env.VITE_THEME_COLOR || "#00ffff",
+      background_color: env.VITE_BACKGROUND_COLOR || "#ffffff",
       manifest: {
-        name: env.VITE_PWA_NAME || "Wiz Bang",
-        short_name: env.VITE_PWA_SHORT_NAME || "Wiz Bang",
-        description: env.VITE_PWA_DESCRIPTION || "Wiz Bang app",
-        theme_color: env.VITE_PWA_THEME_COLOR || "#3880ff",
-        background_color: env.VITE_PWA_BACKGROUND_COLOR || "#ffffff",
-        display: "standalone",
         orientation: "portrait",
         scope: "/",
-        start_url: "/",
-        icons: [
-          {
-            src: "/assets/pwa/manifest-icon-192.maskable.png",
-            sizes: "192x192",
-            type: "image/png",
-            purpose: "maskable",
-          },
-          {
-            src: "/assets/pwa/manifest-icon-512.maskable.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "maskable",
-          },
-        ],
       },
       workbox: {
         disableDevLogs: true,
         globPatterns: ["**/*.{js,css,html,svg,png,ico,woff2,jpg}"],
-        globIgnores: ["**/assets/pwa/**"],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         cleanupOutdatedCaches: true,
         navigateFallback: "index.html",
@@ -316,7 +139,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /^https:\/\/api\.mapbox\.com\/(sprites|v4)\/.*/,
+            urlPattern: /^https:\/\/api\.mapbox\.com\/sprites\/.*/,
             handler: "StaleWhileRevalidate",
             options: {
               cacheName: "mapbox-assets",
@@ -329,9 +152,39 @@ export default defineConfig({
           },
         ],
       },
-      devOptions: {
-        enabled: true,
+    },
+    htmlOptions: {
+      title: APP_NAME,
+      splashColor: env.VITE_BACKGROUND_COLOR || "#ffffff",
+      themeColorLight: env.VITE_THEME_COLOR_LIGHT || "#DDD",
+      themeColorDark: env.VITE_THEME_COLOR_DARK || "#272727",
+    },
+    srcDir: path.resolve(import.meta.dirname, "src"),
+  });
+
+  return {
+    ...base,
+    resolve: {
+      alias: {
+        ...(base.resolve?.alias as Record<string, string>),
+        "@shared": path.resolve(import.meta.dirname, "./src/shared"),
+        "@util": path.resolve(import.meta.dirname, "./src/util"),
+        "@proclaimer-content": path.resolve(import.meta.dirname, "./src/content"),
+        "@proclaimer-routes": path.resolve(import.meta.dirname, "./src/routes"),
       },
-    }),
-  ],
+    },
+    optimizeDeps: {
+      // Exclude browser-db-sqlite-persistence from pre-bundling so Vite serves
+      // its ESM files directly. The package creates an OPFS Web Worker via
+      // `new URL("../assets/opfs-worker-*.js", import.meta.url)`. When
+      // pre-bundled, import.meta.url points at /node_modules/.vite/deps/ and the
+      // resolved worker URL falls outside the dev server root, triggering the
+      // SPA fallback (index.html) instead of the JS file — which causes the
+      // worker to terminate immediately with "OPFS worker terminated
+      // unexpectedly". Serving the package as native ESM lets Vite's middleware
+      // resolve the worker URL correctly.
+      exclude: ["@tanstack/browser-db-sqlite-persistence"],
+    },
+    plugins: [...(base.plugins ?? []), serveOpfsWorker()],
+  };
 });

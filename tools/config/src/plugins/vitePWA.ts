@@ -1,5 +1,5 @@
 import type { PluginOption } from "vite-plus";
-import { VitePWA } from "vite-plugin-pwa";
+import { VitePWA, type VitePWAOptions as PluginPWAOptions } from "vite-plugin-pwa";
 
 export interface VitePWAOptions {
   name: string;
@@ -7,6 +7,10 @@ export interface VitePWAOptions {
   description: string;
   theme_color: string;
   background_color: string;
+  /** Merged over the default web manifest (replaces whole top-level keys like `icons`). */
+  manifest?: NonNullable<PluginPWAOptions["manifest"]>;
+  /** Merged over the default workbox generateSW options. */
+  workbox?: NonNullable<PluginPWAOptions["workbox"]>;
 }
 
 export const vitePWA = (options: VitePWAOptions): PluginOption[] => [
@@ -55,18 +59,13 @@ export const vitePWA = (options: VitePWAOptions): PluginOption[] => [
           form_factor: "narrow",
           label: "Home screen on mobile",
         },
-        {
-          src: "/assets/images/screenshot.png",
-          sizes: "800x1440",
-          type: "image/png",
-          form_factor: "wide",
-          label: "Home screen on mobile",
-        },
       ],
+      ...options.manifest,
     },
     workbox: {
       globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
       maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
+      ...options.workbox,
     },
     devOptions: {
       enabled: true,
