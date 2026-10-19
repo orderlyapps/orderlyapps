@@ -13,9 +13,9 @@ export function computeAvStats(
   assignments: AvAssignment[],
   participation_type: AvParticipationType,
   current_week_id: string,
-  extra_stat_types: AvParticipationType[] = [],
+  stat_participation_types?: AvParticipationType[],
 ): Map<string, AvPublisherStats> {
-  const types_for_stats = extra_stat_types.length > 0 ? extra_stat_types : [participation_type];
+  const types_for_stats = stat_participation_types ?? [participation_type];
   const relevant_ids = new Set<string>();
   for (const type of types_for_stats) {
     for (const id of avParticipationAssignmentIds[type]) {

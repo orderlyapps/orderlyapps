@@ -12,11 +12,10 @@ import type { Publisher } from "@amodeo/proclaimer/feature/publisher";
 import type { AvAssignmentID } from "../../../../schemas/av-assignment.ts";
 import { getStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import { avParticipationTypeMap } from "../../../../utils/av-participation-type-map.ts";
-import { useAvPresets } from "../../../../hooks/use-av-presets.ts";
-import type { AvPublisherFilter, PublisherSortOrder } from "../../../../utils/types.ts";
+import { useAvSelectorSettings } from "../../../../hooks/use-av-selector-settings.ts";
 import { useAvPublisherStats } from "../../../../hooks/use-av-publisher-stats.ts";
 import { useAvPublisherParticipationTypes } from "../../../../hooks/use-av-publisher-participation-types.ts";
-import { AvFilterSelect } from "../av-filter-select/AvFilterSelect.tsx";
+import { AvSettingsAccordion } from "../av-settings-accordion/AvSettingsAccordion.tsx";
 import { AvPublisherList } from "../av-publisher-list/AvPublisherList.tsx";
 import { AvConfirmModal } from "../av-confirm-modal/AvConfirmModal.tsx";
 
@@ -38,13 +37,13 @@ export function AvPublisherSelector({
   const congregation_id = getStoredCongregation()?.id;
   const participation_type = avParticipationTypeMap[assignment_id];
 
-  const presets_api = useAvPresets(participation_type);
+  const settings_api = useAvSelectorSettings(participation_type);
 
   const stats = useAvPublisherStats(
     participation_type,
     week_id,
     congregation_id,
-    presets_api.active_preset.filter.stat_participation_types,
+    settings_api.settings.stat_participation_types,
   );
 
   const participation_types = useAvPublisherParticipationTypes();
@@ -101,29 +100,19 @@ export function AvPublisherSelector({
     if (selected_publisher?.id) on_select(selected_publisher.id);
   }
 
-  function handleChange(filter: AvPublisherFilter, sort_order: PublisherSortOrder) {
-    presets_api.updatePreset(filter, sort_order);
-  }
-
   return (
     <>
-      <AvFilterSelect
-        presets={presets_api.presets}
-        active_preset={presets_api.active_preset}
-        is_default_active={presets_api.is_default_active}
-        on_select_preset={presets_api.selectPreset}
-        on_create_preset={presets_api.createPreset}
-        on_rename_preset={presets_api.renamePreset}
-        on_delete_preset={presets_api.deletePreset}
-        on_change={handleChange}
+      <AvSettingsAccordion
+        participation_type={participation_type}
+        settings={settings_api.settings}
+        on_change={settings_api.setSettings}
       />
       <AvPublisherList
         publishers={publishers}
         selected_id={assignment?.participant_id}
         on_select={handleSelectPublisher}
-        sort_order={presets_api.active_preset.sort_order}
         stats={stats}
-        filter={presets_api.active_preset.filter}
+        participation_type={participation_type}
         participation_types={participation_types}
         publisher_ids_with_week_assignment={publisher_ids_with_week_assignment}
       />
@@ -132,6 +121,7 @@ export function AvPublisherSelector({
         publisher={selected_publisher}
         week_id={week_id}
         assignment_id={assignment_id}
+        participation_type={participation_type}
         all_assignments={(allAssignments as AvAssignment[] | undefined) ?? []}
         midweek_assignments={
           (allMidweekAssignments as MidweekMeetingAssignment[] | undefined) ?? []

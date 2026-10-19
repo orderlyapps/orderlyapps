@@ -10,7 +10,7 @@ export function useAvPublisherStats(
   participation_type: AvParticipationType,
   current_week_id: string,
   congregation_id: string | undefined,
-  stat_participation_types: AvParticipationType[] = [],
+  stat_participation_types?: AvParticipationType[],
 ): Map<string, AvPublisherStats> {
   const { data: allAssignments } = useLiveQuery((q) => q.from({ aa: avAssignmentCollection }));
 

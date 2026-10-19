@@ -58,7 +58,7 @@ export function useAvParticipantPublishers(participation_id: AvParticipation["pa
   const participantIds = new Set(participations.map((p) => p.participant_id));
 
   const nonParticipantPublishers: AvParticipantPublisher[] = (publishers ?? [])
-    .filter((p) => !participantIds.has(p.id ?? ""))
+    .filter((p) => !p.archived_at && !participantIds.has(p.id ?? ""))
     .map((p) => ({
       participant_id: p.id ?? "",
       publisher: p,
