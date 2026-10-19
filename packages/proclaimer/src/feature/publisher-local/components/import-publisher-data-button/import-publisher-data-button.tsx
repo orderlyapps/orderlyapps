@@ -14,7 +14,7 @@ export function ImportPublisherDataButton() {
     void presentAlert({
       header: "Import Publisher Data",
       message:
-        "This will replace all existing confidential publisher data. This action cannot be undone. Continue?",
+        "Imported records will be merged with existing confidential publisher data. Where values conflict, the most recently updated value is kept. Continue?",
       buttons: [
         { text: "Cancel", role: "cancel" },
         {

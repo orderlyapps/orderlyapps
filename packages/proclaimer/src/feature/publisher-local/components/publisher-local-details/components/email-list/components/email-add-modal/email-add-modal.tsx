@@ -13,7 +13,13 @@ import { CloseIconButton } from "../../../../../../../../ui/components/inputs/bu
 import { EmailInput } from "../../../../../../../../ui/components/inputs/email/EmailInput.tsx";
 import { Select } from "../../../../../../../../ui/components/inputs/select/Select.tsx";
 import { DeleteTextButton } from "../../../../../../../../ui/components/inputs/button/text/delete/DeleteTextButton.tsx";
-import { publisherLocalCollection, type Email } from "../../../../../../index.ts";
+import {
+  publisherLocalCollection,
+  upsertPublisherLocal,
+  createVersion,
+  touchVersion,
+  type Email,
+} from "../../../../../../index.ts";
 import { Space } from "../../../../../../../../ui/components/layout/space/Space.tsx";
 
 type EmailEntry = NonNullable<Email>[number];
@@ -40,23 +46,17 @@ export function EmailAddModal({ is_open, on_dismiss, publisher_id, entry }: Prop
 
   function handle_save() {
     const id = entry?.id ?? crypto.randomUUID();
-    const version = entry?.version ?? {
-      created_by: "",
-      updated_by: "",
-      created_at: Date.now(),
-      updated_at: Date.now(),
-    };
-    publisherLocalCollection.update(publisher_id, (draft) => {
+    const version = entry?.version ?? createVersion();
+    upsertPublisherLocal(publisher_id, (draft) => {
       const current_email = draft.email ?? [];
       const updated = current_email.map((e) =>
-        e.id === id
-          ? { ...e, label, address, version: { ...e.version, updated_at: Date.now() } }
-          : e,
+        e.id === id ? { ...e, label, address, version: touchVersion(e.version) } : e,
       );
       if (!current_email.some((e) => e.id === id)) {
         updated.push({ id, label, address, version });
       }
       draft.email = updated;
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }
@@ -65,6 +65,7 @@ export function EmailAddModal({ is_open, on_dismiss, publisher_id, entry }: Prop
     if (!entry) return;
     publisherLocalCollection.update(publisher_id, (draft) => {
       draft.email = (draft.email ?? []).filter((e) => e.id !== entry.id);
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }

@@ -17,8 +17,8 @@ import { buildServiceYearReportsForYears, reportsToMap } from "../../utils/servi
 interface LocalPublisherData {
   publisher_id: string;
   confidential_id: string;
-  birth_date?: string;
-  baptism_date?: string;
+  birth_date?: { value: string };
+  baptism_date?: { value: string };
 }
 
 const INCLUDED_TYPES = new Set([...REPORTABLE_TYPES, "inactive"]);
@@ -36,8 +36,8 @@ function buildPublisherRecord(
     gender: publisher.gender,
     type: publisher.type,
     standing: publisher.standing,
-    birth_date: local?.birth_date ?? "",
-    baptism_date: local?.baptism_date ?? "",
+    birth_date: local?.birth_date?.value ?? "",
+    baptism_date: local?.baptism_date?.value ?? "",
     other_sheep: true,
     anointed: false,
   };

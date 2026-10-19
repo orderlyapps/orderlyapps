@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import {
   publisherLocalCollection,
+  upsertPublisherLocal,
+  createVersion,
+  touchVersion,
   type EmergencyContact,
   type Phone,
 } from "../../../../../index.ts";
@@ -13,12 +16,7 @@ function createEmptyPhone(): PhoneEntry {
     id: crypto.randomUUID(),
     number: "",
     label: "Phone",
-    version: {
-      created_by: "",
-      updated_by: "",
-      created_at: Date.now(),
-      updated_at: Date.now(),
-    },
+    version: createVersion(),
   };
 }
 
@@ -50,30 +48,33 @@ export function useEmergencyContactForm(
 
   function submit() {
     const id = contact?.id ?? crypto.randomUUID();
-    const version = contact?.version ?? {
-      created_by: "",
-      updated_by: "",
-      created_at: Date.now(),
-      updated_at: Date.now(),
-    };
-    publisherLocalCollection.update(publisher_id, (draft) => {
+    const version = contact?.version ?? createVersion();
+    upsertPublisherLocal(publisher_id, (draft) => {
       const current_contacts = draft.emergency_contact ?? [];
-      const updated = current_contacts.map((c) =>
-        c.id === id
-          ? {
-              ...c,
-              first_name,
-              last_name,
-              relationship,
-              phone: phones,
-              version: { ...c.version, updated_at: Date.now() },
-            }
-          : c,
-      );
+      const updated = current_contacts.map((c) => {
+        if (c.id !== id) return c;
+        const prev_phones = new Map((c.phone ?? []).map((p) => [p.id, p]));
+        const next_phones = phones.map((p) => {
+          const prev = prev_phones.get(p.id);
+          if (!prev) return p;
+          return prev.number !== p.number || prev.label !== p.label
+            ? { ...p, version: touchVersion(p.version) }
+            : p;
+        });
+        return {
+          ...c,
+          first_name,
+          last_name,
+          relationship,
+          phone: next_phones,
+          version: touchVersion(c.version),
+        };
+      });
       if (!current_contacts.some((c) => c.id === id)) {
         updated.push({ id, first_name, last_name, relationship, phone: phones, version });
       }
       draft.emergency_contact = updated;
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }
@@ -82,6 +83,7 @@ export function useEmergencyContactForm(
     if (!contact) return;
     publisherLocalCollection.update(publisher_id, (draft) => {
       draft.emergency_contact = (draft.emergency_contact ?? []).filter((c) => c.id !== contact.id);
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }

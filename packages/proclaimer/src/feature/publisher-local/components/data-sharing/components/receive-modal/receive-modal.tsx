@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
+import { importPublisherLocalRecords } from "@amodeo/proclaimer/database/rxdb/helper/publisherLocalExportImport";
 import {
   IonButton,
   IonButtons,
@@ -40,8 +40,7 @@ export function ReceiveModal({ is_open, onClose }: Props) {
     setImporting(true);
     setImportError(null);
     try {
-      await rxdb.publisher.find().remove();
-      await rxdb.publisher.bulkInsert(received_payload.data);
+      await importPublisherLocalRecords(received_payload.data);
       setImported(true);
     } catch (error) {
       const message = error instanceof Error ? error.message : "Import failed";

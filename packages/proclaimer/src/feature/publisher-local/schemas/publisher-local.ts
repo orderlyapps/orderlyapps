@@ -80,8 +80,17 @@ const emergency_contact = {
   },
 } as const;
 
+const versioned_string = {
+  type: "object",
+  properties: {
+    value: { type: "string" },
+    version,
+  },
+  required: ["value", "version"],
+} as const;
+
 export const publisherSchemaLiteral = {
-  version: 0,
+  version: 1,
   primaryKey: "publisher_id",
   type: "object",
   properties: {
@@ -122,8 +131,8 @@ export const publisherSchemaLiteral = {
         ],
       },
     },
-    birth_date: { type: "string" },
-    baptism_date: { type: "string" },
+    birth_date: versioned_string,
+    baptism_date: versioned_string,
     version,
   },
   required: ["confidential_id", "publisher_id", "version"],

@@ -13,7 +13,13 @@ import { CloseIconButton } from "../../../../../../../../ui/components/inputs/bu
 import { AddressInput } from "../../../../../../../../ui/components/inputs/address/AddressInput.tsx";
 import { Select } from "../../../../../../../../ui/components/inputs/select/Select.tsx";
 import { DeleteTextButton } from "../../../../../../../../ui/components/inputs/button/text/delete/DeleteTextButton.tsx";
-import { publisherLocalCollection, type Address } from "../../../../../../index.ts";
+import {
+  publisherLocalCollection,
+  upsertPublisherLocal,
+  createVersion,
+  touchVersion,
+  type Address,
+} from "../../../../../../index.ts";
 import type { AddressValue } from "../../../../../../../../ui/components/inputs/address/types.ts";
 import { Space } from "../../../../../../../../ui/components/layout/space/Space.tsx";
 
@@ -49,12 +55,7 @@ export function AddressAddModal({
   function handle_save() {
     if (!address_value) return;
     const id = entry?.id ?? crypto.randomUUID();
-    const version = entry?.version ?? {
-      created_by: "",
-      updated_by: "",
-      created_at: Date.now(),
-      updated_at: Date.now(),
-    };
+    const version = entry?.version ?? createVersion();
     const address_data = {
       label,
       suburb: address_value.suburb.id,
@@ -63,17 +64,16 @@ export function AddressAddModal({
       unit_number: address_value.unit_number ?? "",
       coordinates: address_value.coordinates,
     };
-    publisherLocalCollection.update(publisher_id, (draft) => {
+    upsertPublisherLocal(publisher_id, (draft) => {
       const current_address = draft.address ?? [];
       const updated = current_address.map((a) =>
-        a.id === id
-          ? { ...a, ...address_data, version: { ...a.version, updated_at: Date.now() } }
-          : a,
+        a.id === id ? { ...a, ...address_data, version: touchVersion(a.version) } : a,
       );
       if (!current_address.some((a) => a.id === id)) {
         updated.push({ id, ...address_data, version });
       }
       draft.address = updated;
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }
@@ -82,6 +82,7 @@ export function AddressAddModal({
     if (!entry) return;
     publisherLocalCollection.update(publisher_id, (draft) => {
       draft.address = (draft.address ?? []).filter((a) => a.id !== entry.id);
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }

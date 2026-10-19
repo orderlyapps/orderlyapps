@@ -13,7 +13,13 @@ import { CloseIconButton } from "../../../../../../../../ui/components/inputs/bu
 import { PhoneInput } from "../../../../../../../../ui/components/inputs/phone/PhoneInput.tsx";
 import { Select } from "../../../../../../../../ui/components/inputs/select/Select.tsx";
 import { DeleteTextButton } from "../../../../../../../../ui/components/inputs/button/text/delete/DeleteTextButton.tsx";
-import { publisherLocalCollection, type Phone } from "../../../../../../index.ts";
+import {
+  publisherLocalCollection,
+  upsertPublisherLocal,
+  createVersion,
+  touchVersion,
+  type Phone,
+} from "../../../../../../index.ts";
 import { Space } from "../../../../../../../../ui/components/layout/space/Space.tsx";
 
 type PhoneEntry = NonNullable<Phone>[number];
@@ -40,23 +46,17 @@ export function PhoneAddModal({ is_open, on_dismiss, publisher_id, entry }: Prop
 
   function handle_save() {
     const id = entry?.id ?? crypto.randomUUID();
-    const version = entry?.version ?? {
-      created_by: "",
-      updated_by: "",
-      created_at: Date.now(),
-      updated_at: Date.now(),
-    };
-    publisherLocalCollection.update(publisher_id, (draft) => {
+    const version = entry?.version ?? createVersion();
+    upsertPublisherLocal(publisher_id, (draft) => {
       const current_phone = draft.phone ?? [];
       const updated = current_phone.map((p) =>
-        p.id === id
-          ? { ...p, label, number, version: { ...p.version, updated_at: Date.now() } }
-          : p,
+        p.id === id ? { ...p, label, number, version: touchVersion(p.version) } : p,
       );
       if (!current_phone.some((p) => p.id === id)) {
         updated.push({ id, label, number, version });
       }
       draft.phone = updated;
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }
@@ -65,6 +65,7 @@ export function PhoneAddModal({ is_open, on_dismiss, publisher_id, entry }: Prop
     if (!entry) return;
     publisherLocalCollection.update(publisher_id, (draft) => {
       draft.phone = (draft.phone ?? []).filter((p) => p.id !== entry.id);
+      draft.version = touchVersion(draft.version);
     });
     on_dismiss();
   }

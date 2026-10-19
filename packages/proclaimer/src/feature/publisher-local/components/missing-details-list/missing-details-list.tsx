@@ -13,7 +13,12 @@ export function MissingDetailsList() {
   const [filter, set_filter] = useState<MissingDetailFilter>("all");
   const [show_associate, set_show_associate] = useState(false);
   const [show_archived, set_show_archived] = useState(false);
-  const { publishers } = useMissingDetails(filter, { show_associate, show_archived });
+  const [open_publisher_id, set_open_publisher_id] = useState<string | null>(null);
+  const { publishers } = useMissingDetails(filter, {
+    show_associate,
+    show_archived,
+    include_publisher_id: open_publisher_id,
+  });
 
   return (
     <>
@@ -39,7 +44,18 @@ export function MissingDetailsList() {
           <IonRow>
             {publishers.map((entry) => (
               <IonCol key={entry.publisher.id} {...RESPONSIVE_COL_SIZES}>
-                <MissingDetailsItem entry={entry} />
+                <MissingDetailsItem
+                  entry={entry}
+                  on_open_change={(open) =>
+                    set_open_publisher_id((prev) =>
+                      open
+                        ? (entry.publisher.id ?? null)
+                        : prev === entry.publisher.id
+                          ? null
+                          : prev,
+                    )
+                  }
+                />
               </IonCol>
             ))}
           </IonRow>

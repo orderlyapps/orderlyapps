@@ -4,6 +4,7 @@ import { IonIcon, IonItem, IonLabel } from "@ionic/react";
 import { addCircleOutline } from "ionicons/icons";
 import {
   publisherLocalCollection,
+  createVersion,
   PhoneList,
   AddressList,
   EmailList,
@@ -43,14 +44,7 @@ export function PublisherLocalSection({ publisher_id, read_only = false }: Props
               address: [],
               email: [],
               emergency_contact: [],
-              birth_date: "",
-              baptism_date: "",
-              version: {
-                created_by: "",
-                updated_by: "",
-                created_at: Date.now(),
-                updated_at: Date.now(),
-              },
+              version: createVersion(),
             })
           }
         >
@@ -65,8 +59,8 @@ export function PublisherLocalSection({ publisher_id, read_only = false }: Props
     <>
       <PublisherDates
         publisher_id={publisher_id}
-        birth_date={local.birth_date ?? ""}
-        baptism_date={local.baptism_date ?? ""}
+        birth_date={local.birth_date?.value ?? ""}
+        baptism_date={local.baptism_date?.value ?? ""}
         read_only={read_only}
       />
       <PhoneList publisher_id={publisher_id} phone={local.phone ?? []} read_only={read_only} />

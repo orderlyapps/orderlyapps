@@ -20,8 +20,8 @@ export function PublisherLocalDetails({
     <>
       <PublisherDates
         publisher_id={publisher.publisher_id}
-        birth_date={publisher.birth_date}
-        baptism_date={publisher.baptism_date}
+        birth_date={publisher.birth_date?.value}
+        baptism_date={publisher.baptism_date?.value}
         read_only={read_only}
       />
       <AddressList

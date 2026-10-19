@@ -5,6 +5,7 @@ import { MissingDetailsModal } from "./components/missing-details-modal/missing-
 
 interface MissingDetailsItemProps {
   entry: PublisherWithMissingDetails;
+  on_open_change?: (is_open: boolean) => void;
 }
 
 function getPublisherName(entry: PublisherWithMissingDetails): string {
@@ -14,18 +15,33 @@ function getPublisherName(entry: PublisherWithMissingDetails): string {
   return middle ? `${publisher.last_name}, ${first} ${middle}` : `${publisher.last_name}, ${first}`;
 }
 
-export function MissingDetailsItem({ entry }: MissingDetailsItemProps) {
+export function MissingDetailsItem({ entry, on_open_change }: MissingDetailsItemProps) {
   const [is_open, set_is_open] = useState(false);
 
   return (
     <>
-      <IonItem lines="full" button detail onClick={() => set_is_open(true)}>
+      <IonItem
+        lines="full"
+        button
+        detail
+        onClick={() => {
+          set_is_open(true);
+          on_open_change?.(true);
+        }}
+      >
         <IonLabel className="ion-text-wrap">
           <h2>{getPublisherName(entry)}</h2>
         </IonLabel>
       </IonItem>
 
-      <MissingDetailsModal entry={entry} isOpen={is_open} onClose={() => set_is_open(false)} />
+      <MissingDetailsModal
+        entry={entry}
+        isOpen={is_open}
+        onClose={() => {
+          set_is_open(false);
+          on_open_change?.(false);
+        }}
+      />
     </>
   );
 }

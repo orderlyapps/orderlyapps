@@ -15,7 +15,7 @@ import {
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { rxdb } from "@amodeo/proclaimer/database/rxdb/database";
+import { importPublisherLocalRecords } from "@amodeo/proclaimer/database/rxdb/helper/publisherLocalExportImport";
 import type { PublisherLocal } from "@amodeo/proclaimer/feature/publisher-local";
 
 interface Props {
@@ -82,7 +82,7 @@ export function ImportModal({ is_open, onClose }: Props) {
     void presentAlert({
       header: "Import Data",
       message:
-        "This will replace all existing publisher data. This action cannot be undone. Continue?",
+        "Imported records will be merged with existing data. Where values conflict, the most recently updated value is kept. Continue?",
       buttons: [
         { text: "Cancel", role: "cancel" },
         {
@@ -99,8 +99,7 @@ export function ImportModal({ is_open, onClose }: Props) {
     set_importing(true);
     set_error(null);
     try {
-      await rxdb.publisher.find().remove();
-      await rxdb.publisher.bulkInsert(parsed_data.data);
+      await importPublisherLocalRecords(parsed_data.data);
       set_imported(true);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Import failed";
@@ -159,7 +158,7 @@ export function ImportModal({ is_open, onClose }: Props) {
         )}
         {imported && (
           <IonNote style={{ color: "var(--ion-color-success)", display: "block" }}>
-            Import complete. Existing data was replaced.
+            Import complete. Records were merged with existing data.
           </IonNote>
         )}
         <Space size="sm" />

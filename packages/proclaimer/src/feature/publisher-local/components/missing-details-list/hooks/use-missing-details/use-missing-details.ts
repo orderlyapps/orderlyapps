@@ -52,9 +52,9 @@ function getMissingDetails(
   if (!local.email || local.email.length === 0) missing.push("email");
   if (!local.emergency_contact || local.emergency_contact.length === 0)
     missing.push("emergency_contact");
-  if (!local.birth_date) missing.push("birth_date");
+  if (!local.birth_date?.value) missing.push("birth_date");
   if (
-    !local.baptism_date &&
+    !local.baptism_date?.value &&
     publisher.standing !== "unbaptised_publisher" &&
     publisher.standing !== "associate"
   )
@@ -72,13 +72,14 @@ function sortByLastName(a: PublisherWithMissingDetails, b: PublisherWithMissingD
 export interface MissingDetailsOptions {
   show_associate?: boolean;
   show_archived?: boolean;
+  include_publisher_id?: string | null;
 }
 
 export function useMissingDetails(
   filter: MissingDetailFilter = "all",
   options: MissingDetailsOptions = {},
 ) {
-  const { show_associate = false, show_archived = false } = options;
+  const { show_associate = false, show_archived = false, include_publisher_id = null } = options;
   const { data: publishers } = useLiveQuery((q) => q.from({ p: publisherCollection }), []);
   const { data: local_data } = useLiveQuery((q) => q.from({ pl: publisherLocalCollection }), []);
 
@@ -108,13 +109,16 @@ export function useMissingDetails(
         missing_details: getMissingDetails(p, local),
       };
     })
-    .filter((row) => row.missing_details.length > 0)
+    .filter((row) => row.missing_details.length > 0 || row.publisher.id === include_publisher_id)
     .sort(sortByLastName);
 
   const filtered =
     filter === "all"
       ? with_missing
-      : with_missing.filter((row) => row.missing_details.includes(filter));
+      : with_missing.filter(
+          (row) =>
+            row.missing_details.includes(filter) || row.publisher.id === include_publisher_id,
+        );
 
   return { publishers: filtered };
 }

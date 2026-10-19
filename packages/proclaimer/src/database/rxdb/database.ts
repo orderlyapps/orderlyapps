@@ -43,6 +43,21 @@ export const rxdb = await createRxDatabase<ProclaimerRxCollections>({
 await rxdb.addCollections({
   publisher: {
     schema: publisherSchemaLiteral as RxJsonSchema<PublisherLocal>,
+    migrationStrategies: {
+      1: (oldDoc) => {
+        const wrap = (value: unknown) =>
+          typeof value === "string"
+            ? value
+              ? { value, version: oldDoc.version }
+              : undefined
+            : value;
+        return {
+          ...oldDoc,
+          birth_date: wrap(oldDoc.birth_date),
+          baptism_date: wrap(oldDoc.baptism_date),
+        };
+      },
+    },
   },
   ministry_time: {
     schema: ministryTimeSchemaLiteral as RxJsonSchema<MinistryTimeLocal>,
