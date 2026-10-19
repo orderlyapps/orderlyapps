@@ -15,6 +15,7 @@ import {
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import { ImportPreviewList } from "../../../import-preview-list/import-preview-list.tsx";
 import { useReceiveSession } from "./use-receive-session.ts";
 
 interface Props {
@@ -143,10 +144,11 @@ export function ReceiveModal({ is_open, onClose }: Props) {
                   Data received
                 </IonNote>
                 <Space size="sm" />
-                <p style={{ margin: 0 }}>
-                  <strong>{received_payload.data.length}</strong> publisher record
-                  {received_payload.data.length !== 1 ? "s" : ""} received.
-                </p>
+                {!imported && (
+                  <div style={{ textAlign: "left" }}>
+                    <ImportPreviewList records={received_payload.data} />
+                  </div>
+                )}
                 <Space />
                 {import_error && (
                   <IonNote style={{ color: "var(--ion-color-danger)", display: "block" }}>

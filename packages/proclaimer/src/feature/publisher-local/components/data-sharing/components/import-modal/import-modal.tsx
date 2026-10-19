@@ -15,8 +15,12 @@ import {
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { importPublisherLocalRecords } from "@amodeo/proclaimer/database/rxdb/helper/publisherLocalExportImport";
+import {
+  importPublisherLocalRecords,
+  parsePublisherLocalRecords,
+} from "@amodeo/proclaimer/database/rxdb/helper/publisherLocalExportImport";
 import type { PublisherLocal } from "@amodeo/proclaimer/feature/publisher-local";
+import { ImportPreviewList } from "../../../import-preview-list/import-preview-list.tsx";
 
 interface Props {
   is_open: boolean;
@@ -58,16 +62,7 @@ export function ImportModal({ is_open, onClose }: Props) {
     reader.onload = () => {
       try {
         const text = reader.result as string;
-        const parsed = JSON.parse(text);
-        let records: PublisherLocal[];
-        if (Array.isArray(parsed)) {
-          records = parsed as PublisherLocal[];
-        } else if (parsed && parsed.type === "publisher-local" && Array.isArray(parsed.data)) {
-          records = parsed.data as PublisherLocal[];
-        } else {
-          set_error("Invalid file format: expected publisher-local data");
-          return;
-        }
+        const records = parsePublisherLocalRecords(text);
         set_parsed_data({ type: "publisher-local", data: records });
       } catch {
         set_error("Could not parse file. Make sure it is a valid export file.");
@@ -150,12 +145,7 @@ export function ImportModal({ is_open, onClose }: Props) {
         {error && (
           <IonNote style={{ color: "var(--ion-color-danger)", display: "block" }}>{error}</IonNote>
         )}
-        {parsed_data && !imported && (
-          <IonNote style={{ display: "block", marginBottom: "0.5rem" }}>
-            {parsed_data.data.length} publisher record
-            {parsed_data.data.length !== 1 ? "s" : ""} ready to import.
-          </IonNote>
-        )}
+        {parsed_data && !imported && <ImportPreviewList records={parsed_data.data} />}
         {imported && (
           <IonNote style={{ color: "var(--ion-color-success)", display: "block" }}>
             Import complete. Records were merged with existing data.

@@ -209,16 +209,233 @@ export function mergePublisherLocal(
   };
 }
 
+export interface PublisherLocalUpdatedFields {
+  publisher_id: string;
+  birth_date?: string;
+  baptism_date?: string;
+  phone: NonNullable<PublisherLocal["phone"]>;
+  address: NonNullable<PublisherLocal["address"]>;
+  email: NonNullable<PublisherLocal["email"]>;
+  emergency_contact: NonNullable<PublisherLocal["emergency_contact"]>;
+  photo: NonNullable<PublisherLocal["photo"]>;
+}
+
+function isPhoneEqual(
+  a: NonNullable<PublisherLocal["phone"]>[number],
+  b: NonNullable<PublisherLocal["phone"]>[number],
+): boolean {
+  return a.number === b.number && a.label === b.label;
+}
+
+function isCoordinatesEqual(a: number[] | undefined, b: number[] | undefined): boolean {
+  if (!a && !b) return true;
+  if (!a || !b || a.length !== b.length) return false;
+  return a.every((v, i) => v === b[i]);
+}
+
+function isAddressEqual(
+  a: NonNullable<PublisherLocal["address"]>[number],
+  b: NonNullable<PublisherLocal["address"]>[number],
+): boolean {
+  return (
+    a.label === b.label &&
+    (a.unit_number ?? "") === (b.unit_number ?? "") &&
+    (a.house_number ?? "") === (b.house_number ?? "") &&
+    (a.street ?? "") === (b.street ?? "") &&
+    (a.suburb ?? "") === (b.suburb ?? "") &&
+    isCoordinatesEqual(a.coordinates, b.coordinates)
+  );
+}
+
+function isEmailEqual(
+  a: NonNullable<PublisherLocal["email"]>[number],
+  b: NonNullable<PublisherLocal["email"]>[number],
+): boolean {
+  return a.address === b.address && a.label === b.label;
+}
+
+function isEmergencyContactEqual(
+  a: NonNullable<PublisherLocal["emergency_contact"]>[number],
+  b: NonNullable<PublisherLocal["emergency_contact"]>[number],
+): boolean {
+  if (
+    a.first_name !== b.first_name ||
+    a.last_name !== b.last_name ||
+    a.relationship !== b.relationship
+  ) {
+    return false;
+  }
+  const aPhones = a.phone ?? [];
+  const bPhones = b.phone ?? [];
+  if (
+    aPhones.length !== bPhones.length ||
+    aPhones.some((p) => {
+      const match = bPhones.find((bp) => bp.id === p.id);
+      return !match || !isPhoneEqual(p, match);
+    })
+  ) {
+    return false;
+  }
+  const aEmails = a.email ?? [];
+  const bEmails = b.email ?? [];
+  if (
+    aEmails.length !== bEmails.length ||
+    aEmails.some((e) => {
+      const match = bEmails.find((be) => be.id === e.id);
+      return !match || !isEmailEqual(e, match);
+    })
+  ) {
+    return false;
+  }
+  const aAddresses = a.address ?? [];
+  const bAddresses = b.address ?? [];
+  if (
+    aAddresses.length !== bAddresses.length ||
+    aAddresses.some((addr) => {
+      const match = bAddresses.find((ba) => ba.id === addr.id);
+      return !match || !isAddressEqual(addr, match);
+    })
+  ) {
+    return false;
+  }
+  return true;
+}
+
+function isPhotoEqual(
+  a: NonNullable<PublisherLocal["photo"]>[number],
+  b: NonNullable<PublisherLocal["photo"]>[number],
+): boolean {
+  return a.data === b.data && a.label === b.label && a.mime_type === b.mime_type;
+}
+
+function diffSinglePublisherLocal(
+  before: PublisherLocal | undefined,
+  after: PublisherLocal,
+): PublisherLocalUpdatedFields | null {
+  const before_phones = new Map((before?.phone ?? []).map((p) => [p.id, p]));
+  const phone = (after.phone ?? []).filter((item) => {
+    const prev = before_phones.get(item.id);
+    return !prev || !isPhoneEqual(prev, item);
+  });
+
+  const before_addresses = new Map((before?.address ?? []).map((a) => [a.id, a]));
+  const address = (after.address ?? []).filter((item) => {
+    const prev = before_addresses.get(item.id);
+    return !prev || !isAddressEqual(prev, item);
+  });
+
+  const before_emails = new Map((before?.email ?? []).map((e) => [e.id, e]));
+  const email = (after.email ?? []).filter((item) => {
+    const prev = before_emails.get(item.id);
+    return !prev || !isEmailEqual(prev, item);
+  });
+
+  const before_contacts = new Map((before?.emergency_contact ?? []).map((c) => [c.id, c]));
+  const emergency_contact = (after.emergency_contact ?? []).filter((item) => {
+    const prev = before_contacts.get(item.id);
+    return !prev || !isEmergencyContactEqual(prev, item);
+  });
+
+  const before_photos = new Map((before?.photo ?? []).map((p) => [p.id, p]));
+  const photo = (after.photo ?? []).filter((item) => {
+    const prev = before_photos.get(item.id);
+    return !prev || !isPhotoEqual(prev, item);
+  });
+
+  const birth_date =
+    after.birth_date?.value && after.birth_date.value !== (before?.birth_date?.value ?? "")
+      ? after.birth_date.value
+      : undefined;
+
+  const baptism_date =
+    after.baptism_date?.value && after.baptism_date.value !== (before?.baptism_date?.value ?? "")
+      ? after.baptism_date.value
+      : undefined;
+
+  if (
+    !birth_date &&
+    !baptism_date &&
+    phone.length === 0 &&
+    address.length === 0 &&
+    email.length === 0 &&
+    emergency_contact.length === 0 &&
+    photo.length === 0
+  ) {
+    return null;
+  }
+
+  return {
+    publisher_id: after.publisher_id,
+    birth_date,
+    baptism_date,
+    phone,
+    address,
+    email,
+    emergency_contact,
+    photo,
+  };
+}
+
+/**
+ * Computes which fields would be added or updated for each publisher if
+ * `records` were merged into `existing`.
+ */
+export function diffPublisherLocalRecords(
+  existing: PublisherLocal[],
+  records: PublisherLocal[],
+): PublisherLocalUpdatedFields[] {
+  const before_map = new Map(existing.map((doc) => [doc.publisher_id, doc]));
+  const after_map = new Map<string, PublisherLocal>();
+
+  for (const raw of records) {
+    const incoming = normalizePublisherLocal(raw);
+    const current = after_map.get(incoming.publisher_id) ?? before_map.get(incoming.publisher_id);
+    after_map.set(
+      incoming.publisher_id,
+      current ? mergePublisherLocal(current, incoming) : incoming,
+    );
+  }
+
+  const updated: PublisherLocalUpdatedFields[] = [];
+  for (const [publisher_id, after] of after_map) {
+    const diff = diffSinglePublisherLocal(before_map.get(publisher_id), after);
+    if (diff) {
+      updated.push(diff);
+    }
+  }
+  return updated;
+}
+
+export function parsePublisherLocalRecords(text: string): PublisherLocal[] {
+  const parsed: unknown = JSON.parse(text);
+  if (Array.isArray(parsed)) {
+    return parsed as PublisherLocal[];
+  }
+  if (
+    parsed &&
+    typeof parsed === "object" &&
+    "type" in parsed &&
+    parsed.type === "publisher-local" &&
+    "data" in parsed &&
+    Array.isArray(parsed.data)
+  ) {
+    return parsed.data as PublisherLocal[];
+  }
+  throw new Error("Invalid file format: expected publisher-local data");
+}
+
 /**
  * Merges records into the local collection. Incoming records are matched by
  * `publisher_id`; conflicting values resolve to the most recently updated
  * (`updated_at`) value, and locally-only records are left untouched.
  */
-export async function importPublisherLocalRecords(records: PublisherLocal[]): Promise<void> {
+export async function importPublisherLocalRecords(
+  records: PublisherLocal[],
+): Promise<PublisherLocalUpdatedFields[]> {
   const existing = await rxdb.publisher.find().exec();
-  const existing_map = new Map(
-    existing.map((doc) => [doc.publisher_id, doc.toJSON() as PublisherLocal]),
-  );
+  const existing_list = existing.map((doc) => doc.toJSON() as PublisherLocal);
+  const updated = diffPublisherLocalRecords(existing_list, records);
+  const existing_map = new Map(existing_list.map((doc) => [doc.publisher_id, doc]));
 
   const inserts = new Map<string, PublisherLocal>();
   for (const raw of records) {
@@ -240,17 +457,13 @@ export async function importPublisherLocalRecords(records: PublisherLocal[]): Pr
       throw new Error(`Failed to import ${result.error.length} publisher record(s)`);
     }
   }
+  return updated;
 }
 
-export async function importPublisherLocalData(file: File): Promise<void> {
+export async function importPublisherLocalData(file: File): Promise<PublisherLocalUpdatedFields[]> {
   const text = await file.text();
-  const data: PublisherLocal[] = JSON.parse(text);
-
-  if (!Array.isArray(data)) {
-    throw new Error("Invalid file format: expected an array of publishers");
-  }
-
-  await importPublisherLocalRecords(data);
+  const data = parsePublisherLocalRecords(text);
+  return importPublisherLocalRecords(data);
 }
 
 export function generateExportFilename(): string {
