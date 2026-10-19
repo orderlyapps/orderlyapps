@@ -6,19 +6,21 @@ export default defineConfig({
   },
   fmt: {},
   test: {
-    projects: ["packages/proclaimer", "packages/utils", "packages/ui/*", "tools/*"],
+    projects: [
+      "packages/proclaimer",
+      "packages/subbie",
+      "packages/utils",
+      "packages/ui/*",
+      "tools/*",
+    ],
   },
   lint: {
-    ignorePatterns: [
-      "**/public/vendor/**",
-      "apps/proclaimer/dist/**",
-      "apps/proclaimer/example-code/**",
-    ],
+    ignorePatterns: ["**/public/vendor/**", "apps/*/dist/**", "apps/proclaimer/example-code/**"],
     env: { builtin: true },
     options: { typeAware: true, typeCheck: true },
     overrides: [
       {
-        files: ["apps/proclaimer/**/*.{ts,tsx}"],
+        files: ["apps/*/**/*.{ts,tsx}"],
         plugins: ["oxc", "typescript", "unicorn", "react"],
         env: { browser: true },
         jsPlugins: [
@@ -123,7 +125,7 @@ export default defineConfig({
       // Later overrides win for conflicting settings, so the node env for the
       // app's vite.config.ts must come after the broad app override above.
       {
-        files: ["apps/proclaimer/vite.config.ts"],
+        files: ["apps/*/vite.config.ts"],
         env: { node: true },
       },
     ],

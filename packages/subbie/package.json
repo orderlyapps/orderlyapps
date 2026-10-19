@@ -1,0 +1,54 @@
+{
+  "name": "@amodeo/subbie",
+  "version": "0.0.0",
+  "description": "Feature package for the Subbie application.",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types@development": "./src/index.ts",
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./feature/*": {
+      "types@development": "./src/feature/*/index.ts",
+      "development": "./src/feature/*/index.ts",
+      "types": "./dist/feature/*/index.d.mts",
+      "import": "./dist/feature/*/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp test",
+    "check": "vp check",
+    "prepublishOnly": "vp run build"
+  },
+  "dependencies": {
+    "@amodeo/ionic": "workspace:*",
+    "@amodeo/utils": "workspace:*",
+    "@ionic/react": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@amodeo/config": "workspace:*",
+    "@testing-library/react": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "happy-dom": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

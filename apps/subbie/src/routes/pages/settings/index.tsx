@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-import { SettingsContent } from "@/feature/settings/components/settings-content.tsx";
+import { SettingsContent } from "@amodeo/subbie/feature/settings";
 
 export default function SettingsTabPage() {
   return (

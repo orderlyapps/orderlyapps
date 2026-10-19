@@ -13,8 +13,7 @@
   },
   "dependencies": {
     "@amodeo/ionic": "workspace:*",
-    "@amodeo/proclaimer": "workspace:*",
-    "@amodeo/utils": "workspace:*",
+    "@amodeo/subbie": "workspace:*",
     "@ionic/react": "catalog:",
     "@ionic/react-router": "catalog:",
     "ionicons": "catalog:",

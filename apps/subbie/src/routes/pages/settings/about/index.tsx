@@ -7,7 +7,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { AboutContent } from "@/feature/settings/components/about/about-content.tsx";
+import { AboutContent } from "@amodeo/subbie/feature/settings";
 
 export default function AboutPage() {
   return (

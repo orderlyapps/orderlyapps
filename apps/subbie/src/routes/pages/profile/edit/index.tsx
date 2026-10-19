@@ -7,7 +7,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { EditProfileContent } from "@/feature/profile/components/edit/edit-profile-content.tsx";
+import { EditProfileContent } from "@amodeo/subbie/feature/profile";
 
 export default function EditProfilePage() {
   return (

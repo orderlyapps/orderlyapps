@@ -1,5 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-import { ProfileContent } from "@/feature/profile/components/profile-content.tsx";
+import { ProfileContent } from "@amodeo/subbie/feature/profile";
 
 export default function ProfileTabPage() {
   return (

@@ -6,9 +6,11 @@
   "scripts": {
     "dev:app:proclaimer": "vp run proclaimer#dev",
     "dev:pkg:proclaimer": "vp run @amodeo/proclaimer#dev",
+    "dev:app:subbie": "vp run subbie#dev",
+    "dev:pkg:subbie": "vp run @amodeo/subbie#dev",
     "ready": "vp check && vp run -r test && vp run -r build",
     "prepare": "vp config",
-    "postinstall": "vp run @amodeo/config#build && vp run @amodeo/proclaimer#build"
+    "postinstall": "vp run @amodeo/config#build && vp run @amodeo/proclaimer#build && vp run @amodeo/subbie#build"
   },
   "devDependencies": {
     "vite": "catalog:",
