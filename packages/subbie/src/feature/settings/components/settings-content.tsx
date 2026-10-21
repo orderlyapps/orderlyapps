@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import { IonItem, IonLabel, IonList, IonToggle } from "@ionic/react";
-import {
-  EmailInput,
-  ExportSettingsItem,
-  ImportSettingsItem,
-  NumberInput,
-  TextInput,
-} from "@amodeo/ionic";
+import { EmailInput, NumberInput, TextInput } from "@amodeo/ionic";
+import { ExportSettingsItem } from "./export-settings-item.tsx";
+import { ImportSettingsItem } from "./import-settings-item.tsx";
 import { getAppSettings, type SubbiePreferencesSettings } from "../app-settings.ts";
 import { ThemeSelector } from "./selectors/theme-selector.tsx";
 import { FontSizeSelector } from "./selectors/font-size-selector.tsx";
