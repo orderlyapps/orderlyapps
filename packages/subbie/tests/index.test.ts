@@ -1,6 +1,5 @@
 import { expect, test } from "vite-plus/test";
 import {
-  AboutContent,
   DetailsContent,
   EditProfileContent,
   getAppSettings,
@@ -16,5 +15,4 @@ test("package exports", () => {
   expect(typeof ProfileContent).toBe("function");
   expect(typeof EditProfileContent).toBe("function");
   expect(typeof SettingsContent).toBe("function");
-  expect(typeof AboutContent).toBe("function");
 });

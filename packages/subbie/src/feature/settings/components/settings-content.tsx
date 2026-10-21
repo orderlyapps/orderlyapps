@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { IonItem, IonLabel, IonList, IonToggle } from "@ionic/react";
-import { EmailInput, NumberInput, TextInput } from "@amodeo/ionic";
+import { IonItem, IonLabel, IonList } from "@ionic/react";
 import { ExportSettingsItem } from "./export-settings-item.tsx";
 import { ImportSettingsItem } from "./import-settings-item.tsx";
 import { getAppSettings, type SubbiePreferencesSettings } from "../app-settings.ts";
@@ -8,9 +7,6 @@ import { ThemeSelector } from "./selectors/theme-selector.tsx";
 import { FontSizeSelector } from "./selectors/font-size-selector.tsx";
 
 export function SettingsContent() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
   const [store, setStore] = useState<SubbiePreferencesSettings | null>(null);
 
   useEffect(() => {
@@ -26,30 +22,6 @@ export function SettingsContent() {
   return (
     <>
       <IonList inset>
-        <TextInput
-          label="Name"
-          labelPlacement="stacked"
-          value={name}
-          onIonChange={(e) => setName(e.detail.value ?? "")}
-        />
-        <EmailInput
-          label="Email"
-          labelPlacement="stacked"
-          value={email}
-          onIonChange={(e) => setEmail(e.detail.value ?? "")}
-        />
-        <NumberInput
-          label="Age"
-          labelPlacement="stacked"
-          value={age}
-          onIonChange={(e) => setAge(e.detail.value ?? "")}
-        />
-      </IonList>
-      <IonList inset>
-        <IonItem>
-          <IonLabel>Enable notifications</IonLabel>
-          <IonToggle slot="end" />
-        </IonItem>
         <IonItem>
           <IonLabel>Theme</IonLabel>
           <ThemeSelector />
@@ -57,9 +29,6 @@ export function SettingsContent() {
         <IonItem>
           <IonLabel>Font size</IonLabel>
           <FontSizeSelector />
-        </IonItem>
-        <IonItem routerLink="/settings/about" detail>
-          <IonLabel>About</IonLabel>
         </IonItem>
       </IonList>
       {store && (

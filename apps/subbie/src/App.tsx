@@ -3,7 +3,6 @@ import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } 
 import { IonReactRouter } from "@ionic/react-router";
 import { home, person, settings as settingsIcon } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
-import AboutPage from "@/routes/pages/settings/about/index.tsx";
 import DetailsPage from "@/routes/pages/home/details/index.tsx";
 import EditProfilePage from "@/routes/pages/profile/edit/index.tsx";
 import HomeTabPage from "@/routes/pages/home/index.tsx";
@@ -21,7 +20,6 @@ export default function App() {
             <Route exact path="/profile" component={ProfileTabPage} />
             <Route exact path="/profile/edit" component={EditProfilePage} />
             <Route exact path="/settings" component={SettingsTabPage} />
-            <Route exact path="/settings/about" component={AboutPage} />
             <Redirect exact from="/" to="/home" />
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
