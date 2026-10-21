@@ -583,9 +583,6 @@ importers:
       '@amodeo/ionic':
         specifier: workspace:*
         version: link:../ui/ionic
-      '@amodeo/utils':
-        specifier: workspace:*
-        version: link:../utils
       '@ionic/react':
         specifier: 'catalog:'
         version: 8.8.15(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -595,6 +592,9 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.8(react@19.2.8)
+      rxdb:
+        specifier: 'catalog:'
+        version: 17.4.0(react@19.2.8)(rxjs@7.8.2)(supports-color@10.2.2)
     devDependencies:
       '@amodeo/config':
         specifier: workspace:*

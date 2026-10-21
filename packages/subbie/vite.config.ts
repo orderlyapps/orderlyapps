@@ -2,7 +2,7 @@ import { defineConfig } from "vite-plus";
 
 export default defineConfig({
   pack: {
-    entry: ["src/index.ts", "src/app-settings.ts", "src/feature/**/*.ts", "src/feature/**/*.tsx"],
+    entry: ["src/index.ts", "src/feature/**/*.ts", "src/feature/**/*.tsx"],
     unbundle: true,
     dts: true,
     exports: false,

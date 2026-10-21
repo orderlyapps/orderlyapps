@@ -61,6 +61,7 @@ export async function initFontSize(store: AppSettings<{ fontSize: FontSize }>): 
   const stored = await store.get("fontSize");
   currentFontSize = stored && isValidFontSize(stored) ? stored : DEFAULT_FONT_SIZE;
   applyFontSize(currentFontSize);
+  notify();
 }
 
 export { subscribe, getFontSizeSnapshot };

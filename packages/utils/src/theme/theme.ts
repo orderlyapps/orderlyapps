@@ -32,7 +32,6 @@ function updateThemeColor(resolved: ResolvedTheme): void {
   document.querySelectorAll('meta[name="theme-color"]').forEach((el) => {
     el.setAttribute("content", color);
   });
-  cachedColors = null;
 }
 
 function applyTheme(mode: ThemeMode, darkClass: string): ResolvedTheme {
@@ -78,7 +77,7 @@ function setModeInternal(next: ThemeMode): void {
 
 if (typeof window !== "undefined") {
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-    if (currentMode === "system") {
+    if (settingsStore && currentMode === "system") {
       currentResolved = applyTheme("system", activeDarkClass);
       notify();
     }
@@ -108,6 +107,7 @@ export async function initTheme(
   const stored = await store.get("themeMode");
   currentMode = stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
   currentResolved = applyTheme(currentMode, activeDarkClass);
+  notify();
 }
 
 export { subscribe, getModeSnapshot, getResolvedSnapshot, setModeInternal as setMode };

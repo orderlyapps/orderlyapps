@@ -35,10 +35,10 @@
   },
   "dependencies": {
     "@amodeo/ionic": "workspace:*",
-    "@amodeo/utils": "workspace:*",
     "@ionic/react": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "rxdb": "catalog:"
   },
   "devDependencies": {
     "@amodeo/config": "workspace:*",

@@ -3,13 +3,13 @@ import { IonItem, IonLabel, IonList, IonToggle } from "@ionic/react";
 import {
   EmailInput,
   ExportSettingsItem,
-  FontSizeSelector,
   ImportSettingsItem,
   NumberInput,
   TextInput,
-  ThemeSelector,
 } from "@amodeo/ionic";
-import { getAppSettings, type SubbiePreferencesSettings } from "../../../app-settings.ts";
+import { getAppSettings, type SubbiePreferencesSettings } from "../app-settings.ts";
+import { ThemeSelector } from "./selectors/theme-selector.tsx";
+import { FontSizeSelector } from "./selectors/font-size-selector.tsx";
 
 export function SettingsContent() {
   const [name, setName] = useState("");

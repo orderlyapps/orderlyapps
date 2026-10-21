@@ -1,4 +1,7 @@
-import { createAppPreferences, type AppPreferencesSettings } from "@amodeo/utils";
+import {
+  createAppPreferences,
+  type AppPreferencesSettings,
+} from "./app-settings/init-app-preferences.ts";
 
 export type SubbiePreferencesSettings = AppPreferencesSettings;
 
