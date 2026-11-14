@@ -18,6 +18,7 @@ export {
   ensureClosedRing,
   boundaryToBounds,
   boundaryToPolygonCoords,
+  boundaryToLabelPoint,
   blockCoordinatesToBounds,
   blockToPolygonCoords,
   blockToLineStringCoords,

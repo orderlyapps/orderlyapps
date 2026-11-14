@@ -2,7 +2,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { mapCollection } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
-import { isValidBoundary } from "@amodeo/proclaimer/feature/map";
+import { boundaryToPolygonCoords, boundaryToLabelPoint } from "@amodeo/proclaimer/feature/map";
 import { useMapDisplayMode } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useMapDisplayModeContext";
 import { useSelectedMap } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useSelectedMapContext";
 
@@ -12,14 +12,16 @@ type PolygonFeature = {
   properties: { id: string | null; name: string; details: string | null; is_selected: boolean };
 };
 
-export type MapsGeoJSON = {
-  type: "FeatureCollection";
-  features: PolygonFeature[];
+type LabelFeature = {
+  type: "Feature";
+  geometry: { type: "Point"; coordinates: number[] };
+  properties: PolygonFeature["properties"];
 };
 
-function toGeoJSONPolygon(boundary: number[][]): { type: "Polygon"; coordinates: number[][][] } {
-  return { type: "Polygon", coordinates: [boundary] };
-}
+export type MapsGeoJSON = {
+  type: "FeatureCollection";
+  features: (PolygonFeature | LabelFeature)[];
+};
 
 export function useMapsBoundary(): MapsGeoJSON {
   const { data } = useLiveQuery((q) => q.from({ m: mapCollection }));
@@ -29,10 +31,7 @@ export function useMapsBoundary(): MapsGeoJSON {
   const { selectedMapId } = useSelectedMap();
 
   const features = ((data ?? []) as MapRow[])
-    .filter(
-      (row): row is MapRow & { boundary: number[][] } =>
-        row.congregation_id === congregation_id && isValidBoundary(row.boundary),
-    )
+    .filter((row) => row.congregation_id === congregation_id)
     .filter((row) => {
       // If display mode is "selected", only show the selected map
       if (displayMode === "selected") {
@@ -41,16 +40,34 @@ export function useMapsBoundary(): MapsGeoJSON {
       // Otherwise show all maps
       return true;
     })
-    .map((row) => ({
-      type: "Feature" as const,
-      geometry: toGeoJSONPolygon(row.boundary),
-      properties: {
+    .flatMap((row) => {
+      const coordinates = boundaryToPolygonCoords(row.boundary);
+      if (!coordinates) return [];
+      const properties = {
         id: row.id ?? null,
         name: row.name,
         details: row.details ?? null,
         is_selected: row.id === selectedMapId,
-      },
-    }));
+      };
+      const result: MapsGeoJSON["features"] = [
+        {
+          type: "Feature",
+          geometry: { type: "Polygon", coordinates },
+          properties,
+        },
+      ];
+      // Labels anchor to a single point per map so a polygon split across
+      // tiles cannot render the same name more than once.
+      const labelPoint = boundaryToLabelPoint(row.boundary);
+      if (labelPoint) {
+        result.push({
+          type: "Feature",
+          geometry: { type: "Point", coordinates: labelPoint },
+          properties: { ...properties },
+        });
+      }
+      return result;
+    });
 
   return { type: "FeatureCollection", features };
 }
