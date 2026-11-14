@@ -2,7 +2,7 @@ import { Source, Layer } from "react-map-gl/mapbox";
 import { useSelectedMapBlocks } from "./hooks/useSelectedMapBlocks";
 import { useTheme } from "@amodeo/proclaimer/util/theme";
 import { JW_BLUE } from "@amodeo/proclaimer/ui/colors/jwColors";
-import { MAP_VERTEX_MIN_ZOOM, mapTextHaloColor } from "../mapLayerConstants";
+import { MAP_OVERLAY_MIN_ZOOM, MAP_VERTEX_MIN_ZOOM, mapTextHaloColor } from "../mapLayerConstants";
 import { useBeforeId } from "../hooks/useBeforeId";
 import { useMapStyle } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useMapStyleContext";
 
@@ -52,7 +52,7 @@ export function BlocksLayer() {
             filter={["==", ["geometry-type"], "Point"]}
             layout={{
               "text-field": ["get", "name"],
-              "text-size": ["interpolate", ["linear"], ["zoom"], MAP_VERTEX_MIN_ZOOM, 0, 21, 75],
+              "text-size": ["interpolate", ["linear"], ["zoom"], MAP_OVERLAY_MIN_ZOOM, 0, 21, 75],
               "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
               "text-anchor": "center",
               "symbol-placement": "point",
@@ -107,7 +107,7 @@ export function BlocksLayer() {
             minzoom={MAP_VERTEX_MIN_ZOOM}
             layout={{
               "text-field": ["get", "name"],
-              "text-size": ["interpolate", ["linear"], ["zoom"], MAP_VERTEX_MIN_ZOOM, 0, 21, 75],
+              "text-size": ["interpolate", ["linear"], ["zoom"], MAP_OVERLAY_MIN_ZOOM, 0, 21, 75],
               "text-font": ["Open Sans Regular", "Arial Unicode MS Regular"],
               "text-anchor": "center",
               "symbol-placement": "point",
