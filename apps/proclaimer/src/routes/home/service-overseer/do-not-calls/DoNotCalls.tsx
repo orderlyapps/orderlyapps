@@ -1,15 +1,18 @@
 import { useState } from "react";
 import {
-  IonActionSheet,
   IonBackButton,
   IonButtons,
+  IonCol,
   IonContent,
+  IonGrid,
   IonHeader,
   IonItem,
   IonLabel,
   IonList,
+  IonListHeader,
   IonNote,
   IonPage,
+  IonRow,
   IonSearchbar,
   IonSegment,
   IonSegmentButton,
@@ -20,6 +23,7 @@ import {
 import { useLiveQuery, eq } from "@tanstack/react-db";
 import { pdf } from "@react-pdf/renderer";
 import { isValid } from "date-fns";
+import { downloadOutline, shareOutline } from "ionicons/icons";
 import {
   doNotCallCollection,
   formatAddressNumber,
@@ -32,6 +36,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
+import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
@@ -105,6 +110,7 @@ function DoNotCallsPage() {
   const [sort_mode, set_sort_mode] = useState<SortMode>("date");
   const [search, set_search] = useState("");
   const [is_export_open, set_is_export_open] = useState(false);
+  const [export_sort, set_export_sort] = useState<SortMode>("date");
   const [is_generating, set_is_generating] = useState(false);
 
   const { data } = useLiveQuery((q) =>
@@ -123,7 +129,6 @@ function DoNotCallsPage() {
   const congregation_do_not_calls = (data ?? []).filter(
     (dnc) => dnc.congregation_id === congregation?.id,
   );
-  const pdf_do_not_calls = [...congregation_do_not_calls].sort(compareDoNotCalls("street"));
   const do_not_calls = congregation_do_not_calls
     .filter(
       (dnc) =>
@@ -139,7 +144,10 @@ function DoNotCallsPage() {
 
   const generatePdf = () =>
     pdf(
-      <DoNotCallPdf do_not_calls={pdf_do_not_calls} congregation_name={congregation?.name} />,
+      <DoNotCallPdf
+        do_not_calls={[...congregation_do_not_calls].sort(compareDoNotCalls(export_sort))}
+        congregation_name={congregation?.name}
+      />,
     ).toBlob();
 
   const downloadBlob = (blob: Blob) => {
@@ -224,8 +232,11 @@ function DoNotCallsPage() {
           <IonTitle>Do Not Calls</IonTitle>
           <IonButtons slot="end">
             <PDFIconButton
-              disabled={is_generating || pdf_do_not_calls.length === 0}
-              on_click={() => set_is_export_open(true)}
+              disabled={is_generating || congregation_do_not_calls.length === 0}
+              on_click={() => {
+                set_export_sort(sort_mode);
+                set_is_export_open(true);
+              }}
             />
           </IonButtons>
         </IonToolbar>
@@ -275,29 +286,62 @@ function DoNotCallsPage() {
           ))}
         </IonList>
       </IonContent>
-      <IonActionSheet
+      <ResponsiveModal
         isOpen={is_export_open}
         onDidDismiss={() => set_is_export_open(false)}
-        header="Do Not Call List PDF"
-        buttons={[
-          {
-            text: "Share",
-            handler: () => {
-              void handleShare();
-            },
-          },
-          {
-            text: "Download PDF",
-            handler: () => {
-              void handleDownload();
-            },
-          },
-          {
-            text: "Cancel",
-            role: "cancel",
-          },
-        ]}
-      />
+        fullscreen={false}
+      >
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Export Do Not Call List</IonTitle>
+            <IonButtons slot="end">
+              <CloseIconButton on_click={() => set_is_export_open(false)} skip_confirmation />
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">
+          <IonList>
+            <IonListHeader>
+              <IonLabel>Sort order</IonLabel>
+            </IonListHeader>
+            <IonSegment
+              value={export_sort}
+              onIonChange={(e) => set_export_sort(e.detail.value as SortMode)}
+            >
+              <IonSegmentButton value="date">
+                <IonLabel>Date</IonLabel>
+              </IonSegmentButton>
+              <IonSegmentButton value="suburb">
+                <IonLabel>Suburb</IonLabel>
+              </IonSegmentButton>
+              <IonSegmentButton value="street">
+                <IonLabel>Street</IonLabel>
+              </IonSegmentButton>
+            </IonSegment>
+          </IonList>
+          <Space size="md" />
+          <IonGrid>
+            <IonRow>
+              <IonCol>
+                <TextButton
+                  icon={shareOutline}
+                  disabled={is_generating}
+                  on_click={() => void handleShare()}
+                  label={is_generating ? "Generating..." : "Share"}
+                />
+              </IonCol>
+              <IonCol>
+                <TextButton
+                  icon={downloadOutline}
+                  disabled={is_generating}
+                  on_click={() => void handleDownload()}
+                  label={is_generating ? "Generating..." : "Download"}
+                />
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+        </IonContent>
+      </ResponsiveModal>
       <ResponsiveModal isOpen={!!editing} onDidDismiss={handleClose}>
         <IonHeader>
           <IonToolbar>
