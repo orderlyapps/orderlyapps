@@ -18,6 +18,8 @@ import { useMapZoom } from "./context/mapZoomContext";
 import { DoNotCallSource } from "@amodeo/proclaimer/feature/map";
 import { DoNotCallAlert } from "@amodeo/proclaimer/feature/map";
 import type { DoNotCall } from "@amodeo/proclaimer/feature/map";
+import { doNotCallCollection } from "@amodeo/proclaimer/feature/territory";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { useMapStyle } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useMapStyleContext";
 import { useQuickLinks } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useQuickLinksContext";
 import { QuickLinksFab } from "./components/quick-links-fab/QuickLinksFab";
@@ -49,6 +51,8 @@ export function DoorToDoorContent() {
   const { zoomToRef } = useMapZoom();
   const { styleId } = useMapStyle();
   const { fabVisible } = useQuickLinks();
+  const { has_service_overseer, has_congregation_admin, is_super_admin } = usePermissions();
+  const can_delete_do_not_call = has_service_overseer || has_congregation_admin || is_super_admin;
 
   return (
     <>
@@ -113,7 +117,11 @@ export function DoorToDoorContent() {
         onDismiss={() => setSelectedReturnVisitGroupKey(null)}
       />
 
-      <DoNotCallAlert selected={selectedDoNotCall} onDismiss={() => setSelectedDoNotCall(null)} />
+      <DoNotCallAlert
+        selected={selectedDoNotCall}
+        onDismiss={() => setSelectedDoNotCall(null)}
+        onDelete={can_delete_do_not_call ? (id) => doNotCallCollection.delete(id) : undefined}
+      />
       <NotAtHomeAlert
         selected={selectedNotAtHome}
         onDismiss={() => setSelectedNotAtHome(null)}
