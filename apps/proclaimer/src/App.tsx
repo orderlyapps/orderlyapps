@@ -98,6 +98,7 @@ import MapTagDetailPage from "@proclaimer-routes/home/service-overseer/map-tags/
 import MapCheckoutPage from "@proclaimer-routes/home/service-overseer/map-checkout/MapCheckout";
 import MapCheckoutDetailPage from "@proclaimer-routes/home/service-overseer/map-checkout/map-checkout-detail/MapCheckoutDetail";
 import ServiceOverseerPdfsPage from "@proclaimer-routes/home/service-overseer/pdfs/Pdfs";
+import DoNotCallsPage from "@proclaimer-routes/home/service-overseer/do-not-calls/DoNotCalls";
 import CobePage from "@proclaimer-routes/home/cobe/Cobe";
 import TerritoryServantPage from "@proclaimer-routes/home/territory-servant/TerritoryServant";
 import SpeakerPage from "@proclaimer-routes/home/speaker/Speaker";
@@ -432,6 +433,7 @@ function App() {
         <Route path="/home/service-overseer/map-tags" component={MapTagsPage} exact />
         <Route path="/home/service-overseer/map-tags/:tag_id" component={MapTagDetailPage} exact />
         <Route path="/home/service-overseer/pdfs" component={ServiceOverseerPdfsPage} exact />
+        <Route path="/home/service-overseer/do-not-calls" component={DoNotCallsPage} exact />
         <Route path="/home/service-overseer/map-checkout" component={MapCheckoutPage} exact />
         <Route
           path="/home/service-overseer/map-checkout/:publisher_id"
