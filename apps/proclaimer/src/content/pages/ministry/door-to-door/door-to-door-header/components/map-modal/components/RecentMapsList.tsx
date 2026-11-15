@@ -1,15 +1,10 @@
 import { IonAccordion, IonAccordionGroup, IonItem, IonLabel, IonList } from "@ionic/react";
-import { useLiveQuery } from "@tanstack/react-db";
 import { useMapsList } from "../hooks/useMapsList";
-import { mapLogCollection } from "@amodeo/proclaimer/feature/territory";
-import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { MapListItem } from "./map-list-item/MapListItem";
-import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import { Heading } from "@amodeo/proclaimer/ui/components/display/text/heading/Heading";
 import { localStorageKeys } from "@amodeo/proclaimer/util/localStorageKeys";
 import { useAccordionState } from "@amodeo/proclaimer/util/hooks/use-accordion-state";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
-import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
 
 interface RecentMapsListProps {
   recentMapIds: string[];
@@ -19,25 +14,6 @@ interface RecentMapsListProps {
 
 export function RecentMapsList({ recentMapIds, onMapSelect, onPreviewImage }: RecentMapsListProps) {
   const allMaps = useMapsList();
-  const { data: logs_data } = useLiveQuery((q) => q.from({ l: mapLogCollection }));
-  const { data: publishers_data } = useLiveQuery((q) => q.from({ p: publisherCollection }));
-
-  const all_logs = (logs_data as MapLogRow[] | undefined) ?? [];
-  const all_publishers = (publishers_data as Publisher[] | undefined) ?? [];
-
-  const publisher_name_by_id = new Map(
-    all_publishers.map((p) => [p.id ?? "", getPublisherDisplayName(p)]),
-  );
-
-  const checked_out_map_ids = new Set(
-    all_logs.filter((log) => log.checked_out_at && !log.checked_in_at).map((log) => log.map_id),
-  );
-
-  const checked_out_name_by_map_id = new Map(
-    all_logs
-      .filter((log) => log.checked_out_at && !log.checked_in_at)
-      .map((log) => [log.map_id, publisher_name_by_id.get(log.publisher_id) ?? ""]),
-  );
 
   // Filter maps to only include recent ones, maintaining the order from recentMapIds
   const recentMaps = recentMapIds
@@ -61,20 +37,14 @@ export function RecentMapsList({ recentMapIds, onMapSelect, onPreviewImage }: Re
           </IonLabel>
         </IonItem>
         <IonList slot="content">
-          {recentMaps.map((map) => {
-            const is_checked_out = checked_out_map_ids.has(map.id ?? "");
-            const checked_out_name = checked_out_name_by_map_id.get(map.id ?? "") ?? "";
-            return (
-              <MapListItem
-                key={map.id}
-                map={map}
-                onMapSelect={onMapSelect}
-                onPreviewImage={onPreviewImage}
-                label_color={is_checked_out ? "success" : undefined}
-                value_2={checked_out_name || undefined}
-              />
-            );
-          })}
+          {recentMaps.map((map) => (
+            <MapListItem
+              key={map.id}
+              map={map}
+              onMapSelect={onMapSelect}
+              onPreviewImage={onPreviewImage}
+            />
+          ))}
         </IonList>
       </IonAccordion>
     </IonAccordionGroup>

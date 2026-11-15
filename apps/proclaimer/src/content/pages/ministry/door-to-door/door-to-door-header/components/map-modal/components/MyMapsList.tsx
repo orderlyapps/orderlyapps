@@ -59,7 +59,6 @@ export function MyMapsList({ onMapSelect, onPreviewImage }: MyMapsListProps) {
               map={map}
               onMapSelect={onMapSelect}
               onPreviewImage={onPreviewImage}
-              label_color="success"
             />
           ))}
         </IonList>

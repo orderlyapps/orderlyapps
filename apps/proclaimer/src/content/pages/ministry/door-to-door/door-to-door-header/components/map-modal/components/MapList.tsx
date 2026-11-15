@@ -3,9 +3,7 @@ import { useLiveQuery } from "@tanstack/react-db";
 import { useMapsList } from "../hooks/useMapsList";
 import { mapLogCollection } from "@amodeo/proclaimer/feature/territory";
 import { mapTagAssignmentCollection } from "@amodeo/proclaimer/feature/territory";
-import { publisherCollection, type Publisher } from "@amodeo/proclaimer/feature/publisher";
 import { MapListItem } from "./map-list-item/MapListItem";
-import { getPublisherDisplayName } from "@amodeo/proclaimer/feature/publisher";
 import type { MapRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapLogRow } from "@amodeo/proclaimer/feature/territory";
 import type { MapTagAssignmentRow } from "@amodeo/proclaimer/feature/territory";
@@ -32,24 +30,12 @@ export function MapList({
   const maps = useMapsList();
   const { data: logs_data } = useLiveQuery((q) => q.from({ l: mapLogCollection }));
   const { data: assignments_data } = useLiveQuery((q) => q.from({ a: mapTagAssignmentCollection }));
-  const { data: publishers_data } = useLiveQuery((q) => q.from({ p: publisherCollection }));
 
   const all_logs = (logs_data as MapLogRow[] | undefined) ?? [];
   const all_assignments = (assignments_data as MapTagAssignmentRow[] | undefined) ?? [];
-  const all_publishers = (publishers_data as Publisher[] | undefined) ?? [];
-
-  const publisher_name_by_id = new Map(
-    all_publishers.map((p) => [p.id ?? "", getPublisherDisplayName(p)]),
-  );
 
   const checked_out_map_ids = new Set(
     all_logs.filter((log) => log.checked_out_at && !log.checked_in_at).map((log) => log.map_id),
-  );
-
-  const checked_out_name_by_map_id = new Map(
-    all_logs
-      .filter((log) => log.checked_out_at && !log.checked_in_at)
-      .map((log) => [log.map_id, publisher_name_by_id.get(log.publisher_id) ?? ""]),
   );
 
   const last_activity_by_map_id = new Map<string, string>();
@@ -79,11 +65,9 @@ export function MapList({
     }
     const q = normalizeMapSearchText(search_query);
     if (q) {
-      const checked_out_name = checked_out_name_by_map_id.get(map.id ?? "") ?? "";
       if (
         !normalizeMapSearchText(map.name).includes(q) &&
-        !normalizeMapSearchText(map.details ?? "").includes(q) &&
-        !normalizeMapSearchText(checked_out_name).includes(q)
+        !normalizeMapSearchText(map.details ?? "").includes(q)
       ) {
         return false;
       }
@@ -111,20 +95,14 @@ export function MapList({
 
   return (
     <IonList>
-      {filtered.map((map) => {
-        const is_checked_out = checked_out_map_ids.has(map.id ?? "");
-        const checked_out_name = checked_out_name_by_map_id.get(map.id ?? "") ?? "";
-        return (
-          <MapListItem
-            key={map.id}
-            map={map}
-            onMapSelect={onMapSelect}
-            onPreviewImage={onPreviewImage}
-            label_color={is_checked_out ? "success" : undefined}
-            value_2={checked_out_name || undefined}
-          />
-        );
-      })}
+      {filtered.map((map) => (
+        <MapListItem
+          key={map.id}
+          map={map}
+          onMapSelect={onMapSelect}
+          onPreviewImage={onPreviewImage}
+        />
+      ))}
     </IonList>
   );
 }
