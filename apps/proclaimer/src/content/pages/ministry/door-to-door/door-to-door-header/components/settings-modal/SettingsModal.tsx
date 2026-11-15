@@ -7,6 +7,7 @@ import { NotAtHomeStaleDaysSetting } from "./components/NotAtHomeStaleDaysSettin
 import { NotAtHomeVisibilitySetting } from "./components/NotAtHomeVisibilitySetting";
 import { QuickLinksSetting } from "./components/QuickLinksSetting";
 import { ReturnVisitDataManagement } from "./components/return-visit-data-management/ReturnVisitDataManagement";
+import { DoNotCallPdfExport } from "./components/do-not-call-pdf-export/DoNotCallPdfExport";
 
 interface SettingsModalProps {
   is_open: boolean;
@@ -30,6 +31,7 @@ export function SettingsModal({ is_open, on_dismiss }: SettingsModalProps) {
         <NotAtHomeStaleDaysSetting />
         <NotAtHomeVisibilitySetting />
         <QuickLinksSetting />
+        <DoNotCallPdfExport />
         <ReturnVisitDataManagement />
       </IonContent>
     </ResponsiveModal>

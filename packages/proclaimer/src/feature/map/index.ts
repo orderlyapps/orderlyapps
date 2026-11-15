@@ -37,6 +37,7 @@ export { DoNotCallEditLocationMarker } from "./components/do-not-call-source/com
 export { DoNotCallEditLocationFabs } from "./components/do-not-call-source/components/do-not-call-location-editor/DoNotCallEditLocationFabs.tsx";
 export { useDoNotCallLocationEditor } from "./components/do-not-call-source/hooks/useDoNotCallLocationEditor.ts";
 export { useDoNotCallMarkers } from "./components/do-not-call-source/hooks/useDoNotCallMarkers.ts";
+export { DoNotCallPdf } from "./components/do-not-call-source/components/do-not-call-pdf/DoNotCallPdf.tsx";
 export type { DoNotCall } from "./components/do-not-call-source/types.ts";
 
 // Territory selects (shared with door-to-door page)
