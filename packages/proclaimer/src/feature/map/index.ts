@@ -42,6 +42,7 @@ export type { DoNotCall } from "./components/do-not-call-source/types.ts";
 // Territory selects (shared with door-to-door page)
 export { SuburbSelect } from "./components/suburb-select/SuburbSelect.tsx";
 export { StreetSelect } from "./components/street-select/StreetSelect.tsx";
+export { saveDoNotCall } from "./components/service-overseer-map/components/do-not-call-modal/save-do-not-call.ts";
 
 // Map log pages
 export { MapLogHeader } from "./components/map-log/map-log-header/MapLogHeader.tsx";

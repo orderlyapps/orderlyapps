@@ -5,6 +5,8 @@ import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/t
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 import { SuburbSelect } from "@amodeo/proclaimer/feature/map";
 import { StreetSelect } from "@amodeo/proclaimer/feature/map";
+import { saveDoNotCall } from "@amodeo/proclaimer/feature/map";
+import { usePermissions } from "@amodeo/proclaimer/feature/permission";
 import { VisitTypeSelect } from "./components/visit-type-select/VisitTypeSelect";
 import { saveNotAtHome } from "./save-not-at-home";
 import { saveReturnVisit } from "../return-visit-add-modal/save-return-visit";
@@ -30,24 +32,36 @@ export function DoorToDoorModal({ isOpen, onDidDismiss, onSave }: DoorToDoorModa
     handleVisitTypeChange,
     resetAfterSave,
   } = useDoorToDoorForm();
+  const { has_service_overseer, has_congregation_admin, is_super_admin } = usePermissions();
+  const can_add_do_not_call = has_service_overseer || has_congregation_admin || is_super_admin;
+  const resolvedVisitType =
+    visitType === "do_not_call" && !can_add_do_not_call ? "return" : visitType;
 
   async function handleSave() {
     if (!selectedSuburb || !selectedStreet) return;
     const coordinates =
-      visitType === "return_visit"
-        ? await saveReturnVisit({
+      resolvedVisitType === "do_not_call"
+        ? await saveDoNotCall({
             suburb: selectedSuburb,
             street: selectedStreet,
             house_number: houseNumber,
             unit_number: unitNumber,
+            notes: "",
           })
-        : await saveNotAtHome({
-            suburb: selectedSuburb,
-            street: selectedStreet,
-            house_number: houseNumber,
-            unit_number: unitNumber,
-            visit_type: visitType,
-          });
+        : resolvedVisitType === "return_visit"
+          ? await saveReturnVisit({
+              suburb: selectedSuburb,
+              street: selectedStreet,
+              house_number: houseNumber,
+              unit_number: unitNumber,
+            })
+          : await saveNotAtHome({
+              suburb: selectedSuburb,
+              street: selectedStreet,
+              house_number: houseNumber,
+              unit_number: unitNumber,
+              visit_type: resolvedVisitType,
+            });
     if (coordinates) {
       resetAfterSave();
       onSave(coordinates);
@@ -99,8 +113,9 @@ export function DoorToDoorModal({ isOpen, onDidDismiss, onSave }: DoorToDoorModa
         />
 
         <VisitTypeSelect
-          value={visitType}
+          value={resolvedVisitType}
           disabled={!houseNumber}
+          include_do_not_call={can_add_do_not_call}
           on_change={handleVisitTypeChange}
         />
         {houseNumber && <Space />}
