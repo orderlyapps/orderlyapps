@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  IonActionSheet,
   IonBackButton,
   IonButtons,
   IonContent,
@@ -14,8 +15,10 @@ import {
   IonSegmentButton,
   IonTitle,
   IonToolbar,
+  useIonAlert,
 } from "@ionic/react";
 import { useLiveQuery, eq } from "@tanstack/react-db";
+import { pdf } from "@react-pdf/renderer";
 import { isValid } from "date-fns";
 import {
   doNotCallCollection,
@@ -24,9 +27,10 @@ import {
   suburbCollection,
 } from "@amodeo/proclaimer/feature/territory";
 import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
-import type { DoNotCall } from "@amodeo/proclaimer/feature/map";
+import { DoNotCallPdf, type DoNotCall } from "@amodeo/proclaimer/feature/map";
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
+import { PDFIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/pdf/PDFIconButton";
 import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInput";
 import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
@@ -95,10 +99,13 @@ function toDateInputValue(iso: string | undefined): string {
 
 function DoNotCallsPage() {
   const congregation = useStoredCongregation();
+  const [presentAlert] = useIonAlert();
   const [editing, set_editing] = useState<DoNotCall | null>(null);
   const [date_value, set_date_value] = useState("");
   const [sort_mode, set_sort_mode] = useState<SortMode>("date");
   const [search, set_search] = useState("");
+  const [is_export_open, set_is_export_open] = useState(false);
+  const [is_generating, set_is_generating] = useState(false);
 
   const { data } = useLiveQuery((q) =>
     q
@@ -113,8 +120,11 @@ function DoNotCallsPage() {
   ) as { data: DoNotCall[] | undefined };
 
   const normalized_search = search.trim().toLowerCase();
-  const do_not_calls = (data ?? [])
-    .filter((dnc) => dnc.congregation_id === congregation?.id)
+  const congregation_do_not_calls = (data ?? []).filter(
+    (dnc) => dnc.congregation_id === congregation?.id,
+  );
+  const pdf_do_not_calls = [...congregation_do_not_calls].sort(compareDoNotCalls("street"));
+  const do_not_calls = congregation_do_not_calls
     .filter(
       (dnc) =>
         !normalized_search ||
@@ -122,6 +132,66 @@ function DoNotCallsPage() {
         (dnc.notes ?? "").toLowerCase().includes(normalized_search),
     )
     .sort(compareDoNotCalls(sort_mode));
+
+  const filename = congregation?.name
+    ? `${congregation.name.replace(/\s+/g, "_")}_Do_Not_Calls.pdf`
+    : "Do_Not_Calls.pdf";
+
+  const generatePdf = () =>
+    pdf(
+      <DoNotCallPdf do_not_calls={pdf_do_not_calls} congregation_name={congregation?.name} />,
+    ).toBlob();
+
+  const downloadBlob = (blob: Blob) => {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    try {
+      link.click();
+    } finally {
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+  };
+
+  async function handleDownload() {
+    set_is_generating(true);
+    try {
+      downloadBlob(await generatePdf());
+    } catch (err) {
+      void presentAlert({
+        header: "Export Failed",
+        message: err instanceof Error ? err.message : "An unexpected error occurred.",
+        buttons: ["OK"],
+      });
+    } finally {
+      set_is_generating(false);
+    }
+  }
+
+  async function handleShare() {
+    set_is_generating(true);
+    try {
+      const blob = await generatePdf();
+      const file = new File([blob], filename, { type: "application/pdf" });
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: filename });
+      } else {
+        downloadBlob(blob);
+      }
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") return;
+      void presentAlert({
+        header: "Share Failed",
+        message: err instanceof Error ? err.message : "An unexpected error occurred.",
+        buttons: ["OK"],
+      });
+    } finally {
+      set_is_generating(false);
+    }
+  }
 
   function handleEdit(dnc: DoNotCall) {
     set_editing(dnc);
@@ -152,6 +222,12 @@ function DoNotCallsPage() {
             <IonBackButton />
           </IonButtons>
           <IonTitle>Do Not Calls</IonTitle>
+          <IonButtons slot="end">
+            <PDFIconButton
+              disabled={is_generating || pdf_do_not_calls.length === 0}
+              on_click={() => set_is_export_open(true)}
+            />
+          </IonButtons>
         </IonToolbar>
         <IonToolbar>
           <IonSearchbar
@@ -199,6 +275,29 @@ function DoNotCallsPage() {
           ))}
         </IonList>
       </IonContent>
+      <IonActionSheet
+        isOpen={is_export_open}
+        onDidDismiss={() => set_is_export_open(false)}
+        header="Do Not Call List PDF"
+        buttons={[
+          {
+            text: "Share",
+            handler: () => {
+              void handleShare();
+            },
+          },
+          {
+            text: "Download PDF",
+            handler: () => {
+              void handleDownload();
+            },
+          },
+          {
+            text: "Cancel",
+            role: "cancel",
+          },
+        ]}
+      />
       <ResponsiveModal isOpen={!!editing} onDidDismiss={handleClose}>
         <IonHeader>
           <IonToolbar>
