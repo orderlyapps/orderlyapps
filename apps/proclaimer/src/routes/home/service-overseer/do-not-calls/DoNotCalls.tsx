@@ -9,6 +9,9 @@ import {
   IonList,
   IonNote,
   IonPage,
+  IonSearchbar,
+  IonSegment,
+  IonSegmentButton,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
@@ -27,14 +30,41 @@ import { DateInput } from "@amodeo/proclaimer/ui/components/inputs/date/DateInpu
 import { SaveTextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/save/SaveTextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
 
+type SortMode = "date" | "suburb" | "street";
+
+const collator = new Intl.Collator(undefined, { numeric: true });
+
 function createdAtTime(iso: string | undefined): number {
   if (!iso) return 0;
   const time = new Date(iso).getTime();
   return Number.isNaN(time) ? 0 : time;
 }
 
-function compareDoNotCalls(a: DoNotCall, b: DoNotCall): number {
-  return createdAtTime(a.created_at) - createdAtTime(b.created_at);
+function compareAddress(a: DoNotCall, b: DoNotCall): number {
+  return (
+    collator.compare(a.house_number, b.house_number) ||
+    collator.compare(a.unit_number ?? "", b.unit_number ?? "")
+  );
+}
+
+function compareDoNotCalls(sort_mode: SortMode) {
+  return (a: DoNotCall, b: DoNotCall): number => {
+    if (sort_mode === "suburb") {
+      return (
+        collator.compare(a.suburb, b.suburb) ||
+        collator.compare(a.street, b.street) ||
+        compareAddress(a, b)
+      );
+    }
+    if (sort_mode === "street") {
+      return (
+        collator.compare(a.street, b.street) ||
+        compareAddress(a, b) ||
+        collator.compare(a.suburb, b.suburb)
+      );
+    }
+    return createdAtTime(a.created_at) - createdAtTime(b.created_at);
+  };
 }
 
 function formatAddress(dnc: DoNotCall): string {
@@ -67,6 +97,8 @@ function DoNotCallsPage() {
   const congregation = useStoredCongregation();
   const [editing, set_editing] = useState<DoNotCall | null>(null);
   const [date_value, set_date_value] = useState("");
+  const [sort_mode, set_sort_mode] = useState<SortMode>("date");
+  const [search, set_search] = useState("");
 
   const { data } = useLiveQuery((q) =>
     q
@@ -80,9 +112,16 @@ function DoNotCallsPage() {
       })),
   ) as { data: DoNotCall[] | undefined };
 
+  const normalized_search = search.trim().toLowerCase();
   const do_not_calls = (data ?? [])
     .filter((dnc) => dnc.congregation_id === congregation?.id)
-    .sort(compareDoNotCalls);
+    .filter(
+      (dnc) =>
+        !normalized_search ||
+        formatAddress(dnc).toLowerCase().includes(normalized_search) ||
+        (dnc.notes ?? "").toLowerCase().includes(normalized_search),
+    )
+    .sort(compareDoNotCalls(sort_mode));
 
   function handleEdit(dnc: DoNotCall) {
     set_editing(dnc);
@@ -114,13 +153,38 @@ function DoNotCallsPage() {
           </IonButtons>
           <IonTitle>Do Not Calls</IonTitle>
         </IonToolbar>
+        <IonToolbar>
+          <IonSearchbar
+            value={search}
+            onIonInput={(e) => set_search(e.detail.value ?? "")}
+            placeholder="Search address or notes"
+            debounce={0}
+          />
+        </IonToolbar>
+        <IonToolbar>
+          <IonSegment
+            value={sort_mode}
+            onIonChange={(e) => set_sort_mode(e.detail.value as SortMode)}
+            scrollable
+          >
+            <IonSegmentButton value="date">
+              <IonLabel>Date</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="suburb">
+              <IonLabel>Suburb</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="street">
+              <IonLabel>Street</IonLabel>
+            </IonSegmentButton>
+          </IonSegment>
+        </IonToolbar>
       </IonHeader>
       <IonContent className="content-wide">
         <IonList>
           {do_not_calls.length === 0 && (
             <IonItem>
               <IonLabel className="ion-text-center">
-                <p>No do not calls.</p>
+                <p>{normalized_search ? "No matching do not calls." : "No do not calls."}</p>
               </IonLabel>
             </IonItem>
           )}
