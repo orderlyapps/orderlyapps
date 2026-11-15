@@ -3,6 +3,7 @@ import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/
 import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/responsive-modal/ResponsiveModal";
 import { MapDisplaySetting } from "./components/MapDisplaySetting";
 import { MapStyleSetting } from "./components/MapStyleSetting";
+import { NotAtHomeStaleDaysSetting } from "./components/NotAtHomeStaleDaysSetting";
 import { QuickLinksSetting } from "./components/QuickLinksSetting";
 import { ReturnVisitDataManagement } from "./components/return-visit-data-management/ReturnVisitDataManagement";
 
@@ -25,6 +26,7 @@ export function SettingsModal({ is_open, on_dismiss }: SettingsModalProps) {
       <IonContent>
         <MapStyleSetting />
         <MapDisplaySetting />
+        <NotAtHomeStaleDaysSetting />
         <QuickLinksSetting />
         <ReturnVisitDataManagement />
       </IonContent>

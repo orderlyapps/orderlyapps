@@ -23,7 +23,14 @@ export const getUnitLabelLayer = (): LayerProps => {
     },
     paint: {
       "text-color": "#ffffff",
-      "text-halo-color": ["case", [">=", ["get", "return_count"], 1], "#F00", "#090"],
+      "text-halo-color": [
+        "case",
+        ["==", ["get", "return_count"], 0],
+        "#090",
+        ["==", ["get", "stale"], true],
+        "#A020F0",
+        "#F00",
+      ],
       "text-halo-width": 5,
     },
   };

@@ -9,7 +9,14 @@ export const getHousePointLayer = (): LayerProps => {
     filter: ["case", ["==", ["get", "unit_count"], 1], true, false],
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 14, 3, 16.5, 8, 18, 32],
-      "circle-color": ["case", ["==", ["get", "write"], false], "#F00", "#090"],
+      "circle-color": [
+        "case",
+        ["==", ["get", "write"], true],
+        "#090",
+        ["==", ["get", "stale"], true],
+        "#A020F0",
+        "#F00",
+      ],
     },
   };
 };

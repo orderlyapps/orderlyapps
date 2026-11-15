@@ -25,7 +25,14 @@ export const getHouseLabelLayer = (): LayerProps => {
     },
     paint: {
       "text-color": "#ffffff",
-      "text-halo-color": ["case", ["==", ["get", "write"], false], "#F00", "#090"],
+      "text-halo-color": [
+        "case",
+        ["==", ["get", "write"], true],
+        "#090",
+        ["==", ["get", "stale"], true],
+        "#A020F0",
+        "#F00",
+      ],
       "text-halo-width": 5,
     },
   };

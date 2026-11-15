@@ -9,7 +9,14 @@ export const getUnitPointLayer = (): LayerProps => {
     filter: ["case", [">", ["get", "unit_count"], 1], true, false],
     paint: {
       "circle-radius": ["interpolate", ["linear"], ["zoom"], 14, 4, 16.5, 10, 18, 55],
-      "circle-color": ["case", [">=", ["get", "return_count"], 1], "#F00", "#090"],
+      "circle-color": [
+        "case",
+        ["==", ["get", "return_count"], 0],
+        "#090",
+        ["==", ["get", "stale"], true],
+        "#A020F0",
+        "#F00",
+      ],
     },
   };
 };

@@ -35,6 +35,7 @@ export const localStorageKeys = {
   publishersFilterAccordion: "publishers_filter_accordion",
   avSmsTemplate: "av_sms_template",
   weekendMeetingSmsTemplate: "weekend_meeting_sms_template",
+  notAtHomeStaleDays: "not_at_home_stale_days",
 } as const;
 
 export const localStorageKeyWithVariant = (

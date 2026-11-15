@@ -11,17 +11,31 @@ export type NotAtHomeFeature = {
     unit_data: NotAtHomeWithCoordinates[];
     write_count: number;
     return_count: number;
+    stale: boolean;
   };
   geometry: { type: "Point"; coordinates: [number, number] };
 };
 
+const DAY_MS = 24 * 60 * 60 * 1000;
+
 export function buildNotAtHomeFeatures(
   groupedByAddress: Record<string, NotAtHomeWithCoordinates[]>,
+  staleDays = 0,
+  now = Date.now(),
 ): NotAtHomeFeature[] {
+  const staleThresholdMs = staleDays > 0 ? staleDays * DAY_MS : null;
+
+  function isStale(item: NotAtHomeWithCoordinates): boolean {
+    if (item.write || staleThresholdMs === null) return false;
+    const createdAt = new Date(item.created_at).getTime();
+    return Number.isFinite(createdAt) && now - createdAt >= staleThresholdMs;
+  }
+
   return Object.entries(groupedByAddress).map(([group_key, group]) => {
     const firstItem = group[0];
     const write_count = group.filter((item) => item.write).length;
     const return_count = group.filter((item) => !item.write).length;
+    const stale_count = group.filter(isStale).length;
 
     return {
       type: "Feature",
@@ -33,6 +47,7 @@ export function buildNotAtHomeFeatures(
         unit_data: group,
         write_count,
         return_count,
+        stale: return_count > 0 && stale_count === return_count,
       },
       geometry: {
         type: "Point",
