@@ -13,6 +13,7 @@ import { getClusterPointLayer } from "./cluster-layers/point";
 import { getClusterLabelLayer } from "./cluster-layers/label";
 import { NotAtHomeClickHandler } from "./components/not-at-home-click-handler/NotAtHomeClickHandler";
 import { useNotAtHomeStaleDays } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useNotAtHomeStaleDaysContext";
+import { useNotAtHomeVisibility } from "@proclaimer-content/pages/ministry/door-to-door/shared/hooks/useNotAtHomeVisibilityContext";
 import type { NotAtHome } from "./types";
 
 export const SOURCE_ID = "not-at-home";
@@ -27,16 +28,19 @@ const STALE_REFRESH_MS = 60 * 1000;
 export function NotAtHomeSource({ onSelect, onSelectUnits }: NotAtHomeSourceProps) {
   const groupedByAddress = useNotAtHomeMarkers();
   const { staleDays } = useNotAtHomeStaleDays();
+  const { visibility } = useNotAtHomeVisibility();
   const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
+    if (staleDays === 0) return;
+    setNow(Date.now());
     const interval = setInterval(() => setNow(Date.now()), STALE_REFRESH_MS);
     return () => clearInterval(interval);
-  }, []);
+  }, [staleDays]);
 
   if (!groupedByAddress) return null;
 
-  const features = buildNotAtHomeFeatures(groupedByAddress, staleDays, now);
+  const features = buildNotAtHomeFeatures(groupedByAddress, staleDays, now, visibility);
   const geojson = {
     type: "FeatureCollection" as const,
     features: features as NotAtHomeFeature[],

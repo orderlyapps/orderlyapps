@@ -4,6 +4,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { MapDisplaySetting } from "./components/MapDisplaySetting";
 import { MapStyleSetting } from "./components/MapStyleSetting";
 import { NotAtHomeStaleDaysSetting } from "./components/NotAtHomeStaleDaysSetting";
+import { NotAtHomeVisibilitySetting } from "./components/NotAtHomeVisibilitySetting";
 import { QuickLinksSetting } from "./components/QuickLinksSetting";
 import { ReturnVisitDataManagement } from "./components/return-visit-data-management/ReturnVisitDataManagement";
 
@@ -27,6 +28,7 @@ export function SettingsModal({ is_open, on_dismiss }: SettingsModalProps) {
         <MapStyleSetting />
         <MapDisplaySetting />
         <NotAtHomeStaleDaysSetting />
+        <NotAtHomeVisibilitySetting />
         <QuickLinksSetting />
         <ReturnVisitDataManagement />
       </IonContent>

@@ -36,6 +36,7 @@ export const localStorageKeys = {
   avSmsTemplate: "av_sms_template",
   weekendMeetingSmsTemplate: "weekend_meeting_sms_template",
   notAtHomeStaleDays: "not_at_home_stale_days",
+  notAtHomeVisibility: "not_at_home_visibility",
 } as const;
 
 export const localStorageKeyWithVariant = (
