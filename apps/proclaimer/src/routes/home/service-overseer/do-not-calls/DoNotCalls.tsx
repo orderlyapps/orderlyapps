@@ -19,6 +19,7 @@ import { useLiveQuery, eq } from "@tanstack/react-db";
 import { isValid } from "date-fns";
 import {
   doNotCallCollection,
+  formatAddressNumber,
   streetCollection,
   suburbCollection,
 } from "@amodeo/proclaimer/feature/territory";
@@ -68,8 +69,7 @@ function compareDoNotCalls(sort_mode: SortMode) {
 }
 
 function formatAddress(dnc: DoNotCall): string {
-  const unit = dnc.unit_number ? `/${dnc.unit_number}` : "";
-  return `${dnc.house_number}${unit} ${dnc.street}, ${dnc.suburb}`;
+  return `${formatAddressNumber(dnc)} ${dnc.street}, ${dnc.suburb}`;
 }
 
 function formatDate(iso: string | undefined): string {

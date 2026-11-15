@@ -37,3 +37,4 @@ export type { Suburb } from "./schemas/suburb.ts";
 export { returnVisitCollection } from "./collections/return-visit.ts";
 export { returnVisitSchema, visitLogEntrySchema } from "./schemas/return-visit.ts";
 export type { ReturnVisit, VisitLogEntry } from "./schemas/return-visit.ts";
+export { formatAddressNumber } from "./format-address-number.ts";

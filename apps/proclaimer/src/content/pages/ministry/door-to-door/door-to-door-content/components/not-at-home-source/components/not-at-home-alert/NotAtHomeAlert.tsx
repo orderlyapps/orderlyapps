@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IonAlert, IonToast } from "@ionic/react";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow, isValid } from "date-fns";
+import { formatAddressNumber } from "@amodeo/proclaimer/feature/territory";
 import { handleDeleteNotAtHome } from "../../handlers/handleDeleteNotAtHome";
 import { handleToggleNotAtHomeWrite } from "../../handlers/handleToggleNotAtHomeWrite";
 import type { NotAtHome } from "../../types";
@@ -15,9 +16,16 @@ export function NotAtHomeAlert({ selected, onDismiss, onEditLocation }: NotAtHom
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const record = selected;
-  const address = record
-    ? `${record.house_number}${record.unit_number ? `/${record.unit_number}` : ""} ${record.street}, ${record.suburb}`
-    : "";
+  const address = record ? `${formatAddressNumber(record)} ${record.street}, ${record.suburb}` : "";
+
+  const addedText = record?.created_at
+    ? (() => {
+        const date = new Date(record.created_at);
+        return isValid(date)
+          ? `Added ${formatDistanceToNow(date, { addSuffix: true })}`
+          : undefined;
+      })()
+    : undefined;
 
   function handleDelete() {
     if (!record) return false;
@@ -50,11 +58,7 @@ export function NotAtHomeAlert({ selected, onDismiss, onEditLocation }: NotAtHom
       <IonAlert
         isOpen={!!record}
         header={address}
-        subHeader={
-          record
-            ? `Added ${formatDistanceToNow(new Date(record.created_at), { addSuffix: true })}`
-            : undefined
-        }
+        subHeader={addedText}
         buttons={[
           { text: "Delete", role: "destructive", handler: handleDelete },
           {

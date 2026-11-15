@@ -17,7 +17,7 @@ import { ResponsiveModal } from "@amodeo/proclaimer/ui/components/display/respon
 import { CloseIconButton } from "@amodeo/proclaimer/ui/components/inputs/button/icon/close/CloseIconButton";
 import { TextButton } from "@amodeo/proclaimer/ui/components/inputs/button/text/TextButton";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
-import { returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
+import { formatAddressNumber, returnVisitCollection } from "@amodeo/proclaimer/feature/territory";
 import { VisitList } from "./components/visit-list/VisitList";
 import { AddVisitForm } from "./components/add-visit-form/AddVisitForm";
 import { PersonDetailsForm } from "./components/person-details-form/PersonDetailsForm";
@@ -61,7 +61,7 @@ export function ReturnVisitModal({ selected, onDismiss, onEditLocation }: Return
   }
 
   const address = selected
-    ? `${selected.house_number}${selected.unit_number ? `/${selected.unit_number}` : ""} ${selected.street}, ${selected.suburb}`
+    ? `${formatAddressNumber(selected)} ${selected.street}, ${selected.suburb}`
     : "";
 
   function handleSave(visited_at: string, notes: string) {

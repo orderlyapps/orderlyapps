@@ -1,4 +1,5 @@
 import { IonItem, IonLabel, IonNote } from "@ionic/react";
+import { formatAddressNumber } from "@amodeo/proclaimer/feature/territory";
 import type { ReturnVisit } from "@proclaimer-content/pages/ministry/door-to-door/door-to-door-content/components/layers/return-visit-source/types";
 
 type ReturnVisitListItemProps = {
@@ -27,7 +28,7 @@ function formatRelativeDate(date_str: string): string {
 
 export function ReturnVisitListItem({ return_visit, on_select }: ReturnVisitListItemProps) {
   const name = `${return_visit.first_name} ${return_visit.last_name}`.trim();
-  const address = `${return_visit.house_number}${return_visit.unit_number ? `/${return_visit.unit_number}` : ""} ${return_visit.street}`;
+  const address = `${formatAddressNumber(return_visit)} ${return_visit.street}`;
   const lastVisit = getLastVisitDate(return_visit);
   const lastVisitLabel = lastVisit ? formatRelativeDate(lastVisit) : "No visits yet";
 

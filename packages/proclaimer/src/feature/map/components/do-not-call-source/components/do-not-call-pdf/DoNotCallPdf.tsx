@@ -1,6 +1,7 @@
 import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { format, isValid } from "date-fns";
 import type { DoNotCall } from "../../types.ts";
+import { formatAddressNumber } from "@amodeo/proclaimer/feature/territory";
 
 const styles = StyleSheet.create({
   page: {
@@ -61,7 +62,7 @@ type DoNotCallPdfProps = {
 };
 
 function formatAddress(dnc: DoNotCall): string {
-  return `${dnc.house_number}${dnc.unit_number ? `/${dnc.unit_number}` : ""} ${dnc.street}`;
+  return `${formatAddressNumber(dnc)} ${dnc.street}`;
 }
 
 function formatAdded(created_at?: string): string {

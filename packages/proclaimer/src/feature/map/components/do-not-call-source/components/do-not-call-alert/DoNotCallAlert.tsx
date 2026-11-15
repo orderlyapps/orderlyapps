@@ -3,6 +3,7 @@ import { IonAlert, type AlertButton } from "@ionic/react";
 import { formatDistanceToNow, isValid } from "date-fns";
 import { ConfirmationAlert } from "@amodeo/proclaimer/ui/components/display/alert/ConfirmationAlert";
 import type { DoNotCall } from "../../types.ts";
+import { formatAddressNumber } from "@amodeo/proclaimer/feature/territory";
 
 type DoNotCallAlertProps = {
   selected: DoNotCall | null;
@@ -27,7 +28,7 @@ export function DoNotCallAlert({
   }, [selected?.id]);
 
   const address = selected
-    ? `${selected.house_number}${selected.unit_number ? `/${selected.unit_number}` : ""} ${selected.street}, ${selected.suburb}`
+    ? `${formatAddressNumber(selected)} ${selected.street}, ${selected.suburb}`
     : "";
 
   const subHeader = selected?.notes || undefined;
