@@ -34,6 +34,7 @@ export function TimePicker({
   const [hour, set_hour] = useState(12);
   const [minute, set_minute] = useState(0);
   const [period, set_period] = useState<"AM" | "PM">("AM");
+  const [picker_id] = useState(() => `time-picker-${crypto.randomUUID()}`);
   const minutes = minute_step === 1 ? MINUTES_1 : MINUTES_5;
 
   function handle_open() {
@@ -59,7 +60,7 @@ export function TimePicker({
 
   return (
     <IonModal
-      id="time-picker"
+      id={picker_id}
       isOpen={is_open}
       onWillPresent={handle_open}
       onDidDismiss={on_close}

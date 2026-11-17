@@ -1,121 +1,87 @@
 import React, { Fragment } from "react";
-import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow } from "@ionic/react";
+import { eq, useLiveQuery } from "@tanstack/react-db";
+import { IonCol, IonGrid, IonItem, IonLabel, IonList, IonRow, IonText } from "@ionic/react";
 import { Space } from "@amodeo/proclaimer/ui/components/layout/space/Space";
+import {
+  MINISTRY_SCHEDULE_DAYS,
+  ministryScheduleCollection,
+  type MinistrySchedule,
+} from "@amodeo/proclaimer/feature/ministry";
+import { useStoredCongregation } from "@amodeo/proclaimer/feature/congregation";
+import { formatTime } from "@amodeo/proclaimer/util/date/formatTime";
 
 export const ScheduleContent: React.FC = () => {
-  const weeklySchedule = [
-    {
-      day: "Monday",
-      groups: [{ time: "9:15", location: "Kingdom Hall", conductor: "Igor De Souza" }],
-    },
-    { day: "Tuesday", groups: [] },
-    {
-      day: "Wednesday",
-      groups: [
-        { time: "9:15", location: "Kingdom Hall", conductor: "John Bray" },
-        {
-          time: "2:00",
-          location: "180A George St, East Maitland",
-          conductor: "Callum MacDonald",
-        },
-        // {
-        //   time: "5:30",
-        //   location: "180A George St, East Maitland",
-        //   conductor: "Callum MacDonald",
-        // },
-      ],
-    },
-    {
-      day: "Thursday",
-      groups: [
-        {
-          time: "9:15",
-          location: "3 Nardoo Ave, Aberglasslyn",
-          conductor: "Steve Willder",
-        },
-      ],
-    },
-    {
-      day: "Friday",
-      groups: [{ time: "9:15", location: "Kingdom Hall", conductor: "Damian Amodeo" }],
-    },
-    {
-      day: "Saturday",
-      groups: [
-        {
-          time: "9:15",
-          location: "Group Locations",
-          conductor: "Group Overseers",
-        },
-      ],
-    },
-    {
-      day: "Sunday",
-      groups: [{ time: "9:45", location: "Kingdom Hall", conductor: "Damian Amodeo" }],
-    },
-  ];
+  const congregation = useStoredCongregation();
+  const congregation_id = congregation?.id;
 
-  // const sundayGroups = [
-  //   {
-  //     month: "November",
-  //     weeks: [
-  //       { date: "2", group: "Group 3" },
-  //       { date: "9", group: "Circuit Assembly" },
-  //       { date: "16", group: "Group 4" },
-  //       { date: "23", group: "Group 5" },
-  //       { date: "30", group: "Group 6" },
-  //     ],
-  //   },
-  //   {
-  //     month: "December",
-  //     weeks: [
-  //       { date: "7", group: "Group 1" },
-  //       { date: "14", group: "Group 2" },
-  //       { date: "21", group: "Group 3" },
-  //       { date: "28", group: "Group 4" },
-  //     ],
-  //   },
-  //   {
-  //     month: "January",
-  //     weeks: [
-  //       { date: "4", group: "Group 5" },
-  //       { date: "11", group: "Group 6" },
-  //       { date: "18", group: "Group 1" },
-  //       { date: "25", group: "Group 2" },
-  //     ],
-  //   },
-  // ];
+  const { data: schedule_rows } = useLiveQuery(
+    (q) =>
+      congregation_id
+        ? q
+            .from({ ms: ministryScheduleCollection })
+            .where(({ ms }) => eq(ms.congregation_id, congregation_id))
+            .orderBy(({ ms }) => ms.day_of_week)
+        : undefined,
+    [congregation_id],
+  );
+
+  const rows_by_day = new Map<number, MinistrySchedule[]>();
+  for (const row of schedule_rows ?? []) {
+    const group = rows_by_day.get(row.day_of_week) ?? [];
+    group.push(row);
+    rows_by_day.set(row.day_of_week, group);
+  }
+  for (const group of rows_by_day.values()) {
+    group.sort((a, b) => a.sort_order - b.sort_order);
+  }
+
   return (
     <IonList className="ion-no-padding">
-      {weeklySchedule.map(({ day, groups }) => {
+      {schedule_rows !== undefined && rows_by_day.size === 0 && (
+        <IonItem lines="none">
+          <IonLabel>
+            <IonText color="medium">No ministry schedule</IonText>
+          </IonLabel>
+        </IonItem>
+      )}
+      {MINISTRY_SCHEDULE_DAYS.map(({ day_of_week, label }) => {
+        const groups = rows_by_day.get(day_of_week) ?? [];
         if (groups.length === 0) {
           return null;
         }
 
         return (
-          <IonItem key={day}>
+          <IonItem key={day_of_week}>
             <IonLabel>
-              <strong>{day}</strong>
+              <strong>{label}</strong>
               <br />
               <IonGrid>
-                {groups.map(({ time, location, conductor }) => {
+                {groups.map(({ id, start_time, location, conductor, details }) => {
                   return (
-                    <Fragment key={time}>
+                    <Fragment key={id}>
                       <IonRow>
                         <IonCol size="2" className="ion-no-padding">
-                          <>{time}</>
+                          <>{formatTime(start_time.slice(0, 5))}</>
                         </IonCol>
                         <IonCol size="auto" className="ion-no-padding">
                           <>{location}</>
                         </IonCol>
                       </IonRow>
                       <Space size="xs" />
-                      <IonRow key={time} className="ion-padding-bottom">
+                      <IonRow className="ion-padding-bottom">
                         <IonCol size="2" className="ion-no-padding"></IonCol>
                         <IonCol size="auto" className="ion-no-padding">
                           <>{conductor}</>
                         </IonCol>
                       </IonRow>
+                      {details && (
+                        <IonRow className="ion-padding-bottom">
+                          <IonCol size="2" className="ion-no-padding"></IonCol>
+                          <IonCol size="auto" className="ion-no-padding">
+                            <IonText color="medium">{details}</IonText>
+                          </IonCol>
+                        </IonRow>
+                      )}
                     </Fragment>
                   );
                 })}
@@ -126,33 +92,6 @@ export const ScheduleContent: React.FC = () => {
       })}
 
       <Space />
-
-      {/* <ItemDivider>Sunday Field Service </ItemDivider> */}
-
-      {/* {sundayGroups.map(({ month, weeks }) => {
-        return (
-          <IonItem key={month}>
-            <IonLabel>
-              <strong>{month}</strong>
-              <br />
-              <IonGrid>
-                {weeks.map(({ date, group }) => {
-                  return (
-                    <IonRow key={date}>
-                      <IonCol size="2">
-                        <h3>{date}</h3>
-                      </IonCol>
-                      <IonCol size="auto">
-                        <h3>{group}</h3>
-                      </IonCol>
-                    </IonRow>
-                  );
-                })}
-              </IonGrid>
-            </IonLabel>
-          </IonItem>
-        );
-      })} */}
     </IonList>
   );
 };
